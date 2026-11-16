@@ -59,7 +59,7 @@ void main() {
       expect(s.height! * size, closeTo((e.value['line'] as num).toDouble(), 0.01), reason: e.key);
       expect(s.fontWeight!.value, e.value['weight'], reason: e.key);
       expect(s.letterSpacing, closeTo((e.value['tracking'] as num) * size, 0.001), reason: e.key);
-      expect(s.fontFamily, 'packages/lampung_design_system/Plus Jakarta Sans');
+      expect(s.fontFamily, 'packages/lampung_design_system/Geist');
     }
   }, skip: skip);
 

@@ -27,7 +27,7 @@ void main() {
 
       test('uses the packaged font families', () {
         expect(theme.textTheme.bodyMedium!.fontFamily, LdsType.family);
-        expect(LdsType.family, 'packages/lampung_design_system/Plus Jakarta Sans');
+        expect(LdsType.family, 'packages/lampung_design_system/Geist');
         expect(LdsType.icons, 'packages/lampung_design_system/LDS Icons');
         expect(theme.textTheme.bodyMedium!.fontSize, 15);
         expect(theme.textTheme.displayLarge!.fontSize, 56);

@@ -22,7 +22,7 @@ What you get:
   that keeps its width, labeled text fields, cards that group by fill instead of
   shadow, badges, alerts, grouped list rows, a segmented control, empty states,
   skeletons, the "not an official site" masthead and aksara Lampung.
-- **Bundled fonts**: Plus Jakarta Sans, JetBrains Mono and the Solar icon fonts
+- **Bundled fonts**: Geist, Geist Mono and the Solar icon fonts
   (line and fill). No network font loading.
 
 ## Install
@@ -163,8 +163,8 @@ The package declares four families. Use the constants, which include the
 
 | Constant | Family | Weights |
 |---|---|---|
-| `LdsType.family` | Plus Jakarta Sans | 400, 500, 600, 700 |
-| `LdsType.mono` | JetBrains Mono | 400, 500 |
+| `LdsType.family` | Geist | 400, 500, 600, 700 |
+| `LdsType.mono` | Geist Mono | 400, 500 |
 | `LdsType.icons` | LDS Icons | |
 | `LdsType.iconsFill` | LDS Icons Fill | |
 
@@ -207,13 +207,12 @@ atau `context.lds.gold`. Widget seperti `LdsButton`, `LdsTextField`, `LdsCard`,
 `LdsBadge`, `LdsAlert`, `LdsListRow`, `LdsSegmented`, `LdsEmptyState` dan
 `LdsSkeleton` mengikuti spesifikasi komponen LDS, termasuk target sentuh minimal
 44 piksel, cincin fokus, label untuk pembaca layar, dan gerak yang berhenti saat
-pengguna meminta gerak dikurangi. Font Plus Jakarta Sans, JetBrains Mono, dan
+pengguna meminta gerak dikurangi. Font Geist, Geist Mono, dan
 ikon Solar sudah termasuk di paket ini.
 
 Dokumentasi lengkap: [lampung.kartadinata.app](https://lampung.kartadinata.app).
 
 ## License
 
-MIT, see [LICENSE](LICENSE). Bundled fonts: Plus Jakarta Sans and JetBrains
-Mono under the SIL Open Font License 1.1, icon fonts built from Solar by 480
+MIT, see [LICENSE](LICENSE). Bundled fonts: Geist and Geist Mono under the SIL Open Font License 1.1, icon fonts built from Solar by 480
 Design under CC BY 4.0. Details in [NOTICE.md](NOTICE.md).

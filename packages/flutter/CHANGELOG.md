@@ -17,7 +17,7 @@ First release of the Flutter package of Lampung Design System (unofficial).
   `LdsAksaraBand` and the `LdsPressable` base.
 - Motion helpers: `LdsSpringCurve` and `context.ldsReduceMotion`, which every
   widget honors.
-- Bundled fonts: Plus Jakarta Sans, JetBrains Mono and the two LDS icon fonts
+- Bundled fonts: Geist, Geist Mono and the two LDS icon fonts
   (Solar, line and fill) as TrueType.
 - Example app "Sakai" with a home screen, a report form and a light/dark
   toggle.
