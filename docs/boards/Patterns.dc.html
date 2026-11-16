@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="utf-8">
-<title>Lampung Design System · App patterns</title>
+<title>Lampung Design System · Pola aplikasi</title>
 <script src="./support.js"></script>
 <link rel="stylesheet" href="lds.css">
 </head>
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700&amp;family=Plus Jakarta Sans+Mono:wght@400;500&amp;display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=block">
 <style>
 body{margin:0}
 a{color:#0A6246}a:hover{color:#1E40AF}
@@ -20,88 +20,88 @@ a{color:#0A6246}a:hover{color:#1E40AF}
 
   <header class="page-head">
     <div>
-      <div class="page-head__crumb"><span class="page-head__mark">L</span>Patterns · App patterns</div>
-      <h1>App patterns</h1>
-      <p class="page-head__lede">The frames and flows around the components: an admin shell that folds into a rail, a site header, forms and layout, a chat with its tool steps, and the phone patterns that push, pop and refresh.</p>
+      <div class="page-head__crumb"><span class="page-head__mark">L</span>Pola · Pola aplikasi</div>
+      <h1>Pola aplikasi</h1>
+      <p class="page-head__lede">Bingkai dan alur di sekitar komponen: shell admin yang bisa dilipat menjadi rail, header situs, formulir dan layout, chat beserta langkah tool-nya, serta pola ponsel untuk push, pop, dan refresh. Semua data di halaman ini adalah contoh.</p>
     </div>
-    <div class="appearance" role="group" aria-label="Appearance">
+    <div class="appearance" role="group" aria-label="Tampilan">
       <span class="appearance__thumb" style="transform: translateX({{thumbX}});"></span>
-      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Light</button>
-      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Dark</button>
+      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Terang</button>
+      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Gelap</button>
     </div>
   </header>
 
   <!-- ============================== App frame ============================== -->
   <section class="sec sec--full" id="frames">
     <div class="sec__aside">
-      <h2 class="sec__title">App frame</h2>
-      <p class="sec__desc">The admin frame folds its sidebar into a rail on wide screens and becomes a drawer under 960 px. A site header collapses its links into a menu on phones. The bar at the very top runs while the next page loads.</p>
+      <h2 class="sec__title">Bingkai aplikasi</h2>
+      <p class="sec__desc">Bingkai admin melipat sidebar menjadi rail di layar lebar dan berubah menjadi drawer di bawah 960 px. Header situs merangkum tautannya ke dalam menu di ponsel. Bilah paling atas berjalan selama halaman berikutnya dimuat.</p>
     </div>
     <div class="col" style="gap: 32px;">
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">App shell with a rail: press the panel button to fold the sidebar</p>
+        <p class="stage__label">App shell dengan rail: tekan tombol panel untuk melipat sidebar</p>
 <div class="shell" data-lds-shell style="min-height: 460px; height: 460px;">
   <aside class="shell__side" id="adm-side" style="height: 460px;">
-    <a class="shell__brand" href="#adm"><span class="shell__mark">K</span><span class="shell__label">Kelola admin</span></a>
-    <nav class="shell__nav" aria-label="Main">
+    <a class="shell__brand" href="#adm"><span class="shell__mark">K</span><span class="shell__label">Admin Kota Contoh</span></a>
+    <nav class="shell__nav" aria-label="Utama">
       <span class="shell__hl" aria-hidden="true"></span>
-      <p class="shell__group">Dashboards</p>
-      <a class="shell__link" href="#adm" aria-current="page"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Overview</span></a>
-      <a class="shell__link" href="#adm"><span class="ic" aria-hidden="true">payments</span><span class="shell__label">Finance</span></a>
-      <p class="shell__group">Pages</p>
-      <a class="shell__link" href="#adm"><span class="ic" aria-hidden="true">group</span><span class="shell__label">Users</span><span class="badge badge--accent shell__badge">3</span></a>
+      <p class="shell__group">Dashboard</p>
+      <a class="shell__link" href="#adm" aria-current="page"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Ringkasan</span></a>
+      <a class="shell__link" href="#adm"><span class="ic" aria-hidden="true">payments</span><span class="shell__label">Keuangan</span></a>
+      <p class="shell__group">Halaman</p>
+      <a class="shell__link" href="#adm"><span class="ic" aria-hidden="true">group</span><span class="shell__label">Pengguna</span><span class="badge badge--accent shell__badge">3</span></a>
       <a class="shell__link" href="#adm"><span class="ic" aria-hidden="true">view_kanban</span><span class="shell__label">Kanban</span></a>
     </nav>
     <div class="shell__foot">
-      <a class="shell__link" href="#adm"><span class="ic" aria-hidden="true">help</span><span class="shell__label">Help</span></a>
+      <a class="shell__link" href="#adm"><span class="ic" aria-hidden="true">help</span><span class="shell__label">Bantuan</span></a>
     </div>
   </aside>
   <div class="shell__scrim"></div>
   <div class="shell__main">
     <header class="shell__bar">
       <button class="icon-btn" data-lds-shell-toggle aria-controls="adm-side" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
-      <button class="icon-btn" data-lds-shell-rail aria-controls="adm-side" aria-expanded="true" aria-label="Collapse sidebar"><span class="ic" aria-hidden="true">left_panel_close</span></button>
+      <button class="icon-btn" data-lds-shell-rail aria-controls="adm-side" aria-expanded="true" aria-label="Ciutkan sidebar"><span class="ic" aria-hidden="true">left_panel_close</span></button>
       <span class="sep sep--v" aria-hidden="true"></span>
-      <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="#adm">Dashboards</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><span aria-current="page">Overview</span></li></ol></nav>
+      <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="#adm">Dashboard</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><span aria-current="page">Ringkasan</span></li></ol></nav>
       <div class="shell__bar-end">
-        <button class="control search shell__search" type="button"><span class="ic" aria-hidden="true">search</span>Search<span class="kbd">⌘K</span></button>
-        <button class="icon-btn shell__search-icon" type="button" aria-label="Search"><span class="ic" aria-hidden="true">search</span></button>
-        <button class="icon-btn" type="button" aria-label="Notifications, 2 unread"><span class="ic" aria-hidden="true">notifications</span><span class="count">2</span></button>
+        <button class="control search shell__search" type="button"><span class="ic" aria-hidden="true">search</span>Cari<span class="kbd">⌘K</span></button>
+        <button class="icon-btn shell__search-icon" type="button" aria-label="Cari"><span class="ic" aria-hidden="true">search</span></button>
+        <button class="icon-btn" type="button" aria-label="Notifikasi, 2 belum dibaca"><span class="ic" aria-hidden="true">notifications</span><span class="count">2</span></button>
       </div>
     </header>
-    <main style="padding: 24px;"><p class="section__sub">Page content.</p></main>
+    <main style="padding: 24px;"><p class="section__sub">Isi halaman.</p></main>
   </div>
 </div>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Top navigation</p>
+        <p class="stage__label">Navigasi atas</p>
 <div style="height: 300px; overflow: auto;">
   <header class="topnav" data-lds-topnav>
-    <a class="topnav__brand" href="#tn-body">Exam prep</a>
-    <nav class="topnav__links" id="tn-links" aria-label="Main">
-      <a class="topnav__link" href="#tn-body" aria-current="page">Courses</a>
-      <a class="topnav__link" href="#tn-body">Tryouts</a>
-      <a class="topnav__link" href="#tn-body">Pricing</a>
-      <a class="topnav__link" href="#tn-body">For schools</a>
+    <a class="topnav__brand" href="#tn-body">Layanan Kota Contoh</a>
+    <nav class="topnav__links" id="tn-links" aria-label="Utama">
+      <a class="topnav__link" href="#tn-body" aria-current="page">Layanan</a>
+      <a class="topnav__link" href="#tn-body">Info banjir</a>
+      <a class="topnav__link" href="#tn-body">Bus kota</a>
+      <a class="topnav__link" href="#tn-body">Untuk UMKM</a>
     </nav>
     <div class="topnav__actions">
-      <a class="btn btn--plain btn--md" href="#tn-body">Sign in</a>
-      <a class="btn btn--primary btn--md" href="#tn-body">Start free</a>
+      <a class="btn btn--plain btn--md" href="#tn-body">Masuk</a>
+      <a class="btn btn--primary btn--md" href="#tn-body">Buat akun</a>
       <button class="icon-btn topnav__toggle" data-lds-topnav-toggle aria-controls="tn-links" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
     </div>
   </header>
   <div class="stack" id="tn-body" style="padding: 32px 20px 400px;">
-    <h2 class="section__title-sm">Prepare for the civil service exam</h2>
-    <p class="section__sub">Scroll this box: the bar stays on top and the content passes under its material.</p>
+    <h2 class="section__title-sm">Urus layanan kota dari satu tempat</h2>
+    <p class="section__sub">Gulir kotak ini: bilah tetap di atas dan konten lewat di bawah materialnya.</p>
   </div>
 </div>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Navigation progress</p>
+        <p class="stage__label">Progres navigasi</p>
 <div class="navprogress" aria-hidden="true" id="np-bar"></div>
 <div class="docs-col">
-  <button class="btn btn--primary btn--md" style="align-self: flex-start;" onclick="const b = document.getElementById('np-bar'); const s = document.getElementById('np-status'); b.classList.add('is-running'); s.textContent = 'Loading lesson 4'; this.disabled = true; setTimeout(() => { b.classList.remove('is-running'); s.textContent = 'Lesson 4 is open'; this.disabled = false; }, 1800);">Open lesson 4</button>
-  <p class="section__sub" id="np-status" role="status">Lesson 3 is open</p>
+  <button class="btn btn--primary btn--md" style="align-self: flex-start;" onclick="const b = document.getElementById('np-bar'); const s = document.getElementById('np-status'); b.classList.add('is-running'); s.textContent = 'Memuat jadwal bus kota'; this.disabled = true; setTimeout(() => { b.classList.remove('is-running'); s.textContent = 'Jadwal bus kota terbuka'; this.disabled = false; }, 1800);">Buka jadwal bus kota</button>
+  <p class="section__sub" id="np-status" role="status">Info banjir terbuka</p>
 </div>
       </div>
     </div>
@@ -110,52 +110,52 @@ a{color:#0A6246}a:hover{color:#1E40AF}
   <!-- ============================== Page patterns ============================== -->
   <section class="sec" id="page">
     <div class="sec__aside">
-      <h2 class="sec__title">Page patterns</h2>
-      <p class="sec__desc">Sections with a hairline between them, one spotlight for the next step, figures without cards, and a page modal that becomes a sheet on phones. The numbers are examples.</p>
+      <h2 class="sec__title">Pola halaman</h2>
+      <p class="sec__desc">Bagian halaman dengan garis tipis di antaranya, satu spotlight untuk langkah berikutnya, angka tanpa kartu, dan modal halaman yang berubah menjadi sheet di ponsel. Angkanya adalah contoh.</p>
     </div>
     <div class="col" style="gap: 32px;">
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Sections</p>
+        <p class="stage__label">Bagian</p>
 <div class="sections" style="width: 100%;">
   <section class="section" aria-labelledby="sx-1">
-    <div class="section__head"><h2 id="sx-1">This week</h2><p class="section__sub">What is due before Friday and where the class meets.</p></div>
+    <div class="section__head"><h2 id="sx-1">Pekan ini</h2><p class="section__sub">Yang jatuh tempo sebelum Jumat dan jadwal layanan Anda.</p></div>
     <div class="list">
-      <a class="lrow" href="#"><span class="lrow__body"><span class="lrow__title">Lab report 3</span></span><span class="badge badge--warning">Tomorrow</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
-      <a class="lrow" href="#"><span class="lrow__body"><span class="lrow__title">Quiz: indexing</span></span><span class="badge">Thu</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+      <a class="lrow" href="#"><span class="lrow__body"><span class="lrow__title">Bayar PBB 2026</span></span><span class="badge badge--warning">Besok</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+      <a class="lrow" href="#"><span class="lrow__body"><span class="lrow__title">Perekaman KTP elektronik</span></span><span class="badge">Kam</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
     </div>
   </section>
   <section class="section" aria-labelledby="sx-2">
-    <div class="section__head"><h2 id="sx-2">Materials</h2></div>
-    <p class="section__sub">Slides and readings are added after each lecture.</p>
+    <div class="section__head"><h2 id="sx-2">Dokumen</h2></div>
+    <p class="section__sub">Formulir dan panduan ditambahkan setelah setiap sosialisasi.</p>
   </section>
 </div>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
         <p class="stage__label">Spotlight</p>
 <div class="spotlight" style="width: 100%;">
-  <span class="spotlight__eyebrow"><span class="ic" aria-hidden="true">event</span>Next step</span>
-  <h3 class="spotlight__title">Register for next term before 30 November</h3>
-  <p class="spotlight__body">Seats in elective courses go to the earliest registrations.</p>
-  <div class="spotlight__actions"><button type="button" class="btn btn--primary">Register now</button><button type="button" class="btn btn--secondary">See the schedule</button></div>
+  <span class="spotlight__eyebrow"><span class="ic" aria-hidden="true">event</span>Langkah berikutnya</span>
+  <h3 class="spotlight__title">Perpanjang izin usaha sebelum 30 November</h3>
+  <p class="spotlight__body">Permohonan yang masuk lebih awal diproses lebih dulu.</p>
+  <div class="spotlight__actions"><button type="button" class="btn btn--primary">Perpanjang izin</button><button type="button" class="btn btn--secondary">Lihat persyaratan</button></div>
 </div>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Stat row</p>
+        <p class="stage__label">Baris statistik</p>
 <div class="stat-row-wrap"><dl class="stat-row" style="--n: 3">
-  <div class="stat-row__item"><dt class="stat-row__label">Credits taken</dt><dd class="stat-row__value">21</dd><dd class="stat-row__sub">Of 24 allowed</dd></div>
-  <div class="stat-row__item"><dt class="stat-row__label">Average grade</dt><dd class="stat-row__value">3.62</dd><dd class="stat-row__sub">Up 0.1 from last term</dd></div>
-  <div class="stat-row__item"><dt class="stat-row__label">Tasks due this week</dt><dd class="stat-row__value">4</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Laporan dikirim</dt><dd class="stat-row__value">21</dd><dd class="stat-row__sub">Dalam 12 bulan terakhir</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Skor kepuasan</dt><dd class="stat-row__value">4,62</dd><dd class="stat-row__sub">Naik 0,1 dari tahun lalu</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Tagihan pekan ini</dt><dd class="stat-row__value">4</dd></div>
 </dl></div>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Page modal</p>
-<button class="btn btn--secondary" data-lds-modal="md-report"><span class="ic" aria-hidden="true">error</span>Report a mistake</button>
+        <p class="stage__label">Modal halaman</p>
+<button class="btn btn--secondary" data-lds-modal="md-report"><span class="ic" aria-hidden="true">error</span>Laporkan kesalahan</button>
 <dialog class="modal" id="md-report" aria-labelledby="md-report-t">
-  <button class="icon-btn dialog__close" data-lds-modal-close aria-label="Close"><span class="ic" aria-hidden="true">close</span></button>
-  <h2 class="dialog__title" id="md-report-t">Report a mistake</h2>
-  <p class="dialog__body">Tell us what is wrong in question 14 and what it should say.</p>
-  <div class="field" style="margin-top: 16px;"><div class="control control--area"><textarea aria-label="What is wrong" placeholder="The answer key says B, the explanation says C."></textarea></div></div>
-  <div class="dialog__actions"><button class="btn btn--secondary" data-lds-modal-close>Cancel</button><button class="btn btn--primary" data-lds-modal-close>Send report</button></div>
+  <button class="icon-btn dialog__close" data-lds-modal-close aria-label="Tutup"><span class="ic" aria-hidden="true">close</span></button>
+  <h2 class="dialog__title" id="md-report-t">Laporkan kesalahan</h2>
+  <p class="dialog__body">Beri tahu kami apa yang salah pada jadwal bus koridor 2 dan seharusnya bagaimana.</p>
+  <div class="field" style="margin-top: 16px;"><div class="control control--area"><textarea aria-label="Apa yang salah" placeholder="Jadwal tertulis 06.15, padahal bus berangkat 06.30."></textarea></div></div>
+  <div class="dialog__actions"><button class="btn btn--secondary" data-lds-modal-close>Batal</button><button class="btn btn--primary" data-lds-modal-close>Kirim laporan</button></div>
 </dialog>
       </div>
     </div>
@@ -164,63 +164,63 @@ a{color:#0A6246}a:hover{color:#1E40AF}
   <!-- ============================== Layout and forms ============================== -->
   <section class="sec" id="layout">
     <div class="sec__aside">
-      <h2 class="sec__title">Layout and forms</h2>
-      <p class="sec__desc">Stacks, clusters and auto grids place everything; forms pair fields on wide screens and stack on phones; a split can be resized by pointer or keyboard.</p>
+      <h2 class="sec__title">Layout dan formulir</h2>
+      <p class="sec__desc">Stack, cluster, dan auto grid mengatur posisi semua elemen; formulir memasangkan kolom di layar lebar dan menumpuknya di ponsel; split bisa diubah ukurannya dengan pointer atau keyboard.</p>
     </div>
     <div class="col" style="gap: 32px;">
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Stack and cluster</p>
+        <p class="stage__label">Stack dan cluster</p>
 <div class="stack" style="--gap: 16px; max-width: 520px;">
   <div class="stack" style="--gap: 4px;">
-    <h3 class="section__title-sm">Linear Algebra, week 6</h3>
-    <p class="card__sub">Eigenvalues and diagonalization. 4 lessons, 1 quiz.</p>
+    <h3 class="section__title-sm">Pelatihan UMKM, pekan 6</h3>
+    <p class="card__sub">Pemasaran digital dan pencatatan keuangan. 4 sesi, 1 kuis.</p>
   </div>
   <div class="cluster">
-    <span class="badge badge--accent">In progress</span>
-    <span class="badge">4 of 6 lessons</span>
-    <span class="badge badge--warning">Quiz due Friday</span>
+    <span class="badge badge--accent">Sedang berjalan</span>
+    <span class="badge">4 dari 6 sesi</span>
+    <span class="badge badge--warning">Kuis hari Jumat</span>
   </div>
   <div class="cluster" style="--gap: 10px;">
-    <button class="btn btn--primary">Continue lesson 5</button>
-    <button class="btn btn--secondary">Open notes</button>
+    <button class="btn btn--primary">Lanjutkan sesi 5</button>
+    <button class="btn btn--secondary">Buka catatan</button>
   </div>
 </div>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Form layout</p>
+        <p class="stage__label">Layout formulir</p>
 <form class="form" style="max-width: 560px;" onsubmit="event.preventDefault()">
   <div class="form__row">
     <div class="field">
-      <label class="field__label" for="pf-first">First name</label>
+      <label class="field__label" for="pf-first">Nama depan</label>
       <div class="control"><input id="pf-first" type="text" value="Rina"></div>
     </div>
     <div class="field">
-      <label class="field__label" for="pf-last">Last name</label>
+      <label class="field__label" for="pf-last">Nama belakang</label>
       <div class="control"><input id="pf-last" type="text" value="Kusuma"></div>
     </div>
   </div>
   <div class="field">
       <label class="field__label" for="pf-email">Email</label>
       <div class="control"><input id="pf-email" type="email" value="rina.kusuma@example.com" aria-describedby="pf-email-help"></div>
-      <span class="field__help" id="pf-email-help">Grades and receipts go here.</span>
+      <span class="field__help" id="pf-email-help">Bukti permohonan dan tagihan dikirim ke alamat ini.</span>
     </div>
   <div class="field">
-      <label class="field__label" for="pf-phone">Phone <span>Optional</span></label>
+      <label class="field__label" for="pf-phone">Nomor ponsel <span>Opsional</span></label>
       <div class="control"><input id="pf-phone" type="tel" value="" aria-describedby="pf-phone-help"></div>
-      <span class="field__help" id="pf-phone-help">Only for exam day reminders.</span>
+      <span class="field__help" id="pf-phone-help">Hanya untuk pengingat antrean.</span>
     </div>
   <div class="form__actions">
-    <button type="button" class="btn btn--secondary">Cancel</button>
-    <button type="submit" class="btn btn--primary">Save profile</button>
+    <button type="button" class="btn btn--secondary">Batal</button>
+    <button type="submit" class="btn btn--primary">Simpan profil</button>
   </div>
 </form>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Resizable split</p>
+        <p class="stage__label">Split yang bisa diubah ukurannya</p>
 <div class="resize card" data-lds-resize data-min="25" data-max="75" style="--size: 55%; height: 280px; width: 100%; padding: 0;">
-  <div id="rz-passage" style="padding: 16px;"><h3 class="section__title-sm">Reading passage</h3><p class="section__sub" style="margin-top: 8px;">Coral reefs cover less than one percent of the ocean floor, yet they support about a quarter of all marine species. Rising water temperatures cause corals to expel the algae that feed them, a process known as bleaching.</p></div>
-  <div class="resize__handle" aria-label="Resize passage" aria-controls="rz-passage"></div>
-  <div style="padding: 16px;"><h3 class="section__title-sm">Question 4 of 10</h3><p class="section__sub" style="margin-top: 8px;">What does the passage say causes bleaching?</p></div>
+  <div id="rz-passage" style="padding: 16px;"><h3 class="section__title-sm">Bacaan</h3><p class="section__sub" style="margin-top: 8px;">Kota Contoh memiliki 14 titik rawan genangan. Saat hujan deras turun lebih dari dua jam, air dari saluran yang tersumbat meluap ke jalan, terutama di sekitar pasar dan terminal.</p></div>
+  <div class="resize__handle" aria-label="Ubah ukuran bacaan" aria-controls="rz-passage"></div>
+  <div style="padding: 16px;"><h3 class="section__title-sm">Pertanyaan 4 dari 10</h3><p class="section__sub" style="margin-top: 8px;">Menurut bacaan, apa yang membuat air meluap ke jalan?</p></div>
 </div>
       </div>
     </div>
@@ -229,112 +229,112 @@ a{color:#0A6246}a:hover{color:#1E40AF}
   <!-- ============================== Chat and content ============================== -->
   <section class="sec" id="chat">
     <div class="sec__aside">
-      <h2 class="sec__title">Chat and content</h2>
-      <p class="sec__desc">A conversation with the assistant, its tool steps and streaming answer, the composer, and the content pieces around it: prose, quotes, citations, photos, timers, timestamps and lists that show more.</p>
+      <h2 class="sec__title">Chat dan konten</h2>
+      <p class="sec__desc">Percakapan dengan asisten, langkah tool dan jawaban streaming-nya, composer, serta potongan konten di sekitarnya: prosa, kutipan, sitasi, foto, timer, stempel waktu, dan daftar yang bisa dibuka lebih banyak.</p>
     </div>
     <div class="col" style="gap: 32px;">
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Chat layout</p>
+        <p class="stage__label">Layout chat</p>
 <div class="docs-col" style="max-width: 560px;">
   <div class="docs-scroll" id="cl-scroll" style="height: 320px;">
-    <div class="chat" id="cl-chat" role="log" aria-label="Conversation with your tutor">
-      <p class="msg msg--system">Today, 09:12</p>
-      <div class="msg msg--me"><div class="bubble">Why was my answer to question 4 marked wrong?</div><span class="msg__meta">09:12</span></div>
-      <div class="msg msg--ai"><div class="bubble">Question 4 asks for the net force, not the applied force. You added the 20 N push but left out friction, which acts against it with 6 N. The net force is 14 N, so the acceleration is 14 N divided by 7 kg, which is 2 m/s².</div><div class="msg__actions"><button class="icon-btn" aria-label="Copy answer" data-lds-copy="The net force is 14 N, so the acceleration is 2 m/s²."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Try again"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Share answer"><span class="ic" aria-hidden="true">share</span></button></div></div>
-      <div class="msg msg--me"><div class="bubble">So friction always points against the motion?</div><span class="msg__meta">09:14</span></div>
-      <div class="msg msg--ai"><div class="bubble">Against the motion, or against the direction it would move if nothing held it. A book resting on a tilted table has friction pointing up the slope even though it is not moving yet.</div><div class="msg__actions"><button class="icon-btn" aria-label="Copy answer" data-lds-copy="Friction points against the motion or the motion it would have."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Try again"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Share answer"><span class="ic" aria-hidden="true">share</span></button></div></div>
-      <div class="msg msg--me"><div class="bubble">Can I try a similar question?</div><span class="msg__meta">09:15</span></div>
-      <div class="msg msg--ai"><div class="bubble">Here is one. A 5 kg crate is pushed with 30 N across a floor that resists with 10 N of friction. What is its acceleration?</div><div class="msg__actions"><button class="icon-btn" aria-label="Copy answer" data-lds-copy="A 5 kg crate is pushed with 30 N against 10 N of friction. What is its acceleration?"><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Try again"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Share answer"><span class="ic" aria-hidden="true">share</span></button></div></div>
-      <button class="btn btn--secondary btn--sm chat__jump" data-lds-jump="cl-scroll"><span class="ic" aria-hidden="true">arrow_downward</span>Latest</button>
+    <div class="chat" id="cl-chat" role="log" aria-label="Percakapan dengan asisten layanan">
+      <p class="msg msg--system">Hari ini, 09.12</p>
+      <div class="msg msg--me"><div class="bubble">Kenapa laporan jalan rusak saya ditolak?</div><span class="msg__meta">09.12</span></div>
+      <div class="msg msg--ai"><div class="bubble">Lokasi yang Anda laporkan berada di jalan provinsi, bukan jalan kota. Ruas itu dikelola instansi lain, jadi laporan Anda sudah kami teruskan ke sana. Nomor tiket baru akan dikirim dalam 2 hari kerja.</div><div class="msg__actions"><button class="icon-btn" aria-label="Salin jawaban" data-lds-copy="Laporan diteruskan ke pengelola jalan provinsi. Nomor tiket baru dikirim dalam 2 hari kerja."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Coba lagi"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Bagikan jawaban"><span class="ic" aria-hidden="true">share</span></button></div></div>
+      <div class="msg msg--me"><div class="bubble">Jadi jalan provinsi selalu ditangani instansi lain?</div><span class="msg__meta">09.14</span></div>
+      <div class="msg msg--ai"><div class="bubble">Ya, jalan provinsi dan jalan nasional punya pengelola sendiri. Di peta laporan, jalan kota ditandai garis hijau, jadi Anda bisa memeriksanya sebelum melapor.</div><div class="msg__actions"><button class="icon-btn" aria-label="Salin jawaban" data-lds-copy="Jalan kota ditandai garis hijau di peta laporan."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Coba lagi"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Bagikan jawaban"><span class="ic" aria-hidden="true">share</span></button></div></div>
+      <div class="msg msg--me"><div class="bubble">Bisa bantu saya membuat laporan baru?</div><span class="msg__meta">09.15</span></div>
+      <div class="msg msg--ai"><div class="bubble">Bisa. Kirim foto kerusakan, tandai lokasinya di peta, lalu tulis sejak kapan jalan itu rusak.</div><div class="msg__actions"><button class="icon-btn" aria-label="Salin jawaban" data-lds-copy="Kirim foto kerusakan, tandai lokasinya di peta, lalu tulis sejak kapan jalan itu rusak."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Coba lagi"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Bagikan jawaban"><span class="ic" aria-hidden="true">share</span></button></div></div>
+      <button class="btn btn--secondary btn--sm chat__jump" data-lds-jump="cl-scroll"><span class="ic" aria-hidden="true">arrow_downward</span>Terbaru</button>
     </div>
   </div>
-  <form class="composer" data-lds-composer onsubmit="event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); const c = document.getElementById('cl-chat'); c.insertBefore(m, c.querySelector('.chat__jump')); const s = document.getElementById('cl-scroll'); s.scrollTo({ top: s.scrollHeight, behavior: 'smooth' });"><textarea rows="1" aria-label="Message your tutor" placeholder="Ask about this lesson"></textarea><button class="composer__send" type="submit" aria-label="Send"><span class="ic" aria-hidden="true">arrow_upward</span></button></form>
+  <form class="composer" data-lds-composer onsubmit="event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); const c = document.getElementById('cl-chat'); c.insertBefore(m, c.querySelector('.chat__jump')); const s = document.getElementById('cl-scroll'); s.scrollTo({ top: s.scrollHeight, behavior: 'smooth' });"><textarea rows="1" aria-label="Kirim pesan ke asisten" placeholder="Tanyakan soal laporan Anda"></textarea><button class="composer__send" type="submit" aria-label="Kirim"><span class="ic" aria-hidden="true">arrow_upward</span></button></form>
 </div>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
         <p class="stage__label">Tool call</p>
 <div class="msg msg--ai" style="max-width: 560px;">
-  <details class="toolcall"><summary><span class="ic" aria-hidden="true">search</span>Searched your notes for "net force"<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Found 3 pages: Week 4 lecture, page 2; Problem set 3, question 4; Lab 2 handout.</div></details>
-  <details class="toolcall"><summary><span class="ic" aria-hidden="true">description</span>Read Problem set 3<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Question 4: a 7 kg box pushed with 20 N against 6 N of friction.</div></details>
-  <div class="bubble">The net force is 14 N, so the box accelerates at 2 m/s². Your answer used 20 N, the push alone.</div>
+  <details class="toolcall"><summary><span class="ic" aria-hidden="true">search</span>Mencari "jalan provinsi" di data laporan<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Ditemukan 3 halaman: peta status jalan, halaman 2; panduan pelaporan, bagian 4; daftar instansi pengelola jalan.</div></details>
+  <details class="toolcall"><summary><span class="ic" aria-hidden="true">description</span>Membaca laporan LPR-0412<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Laporan LPR-0412: jalan berlubang di ruas provinsi, dilaporkan 10 Nov 2026.</div></details>
+  <div class="bubble">Ruas ini jalan provinsi, jadi laporan diteruskan ke pengelolanya. Status laporan Anda menjadi Diteruskan, bukan Ditolak.</div>
 </div>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Streaming text</p>
+        <p class="stage__label">Teks streaming</p>
 <div class="chat" style="max-width: 560px;">
-  <div class="msg msg--me"><div class="bubble">What is photosynthesis, in two sentences?</div></div>
-  <div class="msg msg--ai"><div class="bubble" id="st-a">Photosynthesis turns light, water and carbon dioxide into sugar and oxygen. It happens in the chloroplasts, mostly in the leaves, and the sugar feeds the whole plant.</div><div class="msg__actions"><button class="icon-btn" aria-label="Copy answer" data-lds-copy="Photosynthesis turns light, water and carbon dioxide into sugar and oxygen. It happens in the chloroplasts, mostly in the leaves, and the sugar feeds the whole plant."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button></div></div>
-  <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="const b = document.getElementById('st-a'); const acts = b.nextElementSibling; acts.hidden = true; b.setAttribute('aria-busy', 'true'); import('../../js/lds.js').then((m) => m.streamText(b, 'Photosynthesis turns light, water and carbon dioxide into sugar and oxygen. It happens in the chloroplasts, mostly in the leaves, and the sugar feeds the whole plant.')).then(() => { acts.hidden = false; b.removeAttribute('aria-busy'); });"><span class="ic" aria-hidden="true">refresh</span>Ask again</button>
+  <div class="msg msg--me"><div class="bubble">Apa itu sistem peringatan dini banjir, dalam dua kalimat?</div></div>
+  <div class="msg msg--ai"><div class="bubble" id="st-a">Sistem peringatan dini banjir memantau tinggi muka air dan curah hujan dari sensor di sungai dan saluran kota. Saat angkanya melewati batas aman, warga di wilayah terdampak menerima pemberitahuan lewat aplikasi dan SMS.</div><div class="msg__actions"><button class="icon-btn" aria-label="Salin jawaban" data-lds-copy="Sistem peringatan dini banjir memantau tinggi muka air dan curah hujan dari sensor di sungai dan saluran kota. Saat angkanya melewati batas aman, warga di wilayah terdampak menerima pemberitahuan lewat aplikasi dan SMS."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button></div></div>
+  <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="const b = document.getElementById('st-a'); const acts = b.nextElementSibling; acts.hidden = true; b.setAttribute('aria-busy', 'true'); import('../../js/lds.js').then((m) => m.streamText(b, 'Sistem peringatan dini banjir memantau tinggi muka air dan curah hujan dari sensor di sungai dan saluran kota. Saat angkanya melewati batas aman, warga di wilayah terdampak menerima pemberitahuan lewat aplikasi dan SMS.')).then(() => { acts.hidden = false; b.removeAttribute('aria-busy'); });"><span class="ic" aria-hidden="true">refresh</span>Tanya lagi</button>
 </div>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
         <p class="stage__label">Composer</p>
 <div class="docs-col" style="max-width: 520px;">
-  <div class="chat" id="cp-chat" role="log" aria-label="Conversation">
-    <div class="msg msg--ai"><div class="bubble">Ask me anything about this week's physics problems.</div></div>
+  <div class="chat" id="cp-chat" role="log" aria-label="Percakapan">
+    <div class="msg msg--ai"><div class="bubble">Tanyakan apa saja tentang layanan kota pekan ini.</div></div>
   </div>
-  <form class="composer" data-lds-composer onsubmit="event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const c = document.getElementById('cp-chat'); const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); c.append(m); const a = document.createElement('div'); a.className = 'msg msg--ai is-new'; const ab = document.createElement('div'); ab.className = 'bubble'; a.append(ab); setTimeout(() => { c.append(a); import('../../js/lds.js').then((d) => d.streamText(ab, 'Good question. Start with the units: you are asked for meters per second, so divide the distance in meters by the time in seconds.')); }, 400);"><textarea rows="1" aria-label="Message" placeholder="Ask about this lesson"></textarea><button class="composer__send" type="submit" aria-label="Send"><span class="ic" aria-hidden="true">arrow_upward</span></button></form>
+  <form class="composer" data-lds-composer onsubmit="event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const c = document.getElementById('cp-chat'); const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); c.append(m); const a = document.createElement('div'); a.className = 'msg msg--ai is-new'; const ab = document.createElement('div'); ab.className = 'bubble'; a.append(ab); setTimeout(() => { c.append(a); import('../../js/lds.js').then((d) => d.streamText(ab, 'Pertanyaan bagus. Mulai dari nomor laporan Anda: buka menu Riwayat, lalu ketuk laporan untuk melihat status dan petugas yang menanganinya.')); }, 400);"><textarea rows="1" aria-label="Pesan" placeholder="Tanyakan soal laporan Anda"></textarea><button class="composer__send" type="submit" aria-label="Kirim"><span class="ic" aria-hidden="true">arrow_upward</span></button></form>
 </div>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Prose</p>
+        <p class="stage__label">Prosa</p>
 <article class="prose">
-  <h2>Third normal form</h2>
-  <p>A table is in <strong>third normal form</strong> when every column depends on the key, the whole key, and nothing but the key. In practice that means splitting out any column that really describes another column.</p>
-  <h3>How to check a table</h3>
+  <h2>Antrean daring puskesmas</h2>
+  <p>Warga mendapat <strong>nomor antrean daring</strong> saat mendaftar lewat aplikasi, lalu datang menjelang gilirannya. Dengan begitu, ruang tunggu tidak penuh dan waktu tunggu lebih pendek.</p>
+  <h3>Cara memeriksa giliran</h3>
   <ol>
-    <li>Find the primary key, for example <code class="code">student_id</code>.</li>
-    <li>For each other column, ask whether it describes the key or something else.</li>
-    <li>Move columns that describe something else into their own table.</li>
+    <li>Cari nomor antrean Anda, misalnya <code class="code">A-027</code>.</li>
+    <li>Lihat perkiraan waktu panggilan di halaman antrean.</li>
+    <li>Datang paling lambat 15 menit sebelum giliran.</li>
   </ol>
-  <blockquote class="quote"><p>Normalize until it hurts, then denormalize until it works.</p><footer>A saying among database teachers</footer></blockquote>
-  <p>Most course systems stop at third normal form; going further rarely pays off for read-heavy data <a class="cite" href="#src-1" aria-label="Source 1">1</a>. See the <a href="#lesson-14">next lesson</a> for indexes.</p>
+  <blockquote class="quote"><p>Datang tepat waktu, giliran tidak hangus.</p><footer>Pengumuman di ruang tunggu puskesmas</footer></blockquote>
+  <p>Puskesmas di Kota Contoh memakai antrean daring untuk poli umum <a class="cite" href="#src-1" aria-label="Sumber 1">1</a>. Baca <a href="#lesson-14">panduan berikutnya</a> untuk poli gigi.</p>
   <table>
-    <thead><tr><th>Form</th><th>Removes</th></tr></thead>
+    <thead><tr><th>Loket</th><th>Melayani</th></tr></thead>
     <tbody>
-      <tr><td>First</td><td>Repeating groups</td></tr>
-      <tr><td>Second</td><td>Partial dependencies</td></tr>
-      <tr><td>Third</td><td>Transitive dependencies</td></tr>
+      <tr><td>Loket 1</td><td>Pendaftaran</td></tr>
+      <tr><td>Loket 2</td><td>Poli umum</td></tr>
+      <tr><td>Loket 3</td><td>Farmasi</td></tr>
     </tbody>
   </table>
 </article>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Quote and citation</p>
+        <p class="stage__label">Kutipan dan sitasi</p>
 <blockquote class="quote measure">
-  <p>Students may bring one handwritten page of notes, both sides, to the final exam.</p>
-  <footer>Exam regulations, Faculty of Computer Science, article 12</footer>
+  <p>Pemohon boleh didampingi satu orang saat survei lapangan.</p>
+  <footer>Peraturan layanan perizinan Kota Contoh, pasal 12</footer>
 </blockquote>
 <div class="prose">
-  <p>The final exam is on 18 December in room B204 <a class="cite" href="#cite-src-1" aria-label="Source 1">1</a>. You may bring one handwritten page of notes <a class="cite" href="#cite-src-2" aria-label="Source 2">2</a>, and the exam counts for 40 % of the grade <a class="cite" href="#cite-src-1" aria-label="Source 1">1</a>.</p>
-  <h3>Sources</h3>
+  <p>Survei lapangan dijadwalkan pada 18 Desember di lokasi usaha <a class="cite" href="#cite-src-1" aria-label="Sumber 1">1</a>. Anda boleh didampingi satu orang <a class="cite" href="#cite-src-2" aria-label="Sumber 2">2</a>, dan hasil survei menentukan 40% penilaian permohonan <a class="cite" href="#cite-src-1" aria-label="Sumber 1">1</a>.</p>
+  <h3>Sumber</h3>
   <ol>
-    <li id="cite-src-1"><a href="#syllabus">Database Systems syllabus, semester 3</a></li>
-    <li id="cite-src-2"><a href="#rules">Exam regulations, article 12</a></li>
+    <li id="cite-src-1"><a href="#syllabus">Panduan izin usaha mikro, edisi 2026</a></li>
+    <li id="cite-src-2"><a href="#rules">Peraturan layanan perizinan, pasal 12</a></li>
   </ol>
 </div>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Lightbox: open a photo</p>
+        <p class="stage__label">Lightbox: buka foto</p>
 <div class="auto-grid" style="--min: 180px; width: 100%;">
-  <a class="thumb" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3Crect%20width='1200'%20height='800'%20fill='%231E3A8A'/%3E%3Ccircle%20cx='900'%20cy='220'%20r='120'%20fill='%2360A5FA'/%3E%3Cpath%20d='M0%20640%20L320%20360%20L560%20560%20L780%20420%20L1200%20720%20L1200%20800%20L0%20800%20Z'%20fill='%2360A5FA'%20opacity='0.75'/%3E%3Ctext%20x='60'%20y='110'%20font-family='sans-serif'%20font-size='56'%20fill='white'%3ECampus%20library%3C/text%3E%3C/svg%3E" data-lds-lightbox data-caption="The campus library reading room, second floor"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3Crect%20width='1200'%20height='800'%20fill='%231E3A8A'/%3E%3Ccircle%20cx='900'%20cy='220'%20r='120'%20fill='%2360A5FA'/%3E%3Cpath%20d='M0%20640%20L320%20360%20L560%20560%20L780%20420%20L1200%20720%20L1200%20800%20L0%20800%20Z'%20fill='%2360A5FA'%20opacity='0.75'/%3E%3Ctext%20x='60'%20y='110'%20font-family='sans-serif'%20font-size='56'%20fill='white'%3ECampus%20library%3C/text%3E%3C/svg%3E" alt="Campus library reading room"></a>
-  <a class="thumb" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3Crect%20width='1200'%20height='800'%20fill='%2314532D'/%3E%3Ccircle%20cx='900'%20cy='220'%20r='120'%20fill='%234ADE80'/%3E%3Cpath%20d='M0%20640%20L320%20360%20L560%20560%20L780%20420%20L1200%20720%20L1200%20800%20L0%20800%20Z'%20fill='%234ADE80'%20opacity='0.75'/%3E%3Ctext%20x='60'%20y='110'%20font-family='sans-serif'%20font-size='56'%20fill='white'%3EChemistry%20lab%3C/text%3E%3C/svg%3E" data-lds-lightbox data-caption="Chemistry lab, bench 4, before the titration practical"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3Crect%20width='1200'%20height='800'%20fill='%2314532D'/%3E%3Ccircle%20cx='900'%20cy='220'%20r='120'%20fill='%234ADE80'/%3E%3Cpath%20d='M0%20640%20L320%20360%20L560%20560%20L780%20420%20L1200%20720%20L1200%20800%20L0%20800%20Z'%20fill='%234ADE80'%20opacity='0.75'/%3E%3Ctext%20x='60'%20y='110'%20font-family='sans-serif'%20font-size='56'%20fill='white'%3EChemistry%20lab%3C/text%3E%3C/svg%3E" alt="Chemistry lab bench"></a>
+  <a class="thumb" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3Crect%20width='1200'%20height='800'%20fill='%231E3A8A'/%3E%3Ccircle%20cx='900'%20cy='220'%20r='120'%20fill='%2360A5FA'/%3E%3Cpath%20d='M0%20640%20L320%20360%20L560%20560%20L780%20420%20L1200%20720%20L1200%20800%20L0%20800%20Z'%20fill='%2360A5FA'%20opacity='0.75'/%3E%3Ctext%20x='60'%20y='110'%20font-family='sans-serif'%20font-size='56'%20fill='white'%3EPerpustakaan%20kota%3C/text%3E%3C/svg%3E" data-lds-lightbox data-caption="Ruang baca Perpustakaan Kota Contoh, lantai dua"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3Crect%20width='1200'%20height='800'%20fill='%231E3A8A'/%3E%3Ccircle%20cx='900'%20cy='220'%20r='120'%20fill='%2360A5FA'/%3E%3Cpath%20d='M0%20640%20L320%20360%20L560%20560%20L780%20420%20L1200%20720%20L1200%20800%20L0%20800%20Z'%20fill='%2360A5FA'%20opacity='0.75'/%3E%3Ctext%20x='60'%20y='110'%20font-family='sans-serif'%20font-size='56'%20fill='white'%3EPerpustakaan%20kota%3C/text%3E%3C/svg%3E" alt="Ruang baca perpustakaan kota"></a>
+  <a class="thumb" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3Crect%20width='1200'%20height='800'%20fill='%2314532D'/%3E%3Ccircle%20cx='900'%20cy='220'%20r='120'%20fill='%234ADE80'/%3E%3Cpath%20d='M0%20640%20L320%20360%20L560%20560%20L780%20420%20L1200%20720%20L1200%20800%20L0%20800%20Z'%20fill='%234ADE80'%20opacity='0.75'/%3E%3Ctext%20x='60'%20y='110'%20font-family='sans-serif'%20font-size='56'%20fill='white'%3ETaman%20kota%3C/text%3E%3C/svg%3E" data-lds-lightbox data-caption="Taman kota setelah penanaman pohon pekan lalu"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3Crect%20width='1200'%20height='800'%20fill='%2314532D'/%3E%3Ccircle%20cx='900'%20cy='220'%20r='120'%20fill='%234ADE80'/%3E%3Cpath%20d='M0%20640%20L320%20360%20L560%20560%20L780%20420%20L1200%20720%20L1200%20800%20L0%20800%20Z'%20fill='%234ADE80'%20opacity='0.75'/%3E%3Ctext%20x='60'%20y='110'%20font-family='sans-serif'%20font-size='56'%20fill='white'%3ETaman%20kota%3C/text%3E%3C/svg%3E" alt="Taman kota"></a>
 </div>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Timer and timestamps</p>
-<div class="docs-row"><span class="timer" data-lds-timer="5400" data-low="300" aria-label="Time left"></span><span class="docs-note">Section 2 of 3</span></div>
+        <p class="stage__label">Timer dan stempel waktu</p>
+<div class="docs-row"><span class="timer" data-lds-timer="5400" data-low="300" aria-label="Sisa waktu"></span><span class="docs-note">Bagian 2 dari 3</span></div>
 <div class="list" style="max-width: 460px;">
-  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Lab report feedback</div><div class="lrow__sub">Two comments on section 3</div></div><time class="timestamp lrow__value" data-lds-time="2026-11-16T08:05:00+07:00">16 Nov 2026, 08:05</time></div>
-  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Seminar room changed</div><div class="lrow__sub">Now in building C, room 204</div></div><time class="timestamp lrow__value" data-lds-time="2026-11-13T15:20:00+07:00">13 Nov 2026, 15:20</time></div>
-  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Scholarship deadline</div><div class="lrow__sub">Upload your transcript</div></div><time class="timestamp lrow__value" data-lds-time="2026-12-01T17:00:00+07:00">1 Dec 2026, 17:00</time></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Tanggapan atas laporan Anda</div><div class="lrow__sub">Dua komentar dari petugas</div></div><time class="timestamp lrow__value" data-lds-time="2026-11-16T08:05:00+07:00">16 Nov 2026, 08.05</time></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Lokasi perekaman KTP pindah</div><div class="lrow__sub">Sekarang di Kantor Kecamatan, ruang 204</div></div><time class="timestamp lrow__value" data-lds-time="2026-11-13T15:20:00+07:00">13 Nov 2026, 15.20</time></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Batas pendaftaran beasiswa daerah</div><div class="lrow__sub">Unggah rapor terakhir</div></div><time class="timestamp lrow__value" data-lds-time="2026-12-01T17:00:00+07:00">1 Des 2026, 17.00</time></div>
 </div>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Show more</p>
-<div class="more" data-lds-more data-more="Show 5 more topics" data-less="Show fewer topics" style="max-width: 520px;">
-  <div class="cluster"><button class="chip">Algebra</button><button class="chip">Geometry</button><button class="chip">Statistics</button><button class="chip">Reading</button><button class="chip">Vocabulary</button><button class="chip">Logic</button></div>
-  <div class="more__rest"><div><div class="cluster" style="padding-top: 8px;"><button class="chip">Civics</button><button class="chip">History</button><button class="chip">Geography</button><button class="chip">Biology</button><button class="chip">Chemistry</button></div></div></div>
+        <p class="stage__label">Tampilkan lebih banyak</p>
+<div class="more" data-lds-more data-more="Tampilkan 5 topik lagi" data-less="Tampilkan lebih sedikit" style="max-width: 520px;">
+  <div class="cluster"><button class="chip">Kesehatan</button><button class="chip">Pendidikan</button><button class="chip">Transportasi</button><button class="chip">Pajak daerah</button><button class="chip">Perizinan</button><button class="chip">Kependudukan</button></div>
+  <div class="more__rest"><div><div class="cluster" style="padding-top: 8px;"><button class="chip">Lingkungan</button><button class="chip">Bencana</button><button class="chip">UMKM</button><button class="chip">Pariwisata</button><button class="chip">Sosial</button></div></div></div>
   <button class="btn btn--plain btn--sm more__btn"></button>
 </div>
       </div>
@@ -344,36 +344,36 @@ a{color:#0A6246}a:hover{color:#1E40AF}
   <!-- ============================== Phone patterns ============================== -->
   <section class="sec" id="phone-more">
     <div class="sec__aside">
-      <h2 class="sec__title">Phone patterns</h2>
-      <p class="sec__desc">A screen in its device frame, a stack that pushes and pops with an edge drag, and pull to refresh on a scrolling list.</p>
+      <h2 class="sec__title">Pola ponsel</h2>
+      <p class="sec__desc">Layar di dalam bingkai perangkatnya, stack yang bisa push dan pop dengan seretan dari tepi, dan tarik untuk memuat ulang pada daftar yang bergulir.</p>
     </div>
     <div class="row row--top" style="gap: 24px; align-items: flex-start;">
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Device frame</p>
+        <p class="stage__label">Bingkai perangkat</p>
 <div style="display: flex; justify-content: center; width: 100%;">
 <div style="width: 414px; max-width: 100%; display: flex; justify-content: center;">
 <div class="device" data-lds-device data-fit-margin="160">
   <div class="phone" data-lds-push="df-sheet">
     <div class="phone__content">
-      <div class="navbar" id="df-bar"><span></span><span class="navbar__title" aria-hidden="true">Today</span><span></span></div>
+      <div class="navbar" id="df-bar"><span></span><span class="navbar__title" aria-hidden="true">Hari ini</span><span></span></div>
       <div class="phone__scroll" data-lds-navbar="df-bar">
         <div class="navbar-gap"></div>
-        <h3 class="large-title">Today</h3>
+        <h3 class="large-title">Hari ini</h3>
         <div class="stack" style="--gap: 24px; padding: 12px 16px 120px;">
           <div class="list list--fill">
-            <div class="lrow"><span class="lrow__body"><span class="lrow__title">Database Systems</span><span class="lrow__sub">08:00 · Room H 2.14</span></span></div>
-            <div class="lrow"><span class="lrow__body"><span class="lrow__title">Computer Networks</span><span class="lrow__sub">13:00 · Lab 3.01</span></span></div>
+            <div class="lrow"><span class="lrow__body"><span class="lrow__title">Antrean poli umum</span><span class="lrow__sub">08.00 · Puskesmas Contoh Utara</span></span></div>
+            <div class="lrow"><span class="lrow__body"><span class="lrow__title">Bus kota koridor 2</span><span class="lrow__sub">13.00 · Halte Balai Kota</span></span></div>
           </div>
-          <button type="button" class="btn btn--secondary btn--lg btn--block" data-lds-open="df-sheet" aria-haspopup="dialog">Mark attendance</button>
+          <button type="button" class="btn btn--secondary btn--lg btn--block" data-lds-open="df-sheet" aria-haspopup="dialog">Konfirmasi hadir</button>
         </div>
       </div>
-      <nav class="tabbar" aria-label="Main"><button type="button" class="tabbar__item" aria-current="page"><span class="ic" aria-hidden="true">today</span>Today</button><button type="button" class="tabbar__item"><span class="ic" aria-hidden="true">menu_book</span>Courses</button><button type="button" class="tabbar__item"><span class="ic" aria-hidden="true">person</span>Profile</button></nav>
+      <nav class="tabbar" aria-label="Utama"><button type="button" class="tabbar__item" aria-current="page"><span class="ic" aria-hidden="true">today</span>Hari ini</button><button type="button" class="tabbar__item"><span class="ic" aria-hidden="true">menu_book</span>Layanan</button><button type="button" class="tabbar__item"><span class="ic" aria-hidden="true">person</span>Profil</button></nav>
     </div>
     <div class="scrim" data-lds-scrim="df-sheet"></div>
     <div class="sheet" id="df-sheet" role="dialog" aria-modal="true" aria-labelledby="df-sheet-t" data-lds-layer style="padding-bottom: 38px;">
       <div class="sheet__grabber" aria-hidden="true"></div>
-      <div class="sheet__head" data-lds-drag><h4 class="sheet__title" id="df-sheet-t">Mark attendance</h4><button type="button" class="icon-btn icon-btn--filled" aria-label="Close" data-lds-close><span class="ic" aria-hidden="true">close</span></button></div>
-      <button type="button" class="btn btn--primary btn--lg btn--block" data-lds-close>I am in class</button>
+      <div class="sheet__head" data-lds-drag><h4 class="sheet__title" id="df-sheet-t">Konfirmasi hadir</h4><button type="button" class="icon-btn icon-btn--filled" aria-label="Tutup" data-lds-close><span class="ic" aria-hidden="true">close</span></button></div>
+      <button type="button" class="btn btn--primary btn--lg btn--block" data-lds-close>Saya sudah di lokasi</button>
     </div>
     <div class="device__status" aria-hidden="true"><span>9:41</span><span class="device__status-end"><span class="device__signal"><i></i><i></i><i></i><i></i></span><span class="ic">wifi</span><span class="device__battery" style="--level: 0.76;"></span></span></div>
     <span class="device__island" aria-hidden="true"></span>
@@ -384,45 +384,45 @@ a{color:#0A6246}a:hover{color:#1E40AF}
 </div>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Nav stack: open a course, then go back</p>
+        <p class="stage__label">Nav stack: buka layanan, lalu kembali</p>
 <div class="phone phone--inline" style="height: 560px;">
   <div class="navstack" data-lds-navstack>
-    <section class="navstack__view" aria-label="Courses">
-      <div class="navbar" id="ns-root-bar" style="height: 64px; padding-top: 14px;"><span></span><span class="navbar__title" aria-hidden="true">Courses</span><span></span></div>
+    <section class="navstack__view" aria-label="Layanan">
+      <div class="navbar" id="ns-root-bar" style="height: 64px; padding-top: 14px;"><span></span><span class="navbar__title" aria-hidden="true">Layanan</span><span></span></div>
       <div class="phone__scroll" data-lds-navbar="ns-root-bar">
         <div style="height: 64px;"></div>
-        <h3 class="large-title">Courses</h3>
+        <h3 class="large-title">Layanan</h3>
         <div style="padding: 12px 16px 40px;"><div class="list list--fill">
-          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Database Systems</span><span class="lrow__sub">IF 3104 · Mon and Thu, 08:00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
-          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Computer Networks</span><span class="lrow__sub">IF 3112 · Mon, 13:00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
+          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Izin usaha mikro</span><span class="lrow__sub">IZN-01 · Sen sampai Jum, 08.00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
+          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">KTP elektronik</span><span class="lrow__sub">KTP-02 · Sen, 13.00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
         </div></div>
       </div>
     </section>
-    <section class="navstack__view" id="ns-course" aria-label="Database Systems" hidden>
+    <section class="navstack__view" id="ns-course" aria-label="Izin usaha mikro" hidden>
       <div class="navbar navbar--inline" id="ns-course-bar" style="height: 64px; padding-top: 14px;">
-        <span><button type="button" class="navbar__back" data-lds-back aria-label="Back to Courses"><span class="ic" aria-hidden="true">arrow_back_ios_new</span><span>Courses</span></button></span>
-        <h3 class="navbar__title">Database Systems</h3><span></span>
+        <span><button type="button" class="navbar__back" data-lds-back aria-label="Kembali ke Layanan"><span class="ic" aria-hidden="true">arrow_back_ios_new</span><span>Layanan</span></button></span>
+        <h3 class="navbar__title">Izin usaha mikro</h3><span></span>
       </div>
       <div class="phone__scroll" data-lds-navbar="ns-course-bar">
         <div style="height: 64px;"></div>
-        <div style="padding: 12px 16px 40px;"><dl class="kv-list"><div class="kv"><dt>Lecturer</dt><dd>Dr. Ayu Rahmawati</dd></div><div class="kv"><dt>Room</dt><dd>H 2.14</dd></div><div class="kv"><dt>Credits</dt><dd>3</dd></div></dl></div>
+        <div style="padding: 12px 16px 40px;"><dl class="kv-list"><div class="kv"><dt>Petugas</dt><dd>Ayu Rahmawati</dd></div><div class="kv"><dt>Lokasi</dt><dd>Loket 2</dd></div><div class="kv"><dt>Lama proses</dt><dd>3 hari kerja</dd></div></dl></div>
       </div>
     </section>
   </div>
 </div>
       </div>
       <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
-        <p class="stage__label">Pull to refresh: drag the list down</p>
+        <p class="stage__label">Tarik untuk memuat ulang: seret daftar ke bawah</p>
 <div class="phone phone--inline" style="height: 500px; --phone-top: 0px;">
-  <div class="navbar" id="ptr-bar"><span></span><span class="navbar__title" aria-hidden="true">Today</span><div class="navbar__end"><button type="button" class="icon-btn" aria-label="Refresh" data-lds-refresh-for="ptr-scroll"><span class="ic" aria-hidden="true">refresh</span></button></div></div>
+  <div class="navbar" id="ptr-bar"><span></span><span class="navbar__title" aria-hidden="true">Hari ini</span><div class="navbar__end"><button type="button" class="icon-btn" aria-label="Muat ulang" data-lds-refresh-for="ptr-scroll"><span class="ic" aria-hidden="true">refresh</span></button></div></div>
   <div class="phone__scroll" id="ptr-scroll" data-lds-navbar="ptr-bar" data-lds-refresh>
     <div class="refresh" aria-hidden="true"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
     <div class="navbar-gap"></div>
-    <h3 class="large-title">Today</h3>
+    <h3 class="large-title">Hari ini</h3>
     <div style="padding: 12px 16px 40px;"><div class="list list--fill">
-      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Database Systems</span><span class="lrow__sub">08:00 · Room H 2.14</span></span></div>
-      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Computer Networks</span><span class="lrow__sub">13:00 · Lab 3.01</span></span></div>
-      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Software Engineering</span><span class="lrow__sub">15:30 · Room H 3.05</span></span></div>
+      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Antrean poli umum</span><span class="lrow__sub">08.00 · Puskesmas Contoh Utara</span></span></div>
+      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Bus kota koridor 2</span><span class="lrow__sub">13.00 · Halte Balai Kota</span></span></div>
+      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Pengambilan KTP</span><span class="lrow__sub">15.30 · Kantor Kecamatan</span></span></div>
     </div></div>
   </div>
 </div>
