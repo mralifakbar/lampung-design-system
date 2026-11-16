@@ -1,0 +1,81 @@
+export default {
+  title: 'Separator',
+  group: 'Data display',
+  order: 17,
+  summary: 'A 1 px hairline between two blocks of content that would otherwise run together, plain or with a few words in it (a date divider, "or"). Most of the time spacing or the component\'s own dividers are enough.',
+  when: [
+    'Two different groups inside one surface (a card, a panel, a menu-like area) that are not rows of a list.',
+    'Between a block of content and its footer inside a card.',
+    'Labeled: dividing a feed, a chat or an agenda by day ("Today", "Monday, 16 November"), or "or" between two ways to sign in.',
+  ],
+  whenNot: [
+    ['Between rows of a list', 'list', 'Lists draw their own inset hairlines'],
+    ['Between key-value rows', 'key-value'],
+    ['Between page sections', 'sections', 'Sections draw a hairline above each one after the first'],
+    ['Between items in a menu', 'dropdown-menu', 'Use `.menu__sep`'],
+  ],
+  where: 'Inside a surface, edge to edge of its content, with at least 12 px of space above and below. Never on the page canvas between sections.',
+  anatomy: [
+    ['hr.sep', 'Required. A 1 px block in `--hairline`, no margin of its own.'],
+    ['.sep--v', 'A vertical hairline between items in a row (a toolbar, an app bar), at least 20 px tall.'],
+    ['.sep-label', 'A labeled separator: a heading (`h3`) or a `<p>` whose text sits between two hairlines in the caption style. Optional `.count` or `.badge` inside.'],
+  ],
+  examples: [
+    {
+      title: 'Inside a card',
+      desc: 'The hairline splits the summary from its footer. Margin comes from the layout, not the separator.',
+      stage: 'fill',
+      html: `<div class="card" style="max-width: 360px; width: 100%;">
+  <div class="card__title">Study streak</div>
+  <div class="card__sub">You practised 5 days in a row.</div>
+  <hr class="sep" style="margin: 16px 0 12px;">
+  <div class="card__sub">Next session: today at 19:00</div>
+</div>`,
+    },
+    {
+      title: 'Date dividers in a feed',
+      desc: 'A labeled separator starts each day. `sep-label--start` drops the left hairline so the date lines up with the rows; `sep-label--sticky` keeps it at the top of a scrolling list while that day is in view.',
+      stage: 'block',
+      html: `<div class="stack" style="--gap: 4px; max-width: 460px;">
+  <h3 class="sep-label sep-label--start">Today, 16 Nov</h3>
+  <div class="lrow"><span class="lrow__body"><span class="lrow__title">Invoice 1042 paid</span><span class="lrow__sub">09:12 · Northwind Studio</span></span></div>
+  <div class="lrow"><span class="lrow__body"><span class="lrow__title">Rina Wijaya joined Platform</span><span class="lrow__sub">08:40 · Invited by Arif</span></span></div>
+  <h3 class="sep-label sep-label--start">Yesterday, 15 Nov</h3>
+  <div class="lrow"><span class="lrow__body"><span class="lrow__title">Export of 1,204 customers finished</span><span class="lrow__sub">17:05 · CSV, 2.1 MB</span></span></div>
+</div>`,
+    },
+    {
+      title: 'Between two ways to sign in',
+      desc: 'Centered words between two hairlines.',
+      stage: 'block',
+      html: `<div class="stack" style="--gap: 16px; max-width: 360px;">
+  <button class="btn btn--secondary btn--block">Continue with work email</button>
+  <p class="sep-label">or</p>
+  <button class="btn btn--plain btn--block">Use a one-time code</button>
+</div>`,
+    },
+  ],
+  variants: [
+    ['.sep', 'Horizontal hairline.'],
+    ['.sep--v', 'Vertical hairline in a row.'],
+    ['.sep-label', 'Words centered between two hairlines.'],
+    ['.sep-label--start', 'Words at the start, one hairline after them: date dividers that line up with rows.'],
+    ['.sep-label--sticky', 'Stays at the top of its scrolling container (`--sticky-top` offsets it under a sticky bar) on the canvas color.'],
+  ],
+  motion: [
+    'None.',
+  ],
+  a11y: [
+    'Use `<hr>` when the break is a change of topic (it is announced as a separator); add `aria-hidden="true"` when it is only visual, so it is not announced.',
+    'A labeled separator that names a group (a day) is a heading, so people can jump between days; "or" between two actions is a plain `<p>`.',
+  ],
+  do: [
+    'Try spacing first; add a hairline only when spacing is not enough.',
+    'Space it with the layout (`stack` gaps or margins), never with padding on the separator.',
+  ],
+  dont: [
+    'Use thicker or colored lines.',
+    'Stack a separator next to a list hairline or a section hairline.',
+  ],
+  related: ['list', 'sections', 'card', 'layout-primitives'],
+};

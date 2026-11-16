@@ -1,0 +1,150 @@
+const row = (t, s, b) => `<div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">${t}</span><span class="lrow__sub" style="display: block;">${s}</span></span>${b}</div>`;
+const skelRow = (w) => `<div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: ${w}%;"></span><span class="skel" style="display: block; height: 11px; width: ${w - 25}%; margin-top: 8px;"></span></span><span class="skel" style="width: 64px; height: 22px; border-radius: 6px;"></span></div>`;
+
+const loading = `<div class="list" role="status" aria-busy="true" aria-label="Loading assignments">
+  ${skelRow(62)}
+  ${skelRow(48)}
+  ${skelRow(55)}
+</div>`;
+const empty = `<div class="list list--fill">
+  <div class="empty">
+    <div class="empty__icon"><span class="ic" aria-hidden="true">event_available</span></div>
+    <div class="empty__title">Nothing due this week</div>
+    <div class="empty__body">New assignments appear here as soon as your lecturers post them.</div>
+    <button class="btn btn--secondary btn--md">Open full calendar</button>
+  </div>
+</div>`;
+const error = `<div class="alert alert--danger" role="alert">
+  <span class="ic" aria-hidden="true">error</span>
+  <div>
+    <div class="alert__title">Assignments did not load</div>
+    <div class="alert__body">The course service did not answer in time. Your work is safe.</div>
+    <div class="alert__actions"><button class="btn btn--secondary btn--sm"><span class="ic" aria-hidden="true">refresh</span>Try again</button></div>
+  </div>
+</div>`;
+const loaded = `<div class="list">
+  ${row('Lab report 3', 'Computer Networks · due tomorrow', '<span class="badge badge--warning">Tomorrow</span>')}
+  ${row('Problem set 7', 'Linear Algebra · due Thursday', '<span class="badge">Thu</span>')}
+  ${row('Reading: chapter 9', 'Operating Systems · due Friday', '<span class="badge">Fri</span>')}
+</div>`;
+
+export default {
+  title: 'Data states',
+  group: 'Foundations',
+  order: 3,
+  summary: 'Every view that shows data is designed in four states: loading, empty, error and loaded. Each state reuses an existing component (`skel`, `empty`, `alert`) and keeps the same footprint, so the page does not jump between them.',
+  when: [
+    'Any list, table, chart, card grid or detail panel whose content comes from a request: design all four states before shipping.',
+    'A view can legitimately have no data (a new account, a filter with no matches, a quiet week) and needs to say why and offer the one action that fills it.',
+    'A request can fail and the person needs to know what failed and how to retry, without losing what they already see.',
+  ],
+  whenNot: [
+    ['A button that is busy after a press', 'button', 'Use its `.is-loading` state; do not replace the view with a skeleton.'],
+    ['A whole page is loading after navigation', 'nav-progress'],
+    ['Waiting on an assistant or a long computation with an honest timer', 'thinking'],
+    ['Progress with a known percentage (upload, import)', 'progress-bar'],
+    ['A failure that concerns the whole app (offline, maintenance)', 'banner'],
+    ['A result that happened and needs no further action', 'toast'],
+  ],
+  where: 'Each state fills exactly the area the loaded content will fill: the list box, the table body, the chart card. Page chrome (title, filters, tabs) stays put and stays usable. On phones the same rule holds; an empty state sits where the first rows would.',
+  anatomy: [
+    ['.skel', 'Loading. Blocks shaped like the real content (same row height, same title and meta widths), shimmering. See [skeleton](skeleton).'],
+    ['.empty', 'Empty. `.empty__icon` + `.empty__title` (what is empty) + `.empty__body` (why, and what fills it) + one button. See [empty state](empty-state).'],
+    ['.alert.alert--danger', 'Error. What failed in plain words, that nothing was lost, and a retry in `.alert__actions`. See [alert](alert).'],
+    ['role="status" aria-busy="true"', 'On the loading container, so assistive tech knows the region is updating.'],
+  ],
+  examples: [
+    {
+      title: 'All four states',
+      desc: 'The same assignment list in each state. Switch between them: the box keeps its place and the controls above it stay usable.',
+      stage: 'block',
+      html: `<div class="stack" style="--gap: 16px; max-width: 520px;">
+  <div class="seg" role="group" aria-label="State" data-lds-segmented style="max-width: 360px;">
+    <span class="seg__thumb"></span>
+    <button class="seg__btn" aria-pressed="true" onclick="this.closest('.stack').querySelectorAll('[data-state]').forEach(p => p.hidden = p.dataset.state !== 'loading')">Loading</button>
+    <button class="seg__btn" aria-pressed="false" onclick="this.closest('.stack').querySelectorAll('[data-state]').forEach(p => p.hidden = p.dataset.state !== 'empty')">Empty</button>
+    <button class="seg__btn" aria-pressed="false" onclick="this.closest('.stack').querySelectorAll('[data-state]').forEach(p => p.hidden = p.dataset.state !== 'error')">Error</button>
+    <button class="seg__btn" aria-pressed="false" onclick="this.closest('.stack').querySelectorAll('[data-state]').forEach(p => p.hidden = p.dataset.state !== 'loaded')">Loaded</button>
+  </div>
+  <div data-state="loading">${loading}</div>
+  <div data-state="empty" hidden>${empty}</div>
+  <div data-state="error" hidden>${error}</div>
+  <div data-state="loaded" hidden>${loaded}</div>
+</div>`,
+      code: `<!-- loading -->
+${loading}
+
+<!-- empty -->
+${empty}
+
+<!-- error -->
+${error}
+
+<!-- loaded -->
+${loaded}`,
+    },
+    {
+      title: 'Empty because of a filter',
+      desc: 'When filters cause the empty result, say so and offer to clear them, not to create something.',
+      stage: 'block',
+      html: `<div class="list list--fill" style="max-width: 520px;">
+  <div class="empty">
+    <div class="empty__icon"><span class="ic" aria-hidden="true">filter_list</span></div>
+    <div class="empty__title">No courses match these filters</div>
+    <div class="empty__body">Nothing is open in semester 3 with fewer than 3 credits.</div>
+    <button class="btn btn--secondary btn--md">Clear filters</button>
+  </div>
+</div>`,
+    },
+    {
+      title: 'Error that keeps the old data',
+      desc: 'A refresh failed but the last loaded rows are still useful: keep them and put the alert above them.',
+      stage: 'block',
+      html: `<div class="stack" style="--gap: 12px; max-width: 520px;">
+  <div class="alert alert--warning" role="status">
+    <span class="ic" aria-hidden="true">sync_problem</span>
+    <div>
+      <div class="alert__title">Showing results from 09:40</div>
+      <div class="alert__body">We could not refresh your grades. Check your connection and try again.</div>
+      <div class="alert__actions"><button class="btn btn--secondary btn--sm"><span class="ic" aria-hidden="true">refresh</span>Refresh</button></div>
+    </div>
+  </div>
+  ${loaded}
+</div>`,
+    },
+  ],
+  states: [
+    ['loading', 'Skeleton that mirrors the loaded layout, inside `role="status" aria-busy="true"`. Show it only after about 300 ms; fast responses should go straight to loaded.'],
+    ['empty', '`.empty` with an icon, a title that names what is empty, one sentence of why, and the one action that fills it (or clears the filter).'],
+    ['error', '`.alert--danger` with `role="alert"`: what failed, that nothing was lost, and Try again. If older data exists, keep it and use `.alert--warning` above it.'],
+    ['loaded', 'The real content. Remove `aria-busy` and the status role when it arrives.'],
+  ],
+  motion: [
+    'Skeleton shimmer: a light band crosses every `.skel` in 1.6 s on `--ease-inout`, infinite while loading. Under reduced motion it plays once and the blocks stay still.',
+    'Loaded content replaces the skeleton with a fade in `--d-standard` on `--ease-enter`; lists may arrive with [list stagger](list-stagger) (35 ms apart, under 400 ms total). Never animate the box size.',
+    'Errors and empty states appear without motion; they are answers, not events.',
+  ],
+  a11y: [
+    'Loading region: `role="status"`, `aria-busy="true"` and an `aria-label` ("Loading assignments"). Skeleton blocks are empty elements, so nothing else is read.',
+    'Errors that block the task use `role="alert"` so they are announced once; a stale-data warning uses `role="status"`.',
+    'After Try again, move focus back into the region (the first row or the alert) so keyboard users are not left on a removed button.',
+    'Empty state titles are plain text, not headings, unless the region is a page section with its own heading.',
+  ],
+  do: [
+    'Shape the skeleton like the real content: same row count on screen, same heights.',
+    'Write the empty state as an answer: what is empty, why, and the one action.',
+    'Keep old data visible when a refresh fails.',
+  ],
+  dont: [
+    'Show a lone spinner in the middle of an empty box for content that has a known shape.',
+    'Write "No data" or "Something went wrong" with no reason and no next step.',
+    'Replace page controls (filters, tabs, search) with the skeleton; only the data area loads.',
+  ],
+  js: 'None required. Toggle the states from your data layer. `toast()` is for results of actions, not for load errors.',
+  react: `import { Alert } from 'lampung-design-system/react';
+
+if (status === 'loading') return <div className="list" role="status" aria-busy="true" aria-label="Loading assignments">{/* .skel rows */}</div>;
+if (status === 'error') return <Alert tone="danger" title="Assignments did not load" actions={<button className="btn btn--secondary btn--sm" onClick={retry}>Try again</button>}>The course service did not answer in time.</Alert>;
+if (items.length === 0) return <div className="empty">{/* icon, title, body, one action */}</div>;`,
+  related: ['skeleton', 'empty-state', 'alert', 'chart-states'],
+};
