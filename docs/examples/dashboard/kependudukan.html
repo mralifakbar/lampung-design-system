@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="id" class="lds" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kependudukan · Sakai Dasbor · Contoh Lampung Design System</title>
+<meta name="description" content="Penduduk Kota Contoh per kecamatan dan umur, peristiwa kependudukan per pekan, dan antrean layanan dokumen hari ini.">
+<meta name="theme-color" content="#FFFFFF">
+<script>try { var t = localStorage.getItem('lds-theme'); if (t) document.documentElement.setAttribute('data-theme', t); if (localStorage.getItem('lds-shell-rail') === '1') document.documentElement.setAttribute('data-shell-rail', ''); } catch (e) {}</script>
+<link rel="stylesheet" href="../../../css/lds.css">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="lds">
+<a class="skip-link" href="#main">Lewati ke isi</a>
+<div class="navprogress" aria-hidden="true"></div>
+<div class="shell" data-lds-shell>
+  <aside class="shell__side" id="side" aria-label="Menu samping">
+    <a class="shell__brand" href="ringkasan.html"><span class="shell__mark" aria-hidden="true">S</span><span class="shell__label">Sakai Dasbor</span></a>
+    <nav class="shell__nav" aria-label="Utama">
+      <span class="shell__hl" aria-hidden="true"></span>
+      <p class="shell__group">Dasbor</p>
+      <a class="shell__link" href="ringkasan.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Ringkasan kota</span></a>
+      <a class="shell__link" href="pengaduan.html"><span class="ic" aria-hidden="true">campaign</span><span class="shell__label">Pengaduan warga</span></a>
+      <a class="shell__link" href="perizinan.html"><span class="ic" aria-hidden="true">verified</span><span class="shell__label">Layanan perizinan</span></a>
+      <a class="shell__link" href="kependudukan.html" aria-current="page"><span class="ic" aria-hidden="true">groups</span><span class="shell__label">Kependudukan</span></a>
+      <a class="shell__link" href="transportasi.html"><span class="ic" aria-hidden="true">directions_bus</span><span class="shell__label">Transportasi</span></a>
+      <a class="shell__link" href="kebencanaan.html"><span class="ic" aria-hidden="true">flood</span><span class="shell__label">Kebencanaan dan cuaca</span></a>
+      <a class="shell__link" href="kesehatan.html"><span class="ic" aria-hidden="true">local_hospital</span><span class="shell__label">Kesehatan</span></a>
+      <a class="shell__link" href="pendidikan.html"><span class="ic" aria-hidden="true">school</span><span class="shell__label">Pendidikan</span></a>
+      <a class="shell__link" href="pendapatan.html"><span class="ic" aria-hidden="true">request_quote</span><span class="shell__label">Pendapatan daerah</span></a>
+      <a class="shell__link" href="bantuan-sosial.html"><span class="ic" aria-hidden="true">volunteer_activism</span><span class="shell__label">Bantuan sosial</span></a>
+      <a class="shell__link" href="umkm.html"><span class="ic" aria-hidden="true">storefront</span><span class="shell__label">UMKM dan pasar</span></a>
+      <a class="shell__link" href="pariwisata.html"><span class="ic" aria-hidden="true">landscape</span><span class="shell__label">Pariwisata dan agenda</span></a>
+      <a class="shell__link" href="lingkungan.html"><span class="ic" aria-hidden="true">eco</span><span class="shell__label">Lingkungan</span></a>
+      <a class="shell__link" href="infrastruktur.html"><span class="ic" aria-hidden="true">lightbulb</span><span class="shell__label">Infrastruktur dan aset</span></a>
+      <a class="shell__link" href="pusat-komando.html"><span class="ic" aria-hidden="true">videocam</span><span class="shell__label">Pusat komando</span></a>
+      <a class="shell__link" href="kepegawaian.html"><span class="ic" aria-hidden="true">badge</span><span class="shell__label">Kepegawaian</span></a>
+      <a class="shell__link" href="keuangan.html"><span class="ic" aria-hidden="true">account_balance</span><span class="shell__label">Keuangan daerah</span></a>
+      <p class="shell__group">Halaman</p>
+      <a class="shell__link" href="laporan.html"><span class="ic" aria-hidden="true">article</span><span class="shell__label">Daftar laporan</span></a>
+      <a class="shell__link" href="kotak-masuk.html"><span class="ic" aria-hidden="true">inbox</span><span class="shell__label">Kotak masuk</span></a>
+      <a class="shell__link" href="obrolan.html"><span class="ic" aria-hidden="true">chat</span><span class="shell__label">Obrolan</span></a>
+      <a class="shell__link" href="kalender.html"><span class="ic" aria-hidden="true">calendar_month</span><span class="shell__label">Kalender kegiatan</span></a>
+      <a class="shell__link" href="tindak-lanjut.html"><span class="ic" aria-hidden="true">view_kanban</span><span class="shell__label">Kanban tindak lanjut</span></a>
+      <a class="shell__link" href="tugas.html"><span class="ic" aria-hidden="true">checklist</span><span class="shell__label">Tugas</span></a>
+      <a class="shell__link" href="arsip.html"><span class="ic" aria-hidden="true">folder_open</span><span class="shell__label">Arsip dokumen</span></a>
+      <a class="shell__link" href="profil.html"><span class="ic" aria-hidden="true">person</span><span class="shell__label">Profil</span></a>
+      <a class="shell__link" href="pengguna.html"><span class="ic" aria-hidden="true">group</span><span class="shell__label">Pengguna</span></a>
+      <a class="shell__link" href="peran.html"><span class="ic" aria-hidden="true">shield_person</span><span class="shell__label">Peran dan akses</span></a>
+      <p class="shell__group">Masuk</p>
+      <a class="shell__link" href="masuk.html"><span class="ic" aria-hidden="true">login</span><span class="shell__label">Masuk</span></a>
+      <a class="shell__link" href="daftar.html"><span class="ic" aria-hidden="true">person_add</span><span class="shell__label">Daftar</span></a>
+      <a class="shell__link" href="lupa-kata-sandi.html"><span class="ic" aria-hidden="true">key</span><span class="shell__label">Lupa kata sandi</span></a>
+      <a class="shell__link" href="verifikasi.html"><span class="ic" aria-hidden="true">sms</span><span class="shell__label">Verifikasi OTP</span></a>
+      <a class="shell__link" href="akses-ditolak.html"><span class="ic" aria-hidden="true">do_not_disturb_on</span><span class="shell__label">Akses ditolak</span></a>
+    </nav>
+    <div class="shell__foot">
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">Semua contoh</span></a>
+      <a class="shell__link" href="../../index.html"><span class="ic" aria-hidden="true">menu_book</span><span class="shell__label">Dokumentasi sistem desain</span></a>
+    </div>
+  </aside>
+  <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
+  <div class="shell__scrim"></div>
+  <div class="shell__main">
+    <header class="shell__bar">
+      <button class="icon-btn" type="button" data-lds-shell-toggle aria-controls="side" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
+      <button class="icon-btn" type="button" data-lds-shell-rail aria-controls="side" aria-expanded="true" aria-label="Ciutkan menu samping"><span class="ic" aria-hidden="true">left_panel_close</span></button>
+      <span class="sep sep--v" aria-hidden="true"></span>
+      <nav aria-label="Jejak halaman"><ol class="crumbs"><li><a href="ringkasan.html">Sakai Dasbor</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="ringkasan.html">Dasbor</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><span aria-current="page">Kependudukan</span></li></ol></nav>
+      <div class="shell__bar-end">
+        <button class="control search shell__search" type="button" data-lds-open="palette" aria-haspopup="dialog"><span class="ic" aria-hidden="true">search</span>Cari halaman<span class="kbd">⌘K</span></button>
+        <button class="icon-btn shell__search-icon" type="button" data-lds-open="palette" aria-haspopup="dialog" aria-label="Cari halaman"><span class="ic" aria-hidden="true">search</span></button>
+        <div class="tip-host">
+          <button class="icon-btn" type="button" data-lds-menu="theme-menu" aria-haspopup="menu" aria-expanded="false" aria-label="Tampilan" data-theme-btn><span class="ic" aria-hidden="true">light_mode</span></button>
+          <div class="menu menu--right" id="theme-menu" role="menu" aria-label="Tampilan" style="top: calc(100% + 6px); right: 0; min-width: 180px;">
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-lds-theme="light"><span class="ic" aria-hidden="true">light_mode</span>Terang<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-lds-theme="dark"><span class="ic" aria-hidden="true">dark_mode</span>Gelap<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-lds-theme="system"><span class="ic" aria-hidden="true">desktop_windows</span>Ikuti sistem<span class="ic menu__check" aria-hidden="true">check</span></button>
+          </div>
+        </div>
+        <div class="tip-host">
+          <button class="icon-btn" type="button" data-lds-menu="notes" aria-haspopup="dialog" aria-expanded="false" aria-label="Notifikasi, 3 belum dibaca" data-notes-btn><span class="ic" aria-hidden="true">notifications</span><span class="count" data-notes-count>3</span></button>
+          <div class="popover dash-notes" id="notes" role="dialog" aria-labelledby="notes-title" style="top: calc(100% + 6px); right: 0;">
+            <div class="cluster dash-notes__head"><h2 class="section__title-sm" id="notes-title">Notifikasi</h2><button class="btn btn--plain btn--sm" type="button" data-notes-read>Tandai semua dibaca</button></div>
+            <div class="list list--fill">
+              <a class="lrow" href="tindak-lanjut.html" data-unread><span class="avatar avatar--gray" style="--size: 32px;">AS</span><span class="lrow__body"><span class="lrow__title">Arif Setiawan menugaskan Anda <b>Tindak lanjut genangan Jalan Merpati</b></span><span class="lrow__sub"><time data-lds-time="2026-11-16T09:12">09.12</time></span></span><span class="status status--ok" data-unread-dot><i></i><span class="sr-only">Belum dibaca</span></span></a>
+              <a class="lrow" href="perizinan.html" data-unread><span class="avatar avatar--gray" style="--size: 32px;">DL</span><span class="lrow__body"><span class="lrow__title">Dewi Lestari meminta persetujuan <b>12 izin usaha mikro</b></span><span class="lrow__sub"><time data-lds-time="2026-11-16T08:40">08.40</time></span></span><span class="status status--ok" data-unread-dot><i></i><span class="sr-only">Belum dibaca</span></span></a>
+              <a class="lrow" href="kebencanaan.html" data-unread><span class="avatar avatar--gray" style="--size: 32px;">BP</span><span class="lrow__body"><span class="lrow__title">BPBD Kota Contoh mengirim <b>peringatan dini hujan lebat</b> untuk sore ini</span><span class="lrow__sub"><time data-lds-time="2026-11-16T07:55">07.55</time></span></span><span class="status status--ok" data-unread-dot><i></i><span class="sr-only">Belum dibaca</span></span></a>
+              <a class="lrow" href="laporan.html"><span class="avatar avatar--gray" style="--size: 32px;">SH</span><span class="lrow__body"><span class="lrow__title">Sari Handayani mengekspor <b>1.204 laporan warga</b> ke CSV</span><span class="lrow__sub"><time data-lds-time="2026-11-15T11:30">11.30</time></span></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="tip-host">
+          <button class="icon-btn" type="button" data-lds-menu="user-menu" aria-haspopup="menu" aria-expanded="false" aria-label="Akun: Rina Wijayanti"><span class="avatar" style="--size: 32px;">RW</span></button>
+          <div class="menu menu--right" id="user-menu" role="menu" aria-label="Akun" style="top: calc(100% + 6px); right: 0; min-width: 240px;">
+            <div class="lrow dash-me"><span class="avatar" style="--size: 36px;">RW</span><span class="lrow__body"><span class="lrow__title">Rina Wijayanti</span><span class="lrow__sub">Admin dasbor</span></span></div>
+            <div class="menu__sep"></div>
+            <a class="menu__item" role="menuitem" href="profil.html"><span class="ic" aria-hidden="true">person</span>Profil</a>
+            <a class="menu__item" role="menuitem" href="peran.html"><span class="ic" aria-hidden="true">shield_person</span>Peran dan akses</a>
+            <a class="menu__item" role="menuitem" href="../../index.html"><span class="ic" aria-hidden="true">help</span>Bantuan dan dokumentasi</a>
+            <div class="menu__sep"></div>
+            <a class="menu__item" role="menuitem" href="masuk.html"><span class="ic" aria-hidden="true">logout</span>Keluar</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="dash" id="main" tabindex="-1">
+      <header class="dash-head">
+        <div class="section__head">
+          <div class="cluster" style="--gap: 10px;"><h1 style="margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);">Kependudukan</h1><span class="badge badge--outline"><span class="ic" aria-hidden="true">info</span>Contoh. Data fiktif, bukan layanan resmi.</span></div>
+          <p class="section__sub">Penduduk Kota Contoh per kecamatan dan umur, peristiwa kependudukan per pekan, dan antrean layanan dokumen hari ini.</p>
+        </div>
+        <div class="dash-head__actions"><div class="tip-host">
+          <button class="btn btn--plain btn--md" type="button" data-lds-menu="state-menu" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">visibility</span>Pratinjau keadaan<span class="ic" aria-hidden="true">expand_more</span></button>
+          <div class="menu menu--right" id="state-menu" role="menu" aria-label="Pratinjau keadaan data" style="top: calc(100% + 6px); right: 0; min-width: 200px;">
+            <p class="menu__label">Tampilkan semua widget sebagai</p>
+            <button class="menu__item" role="menuitemradio" aria-checked="true" data-state-set="loaded">Termuat<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-state-set="loading">Memuat<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-state-set="empty">Kosong<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-state-set="error">Galat<span class="ic menu__check" aria-hidden="true">check</span></button>
+          </div>
+        </div>
+        <button class="btn btn--secondary btn--md" type="button" data-download><span class="btn__label"><span class="ic" aria-hidden="true">download</span>Unduh data agregat</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></div>
+      </header>
+<section aria-label="Angka utama" data-states>
+  <div class="dash-kpis" data-state-view="loaded" data-lds-grow>
+    <article class="kpi" aria-labelledby="kpi-pend">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">groups</span></span><span class="kpi__label" id="kpi-pend">Jumlah penduduk</span></div>
+      <div class="kpi__value">1.128.460</div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--up delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>1,2%<span class="sr-only"> naik, dari 1.115.080 pada Desember 2025</span></span><span>dari 1.115.080 pada Desember 2025</span></div>
+      <svg class="kpi__spark" viewBox="0 0 240 52" preserveAspectRatio="none" role="img" aria-label="Jumlah penduduk per bulan tahun 2026, naik perlahan"><path class="series-area" d="M0.0 46.0 L21.8 43.1 L43.6 40.2 L65.5 37.2 L87.3 34.3 L109.1 28.5 L130.9 25.5 L152.7 22.6 L174.5 19.7 L196.4 16.8 L218.2 10.9 L240.0 8.0 L240 52 L0 52 Z"></path><path class="series-line" d="M0.0 46.0 L21.8 43.1 L43.6 40.2 L65.5 37.2 L87.3 34.3 L109.1 28.5 L130.9 25.5 L152.7 22.6 L174.5 19.7 L196.4 16.8 L218.2 10.9 L240.0 8.0"></path></svg>
+    </article>
+    <article class="kpi" aria-labelledby="kpi-lahir">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">favorite</span></span><span class="kpi__label" id="kpi-lahir">Kelahiran tercatat bulan ini</span></div>
+      <div class="kpi__value">724</div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--up delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>5%<span class="sr-only"> naik, dari 690 pada 1 sampai 16 Okt</span></span><span>dari 690 pada 1 sampai 16 Okt</span></div>
+      <div class="kpi__bars" role="img" aria-label="Kelahiran tercatat per hari sejak 1 November"><i style="--h: 33%;"></i><i style="--h: 85%;"></i><i style="--h: 96%;"></i><i style="--h: 76%;"></i><i style="--h: 76%;"></i><i style="--h: 93%;"></i><i style="--h: 33%;"></i><i style="--h: 28%;"></i><i style="--h: 80%;"></i><i style="--h: 76%;"></i><i style="--h: 69%;"></i><i style="--h: 89%;"></i><i style="--h: 100%;"></i><i style="--h: 43%;"></i><i style="--h: 39%;"></i><i style="--h: 76%;"></i></div>
+    </article>
+    <article class="kpi" aria-labelledby="kpi-pindah">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">swap_vert</span></span><span class="kpi__label" id="kpi-pindah">Perpindahan bersih</span></div>
+      <div class="kpi__value">+312 jiwa</div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--up delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>48<span class="sr-only"> naik, lebih banyak dari Oktober; 1.214 datang, 902 keluar</span></span><span>lebih banyak dari Oktober; 1.214 datang, 902 keluar</span></div>
+      <div class="kpi__bars" role="img" aria-label="Perpindahan bersih per pekan selama 12 pekan, selalu positif"><i style="--h: 73%;"></i><i style="--h: 60%;"></i><i style="--h: 83%;"></i><i style="--h: 67%;"></i><i style="--h: 90%;"></i><i style="--h: 80%;"></i><i style="--h: 63%;"></i><i style="--h: 87%;"></i><i style="--h: 77%;"></i><i style="--h: 93%;"></i><i style="--h: 70%;"></i><i style="--h: 100%;"></i></div>
+    </article>
+    <article class="kpi" aria-labelledby="kpi-dok">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">id_card</span></span><span class="kpi__label" id="kpi-dok">Dokumen terbit bulan ini</span></div>
+      <div class="kpi__value">9.846</div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--down delta--bad"><span class="ic" aria-hidden="true">arrow_upward</span>4%<span class="sr-only"> turun, dari 10.260 pada 1 sampai 16 Okt; blangko menipis</span></span><span>dari 10.260 pada 1 sampai 16 Okt; blangko menipis</span></div>
+      <svg class="kpi__spark" viewBox="0 0 240 52" preserveAspectRatio="none" role="img" aria-label="Dokumen kependudukan terbit per hari sejak 1 November"><path class="series-area" d="M0.0 37.8 L16.0 19.5 L32.0 8.2 L48.0 18.6 L64.0 15.3 L80.0 9.2 L96.0 46.0 L112.0 43.8 L128.0 19.6 L144.0 8.3 L160.0 8.0 L176.0 19.5 L192.0 20.2 L208.0 44.3 L224.0 43.7 L240.0 11.0 L240 52 L0 52 Z"></path><path class="series-line" d="M0.0 37.8 L16.0 19.5 L32.0 8.2 L48.0 18.6 L64.0 15.3 L80.0 9.2 L96.0 46.0 L112.0 43.8 L128.0 19.6 L144.0 8.3 L160.0 8.0 L176.0 19.5 L192.0 20.2 L208.0 44.3 L224.0 43.7 L240.0 11.0"></path></svg>
+    </article>
+  </div>
+  <div class="dash-kpis" data-state-view="loading" role="status" aria-label="Memuat angka utama" hidden>
+    <div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div><div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div><div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div><div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div>
+  </div>
+  <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Angka utama belum termuat</div><div class="alert__body">Layanan data kependudukan tidak menjawab tepat waktu. Tidak ada data yang hilang.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+</section>
+
+<div class="dash-grid dash-grid--stretch">
+  <section class="chart-card dash-span-5 dash-fill" aria-labelledby="kec-q" data-states>
+    <div class="chart-card__head">
+      <div class="chart-card__titles"><div class="chart-card__q" id="kec-q">Di kecamatan mana warga tinggal?</div><div class="chart-card__sub">Penduduk per kecamatan, 30 Oktober 2026</div></div>
+      <div class="chart-card__actions"><div class="seg chart-card__range" role="group" aria-label="Ukuran" data-lds-segmented data-kec-for="kec"><span class="seg__thumb"></span><button type="button" class="seg__btn" aria-pressed="true" data-set="pop">Jiwa</button><button type="button" class="seg__btn" aria-pressed="false" data-set="dens">Kepadatan</button></div></div>
+    </div>
+    <div class="hbars" id="kec" role="list" data-state-view="loaded" data-lds-grow style="--label-w: 200px;" aria-label="Penduduk per kecamatan">
+  <div role="listitem" class="hbar is-top" data-pop="168240" data-dens="8120"><span class="hbar__label"><span class="hbar__rank">1</span><span><span>Kecamatan Utara</span><span class="hbar__sub" data-kec-sub>8.120 jiwa per km²</span></span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 100.0%;"></span></span><span class="hbar__val">168.240</span></div>
+  <div role="listitem" class="hbar" data-pop="152910" data-dens="11240"><span class="hbar__label"><span class="hbar__rank">2</span><span><span>Kecamatan Tengah</span><span class="hbar__sub" data-kec-sub>11.240 jiwa per km²</span></span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 90.9%;"></span></span><span class="hbar__val">152.910</span></div>
+  <div role="listitem" class="hbar" data-pop="141380" data-dens="6830"><span class="hbar__label"><span class="hbar__rank">3</span><span><span>Kecamatan Timur</span><span class="hbar__sub" data-kec-sub>6.830 jiwa per km²</span></span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 84.0%;"></span></span><span class="hbar__val">141.380</span></div>
+  <div role="listitem" class="hbar" data-pop="136720" data-dens="5920"><span class="hbar__label"><span class="hbar__rank">4</span><span><span>Kecamatan Pesisir</span><span class="hbar__sub" data-kec-sub>5.920 jiwa per km²</span></span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 81.3%;"></span></span><span class="hbar__val">136.720</span></div>
+  <div role="listitem" class="hbar" data-pop="128450" data-dens="6410"><span class="hbar__label"><span class="hbar__rank">5</span><span><span>Kecamatan Selatan</span><span class="hbar__sub" data-kec-sub>6.410 jiwa per km²</span></span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 76.3%;"></span></span><span class="hbar__val">128.450</span></div>
+  <div role="listitem" class="hbar" data-pop="117830" data-dens="4880"><span class="hbar__label"><span class="hbar__rank">6</span><span><span>Kecamatan Barat</span><span class="hbar__sub" data-kec-sub>4.880 jiwa per km²</span></span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 70.0%;"></span></span><span class="hbar__val">117.830</span></div>
+  <div role="listitem" class="hbar" data-pop="109640" data-dens="4120"><span class="hbar__label"><span class="hbar__rank">7</span><span><span>Kecamatan Teluk</span><span class="hbar__sub" data-kec-sub>4.120 jiwa per km²</span></span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 65.2%;"></span></span><span class="hbar__val">109.640</span></div>
+  <div role="listitem" class="hbar" data-pop="96170" data-dens="2980"><span class="hbar__label"><span class="hbar__rank">8</span><span><span>Kecamatan Sukarame Baru</span><span class="hbar__sub" data-kec-sub>2.980 jiwa per km²</span></span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 57.2%;"></span></span><span class="hbar__val">96.170</span></div>
+  <div role="listitem" class="hbar" data-pop="77120" data-dens="1460"><span class="hbar__label"><span class="hbar__rank">9</span><span><span>Kecamatan Bukit</span><span class="hbar__sub" data-kec-sub>1.460 jiwa per km²</span></span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 45.8%;"></span></span><span class="hbar__val">77.120</span></div>
+    </div>
+    <div class="stack" style="--gap: 18px; padding-top: 8px;" data-state-view="loading" role="status" aria-label="Memuat penduduk per kecamatan" hidden><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 12px; width: 40%;"></div><div class="skel" style="height: 10px; width: 96%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 12px; width: 52%;"></div><div class="skel" style="height: 10px; width: 96%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 12px; width: 34%;"></div><div class="skel" style="height: 10px; width: 96%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 12px; width: 46%;"></div><div class="skel" style="height: 10px; width: 96%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 12px; width: 38%;"></div><div class="skel" style="height: 10px; width: 96%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 12px; width: 44%;"></div><div class="skel" style="height: 10px; width: 96%;"></div></div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Penduduk per kecamatan belum termuat</div><div class="alert__body">Coba lagi sebentar lagi.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+  </section>
+
+  <section class="chart-card dash-span-7 dash-fill" aria-labelledby="age-q" data-states>
+    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="age-q">Seperti apa susunan umur warga?</div><div class="chart-card__sub">Penduduk per kelompok umur, dalam ribu jiwa</div></div></div>
+    <div class="chart" data-state-view="loaded" data-lds-chart='{"label":"Penduduk per kelompok umur dan jenis kelamin, dalam ribu jiwa. Kelompok 20 sampai 29 tahun paling besar; di atas 60 tahun perempuan lebih banyak.","x":["0-9","10-19","20-29","30-39","40-49","50-59","60-69","70+"],"xFull":["0 sampai 9 tahun","10 sampai 19 tahun","20 sampai 29 tahun","30 sampai 39 tahun","40 sampai 49 tahun","50 sampai 59 tahun","60 sampai 69 tahun","70 tahun ke atas"],"xName":"Umur","kind":"bar","height":240,"format":{"suffix":" rb"},"series":[{"name":"Laki-laki","values":[92,98,104,92,76,56,32,14]},{"name":"Perempuan","values":[88,94,101,90,75,58,35,19]}]}'></div>
+    <div class="stack" style="--gap: 30px; padding-top: 24px;" data-state-view="loading" role="status" aria-label="Memuat susunan umur" hidden><div class="skel" style="height: 32px; width: 30%;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Susunan umur belum termuat</div><div class="alert__body">Coba lagi sebentar lagi.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    <div class="chart-card__foot" data-state-view="loaded"><span>Usia produktif 15 sampai 64 tahun: 69% penduduk</span></div>
+  </section>
+</div>
+
+<div class="dash-grid">
+  <section class="chart-card dash-span-8" aria-labelledby="mob-q" data-states>
+    <div class="chart-card__head">
+      <div class="chart-card__titles"><div class="chart-card__q" id="mob-q">Apakah kota bertambah lewat kelahiran atau pendatang?</div><div class="chart-card__sub">Kelahiran, kematian dan perpindahan tercatat per pekan</div></div>
+      <div class="chart-card__actions"><div class="seg chart-card__range" role="group" aria-label="Periode" data-lds-segmented data-lds-chart-for="mobilitas"><span class="seg__thumb"></span><button type="button" class="seg__btn" aria-pressed="true" data-set="12w">12 pekan</button><button type="button" class="seg__btn" aria-pressed="false" data-set="26w">26 pekan</button></div></div>
+    </div>
+    <div class="chart" id="mobilitas" data-state-view="loaded" data-lds-chart='{"x":["31 Agu","7 Sep","14 Sep","21 Sep","28 Sep","5 Okt","12 Okt","19 Okt","26 Okt","2 Nov","9 Nov","16 Nov"],"xFull":["Pekan 31 Agu 2026","Pekan 7 Sep 2026","Pekan 14 Sep 2026","Pekan 21 Sep 2026","Pekan 28 Sep 2026","Pekan 5 Okt 2026","Pekan 12 Okt 2026","Pekan 19 Okt 2026","Pekan 26 Okt 2026","Pekan 2 Nov 2026","Pekan 9 Nov 2026","Pekan 16 Nov 2026"],"series":[{"name":"Lahir","values":[341,359,323,381,371,382,338,334,325,334,323,364]},{"name":"Meninggal","values":[100,115,126,108,113,108,119,117,115,125,118,108]},{"name":"Datang","values":[203,214,217,212,219,213,215,199,194,201,229,189]},{"name":"Pindah keluar","values":[184,169,151,151,160,185,187,161,165,166,187,166]}],"label":"Peristiwa kependudukan per pekan, 12 pekan terakhir. Kelahiran sekitar tiga kali kematian; yang datang selalu lebih banyak dari yang pindah.","xName":"Pekan","kind":"line","height":260,"sets":{"12w":{"x":["31 Agu","7 Sep","14 Sep","21 Sep","28 Sep","5 Okt","12 Okt","19 Okt","26 Okt","2 Nov","9 Nov","16 Nov"],"xFull":["Pekan 31 Agu 2026","Pekan 7 Sep 2026","Pekan 14 Sep 2026","Pekan 21 Sep 2026","Pekan 28 Sep 2026","Pekan 5 Okt 2026","Pekan 12 Okt 2026","Pekan 19 Okt 2026","Pekan 26 Okt 2026","Pekan 2 Nov 2026","Pekan 9 Nov 2026","Pekan 16 Nov 2026"],"series":[{"name":"Lahir","values":[341,359,323,381,371,382,338,334,325,334,323,364]},{"name":"Meninggal","values":[100,115,126,108,113,108,119,117,115,125,118,108]},{"name":"Datang","values":[203,214,217,212,219,213,215,199,194,201,229,189]},{"name":"Pindah keluar","values":[184,169,151,151,160,185,187,161,165,166,187,166]}],"label":"Peristiwa kependudukan per pekan, 12 pekan terakhir. Kelahiran sekitar tiga kali kematian; yang datang selalu lebih banyak dari yang pindah."},"26w":{"x":["25 Mei","1 Jun","8 Jun","15 Jun","22 Jun","29 Jun","6 Jul","13 Jul","20 Jul","27 Jul","3 Agu","10 Agu","17 Agu","24 Agu","31 Agu","7 Sep","14 Sep","21 Sep","28 Sep","5 Okt","12 Okt","19 Okt","26 Okt","2 Nov","9 Nov","16 Nov"],"xFull":["Pekan 25 Mei 2026","Pekan 1 Jun 2026","Pekan 8 Jun 2026","Pekan 15 Jun 2026","Pekan 22 Jun 2026","Pekan 29 Jun 2026","Pekan 6 Jul 2026","Pekan 13 Jul 2026","Pekan 20 Jul 2026","Pekan 27 Jul 2026","Pekan 3 Agu 2026","Pekan 10 Agu 2026","Pekan 17 Agu 2026","Pekan 24 Agu 2026","Pekan 31 Agu 2026","Pekan 7 Sep 2026","Pekan 14 Sep 2026","Pekan 21 Sep 2026","Pekan 28 Sep 2026","Pekan 5 Okt 2026","Pekan 12 Okt 2026","Pekan 19 Okt 2026","Pekan 26 Okt 2026","Pekan 2 Nov 2026","Pekan 9 Nov 2026","Pekan 16 Nov 2026"],"series":[{"name":"Lahir","values":[349,348,324,368,362,362,350,362,375,364,343,376,341,327,337,352,374,343,362,338,324,381,356,350,363,330]},{"name":"Meninggal","values":[108,125,104,106,110,105,106,122,112,100,122,104,120,100,116,115,115,125,119,107,111,100,116,109,101,116]},{"name":"Datang","values":[230,205,201,231,194,213,217,220,196,221,214,232,189,238,197,230,214,231,198,205,193,228,216,199,198,192]},{"name":"Pindah keluar","values":[182,150,187,178,157,165,148,152,175,180,154,177,163,170,183,156,154,165,189,164,183,154,179,184,162,155]}],"label":"Peristiwa kependudukan per pekan, 26 pekan terakhir. Kelahiran sekitar tiga kali kematian; yang datang selalu lebih banyak dari yang pindah."}}}'></div>
+    <div class="stack" style="--gap: 30px; padding-top: 24px;" data-state-view="loading" role="status" aria-label="Memuat peristiwa kependudukan" hidden><div class="skel" style="height: 32px; width: 30%;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div></div>
+    <div class="empty" data-state-view="empty" hidden><div class="empty__title">Belum ada peristiwa tercatat</div><div class="empty__body">Grafik terisi setelah petugas kelurahan mencatat kelahiran, kematian atau perpindahan.</div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Peristiwa kependudukan belum termuat</div><div class="alert__body">Layanan data kependudukan tidak menjawab tepat waktu.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    <div class="chart-card__foot"><span>Kelahiran dicatat saat akta terbit, bukan saat lahir</span></div>
+  </section>
+
+  <section class="chart-card dash-span-4 dash-fill" aria-labelledby="blk-q" data-states>
+    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="blk-q">Cukupkah blangko kartu identitas?</div><div class="chart-card__sub">Stok di 9 kantor kecamatan, 16 Nov 2026</div></div></div>
+    <div class="center" data-state-view="loaded"><div data-lds-chart='{"type":"gauge","label":"Blangko kartu identitas tersisa: 3.420 dari 10.000, 34 persen. Cukup untuk sekitar 16 hari kerja.","value":3420,"max":10000,"center":"34%","unit":"3.420 dari 10.000 blangko","minLabel":"0","maxLabel":"10.000"}' style="--size: 220px;"></div></div>
+    <div class="cluster" style="--gap: 20px; padding: 12px 0;" data-state-view="loading" role="status" aria-label="Memuat stok blangko" hidden><div class="skel" style="width: 140px; height: 140px; border-radius: 50%;"></div><div class="stack" style="--gap: 10px; flex: 1;"><div class="skel" style="height: 12px;"></div><div class="skel" style="height: 12px; width: 70%;"></div><div class="skel" style="height: 12px; width: 50%;"></div></div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Stok blangko belum termuat</div><div class="alert__body">Coba lagi sebentar lagi.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    <div class="chart-card__foot" data-state-view="loaded"><span>Cukup sekitar 16 hari kerja</span><button class="btn btn--plain btn--sm" type="button" data-order>Ajukan tambahan blangko<span class="ic" aria-hidden="true">chevron_right</span></button></div>
+  </section>
+</div>
+
+<div class="dash-grid">
+  <section class="stack dash-span-8" style="--gap: 16px;" aria-labelledby="dok-title" data-states>
+    <div class="section__head"><h2 class="section__title-sm" id="dok-title">Layanan dokumen hari ini</h2><p class="section__sub">Antrean di semua kantor kecamatan sampai 09.30 WIB. Urutkan dengan menekan judul kolom.</p></div>
+    <div class="table-box" tabindex="0" aria-label="Layanan dokumen hari ini, bisa digeser ke samping" data-state-view="loaded">
+      <table class="table" data-lds-sort>
+        <thead><tr><th aria-sort="none"><button type="button">Layanan<span class="ic" aria-hidden="true">arrow_downward</span></button></th><th class="num" aria-sort="none"><button type="button">Antrean<span class="ic" aria-hidden="true">arrow_downward</span></button></th><th class="num" aria-sort="none"><button type="button">Selesai<span class="ic" aria-hidden="true">arrow_downward</span></button></th><th class="num" aria-sort="none"><button type="button">Waktu rata-rata<span class="ic" aria-hidden="true">arrow_downward</span></button></th><th aria-sort="none"><button type="button">Batas layanan<span class="ic" aria-hidden="true">arrow_downward</span></button></th><th>Keadaan</th></tr></thead>
+        <tbody>
+          <tr><td class="strong">Kartu identitas elektronik</td><td class="num">46</td><td class="num">212</td><td class="num" data-sort="38">38 menit</td><td data-sort="480">1 hari kerja</td><td><span class="badge badge--warning">Blangko menipis</span></td></tr>
+          <tr><td class="strong">Kartu keluarga</td><td class="num">31</td><td class="num">164</td><td class="num" data-sort="25">25 menit</td><td data-sort="480">1 hari kerja</td><td><span class="badge badge--success">Normal</span></td></tr>
+          <tr><td class="strong">Kartu identitas anak</td><td class="num">9</td><td class="num">41</td><td class="num" data-sort="20">20 menit</td><td data-sort="480">1 hari kerja</td><td><span class="badge badge--success">Normal</span></td></tr>
+          <tr><td class="strong">Akta kelahiran</td><td class="num">18</td><td class="num">97</td><td class="num" data-sort="576">1,2 hari</td><td data-sort="1440">3 hari kerja</td><td><span class="badge badge--success">Normal</span></td></tr>
+          <tr><td class="strong">Akta kematian</td><td class="num">4</td><td class="num">22</td><td class="num" data-sort="432">0,9 hari</td><td data-sort="1440">3 hari kerja</td><td><span class="badge badge--success">Normal</span></td></tr>
+          <tr><td class="strong">Surat pindah</td><td class="num">12</td><td class="num">38</td><td class="num" data-sort="1296">2,7 hari</td><td data-sort="1440">3 hari kerja</td><td><span class="badge badge--warning">Mendekati batas</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="list" data-state-view="loading" role="status" aria-label="Memuat layanan dokumen" hidden><div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 10px;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 52%;"></span><span class="skel" style="display: block; height: 11px; width: 30%; margin-top: 8px;"></span></span></div><div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 10px;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 44%;"></span><span class="skel" style="display: block; height: 11px; width: 30%; margin-top: 8px;"></span></span></div><div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 10px;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 60%;"></span><span class="skel" style="display: block; height: 11px; width: 30%; margin-top: 8px;"></span></span></div><div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 10px;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 38%;"></span><span class="skel" style="display: block; height: 11px; width: 30%; margin-top: 8px;"></span></span></div><div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 10px;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 48%;"></span><span class="skel" style="display: block; height: 11px; width: 30%; margin-top: 8px;"></span></span></div></div>
+    <div class="list list--fill" data-state-view="empty" hidden><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">id_card</span></div><div class="empty__title">Belum ada antrean hari ini</div><div class="empty__body">Loket buka pukul 08.00. Antrean muncul di sini begitu warga mengambil nomor.</div></div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Layanan dokumen belum termuat</div><div class="alert__body">Sebagian kantor kecamatan belum mengirim data. Tidak ada data yang hilang.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+  </section>
+
+  <section class="stack dash-span-4" style="--gap: 16px;" aria-labelledby="jmp-title" data-states>
+    <div class="section__head"><h2 class="section__title-sm" id="jmp-title">Layanan keliling pekan ini</h2><p class="section__sub">Petugas datang ke kelurahan, sekolah dan rumah sakit.</p></div>
+    <div class="list" data-state-view="loaded">
+        <div class="lrow"><time class="datetile" datetime="2026-11-17"><span class="datetile__m">Nov</span><span class="datetile__d">17</span></time><span class="lrow__body"><span class="lrow__title">Kelurahan Bukit Indah</span><span class="lrow__sub">Sel, 08.00 sampai 12.00 · Kartu identitas dan kartu keluarga</span></span><span class="badge">Lansia dan disabilitas</span></div>
+        <div class="lrow"><time class="datetile" datetime="2026-11-18"><span class="datetile__m">Nov</span><span class="datetile__d">18</span></time><span class="lrow__body"><span class="lrow__title">SMA Negeri 6, Kecamatan Teluk</span><span class="lrow__sub">Rab, 09.00 sampai 14.00 · Perekaman pemilih pemula</span></span><span class="badge">312 siswa terdaftar</span></div>
+        <div class="lrow"><time class="datetile" datetime="2026-11-20"><span class="datetile__m">Nov</span><span class="datetile__d">20</span></time><span class="lrow__body"><span class="lrow__title">Kelurahan Pesisir Indah</span><span class="lrow__sub">Jum, 08.00 sampai 11.00 · Akta kelahiran</span></span><span class="badge badge--warning">Pasca banjir</span></div>
+        <div class="lrow"><time class="datetile" datetime="2026-11-23"><span class="datetile__m">Nov</span><span class="datetile__d">23</span></time><span class="lrow__body"><span class="lrow__title">RSUD Kota Contoh</span><span class="lrow__sub">Sen, 10.00 sampai 12.00 · Akta kelahiran langsung dari ruang bersalin</span></span><span class="badge">Rutin</span></div>
+    </div>
+    <div class="list" data-state-view="loading" role="status" aria-label="Memuat layanan keliling" hidden><div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 10px;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 52%;"></span><span class="skel" style="display: block; height: 11px; width: 30%; margin-top: 8px;"></span></span></div><div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 10px;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 44%;"></span><span class="skel" style="display: block; height: 11px; width: 30%; margin-top: 8px;"></span></span></div><div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 10px;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 60%;"></span><span class="skel" style="display: block; height: 11px; width: 30%; margin-top: 8px;"></span></span></div><div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 10px;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 38%;"></span><span class="skel" style="display: block; height: 11px; width: 30%; margin-top: 8px;"></span></span></div></div>
+    <div class="list list--fill" data-state-view="empty" hidden><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">event_available</span></div><div class="empty__title">Belum ada jadwal keliling</div><div class="empty__body">Jadwalkan kunjungan ke kelurahan yang paling jauh dari kantor kecamatan.</div><a class="btn btn--secondary btn--md" href="kalender.html">Buka kalender kegiatan</a></div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Jadwal keliling belum termuat</div><div class="alert__body">Coba lagi sebentar lagi.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+  </section>
+</div>
+    </main>
+  </div>
+</div>
+<div class="layer-host">
+  <div class="scrim" data-lds-scrim="palette"></div>
+  <div class="cmdk" id="palette" role="dialog" aria-modal="true" aria-label="Cari halaman dan tindakan" data-lds-layer data-lds-cmdk-key="k">
+    <div class="cmdk__search"><span class="ic" aria-hidden="true">search</span><input placeholder="Cari halaman dan tindakan" aria-label="Cari halaman dan tindakan" role="combobox" aria-expanded="true" aria-controls="palette-list" data-lds-filter="palette-list" data-lds-autofocus></div>
+    <div class="cmdk__list" id="palette-list" role="listbox" aria-label="Hasil">
+<div class="cmdk__group">Dasbor</div>
+<a class="cmdk__item" role="option" id="cmd-1" href="ringkasan.html"><span class="ic" aria-hidden="true">dashboard</span>Ringkasan kota</a>
+<a class="cmdk__item" role="option" id="cmd-2" href="pengaduan.html"><span class="ic" aria-hidden="true">campaign</span>Pengaduan warga</a>
+<a class="cmdk__item" role="option" id="cmd-3" href="perizinan.html"><span class="ic" aria-hidden="true">verified</span>Layanan perizinan</a>
+<a class="cmdk__item" role="option" id="cmd-4" href="kependudukan.html"><span class="ic" aria-hidden="true">groups</span>Kependudukan</a>
+<a class="cmdk__item" role="option" id="cmd-5" href="transportasi.html"><span class="ic" aria-hidden="true">directions_bus</span>Transportasi</a>
+<a class="cmdk__item" role="option" id="cmd-6" href="kebencanaan.html"><span class="ic" aria-hidden="true">flood</span>Kebencanaan dan cuaca</a>
+<a class="cmdk__item" role="option" id="cmd-7" href="kesehatan.html"><span class="ic" aria-hidden="true">local_hospital</span>Kesehatan</a>
+<a class="cmdk__item" role="option" id="cmd-8" href="pendidikan.html"><span class="ic" aria-hidden="true">school</span>Pendidikan</a>
+<a class="cmdk__item" role="option" id="cmd-9" href="pendapatan.html"><span class="ic" aria-hidden="true">request_quote</span>Pendapatan daerah</a>
+<a class="cmdk__item" role="option" id="cmd-10" href="bantuan-sosial.html"><span class="ic" aria-hidden="true">volunteer_activism</span>Bantuan sosial</a>
+<a class="cmdk__item" role="option" id="cmd-11" href="umkm.html"><span class="ic" aria-hidden="true">storefront</span>UMKM dan pasar</a>
+<a class="cmdk__item" role="option" id="cmd-12" href="pariwisata.html"><span class="ic" aria-hidden="true">landscape</span>Pariwisata dan agenda</a>
+<a class="cmdk__item" role="option" id="cmd-13" href="lingkungan.html"><span class="ic" aria-hidden="true">eco</span>Lingkungan</a>
+<a class="cmdk__item" role="option" id="cmd-14" href="infrastruktur.html"><span class="ic" aria-hidden="true">lightbulb</span>Infrastruktur dan aset</a>
+<a class="cmdk__item" role="option" id="cmd-15" href="pusat-komando.html"><span class="ic" aria-hidden="true">videocam</span>Pusat komando</a>
+<a class="cmdk__item" role="option" id="cmd-16" href="kepegawaian.html"><span class="ic" aria-hidden="true">badge</span>Kepegawaian</a>
+<a class="cmdk__item" role="option" id="cmd-17" href="keuangan.html"><span class="ic" aria-hidden="true">account_balance</span>Keuangan daerah</a>
+<div class="cmdk__group">Halaman</div>
+<a class="cmdk__item" role="option" id="cmd-18" href="laporan.html"><span class="ic" aria-hidden="true">article</span>Daftar laporan</a>
+<a class="cmdk__item" role="option" id="cmd-19" href="kotak-masuk.html"><span class="ic" aria-hidden="true">inbox</span>Kotak masuk</a>
+<a class="cmdk__item" role="option" id="cmd-20" href="obrolan.html"><span class="ic" aria-hidden="true">chat</span>Obrolan</a>
+<a class="cmdk__item" role="option" id="cmd-21" href="kalender.html"><span class="ic" aria-hidden="true">calendar_month</span>Kalender kegiatan</a>
+<a class="cmdk__item" role="option" id="cmd-22" href="tindak-lanjut.html"><span class="ic" aria-hidden="true">view_kanban</span>Kanban tindak lanjut</a>
+<a class="cmdk__item" role="option" id="cmd-23" href="tugas.html"><span class="ic" aria-hidden="true">checklist</span>Tugas</a>
+<a class="cmdk__item" role="option" id="cmd-24" href="arsip.html"><span class="ic" aria-hidden="true">folder_open</span>Arsip dokumen</a>
+<a class="cmdk__item" role="option" id="cmd-25" href="profil.html"><span class="ic" aria-hidden="true">person</span>Profil</a>
+<a class="cmdk__item" role="option" id="cmd-26" href="pengguna.html"><span class="ic" aria-hidden="true">group</span>Pengguna</a>
+<a class="cmdk__item" role="option" id="cmd-27" href="peran.html"><span class="ic" aria-hidden="true">shield_person</span>Peran dan akses</a>
+<a class="cmdk__item" role="option" id="cmd-28" href="segera-hadir.html"><span class="ic" aria-hidden="true">schedule</span>Segera hadir</a>
+<div class="cmdk__group">Masuk</div>
+<a class="cmdk__item" role="option" id="cmd-29" href="masuk.html"><span class="ic" aria-hidden="true">login</span>Masuk</a>
+<a class="cmdk__item" role="option" id="cmd-30" href="daftar.html"><span class="ic" aria-hidden="true">person_add</span>Daftar</a>
+<a class="cmdk__item" role="option" id="cmd-31" href="lupa-kata-sandi.html"><span class="ic" aria-hidden="true">key</span>Lupa kata sandi</a>
+<a class="cmdk__item" role="option" id="cmd-32" href="verifikasi.html"><span class="ic" aria-hidden="true">sms</span>Verifikasi OTP</a>
+<a class="cmdk__item" role="option" id="cmd-33" href="akses-ditolak.html"><span class="ic" aria-hidden="true">do_not_disturb_on</span>Akses ditolak</a>
+<div class="cmdk__group">Tindakan</div>
+<button type="button" class="cmdk__item" role="option" id="cmd-34" data-cmd="theme:light"><span class="ic" aria-hidden="true">light_mode</span>Pakai tampilan terang</button>
+<button type="button" class="cmdk__item" role="option" id="cmd-35" data-cmd="theme:dark"><span class="ic" aria-hidden="true">dark_mode</span>Pakai tampilan gelap</button>
+<button type="button" class="cmdk__item" role="option" id="cmd-36" data-cmd="theme:system"><span class="ic" aria-hidden="true">desktop_windows</span>Ikuti tampilan sistem</button>
+<button type="button" class="cmdk__item" role="option" id="cmd-37" data-cmd="rail"><span class="ic" aria-hidden="true">left_panel_close</span>Ciutkan atau lebarkan menu samping</button>
+<a class="cmdk__item" role="option" id="cmd-38" href="../index.html"><span class="ic" aria-hidden="true">grid_view</span>Semua contoh</a>
+<a class="cmdk__item" role="option" id="cmd-39" href="../../index.html"><span class="ic" aria-hidden="true">menu_book</span>Dokumentasi sistem desain</a>
+      <div class="cmdk__empty" data-lds-empty hidden>Tidak ada yang cocok. Coba nama halaman seperti "pengaduan" atau "kalender".</div>
+    </div>
+    <div class="cmdk__foot"><span><span class="kbd">↑</span> <span class="kbd">↓</span> untuk berpindah</span><span><span class="kbd">↵</span> untuk membuka</span><span><span class="kbd">esc</span> untuk menutup</span></div>
+  </div>
+</div>
+<script type="module" src="dashboard.js"></script>
+<script type="module">
+import { setLoading } from '../../../js/lds.js';
+import { notify, delay } from './dashboard.js';
+
+const dl = document.querySelector('[data-download]');
+dl.addEventListener('click', async () => { setLoading(dl, true); await delay(1000); setLoading(dl, false); notify({ title: 'Data agregat terunduh', body: 'Kependudukan Kota Contoh per kecamatan, Okt 2026.xlsx', icon: 'check_circle' }); });
+
+// Ask for more ID card blanks once; the button says it was sent
+const order = document.querySelector('[data-order]');
+order.addEventListener('click', () => {
+  order.disabled = true;
+  order.textContent = 'Permintaan terkirim';
+  notify({ title: 'Permintaan 5.000 blangko terkirim', body: 'Bagian umum menjawab paling lambat Rabu, 18 Nov.', icon: 'check_circle' });
+});
+
+// Kecamatan: residents or density, bars move from where they are
+const kec = document.getElementById('kec');
+const fmt = (n) => n.toLocaleString('id-ID');
+document.querySelector('[data-kec-for]').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-set]'); if (!b) return;
+  const key = b.dataset.set;
+  const items = [...kec.querySelectorAll('.hbar')]; const max = Math.max(...items.map((h) => Number(h.dataset[key])));
+  items.forEach((h) => {
+    const v = Number(h.dataset[key]);
+    h.querySelector('.hbar__fill').style.setProperty('--v', `${(v / max * 100).toFixed(1)}%`);
+    h.querySelector('.hbar__val').textContent = key === 'pop' ? fmt(v) : `${fmt(v)}/km²`;
+    h.querySelector('[data-kec-sub]').textContent = key === 'pop' ? `${fmt(Number(h.dataset.dens))} jiwa per km²` : `${fmt(Number(h.dataset.pop))} jiwa`;
+    h.classList.toggle('is-top', v === max);
+  });
+  kec.setAttribute('aria-label', key === 'pop' ? 'Penduduk per kecamatan' : 'Kepadatan penduduk per kecamatan');
+});
+</script>
+</body>
+</html>
