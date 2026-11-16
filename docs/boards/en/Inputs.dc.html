@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lampung Design System · Inputs</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="lds.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700&amp;family=Plus Jakarta Sans+Mono:wght@400;500&amp;display=block">
+<style>
+body{margin:0}
+a{color:#0A6246}a:hover{color:#1E40AF}
+.drop{border-radius:16px;padding:28px;display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;background:var(--bg-base);box-shadow:inset 0 0 0 1.5px var(--line-strong);transition:background-color 160ms var(--ease-standard),box-shadow 160ms var(--ease-standard),transform 560ms var(--spring-smooth)}
+.drop.is-over{background:var(--accent-tint);box-shadow:inset 0 0 0 2px var(--accent);transform:scale(1.01)}
+.drop .ic{font-size:28px;color:var(--text-subtle);transition:transform 360ms var(--spring-snappy)}
+.drop.is-over .ic{color:var(--accent-text);transform:translateY(-3px)}
+.opt-empty{padding:14px 10px;font:400 13px/18px var(--font);color:var(--text-subtle)}
+</style>
+</helmet>
+<div class="lds" data-theme="{{theme}}" style="width: 1280px; min-height: 2410px;">
+<div class="page">
+
+  <header class="page-head">
+    <div>
+      <div class="page-head__crumb"><span class="page-head__mark">L</span>Components · Inputs</div>
+      <h1>Inputs</h1>
+      <p class="page-head__lede">Fields are white with a control-weight edge that passes 3:1 on its own. Focus adds a green edge and a soft halo; errors appear inline, in words, as you type, not after submit.</p>
+    </div>
+    <div class="appearance" role="group" aria-label="Appearance">
+      <span class="appearance__thumb" style="transform: translateX({{thumbX}});"></span>
+      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Light</button>
+      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Dark</button>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Text field</h2>
+      <p class="sec__desc">Label above, always visible. Helper text below explains the format; it turns into the error message when needed, so the layout never jumps.</p>
+      <ul class="spec">
+        <li><b>Height</b><span>44, radius 12, text 15.</span></li>
+        <li><b>Focus</b><span>1.5 px accent edge + 4 px halo, 160 ms.</span></li>
+        <li><b>Validate</b><span>After the first blur, then live.</span></li>
+      </ul>
+    </div>
+    <div class="stage">
+      <div class="grid2">
+        <div class="field">
+          <label class="field__label" for="f-name">Full name</label>
+          <div class="control"><input id="f-name" placeholder="Your name" autocomplete="name"></div>
+          <span class="field__help">As written on your ID card.</span>
+        </div>
+        <div class="field">
+          <label class="field__label" for="f-email">Email</label>
+          <div class="control {{emailClass}}"><span class="ic" aria-hidden="true">mail</span><input id="f-email" type="email" placeholder="email@example.com" value="{{email}}" onChange="{{onEmail}}" onBlur="{{onEmailBlur}}" aria-invalid="{{emailInvalid}}" aria-describedby="f-email-help"><sc-if value="{{emailOk}}" hint-placeholder-val="{{false}}"><span class="ic" style="color: var(--success-text); animation: lds-pop-in 360ms var(--spring-snappy);" aria-hidden="true">check_circle</span></sc-if></div>
+          <span id="f-email-help" class="field__help {{emailHelpClass}}"><span class="ic" aria-hidden="true">{{emailHelpIcon}}</span>{{emailHelp}}</span>
+        </div>
+        <div class="field">
+          <label class="field__label" for="f-amount">Amount <span>Optional</span></label>
+          <div class="control"><span class="control__suffix" style="color: var(--text-subtle);">Rp</span><input id="f-amount" inputmode="numeric" placeholder="0"><span class="control__suffix">per month</span></div>
+          <span class="field__help">Rounded to the nearest thousand.</span>
+        </div>
+        <div class="field">
+          <label class="field__label" for="f-dis">Student ID</label>
+          <div class="control is-disabled"><span class="ic" aria-hidden="true">lock</span><input id="f-dis" value="2207112045" disabled="{{yes}}"></div>
+          <span class="field__help">Set by the registrar. Contact them to change it.</span>
+        </div>
+      </div>
+      <div class="field">
+        <label class="field__label" for="f-bio">Note to your adviser <span>{{bioCount}} / 280</span></label>
+        <div class="control control--area"><textarea id="f-bio" maxlength="280" placeholder="What would you like to discuss?" value="{{bio}}" onChange="{{onBio}}"></textarea></div>
+        <span class="field__help">Your adviser sees this before the meeting.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Search</h2>
+      <p class="sec__desc">Filled instead of outlined, the shape people know from phone settings. Focusing it slides in a Cancel button; clearing appears only once there is text.</p>
+    </div>
+    <div class="stage">
+      <div class="search-wrap {{searchActive}}" style="max-width: 520px;">
+        <div class="control search" style="flex: 1;">
+          <span class="ic" aria-hidden="true">search</span>
+          <input placeholder="Search courses" value="{{q}}" onChange="{{onQ}}" onFocus="{{onQFocus}}" aria-label="Search courses">
+          <sc-if value="{{hasQ}}" hint-placeholder-val="{{false}}"><button class="control__btn" style="width: 24px; height: 24px; margin-right: -2px;" aria-label="Clear search" onClick="{{clearQ}}"><span class="ic ic--fill" style="font-size: 18px; color: var(--text-muted);" aria-hidden="true">cancel</span></button></sc-if>
+        </div>
+        <button class="search__cancel" onClick="{{cancelQ}}" tabindex="{{cancelTab}}">Cancel</button>
+      </div>
+      <div class="list" style="max-width: 520px;">
+        <sc-for list="{{results}}" as="r" hint-placeholder-count="4">
+          <button class="lrow" style="animation: lds-blur-in 240ms var(--ease-enter) both;"><div class="lrow__body"><div class="lrow__title">{{r.name}}</div><div class="lrow__sub">{{r.code}}</div></div><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
+        </sc-for>
+        <sc-if value="{{noResults}}" hint-placeholder-val="{{false}}">
+          <div class="empty" style="padding: 24px;"><div class="empty__title" style="font-size: 15px;">No courses match "{{q}}"</div><div class="empty__body">Check the spelling, or search by course code.</div></div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Password, number, code</h2>
+      <p class="sec__desc">The reveal button swaps its glyph in place. Number digits roll to their new value instead of jumping. The code field is one real input under six cells, so paste and autofill work.</p>
+    </div>
+    <div class="stage">
+      <div class="grid2">
+        <div class="field">
+          <label class="field__label" for="f-pw">Password</label>
+          <div class="control"><span class="ic" aria-hidden="true">key</span><input id="f-pw" type="{{pwType}}" placeholder="At least 8 characters" value="{{pw}}" onChange="{{onPw}}" autocomplete="new-password">
+            <button class="control__btn" onClick="{{togglePw}}" aria-label="{{pwAria}}" aria-pressed="{{pwShown}}"><span class="swap {{pwSwap}}" aria-hidden="true"><span class="ic swap__a">visibility</span><span class="ic swap__b">visibility_off</span></span></button>
+          </div>
+          <div class="meter-seg {{pwMeterClass}}" style="grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 2px;" aria-hidden="true"><i class="{{pw1}}"></i><i class="{{pw2}}"></i><i class="{{pw3}}"></i><i class="{{pw4}}"></i></div>
+          <span class="field__help">{{pwHelp}}</span>
+        </div>
+        <div class="field">
+          <span class="field__label" id="seat-label">Seats to reserve</span>
+          <div class="row" style="gap: 16px;">
+            <div class="stepper-field" role="group" aria-labelledby="seat-label">
+              <button onClick="{{dec}}" disabled="{{decOff}}" aria-label="Fewer seats"><span class="ic" aria-hidden="true">remove</span></button>
+              <span class="stepper-field__value" aria-live="polite" aria-label="{{n}} seats"><span class="roll"><sc-for list="{{digits}}" as="d" hint-placeholder-count="1"><span class="roll__col" style="transform: translateY({{d.y}});"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></sc-for></span></span>
+              <button onClick="{{inc}}" disabled="{{incOff}}" aria-label="More seats"><span class="ic" aria-hidden="true">add</span></button>
+            </div>
+            <span style="font: 400 13px/18px var(--font); color: var(--text-subtle);">1 to 40 seats</span>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <span class="field__label" id="otp-label">Verification code</span>
+        <div class="row" style="gap: 20px;">
+          <div class="otp-wrap">
+            <div class="otp {{otpClass}}" aria-hidden="true">
+              <sc-for list="{{cells}}" as="c" hint-placeholder-count="6">
+                <sc-if value="{{c.sep}}" hint-placeholder-val="{{false}}"><span class="otp__sep"></span></sc-if>
+                <span class="otp__cell {{c.cls}}"><span key="{{c.k}}">{{c.v}}</span></span>
+              </sc-for>
+            </div>
+            <input class="otp__input" inputmode="numeric" autocomplete="one-time-code" maxlength="6" value="{{otp}}" onChange="{{onOtp}}" aria-labelledby="otp-label" aria-describedby="otp-help">
+          </div>
+          <sc-if value="{{otpBusy}}" hint-placeholder-val="{{false}}"><span class="spinner" style="color: var(--text-subtle);"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></sc-if>
+        </div>
+        <span id="otp-help" class="field__help {{otpHelpClass}}"><span class="ic" aria-hidden="true">{{otpHelpIcon}}</span>{{otpHelp}}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Select and combobox</h2>
+      <p class="sec__desc">The list grows out of its field and closes faster than it opened. Arrow keys move, Enter picks, Escape closes. The combobox filters as you type and says so when nothing matches.</p>
+    </div>
+    <div class="stage" style="z-index: 2;">
+      <div class="grid2">
+        <div class="field" style="position: relative;">
+          <span class="field__label" id="sel-label">Semester</span>
+          <button class="control select-trigger {{selPh}}" aria-haspopup="listbox" aria-expanded="{{selOpen}}" aria-labelledby="sel-label" onClick="{{toggleSel}}" onKeyDown="{{selKey}}">{{selText}}<span class="ic" aria-hidden="true">expand_more</span></button>
+          <div class="menu {{selMenu}}" role="listbox" aria-labelledby="sel-label" style="top: calc(100% + 6px); left: 0; right: 0;">
+            <sc-for list="{{semOpts}}" as="o" hint-placeholder-count="4">
+              <button class="menu__item {{o.cls}}" role="option" aria-selected="{{o.sel}}" onClick="{{o.pick}}">{{o.label}}<sc-if value="{{o.isSel}}" hint-placeholder-val="{{false}}"><span class="ic menu__check" aria-hidden="true">check</span></sc-if></button>
+            </sc-for>
+          </div>
+        </div>
+        <div class="field" style="position: relative;">
+          <label class="field__label" for="cb">Country</label>
+          <div class="control"><span class="ic" aria-hidden="true">public</span><input id="cb" role="combobox" aria-expanded="{{cbOpen}}" aria-autocomplete="list" aria-controls="cb-list" placeholder="Type to filter" value="{{cbQ}}" onChange="{{onCb}}" onFocus="{{cbFocus}}" onBlur="{{cbBlur}}" onKeyDown="{{cbKey}}"></div>
+          <div id="cb-list" class="menu {{cbMenu}}" role="listbox" style="top: calc(100% + 6px); left: 0; right: 0; max-height: 240px; overflow: auto;">
+            <sc-for list="{{cbOpts}}" as="o" hint-placeholder-count="5">
+              <button class="menu__item {{o.cls}}" role="option" aria-selected="{{o.active}}" onMouseDown="{{o.pick}}">{{o.label}}</button>
+            </sc-for>
+            <sc-if value="{{cbEmpty}}" hint-placeholder-val="{{false}}"><div class="opt-empty">No country matches "{{cbQ}}".</div></sc-if>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Tags and files</h2>
+      <p class="sec__desc">Enter or comma turns text into a tag that pops in; Backspace on an empty field removes the last one. The drop zone lifts slightly while a file hovers over it.</p>
+    </div>
+    <div class="stage">
+      <div class="field">
+        <label class="field__label" for="tag-in">Topics</label>
+        <div class="control tags">
+          <sc-for list="{{tags}}" as="t" hint-placeholder-count="3">
+            <span class="tag">{{t.label}}<button aria-label="Remove {{t.label}}" onClick="{{t.remove}}"><span class="ic" aria-hidden="true">close</span></button></span>
+          </sc-for>
+          <input id="tag-in" placeholder="Add a topic" value="{{tagQ}}" onChange="{{onTag}}" onKeyDown="{{tagKey}}">
+        </div>
+        <span class="field__help">Up to 8 topics.</span>
+      </div>
+      <div class="drop {{dropClass}}" onDragOver="{{dragOver}}" onDragLeave="{{dragLeave}}" onDrop="{{drop}}">
+        <span class="ic" aria-hidden="true">upload_file</span>
+        <span style="font: 600 15px/20px var(--font); color: var(--text-strong);">{{dropTitle}}</span>
+        <span style="font: 400 13px/18px var(--font); color: var(--text-subtle);">PDF or image, up to 10 MB</span>
+        <label class="btn btn--secondary btn--sm" style="margin-top: 8px; cursor: pointer;">Choose file<input type="file" style="position: absolute; width: 1px; height: 1px; opacity: 0;" onChange="{{pickFile}}"></label>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1280,"height":2410}}'>
+class Component extends DCLogic {
+  componentWillUnmount() { clearTimeout(this._otpT); }
+  renderVals() {
+    const s = this.state || {};
+    const theme = s.theme || this.props.theme || 'light';
+    const dark = theme === 'dark';
+
+    const email = s.email || '';
+    const emailValid = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email);
+    const showErr = s.emailTouched && email.length > 0 && !emailValid;
+
+    const courses = [
+      { name: 'Database Systems', code: 'CS 2104' }, { name: 'Computer Networks', code: 'CS 3102' },
+      { name: 'Linear Algebra', code: 'MA 1203' }, { name: 'Human-Computer Interaction', code: 'CS 3207' },
+      { name: 'Operating Systems', code: 'CS 2201' }, { name: 'Discrete Mathematics', code: 'MA 1101' }
+    ];
+    const q = s.q || '';
+    const ql = q.toLowerCase();
+    const results = courses.filter(c => !ql || c.name.toLowerCase().includes(ql) || c.code.toLowerCase().includes(ql)).slice(0, 4);
+
+    const pw = s.pw || '';
+    let score = 0;
+    if (pw.length >= 8) score++;
+    if (/[A-Z]/.test(pw) && /[a-z]/.test(pw)) score++;
+    if (/\d/.test(pw)) score++;
+    if (/[^A-Za-z0-9]/.test(pw) || pw.length >= 14) score++;
+    const pwWords = ['Use 8 or more characters.', 'Weak. Mix upper and lower case.', 'Fair. Add a number.', 'Good. A symbol makes it strong.', 'Strong password.'];
+
+    const n = s.n == null ? 12 : s.n;
+    const digits = String(n).split('').map(d => ({ y: (-Number(d) * 1.2) + 'em' }));
+
+    const otp = s.otp || '';
+    const cells = Array.from({ length: 6 }, (_, i) => ({
+      v: otp[i] || '', k: 'k' + i + (otp[i] || ''), sep: i === 3,
+      cls: (otp[i] ? 'is-filled ' : '') + (i === Math.min(otp.length, 5) && otp.length < 6 ? 'is-active' : '')
+    }));
+    const otpState = s.otpState || 'idle';
+
+    const sems = ['Odd 2026/2027', 'Even 2026/2027', 'Short term 2027', 'Odd 2027/2028'];
+    const sem = s.sem;
+    const hi = s.semHi == null ? Math.max(sems.indexOf(sem), 0) : s.semHi;
+    const semOpts = sems.map((label, i) => ({ label, sel: String(label === sem), isSel: label === sem, cls: (i === hi ? 'is-hover ' : '') + (label === sem ? 'is-selected' : ''), pick: () => this.setState({ sem: label, selOpen: false }) }));
+
+    const countries = ['Australia', 'Brunei', 'Cambodia', 'Indonesia', 'Japan', 'Laos', 'Malaysia', 'Myanmar', 'Netherlands', 'New Zealand', 'Philippines', 'Singapore', 'South Korea', 'Thailand', 'Timor-Leste', 'Vietnam'];
+    const cbQ = s.cbQ || '';
+    const cbList = countries.filter(c => c.toLowerCase().includes(cbQ.toLowerCase()));
+    const cbHi = Math.min(s.cbHi || 0, Math.max(cbList.length - 1, 0));
+    const cbOpts = cbList.map((label, i) => ({ label, active: String(i === cbHi), cls: i === cbHi ? 'is-hover' : '', pick: (e) => { e.preventDefault(); this.setState({ cbQ: label, cbOpen: false }); } }));
+
+    const tags = (s.tags || ['Design', 'Research']);
+    const addTag = (v) => { const t = v.trim().replace(/,$/, ''); if (t && !tags.includes(t) && tags.length < 8) this.setState({ tags: [...tags, t], tagQ: '' }); else this.setState({ tagQ: '' }); };
+
+    return {
+      theme, yes: true, false: false,
+      isLight: String(!dark), isDark: String(dark),
+      thumbX: dark ? 'calc(100% + 2px)' : '0px',
+      setLight: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'light' })),
+      setDark: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'dark' })),
+
+      email,
+      onEmail: (e) => this.setState({ email: e.target.value }),
+      onEmailBlur: () => this.setState({ emailTouched: true }),
+      emailClass: showErr ? 'is-invalid' : '',
+      emailInvalid: String(showErr),
+      emailOk: emailValid,
+      emailHelpClass: showErr ? 'field__help--error' : (emailValid ? 'field__help--ok' : ''),
+      emailHelpIcon: showErr ? 'error' : (emailValid ? 'check' : 'info'),
+      emailHelp: showErr ? 'This address is missing a domain, like name@campus.ac.id.' : (emailValid ? 'Looks right.' : 'We send receipts here.'),
+
+      bio: s.bio || '', bioCount: (s.bio || '').length,
+      onBio: (e) => this.setState({ bio: e.target.value }),
+
+      q, hasQ: q.length > 0, results, noResults: results.length === 0,
+      searchActive: s.qFocus ? 'is-active' : '',
+      cancelTab: s.qFocus ? '0' : '-1',
+      onQ: (e) => this.setState({ q: e.target.value }),
+      onQFocus: () => this.setState({ qFocus: true }),
+      clearQ: () => this.setState({ q: '' }),
+      cancelQ: () => this.setState({ q: '', qFocus: false }),
+
+      pw, pwType: s.pwShown ? 'text' : 'password', pwShown: String(!!s.pwShown),
+      pwAria: s.pwShown ? 'Hide password' : 'Show password', pwSwap: s.pwShown ? 'is-swapped' : '',
+      togglePw: () => this.setState({ pwShown: !s.pwShown }),
+      onPw: (e) => this.setState({ pw: e.target.value }),
+      pw1: score >= 1 ? 'on' : '', pw2: score >= 2 ? 'on' : '', pw3: score >= 3 ? 'on' : '', pw4: score >= 4 ? 'on' : '',
+      pwMeterClass: score <= 1 && pw ? 'is-full' : (score === 2 ? 'is-warn' : ''),
+      pwHelp: pw ? pwWords[score] : pwWords[0],
+
+      n, digits, decOff: n <= 1, incOff: n >= 40,
+      dec: () => this.setState({ n: Math.max(1, n - 1) }),
+      inc: () => this.setState({ n: Math.min(40, n + 1) }),
+
+      otp, cells, otpBusy: otpState === 'busy',
+      otpClass: otpState === 'error' ? 'is-error is-shake' : '',
+      otpHelpClass: otpState === 'error' ? 'field__help--error' : (otpState === 'ok' ? 'field__help--ok' : ''),
+      otpHelpIcon: otpState === 'error' ? 'error' : (otpState === 'ok' ? 'check_circle' : 'sms'),
+      otpHelp: otpState === 'error' ? 'That code did not match. Demo: any code except 000000 works.' : (otpState === 'ok' ? 'Code accepted.' : (otpState === 'busy' ? 'Checking the code' : 'Sent to the number ending in [last 4 digits].')),
+      onOtp: (e) => {
+        const v = e.target.value.replace(/\D/g, '').slice(0, 6);
+        this.setState({ otp: v, otpState: 'idle' });
+        clearTimeout(this._otpT);
+        if (v.length === 6) {
+          this.setState({ otp: v, otpState: 'busy' });
+          this._otpT = setTimeout(() => this.setState({ otpState: v === '000000' ? 'error' : 'ok' }), 900);
+        }
+      },
+
+      selText: sem || 'Choose a semester', selPh: sem ? '' : 'is-placeholder',
+      selOpen: String(!!s.selOpen), selMenu: s.selOpen ? 'is-open' : '', semOpts,
+      toggleSel: () => this.setState({ selOpen: !s.selOpen, semHi: null }),
+      selKey: (e) => {
+        if (e.key === 'Escape') { this.setState({ selOpen: false }); return; }
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          const d = e.key === 'ArrowDown' ? 1 : -1;
+          this.setState({ selOpen: true, semHi: (hi + d + sems.length) % sems.length });
+        }
+        if ((e.key === 'Enter' || e.key === ' ') && s.selOpen) { e.preventDefault(); this.setState({ sem: sems[hi], selOpen: false }); }
+      },
+
+      cbQ, cbOpts, cbEmpty: cbList.length === 0,
+      cbOpen: String(!!s.cbOpen), cbMenu: s.cbOpen ? 'is-open' : '',
+      onCb: (e) => this.setState({ cbQ: e.target.value, cbOpen: true, cbHi: 0 }),
+      cbFocus: () => this.setState({ cbOpen: true }),
+      cbBlur: () => this.setState({ cbOpen: false }),
+      cbKey: (e) => {
+        if (e.key === 'Escape') this.setState({ cbOpen: false });
+        if (e.key === 'ArrowDown') { e.preventDefault(); this.setState({ cbOpen: true, cbHi: Math.min(cbHi + 1, cbList.length - 1) }); }
+        if (e.key === 'ArrowUp') { e.preventDefault(); this.setState({ cbHi: Math.max(cbHi - 1, 0) }); }
+        if (e.key === 'Enter' && cbList[cbHi]) { e.preventDefault(); this.setState({ cbQ: cbList[cbHi], cbOpen: false }); }
+      },
+
+      tags: tags.map(label => ({ label, remove: () => this.setState({ tags: tags.filter(t => t !== label) }) })),
+      tagQ: s.tagQ || '',
+      onTag: (e) => { const v = e.target.value; if (v.endsWith(',')) addTag(v); else this.setState({ tagQ: v }); },
+      tagKey: (e) => {
+        if (e.key === 'Enter') { e.preventDefault(); addTag(s.tagQ || ''); }
+        if (e.key === 'Backspace' && !(s.tagQ || '') && tags.length) this.setState({ tags: tags.slice(0, -1) });
+      },
+
+      dropClass: s.over ? 'is-over' : '',
+      dropTitle: s.fileName ? s.fileName : (s.over ? 'Release to upload' : 'Drop a file here'),
+      dragOver: (e) => { e.preventDefault(); if (!s.over) this.setState({ over: true }); },
+      dragLeave: () => this.setState({ over: false }),
+      drop: (e) => { e.preventDefault(); const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0]; this.setState({ over: false, fileName: f ? f.name + ' added' : null }); },
+      pickFile: (e) => { const f = e.target.files && e.target.files[0]; if (f) this.setState({ fileName: f.name + ' added' }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

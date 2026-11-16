@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lampung Design System · Microinteractions</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="lds.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700&amp;family=Plus Jakarta Sans+Mono:wght@400;500&amp;display=block">
+<style>
+body{margin:0}
+a{color:#0A6246}a:hover{color:#1E40AF}
+.mi-tier{display:grid;grid-template-columns:130px minmax(0,1fr) auto;gap:20px;align-items:center;padding:14px 0;box-shadow:inset 0 -0.5px 0 var(--line-strong)}
+.mi-tier:last-child{box-shadow:none}
+.mi-tier > b{font:600 14px/20px var(--font);color:var(--text-strong)}
+.mi-tier > span{font:400 14px/20px var(--font);color:var(--text-subtle)}
+.mi-demo{display:flex;align-items:center;gap:12px;justify-content:flex-end}
+.mi-phone{position:relative;width:360px;height:420px;border-radius:32px;background:var(--bg-canvas);box-shadow:inset 0 0 0 1px var(--line),var(--shadow-md);overflow:hidden;padding:20px 12px}
+.mi-phone .toaster{width:320px}
+</style>
+</helmet>
+<div class="lds" data-theme="{{theme}}" data-board="micro" style="width: 1280px; min-height: 3400px;">
+<div class="page">
+
+  <header class="page-head">
+    <div>
+      <div class="page-head__crumb"><span class="page-head__mark">L</span>Foundations · Microinteractions</div>
+      <h1>Microinteractions</h1>
+      <p class="page-head__lede">The small moments people touch all day: a like, a rename, a delete. Each one answers within 100 ms, says the result where the action happened, and gives back as much feedback as the event deserves, no more.</p>
+    </div>
+    <div class="appearance" role="group" aria-label="Appearance">
+      <span class="appearance__thumb" style="transform: translateX({{thumbX}});"></span>
+      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Light</button>
+      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Dark</button>
+    </div>
+  </header>
+
+  <section class="sec sec--full">
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px;">
+      <div class="col" style="gap: 6px;"><h2 style="font: 600 17px/22px var(--font); letter-spacing: -0.01em; color: var(--text-strong);">Trigger</h2><p style="font: 400 14px/21px var(--font); color: var(--text-subtle);">Visible, labeled with its outcome, with distinct rest, hover, pressed, busy and disabled states. Every gesture has a button or key that does the same.</p></div>
+      <div class="col" style="gap: 6px;"><h2 style="font: 600 17px/22px var(--font); letter-spacing: -0.01em; color: var(--text-strong);">Rules</h2><p style="font: 400 14px/21px var(--font); color: var(--text-subtle);">Few and predictable. Repeated presses are ignored while busy, a confirm cannot be hit by the same click that armed it, limits refuse input instead of failing later.</p></div>
+      <div class="col" style="gap: 6px;"><h2 style="font: 600 17px/22px var(--font); letter-spacing: -0.01em; color: var(--text-strong);">Feedback</h2><p style="font: 400 14px/21px var(--font); color: var(--text-subtle);">On the control itself, first. A toast only when the result needs an Undo or happened somewhere else. Motion, words and haptics, never color alone.</p></div>
+      <div class="col" style="gap: 6px;"><h2 style="font: 600 17px/22px var(--font); letter-spacing: -0.01em; color: var(--text-strong);">Loops and modes</h2><p style="font: 400 14px/21px var(--font); color: var(--text-subtle);">Hints retire after a few visits. Modes are rare, always visible, and one key away from leaving.</p></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Feedback scales with the event</h2>
+      <p class="sec__desc">A hover gets a tint, a delete gets a sentence and an Undo. Try each one; none of them opens anything you have to close.</p>
+      <ul class="spec">
+        <li><b>100 ms</b><span>The longest wait before a press changes something on screen.</span></li>
+        <li><b>Haptics</b><span>A light tick on touch devices that support it, always paired with a visual change.</span></li>
+      </ul>
+    </div>
+    <div class="stage" style="gap: 0; padding-top: 10px; padding-bottom: 10px;">
+      <div class="mi-tier"><b>Hover, focus</b><span>A tint or a ring. Nothing moves.</span><div class="mi-demo"><div class="xbar" data-lds-toolbar data-dc-own role="toolbar" aria-label="Note actions"><span class="xbar__hl" aria-hidden="true"></span><button class="xbar__btn is-open"><span class="ic" aria-hidden="true">edit</span><span class="xbar__label"><span>Edit</span></span></button><button class="xbar__btn"><span class="ic" aria-hidden="true">content_copy</span><span class="xbar__label"><span>Duplicate</span></span></button><button class="xbar__btn"><span class="ic" aria-hidden="true">share</span><span class="xbar__label"><span>Share</span></span></button></div></div></div>
+      <div class="mi-tier"><b>Tap, toggle</b><span>The control itself moves: 100 to 340 ms, on a spring.</span><div class="mi-demo"><button class="icon-btn" aria-expanded="false" aria-label="Menu" data-demo="burger" data-dc-own><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button><label class="switch" data-dc-own><input type="checkbox" role="switch"><span class="switch__track"><span class="switch__thumb"></span></span><span class="bell ic" aria-hidden="true">notifications</span>Notify me</label></div></div>
+      <div class="mi-tier"><b>Endorse</b><span>Optimistic: fills at once, rolls back with a shake if the server says no.</span><div class="mi-demo"><button class="like" aria-pressed="false" data-lds-like data-dc-own aria-label="Like"><span class="like__heart"><span class="ic" aria-hidden="true">favorite</span></span><span class="roll" data-lds-roll="128"></span></button></div></div>
+      <div class="mi-tier"><b>Save, send</b><span>Words change in place; only the letters that differ move.</span><div class="mi-demo"><span style="font: 600 15px/20px var(--font); color: var(--text-strong);">Status: <span class="morph" data-lds-morph data-demo="morph" data-dc-own>Submitted</span></span><button class="btn btn--secondary btn--md" data-demo="morph-next" data-dc-own>Next status</button></div></div>
+      <div class="mi-tier"><b>Destroy</b><span>Asked inline, then said in a sentence with Undo.</span><div class="mi-demo"><div class="confirm" data-lds-confirm data-dc-own><span class="confirm__face confirm__face--rest"><button class="confirm__arm" data-act="arm"><span class="ic" aria-hidden="true">delete</span>Delete 3 files</button></span><span class="confirm__face confirm__face--ask"><span class="confirm__q">Delete 3 files?</span><button class="btn btn--plain" data-act="cancel">Cancel</button><button class="btn btn--danger" data-act="confirm">Delete</button></span><span class="confirm__face confirm__face--busy" role="status"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">Deleting</span></span><span class="confirm__face confirm__face--done" role="status"><span class="ic" aria-hidden="true">check_circle</span>Deleted 3 files<button class="confirm__undo" data-act="undo">Undo</button></span></div></div></div>
+      <div class="mi-tier"><b>Refuse</b><span>Two short shakes, the reason stays in words.</span><div class="mi-demo"><div class="field" style="width: 200px;" data-dc-own data-demo="refuse"><div class="control"><input class="control__input" value="ana@campus" aria-label="Email" aria-describedby="mi-err"></div><div class="field__help field__help--error" id="mi-err" style="display: none;"><span class="ic" aria-hidden="true">error</span>Add the domain, like campus.edu</div></div><button class="btn btn--secondary btn--md" data-demo="refuse-btn" data-dc-own>Continue</button></div></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Confirm in place</h2>
+      <p class="sec__desc">Small destructive actions do not need a dialog. The control walks through its states and its width follows the words, so the layout around it never jumps.</p>
+      <ul class="spec">
+        <li><b>Guard</b><span>Confirm ignores clicks for 280 ms after arming.</span></li>
+        <li><b>Working</b><span>Shown at least 600 ms so it never flickers.</span></li>
+        <li><b>Undo</b><span>Available 5 s, focus moves to it.</span></li>
+        <li><b>Escape</b><span>Backs out of the question.</span></li>
+      </ul>
+    </div>
+    <div class="stage" style="flex-direction: row; gap: 28px; align-items: center;">
+      <div class="confirm" data-lds-confirm data-dc-own><span class="confirm__face confirm__face--rest"><button class="confirm__arm" data-act="arm"><span class="ic" aria-hidden="true">logout</span>Leave group</button></span><span class="confirm__face confirm__face--ask"><span class="confirm__q">Leave Thesis Lab?</span><button class="btn btn--plain" data-act="cancel">Stay</button><button class="btn btn--danger" data-act="confirm">Leave</button></span><span class="confirm__face confirm__face--busy" role="status"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">Leaving</span></span><span class="confirm__face confirm__face--done" role="status"><span class="ic" aria-hidden="true">check_circle</span>You left Thesis Lab<button class="confirm__undo" data-act="undo">Undo</button></span></div>
+      <span style="font: 400 13px/18px var(--font); color: var(--text-subtle); max-width: 360px;">Rest, ask, working, done. Each face crossfades at its natural width while the pill springs to the new size.</span>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Waiting, honestly</h2>
+      <p class="sec__desc">Work you cannot measure gets a shimmer and a real elapsed timer. Work you can measure gets a number. When it ends, the label settles into the result.</p>
+      <ul class="spec">
+        <li><b>Shimmer</b><span>A light band crosses the words every 1.8 s.</span></li>
+        <li><b>Dot grid</b><span>A diagonal wave, one step every 80 ms.</span></li>
+        <li><b>Upload</b><span>Progress traced around the drop zone edge.</span></li>
+      </ul>
+    </div>
+    <div class="stage" style="flex-direction: row; gap: 24px; align-items: stretch;">
+      <div class="col" style="flex: 1; gap: 16px; justify-content: center;">
+        <div class="thinking" data-lds-thinking data-demo="think" data-dc-own role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Checking your schedule</span><span class="thinking__time"></span></div>
+        <div><button class="btn btn--secondary btn--md" data-demo="think-btn" data-dc-own><span class="ic" aria-hidden="true">replay</span>Run again</button></div>
+      </div>
+      <div class="drop" data-demo="drop" data-dc-own style="flex: 1;"><span class="ic" aria-hidden="true">cloud_upload</span><div style="font: 600 15px/20px var(--font); color: var(--text-strong);">thesis-final.pdf</div><div style="font: 400 13px/18px var(--font); color: var(--text-subtle);">4.2 MB</div><button class="btn btn--secondary btn--sm" data-demo="upload" style="margin-top: 6px;">Upload</button></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Gestures with a way in</h2>
+      <p class="sec__desc">Swipe a row left to reveal its actions; swipe far or flick to run the last one. The same actions open with the left arrow key, and a hint explains it for the first three visits only.</p>
+      <ul class="spec">
+        <li><b>Slop</b><span>8 px decides swipe or scroll.</span></li>
+        <li><b>Commit</b><span>Past 60% of the row, or a flick over 900 px/s.</span></li>
+        <li><b>After</b><span>The row collapses; a toast offers Undo with a visible countdown that pauses on hover or focus.</span></li>
+      </ul>
+    </div>
+    <div class="stage" style="flex-direction: row; gap: 28px; align-items: flex-start;">
+      <div class="mi-phone" data-demo="phone">
+        <div class="col" style="gap: 12px;">
+          <div class="hint" data-lds-hint="board-swipe" data-max="3" data-dc-own role="note"><span class="ic" aria-hidden="true">touch_app</span><span><b>Swipe a row left</b> for Pin, Archive and Delete.</span><button class="hint__close" data-lds-hint-close aria-label="Hide this hint"><span class="ic ic--sm" aria-hidden="true">close</span></button></div>
+          <div class="list" data-dc-own data-demo="rows">
+            <div class="swipe" data-lds-swipe><div class="swipe__actions"><button class="swipe__act swipe__act--gray" data-swipe="pin"><span class="ic" aria-hidden="true">keep</span>Pin</button><button class="swipe__act swipe__act--accent" data-swipe="archive"><span class="ic" aria-hidden="true">inventory_2</span>Archive</button><button class="swipe__act swipe__act--danger" data-swipe="delete" data-swipe-commit><span class="ic" aria-hidden="true">delete</span>Delete</button></div><div class="swipe__row lrow" tabindex="0"><div class="lrow__body"><div class="lrow__title">Lab report feedback</div><div class="lrow__sub">Two comments on section 3</div></div><span class="lrow__value">09:41</span></div></div>
+            <div class="swipe" data-lds-swipe><div class="swipe__actions"><button class="swipe__act swipe__act--gray" data-swipe="pin"><span class="ic" aria-hidden="true">keep</span>Pin</button><button class="swipe__act swipe__act--accent" data-swipe="archive"><span class="ic" aria-hidden="true">inventory_2</span>Archive</button><button class="swipe__act swipe__act--danger" data-swipe="delete" data-swipe-commit><span class="ic" aria-hidden="true">delete</span>Delete</button></div><div class="swipe__row lrow" tabindex="0"><div class="lrow__body"><div class="lrow__title">Seminar room changed</div><div class="lrow__sub">Now in building C, room 204</div></div><span class="lrow__value">Yesterday</span></div></div>
+            <div class="swipe" data-lds-swipe><div class="swipe__actions"><button class="swipe__act swipe__act--gray" data-swipe="pin"><span class="ic" aria-hidden="true">keep</span>Pin</button><button class="swipe__act swipe__act--accent" data-swipe="archive"><span class="ic" aria-hidden="true">inventory_2</span>Archive</button><button class="swipe__act swipe__act--danger" data-swipe="delete" data-swipe-commit><span class="ic" aria-hidden="true">delete</span>Delete</button></div><div class="swipe__row lrow" tabindex="0"><div class="lrow__body"><div class="lrow__title">Library hold ready</div><div class="lrow__sub">Pick up before Friday</div></div><span class="lrow__value">Mon</span></div></div>
+          </div>
+        </div>
+        <div class="toaster" data-dc-own role="status" aria-live="polite"></div>
+      </div>
+      <div class="col" style="gap: 14px; max-width: 360px;">
+        <span class="stage__label">Keyboard</span>
+        <ul class="spec" style="margin: 0;">
+          <li><b>Left arrow</b><span>Opens the row's actions.</span></li>
+          <li><b>Tab</b><span>Moves through Pin, Archive, Delete.</span></li>
+          <li><b>Right arrow, Escape</b><span>Closes the row.</span></li>
+        </ul>
+        <span class="stage__label" style="margin-top: 8px;">Hint</span>
+        <span style="font: 400 13px/18px var(--font); color: var(--text-subtle);">Counts visits per hint. Closing it retires it at once. A help menu can bring every hint back.</span>
+        <div><button class="btn btn--secondary btn--sm" data-demo="hints" data-dc-own><span class="ic" aria-hidden="true">refresh</span>Show hints again</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Edit where it is</h2>
+      <p class="sec__desc">Click the name to rename it. The field keeps the same size and type, Enter saves, Escape puts it back. A save draws a check; a failed save restores the old name and says why.</p>
+      <ul class="spec">
+        <li><b>Edges</b><span>A scroll area fades an edge only while content waits past it.</span></li>
+      </ul>
+    </div>
+    <div class="stage" style="flex-direction: row; gap: 28px; align-items: stretch;">
+      <div class="col" style="flex: 1; gap: 10px; justify-content: center;">
+        <span class="stage__label">Project</span>
+        <span class="inline-edit" data-lds-inline data-dc-own style="font: 600 22px/28px var(--font); letter-spacing: -0.015em;"><button class="inline-edit__text" aria-label="Rename project"><span class="inline-edit__value">Thesis draft</span><span class="ic" aria-hidden="true">edit</span></button></span>
+      </div>
+      <div class="fade-edges" data-lds-fade data-dc-own style="flex: 1; max-height: 160px; overflow: auto; padding: 0 4px;">
+        <p style="font: 400 14px/22px var(--font); color: var(--text-default); margin: 0;">Scroll this note. The top edge fades in only after you leave the start, and the bottom edge stops fading when you reach the end, so a fade always means there is more in that direction. Grading opens on the first of the month. Late work loses five percent a day for up to five days. Office hours move to Thursday afternoons while the building is renovated. Group projects need one shared repository and a short note on who did what.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Audit any of them</h2>
+      <p class="sec__desc">Eight questions. A microinteraction ships when it passes all eight.</p>
+    </div>
+    <div class="stage" style="gap: 0; padding-top: 6px; padding-bottom: 6px;">
+      <sc-for list="{{audit}}" as="q" hint-placeholder-count="8">
+        <div class="token-row" style="grid-template-columns: 28px minmax(0, 1fr) minmax(0, 1fr);"><b style="color: var(--text-muted);">{{q.n}}</b><span style="color: var(--text-strong);">{{q.q}}</span><span>{{q.fix}}</span></div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Never</h2>
+    </div>
+    <div class="stage" style="flex-direction: row; gap: 20px; align-items: stretch;">
+      <div class="card" style="flex: 1;"><div class="card__title">A toast for every click</div><div class="card__sub">If the control already changed, the toast repeats it. Save toasts for Undo and for results that happen elsewhere.</div></div>
+      <div class="card" style="flex: 1;"><div class="card__title">Progress that lies</div><div class="card__sub">No bar that crawls to 90% and waits. Unknown length gets a shimmer and a timer.</div></div>
+      <div class="card" style="flex: 1;"><div class="card__title">Celebration that blocks</div><div class="card__sub">A success moment never stands between the person and their next step.</div></div>
+    </div>
+  </section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1280,"height":3400}}'>
+class Component extends DCLogic {
+  componentWillUnmount() { (this._timers || []).forEach(clearTimeout); this._gone = true; }
+  later(fn, ms) { this._timers = this._timers || []; this._timers.push(setTimeout(fn, ms)); }
+  boot() {
+    const root = document.querySelector('[data-board="micro"]');
+    if (!root || this._booted) return;
+    this._booted = true;
+    /* The board runs the real behaviors from js/lds.js (published next to the boards as lds.js). */
+    const onDocs = !!document.querySelector('link[href*="docs.css"]');
+    import(onDocs ? '../js/lds.js' : './lds.js').then((m) => { if (!this._gone) this.wire(root, m); }).catch(() => {});
+  }
+  wire(root, lds) {
+    const q = (sel) => root.querySelector(sel);
+    lds.init(root);
+    const burger = q('[data-demo="burger"]');
+    burger.addEventListener('click', () => burger.setAttribute('aria-expanded', String(burger.getAttribute('aria-expanded') !== 'true')));
+    const words = ['Submitted', 'In review', 'Approved', 'Enrolled']; let wi = 0;
+    q('[data-demo="morph-next"]').addEventListener('click', () => lds.morphText(q('[data-demo="morph"]'), words[++wi % words.length]));
+    const refuse = q('[data-demo="refuse"]');
+    q('[data-demo="refuse-btn"]').addEventListener('click', () => {
+      const input = refuse.querySelector('input'), ctl = refuse.querySelector('.control'), msg = refuse.querySelector('.field__help');
+      const bad = !/@.+\..+/.test(input.value);
+      ctl.classList.toggle('is-invalid', bad); msg.style.display = bad ? '' : 'none'; input.setAttribute('aria-invalid', String(bad));
+      if (bad) lds.shake(ctl);
+    });
+    const runThink = (el) => this.later(() => lds.thinkingDone(el, 'Found 3 free slots'), 2400);
+    runThink(q('[data-demo="think"]'));
+    q('[data-demo="think-btn"]').addEventListener('click', () => {
+      const old = q('[data-demo="think"]');
+      const fresh = old.cloneNode(false); fresh.className = 'thinking';
+      fresh.innerHTML = '<span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Checking your schedule</span><span class="thinking__time"></span>';
+      old.replaceWith(fresh); lds.init(fresh.parentNode); runThink(fresh);
+    });
+    const drop = q('[data-demo="drop"]'), up = q('[data-demo="upload"]');
+    up.addEventListener('click', () => {
+      lds.uploadReset(drop); up.disabled = true; let p = 0; lds.uploadProgress(drop, 0);
+      const t = setInterval(() => { if (this._gone) return clearInterval(t); p += 4 + Math.random() * 9; lds.uploadProgress(drop, p); if (p >= 100) { clearInterval(t); up.textContent = 'Upload again'; up.disabled = false; } }, 220);
+    });
+    const phone = q('[data-demo="phone"]');
+    root.querySelectorAll('[data-lds-swipe]').forEach((row) => row.addEventListener('lds:swipe', (e) => {
+      if (e.detail.action !== 'delete') return;
+      lds.toast({ title: 'Message deleted', icon: 'delete', action: 'Undo', duration: 5000, container: phone, onAction: () => { e.detail.restore(); return { title: 'Message restored', icon: 'undo' }; } });
+    }));
+    q('[data-demo="hints"]').addEventListener('click', () => { lds.resetHints(['board-swipe']); const h = q('[data-lds-hint]'); h.hidden = false; h.removeAttribute('data-seen'); });
+  }
+  renderVals() {
+    const s = this.state || {};
+    const theme = s.theme || this.props.theme || 'light';
+    const dark = theme === 'dark';
+    if (!this._booted) setTimeout(() => this.boot(), 0);
+    const audit = [
+      ['Is the trigger visible and labeled with its outcome?', 'Add a control or a one-time hint for any gesture.'],
+      ['Does the trigger show its state: rest, hover, pressed, busy, off?', 'Give every state its own look.'],
+      ['Are the rules simple, and safe against double presses?', 'Ignore input while busy; guard confirms.'],
+      ['Does something change within 100 ms?', 'Respond on press, not on release or on the server.'],
+      ['Is the feedback the size of the event?', 'Tint for hover, words for save, Undo for delete.'],
+      ['Does it get quieter with use?', 'Retire hints after a few visits; keep a way back.'],
+      ['Is any mode visible and easy to leave?', 'Show the mode; let Escape end it.'],
+      ['Could someone use it the first time without help?', 'Simplify before adding instructions.']
+    ].map(([qq, fix], i) => ({ n: String(i + 1), q: qq, fix }));
+    return {
+      theme,
+      isLight: String(!dark),
+      isDark: String(dark),
+      thumbX: dark ? 'calc(100% + 2px)' : '0px',
+      setLight: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'light' })),
+      setDark: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'dark' })),
+      audit
+    };
+  }
+}
+</script>
+</body>
+</html>

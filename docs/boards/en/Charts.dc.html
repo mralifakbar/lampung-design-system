@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lampung Design System · Charts</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="lds.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700&amp;family=Plus Jakarta Sans+Mono:wght@400;500&amp;display=block">
+<style>
+body{margin:0}
+a{color:#0A6246}a:hover{color:#1E40AF}
+.plot{position:relative}
+.plot svg{display:block;width:100%;height:auto;overflow:visible}
+.ctip{position:absolute;top:0;padding:8px 10px;border-radius:10px;background:var(--bg-inverse);color:var(--text-inverse);font:500 12px/17px var(--font);pointer-events:none;white-space:nowrap;box-shadow:var(--shadow-md);transition:left 240ms var(--ease-standard),opacity 120ms;font-variant-numeric:tabular-nums}
+.ctip i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:6px}
+.cross{stroke:var(--line-strong);stroke-width:1}
+.hm{display:grid;grid-template-columns:repeat(20,minmax(0,1fr));gap:3px}
+.hm i{aspect-ratio:1;border-radius:3px;background:var(--bg-recessed);transition:transform 360ms var(--spring-snappy)}
+.lds:not([data-theme="dark"]) .hm i{background:#ECECEF}
+.hm i:hover{transform:scale(1.25)}
+.lds .hm i.l1{background:color-mix(in srgb,var(--series-1) 22%,var(--bg-base))}
+.lds .hm i.l2{background:color-mix(in srgb,var(--series-1) 45%,var(--bg-base))}
+.lds .hm i.l3{background:color-mix(in srgb,var(--series-1) 70%,var(--bg-base))}
+.lds .hm i.l4{background:var(--series-1)}
+.pbar{display:flex;gap:2px;height:14px;border-radius:4px;overflow:hidden}
+.pbar span{height:100%;transition:flex-grow 480ms var(--ease-inout)}
+.donut-seg{transition:stroke-dasharray 480ms var(--ease-inout),stroke-dashoffset 480ms var(--ease-inout),opacity 160ms}
+.donut-wrap:hover .donut-seg{opacity:.4}
+.donut-wrap .donut-seg:hover{opacity:1}
+</style>
+</helmet>
+<div class="lds" data-theme="{{theme}}" data-board="charts" style="width: 1280px; min-height: 5350px;">
+<div class="page">
+
+  <header class="page-head">
+    <div>
+      <div class="page-head__crumb"><span class="page-head__mark">L</span>Components · Charts</div>
+      <h1>Charts</h1>
+      <p class="page-head__lede">Each chart answers one question, written as its title. Marks are thin, grids recede, four series colors are assigned in a fixed order and validated for color-blind separation in both appearances. The numbers here are examples.</p>
+    </div>
+    <div class="appearance" role="group" aria-label="Appearance">
+      <span class="appearance__thumb" style="transform: translateX({{thumbX}});"></span>
+      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Light</button>
+      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Dark</button>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Series colors</h2>
+      <p class="sec__desc">Always in this order, never cycled; a fifth series folds into "Other". Color follows the entity, so filtering never repaints the survivors. Text beside a mark stays in ink colors.</p>
+      <ul class="spec">
+        <li><b>Checked</b><span>CVD ΔE ≥ 12, lightness band, chroma floor.</span></li>
+        <li><b>Orange</b><span>Under 3:1 on white: always labeled.</span></li>
+      </ul>
+    </div>
+    <div class="grid4">
+      <sc-for list="{{series}}" as="s" hint-placeholder-count="4">
+        <div class="swatch"><div class="swatch__chip" style="background: var({{s.token}}); height: 56px;"></div><div><div class="swatch__name">{{s.n}}</div><div class="swatch__meta">{{s.hex}}</div></div></div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section class="sec sec--full">
+    <div class="grid2">
+      <div class="chart-card">
+        <div style="display: flex; justify-content: space-between; gap: 12px;"><div><div class="chart-card__q">How often do I attend?</div><div class="chart-card__sub">Attendance rate, last 12 weeks</div></div></div>
+        <div style="display: flex; align-items: flex-end; justify-content: space-between; gap: 20px;">
+          <div><div class="chart-card__big">92%</div><div class="badge badge--success" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_up</span>4 points above term start</div></div>
+          <svg viewBox="0 0 220 64" style="width: 220px; height: 64px;" role="img" aria-label="Attendance trend rising from 88 to 92 percent">
+            <path class="series-area" d="{{sparkArea}}"></path>
+            <path class="series-line draw" d="{{sparkLine}}"></path>
+            <circle cx="{{sparkEndX}}" cy="{{sparkEndY}}" r="4" fill="var(--series-1)" stroke="var(--bg-base)" stroke-width="2"></circle>
+          </svg>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div style="display: flex; justify-content: space-between; gap: 12px;"><div><div class="chart-card__q">Where do my credits go?</div><div class="chart-card__sub">Share of credits by course type</div></div></div>
+        <div class="pbar" role="img" aria-label="Core 50 percent, electives 25, labs 15, general 10">
+          <sc-for list="{{share}}" as="p" hint-placeholder-count="4"><span style="flex-grow: {{p.v}}; background: var({{p.token}});"></span></sc-for>
+        </div>
+        <div class="legend"><sc-for list="{{share}}" as="p" hint-placeholder-count="4"><span><i style="background: var({{p.token}});"></i>{{p.label}} <b style="font-weight: 500; color: var(--text-strong);">{{p.v}}%</b></span></sc-for></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--full sec--joined">
+    <div class="chart-card">
+      <div style="display: flex; justify-content: space-between; gap: 12px; align-items: flex-start;">
+        <div><div class="chart-card__q">Am I keeping up with the class?</div><div class="chart-card__sub">Quiz score per week, mine against the class average</div></div>
+        <div class="row" style="gap: 12px;"><div class="legend"><span><i style="background: var(--series-1); height: 3px; border-radius: 2px;"></i>Your score</span><span><i style="background: var(--series-2); height: 3px; border-radius: 2px;"></i>Class average</span></div></div>
+      </div>
+      <div class="plot" onMouseMove="{{lineMove}}" onMouseLeave="{{lineLeave}}">
+        <svg viewBox="0 0 1000 260" role="img" aria-label="Weekly quiz scores over 10 weeks, your score against class average">
+          <sc-for list="{{yTicks}}" as="t" hint-placeholder-count="4">
+            <line class="axis-line" x1="44" x2="1000" y1="{{t.y}}" y2="{{t.y}}"></line>
+            <text class="axis-text" x="0" y="{{t.ty}}">{{t.label}}</text>
+          </sc-for>
+          <sc-for list="{{xTicks}}" as="t" hint-placeholder-count="10"><text class="axis-text" x="{{t.x}}" y="256" text-anchor="middle">{{t.label}}</text></sc-for>
+          <path class="series-area" d="{{lineArea}}"></path>
+          <path class="series-line series-line--2" style="stroke: var(--series-2); stroke-dasharray: none; stroke-width: 2;" d="{{line2}}"></path>
+          <path class="series-line draw" d="{{line1}}"></path>
+          <text x="1000" y="{{lab1y}}" text-anchor="end" style="font: 500 12px var(--font); fill: var(--text-strong);">You {{last1}}</text>
+          <text x="1000" y="{{lab2y}}" text-anchor="end" style="font: 500 12px var(--font); fill: var(--text-subtle);">Class {{last2}}</text>
+          <sc-if value="{{hasHover}}" hint-placeholder-val="{{false}}">
+            <line class="cross" x1="{{hx}}" x2="{{hx}}" y1="12" y2="232"></line>
+            <circle cx="{{hx}}" cy="{{hy2}}" r="5" fill="var(--series-2)" stroke="var(--bg-base)" stroke-width="2"></circle>
+            <circle cx="{{hx}}" cy="{{hy1}}" r="5" fill="var(--series-1)" stroke="var(--bg-base)" stroke-width="2"></circle>
+          </sc-if>
+        </svg>
+        <div class="ctip" style="left: {{tipLeft}}; opacity: {{tipOp}};">
+          <div style="opacity: .7; margin-bottom: 2px;">Week {{hw}}</div>
+          <div><i style="background: var(--series-1);"></i>You {{hv1}}</div>
+          <div><i style="background: var(--series-2);"></i>Class {{hv2}}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec sec--full sec--joined">
+    <div class="grid2">
+      <div class="chart-card">
+        <div style="display: flex; justify-content: space-between; gap: 12px; align-items: flex-start;">
+          <div><div class="chart-card__q">Which days are busiest?</div><div class="chart-card__sub">Assignments submitted per weekday</div></div>
+          <div class="seg" role="group" aria-label="Period" style="width: 200px;">
+            <span class="seg__thumb" style="width: calc((100% - 4px) / 2); transform: translateX({{barX}});"></span>
+            <button class="seg__btn" aria-pressed="{{barThis}}" onClick="{{setThis}}">This week</button>
+            <button class="seg__btn" aria-pressed="{{barLast}}" onClick="{{setLast}}">Last week</button>
+          </div>
+        </div>
+        <div class="bars" role="img" aria-label="{{barAria}}">
+          <sc-for list="{{bars}}" as="b" hint-placeholder-count="7">
+            <div class="bars__col">
+              <span class="bars__bar {{b.cls}}" style="height: {{b.h}};"><span class="bars__tip">{{b.v}} submitted</span></span>
+              <span class="bars__x">{{b.d}}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div class="chart-card">
+        <div style="display: flex; justify-content: space-between; gap: 12px; align-items: flex-start;">
+          <div><div class="chart-card__q">How are grades distributed?</div><div class="chart-card__sub">Final grades, Database Systems</div></div>
+          <div class="seg" role="group" aria-label="Class" style="width: 180px;">
+            <span class="seg__thumb" style="width: calc((100% - 4px) / 2); transform: translateX({{dX}});"></span>
+            <button class="seg__btn" aria-pressed="{{dA}}" onClick="{{setDA}}">Class A</button>
+            <button class="seg__btn" aria-pressed="{{dB}}" onClick="{{setDB}}">Class B</button>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 28px;">
+          <div class="donut-wrap" style="position: relative; width: 168px; height: 168px; flex: none;">
+            <svg viewBox="0 0 168 168" style="width: 168px; height: 168px; transform: rotate(-90deg);" role="img" aria-label="{{donutAria}}">
+              <sc-for list="{{donut}}" as="d" hint-placeholder-count="4">
+                <circle class="donut-seg" cx="84" cy="84" r="64" fill="none" stroke-width="18" style="stroke: var({{d.token}}); stroke-dasharray: {{d.dash}}; stroke-dashoffset: {{d.off}};"></circle>
+              </sc-for>
+            </svg>
+            <div style="position: absolute; inset: 0; display: grid; place-items: center; text-align: center;"><div><div style="font: 600 26px/30px var(--font); letter-spacing: -0.02em; color: var(--text-strong);" key="{{dTotal}}">{{dTotal}}</div><div style="font: 400 12px/16px var(--font); color: var(--text-subtle);">students</div></div></div>
+          </div>
+          <div class="col" style="gap: 10px; flex: 1;">
+            <sc-for list="{{donut}}" as="d" hint-placeholder-count="4">
+              <div style="display: flex; align-items: center; gap: 10px; font: 400 14px/20px var(--font); color: var(--text-default);"><i style="width: 10px; height: 10px; border-radius: 3px; background: var({{d.token}});"></i><span style="flex: 1;">{{d.label}}</span><b style="font-weight: 500; color: var(--text-strong); font-variant-numeric: tabular-nums;">{{d.v}}</b></div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Heatmap</h2>
+      <p class="sec__desc">Magnitude uses one hue, light to dark, with five steps including empty. Cells grow slightly under the pointer; the legend reads less to more.</p>
+    </div>
+    <div class="chart-card">
+      <div style="display: flex; justify-content: space-between;"><div><div class="chart-card__q">When do I study?</div><div class="chart-card__sub">Hours logged per day, last 20 weeks</div></div></div>
+      <div class="hm" role="img" aria-label="Study activity heatmap, busiest mid-week">
+        <sc-for list="{{cells}}" as="c" hint-placeholder-count="140"><i class="{{c.l}}" title="{{c.t}}"></i></sc-for>
+      </div>
+      <div class="row" style="gap: 6px; font: 400 12px/16px var(--font); color: var(--text-subtle); justify-content: flex-end;">Less <span class="hm" style="display: flex; gap: 3px;"><i style="width: 12px;"></i><i class="l1" style="width: 12px;"></i><i class="l2" style="width: 12px;"></i><i class="l3" style="width: 12px;"></i><i class="l4" style="width: 12px;"></i></span> More</div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">States</h2>
+      <p class="sec__desc">Charts load with a skeleton of their own axes, say so when a range has no data, and name the failure with a retry.</p>
+    </div>
+    <div class="grid3">
+      <div class="chart-card" style="min-height: 180px;" role="status" aria-label="Loading chart"><div class="skel" style="height: 14px; width: 55%;"></div><div style="display: flex; align-items: flex-end; gap: 8px; height: 100px;"><div class="skel" style="flex: 1; height: 40%;"></div><div class="skel" style="flex: 1; height: 70%;"></div><div class="skel" style="flex: 1; height: 55%;"></div><div class="skel" style="flex: 1; height: 85%;"></div><div class="skel" style="flex: 1; height: 30%;"></div></div></div>
+      <div class="chart-card" style="min-height: 180px;"><div class="empty" style="padding: 16px 8px;"><div class="empty__title" style="font-size: 15px;">No submissions this week</div><div class="empty__body">The chart fills in as assignments come in.</div></div></div>
+      <div class="chart-card" style="min-height: 180px;"><div class="empty" style="padding: 16px 8px;"><div class="empty__title" style="font-size: 15px; color: var(--danger-text);">Chart data did not load</div><div class="empty__body">The grades service timed out.</div><button class="btn btn--secondary btn--sm"><span class="ic" aria-hidden="true">refresh</span>Retry</button></div></div>
+    </div>
+  </section>
+
+  <!-- ============================== Dashboard charts ============================== -->
+  <section class="sec" id="charts-more">
+    <div class="sec__aside">
+      <h2 class="sec__title">Dashboard charts</h2>
+      <p class="sec__desc">Drawn from JSON by drawChart: axes, tooltips, legends and the period switch come with it. Ranked bars, gauges, funnels, target bars and uptime bars cover what a line cannot.</p>
+    </div>
+    <div class="col" style="gap: 32px;">
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Chart cards in a row</p>
+<div class="auto-grid" style="--min: 300px;">
+  <section class="chart-card" aria-labelledby="cc-busy">
+    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="cc-busy">Which day is busiest?</div><div class="chart-card__sub">Lessons booked per weekday, this week</div></div></div>
+    <div class="chart" data-lds-chart='{"label":"Lessons booked per weekday this week. Thursday is busiest with 31.","x":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],"series":[{"name":"Lessons","values":[18,24,22,31,27,12,6],"kind":"bar"}],"highlight":3,"height":180}'></div>
+  </section>
+  <section class="chart-card" aria-labelledby="cc-score">
+    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="cc-score">Are quiz scores improving?</div><div class="chart-card__sub">Average score per week, out of 100</div></div></div>
+    <div class="chart" data-lds-chart='{"label":"Average quiz score per week. This term rose from 64 to 81; last term stayed near 70.","x":["W1","W2","W3","W4","W5","W6","W7","W8"],"kind":"line","series":[{"name":"This term","values":[64,67,66,71,74,73,78,81]},{"name":"Last term","values":[68,70,69,71,70,72,71,70],"dashed":true,"color":4}],"y":{"min":50,"max":90},"height":180}'></div>
+    <div class="chart-card__foot"><span>Example data</span><a class="btn btn--plain btn--sm" href="#cc-score">See every quiz<span class="ic" aria-hidden="true">chevron_right</span></a></div>
+  </section>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Area chart</p>
+<section class="chart-card" aria-labelledby="ac-visits">
+  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="ac-visits">Are more people finding the course pages?</div><div class="chart-card__sub">Visits per day, November against October</div></div></div>
+  <div class="chart" data-lds-chart='{"label":"Course page visits per day. This month 27,830, 18% more than last month.","x":["18 Oct","19 Oct","20 Oct","21 Oct","22 Oct","23 Oct","24 Oct","25 Oct","26 Oct","27 Oct","28 Oct","29 Oct","30 Oct","31 Oct","1 Nov","2 Nov","3 Nov","4 Nov","5 Nov","6 Nov","7 Nov","8 Nov","9 Nov","10 Nov","11 Nov","12 Nov","13 Nov","14 Nov","15 Nov","16 Nov"],"xFull":["Sun 18 Oct","Mon 19 Oct","Tue 20 Oct","Wed 21 Oct","Thu 22 Oct","Fri 23 Oct","Sat 24 Oct","Sun 25 Oct","Mon 26 Oct","Tue 27 Oct","Wed 28 Oct","Thu 29 Oct","Fri 30 Oct","Sat 31 Oct","Sun 1 Nov","Mon 2 Nov","Tue 3 Nov","Wed 4 Nov","Thu 5 Nov","Fri 6 Nov","Sat 7 Nov","Sun 8 Nov","Mon 9 Nov","Tue 10 Nov","Wed 11 Nov","Thu 12 Nov","Fri 13 Nov","Sat 14 Nov","Sun 15 Nov","Mon 16 Nov"],"xName":"Day","series":[{"name":"This month","values":[870,920,930,870,820,670,720,910,980,1050,1010,890,750,760,910,1050,1110,980,920,730,870,900,1090,1150,1070,930,850,900,1000,1220]},{"name":"Last month","values":[800,870,930,830,690,580,620,820,870,860,860,720,680,620,790,920,910,810,700,610,700,830,930,920,900,750,710,710,750,920],"kind":"line","dashed":true,"color":4}]}'></div>
+</section>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Combo chart</p>
+<section class="chart-card" aria-labelledby="cb-q">
+  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="cb-q">Are sales ahead of plan?</div><div class="chart-card__sub">Course sales per month, 2026</div></div></div>
+  <div class="chart" data-lds-chart='{"label":"Monthly course sales against plan, 2026. Ahead of plan since July; November $56,000 against $52,000 planned. December still open.","x":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"xFull":["Jan 2026","Feb 2026","Mar 2026","Apr 2026","May 2026","Jun 2026","Jul 2026","Aug 2026","Sep 2026","Oct 2026","Nov 2026","Dec 2026"],"xName":"Month","format":{"prefix":"$","compact":true},"series":[{"name":"Sales","values":[31000,34000,29000,38000,41000,37000,44000,47000,43000,52000,56000,0],"kind":"bar"},{"name":"Plan","values":[32000,33000,34000,36000,38000,40000,42000,44000,46000,49000,52000,55000],"kind":"line","dashed":true,"color":4}],"refs":[{"value":50000,"label":"Break-even $50k"}],"height":240}'></div>
+</section>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Ranked bars</p>
+<section class="chart-card" style="max-width: 560px;" aria-labelledby="rb-src">
+  <div><div class="chart-card__q" id="rb-src">Where do visitors come from?</div><div class="chart-card__sub">Visits by source, November</div></div>
+  <div class="hbars" role="list" data-lds-grow aria-label="Visits by source">
+  <div role="listitem" class="hbar is-top"><span class="hbar__label"><span class="hbar__media" aria-hidden="true"><span class="ic">search</span></span><span>Search</span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 100.0%;"></span></span><span class="hbar__val">4,210<span class="delta delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>12%<span class="sr-only"> up</span></span></span></div>
+  <div role="listitem" class="hbar"><span class="hbar__label"><span class="hbar__media" aria-hidden="true"><span class="ic">mail</span></span><span>Newsletter</span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 56.5%;"></span></span><span class="hbar__val">2,380<span class="delta delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>4%<span class="sr-only"> up</span></span></span></div>
+  <div role="listitem" class="hbar"><span class="hbar__label"><span class="hbar__media" aria-hidden="true"><span class="ic">school</span></span><span>Partner schools</span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 40.6%;"></span></span><span class="hbar__val">1,710<span class="delta delta--bad delta--down"><span class="ic" aria-hidden="true">arrow_upward</span>6%<span class="sr-only"> down</span></span></span></div>
+  <div role="listitem" class="hbar"><span class="hbar__label"><span class="hbar__media" aria-hidden="true"><span class="ic">share</span></span><span>Social posts</span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 22.8%;"></span></span><span class="hbar__val">960<span class="delta delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>21%<span class="sr-only"> up</span></span></span></div>
+  <div role="listitem" class="hbar"><span class="hbar__label"><span class="hbar__media" aria-hidden="true"><span class="ic">link</span></span><span>Direct</span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 15.2%;"></span></span><span class="hbar__val">640<span class="delta delta--bad delta--down"><span class="ic" aria-hidden="true">arrow_upward</span>2%<span class="sr-only"> down</span></span></span></div>
+  </div>
+</section>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Gauges</p>
+<div class="docs-row" style="gap: 32px;">
+  <div data-lds-chart='{"type":"gauge","label":"Average quiz score 82 of 100.","value":82,"max":100,"tone":"success","unit":"average score"}' style="--size: 180px;"></div>
+  <div data-lds-chart='{"type":"gauge","label":"Server load at 64 percent.","value":64,"max":100,"center":"64%","unit":"server load"}' style="--size: 180px;"></div>
+  <div data-lds-chart='{"type":"gauge","label":"Storage 91 percent used.","value":91,"max":100,"center":"91%","tone":"warning","unit":"storage used"}' style="--size: 180px;"></div>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Funnel</p>
+<section class="chart-card" style="max-width: 420px;" aria-labelledby="fn-h">
+  <div><div class="chart-card__q" id="fn-h">How many tutors make it through?</div><div class="chart-card__sub">Tutor applications, autumn round</div></div>
+  <ol class="funnel" data-lds-grow aria-label="Tutor hiring funnel, autumn round">
+  <li class="funnel__row" style="--v: 100.0%;">
+    <div class="funnel__meta"><span class="funnel__label">Applied</span><span><span class="funnel__val">214</span></span></div>
+    <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
+  </li>
+  <li class="funnel__row" style="--v: 44.9%;">
+    <div class="funnel__meta"><span class="funnel__label">Passed screening</span><span><span class="funnel__val">96</span><span class="funnel__conv">45% of the step before</span></span></div>
+    <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
+  </li>
+  <li class="funnel__row is-drop" style="--v: 14.5%;">
+    <div class="funnel__meta"><span class="funnel__label">Interviewed</span><span><span class="funnel__val">31</span><span class="funnel__conv">32% of the step before</span></span></div>
+    <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
+  </li>
+  <li class="funnel__row is-drop" style="--v: 2.8%;">
+    <div class="funnel__meta"><span class="funnel__label">Offered</span><span><span class="funnel__val">6</span><span class="funnel__conv">19% of the step before</span></span></div>
+    <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
+  </li>
+</ol>
+</section>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Target bar</p>
+<section class="chart-card" style="max-width: 520px;" data-lds-grow aria-labelledby="tb-q">
+  <div><div class="chart-card__q" id="tb-q">Will we reach the Q4 goal?</div><div class="chart-card__sub">Course sales since 1 October</div></div>
+  <div class="target" style="--v: 84.3%; --t: 100%; --f: 97%;">
+    <div class="target__meta"><span class="target__label">Sales</span><span class="target__val"><b>$84,300</b> of $100,000</span></div>
+    <div class="target__track" role="img" aria-label="Sales: $84,300 of $100,000, goal marked at 100 percent, forecast 97 percent"><span class="target__forecast"></span><span class="target__fill"></span><span class="target__mark is-end"><span class="target__mark-label">Goal</span></span></div>
+    <div class="target__foot"><span>Forecast $97,000 by 31 Dec</span><span>45 days left</span></div>
+  </div>
+</section>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Uptime bars</p>
+<section class="chart-card" style="max-width: 720px;" aria-labelledby="up-q">
+  <div><div class="chart-card__q" id="up-q">Has the learning platform been reliable?</div><div class="chart-card__sub">Daily status of each service, last 90 days</div></div>
+  <div class="stack" style="--gap: 24px;">
+  <div class="uptime-box">
+    <div class="cluster" style="justify-content: space-between; --gap: 8px;"><span class="status status--ok"><i></i>Website</span><span style="font: var(--type-footnote); color: var(--text-subtle); font-variant-numeric: tabular-nums;">99.97% uptime</span></div>
+    <div class="uptime" data-lds-uptime tabindex="0" role="img" aria-label="Website, last 90 days: 99.97% uptime. Arrow keys read each day."><i class="is-ok" data-label="Wed 19 Aug: no incidents"></i><i class="is-ok" data-label="Thu 20 Aug: no incidents"></i><i class="is-ok" data-label="Fri 21 Aug: no incidents"></i><i class="is-ok" data-label="Sat 22 Aug: no incidents"></i><i class="is-ok" data-label="Sun 23 Aug: no incidents"></i><i class="is-ok" data-label="Mon 24 Aug: no incidents"></i><i class="is-ok" data-label="Tue 25 Aug: no incidents"></i><i class="is-ok" data-label="Wed 26 Aug: no incidents"></i><i class="is-ok" data-label="Thu 27 Aug: no incidents"></i><i class="is-ok" data-label="Fri 28 Aug: no incidents"></i><i class="is-ok" data-label="Sat 29 Aug: no incidents"></i><i class="is-ok" data-label="Sun 30 Aug: no incidents"></i><i class="is-warn" data-label="Mon 31 Aug: Slow video playback for 40 minutes"></i><i class="is-ok" data-label="Tue 1 Sep: no incidents"></i><i class="is-ok" data-label="Wed 2 Sep: no incidents"></i><i class="is-ok" data-label="Thu 3 Sep: no incidents"></i><i class="is-ok" data-label="Fri 4 Sep: no incidents"></i><i class="is-ok" data-label="Sat 5 Sep: no incidents"></i><i class="is-ok" data-label="Sun 6 Sep: no incidents"></i><i class="is-ok" data-label="Mon 7 Sep: no incidents"></i><i class="is-ok" data-label="Tue 8 Sep: no incidents"></i><i class="is-ok" data-label="Wed 9 Sep: no incidents"></i><i class="is-ok" data-label="Thu 10 Sep: no incidents"></i><i class="is-ok" data-label="Fri 11 Sep: no incidents"></i><i class="is-ok" data-label="Sat 12 Sep: no incidents"></i><i class="is-ok" data-label="Sun 13 Sep: no incidents"></i><i class="is-ok" data-label="Mon 14 Sep: no incidents"></i><i class="is-ok" data-label="Tue 15 Sep: no incidents"></i><i class="is-ok" data-label="Wed 16 Sep: no incidents"></i><i class="is-ok" data-label="Thu 17 Sep: no incidents"></i><i class="is-ok" data-label="Fri 18 Sep: no incidents"></i><i class="is-ok" data-label="Sat 19 Sep: no incidents"></i><i class="is-ok" data-label="Sun 20 Sep: no incidents"></i><i class="is-ok" data-label="Mon 21 Sep: no incidents"></i><i class="is-ok" data-label="Tue 22 Sep: no incidents"></i><i class="is-ok" data-label="Wed 23 Sep: no incidents"></i><i class="is-ok" data-label="Thu 24 Sep: no incidents"></i><i class="is-down" data-label="Fri 25 Sep: Sign-in unavailable for 18 minutes"></i><i class="is-warn" data-label="Sat 26 Sep: Slow sign-in for 25 minutes"></i><i class="is-ok" data-label="Sun 27 Sep: no incidents"></i><i class="is-ok" data-label="Mon 28 Sep: no incidents"></i><i class="is-ok" data-label="Tue 29 Sep: no incidents"></i><i class="is-ok" data-label="Wed 30 Sep: no incidents"></i><i class="is-ok" data-label="Thu 1 Oct: no incidents"></i><i class="is-ok" data-label="Fri 2 Oct: no incidents"></i><i class="is-ok" data-label="Sat 3 Oct: no incidents"></i><i class="is-ok" data-label="Sun 4 Oct: no incidents"></i><i class="is-ok" data-label="Mon 5 Oct: no incidents"></i><i class="is-ok" data-label="Tue 6 Oct: no incidents"></i><i class="is-ok" data-label="Wed 7 Oct: no incidents"></i><i class="is-ok" data-label="Thu 8 Oct: no incidents"></i><i class="is-ok" data-label="Fri 9 Oct: no incidents"></i><i class="is-ok" data-label="Sat 10 Oct: no incidents"></i><i class="is-ok" data-label="Sun 11 Oct: no incidents"></i><i class="is-ok" data-label="Mon 12 Oct: no incidents"></i><i class="is-ok" data-label="Tue 13 Oct: no incidents"></i><i class="is-ok" data-label="Wed 14 Oct: no incidents"></i><i class="is-ok" data-label="Thu 15 Oct: no incidents"></i><i class="is-ok" data-label="Fri 16 Oct: no incidents"></i><i class="is-ok" data-label="Sat 17 Oct: no incidents"></i><i class="is-ok" data-label="Sun 18 Oct: no incidents"></i><i class="is-ok" data-label="Mon 19 Oct: no incidents"></i><i class="is-ok" data-label="Tue 20 Oct: no incidents"></i><i class="is-ok" data-label="Wed 21 Oct: no incidents"></i><i class="is-ok" data-label="Thu 22 Oct: no incidents"></i><i class="is-ok" data-label="Fri 23 Oct: no incidents"></i><i class="is-ok" data-label="Sat 24 Oct: no incidents"></i><i class="is-ok" data-label="Sun 25 Oct: no incidents"></i><i class="is-ok" data-label="Mon 26 Oct: no incidents"></i><i class="is-ok" data-label="Tue 27 Oct: no incidents"></i><i class="is-ok" data-label="Wed 28 Oct: no incidents"></i><i class="is-warn" data-label="Thu 29 Oct: Delayed emails for 1 hour"></i><i class="is-ok" data-label="Fri 30 Oct: no incidents"></i><i class="is-ok" data-label="Sat 31 Oct: no incidents"></i><i class="is-ok" data-label="Sun 1 Nov: no incidents"></i><i class="is-ok" data-label="Mon 2 Nov: no incidents"></i><i class="is-ok" data-label="Tue 3 Nov: no incidents"></i><i class="is-ok" data-label="Wed 4 Nov: no incidents"></i><i class="is-ok" data-label="Thu 5 Nov: no incidents"></i><i class="is-ok" data-label="Fri 6 Nov: no incidents"></i><i class="is-ok" data-label="Sat 7 Nov: no incidents"></i><i class="is-ok" data-label="Sun 8 Nov: no incidents"></i><i class="is-ok" data-label="Mon 9 Nov: no incidents"></i><i class="is-ok" data-label="Tue 10 Nov: no incidents"></i><i class="is-down" data-label="Wed 11 Nov: Quiz submissions failed for 9 minutes"></i><i class="is-ok" data-label="Thu 12 Nov: no incidents"></i><i class="is-ok" data-label="Fri 13 Nov: no incidents"></i><i class="is-ok" data-label="Sat 14 Nov: no incidents"></i><i class="is-ok" data-label="Sun 15 Nov: no incidents"></i><i class="is-ok" data-label="Mon 16 Nov: no incidents"></i></div>
+    <div class="uptime__axis" aria-hidden="true"><span><span class="uptime__long">90 days ago</span><span class="uptime__short">30 days ago</span></span><span>Today</span></div>
+    <div class="uptime__now">Working normally</div>
+  </div>
+  <div class="uptime-box">
+    <div class="cluster" style="justify-content: space-between; --gap: 8px;"><span class="status status--ok"><i></i>Sign-in</span><span style="font: var(--type-footnote); color: var(--text-subtle); font-variant-numeric: tabular-nums;">99.91% uptime</span></div>
+    <div class="uptime" data-lds-uptime tabindex="0" role="img" aria-label="Sign-in, last 90 days: 99.91% uptime. Arrow keys read each day."><i class="is-ok" data-label="Wed 19 Aug: no incidents"></i><i class="is-ok" data-label="Thu 20 Aug: no incidents"></i><i class="is-ok" data-label="Fri 21 Aug: no incidents"></i><i class="is-ok" data-label="Sat 22 Aug: no incidents"></i><i class="is-ok" data-label="Sun 23 Aug: no incidents"></i><i class="is-ok" data-label="Mon 24 Aug: no incidents"></i><i class="is-ok" data-label="Tue 25 Aug: no incidents"></i><i class="is-ok" data-label="Wed 26 Aug: no incidents"></i><i class="is-ok" data-label="Thu 27 Aug: no incidents"></i><i class="is-ok" data-label="Fri 28 Aug: no incidents"></i><i class="is-ok" data-label="Sat 29 Aug: no incidents"></i><i class="is-ok" data-label="Sun 30 Aug: no incidents"></i><i class="is-ok" data-label="Mon 31 Aug: no incidents"></i><i class="is-ok" data-label="Tue 1 Sep: no incidents"></i><i class="is-ok" data-label="Wed 2 Sep: no incidents"></i><i class="is-ok" data-label="Thu 3 Sep: no incidents"></i><i class="is-ok" data-label="Fri 4 Sep: no incidents"></i><i class="is-down" data-label="Sat 5 Sep: Sign-in unavailable for 18 minutes"></i><i class="is-warn" data-label="Sun 6 Sep: Slow sign-in for 25 minutes"></i><i class="is-ok" data-label="Mon 7 Sep: no incidents"></i><i class="is-ok" data-label="Tue 8 Sep: no incidents"></i><i class="is-ok" data-label="Wed 9 Sep: no incidents"></i><i class="is-ok" data-label="Thu 10 Sep: no incidents"></i><i class="is-ok" data-label="Fri 11 Sep: no incidents"></i><i class="is-ok" data-label="Sat 12 Sep: no incidents"></i><i class="is-ok" data-label="Sun 13 Sep: no incidents"></i><i class="is-ok" data-label="Mon 14 Sep: no incidents"></i><i class="is-ok" data-label="Tue 15 Sep: no incidents"></i><i class="is-ok" data-label="Wed 16 Sep: no incidents"></i><i class="is-ok" data-label="Thu 17 Sep: no incidents"></i><i class="is-ok" data-label="Fri 18 Sep: no incidents"></i><i class="is-ok" data-label="Sat 19 Sep: no incidents"></i><i class="is-ok" data-label="Sun 20 Sep: no incidents"></i><i class="is-ok" data-label="Mon 21 Sep: no incidents"></i><i class="is-ok" data-label="Tue 22 Sep: no incidents"></i><i class="is-ok" data-label="Wed 23 Sep: no incidents"></i><i class="is-ok" data-label="Thu 24 Sep: no incidents"></i><i class="is-ok" data-label="Fri 25 Sep: no incidents"></i><i class="is-ok" data-label="Sat 26 Sep: no incidents"></i><i class="is-ok" data-label="Sun 27 Sep: no incidents"></i><i class="is-ok" data-label="Mon 28 Sep: no incidents"></i><i class="is-ok" data-label="Tue 29 Sep: no incidents"></i><i class="is-ok" data-label="Wed 30 Sep: no incidents"></i><i class="is-ok" data-label="Thu 1 Oct: no incidents"></i><i class="is-ok" data-label="Fri 2 Oct: no incidents"></i><i class="is-ok" data-label="Sat 3 Oct: no incidents"></i><i class="is-ok" data-label="Sun 4 Oct: no incidents"></i><i class="is-ok" data-label="Mon 5 Oct: no incidents"></i><i class="is-ok" data-label="Tue 6 Oct: no incidents"></i><i class="is-ok" data-label="Wed 7 Oct: no incidents"></i><i class="is-ok" data-label="Thu 8 Oct: no incidents"></i><i class="is-warn" data-label="Fri 9 Oct: Delayed emails for 1 hour"></i><i class="is-ok" data-label="Sat 10 Oct: no incidents"></i><i class="is-ok" data-label="Sun 11 Oct: no incidents"></i><i class="is-ok" data-label="Mon 12 Oct: no incidents"></i><i class="is-ok" data-label="Tue 13 Oct: no incidents"></i><i class="is-ok" data-label="Wed 14 Oct: no incidents"></i><i class="is-ok" data-label="Thu 15 Oct: no incidents"></i><i class="is-ok" data-label="Fri 16 Oct: no incidents"></i><i class="is-ok" data-label="Sat 17 Oct: no incidents"></i><i class="is-ok" data-label="Sun 18 Oct: no incidents"></i><i class="is-ok" data-label="Mon 19 Oct: no incidents"></i><i class="is-ok" data-label="Tue 20 Oct: no incidents"></i><i class="is-ok" data-label="Wed 21 Oct: no incidents"></i><i class="is-down" data-label="Thu 22 Oct: Quiz submissions failed for 9 minutes"></i><i class="is-ok" data-label="Fri 23 Oct: no incidents"></i><i class="is-ok" data-label="Sat 24 Oct: no incidents"></i><i class="is-ok" data-label="Sun 25 Oct: no incidents"></i><i class="is-ok" data-label="Mon 26 Oct: no incidents"></i><i class="is-ok" data-label="Tue 27 Oct: no incidents"></i><i class="is-ok" data-label="Wed 28 Oct: no incidents"></i><i class="is-ok" data-label="Thu 29 Oct: no incidents"></i><i class="is-ok" data-label="Fri 30 Oct: no incidents"></i><i class="is-ok" data-label="Sat 31 Oct: no incidents"></i><i class="is-ok" data-label="Sun 1 Nov: no incidents"></i><i class="is-ok" data-label="Mon 2 Nov: no incidents"></i><i class="is-ok" data-label="Tue 3 Nov: no incidents"></i><i class="is-ok" data-label="Wed 4 Nov: no incidents"></i><i class="is-ok" data-label="Thu 5 Nov: no incidents"></i><i class="is-ok" data-label="Fri 6 Nov: no incidents"></i><i class="is-ok" data-label="Sat 7 Nov: no incidents"></i><i class="is-ok" data-label="Sun 8 Nov: no incidents"></i><i class="is-warn" data-label="Mon 9 Nov: Slow video playback for 40 minutes"></i><i class="is-ok" data-label="Tue 10 Nov: no incidents"></i><i class="is-ok" data-label="Wed 11 Nov: no incidents"></i><i class="is-ok" data-label="Thu 12 Nov: no incidents"></i><i class="is-ok" data-label="Fri 13 Nov: no incidents"></i><i class="is-ok" data-label="Sat 14 Nov: no incidents"></i><i class="is-ok" data-label="Sun 15 Nov: no incidents"></i><i class="is-ok" data-label="Mon 16 Nov: no incidents"></i></div>
+    <div class="uptime__axis" aria-hidden="true"><span><span class="uptime__long">90 days ago</span><span class="uptime__short">30 days ago</span></span><span>Today</span></div>
+    <div class="uptime__now">Working normally</div>
+  </div>
+  <div class="uptime-box">
+    <div class="cluster" style="justify-content: space-between; --gap: 8px;"><span class="status status--warn"><i></i>Quiz submissions</span><span style="font: var(--type-footnote); color: var(--text-subtle); font-variant-numeric: tabular-nums;">99.86% uptime</span></div>
+    <div class="uptime" data-lds-uptime tabindex="0" role="img" aria-label="Quiz submissions, last 90 days: 99.86% uptime. Arrow keys read each day."><i class="is-ok" data-label="Wed 19 Aug: no incidents"></i><i class="is-ok" data-label="Thu 20 Aug: no incidents"></i><i class="is-ok" data-label="Fri 21 Aug: no incidents"></i><i class="is-ok" data-label="Sat 22 Aug: no incidents"></i><i class="is-ok" data-label="Sun 23 Aug: no incidents"></i><i class="is-ok" data-label="Mon 24 Aug: no incidents"></i><i class="is-ok" data-label="Tue 25 Aug: no incidents"></i><i class="is-ok" data-label="Wed 26 Aug: no incidents"></i><i class="is-ok" data-label="Thu 27 Aug: no incidents"></i><i class="is-ok" data-label="Fri 28 Aug: no incidents"></i><i class="is-ok" data-label="Sat 29 Aug: no incidents"></i><i class="is-ok" data-label="Sun 30 Aug: no incidents"></i><i class="is-ok" data-label="Mon 31 Aug: no incidents"></i><i class="is-ok" data-label="Tue 1 Sep: no incidents"></i><i class="is-ok" data-label="Wed 2 Sep: no incidents"></i><i class="is-ok" data-label="Thu 3 Sep: no incidents"></i><i class="is-ok" data-label="Fri 4 Sep: no incidents"></i><i class="is-ok" data-label="Sat 5 Sep: no incidents"></i><i class="is-ok" data-label="Sun 6 Sep: no incidents"></i><i class="is-ok" data-label="Mon 7 Sep: no incidents"></i><i class="is-ok" data-label="Tue 8 Sep: no incidents"></i><i class="is-ok" data-label="Wed 9 Sep: no incidents"></i><i class="is-ok" data-label="Thu 10 Sep: no incidents"></i><i class="is-ok" data-label="Fri 11 Sep: no incidents"></i><i class="is-warn" data-label="Sat 12 Sep: Delayed emails for 1 hour"></i><i class="is-ok" data-label="Sun 13 Sep: no incidents"></i><i class="is-ok" data-label="Mon 14 Sep: no incidents"></i><i class="is-ok" data-label="Tue 15 Sep: no incidents"></i><i class="is-ok" data-label="Wed 16 Sep: no incidents"></i><i class="is-ok" data-label="Thu 17 Sep: no incidents"></i><i class="is-ok" data-label="Fri 18 Sep: no incidents"></i><i class="is-ok" data-label="Sat 19 Sep: no incidents"></i><i class="is-ok" data-label="Sun 20 Sep: no incidents"></i><i class="is-ok" data-label="Mon 21 Sep: no incidents"></i><i class="is-ok" data-label="Tue 22 Sep: no incidents"></i><i class="is-ok" data-label="Wed 23 Sep: no incidents"></i><i class="is-ok" data-label="Thu 24 Sep: no incidents"></i><i class="is-down" data-label="Fri 25 Sep: Quiz submissions failed for 9 minutes"></i><i class="is-ok" data-label="Sat 26 Sep: no incidents"></i><i class="is-ok" data-label="Sun 27 Sep: no incidents"></i><i class="is-ok" data-label="Mon 28 Sep: no incidents"></i><i class="is-ok" data-label="Tue 29 Sep: no incidents"></i><i class="is-ok" data-label="Wed 30 Sep: no incidents"></i><i class="is-ok" data-label="Thu 1 Oct: no incidents"></i><i class="is-ok" data-label="Fri 2 Oct: no incidents"></i><i class="is-ok" data-label="Sat 3 Oct: no incidents"></i><i class="is-ok" data-label="Sun 4 Oct: no incidents"></i><i class="is-ok" data-label="Mon 5 Oct: no incidents"></i><i class="is-ok" data-label="Tue 6 Oct: no incidents"></i><i class="is-ok" data-label="Wed 7 Oct: no incidents"></i><i class="is-ok" data-label="Thu 8 Oct: no incidents"></i><i class="is-ok" data-label="Fri 9 Oct: no incidents"></i><i class="is-ok" data-label="Sat 10 Oct: no incidents"></i><i class="is-ok" data-label="Sun 11 Oct: no incidents"></i><i class="is-ok" data-label="Mon 12 Oct: no incidents"></i><i class="is-warn" data-label="Tue 13 Oct: Slow video playback for 40 minutes"></i><i class="is-ok" data-label="Wed 14 Oct: no incidents"></i><i class="is-ok" data-label="Thu 15 Oct: no incidents"></i><i class="is-ok" data-label="Fri 16 Oct: no incidents"></i><i class="is-ok" data-label="Sat 17 Oct: no incidents"></i><i class="is-ok" data-label="Sun 18 Oct: no incidents"></i><i class="is-ok" data-label="Mon 19 Oct: no incidents"></i><i class="is-ok" data-label="Tue 20 Oct: no incidents"></i><i class="is-ok" data-label="Wed 21 Oct: no incidents"></i><i class="is-ok" data-label="Thu 22 Oct: no incidents"></i><i class="is-ok" data-label="Fri 23 Oct: no incidents"></i><i class="is-ok" data-label="Sat 24 Oct: no incidents"></i><i class="is-ok" data-label="Sun 25 Oct: no incidents"></i><i class="is-ok" data-label="Mon 26 Oct: no incidents"></i><i class="is-ok" data-label="Tue 27 Oct: no incidents"></i><i class="is-ok" data-label="Wed 28 Oct: no incidents"></i><i class="is-ok" data-label="Thu 29 Oct: no incidents"></i><i class="is-ok" data-label="Fri 30 Oct: no incidents"></i><i class="is-ok" data-label="Sat 31 Oct: no incidents"></i><i class="is-ok" data-label="Sun 1 Nov: no incidents"></i><i class="is-ok" data-label="Mon 2 Nov: no incidents"></i><i class="is-ok" data-label="Tue 3 Nov: no incidents"></i><i class="is-ok" data-label="Wed 4 Nov: no incidents"></i><i class="is-ok" data-label="Thu 5 Nov: no incidents"></i><i class="is-ok" data-label="Fri 6 Nov: no incidents"></i><i class="is-down" data-label="Sat 7 Nov: Sign-in unavailable for 18 minutes"></i><i class="is-warn" data-label="Sun 8 Nov: Slow sign-in for 25 minutes"></i><i class="is-ok" data-label="Mon 9 Nov: no incidents"></i><i class="is-ok" data-label="Tue 10 Nov: no incidents"></i><i class="is-ok" data-label="Wed 11 Nov: no incidents"></i><i class="is-ok" data-label="Thu 12 Nov: no incidents"></i><i class="is-ok" data-label="Fri 13 Nov: no incidents"></i><i class="is-ok" data-label="Sat 14 Nov: no incidents"></i><i class="is-ok" data-label="Sun 15 Nov: no incidents"></i><i class="is-ok" data-label="Mon 16 Nov: no incidents"></i></div>
+    <div class="uptime__axis" aria-hidden="true"><span><span class="uptime__long">90 days ago</span><span class="uptime__short">30 days ago</span></span><span>Today</span></div>
+    <div class="uptime__now">Slower than usual since 09:10</div>
+  </div>
+  </div>
+</section>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1280,"height":5350}}'>
+class Component extends DCLogic {
+  componentWillUnmount() { this._gone = true; }
+  boot() {
+    const root = document.querySelector('[data-board="charts"]');
+    if (!root || this._booted) return;
+    this._booted = true;
+    /* The demos run the real behaviors from js/lds.js (published next to the boards as lds.js). */
+    const onDocs = !!document.querySelector('link[href*="docs.css"]');
+    import(onDocs ? '../js/lds.js' : './lds.js').then((m) => { if (!this._gone) root.querySelectorAll('[data-board-demo]').forEach((el) => m.init(el)); }).catch(() => {});
+  }
+  renderVals() {
+    if (!this._booted) setTimeout(() => this.boot(), 0);
+    const s = this.state || {};
+    const theme = s.theme || this.props.theme || 'light';
+    const dark = theme === 'dark';
+
+    const spark = [88, 87, 89, 88, 90, 89, 91, 90, 92, 91, 93, 92];
+    const sx = i => 4 + i * (212 / 11), sy = v => 60 - (v - 85) / 9 * 52;
+    const sparkLine = 'M' + spark.map((v, i) => sx(i).toFixed(1) + ' ' + sy(v).toFixed(1)).join(' L');
+
+    const mine = [72, 78, 75, 81, 84, 80, 86, 88, 85, 90];
+    const avg = [70, 71, 73, 72, 74, 75, 74, 76, 77, 77];
+    const X = i => 60 + i * (900 / 9), Y = v => 232 - (v - 60) / 40 * 220;
+    const path = arr => 'M' + arr.map((v, i) => X(i).toFixed(1) + ' ' + Y(v).toFixed(1)).join(' L');
+    const hi = s.hi == null ? -1 : s.hi;
+
+    const week = { this: [12, 18, 26, 22, 31, 9, 4], last: [15, 21, 19, 28, 24, 6, 7] };
+    const per = s.per || 'this';
+    const wk = week[per];
+    const maxB = 32;
+    const peak = Math.max(...wk);
+
+    const dist = { A: [8, 14, 9, 3], B: [5, 11, 13, 6] };
+    const cls = s.cls || 'A';
+    const dv = dist[cls];
+    const total = dv.reduce((a, b) => a + b, 0);
+    const C = 2 * Math.PI * 64;
+    let acc = 0;
+    const donut = ['A', 'B', 'C', 'D or below'].map((label, i) => {
+      const len = dv[i] / total * C;
+      const seg = { label, v: dv[i], token: '--series-' + (i + 1), dash: Math.max(len - 3, 0).toFixed(1) + ' ' + C.toFixed(1), off: (-acc).toFixed(1) };
+      acc += len;
+      return seg;
+    });
+
+    const cells = [];
+    for (let i = 0; i < 140; i++) {
+      const day = i % 7, wkI = Math.floor(i / 7);
+      const base = [0.2, 0.7, 0.9, 0.8, 0.6, 0.15, 0.3][day];
+      const r = (Math.sin(i * 12.9898) * 43758.5453) % 1;
+      const v = Math.max(0, base * (0.6 + Math.abs(r)) + wkI * 0.01);
+      const l = v < 0.25 ? '' : v < 0.5 ? 'l1' : v < 0.75 ? 'l2' : v < 0.95 ? 'l3' : 'l4';
+      cells.push({ l, t: (v * 4).toFixed(1) + ' h' });
+    }
+
+    return {
+      theme,
+      isLight: String(!dark), isDark: String(dark),
+      thumbX: dark ? 'calc(100% + 2px)' : '0px',
+      setLight: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'light' })),
+      setDark: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'dark' })),
+
+      series: [1, 2, 3, 4].map(n => ({ n: 'Series ' + n, token: '--series-' + n, hex: dark ? ['#2BB585', '#C47A0C', '#17A493', '#A970F0'][n - 1] : ['#0B6E4F', '#E8890C', '#0E9F8E', '#9333EA'][n - 1] })),
+
+      sparkLine, sparkArea: sparkLine + ' L216 64 L4 64 Z',
+      sparkEndX: sx(11).toFixed(1), sparkEndY: sy(92).toFixed(1),
+
+      share: [['Core', 50], ['Electives', 25], ['Labs', 15], ['General', 10]].map(([label, v], i) => ({ label, v, token: '--series-' + (i + 1) })),
+
+      yTicks: [60, 70, 80, 90, 100].map(v => ({ y: Y(v).toFixed(1), ty: (Y(v) + 4).toFixed(1), label: String(v) })),
+      xTicks: mine.map((_, i) => ({ x: X(i).toFixed(1), label: 'W' + (i + 1) })),
+      line1: path(mine), line2: path(avg),
+      lineArea: path(mine) + ' L' + X(9) + ' 232 L' + X(0) + ' 232 Z',
+      lab1y: (Y(mine[9]) - 12).toFixed(1), lab2y: (Y(avg[9]) + 20).toFixed(1),
+      last1: mine[9], last2: avg[9],
+      hasHover: hi >= 0,
+      hx: hi >= 0 ? X(hi).toFixed(1) : '0', hy1: hi >= 0 ? Y(mine[hi]).toFixed(1) : '0', hy2: hi >= 0 ? Y(avg[hi]).toFixed(1) : '0',
+      hw: hi + 1, hv1: hi >= 0 ? mine[hi] : '', hv2: hi >= 0 ? avg[hi] : '',
+      tipLeft: hi >= 0 ? 'calc(' + (X(hi) / 10).toFixed(1) + '% + ' + (hi > 6 ? '-124px' : '14px') + ')' : '0px',
+      tipOp: hi >= 0 ? '1' : '0',
+      lineMove: (e) => {
+        const r = e.currentTarget.getBoundingClientRect();
+        const vx = (e.clientX - r.left) / r.width * 1000;
+        const i = Math.max(0, Math.min(9, Math.round((vx - 60) / 100)));
+        if (i !== hi) this.setState({ hi: i });
+      },
+      lineLeave: () => this.setState({ hi: -1 }),
+
+      bars: wk.map((v, i) => ({ v, d: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'][i], h: (v / maxB * 100).toFixed(1) + '%', cls: v === peak ? '' : 'bars__bar--muted' })),
+      barAria: 'Submissions per weekday, ' + (per === 'this' ? 'this week' : 'last week') + ', peak ' + peak,
+      barX: per === 'this' ? '0%' : '100%', barThis: String(per === 'this'), barLast: String(per === 'last'),
+      setThis: () => this.setState({ per: 'this' }), setLast: () => this.setState({ per: 'last' }),
+
+      donut, dTotal: total,
+      donutAria: 'Grades for class ' + cls + ': ' + dv.join(', '),
+      dX: cls === 'A' ? '0%' : '100%', dA: String(cls === 'A'), dB: String(cls === 'B'),
+      setDA: () => this.setState({ cls: 'A' }), setDB: () => this.setState({ cls: 'B' }),
+
+      cells
+    };
+  }
+}
+</script>
+</body>
+</html>

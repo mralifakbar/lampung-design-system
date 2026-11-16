@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lampung Design System · App patterns</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="lds.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700&amp;family=Plus Jakarta Sans+Mono:wght@400;500&amp;display=block">
+<style>
+body{margin:0}
+a{color:#0A6246}a:hover{color:#1E40AF}
+</style>
+</helmet>
+<div class="lds" data-theme="{{theme}}" data-board="patterns" style="width: 1280px; min-height: 8450px;">
+<div class="page">
+
+  <header class="page-head">
+    <div>
+      <div class="page-head__crumb"><span class="page-head__mark">L</span>Patterns · App patterns</div>
+      <h1>App patterns</h1>
+      <p class="page-head__lede">The frames and flows around the components: an admin shell that folds into a rail, a site header, forms and layout, a chat with its tool steps, and the phone patterns that push, pop and refresh.</p>
+    </div>
+    <div class="appearance" role="group" aria-label="Appearance">
+      <span class="appearance__thumb" style="transform: translateX({{thumbX}});"></span>
+      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Light</button>
+      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Dark</button>
+    </div>
+  </header>
+
+  <!-- ============================== App frame ============================== -->
+  <section class="sec sec--full" id="frames">
+    <div class="sec__aside">
+      <h2 class="sec__title">App frame</h2>
+      <p class="sec__desc">The admin frame folds its sidebar into a rail on wide screens and becomes a drawer under 960 px. A site header collapses its links into a menu on phones. The bar at the very top runs while the next page loads.</p>
+    </div>
+    <div class="col" style="gap: 32px;">
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">App shell with a rail: press the panel button to fold the sidebar</p>
+<div class="shell" data-lds-shell style="min-height: 460px; height: 460px;">
+  <aside class="shell__side" id="adm-side" style="height: 460px;">
+    <a class="shell__brand" href="#adm"><span class="shell__mark">K</span><span class="shell__label">Kelola admin</span></a>
+    <nav class="shell__nav" aria-label="Main">
+      <span class="shell__hl" aria-hidden="true"></span>
+      <p class="shell__group">Dashboards</p>
+      <a class="shell__link" href="#adm" aria-current="page"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Overview</span></a>
+      <a class="shell__link" href="#adm"><span class="ic" aria-hidden="true">payments</span><span class="shell__label">Finance</span></a>
+      <p class="shell__group">Pages</p>
+      <a class="shell__link" href="#adm"><span class="ic" aria-hidden="true">group</span><span class="shell__label">Users</span><span class="badge badge--accent shell__badge">3</span></a>
+      <a class="shell__link" href="#adm"><span class="ic" aria-hidden="true">view_kanban</span><span class="shell__label">Kanban</span></a>
+    </nav>
+    <div class="shell__foot">
+      <a class="shell__link" href="#adm"><span class="ic" aria-hidden="true">help</span><span class="shell__label">Help</span></a>
+    </div>
+  </aside>
+  <div class="shell__scrim"></div>
+  <div class="shell__main">
+    <header class="shell__bar">
+      <button class="icon-btn" data-lds-shell-toggle aria-controls="adm-side" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
+      <button class="icon-btn" data-lds-shell-rail aria-controls="adm-side" aria-expanded="true" aria-label="Collapse sidebar"><span class="ic" aria-hidden="true">left_panel_close</span></button>
+      <span class="sep sep--v" aria-hidden="true"></span>
+      <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="#adm">Dashboards</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><span aria-current="page">Overview</span></li></ol></nav>
+      <div class="shell__bar-end">
+        <button class="control search shell__search" type="button"><span class="ic" aria-hidden="true">search</span>Search<span class="kbd">⌘K</span></button>
+        <button class="icon-btn shell__search-icon" type="button" aria-label="Search"><span class="ic" aria-hidden="true">search</span></button>
+        <button class="icon-btn" type="button" aria-label="Notifications, 2 unread"><span class="ic" aria-hidden="true">notifications</span><span class="count">2</span></button>
+      </div>
+    </header>
+    <main style="padding: 24px;"><p class="section__sub">Page content.</p></main>
+  </div>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Top navigation</p>
+<div style="height: 300px; overflow: auto;">
+  <header class="topnav" data-lds-topnav>
+    <a class="topnav__brand" href="#tn-body">Exam prep</a>
+    <nav class="topnav__links" id="tn-links" aria-label="Main">
+      <a class="topnav__link" href="#tn-body" aria-current="page">Courses</a>
+      <a class="topnav__link" href="#tn-body">Tryouts</a>
+      <a class="topnav__link" href="#tn-body">Pricing</a>
+      <a class="topnav__link" href="#tn-body">For schools</a>
+    </nav>
+    <div class="topnav__actions">
+      <a class="btn btn--plain btn--md" href="#tn-body">Sign in</a>
+      <a class="btn btn--primary btn--md" href="#tn-body">Start free</a>
+      <button class="icon-btn topnav__toggle" data-lds-topnav-toggle aria-controls="tn-links" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
+    </div>
+  </header>
+  <div class="stack" id="tn-body" style="padding: 32px 20px 400px;">
+    <h2 class="section__title-sm">Prepare for the civil service exam</h2>
+    <p class="section__sub">Scroll this box: the bar stays on top and the content passes under its material.</p>
+  </div>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Navigation progress</p>
+<div class="navprogress" aria-hidden="true" id="np-bar"></div>
+<div class="docs-col">
+  <button class="btn btn--primary btn--md" style="align-self: flex-start;" onclick="const b = document.getElementById('np-bar'); const s = document.getElementById('np-status'); b.classList.add('is-running'); s.textContent = 'Loading lesson 4'; this.disabled = true; setTimeout(() => { b.classList.remove('is-running'); s.textContent = 'Lesson 4 is open'; this.disabled = false; }, 1800);">Open lesson 4</button>
+  <p class="section__sub" id="np-status" role="status">Lesson 3 is open</p>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== Page patterns ============================== -->
+  <section class="sec" id="page">
+    <div class="sec__aside">
+      <h2 class="sec__title">Page patterns</h2>
+      <p class="sec__desc">Sections with a hairline between them, one spotlight for the next step, figures without cards, and a page modal that becomes a sheet on phones. The numbers are examples.</p>
+    </div>
+    <div class="col" style="gap: 32px;">
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Sections</p>
+<div class="sections" style="width: 100%;">
+  <section class="section" aria-labelledby="sx-1">
+    <div class="section__head"><h2 id="sx-1">This week</h2><p class="section__sub">What is due before Friday and where the class meets.</p></div>
+    <div class="list">
+      <a class="lrow" href="#"><span class="lrow__body"><span class="lrow__title">Lab report 3</span></span><span class="badge badge--warning">Tomorrow</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+      <a class="lrow" href="#"><span class="lrow__body"><span class="lrow__title">Quiz: indexing</span></span><span class="badge">Thu</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+    </div>
+  </section>
+  <section class="section" aria-labelledby="sx-2">
+    <div class="section__head"><h2 id="sx-2">Materials</h2></div>
+    <p class="section__sub">Slides and readings are added after each lecture.</p>
+  </section>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Spotlight</p>
+<div class="spotlight" style="width: 100%;">
+  <span class="spotlight__eyebrow"><span class="ic" aria-hidden="true">event</span>Next step</span>
+  <h3 class="spotlight__title">Register for next term before 30 November</h3>
+  <p class="spotlight__body">Seats in elective courses go to the earliest registrations.</p>
+  <div class="spotlight__actions"><button type="button" class="btn btn--primary">Register now</button><button type="button" class="btn btn--secondary">See the schedule</button></div>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Stat row</p>
+<div class="stat-row-wrap"><dl class="stat-row" style="--n: 3">
+  <div class="stat-row__item"><dt class="stat-row__label">Credits taken</dt><dd class="stat-row__value">21</dd><dd class="stat-row__sub">Of 24 allowed</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Average grade</dt><dd class="stat-row__value">3.62</dd><dd class="stat-row__sub">Up 0.1 from last term</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Tasks due this week</dt><dd class="stat-row__value">4</dd></div>
+</dl></div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Page modal</p>
+<button class="btn btn--secondary" data-lds-modal="md-report"><span class="ic" aria-hidden="true">error</span>Report a mistake</button>
+<dialog class="modal" id="md-report" aria-labelledby="md-report-t">
+  <button class="icon-btn dialog__close" data-lds-modal-close aria-label="Close"><span class="ic" aria-hidden="true">close</span></button>
+  <h2 class="dialog__title" id="md-report-t">Report a mistake</h2>
+  <p class="dialog__body">Tell us what is wrong in question 14 and what it should say.</p>
+  <div class="field" style="margin-top: 16px;"><div class="control control--area"><textarea aria-label="What is wrong" placeholder="The answer key says B, the explanation says C."></textarea></div></div>
+  <div class="dialog__actions"><button class="btn btn--secondary" data-lds-modal-close>Cancel</button><button class="btn btn--primary" data-lds-modal-close>Send report</button></div>
+</dialog>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== Layout and forms ============================== -->
+  <section class="sec" id="layout">
+    <div class="sec__aside">
+      <h2 class="sec__title">Layout and forms</h2>
+      <p class="sec__desc">Stacks, clusters and auto grids place everything; forms pair fields on wide screens and stack on phones; a split can be resized by pointer or keyboard.</p>
+    </div>
+    <div class="col" style="gap: 32px;">
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Stack and cluster</p>
+<div class="stack" style="--gap: 16px; max-width: 520px;">
+  <div class="stack" style="--gap: 4px;">
+    <h3 class="section__title-sm">Linear Algebra, week 6</h3>
+    <p class="card__sub">Eigenvalues and diagonalization. 4 lessons, 1 quiz.</p>
+  </div>
+  <div class="cluster">
+    <span class="badge badge--accent">In progress</span>
+    <span class="badge">4 of 6 lessons</span>
+    <span class="badge badge--warning">Quiz due Friday</span>
+  </div>
+  <div class="cluster" style="--gap: 10px;">
+    <button class="btn btn--primary">Continue lesson 5</button>
+    <button class="btn btn--secondary">Open notes</button>
+  </div>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Form layout</p>
+<form class="form" style="max-width: 560px;" onsubmit="event.preventDefault()">
+  <div class="form__row">
+    <div class="field">
+      <label class="field__label" for="pf-first">First name</label>
+      <div class="control"><input id="pf-first" type="text" value="Rina"></div>
+    </div>
+    <div class="field">
+      <label class="field__label" for="pf-last">Last name</label>
+      <div class="control"><input id="pf-last" type="text" value="Kusuma"></div>
+    </div>
+  </div>
+  <div class="field">
+      <label class="field__label" for="pf-email">Email</label>
+      <div class="control"><input id="pf-email" type="email" value="rina.kusuma@example.com" aria-describedby="pf-email-help"></div>
+      <span class="field__help" id="pf-email-help">Grades and receipts go here.</span>
+    </div>
+  <div class="field">
+      <label class="field__label" for="pf-phone">Phone <span>Optional</span></label>
+      <div class="control"><input id="pf-phone" type="tel" value="" aria-describedby="pf-phone-help"></div>
+      <span class="field__help" id="pf-phone-help">Only for exam day reminders.</span>
+    </div>
+  <div class="form__actions">
+    <button type="button" class="btn btn--secondary">Cancel</button>
+    <button type="submit" class="btn btn--primary">Save profile</button>
+  </div>
+</form>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Resizable split</p>
+<div class="resize card" data-lds-resize data-min="25" data-max="75" style="--size: 55%; height: 280px; width: 100%; padding: 0;">
+  <div id="rz-passage" style="padding: 16px;"><h3 class="section__title-sm">Reading passage</h3><p class="section__sub" style="margin-top: 8px;">Coral reefs cover less than one percent of the ocean floor, yet they support about a quarter of all marine species. Rising water temperatures cause corals to expel the algae that feed them, a process known as bleaching.</p></div>
+  <div class="resize__handle" aria-label="Resize passage" aria-controls="rz-passage"></div>
+  <div style="padding: 16px;"><h3 class="section__title-sm">Question 4 of 10</h3><p class="section__sub" style="margin-top: 8px;">What does the passage say causes bleaching?</p></div>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== Chat and content ============================== -->
+  <section class="sec" id="chat">
+    <div class="sec__aside">
+      <h2 class="sec__title">Chat and content</h2>
+      <p class="sec__desc">A conversation with the assistant, its tool steps and streaming answer, the composer, and the content pieces around it: prose, quotes, citations, photos, timers, timestamps and lists that show more.</p>
+    </div>
+    <div class="col" style="gap: 32px;">
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Chat layout</p>
+<div class="docs-col" style="max-width: 560px;">
+  <div class="docs-scroll" id="cl-scroll" style="height: 320px;">
+    <div class="chat" id="cl-chat" role="log" aria-label="Conversation with your tutor">
+      <p class="msg msg--system">Today, 09:12</p>
+      <div class="msg msg--me"><div class="bubble">Why was my answer to question 4 marked wrong?</div><span class="msg__meta">09:12</span></div>
+      <div class="msg msg--ai"><div class="bubble">Question 4 asks for the net force, not the applied force. You added the 20 N push but left out friction, which acts against it with 6 N. The net force is 14 N, so the acceleration is 14 N divided by 7 kg, which is 2 m/s².</div><div class="msg__actions"><button class="icon-btn" aria-label="Copy answer" data-lds-copy="The net force is 14 N, so the acceleration is 2 m/s²."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Try again"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Share answer"><span class="ic" aria-hidden="true">share</span></button></div></div>
+      <div class="msg msg--me"><div class="bubble">So friction always points against the motion?</div><span class="msg__meta">09:14</span></div>
+      <div class="msg msg--ai"><div class="bubble">Against the motion, or against the direction it would move if nothing held it. A book resting on a tilted table has friction pointing up the slope even though it is not moving yet.</div><div class="msg__actions"><button class="icon-btn" aria-label="Copy answer" data-lds-copy="Friction points against the motion or the motion it would have."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Try again"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Share answer"><span class="ic" aria-hidden="true">share</span></button></div></div>
+      <div class="msg msg--me"><div class="bubble">Can I try a similar question?</div><span class="msg__meta">09:15</span></div>
+      <div class="msg msg--ai"><div class="bubble">Here is one. A 5 kg crate is pushed with 30 N across a floor that resists with 10 N of friction. What is its acceleration?</div><div class="msg__actions"><button class="icon-btn" aria-label="Copy answer" data-lds-copy="A 5 kg crate is pushed with 30 N against 10 N of friction. What is its acceleration?"><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Try again"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Share answer"><span class="ic" aria-hidden="true">share</span></button></div></div>
+      <button class="btn btn--secondary btn--sm chat__jump" data-lds-jump="cl-scroll"><span class="ic" aria-hidden="true">arrow_downward</span>Latest</button>
+    </div>
+  </div>
+  <form class="composer" data-lds-composer onsubmit="event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); const c = document.getElementById('cl-chat'); c.insertBefore(m, c.querySelector('.chat__jump')); const s = document.getElementById('cl-scroll'); s.scrollTo({ top: s.scrollHeight, behavior: 'smooth' });"><textarea rows="1" aria-label="Message your tutor" placeholder="Ask about this lesson"></textarea><button class="composer__send" type="submit" aria-label="Send"><span class="ic" aria-hidden="true">arrow_upward</span></button></form>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Tool call</p>
+<div class="msg msg--ai" style="max-width: 560px;">
+  <details class="toolcall"><summary><span class="ic" aria-hidden="true">search</span>Searched your notes for "net force"<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Found 3 pages: Week 4 lecture, page 2; Problem set 3, question 4; Lab 2 handout.</div></details>
+  <details class="toolcall"><summary><span class="ic" aria-hidden="true">description</span>Read Problem set 3<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Question 4: a 7 kg box pushed with 20 N against 6 N of friction.</div></details>
+  <div class="bubble">The net force is 14 N, so the box accelerates at 2 m/s². Your answer used 20 N, the push alone.</div>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Streaming text</p>
+<div class="chat" style="max-width: 560px;">
+  <div class="msg msg--me"><div class="bubble">What is photosynthesis, in two sentences?</div></div>
+  <div class="msg msg--ai"><div class="bubble" id="st-a">Photosynthesis turns light, water and carbon dioxide into sugar and oxygen. It happens in the chloroplasts, mostly in the leaves, and the sugar feeds the whole plant.</div><div class="msg__actions"><button class="icon-btn" aria-label="Copy answer" data-lds-copy="Photosynthesis turns light, water and carbon dioxide into sugar and oxygen. It happens in the chloroplasts, mostly in the leaves, and the sugar feeds the whole plant."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button></div></div>
+  <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="const b = document.getElementById('st-a'); const acts = b.nextElementSibling; acts.hidden = true; b.setAttribute('aria-busy', 'true'); import('../../js/lds.js').then((m) => m.streamText(b, 'Photosynthesis turns light, water and carbon dioxide into sugar and oxygen. It happens in the chloroplasts, mostly in the leaves, and the sugar feeds the whole plant.')).then(() => { acts.hidden = false; b.removeAttribute('aria-busy'); });"><span class="ic" aria-hidden="true">refresh</span>Ask again</button>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Composer</p>
+<div class="docs-col" style="max-width: 520px;">
+  <div class="chat" id="cp-chat" role="log" aria-label="Conversation">
+    <div class="msg msg--ai"><div class="bubble">Ask me anything about this week's physics problems.</div></div>
+  </div>
+  <form class="composer" data-lds-composer onsubmit="event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const c = document.getElementById('cp-chat'); const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); c.append(m); const a = document.createElement('div'); a.className = 'msg msg--ai is-new'; const ab = document.createElement('div'); ab.className = 'bubble'; a.append(ab); setTimeout(() => { c.append(a); import('../../js/lds.js').then((d) => d.streamText(ab, 'Good question. Start with the units: you are asked for meters per second, so divide the distance in meters by the time in seconds.')); }, 400);"><textarea rows="1" aria-label="Message" placeholder="Ask about this lesson"></textarea><button class="composer__send" type="submit" aria-label="Send"><span class="ic" aria-hidden="true">arrow_upward</span></button></form>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Prose</p>
+<article class="prose">
+  <h2>Third normal form</h2>
+  <p>A table is in <strong>third normal form</strong> when every column depends on the key, the whole key, and nothing but the key. In practice that means splitting out any column that really describes another column.</p>
+  <h3>How to check a table</h3>
+  <ol>
+    <li>Find the primary key, for example <code class="code">student_id</code>.</li>
+    <li>For each other column, ask whether it describes the key or something else.</li>
+    <li>Move columns that describe something else into their own table.</li>
+  </ol>
+  <blockquote class="quote"><p>Normalize until it hurts, then denormalize until it works.</p><footer>A saying among database teachers</footer></blockquote>
+  <p>Most course systems stop at third normal form; going further rarely pays off for read-heavy data <a class="cite" href="#src-1" aria-label="Source 1">1</a>. See the <a href="#lesson-14">next lesson</a> for indexes.</p>
+  <table>
+    <thead><tr><th>Form</th><th>Removes</th></tr></thead>
+    <tbody>
+      <tr><td>First</td><td>Repeating groups</td></tr>
+      <tr><td>Second</td><td>Partial dependencies</td></tr>
+      <tr><td>Third</td><td>Transitive dependencies</td></tr>
+    </tbody>
+  </table>
+</article>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Quote and citation</p>
+<blockquote class="quote measure">
+  <p>Students may bring one handwritten page of notes, both sides, to the final exam.</p>
+  <footer>Exam regulations, Faculty of Computer Science, article 12</footer>
+</blockquote>
+<div class="prose">
+  <p>The final exam is on 18 December in room B204 <a class="cite" href="#cite-src-1" aria-label="Source 1">1</a>. You may bring one handwritten page of notes <a class="cite" href="#cite-src-2" aria-label="Source 2">2</a>, and the exam counts for 40 % of the grade <a class="cite" href="#cite-src-1" aria-label="Source 1">1</a>.</p>
+  <h3>Sources</h3>
+  <ol>
+    <li id="cite-src-1"><a href="#syllabus">Database Systems syllabus, semester 3</a></li>
+    <li id="cite-src-2"><a href="#rules">Exam regulations, article 12</a></li>
+  </ol>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Lightbox: open a photo</p>
+<div class="auto-grid" style="--min: 180px; width: 100%;">
+  <a class="thumb" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3Crect%20width='1200'%20height='800'%20fill='%231E3A8A'/%3E%3Ccircle%20cx='900'%20cy='220'%20r='120'%20fill='%2360A5FA'/%3E%3Cpath%20d='M0%20640%20L320%20360%20L560%20560%20L780%20420%20L1200%20720%20L1200%20800%20L0%20800%20Z'%20fill='%2360A5FA'%20opacity='0.75'/%3E%3Ctext%20x='60'%20y='110'%20font-family='sans-serif'%20font-size='56'%20fill='white'%3ECampus%20library%3C/text%3E%3C/svg%3E" data-lds-lightbox data-caption="The campus library reading room, second floor"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3Crect%20width='1200'%20height='800'%20fill='%231E3A8A'/%3E%3Ccircle%20cx='900'%20cy='220'%20r='120'%20fill='%2360A5FA'/%3E%3Cpath%20d='M0%20640%20L320%20360%20L560%20560%20L780%20420%20L1200%20720%20L1200%20800%20L0%20800%20Z'%20fill='%2360A5FA'%20opacity='0.75'/%3E%3Ctext%20x='60'%20y='110'%20font-family='sans-serif'%20font-size='56'%20fill='white'%3ECampus%20library%3C/text%3E%3C/svg%3E" alt="Campus library reading room"></a>
+  <a class="thumb" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3Crect%20width='1200'%20height='800'%20fill='%2314532D'/%3E%3Ccircle%20cx='900'%20cy='220'%20r='120'%20fill='%234ADE80'/%3E%3Cpath%20d='M0%20640%20L320%20360%20L560%20560%20L780%20420%20L1200%20720%20L1200%20800%20L0%20800%20Z'%20fill='%234ADE80'%20opacity='0.75'/%3E%3Ctext%20x='60'%20y='110'%20font-family='sans-serif'%20font-size='56'%20fill='white'%3EChemistry%20lab%3C/text%3E%3C/svg%3E" data-lds-lightbox data-caption="Chemistry lab, bench 4, before the titration practical"><img src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201200%20800'%3E%3Crect%20width='1200'%20height='800'%20fill='%2314532D'/%3E%3Ccircle%20cx='900'%20cy='220'%20r='120'%20fill='%234ADE80'/%3E%3Cpath%20d='M0%20640%20L320%20360%20L560%20560%20L780%20420%20L1200%20720%20L1200%20800%20L0%20800%20Z'%20fill='%234ADE80'%20opacity='0.75'/%3E%3Ctext%20x='60'%20y='110'%20font-family='sans-serif'%20font-size='56'%20fill='white'%3EChemistry%20lab%3C/text%3E%3C/svg%3E" alt="Chemistry lab bench"></a>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Timer and timestamps</p>
+<div class="docs-row"><span class="timer" data-lds-timer="5400" data-low="300" aria-label="Time left"></span><span class="docs-note">Section 2 of 3</span></div>
+<div class="list" style="max-width: 460px;">
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Lab report feedback</div><div class="lrow__sub">Two comments on section 3</div></div><time class="timestamp lrow__value" data-lds-time="2026-11-16T08:05:00+07:00">16 Nov 2026, 08:05</time></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Seminar room changed</div><div class="lrow__sub">Now in building C, room 204</div></div><time class="timestamp lrow__value" data-lds-time="2026-11-13T15:20:00+07:00">13 Nov 2026, 15:20</time></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Scholarship deadline</div><div class="lrow__sub">Upload your transcript</div></div><time class="timestamp lrow__value" data-lds-time="2026-12-01T17:00:00+07:00">1 Dec 2026, 17:00</time></div>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Show more</p>
+<div class="more" data-lds-more data-more="Show 5 more topics" data-less="Show fewer topics" style="max-width: 520px;">
+  <div class="cluster"><button class="chip">Algebra</button><button class="chip">Geometry</button><button class="chip">Statistics</button><button class="chip">Reading</button><button class="chip">Vocabulary</button><button class="chip">Logic</button></div>
+  <div class="more__rest"><div><div class="cluster" style="padding-top: 8px;"><button class="chip">Civics</button><button class="chip">History</button><button class="chip">Geography</button><button class="chip">Biology</button><button class="chip">Chemistry</button></div></div></div>
+  <button class="btn btn--plain btn--sm more__btn"></button>
+</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== Phone patterns ============================== -->
+  <section class="sec" id="phone-more">
+    <div class="sec__aside">
+      <h2 class="sec__title">Phone patterns</h2>
+      <p class="sec__desc">A screen in its device frame, a stack that pushes and pops with an edge drag, and pull to refresh on a scrolling list.</p>
+    </div>
+    <div class="row row--top" style="gap: 24px; align-items: flex-start;">
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Device frame</p>
+<div style="display: flex; justify-content: center; width: 100%;">
+<div style="width: 414px; max-width: 100%; display: flex; justify-content: center;">
+<div class="device" data-lds-device data-fit-margin="160">
+  <div class="phone" data-lds-push="df-sheet">
+    <div class="phone__content">
+      <div class="navbar" id="df-bar"><span></span><span class="navbar__title" aria-hidden="true">Today</span><span></span></div>
+      <div class="phone__scroll" data-lds-navbar="df-bar">
+        <div class="navbar-gap"></div>
+        <h3 class="large-title">Today</h3>
+        <div class="stack" style="--gap: 24px; padding: 12px 16px 120px;">
+          <div class="list list--fill">
+            <div class="lrow"><span class="lrow__body"><span class="lrow__title">Database Systems</span><span class="lrow__sub">08:00 · Room H 2.14</span></span></div>
+            <div class="lrow"><span class="lrow__body"><span class="lrow__title">Computer Networks</span><span class="lrow__sub">13:00 · Lab 3.01</span></span></div>
+          </div>
+          <button type="button" class="btn btn--secondary btn--lg btn--block" data-lds-open="df-sheet" aria-haspopup="dialog">Mark attendance</button>
+        </div>
+      </div>
+      <nav class="tabbar" aria-label="Main"><button type="button" class="tabbar__item" aria-current="page"><span class="ic" aria-hidden="true">today</span>Today</button><button type="button" class="tabbar__item"><span class="ic" aria-hidden="true">menu_book</span>Courses</button><button type="button" class="tabbar__item"><span class="ic" aria-hidden="true">person</span>Profile</button></nav>
+    </div>
+    <div class="scrim" data-lds-scrim="df-sheet"></div>
+    <div class="sheet" id="df-sheet" role="dialog" aria-modal="true" aria-labelledby="df-sheet-t" data-lds-layer style="padding-bottom: 38px;">
+      <div class="sheet__grabber" aria-hidden="true"></div>
+      <div class="sheet__head" data-lds-drag><h4 class="sheet__title" id="df-sheet-t">Mark attendance</h4><button type="button" class="icon-btn icon-btn--filled" aria-label="Close" data-lds-close><span class="ic" aria-hidden="true">close</span></button></div>
+      <button type="button" class="btn btn--primary btn--lg btn--block" data-lds-close>I am in class</button>
+    </div>
+    <div class="device__status" aria-hidden="true"><span>9:41</span><span class="device__status-end"><span class="device__signal"><i></i><i></i><i></i><i></i></span><span class="ic">wifi</span><span class="device__battery" style="--level: 0.76;"></span></span></div>
+    <span class="device__island" aria-hidden="true"></span>
+    <span class="home-ind" aria-hidden="true"></span>
+  </div>
+</div>
+</div>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Nav stack: open a course, then go back</p>
+<div class="phone phone--inline" style="height: 560px;">
+  <div class="navstack" data-lds-navstack>
+    <section class="navstack__view" aria-label="Courses">
+      <div class="navbar" id="ns-root-bar" style="height: 64px; padding-top: 14px;"><span></span><span class="navbar__title" aria-hidden="true">Courses</span><span></span></div>
+      <div class="phone__scroll" data-lds-navbar="ns-root-bar">
+        <div style="height: 64px;"></div>
+        <h3 class="large-title">Courses</h3>
+        <div style="padding: 12px 16px 40px;"><div class="list list--fill">
+          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Database Systems</span><span class="lrow__sub">IF 3104 · Mon and Thu, 08:00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
+          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Computer Networks</span><span class="lrow__sub">IF 3112 · Mon, 13:00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
+        </div></div>
+      </div>
+    </section>
+    <section class="navstack__view" id="ns-course" aria-label="Database Systems" hidden>
+      <div class="navbar navbar--inline" id="ns-course-bar" style="height: 64px; padding-top: 14px;">
+        <span><button type="button" class="navbar__back" data-lds-back aria-label="Back to Courses"><span class="ic" aria-hidden="true">arrow_back_ios_new</span><span>Courses</span></button></span>
+        <h3 class="navbar__title">Database Systems</h3><span></span>
+      </div>
+      <div class="phone__scroll" data-lds-navbar="ns-course-bar">
+        <div style="height: 64px;"></div>
+        <div style="padding: 12px 16px 40px;"><dl class="kv-list"><div class="kv"><dt>Lecturer</dt><dd>Dr. Ayu Rahmawati</dd></div><div class="kv"><dt>Room</dt><dd>H 2.14</dd></div><div class="kv"><dt>Credits</dt><dd>3</dd></div></dl></div>
+      </div>
+    </section>
+  </div>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Pull to refresh: drag the list down</p>
+<div class="phone phone--inline" style="height: 500px; --phone-top: 0px;">
+  <div class="navbar" id="ptr-bar"><span></span><span class="navbar__title" aria-hidden="true">Today</span><div class="navbar__end"><button type="button" class="icon-btn" aria-label="Refresh" data-lds-refresh-for="ptr-scroll"><span class="ic" aria-hidden="true">refresh</span></button></div></div>
+  <div class="phone__scroll" id="ptr-scroll" data-lds-navbar="ptr-bar" data-lds-refresh>
+    <div class="refresh" aria-hidden="true"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+    <div class="navbar-gap"></div>
+    <h3 class="large-title">Today</h3>
+    <div style="padding: 12px 16px 40px;"><div class="list list--fill">
+      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Database Systems</span><span class="lrow__sub">08:00 · Room H 2.14</span></span></div>
+      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Computer Networks</span><span class="lrow__sub">13:00 · Lab 3.01</span></span></div>
+      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Software Engineering</span><span class="lrow__sub">15:30 · Room H 3.05</span></span></div>
+    </div></div>
+  </div>
+</div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1280,"height":8450}}'>
+class Component extends DCLogic {
+  componentWillUnmount() { this._gone = true; }
+  boot() {
+    const root = document.querySelector('[data-board="patterns"]');
+    if (!root || this._booted) return;
+    this._booted = true;
+    /* The demos run the real behaviors from js/lds.js (published next to the boards as lds.js). */
+    const onDocs = !!document.querySelector('link[href*="docs.css"]');
+    import(onDocs ? '../js/lds.js' : './lds.js').then((m) => { if (!this._gone) root.querySelectorAll('[data-board-demo]').forEach((el) => m.init(el)); }).catch(() => {});
+  }
+  renderVals() {
+    const s = this.state || {};
+    const theme = s.theme || this.props.theme || 'light';
+    const dark = theme === 'dark';
+    if (!this._booted) setTimeout(() => this.boot(), 0);
+    return {
+      theme,
+      isLight: String(!dark), isDark: String(dark),
+      thumbX: dark ? 'calc(100% + 2px)' : '0px',
+      setLight: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'light' })),
+      setDark: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'dark' }))
+    };
+  }
+}
+</script>
+</body>
+</html>
