@@ -1,0 +1,16 @@
+{
+  // Cloudflare Workers static assets: `npm run deploy` builds site/ and uploads it.
+  // The custom domain must be on a zone in the same Cloudflare account (kartadinata.app).
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "lampung-design-system",
+  "compatibility_date": "2026-11-01",
+  "assets": {
+    "directory": "./site",
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "routes": [
+    { "pattern": "lampung.kartadinata.app", "custom_domain": true }
+  ],
+  "observability": { "enabled": true }
+}
