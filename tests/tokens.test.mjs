@@ -12,8 +12,8 @@ test('light and dark define the same color tokens', () => {
 test('identity colors are Lampung green and siger gold', () => {
   assert.equal(t.color.light.accent, '#0B6E4F');
   assert.equal(t.color.light.gold, '#C9952B');
-  assert.match(t.font.sans, /^"Plus Jakarta Sans"/);
-  assert.match(t.font.mono, /^"JetBrains Mono"/);
+  assert.match(t.font.sans, /^"Geist"/);
+  assert.match(t.font.mono, /^"Geist Mono"/);
 });
 
 // [foreground, background, minimum ratio]

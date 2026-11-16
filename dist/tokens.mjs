@@ -161,8 +161,8 @@ export const tokens = {
     }
   },
   "font": {
-    "sans": "\"Plus Jakarta Sans\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
-    "mono": "\"JetBrains Mono\", ui-monospace, \"SF Mono\", Menlo, monospace",
+    "sans": "\"Geist\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", sans-serif",
+    "mono": "\"Geist Mono\", ui-monospace, \"SF Mono\", Menlo, monospace",
     "icons": "\"LDS Icons\"",
     "icons-fill": "\"LDS Icons Fill\""
   },
@@ -171,49 +171,49 @@ export const tokens = {
       "size": 56,
       "line": 60,
       "weight": 600,
-      "tracking": -0.03
+      "tracking": -0.035
     },
     "large-title": {
       "size": 34,
       "line": 41,
       "weight": 700,
-      "tracking": -0.024
+      "tracking": -0.028
     },
     "title-1": {
       "size": 28,
       "line": 34,
       "weight": 600,
-      "tracking": -0.02
+      "tracking": -0.022
     },
     "title-2": {
       "size": 22,
       "line": 28,
       "weight": 600,
-      "tracking": -0.016
+      "tracking": -0.018
     },
     "title-3": {
       "size": 20,
       "line": 25,
       "weight": 600,
-      "tracking": -0.012
+      "tracking": -0.014
     },
     "headline": {
       "size": 17,
       "line": 22,
       "weight": 600,
-      "tracking": -0.008
+      "tracking": -0.01
     },
     "body": {
       "size": 15,
       "line": 22,
       "weight": 400,
-      "tracking": -0.003
+      "tracking": -0.005
     },
     "body-strong": {
       "size": 15,
       "line": 22,
       "weight": 500,
-      "tracking": -0.003
+      "tracking": -0.005
     },
     "subhead": {
       "size": 14,
