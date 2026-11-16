@@ -23,7 +23,7 @@ const skillDir = join(root, 'skills/lampung-design-system/references/components'
 // English lives under docs/en/. Spec text comes from docs/spec (en) merged with docs/spec/id (id).
 const STRINGS = {
   en: {
-    html: 'en', docs: 'Documentation', components: 'Components', start: 'Getting started', all: 'All components', examples: 'Examples',
+    html: 'en', intro: 'Introduction', masthead: 'Community project. This is not an official government website.', mastheadMore: 'How to tell', mastheadLabel: 'Site status', mastheadA: '<b>Run by volunteers.</b> Lampung Design System is built by an open source community. No government agency runs or endorses it.', mastheadB: '<b>Official services use go.id.</b> Government websites in Indonesia end in .go.id. Never enter your national ID number on a site you are unsure of.', docs: 'Documentation', components: 'Components', start: 'Getting started', all: 'All components', examples: 'Examples',
     appearance: 'Appearance', light: 'Light', dark: 'Dark', skip: 'Skip to content', menu: 'Menu', newBadge: 'New',
     useWhen: 'Use it when', useElse: 'Use something else when', use: 'use', where: 'Where it goes.', usage: 'Usage',
     code: 'Code', replay: 'Replay', copy: 'Copy', copied: 'Copied', anatomy: 'Anatomy', part: 'Part', whatItIs: 'What it is',
@@ -34,7 +34,7 @@ const STRINGS = {
     lede: (n) => `${n} components and recipes. Each page says when to use it, when to use something else, the markup, its motion and its accessibility. Start here before building anything new: if a need is covered, use that component; if it is not, add a component to the system instead of styling one page. To see them working together, open the <a class="link" href="../../examples/index.html">examples</a>: a city services dashboard, a citizen app and a public portal.`,
   },
   id: {
-    html: 'id', docs: 'Dokumentasi', components: 'Komponen', start: 'Memulai', all: 'Semua komponen', examples: 'Contoh',
+    html: 'id', intro: 'Pengenalan', masthead: 'Proyek komunitas. Ini bukan situs resmi pemerintah.', mastheadMore: 'Cara memastikan', mastheadLabel: 'Status situs', mastheadA: '<b>Dikelola sukarelawan.</b> Lampung Design System dibangun oleh komunitas open source. Tidak ada instansi pemerintah yang mengelola atau mendukungnya secara resmi.', mastheadB: '<b>Layanan resmi memakai go.id.</b> Situs pemerintah Indonesia berakhiran .go.id. Jangan masukkan NIK di situs yang Anda ragukan.', docs: 'Dokumentasi', components: 'Komponen', start: 'Memulai', all: 'Semua komponen', examples: 'Contoh',
     appearance: 'Tampilan', light: 'Terang', dark: 'Gelap', skip: 'Langsung ke konten', menu: 'Menu', newBadge: 'Baru',
     useWhen: 'Pakai saat', useElse: 'Pakai yang lain saat', use: 'pakai', where: 'Letaknya.', usage: 'Penggunaan',
     code: 'Kode', replay: 'Putar ulang', copy: 'Salin', copied: 'Tersalin', anatomy: 'Anatomi', part: 'Bagian', whatItIs: 'Fungsinya',
@@ -118,6 +118,21 @@ for (const f of files) {
 }
 const specsId = specsEn.map((s) => mergeId(s, overrides.get(s.slug)));
 for (const f of existsSync(idDir) ? readdirSync(idDir).filter((x) => x.endsWith('.mjs')) : []) if (!specsEn.some((s) => `${s.slug}.mjs` === f)) console.warn(`build-docs: docs/spec/id/${f} has no English spec`);
+// Hand-written guides (installation, CLI, theming...): docs/guides/<slug>.mjs with { id, en } bodies.
+const guideDir = join(root, 'docs/guides');
+const GUIDES = [];
+for (const f of existsSync(guideDir) ? readdirSync(guideDir).filter((x) => x.endsWith('.mjs') && !x.startsWith('_')).sort() : []) {
+  // A guide module exports one guide, or an array of them (for families such as per-framework installs).
+  const mod = (await import(pathToFileURL(join(guideDir, f)).href + `?t=${Date.now()}`)).default;
+  for (const g of [].concat(mod)) {
+    g.slug ??= f.replace(/\.mjs$/, '');
+    g.kind = 'guide';
+    for (const l of ['id', 'en']) if (!g[l]?.title || !g[l]?.body) throw new Error(`docs/guides/${f} (${g.slug}): missing ${l}.title or ${l}.body`);
+    if (/\u2014/.test(JSON.stringify(g))) throw new Error(`docs/guides/${f} (${g.slug}): contains an em dash`);
+    GUIDES.push(g);
+  }
+}
+GUIDES.sort((a, b) => (a.order ?? 99) - (b.order ?? 99));
 let specs = specsEn;
 let bySlug = new Map(specs.map((s) => [s.slug, s]));
 const css = readFileSync(join(root, 'css/components.css'), 'utf8');
@@ -161,7 +176,10 @@ const groupsWith = GROUPS.filter(([g]) => ordered.some((s) => s.group === g));
 const UP = () => (LANG === 'en' ? '../../../' : '../../');
 const DOCS = () => (LANG === 'en' ? '../../' : '../');
 // The same page in the other language.
-const ALT = (current) => `${LANG === 'en' ? '../../components/' : '../en/components/'}${current ? current.slug : 'index'}.html`;
+let SECTION = 'components'; // folder of the page being written: 'components' or 'guide'
+const ALT = (current) => `${LANG === 'en' ? '../../' : '../en/'}${SECTION}/${current ? current.slug : 'index'}.html`;
+const COMP = () => (SECTION === 'components' ? '' : '../components/');
+const GUIDE = () => (SECTION === 'guide' ? '' : '../guide/');
 const linkHtml = (h) => (/^(https?:|#|\.|\/)/.test(h) ? h : `${h}.html`);
 const nav = (current) => {
   const sections = groupsWith.map(([g], gi) => {
@@ -171,7 +189,7 @@ const nav = (current) => {
     return `<div class="shell__section">
         <button class="shell__section-btn" aria-expanded="${open}" aria-controls="${id}"><span class="shell__section-label">${esc(groupLabel(g))}</span><span class="shell__section-count">${items.length}</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel${open ? ' is-open' : ''}" id="${id}"><div><div class="shell__children">
-${items.map((s, i) => `          <a class="shell__link shell__link--child" href="${s.slug}.html"${current === s ? ' aria-current="page"' : ''}><span class="shell__num">${i + 1}</span><span class="shell__label">${esc(s.title)}</span>${s.status === 'new' ? `<span class="badge badge--accent shell__badge">${T.newBadge}</span>` : ''}</a>`).join('\n')}
+${items.map((s, i) => `          <a class="shell__link shell__link--child" href="${COMP()}${s.slug}.html"${current === s ? ' aria-current="page"' : ''}><span class="shell__num">${i + 1}</span><span class="shell__label">${esc(s.title)}</span>${s.status === 'new' ? `<span class="badge badge--accent shell__badge">${T.newBadge}</span>` : ''}</a>`).join('\n')}
         </div></div></div>
       </div>`;
   }).join('\n      ');
@@ -179,10 +197,12 @@ ${items.map((s, i) => `          <a class="shell__link shell__link--child" href=
     <a class="shell__brand" href="../index.html"><span class="page-head__mark">L</span>Lampung Design System</a>
     <nav class="shell__nav" aria-label="${T.components}">
       <span class="shell__hl" aria-hidden="true"></span>
-      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">${T.start}</span></a>
-      <a class="shell__link" href="index.html"${current ? '' : ' aria-current="page"'}><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">${T.all}</span></a>
-      <a class="shell__link" href="${DOCS()}examples/index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">${T.examples}</span></a>
+      <p class="shell__group">${T.start}</p>
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">${T.intro}</span></a>
+${GUIDES.filter((g) => !g.hidden).map((g) => `      <a class="shell__link" href="${GUIDE()}${g.slug}.html"${current && current.kind === 'guide' && (current.slug === g.slug || current.parent === g.slug) ? ' aria-current="page"' : ''}><span class="ic" aria-hidden="true">${g.icon}</span><span class="shell__label">${esc(g[LANG].nav || g[LANG].title)}</span></a>`).join('\n')}
       <p class="shell__group">${T.components}</p>
+      <a class="shell__link" href="${COMP()}index.html"${!current && SECTION === 'components' ? ' aria-current="page"' : ''}><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">${T.all}</span></a>
+      <a class="shell__link" href="${DOCS()}examples/${LANG === 'en' ? 'en/' : ''}index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">${T.examples}</span></a>
       ${sections}
     </nav>
     <div class="shell__foot">
@@ -196,13 +216,25 @@ ${items.map((s, i) => `          <a class="shell__link shell__link--child" href=
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>`;
 };
+export const mastheadHtml = (t) => `<div class="masthead" role="region" aria-label="${t.mastheadLabel}">
+  <div class="masthead__bar">
+    <span class="masthead__mark" aria-hidden="true"><span class="ic">info</span></span>
+    <span class="masthead__text">${t.masthead}</span>
+    <button class="masthead__toggle" data-lds-masthead aria-expanded="false" aria-controls="lds-masthead">${t.mastheadMore}<span class="ic" aria-hidden="true">expand_more</span></button>
+  </div>
+  <div class="collapse is-closed" id="lds-masthead" inert><div><div class="masthead__body">
+    <p class="masthead__item"><span class="ic" aria-hidden="true">groups</span><span>${t.mastheadA}</span></p>
+    <p class="masthead__item"><span class="ic" aria-hidden="true">verified_user</span><span>${t.mastheadB}</span></p>
+  </div></div></div>
+</div>`;
+const masthead = () => mastheadHtml(T);
 const frame = (title, current, body, outline = '') => `<!doctype html>
 <html lang="${T.html}" class="lds" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(title)} · Lampung Design System</title>
-<meta name="description" content="${esc(current ? current.summary.replace(/[`*]/g, '') : T.lede(ordered.length).replace(/<[^>]+>/g, ''))}">
+<meta name="description" content="${esc(current ? (current.kind === 'guide' ? (current[LANG].lede || current[LANG].title).replace(/<[^>]+>/g, '') : current.summary.replace(/[`*]/g, '')) : T.lede(ordered.length).replace(/<[^>]+>/g, ''))}">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
 <link rel="stylesheet" href="${UP()}css/lds.css">
 <link rel="stylesheet" href="${DOCS()}docs.css">
@@ -210,6 +242,7 @@ const frame = (title, current, body, outline = '') => `<!doctype html>
 </head>
 <body class="lds">
 <a class="skip" href="#main">${T.skip}</a>
+${masthead()}
 <div class="shell" data-lds-shell>
   ${nav(current)}
   <div class="shell__scrim"></div>
@@ -306,6 +339,25 @@ function page(s, i) {
   return frame(s.title, s, body, outline);
 }
 
+const slugify = (t) => t.toLowerCase().replace(/<[^>]+>/g, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+function guidePage(g) {
+  const L = g[LANG];
+  const toc = [];
+  // Links inside guide bodies are written for the Indonesian tree; `{{comp}}`, `{{guide}}`, `{{docs}}`, `{{root}}` resolve per language.
+  const body = L.body
+    .replace(/\{\{comp\}\}/g, '../components/').replace(/\{\{guide\}\}/g, '').replace(/\{\{docs\}\}/g, DOCS()).replace(/\{\{root\}\}/g, UP())
+    .replace(/<h2(?: id="([^"]+)")?>([\s\S]*?)<\/h2>/g, (_, id, t) => { const i = id || slugify(t); toc.push([i, t.replace(/<[^>]+>/g, '')]); return `</section><section class="cdoc__sec" id="${i}"><h2>${t}</h2>`; });
+  const parent = g.parent && GUIDES.find((x) => x.slug === g.parent);
+  const html = `        <header class="cdoc__head">
+          <nav aria-label="${T.crumbs}"><ol class="crumbs"><li><a href="../index.html">${T.start}</a></li>${parent ? `<li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="${parent.slug}.html">${esc(parent[LANG].title)}</a></li>` : ''}</ol></nav>
+          <h1>${esc(L.title)}</h1>
+          ${L.lede ? `<p class="cdoc__lede">${L.lede}</p>` : ''}
+        </header>
+        <section class="cdoc__sec cdoc__intro">${body}</section>`.replace('<section class="cdoc__sec cdoc__intro"></section>', '');
+  const outline = toc.length > 1 ? `<nav class="toc cdoc__toc" data-lds-toc aria-label="${T.toc}"><span class="toc__ink" aria-hidden="true"></span>${toc.map(([i, t]) => `<a href="#${i}">${esc(t)}</a>`).join('')}</nav>` : '';
+  return frame(L.title, g, html, outline);
+}
+
 function indexPage() {
   const body = `        <header class="cdoc__head">
           <h1>${T.components}</h1>
@@ -363,7 +415,12 @@ for (const lang of ['en', 'id']) {
     if (lang === 'en') writeFileSync(join(skillDir, `${s.slug}.md`), md(s));
   });
   writeFileSync(join(OUT[lang], 'index.html'), indexPage());
+  SECTION = 'guide';
+  const gdir = join(root, lang === 'en' ? 'docs/en/guide' : 'docs/guide');
+  mkdirSync(gdir, { recursive: true });
+  for (const g of GUIDES) writeFileSync(join(gdir, `${g.slug}.html`), guidePage(g));
+  SECTION = 'components';
   if (lang === 'en') writeFileSync(join(root, 'skills/lampung-design-system/references/components.md'), indexMd());
 }
 const missing = specsEn.filter((s) => !overrides.has(s.slug)).map((s) => s.slug);
-console.log(`build-docs: ${ordered.length} components in ${groupsWith.length} groups, ${overrides.size} in Indonesian${missing.length ? ` (${missing.length} still English on the Indonesian site)` : ''}`);
+console.log(`build-docs: ${ordered.length} components in ${groupsWith.length} groups, ${GUIDES.length} guides, ${overrides.size} in Indonesian${missing.length ? ` (${missing.length} still English on the Indonesian site)` : ''}`);
