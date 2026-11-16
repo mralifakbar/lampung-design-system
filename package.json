@@ -1,0 +1,110 @@
+{
+  "name": "lampung-design-system",
+  "version": "0.1.0",
+  "description": "Lampung Design System (unofficial): tokens, CSS components, icon fonts, aksara Lampung and vanilla behaviors for public service websites and apps, with React, shadcn/ui and Flutter outputs.",
+  "keywords": [
+    "design-system",
+    "lampung",
+    "indonesia",
+    "government",
+    "smart-city",
+    "css",
+    "design-tokens",
+    "shadcn",
+    "flutter",
+    "aksara-lampung"
+  ],
+  "homepage": "https://lampung.kartadinata.app",
+  "bugs": {
+    "url": "https://github.com/mralifakbar/lampung-design-system/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mralifakbar/lampung-design-system.git"
+  },
+  "author": "Alif Akbar Kartadinata <alif@kartadinata.app>",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/tokens.mjs",
+  "types": "./dist/tokens.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/tokens.d.ts",
+      "default": "./dist/tokens.mjs"
+    },
+    "./tokens": {
+      "types": "./dist/tokens.d.ts",
+      "default": "./dist/tokens.mjs"
+    },
+    "./tokens.json": "./tokens/tokens.json",
+    "./css": "./css/lds.css",
+    "./css/*": "./css/*",
+    "./js": {
+      "types": "./js/lds.d.ts",
+      "default": "./js/lds.js"
+    },
+    "./aksara": {
+      "types": "./js/aksara.d.ts",
+      "default": "./js/aksara.js"
+    },
+    "./aksara/*": "./aksara/*",
+    "./fonts/*": "./fonts/*",
+    "./icons.json": "./icons/icons.json",
+    "./shadcn/tailwind-preset": "./dist/shadcn/tailwind.preset.cjs",
+    "./shadcn/*": "./dist/shadcn/*",
+    "./react": "./react/index.tsx",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "aksara",
+    "css",
+    "dist",
+    "fonts",
+    "icons",
+    "js",
+    "react",
+    "tokens",
+    "LICENSE",
+    "NOTICE.md"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "workspaces": [
+    "packages/cli"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build:tokens": "node scripts/build-tokens.mjs",
+    "build:icons": "sh scripts/build-icons.sh",
+    "build:aksara": "node scripts/build-aksara.mjs",
+    "build:registry": "node scripts/build-registry.mjs",
+    "build:docs": "node scripts/build-docs.mjs",
+    "build:examples": "node scripts/build-examples.mjs",
+    "build": "npm run build:tokens && npm run build:aksara && npm run build:registry && npm run build:docs && npm run build:examples",
+    "build:site": "node scripts/build-site.mjs",
+    "serve": "python3 -m http.server 5173",
+    "sync": "node scripts/sync.mjs",
+    "test": "node --test tests/ packages/cli/test/",
+    "test:flutter": "cd packages/flutter && flutter test",
+    "lint:commits": "node scripts/lint-commits.mjs",
+    "deploy": "npm run build:site && wrangler deploy"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
+  "devDependencies": {
+    "wrangler": "^4.0.0"
+  }
+}
