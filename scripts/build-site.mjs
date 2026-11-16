@@ -29,7 +29,7 @@ for (const f of readdirSync(join(root, 'apps/landing'))) {
 }
 
 // Package files, so /css/lds.css and friends resolve for the pages and for anyone linking them.
-for (const d of ['css', 'js', 'fonts', 'aksara', 'icons', 'tokens', 'react']) copy(d);
+for (const d of ['css', 'js', 'fonts', 'aksara', 'icons', 'tokens', 'react', 'brand']) copy(d, d, skip('.inline.txt'));
 copy('dist', 'dist', skip('/registry/'));
 copy('LICENSE', 'LICENSE.txt');
 
@@ -51,7 +51,7 @@ writeFileSync(join(out, '404.html'), `<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Halaman tidak ditemukan · Lampung Design System</title>
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/brand/mark.svg" type="image/svg+xml">
 <link rel="stylesheet" href="/css/lds.css">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'system'); } catch (e) {}</script>
 <style>
@@ -67,6 +67,7 @@ writeFileSync(join(out, '404.html'), `<!doctype html>
 <div class="masthead" role="region" aria-label="Status situs"><div class="masthead__bar"><span class="masthead__mark" aria-hidden="true"><span class="ic">info</span></span><span class="masthead__text">Proyek komunitas. Ini bukan situs resmi pemerintah.</span></div></div>
 <main>
   <div class="nf">
+    <img src="/brand/mark.svg" width="72" height="72" alt="">
     <h1>Halaman tidak ditemukan</h1>
     <p>Alamatnya mungkin salah ketik atau halamannya sudah dipindah. <span lang="en">This page could not be found.</span></p>
     <div class="cluster" style="justify-content: center;">
