@@ -30,7 +30,6 @@ export default {
   title: 'Kanban',
   group: 'Data display',
   order: 21,
-  status: 'new',
   summary: 'Columns of cards that people move between stages by dragging or by keyboard. The picked card lifts and follows the pointer, the others make room on a spring, and it settles into its slot; the counts roll.',
   when: [
     'Work that moves through a few stages and people rearrange it often: tasks of a launch, applications in review, support tickets, content in production.',

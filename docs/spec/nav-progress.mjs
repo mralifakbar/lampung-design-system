@@ -2,7 +2,6 @@ export default {
   title: 'Nav progress',
   group: 'Navigation',
   order: 11,
-  status: 'new',
   summary: 'A 3 px accent bar along the top edge of the window that runs while the next page loads. Add `.is-running` when navigation starts, remove it when the page is in.',
   when: [
     'Client-side navigation (a single-page app or a framework router) where the next page can take more than about 300 ms to arrive.',

@@ -2,7 +2,6 @@ export default {
   title: 'Compare table',
   group: 'Marketing',
   order: 5,
-  status: 'new',
   summary: 'Plans as columns and features as rows, grouped by topic, with a check, a dash icon or a short value in each cell. It scrolls sideways in its own box while the feature names stay put.',
   when: [
     'Under the plan cards on a pricing page, for people who want every difference before they buy.',

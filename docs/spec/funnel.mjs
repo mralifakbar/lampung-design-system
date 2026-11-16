@@ -19,7 +19,6 @@ export default {
   title: 'Funnel',
   group: 'Charts',
   order: 6.6,
-  status: 'new',
   summary: 'The steps of a flow, each with how many reached it and what share of the step before moved on. Centered bars narrow with the count, so the biggest drop is visible at a glance; the words carry the exact numbers.',
   when: [
     'A sequence where each step is a subset of the one before: visit, try, sign up, pay; apply, screen, interview, offer.',

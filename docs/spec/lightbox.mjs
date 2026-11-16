@@ -7,7 +7,6 @@ export default {
   title: 'Lightbox',
   group: 'Overlays',
   order: 13,
-  status: 'new',
   summary: 'Shows one picture large over a dim page: it grows out of its thumbnail and shrinks back into it. A link around a thumbnail, so without the script it still opens the full image.',
   when: [
     'A thumbnail of a photo, diagram or scanned page people need to see in full: a lab setup, a whiteboard photo, an answer sheet.',

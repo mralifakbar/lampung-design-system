@@ -37,7 +37,6 @@ export default {
   title: 'Map',
   group: 'Data display',
   order: 23.5,
-  status: 'new',
   summary: 'A small slippy map over OpenStreetMap tiles: routes with the travelled part in the accent, the vehicle where it is, and pins for the places that matter. It draws only the tiles in view and always credits the map data in the corner.',
   when: [
     'Showing where a shipment, a driver or a flight is right now, on real geography, beside its details.',

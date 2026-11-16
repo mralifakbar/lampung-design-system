@@ -46,7 +46,6 @@ export default {
   title: 'Chart card',
   group: 'Charts',
   order: 1.5,
-  status: 'new',
   summary: 'The frame every dashboard chart sits in: the question as its title, what is measured under it, then optional actions (a range control, a menu), the headline figure with its change, the chart, and a footer with the source time or a link to the full report.',
   when: [
     'Any chart on a dashboard or report page: the card gives it a question, a period and a place for the one number people came for.',

@@ -2,7 +2,6 @@ export default {
   title: 'Timestamp',
   group: 'Data display',
   order: 13,
-  status: 'new',
   summary: 'A `<time>` that shows when something happened or is due in relative words ("5 minutes ago", "in 3 days"), in the page language, and keeps itself current. The exact date goes in its title.',
   when: [
     'When something happened, where recency matters more than the exact time: a message, a comment, a change in a log.',

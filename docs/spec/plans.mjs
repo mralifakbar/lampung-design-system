@@ -2,7 +2,6 @@ export default {
   title: 'Plans',
   group: 'Marketing',
   order: 4,
-  status: 'new',
   summary: 'Pricing plans as cards, with a billing period control above them. Prices roll when the period or the seat count changes; the saving is said in words next to the control.',
   when: [
     'A pricing page or section with two to four plans.',

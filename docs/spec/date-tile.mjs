@@ -4,7 +4,6 @@ export default {
   title: 'Date tile',
   group: 'Data display',
   order: 13.5,
-  status: 'new',
   summary: 'A small month-and-day block at the start of a row, for lists of things that happen on a date: classes, exams, payments due, events. People find the date before the title, so it leads.',
   when: [
     'A list of upcoming events or deadlines where the day is how people scan: exams, webinars, invoices due.',

@@ -22,7 +22,6 @@ export default {
   title: 'Combo chart',
   group: 'Charts',
   order: 4.6,
-  status: 'new',
   summary: 'Bars for what happened in each period and a line for what was expected (a plan, a forecast, last year), on one shared scale, with optional dashed reference lines for fixed thresholds. Drawn from data like the area chart.',
   when: [
     'Actual against plan per month or week: sales against plan, hours against a goal, sign-ups against forecast.',

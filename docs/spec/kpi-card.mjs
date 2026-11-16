@@ -58,7 +58,6 @@ export default {
   title: 'KPI card',
   group: 'Data display',
   order: 3.5,
-  status: 'new',
   summary: 'One metric on a dashboard: what it is, its value, how it changed against a stated baseline, and optionally its recent shape as a sparkline or mini bars. The value is the point; the change always says what it is compared with.',
   when: [
     'The first row of a dashboard: three to six metrics people check every visit (sales, sign-ups, refunds, reply time).',

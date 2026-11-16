@@ -8,7 +8,6 @@ export default {
   title: 'Form layout',
   group: 'Foundations',
   order: 2,
-  status: 'new',
   summary: 'The frame every form uses: `form` stacks fields 20 px apart, `form__row` puts short fields side by side when there is room, and `form__actions` ends the form with its buttons. Fields inside are always `.field`.',
   when: [
     'Any form with more than one field: sign up, profile, checkout, a course settings page, the body of a dialog or sheet.',

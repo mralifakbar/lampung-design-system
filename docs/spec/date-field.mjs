@@ -22,7 +22,6 @@ export default {
   title: 'Date field',
   group: 'Inputs',
   order: 12,
-  status: 'new',
   summary: 'A text field for a date with a calendar button that opens a calendar in a popover. Typing the date always works; the calendar is the helper. Built from existing parts: `.control`, `.control__btn`, `.popover` and `.cal`.',
   when: [
     'People enter one date in a form: a date of birth, an exam date, a deadline, a payment date.',

@@ -4,7 +4,6 @@ export default {
   title: 'Route schematic',
   group: 'Data display',
   order: 23,
-  status: 'new',
   summary: 'The stops of one trip on a line: the part already travelled in the accent, the vehicle where it is now, and the place and time under each stop. A diagram, not a map, so it stays honest and readable at any width.',
   when: [
     'Tracking one shipment, delivery or trip through a few known stops: warehouse, hub, port, customer.',

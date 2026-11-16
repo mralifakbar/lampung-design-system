@@ -15,7 +15,6 @@ export default {
   title: 'File tile',
   group: 'Data display',
   order: 20,
-  status: 'new',
   summary: 'Files and folders as tiles in a grid: a tinted thumbnail by type (or the picture itself), a two-line name, size and date, a checkbox that appears on hover, focus or while selecting, and a more menu. The tile opens the file; ticking selects it for a bulk action.',
   when: [
     'A file manager or a library where people recognize files by type or picture: course materials, shared drive, uploaded receipts.',

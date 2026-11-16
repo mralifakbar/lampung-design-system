@@ -4,7 +4,6 @@ export default {
   title: 'Reveal on scroll',
   group: 'Motion',
   order: 11,
-  status: 'new',
   summary: 'Figures, key numbers and illustrations fade up 4 px the first time they scroll into view, once, and never again. Body text, lists and tables are never revealed: people should be able to read and search everything at once.',
   when: [
     'Key numbers on a results or landing page ([stat row](stat-row)) that come into view as people scroll.',

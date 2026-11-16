@@ -2,7 +2,6 @@ export default {
   title: 'Spotlight',
   group: 'Page patterns',
   order: 2,
-  status: 'new',
   summary: 'The one thing on the page worth doing next, on the accent tint: an eyebrow, a title, a sentence and one or two actions. At most one per page.',
   when: [
     'There is a clear next step for this person: register before a deadline, finish an unfinished tryout, complete the profile.',

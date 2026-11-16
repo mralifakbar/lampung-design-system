@@ -7,7 +7,6 @@ export default {
   title: 'Chat layout',
   group: 'Chat',
   order: 1,
-  status: 'new',
   summary: 'The conversation column: messages stacked 20 px apart in `.chat`, the history scrolling above a composer that never scrolls away, and a Latest button that appears only when the reader has scrolled up. Newest at the bottom, always.',
   when: [
     'A conversation with an assistant or a tutor: the person asks on the right, answers fill the reading column, newest at the bottom.',

@@ -2,7 +2,6 @@ export default {
   title: 'Quote',
   group: 'Content',
   order: 2,
-  status: 'new',
   summary: 'Words someone else said or wrote, set off by a 3 px accent bar on the left, 17/28 in `--text-strong`, with the source in a footer below. Only for real quotations.',
   when: [
     'Quoting a person, a rule or a source inside an article, lesson or report: a lecturer\'s remark, a clause from exam regulations.',

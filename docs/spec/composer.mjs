@@ -5,7 +5,6 @@ export default {
   title: 'Composer',
   group: 'Chat',
   order: 3,
-  status: 'new',
   summary: 'The reply box under a conversation: a rounded field that grows with the text, Enter to send, Shift+Enter for a new line, and one round send button that stays disabled until there is something to send.',
   when: [
     'The person writes the next message in a [chat layout](chat-layout): to a tutor, an assistant, a support thread.',

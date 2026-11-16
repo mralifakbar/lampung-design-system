@@ -27,7 +27,6 @@ export default {
   title: 'Lanes',
   group: 'Data display',
   order: 22.4,
-  status: 'new',
   summary: 'Who is busy when: one row per person, room or resource, time running across, and blocks placed by their start and length. The question it answers is "who is free, and when", so gaps matter as much as blocks.',
   when: [
     'A roster where people book or plan around each other\'s time: doctors\' hours today, tutors, shifts.',

@@ -4,7 +4,6 @@ export default {
   title: 'Chat message',
   group: 'Chat',
   order: 2,
-  status: 'new',
   summary: 'One turn in a conversation. Your words sit in an accent bubble on the right; the assistant answers as plain reading text in the column, with a quiet actions row under it. System lines are centered footnotes.',
   when: [
     'Showing what the person sent (`msg--me`) and what the assistant answered (`msg--ai`) inside a [chat layout](chat-layout).',

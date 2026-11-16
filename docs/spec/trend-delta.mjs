@@ -4,7 +4,6 @@ export default {
   title: 'Trend delta',
   group: 'Data display',
   order: 19,
-  status: 'new',
   summary: 'The change next to a figure: an arrow for the direction, a color for what it means, the amount in tabular figures and a sentence for screen readers. Direction and meaning are separate, because a falling number can be good news.',
   when: [
     'A key figure on a dashboard compared with the previous period: revenue up 12.5 %, refunds down 3 %, sign-ups flat.',

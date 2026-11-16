@@ -7,7 +7,6 @@ export default {
   title: 'Check matrix',
   group: 'Data display',
   order: 22.6,
-  status: 'new',
   summary: 'A grid of checkboxes: things in rows grouped by area, options in columns. The header and the first column stay in place while the box scrolls, and each area has one checkbox per column for all of it.',
   when: [
     'Permissions by role: which roles can invite people, see billing, export reports.',

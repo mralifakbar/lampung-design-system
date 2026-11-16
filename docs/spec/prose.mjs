@@ -2,7 +2,6 @@ export default {
   title: 'Prose',
   group: 'Content',
   order: 1,
-  status: 'new',
   summary: 'A wrapper for long-form text you do not control line by line: articles, help pages, lesson notes, rendered Markdown. `.prose` styles plain headings, paragraphs, lists, links, tables and inline code inside it and caps the line length at 680 px.',
   when: [
     'Rendering Markdown or rich text from a CMS, an editor or an assistant answer, where the HTML has no classes.',

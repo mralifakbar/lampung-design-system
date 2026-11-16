@@ -35,7 +35,6 @@ export default {
   title: 'Area chart',
   group: 'Charts',
   order: 4.5,
-  status: 'new',
   summary: 'A filled line over time, drawn from data: one series against a dashed comparison, up to four series stacked into a total, or steps for a value that changes in jumps. Legend items switch series on and off; the crosshair reads every series at once.',
   when: [
     'Volume over time where the amount under the line matters: visits, orders, sessions, minutes studied.',

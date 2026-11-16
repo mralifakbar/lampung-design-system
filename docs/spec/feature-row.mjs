@@ -2,7 +2,6 @@ export default {
   title: 'Feature row',
   group: 'Marketing',
   order: 3,
-  status: 'new',
   summary: 'One feature told beside its proof: a short title, a paragraph and a few points on one side, a live stage with the feature working on the other. Rows alternate sides with `feature--reverse`.',
   when: [
     'Explaining one feature of a product on a landing page, next to the feature running.',

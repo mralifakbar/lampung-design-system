@@ -4,7 +4,6 @@ export default {
   title: 'Modal',
   group: 'Overlays',
   order: 3,
-  status: 'new',
   summary: 'A page-level dialog over the whole window: a native `<dialog class="modal">` in the top layer, or `.overlay` rendered in place by a framework. Below 600 px the native modal becomes a bottom sheet. Close it with `closeModal()` so it plays its exit.',
   when: [
     'A form or confirm that belongs to the whole page rather than to a region: report a mistake, invite a student, edit profile details.',

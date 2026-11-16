@@ -2,7 +2,6 @@ export default {
   title: 'Resizable split',
   group: 'Page patterns',
   order: 4,
-  status: 'new',
   summary: 'Two panes with a handle between them that people drag, or move with the arrow keys, to share the space. For tools where both panes are worked in at once.',
   when: [
     'Two panes used side by side and the right balance depends on the person: a question list and its editor, a reading passage and its questions, a student list and their submission.',

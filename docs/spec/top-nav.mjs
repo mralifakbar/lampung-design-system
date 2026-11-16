@@ -2,7 +2,6 @@ export default {
   title: 'Top nav',
   group: 'Navigation',
   order: 2,
-  status: 'new',
   summary: 'A translucent bar across the top of a site without a sidebar: brand, up to five links, actions. Below 760 px the links fold into a panel under the bar.',
   when: [
     'A marketing, landing or content site with five or fewer top-level pages and no need for a sidebar.',

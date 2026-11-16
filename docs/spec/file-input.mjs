@@ -10,7 +10,6 @@ export default {
   title: 'File input',
   group: 'Inputs',
   order: 11,
-  status: 'new',
   summary: 'A drop zone with a real Choose button, and one row per chosen file that shows its size, upload progress, errors and a way to remove it. The button is the main path; dropping is a shortcut.',
   when: [
     'People attach files to a form: an answer sheet, a transcript, a profile photo, assignment files.',

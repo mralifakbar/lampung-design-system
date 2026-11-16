@@ -2,7 +2,6 @@ export default {
   title: 'Pull to refresh',
   group: 'Microinteractions',
   order: 15,
-  status: 'new',
   summary: 'Drag a phone list down from the top: the content follows with resistance, a spinner turns as it comes in, and past 56 px a release refreshes. The spinner holds until the work is done, at least 700 ms so it never flickers.',
   when: [
     'A phone list whose content changes on the server while people look at it: a schedule, activity, an inbox.',

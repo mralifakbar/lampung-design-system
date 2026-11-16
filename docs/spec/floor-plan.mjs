@@ -33,7 +33,6 @@ export default {
   title: 'Floor plan',
   group: 'Data display',
   order: 22.6,
-  status: 'new',
   summary: 'Bookable things drawn where they are: tables in a dining room, rooms on a floor, desks in a study centre. Each one is a button colored by its state, and the state is always in words too, so people find a free one by place and by name.',
   when: [
     'Where something is matters as much as its state: tables in a restaurant, desks or study rooms people book, beds on a ward.',

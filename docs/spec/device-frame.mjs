@@ -2,7 +2,6 @@ export default {
   title: 'Device frame',
   group: 'Page patterns',
   order: 6,
-  status: 'new',
   summary: 'A phone body around a `.phone` screen: rounded bezel, side buttons, the camera island and a status bar, scaled to fit the page. On a real phone the same screen drops the body and fills the display with `.device--bleed`.',
   when: [
     'Showing a phone app inside a wide page: a product tour, an examples page, a design review, onboarding for a mobile app.',

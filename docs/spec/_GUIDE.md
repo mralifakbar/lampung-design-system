@@ -9,7 +9,7 @@ One file per component: `docs/spec/<slug>.mjs`, `export default { … }`. `node 
 | `title` | yes | Sentence case name ("Alert dialog"). |
 | `group` | yes | One of: Foundations, Actions, Inputs, Selection, Navigation, Overlays, Feedback, Data display, Content, Chat, Page patterns, Marketing, Motion, Microinteractions, Charts. |
 | `order` | yes | Position inside the group (see the registry below). |
-| `status` | no | `'new'` for components added in 1.1 (marked in the registry). |
+| `status` | no | `'new'` for components added in the latest minor release; remove it at the next one. |
 | `summary` | yes | One or two sentences: what it is and its single most important rule. |
 | `when` | yes | Array. Concrete situations to use it. The first item is shown in the catalog table, so make it the clearest. |
 | `whenNot` | strongly | Array of `[situation, slug, optional extra sentence]`, pointing to the component to use instead. This is what stops agents from inventing components; give at least two. |

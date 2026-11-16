@@ -29,7 +29,6 @@ export default {
   title: 'Paper',
   group: 'Content',
   order: 6,
-  status: 'new',
   summary: 'A printable page shown as a sheet inside the app: an invoice, a receipt, a letter, a certificate. The text reflows with the width, so the preview stays readable on a phone, and it can be the only thing that prints.',
   when: [
     'A live preview of a document people are editing in a form beside it: an invoice, a quote, an offer letter.',

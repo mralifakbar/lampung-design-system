@@ -9,7 +9,6 @@ export default {
   title: 'Gauge',
   group: 'Charts',
   order: 5.5,
-  status: 'new',
   summary: 'A half ring with the value in its opening: one figure against its known range (seats booked, a score, a load), or a row of ticks shared out between a few states (in stock, low, sold out). Reads at a glance; the words under the number carry the detail.',
   when: [
     'One value against a fixed range where "how full" is the question: capacity booked, quota used, a health score, a server\'s load.',

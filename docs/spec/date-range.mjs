@@ -7,7 +7,6 @@ export default {
   title: 'Date range',
   group: 'Inputs',
   order: 13,
-  status: 'new',
   summary: 'A button that shows the current span and opens presets beside a two-month calendar (one month on phones). A preset applies at once; picking a start previews the span as you move, picking an end waits for Apply.',
   when: [
     'The period of a dashboard, a report or an export: last 30 days, this month, a custom span.',

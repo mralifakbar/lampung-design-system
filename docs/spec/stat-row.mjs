@@ -2,7 +2,6 @@ export default {
   title: 'Stat row',
   group: 'Data display',
   order: 3,
-  status: 'new',
   summary: 'A row of key figures without cards: big tabular numbers with their labels underneath, divided by hairlines. Its columns follow the width of the content column, not the screen.',
   when: [
     'Two to four figures that summarize a page or a section: credits taken, average grade, tasks due.',

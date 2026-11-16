@@ -2,7 +2,6 @@ export default {
   title: 'Sections',
   group: 'Page patterns',
   order: 1,
-  status: 'new',
   summary: 'A page as a column of titled sections: 48 px apart, a hairline above every section after the first, a larger heading on wide screens. Structure comes from space and headings, not from a card around each part.',
   when: [
     'Any page with more than one part: a course page (overview, schedule, materials), a dashboard, a settings page, a profile.',

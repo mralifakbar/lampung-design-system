@@ -4,7 +4,6 @@ export default {
   title: 'Link card',
   group: 'Page patterns',
   order: 3,
-  status: 'new',
   summary: 'A grid of destinations on the quiet fill: each card is one link with an eyebrow, a title, a line of detail and a foot whose chevron leans toward where it goes.',
   when: [
     'A hub page that sends people to a few places of equal weight: my courses, the question bank, transcripts, settings.',

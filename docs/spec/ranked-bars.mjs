@@ -25,7 +25,6 @@ export default {
   title: 'Ranked bars',
   group: 'Charts',
   order: 3.5,
-  status: 'new',
   summary: 'Rows of a label, a horizontal bar and its value, sorted longest first: top sources, top pages, best scores. Long labels stay readable because they sit beside (or inside) the bar instead of under it, and every row shares one grid so bars and values line up.',
   when: [
     'Ranking 3 to 10 named things by one value: traffic sources, pages, products, students, regions.',

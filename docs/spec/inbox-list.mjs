@@ -12,7 +12,6 @@ export default {
   title: 'Inbox list',
   group: 'Data display',
   order: 22.5,
-  status: 'new',
   summary: 'Rows of messages or conversations: who, when, a subject and a preview, with unread, current and flagged states. The row is the button that opens the message; the newest sit on top.',
   when: [
     'A mail inbox, a list of chat conversations or a support queue, where each row opens one message or thread.',

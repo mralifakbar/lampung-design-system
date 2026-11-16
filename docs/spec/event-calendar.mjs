@@ -16,7 +16,6 @@ export default {
   title: 'Event calendar',
   group: 'Data display',
   order: 22,
-  status: 'new',
   summary: 'A calendar of events with three views: a month grid with event chips, a week of timed blocks with a now line, and an agenda list grouped by day. It renders from JSON and turns into dots plus the chosen day\'s list when it has less than 640 px.',
   when: [
     'People plan around dates and times: a team calendar, class schedules, bookings, deadlines across projects.',

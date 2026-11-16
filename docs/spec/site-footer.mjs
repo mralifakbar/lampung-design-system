@@ -2,7 +2,6 @@ export default {
   title: 'Site footer',
   group: 'Marketing',
   order: 8,
-  status: 'new',
   summary: 'The bottom of a marketing or content site: the product name and one line about it, link groups that exist, and a bottom row for the small print and the appearance control.',
   when: [
     'Every page of a marketing, landing or documentation site that uses a [top nav](top-nav).',

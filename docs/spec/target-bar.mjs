@@ -8,7 +8,6 @@ export default {
   title: 'Target bar',
   group: 'Charts',
   order: 6.5,
-  status: 'new',
   summary: 'A horizontal bar for progress toward a goal: the fill is where you are, a marker shows where you should be (the goal, or today\'s pace), and an optional tint ahead of the fill shows the forecast. Words above say the value against the goal.',
   when: [
     'A figure measured against a target: revenue against the quarter goal, enrolments against capacity planned, hours studied against the weekly plan.',

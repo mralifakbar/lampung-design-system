@@ -2,7 +2,6 @@ export default {
   title: 'Testimonial',
   group: 'Marketing',
   order: 6,
-  status: 'new',
   summary: 'What one real person said about the product, with their name and role. Quiet on purpose: the words carry it. Only publish real quotes; while designing, label placeholders as example content where readers see it.',
   when: [
     'A landing or pricing page with quotes from real customers who agreed to be named.',

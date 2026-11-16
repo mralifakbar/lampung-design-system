@@ -5,7 +5,6 @@ export default {
   title: 'Streaming text',
   group: 'Chat',
   order: 4,
-  status: 'new',
   summary: 'An answer that arrives word by word, each word fading in from a 3 px blur, with a round caret at the end while more is coming. It shows real progress; never fake it for text you already have.',
   when: [
     'An assistant reply that is generated while the person waits: show words as they arrive from the server.',

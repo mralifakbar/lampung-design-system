@@ -9,7 +9,6 @@ export default {
   title: 'Thumbnail',
   group: 'Content',
   order: 5,
-  status: 'new',
   summary: 'A cropped preview of a picture at a fixed ratio (4:3 by default) on a recessed placeholder. As a link with `data-lds-lightbox`, it opens the full picture in a [lightbox](lightbox) that grows out of the thumbnail.',
   when: [
     'Photos and screenshots inside content: attachments on an assignment, photos of a venue, figures in a lesson.',

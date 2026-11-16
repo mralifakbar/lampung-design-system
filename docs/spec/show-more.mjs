@@ -2,7 +2,6 @@ export default {
   title: 'Show more',
   group: 'Data display',
   order: 12,
-  status: 'new',
   summary: 'The first few items of a list, then a plain button that reveals the rest in place on the collapse spring, and folds it back.',
   when: [
     'A list where the first few items answer most visits: the latest five announcements, the top topics, recent payments.',

@@ -2,7 +2,6 @@ export default {
   title: 'Layout primitives',
   group: 'Foundations',
   order: 1,
-  status: 'new',
   summary: 'Seven small classes that lay out everything between components: `stack`, `cluster`, `auto-grid`, `split-2`, `center`, `measure` and `sr-only`. Reach for them before writing `display: flex` or `grid` by hand.',
   when: [
     'You need to place components next to or under each other: a column of cards (`stack`), a row of buttons or badges that may wrap (`cluster`), a grid of tiles that reflows by width (`auto-grid`).',

@@ -2,7 +2,6 @@ export default {
   title: 'Hero',
   group: 'Marketing',
   order: 1,
-  status: 'new',
   summary: 'The top of a product or landing page: one headline, one line under it, at most two actions, and the product itself beside or below. The product is shown working, not as a picture of a screen.',
   when: [
     'The first screen of a landing, product or pricing page that sits in front of an app.',

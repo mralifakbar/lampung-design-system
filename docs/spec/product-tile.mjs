@@ -5,7 +5,6 @@ export default {
   title: 'Product tile',
   group: 'Data display',
   order: 20.5,
-  status: 'new',
   summary: 'A product people tap to add to a sale or an order: picture, name, one meta line and the price, with a badge in the corner that counts how many are already in the sale. The whole tile is one button.',
   when: [
     'A point of sale or a counter where the cashier adds products by tapping them: a shop, a cafe, a ticket desk.',

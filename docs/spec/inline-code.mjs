@@ -2,7 +2,6 @@ export default {
   title: 'Inline code',
   group: 'Content',
   order: 4,
-  status: 'new',
   summary: 'A short piece of code, a file name, a key or a value inside a sentence: `<code class="code">student_id</code>`, monospace at 0.88 em on `--bg-recessed`.',
   when: [
     'Naming code, commands, file names, field names or exact values someone will type: `student_id`, `npm run build`, `grades.csv`.',

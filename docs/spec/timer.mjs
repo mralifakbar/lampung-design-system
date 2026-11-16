@@ -2,7 +2,6 @@ export default {
   title: 'Timer',
   group: 'Feedback',
   order: 14,
-  status: 'new',
   summary: 'A countdown pill in tabular mono figures that turns amber when time runs low and red at zero, then fires `lds:timeup`. For real deadlines the person is working against.',
   when: [
     'A timed exam or tryout: time left for the whole test or for one section.',

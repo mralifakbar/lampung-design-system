@@ -2,7 +2,6 @@ export default {
   title: 'Citation',
   group: 'Content',
   order: 3,
-  status: 'new',
   summary: 'A small numbered pill after a claim that links to its source: `<a class="cite" href="#src-1">1</a>`. Used in articles and assistant answers so every fact can be checked.',
   when: [
     'An assistant answer or summary states facts drawn from documents: each claim gets a numbered citation to the document it came from.',

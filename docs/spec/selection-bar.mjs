@@ -6,7 +6,6 @@ export default {
   title: 'Selection bar',
   group: 'Overlays',
   order: 14,
-  status: 'new',
   summary: 'A dark bar that floats up from the bottom while items in a list are selected, holding the count and the actions for all of them. It leaves when the selection is empty.',
   when: [
     'Bulk actions on a list or table people select from: archive 12 messages, grade 5 submissions, export 30 students.',

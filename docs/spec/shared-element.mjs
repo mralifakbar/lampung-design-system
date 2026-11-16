@@ -8,7 +8,6 @@ export default {
   title: 'Shared element',
   group: 'Motion',
   order: 8,
-  status: 'new',
   summary: 'The picture you tap grows out of its own thumbnail into the full view and shrinks back into the same spot when closed (a FLIP transition). Because the object never disappears, people keep their place: the large view is visibly the same thing, not a new page.',
   when: [
     'Opening a photo, diagram or scan from a grid or an article into a [lightbox](lightbox).',

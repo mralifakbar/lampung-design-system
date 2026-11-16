@@ -2,7 +2,6 @@ export default {
   title: 'Marketing section',
   group: 'Marketing',
   order: 2,
-  status: 'new',
   summary: 'One part of a landing or product page: a head with an eyebrow, a large title and a lede, over any content. Every marketing section shares the same width and gutter, so edges line up down the page.',
   when: [
     'Each part of a landing, product or pricing page after the hero: features, examples, pricing, questions.',

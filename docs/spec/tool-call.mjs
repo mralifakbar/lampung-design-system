@@ -5,7 +5,6 @@ export default {
   title: 'Tool call',
   group: 'Chat',
   order: 5,
-  status: 'new',
   summary: 'One step the assistant took on the way to its answer (searched the notes, read a file, checked the calendar), shown as a quiet one-line `<details>` that opens to what it found. The answer stays the main thing.',
   when: [
     'An assistant answer depends on something it looked up or ran, and people may want to check it: a search, a file it read, a calculation, a calendar lookup.',

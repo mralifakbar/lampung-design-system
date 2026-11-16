@@ -18,7 +18,6 @@ export default {
   title: 'Uptime bars',
   group: 'Charts',
   order: 7.5,
-  status: 'new',
   summary: 'One thin bar per day (or hour) in a row, colored by how that period went: no issues, degraded, or down. The pattern of incidents over 90 days reads at a glance; pointing at a bar, or using the arrow keys, says what happened that day.',
   when: [
     'The history of a running service on a status or infrastructure page: 90 days of a website, an API, sign-in, payments.',

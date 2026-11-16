@@ -2,7 +2,6 @@ export default {
   title: 'Outline',
   group: 'Navigation',
   order: 9,
-  status: 'new',
   summary: 'An "On this page" list of the headings of one long page, with an ink line that follows the section in view. The list on the right of this page is one.',
   when: [
     'A long page with four or more sections people jump between: documentation, a syllabus, course rules, a long report.',

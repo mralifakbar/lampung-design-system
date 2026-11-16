@@ -6,7 +6,6 @@ export default {
   title: 'App shell',
   group: 'Navigation',
   order: 1,
-  status: 'new',
   summary: 'The frame of an app: a sticky sidebar beside the content on wide screens, a top bar with a drawer below 960 px. One per app, at the root; one highlight glides to the current page.',
   when: [
     'An app or documentation site with more than five destinations that people move between all day: a course hub, an admin panel, a docs site.',

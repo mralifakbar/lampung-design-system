@@ -88,7 +88,6 @@ export default {
   title: 'Data table',
   group: 'Data display',
   order: 18,
-  status: 'new',
   summary: 'A table people work in: search, filter chips and menus, sortable headers, a column menu, row density, row selection with a selection bar, and pagination with a page size, all on a plain `.table` and wired by one hook. Every control changes the rows at once and says what it did.',
   when: [
     'A list of records people search, narrow, sort and act on in bulk: members of a workspace, customers, orders, invoices.',

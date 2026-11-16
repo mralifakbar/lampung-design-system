@@ -2,7 +2,6 @@ export default {
   title: 'CTA band',
   group: 'Marketing',
   order: 7,
-  status: 'new',
   summary: 'The last ask on a landing page: a short title, one line, and the same primary action as the hero, on the quiet fill. It may hold the one line people copy to start.',
   when: [
     'The end of a landing or product page, before the footer.',

@@ -2,7 +2,6 @@ export default {
   title: 'Navigation stack',
   group: 'Navigation',
   order: 13,
-  status: 'new',
   summary: 'Push a detail screen in from the right over the one you came from, and go back with the back button or by dragging the screen away from the left edge. The screen underneath slides at 30 % and dims, so people always know where back leads.',
   when: [
     'A phone app where a row opens its detail: a course from a list, a payment from activity, a project from projects.',
