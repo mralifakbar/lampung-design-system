@@ -1,0 +1,414 @@
+<!doctype html>
+<html lang="en" class="lds" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Area chart · Lampung Design System</title>
+<meta name="description" content="A filled line over time, drawn from data: one series against a dashed comparison, up to four series stacked into a total, or steps for a value that changes in jumps. Legend items switch series on and off; the crosshair reads every series at once.">
+<script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
+<link rel="stylesheet" href="../../../css/lds.css">
+<link rel="stylesheet" href="../../docs.css">
+<link rel="alternate" hreflang="id" href="../../components/area-chart.html">
+</head>
+<body class="lds">
+<a class="skip" href="#main">Skip to content</a>
+<div class="shell" data-lds-shell>
+  <aside class="shell__side" id="side" aria-label="Documentation">
+    <a class="shell__brand" href="../index.html"><span class="page-head__mark">L</span>Lampung Design System</a>
+    <nav class="shell__nav" aria-label="Components">
+      <span class="shell__hl" aria-hidden="true"></span>
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Getting started</span></a>
+      <a class="shell__link" href="index.html"><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">All components</span></a>
+      <a class="shell__link" href="../../examples/index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Examples</span></a>
+      <p class="shell__group">Components</p>
+      <div class="shell__section">
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g0"><span class="shell__section-label">Foundations</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="shell__panel" id="nav-g0"><div><div class="shell__children">
+          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="data-states.html"><span class="shell__num">3</span><span class="shell__label">Data states</span></a>
+          <a class="shell__link shell__link--child" href="theming.html"><span class="shell__num">4</span><span class="shell__label">Theming</span></a>
+          <a class="shell__link shell__link--child" href="icon.html"><span class="shell__num">5</span><span class="shell__label">Icon</span></a>
+        </div></div></div>
+      </div>
+      <div class="shell__section">
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g1"><span class="shell__section-label">Actions</span><span class="shell__section-count">11</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="shell__panel" id="nav-g1"><div><div class="shell__children">
+          <a class="shell__link shell__link--child" href="button.html"><span class="shell__num">1</span><span class="shell__label">Button</span></a>
+          <a class="shell__link shell__link--child" href="icon-button.html"><span class="shell__num">2</span><span class="shell__label">Icon button</span></a>
+          <a class="shell__link shell__link--child" href="floating-action.html"><span class="shell__num">3</span><span class="shell__label">Floating action</span></a>
+          <a class="shell__link shell__link--child" href="button-group.html"><span class="shell__num">4</span><span class="shell__label">Button group</span></a>
+          <a class="shell__link shell__link--child" href="split-button.html"><span class="shell__num">5</span><span class="shell__label">Split button</span></a>
+          <a class="shell__link shell__link--child" href="toggle.html"><span class="shell__num">6</span><span class="shell__label">Toggle</span></a>
+          <a class="shell__link shell__link--child" href="link.html"><span class="shell__num">7</span><span class="shell__label">Link</span></a>
+          <a class="shell__link shell__link--child" href="copy-button.html"><span class="shell__num">8</span><span class="shell__label">Copy button</span></a>
+          <a class="shell__link shell__link--child" href="hold-to-confirm.html"><span class="shell__num">9</span><span class="shell__label">Hold to confirm</span></a>
+          <a class="shell__link shell__link--child" href="slide-to-confirm.html"><span class="shell__num">10</span><span class="shell__label">Slide to confirm</span></a>
+          <a class="shell__link shell__link--child" href="kbd.html"><span class="shell__num">11</span><span class="shell__label">Keyboard key</span></a>
+        </div></div></div>
+      </div>
+      <div class="shell__section">
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g2"><span class="shell__section-label">Inputs</span><span class="shell__section-count">13</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="shell__panel" id="nav-g2"><div><div class="shell__children">
+          <a class="shell__link shell__link--child" href="text-field.html"><span class="shell__num">1</span><span class="shell__label">Text field</span></a>
+          <a class="shell__link shell__link--child" href="amount-field.html"><span class="shell__num">2</span><span class="shell__label">Amount field</span></a>
+          <a class="shell__link shell__link--child" href="textarea.html"><span class="shell__num">3</span><span class="shell__label">Textarea</span></a>
+          <a class="shell__link shell__link--child" href="search-field.html"><span class="shell__num">4</span><span class="shell__label">Search field</span></a>
+          <a class="shell__link shell__link--child" href="password-field.html"><span class="shell__num">5</span><span class="shell__label">Password field</span></a>
+          <a class="shell__link shell__link--child" href="number-stepper.html"><span class="shell__num">6</span><span class="shell__label">Number stepper</span></a>
+          <a class="shell__link shell__link--child" href="otp.html"><span class="shell__num">7</span><span class="shell__label">One-time code</span></a>
+          <a class="shell__link shell__link--child" href="select.html"><span class="shell__num">8</span><span class="shell__label">Select</span></a>
+          <a class="shell__link shell__link--child" href="combobox.html"><span class="shell__num">9</span><span class="shell__label">Combobox</span></a>
+          <a class="shell__link shell__link--child" href="tag-input.html"><span class="shell__num">10</span><span class="shell__label">Tag input</span></a>
+          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span><span class="badge badge--accent shell__badge">New</span></a>
+        </div></div></div>
+      </div>
+      <div class="shell__section">
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g3"><span class="shell__section-label">Selection</span><span class="shell__section-count">9</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="shell__panel" id="nav-g3"><div><div class="shell__children">
+          <a class="shell__link shell__link--child" href="checkbox.html"><span class="shell__num">1</span><span class="shell__label">Checkbox</span></a>
+          <a class="shell__link shell__link--child" href="radio.html"><span class="shell__num">2</span><span class="shell__label">Radio</span></a>
+          <a class="shell__link shell__link--child" href="radio-card.html"><span class="shell__num">3</span><span class="shell__label">Radio card</span></a>
+          <a class="shell__link shell__link--child" href="switch.html"><span class="shell__num">4</span><span class="shell__label">Switch</span></a>
+          <a class="shell__link shell__link--child" href="segmented-control.html"><span class="shell__num">5</span><span class="shell__label">Segmented control</span></a>
+          <a class="shell__link shell__link--child" href="slider.html"><span class="shell__num">6</span><span class="shell__label">Slider</span></a>
+          <a class="shell__link shell__link--child" href="range-slider.html"><span class="shell__num">7</span><span class="shell__label">Range slider</span></a>
+          <a class="shell__link shell__link--child" href="chips.html"><span class="shell__num">8</span><span class="shell__label">Chips</span></a>
+          <a class="shell__link shell__link--child" href="rating.html"><span class="shell__num">9</span><span class="shell__label">Rating</span></a>
+        </div></div></div>
+      </div>
+      <div class="shell__section">
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigation</span><span class="shell__section-count">13</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="shell__panel" id="nav-g4"><div><div class="shell__children">
+          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">1</span><span class="shell__label">App shell</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">2</span><span class="shell__label">Top nav</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">3</span><span class="shell__label">Tabs</span></a>
+          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">4</span><span class="shell__label">Breadcrumbs</span></a>
+          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">5</span><span class="shell__label">Page header</span></a>
+          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">6</span><span class="shell__label">Pagination</span></a>
+          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">7</span><span class="shell__label">Steps</span></a>
+          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">8</span><span class="shell__label">Sidebar</span></a>
+          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">9</span><span class="shell__label">Outline</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">10</span><span class="shell__label">Menubar</span></a>
+          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">11</span><span class="shell__label">Nav progress</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">12</span><span class="shell__label">Phone bars</span></a>
+          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">13</span><span class="shell__label">Navigation stack</span><span class="badge badge--accent shell__badge">New</span></a>
+        </div></div></div>
+      </div>
+      <div class="shell__section">
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g5"><span class="shell__section-label">Overlays</span><span class="shell__section-count">14</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="shell__panel" id="nav-g5"><div><div class="shell__children">
+          <a class="shell__link shell__link--child" href="dialog.html"><span class="shell__num">1</span><span class="shell__label">Dialog</span></a>
+          <a class="shell__link shell__link--child" href="alert-dialog.html"><span class="shell__num">2</span><span class="shell__label">Alert dialog</span></a>
+          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="sheet.html"><span class="shell__num">4</span><span class="shell__label">Sheet</span></a>
+          <a class="shell__link shell__link--child" href="drawer.html"><span class="shell__num">5</span><span class="shell__label">Drawer</span></a>
+          <a class="shell__link shell__link--child" href="dropdown-menu.html"><span class="shell__num">6</span><span class="shell__label">Dropdown menu</span></a>
+          <a class="shell__link shell__link--child" href="context-menu.html"><span class="shell__num">7</span><span class="shell__label">Context menu</span></a>
+          <a class="shell__link shell__link--child" href="popover.html"><span class="shell__num">8</span><span class="shell__label">Popover</span></a>
+          <a class="shell__link shell__link--child" href="tooltip.html"><span class="shell__num">9</span><span class="shell__label">Tooltip</span></a>
+          <a class="shell__link shell__link--child" href="hover-card.html"><span class="shell__num">10</span><span class="shell__label">Hover card</span></a>
+          <a class="shell__link shell__link--child" href="toast.html"><span class="shell__num">11</span><span class="shell__label">Toast</span></a>
+          <a class="shell__link shell__link--child" href="command-palette.html"><span class="shell__num">12</span><span class="shell__label">Command palette</span></a>
+          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span><span class="badge badge--accent shell__badge">New</span></a>
+        </div></div></div>
+      </div>
+      <div class="shell__section">
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g6"><span class="shell__section-label">Feedback</span><span class="shell__section-count">14</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="shell__panel" id="nav-g6"><div><div class="shell__children">
+          <a class="shell__link shell__link--child" href="alert.html"><span class="shell__num">1</span><span class="shell__label">Alert</span></a>
+          <a class="shell__link shell__link--child" href="banner.html"><span class="shell__num">2</span><span class="shell__label">Banner</span></a>
+          <a class="shell__link shell__link--child" href="progress-bar.html"><span class="shell__num">3</span><span class="shell__label">Progress bar</span></a>
+          <a class="shell__link shell__link--child" href="progress-ring.html"><span class="shell__num">4</span><span class="shell__label">Progress ring</span></a>
+          <a class="shell__link shell__link--child" href="meter.html"><span class="shell__num">5</span><span class="shell__label">Meter</span></a>
+          <a class="shell__link shell__link--child" href="spinner.html"><span class="shell__num">6</span><span class="shell__label">Spinner</span></a>
+          <a class="shell__link shell__link--child" href="skeleton.html"><span class="shell__num">7</span><span class="shell__label">Skeleton</span></a>
+          <a class="shell__link shell__link--child" href="badge.html"><span class="shell__num">8</span><span class="shell__label">Badge</span></a>
+          <a class="shell__link shell__link--child" href="count.html"><span class="shell__num">9</span><span class="shell__label">Count</span></a>
+          <a class="shell__link shell__link--child" href="status-dot.html"><span class="shell__num">10</span><span class="shell__label">Status dot</span></a>
+          <a class="shell__link shell__link--child" href="empty-state.html"><span class="shell__num">11</span><span class="shell__label">Empty state</span></a>
+          <a class="shell__link shell__link--child" href="coachmark.html"><span class="shell__num">12</span><span class="shell__label">Coachmark</span></a>
+          <a class="shell__link shell__link--child" href="thinking.html"><span class="shell__num">13</span><span class="shell__label">Thinking</span></a>
+          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span><span class="badge badge--accent shell__badge">New</span></a>
+        </div></div></div>
+      </div>
+      <div class="shell__section">
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g7"><span class="shell__section-label">Data display</span><span class="shell__section-count">30</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="shell__panel" id="nav-g7"><div><div class="shell__children">
+          <a class="shell__link shell__link--child" href="list.html"><span class="shell__num">1</span><span class="shell__label">List</span></a>
+          <a class="shell__link shell__link--child" href="key-value.html"><span class="shell__num">2</span><span class="shell__label">Key-value</span></a>
+          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="card.html"><span class="shell__num">5</span><span class="shell__label">Card</span></a>
+          <a class="shell__link shell__link--child" href="avatar.html"><span class="shell__num">6</span><span class="shell__label">Avatar</span></a>
+          <a class="shell__link shell__link--child" href="table.html"><span class="shell__num">7</span><span class="shell__label">Table</span></a>
+          <a class="shell__link shell__link--child" href="accordion.html"><span class="shell__num">8</span><span class="shell__label">Accordion</span></a>
+          <a class="shell__link shell__link--child" href="tree.html"><span class="shell__num">9</span><span class="shell__label">Tree</span></a>
+          <a class="shell__link shell__link--child" href="calendar.html"><span class="shell__num">10</span><span class="shell__label">Calendar</span></a>
+          <a class="shell__link shell__link--child" href="timeline.html"><span class="shell__num">11</span><span class="shell__label">Timeline</span></a>
+          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="rolling-number.html"><span class="shell__num">15</span><span class="shell__label">Rolling number</span></a>
+          <a class="shell__link shell__link--child" href="code-block.html"><span class="shell__num">16</span><span class="shell__label">Code block</span></a>
+          <a class="shell__link shell__link--child" href="carousel.html"><span class="shell__num">17</span><span class="shell__label">Carousel</span></a>
+          <a class="shell__link shell__link--child" href="separator.html"><span class="shell__num">18</span><span class="shell__label">Separator</span></a>
+          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span><span class="badge badge--accent shell__badge">New</span></a>
+        </div></div></div>
+      </div>
+      <div class="shell__section">
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Content</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="shell__panel" id="nav-g8"><div><div class="shell__children">
+          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span><span class="badge badge--accent shell__badge">New</span></a>
+        </div></div></div>
+      </div>
+      <div class="shell__section">
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g9"><span class="shell__section-label">Chat</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="shell__panel" id="nav-g9"><div><div class="shell__children">
+          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span><span class="badge badge--accent shell__badge">New</span></a>
+        </div></div></div>
+      </div>
+      <div class="shell__section">
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g10"><span class="shell__section-label">Page patterns</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="shell__panel" id="nav-g10"><div><div class="shell__children">
+          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="phone-screen.html"><span class="shell__num">5</span><span class="shell__label">Phone screen</span></a>
+          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span><span class="badge badge--accent shell__badge">New</span></a>
+        </div></div></div>
+      </div>
+      <div class="shell__section">
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g11"><span class="shell__section-label">Marketing</span><span class="shell__section-count">8</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="shell__panel" id="nav-g11"><div><div class="shell__children">
+          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span><span class="badge badge--accent shell__badge">New</span></a>
+        </div></div></div>
+      </div>
+      <div class="shell__section">
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g12"><span class="shell__section-label">Motion</span><span class="shell__section-count">12</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="shell__panel" id="nav-g12"><div><div class="shell__children">
+          <a class="shell__link shell__link--child" href="motion-principles.html"><span class="shell__num">1</span><span class="shell__label">Motion principles</span></a>
+          <a class="shell__link shell__link--child" href="press-feedback.html"><span class="shell__num">2</span><span class="shell__label">Press feedback</span></a>
+          <a class="shell__link shell__link--child" href="enter-and-exit.html"><span class="shell__num">3</span><span class="shell__label">Enter and exit</span></a>
+          <a class="shell__link shell__link--child" href="sliding-indicator.html"><span class="shell__num">4</span><span class="shell__label">Sliding indicator</span></a>
+          <a class="shell__link shell__link--child" href="height-expand.html"><span class="shell__num">5</span><span class="shell__label">Height expand</span></a>
+          <a class="shell__link shell__link--child" href="list-stagger.html"><span class="shell__num">6</span><span class="shell__label">List stagger</span></a>
+          <a class="shell__link shell__link--child" href="view-swap.html"><span class="shell__num">7</span><span class="shell__label">View swap</span></a>
+          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="number-count.html"><span class="shell__num">9</span><span class="shell__label">Number count</span></a>
+          <a class="shell__link shell__link--child" href="drag-and-momentum.html"><span class="shell__num">10</span><span class="shell__label">Drag and momentum</span></a>
+          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="reduced-motion.html"><span class="shell__num">12</span><span class="shell__label">Reduced motion</span></a>
+        </div></div></div>
+      </div>
+      <div class="shell__section">
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g13"><span class="shell__section-label">Microinteractions</span><span class="shell__section-count">15</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="shell__panel" id="nav-g13"><div><div class="shell__children">
+          <a class="shell__link shell__link--child" href="text-morph.html"><span class="shell__num">1</span><span class="shell__label">Text morph</span></a>
+          <a class="shell__link shell__link--child" href="confirm-in-place.html"><span class="shell__num">2</span><span class="shell__label">Confirm in place</span></a>
+          <a class="shell__link shell__link--child" href="like.html"><span class="shell__num">3</span><span class="shell__label">Like</span></a>
+          <a class="shell__link shell__link--child" href="shake.html"><span class="shell__num">4</span><span class="shell__label">Shake</span></a>
+          <a class="shell__link shell__link--child" href="icon-swap.html"><span class="shell__num">5</span><span class="shell__label">Icon swap</span></a>
+          <a class="shell__link shell__link--child" href="bell.html"><span class="shell__num">6</span><span class="shell__label">Bell</span></a>
+          <a class="shell__link shell__link--child" href="menu-icon.html"><span class="shell__num">7</span><span class="shell__label">Menu icon</span></a>
+          <a class="shell__link shell__link--child" href="expanding-toolbar.html"><span class="shell__num">8</span><span class="shell__label">Expanding toolbar</span></a>
+          <a class="shell__link shell__link--child" href="swipe-actions.html"><span class="shell__num">9</span><span class="shell__label">Swipe actions</span></a>
+          <a class="shell__link shell__link--child" href="inline-edit.html"><span class="shell__num">10</span><span class="shell__label">Inline edit</span></a>
+          <a class="shell__link shell__link--child" href="upload-progress.html"><span class="shell__num">11</span><span class="shell__label">Upload progress</span></a>
+          <a class="shell__link shell__link--child" href="scroll-fades.html"><span class="shell__num">12</span><span class="shell__label">Scroll fades</span></a>
+          <a class="shell__link shell__link--child" href="hints.html"><span class="shell__num">13</span><span class="shell__label">Hints</span></a>
+          <a class="shell__link shell__link--child" href="haptics.html"><span class="shell__num">14</span><span class="shell__label">Haptics</span></a>
+          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span><span class="badge badge--accent shell__badge">New</span></a>
+        </div></div></div>
+      </div>
+      <div class="shell__section">
+        <button class="shell__section-btn" aria-expanded="true" aria-controls="nav-g14"><span class="shell__section-label">Charts</span><span class="shell__section-count">16</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="shell__panel is-open" id="nav-g14"><div><div class="shell__children">
+          <a class="shell__link shell__link--child" href="chart-principles.html"><span class="shell__num">1</span><span class="shell__label">Chart principles</span></a>
+          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="sparkline-stat.html"><span class="shell__num">3</span><span class="shell__label">Sparkline stat</span></a>
+          <a class="shell__link shell__link--child" href="bar-chart.html"><span class="shell__num">4</span><span class="shell__label">Bar chart</span></a>
+          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="line-chart.html"><span class="shell__num">6</span><span class="shell__label">Line chart</span></a>
+          <a class="shell__link shell__link--child" href="area-chart.html" aria-current="page"><span class="shell__num">7</span><span class="shell__label">Area chart</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="donut.html"><span class="shell__num">9</span><span class="shell__label">Donut</span></a>
+          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="percentage-bar.html"><span class="shell__num">11</span><span class="shell__label">Percentage bar</span></a>
+          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="heatmap.html"><span class="shell__num">14</span><span class="shell__label">Heatmap</span></a>
+          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span><span class="badge badge--accent shell__badge">New</span></a>
+          <a class="shell__link shell__link--child" href="chart-states.html"><span class="shell__num">16</span><span class="shell__label">Chart states</span></a>
+        </div></div></div>
+      </div>
+    </nav>
+    <div class="shell__foot">
+      <a class="shell__link" href="../../components/area-chart.html" hreflang="id" lang="id"><span class="ic" aria-hidden="true">language</span><span class="shell__label">Bahasa Indonesia</span></a>
+      <div class="seg" role="group" aria-label="Appearance" data-lds-segmented>
+        <span class="seg__thumb"></span>
+        <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
+        <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
+      </div>
+    </div>
+  </aside>
+  <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
+  <div class="shell__scrim"></div>
+  <div class="shell__main">
+    <header class="shell__top">
+      <button class="icon-btn" data-lds-shell-toggle aria-controls="side" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
+      <span class="shell__toptitle">Area chart</span>
+      <span style="width: 44px;"></span>
+    </header>
+    <div class="cdoc">
+      <main class="cdoc__main" id="main" tabindex="-1">
+        <header class="cdoc__head">
+          <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Charts">Charts</a></li></ol></nav>
+          <h1>Area chart <span class="badge badge--accent">New</span></h1>
+          <p class="cdoc__lede">A filled line over time, drawn from data: one series against a dashed comparison, up to four series stacked into a total, or steps for a value that changes in jumps. Legend items switch series on and off; the crosshair reads every series at once.</p>
+        </header>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>Volume over time where the amount under the line matters: visits, orders, sessions, minutes studied.</li><li>Parts of a total over time, stacked: sessions by device, orders by channel, enrolments by programme.</li><li>A level that changes in steps and holds: seats left, stock on hand, price tier, members on a plan.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Comparing trends whose totals do not add up: use <a class="link" href="line-chart.html">Line chart</a>. Overlapping fills hide each other; lines do not.</li><li>A few separate buckets (weekdays, grades): use <a class="link" href="bar-chart.html">Bar chart</a>.</li><li>Parts of one whole at one moment: use <a class="link" href="donut.html">Donut</a>.</li><li>A tiny trend under a headline number: use <a class="link" href="kpi-card.html">KPI card</a>.</li><li>Daily activity over many months: use <a class="link" href="heatmap.html">Heatmap</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Inside a <a class="link" href="chart-card.html">chart card</a>, full width of the card. The svg is drawn at the card's real width, so ticks stay 11 px and the x labels thin out on phones instead of shrinking. Default plot height 220 px; 180 to 200 in half-width cards.</p></section>
+        <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
+          <figcaption><span class="cdoc__ex-t">This month against last month</span><span class="cdoc__ex-d">One filled series and a dashed comparison. The fill grows from the baseline on first view; the dashed line fades in. Point at the plot, or focus it and use the arrow keys.</span></figcaption>
+          <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><section class="chart-card" aria-labelledby="ac-visits">
+  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="ac-visits">Are more people finding the course pages?</div><div class="chart-card__sub">Visits per day, November against October</div></div></div>
+  <div class="chart" data-lds-chart='{"label":"Course page visits per day. This month 27,830, 18% more than last month.","x":["18 Oct","19 Oct","20 Oct","21 Oct","22 Oct","23 Oct","24 Oct","25 Oct","26 Oct","27 Oct","28 Oct","29 Oct","30 Oct","31 Oct","1 Nov","2 Nov","3 Nov","4 Nov","5 Nov","6 Nov","7 Nov","8 Nov","9 Nov","10 Nov","11 Nov","12 Nov","13 Nov","14 Nov","15 Nov","16 Nov"],"xFull":["Sun 18 Oct","Mon 19 Oct","Tue 20 Oct","Wed 21 Oct","Thu 22 Oct","Fri 23 Oct","Sat 24 Oct","Sun 25 Oct","Mon 26 Oct","Tue 27 Oct","Wed 28 Oct","Thu 29 Oct","Fri 30 Oct","Sat 31 Oct","Sun 1 Nov","Mon 2 Nov","Tue 3 Nov","Wed 4 Nov","Thu 5 Nov","Fri 6 Nov","Sat 7 Nov","Sun 8 Nov","Mon 9 Nov","Tue 10 Nov","Wed 11 Nov","Thu 12 Nov","Fri 13 Nov","Sat 14 Nov","Sun 15 Nov","Mon 16 Nov"],"xName":"Day","series":[{"name":"This month","values":[870,920,930,870,820,670,720,910,980,1050,1010,890,750,760,910,1050,1110,980,920,730,870,900,1090,1150,1070,930,850,900,1000,1220]},{"name":"Last month","values":[800,870,930,830,690,580,620,820,870,860,860,720,680,620,790,920,910,810,700,610,700,830,930,920,900,750,710,710,750,920],"kind":"line","dashed":true,"color":4}]}'></div>
+</section></div>
+          <template id="ex-1-stage-tpl"><section class="chart-card" aria-labelledby="ac-visits">
+  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="ac-visits">Are more people finding the course pages?</div><div class="chart-card__sub">Visits per day, November against October</div></div></div>
+  <div class="chart" data-lds-chart='{"label":"Course page visits per day. This month 27,830, 18% more than last month.","x":["18 Oct","19 Oct","20 Oct","21 Oct","22 Oct","23 Oct","24 Oct","25 Oct","26 Oct","27 Oct","28 Oct","29 Oct","30 Oct","31 Oct","1 Nov","2 Nov","3 Nov","4 Nov","5 Nov","6 Nov","7 Nov","8 Nov","9 Nov","10 Nov","11 Nov","12 Nov","13 Nov","14 Nov","15 Nov","16 Nov"],"xFull":["Sun 18 Oct","Mon 19 Oct","Tue 20 Oct","Wed 21 Oct","Thu 22 Oct","Fri 23 Oct","Sat 24 Oct","Sun 25 Oct","Mon 26 Oct","Tue 27 Oct","Wed 28 Oct","Thu 29 Oct","Fri 30 Oct","Sat 31 Oct","Sun 1 Nov","Mon 2 Nov","Tue 3 Nov","Wed 4 Nov","Thu 5 Nov","Fri 6 Nov","Sat 7 Nov","Sun 8 Nov","Mon 9 Nov","Tue 10 Nov","Wed 11 Nov","Thu 12 Nov","Fri 13 Nov","Sat 14 Nov","Sun 15 Nov","Mon 16 Nov"],"xName":"Day","series":[{"name":"This month","values":[870,920,930,870,820,670,720,910,980,1050,1010,890,750,760,910,1050,1110,980,920,730,870,900,1090,1150,1070,930,850,900,1000,1220]},{"name":"Last month","values":[800,870,930,830,690,580,620,820,870,860,860,720,680,620,790,920,910,810,700,610,700,830,930,920,900,750,710,710,750,920],"kind":"line","dashed":true,"color":4}]}'></div>
+</section></template>
+          <div class="cdoc__bar">
+            <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
+            <button class="btn btn--plain btn--sm" data-replay="ex-1-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>Replay</button>
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;section class=&quot;chart-card&quot; aria-labelledby=&quot;ac-visits&quot;&gt;
+  &lt;div class=&quot;chart-card__head&quot;&gt;&lt;div class=&quot;chart-card__titles&quot;&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;ac-visits&quot;&gt;Are more people finding the course pages?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Visits per day, November against October&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;chart&quot; data-lds-chart='{&quot;label&quot;:&quot;Course page visits per day. This month 27,830, 18% more than last month.&quot;,&quot;x&quot;:[&quot;18 Oct&quot;,&quot;19 Oct&quot;,&quot;20 Oct&quot;,&quot;21 Oct&quot;,&quot;22 Oct&quot;,&quot;23 Oct&quot;,&quot;24 Oct&quot;,&quot;25 Oct&quot;,&quot;26 Oct&quot;,&quot;27 Oct&quot;,&quot;28 Oct&quot;,&quot;29 Oct&quot;,&quot;30 Oct&quot;,&quot;31 Oct&quot;,&quot;1 Nov&quot;,&quot;2 Nov&quot;,&quot;3 Nov&quot;,&quot;4 Nov&quot;,&quot;5 Nov&quot;,&quot;6 Nov&quot;,&quot;7 Nov&quot;,&quot;8 Nov&quot;,&quot;9 Nov&quot;,&quot;10 Nov&quot;,&quot;11 Nov&quot;,&quot;12 Nov&quot;,&quot;13 Nov&quot;,&quot;14 Nov&quot;,&quot;15 Nov&quot;,&quot;16 Nov&quot;],&quot;xFull&quot;:[&quot;Sun 18 Oct&quot;,&quot;Mon 19 Oct&quot;,&quot;Tue 20 Oct&quot;,&quot;Wed 21 Oct&quot;,&quot;Thu 22 Oct&quot;,&quot;Fri 23 Oct&quot;,&quot;Sat 24 Oct&quot;,&quot;Sun 25 Oct&quot;,&quot;Mon 26 Oct&quot;,&quot;Tue 27 Oct&quot;,&quot;Wed 28 Oct&quot;,&quot;Thu 29 Oct&quot;,&quot;Fri 30 Oct&quot;,&quot;Sat 31 Oct&quot;,&quot;Sun 1 Nov&quot;,&quot;Mon 2 Nov&quot;,&quot;Tue 3 Nov&quot;,&quot;Wed 4 Nov&quot;,&quot;Thu 5 Nov&quot;,&quot;Fri 6 Nov&quot;,&quot;Sat 7 Nov&quot;,&quot;Sun 8 Nov&quot;,&quot;Mon 9 Nov&quot;,&quot;Tue 10 Nov&quot;,&quot;Wed 11 Nov&quot;,&quot;Thu 12 Nov&quot;,&quot;Fri 13 Nov&quot;,&quot;Sat 14 Nov&quot;,&quot;Sun 15 Nov&quot;,&quot;Mon 16 Nov&quot;],&quot;xName&quot;:&quot;Day&quot;,&quot;series&quot;:[{&quot;name&quot;:&quot;This month&quot;,&quot;values&quot;:[870,920,930,870,820,670,720,910,980,1050,1010,890,750,760,910,1050,1110,980,920,730,870,900,1090,1150,1070,930,850,900,1000,1220]},{&quot;name&quot;:&quot;Last month&quot;,&quot;values&quot;:[800,870,930,830,690,580,620,820,870,860,860,720,680,620,790,920,910,810,700,610,700,830,930,920,900,750,710,710,750,920],&quot;kind&quot;:&quot;line&quot;,&quot;dashed&quot;:true,&quot;color&quot;:4}]}'&gt;&lt;/div&gt;
+&lt;/section&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
+          </div>
+          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;section class=&quot;chart-card&quot; aria-labelledby=&quot;ac-visits&quot;&gt;
+  &lt;div class=&quot;chart-card__head&quot;&gt;&lt;div class=&quot;chart-card__titles&quot;&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;ac-visits&quot;&gt;Are more people finding the course pages?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Visits per day, November against October&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;chart&quot; data-lds-chart='{&quot;label&quot;:&quot;Course page visits per day. This month 27,830, 18% more than last month.&quot;,&quot;x&quot;:[&quot;18 Oct&quot;,&quot;19 Oct&quot;,&quot;20 Oct&quot;,&quot;21 Oct&quot;,&quot;22 Oct&quot;,&quot;23 Oct&quot;,&quot;24 Oct&quot;,&quot;25 Oct&quot;,&quot;26 Oct&quot;,&quot;27 Oct&quot;,&quot;28 Oct&quot;,&quot;29 Oct&quot;,&quot;30 Oct&quot;,&quot;31 Oct&quot;,&quot;1 Nov&quot;,&quot;2 Nov&quot;,&quot;3 Nov&quot;,&quot;4 Nov&quot;,&quot;5 Nov&quot;,&quot;6 Nov&quot;,&quot;7 Nov&quot;,&quot;8 Nov&quot;,&quot;9 Nov&quot;,&quot;10 Nov&quot;,&quot;11 Nov&quot;,&quot;12 Nov&quot;,&quot;13 Nov&quot;,&quot;14 Nov&quot;,&quot;15 Nov&quot;,&quot;16 Nov&quot;],&quot;xFull&quot;:[&quot;Sun 18 Oct&quot;,&quot;Mon 19 Oct&quot;,&quot;Tue 20 Oct&quot;,&quot;Wed 21 Oct&quot;,&quot;Thu 22 Oct&quot;,&quot;Fri 23 Oct&quot;,&quot;Sat 24 Oct&quot;,&quot;Sun 25 Oct&quot;,&quot;Mon 26 Oct&quot;,&quot;Tue 27 Oct&quot;,&quot;Wed 28 Oct&quot;,&quot;Thu 29 Oct&quot;,&quot;Fri 30 Oct&quot;,&quot;Sat 31 Oct&quot;,&quot;Sun 1 Nov&quot;,&quot;Mon 2 Nov&quot;,&quot;Tue 3 Nov&quot;,&quot;Wed 4 Nov&quot;,&quot;Thu 5 Nov&quot;,&quot;Fri 6 Nov&quot;,&quot;Sat 7 Nov&quot;,&quot;Sun 8 Nov&quot;,&quot;Mon 9 Nov&quot;,&quot;Tue 10 Nov&quot;,&quot;Wed 11 Nov&quot;,&quot;Thu 12 Nov&quot;,&quot;Fri 13 Nov&quot;,&quot;Sat 14 Nov&quot;,&quot;Sun 15 Nov&quot;,&quot;Mon 16 Nov&quot;],&quot;xName&quot;:&quot;Day&quot;,&quot;series&quot;:[{&quot;name&quot;:&quot;This month&quot;,&quot;values&quot;:[870,920,930,870,820,670,720,910,980,1050,1010,890,750,760,910,1050,1110,980,920,730,870,900,1090,1150,1070,930,850,900,1000,1220]},{&quot;name&quot;:&quot;Last month&quot;,&quot;values&quot;:[800,870,930,830,690,580,620,820,870,860,860,720,680,620,790,920,910,810,700,610,700,830,930,920,900,750,710,710,750,920],&quot;kind&quot;:&quot;line&quot;,&quot;dashed&quot;:true,&quot;color&quot;:4}]}'&gt;&lt;/div&gt;
+&lt;/section&gt;</pre></div></div></div>
+        </figure>
+<figure class="cdoc__ex" id="ex-2">
+          <figcaption><span class="cdoc__ex-t">Stacked into a total</span><span class="cdoc__ex-d">Three devices stack into all sessions. Switch a device off in the legend: its band collapses and the scale eases to the new total. The tooltip lists the top band first, then the total.</span></figcaption>
+          <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><section class="chart-card" aria-labelledby="ac-devices">
+  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="ac-devices">Where do people study?</div><div class="chart-card__sub">Study sessions per day by device, last 14 days</div></div></div>
+  <div class="chart" data-lds-chart='{"label":"Study sessions per day by device, last 14 days. Phones carry more than half of all sessions.","x":["3 Nov","4 Nov","5 Nov","6 Nov","7 Nov","8 Nov","9 Nov","10 Nov","11 Nov","12 Nov","13 Nov","14 Nov","15 Nov","16 Nov"],"xFull":["Tue 3 Nov","Wed 4 Nov","Thu 5 Nov","Fri 6 Nov","Sat 7 Nov","Sun 8 Nov","Mon 9 Nov","Tue 10 Nov","Wed 11 Nov","Thu 12 Nov","Fri 13 Nov","Sat 14 Nov","Sun 15 Nov","Mon 16 Nov"],"xName":"Day","stacked":true,"total":true,"series":[{"name":"Phone","values":[405,435,450,465,390,385,410,460,505,510,510,475,430,485]},{"name":"Laptop","values":[250,330,345,285,230,170,205,250,315,335,305,240,175,215]},{"name":"Tablet","values":[65,80,80,75,65,60,60,65,75,80,75,70,65,60]}]}'></div>
+</section></div>
+          <template id="ex-2-stage-tpl"><section class="chart-card" aria-labelledby="ac-devices">
+  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="ac-devices">Where do people study?</div><div class="chart-card__sub">Study sessions per day by device, last 14 days</div></div></div>
+  <div class="chart" data-lds-chart='{"label":"Study sessions per day by device, last 14 days. Phones carry more than half of all sessions.","x":["3 Nov","4 Nov","5 Nov","6 Nov","7 Nov","8 Nov","9 Nov","10 Nov","11 Nov","12 Nov","13 Nov","14 Nov","15 Nov","16 Nov"],"xFull":["Tue 3 Nov","Wed 4 Nov","Thu 5 Nov","Fri 6 Nov","Sat 7 Nov","Sun 8 Nov","Mon 9 Nov","Tue 10 Nov","Wed 11 Nov","Thu 12 Nov","Fri 13 Nov","Sat 14 Nov","Sun 15 Nov","Mon 16 Nov"],"xName":"Day","stacked":true,"total":true,"series":[{"name":"Phone","values":[405,435,450,465,390,385,410,460,505,510,510,475,430,485]},{"name":"Laptop","values":[250,330,345,285,230,170,205,250,315,335,305,240,175,215]},{"name":"Tablet","values":[65,80,80,75,65,60,60,65,75,80,75,70,65,60]}]}'></div>
+</section></template>
+          <div class="cdoc__bar">
+            <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
+            <button class="btn btn--plain btn--sm" data-replay="ex-2-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>Replay</button>
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;section class=&quot;chart-card&quot; aria-labelledby=&quot;ac-devices&quot;&gt;
+  &lt;div class=&quot;chart-card__head&quot;&gt;&lt;div class=&quot;chart-card__titles&quot;&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;ac-devices&quot;&gt;Where do people study?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Study sessions per day by device, last 14 days&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;chart&quot; data-lds-chart='{&quot;label&quot;:&quot;Study sessions per day by device, last 14 days. Phones carry more than half of all sessions.&quot;,&quot;x&quot;:[&quot;3 Nov&quot;,&quot;4 Nov&quot;,&quot;5 Nov&quot;,&quot;6 Nov&quot;,&quot;7 Nov&quot;,&quot;8 Nov&quot;,&quot;9 Nov&quot;,&quot;10 Nov&quot;,&quot;11 Nov&quot;,&quot;12 Nov&quot;,&quot;13 Nov&quot;,&quot;14 Nov&quot;,&quot;15 Nov&quot;,&quot;16 Nov&quot;],&quot;xFull&quot;:[&quot;Tue 3 Nov&quot;,&quot;Wed 4 Nov&quot;,&quot;Thu 5 Nov&quot;,&quot;Fri 6 Nov&quot;,&quot;Sat 7 Nov&quot;,&quot;Sun 8 Nov&quot;,&quot;Mon 9 Nov&quot;,&quot;Tue 10 Nov&quot;,&quot;Wed 11 Nov&quot;,&quot;Thu 12 Nov&quot;,&quot;Fri 13 Nov&quot;,&quot;Sat 14 Nov&quot;,&quot;Sun 15 Nov&quot;,&quot;Mon 16 Nov&quot;],&quot;xName&quot;:&quot;Day&quot;,&quot;stacked&quot;:true,&quot;total&quot;:true,&quot;series&quot;:[{&quot;name&quot;:&quot;Phone&quot;,&quot;values&quot;:[405,435,450,465,390,385,410,460,505,510,510,475,430,485]},{&quot;name&quot;:&quot;Laptop&quot;,&quot;values&quot;:[250,330,345,285,230,170,205,250,315,335,305,240,175,215]},{&quot;name&quot;:&quot;Tablet&quot;,&quot;values&quot;:[65,80,80,75,65,60,60,65,75,80,75,70,65,60]}]}'&gt;&lt;/div&gt;
+&lt;/section&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
+          </div>
+          <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;section class=&quot;chart-card&quot; aria-labelledby=&quot;ac-devices&quot;&gt;
+  &lt;div class=&quot;chart-card__head&quot;&gt;&lt;div class=&quot;chart-card__titles&quot;&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;ac-devices&quot;&gt;Where do people study?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Study sessions per day by device, last 14 days&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;chart&quot; data-lds-chart='{&quot;label&quot;:&quot;Study sessions per day by device, last 14 days. Phones carry more than half of all sessions.&quot;,&quot;x&quot;:[&quot;3 Nov&quot;,&quot;4 Nov&quot;,&quot;5 Nov&quot;,&quot;6 Nov&quot;,&quot;7 Nov&quot;,&quot;8 Nov&quot;,&quot;9 Nov&quot;,&quot;10 Nov&quot;,&quot;11 Nov&quot;,&quot;12 Nov&quot;,&quot;13 Nov&quot;,&quot;14 Nov&quot;,&quot;15 Nov&quot;,&quot;16 Nov&quot;],&quot;xFull&quot;:[&quot;Tue 3 Nov&quot;,&quot;Wed 4 Nov&quot;,&quot;Thu 5 Nov&quot;,&quot;Fri 6 Nov&quot;,&quot;Sat 7 Nov&quot;,&quot;Sun 8 Nov&quot;,&quot;Mon 9 Nov&quot;,&quot;Tue 10 Nov&quot;,&quot;Wed 11 Nov&quot;,&quot;Thu 12 Nov&quot;,&quot;Fri 13 Nov&quot;,&quot;Sat 14 Nov&quot;,&quot;Sun 15 Nov&quot;,&quot;Mon 16 Nov&quot;],&quot;xName&quot;:&quot;Day&quot;,&quot;stacked&quot;:true,&quot;total&quot;:true,&quot;series&quot;:[{&quot;name&quot;:&quot;Phone&quot;,&quot;values&quot;:[405,435,450,465,390,385,410,460,505,510,510,475,430,485]},{&quot;name&quot;:&quot;Laptop&quot;,&quot;values&quot;:[250,330,345,285,230,170,205,250,315,335,305,240,175,215]},{&quot;name&quot;:&quot;Tablet&quot;,&quot;values&quot;:[65,80,80,75,65,60,60,65,75,80,75,70,65,60]}]}'&gt;&lt;/div&gt;
+&lt;/section&gt;</pre></div></div></div>
+        </figure>
+<figure class="cdoc__ex" id="ex-3">
+          <figcaption><span class="cdoc__ex-t">Steps and a reference line</span><span class="cdoc__ex-d">Seats change in jumps and hold between bookings, so the edge steps instead of sloping. The dashed line marks when the waitlist opens.</span></figcaption>
+          <div class="cdoc__stage cdoc__stage--block" id="ex-3-stage"><div style="max-width: 560px;"><section class="chart-card" aria-labelledby="ac-seats">
+  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="ac-seats">How fast is the mock exam filling?</div><div class="chart-card__sub">Seats left on Monday, by hour</div></div></div>
+  <div class="chart" data-lds-chart='{"label":"Seats left in the Saturday mock exam, by hour of Monday. Down from 120 to 34.","x":["08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00"],"xName":"Time","step":true,"height":200,"series":[{"name":"Seats left","values":[120,118,104,96,96,81,77,60,52,41,34]}],"refs":[{"value":40,"label":"Waitlist opens at 40"}],"y":{"max":120,"ticks":4}}'></div>
+</section></div></div>
+          <template id="ex-3-stage-tpl"><div style="max-width: 560px;"><section class="chart-card" aria-labelledby="ac-seats">
+  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="ac-seats">How fast is the mock exam filling?</div><div class="chart-card__sub">Seats left on Monday, by hour</div></div></div>
+  <div class="chart" data-lds-chart='{"label":"Seats left in the Saturday mock exam, by hour of Monday. Down from 120 to 34.","x":["08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00"],"xName":"Time","step":true,"height":200,"series":[{"name":"Seats left","values":[120,118,104,96,96,81,77,60,52,41,34]}],"refs":[{"value":40,"label":"Waitlist opens at 40"}],"y":{"max":120,"ticks":4}}'></div>
+</section></div></template>
+          <div class="cdoc__bar">
+            <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-3-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
+            <button class="btn btn--plain btn--sm" data-replay="ex-3-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>Replay</button>
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div style=&quot;max-width: 560px;&quot;&gt;&lt;section class=&quot;chart-card&quot; aria-labelledby=&quot;ac-seats&quot;&gt;
+  &lt;div class=&quot;chart-card__head&quot;&gt;&lt;div class=&quot;chart-card__titles&quot;&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;ac-seats&quot;&gt;How fast is the mock exam filling?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Seats left on Monday, by hour&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;chart&quot; data-lds-chart='{&quot;label&quot;:&quot;Seats left in the Saturday mock exam, by hour of Monday. Down from 120 to 34.&quot;,&quot;x&quot;:[&quot;08:00&quot;,&quot;09:00&quot;,&quot;10:00&quot;,&quot;11:00&quot;,&quot;12:00&quot;,&quot;13:00&quot;,&quot;14:00&quot;,&quot;15:00&quot;,&quot;16:00&quot;,&quot;17:00&quot;,&quot;18:00&quot;],&quot;xName&quot;:&quot;Time&quot;,&quot;step&quot;:true,&quot;height&quot;:200,&quot;series&quot;:[{&quot;name&quot;:&quot;Seats left&quot;,&quot;values&quot;:[120,118,104,96,96,81,77,60,52,41,34]}],&quot;refs&quot;:[{&quot;value&quot;:40,&quot;label&quot;:&quot;Waitlist opens at 40&quot;}],&quot;y&quot;:{&quot;max&quot;:120,&quot;ticks&quot;:4}}'&gt;&lt;/div&gt;
+&lt;/section&gt;&lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
+          </div>
+          <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;div style=&quot;max-width: 560px;&quot;&gt;&lt;section class=&quot;chart-card&quot; aria-labelledby=&quot;ac-seats&quot;&gt;
+  &lt;div class=&quot;chart-card__head&quot;&gt;&lt;div class=&quot;chart-card__titles&quot;&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;ac-seats&quot;&gt;How fast is the mock exam filling?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Seats left on Monday, by hour&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;chart&quot; data-lds-chart='{&quot;label&quot;:&quot;Seats left in the Saturday mock exam, by hour of Monday. Down from 120 to 34.&quot;,&quot;x&quot;:[&quot;08:00&quot;,&quot;09:00&quot;,&quot;10:00&quot;,&quot;11:00&quot;,&quot;12:00&quot;,&quot;13:00&quot;,&quot;14:00&quot;,&quot;15:00&quot;,&quot;16:00&quot;,&quot;17:00&quot;,&quot;18:00&quot;],&quot;xName&quot;:&quot;Time&quot;,&quot;step&quot;:true,&quot;height&quot;:200,&quot;series&quot;:[{&quot;name&quot;:&quot;Seats left&quot;,&quot;values&quot;:[120,118,104,96,96,81,77,60,52,41,34]}],&quot;refs&quot;:[{&quot;value&quot;:40,&quot;label&quot;:&quot;Waitlist opens at 40&quot;}],&quot;y&quot;:{&quot;max&quot;:120,&quot;ticks&quot;:4}}'&gt;&lt;/div&gt;
+&lt;/section&gt;&lt;/div&gt;</pre></div></div></div>
+        </figure></section>
+        <section class="cdoc__sec" id="anatomy"><h2>Anatomy</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Part</th><th>What it is</th></tr></thead><tbody><tr><td><code class="code">.chart[data-lds-chart]</code></td><td>Required. The container; <code class="code">drawChart</code> fills it with the legend, the plot and a hidden table. Give it an <code class="code">id</code> when a range control drives it.</td></tr><tr><td><code class="code">.chart__legend.legend--toggle</code></td><td>Generated when there are two or more series. <code class="code">.legend__btn[aria-pressed]</code> per series; at least one stays on.</td></tr><tr><td><code class="code">.chart__plot</code></td><td>Generated. Focusable <code class="code">role=&quot;img&quot;</code> with the label; holds the svg and the <code class="code">.ctip</code> tooltip.</td></tr><tr><td><code class="code">.axis-line / .axis-text</code></td><td>Horizontal gridlines on nice steps (1, 2, 2.5, 5 × 10ⁿ) and their labels; <code class="code">.axis-line--zero</code> when the scale goes below zero.</td></tr><tr><td><code class="code">.chart__area / .chart__line</code></td><td>One pair per series: a 12 % fill (24 % when stacked) under a 2 px line, in <code class="code">--series-n</code>. No gradients.</td></tr><tr><td><code class="code">.chart__series.is-dashed</code></td><td>The comparison: a dashed line without fill.</td></tr><tr><td><code class="code">.chart__ref</code></td><td>A dashed reference line with its words at the end: a target, a limit.</td></tr><tr><td><code class="code">.cross / .chart__dot / .ctip</code></td><td>The crosshair, a dot on every visible series, and the tooltip with the date, each series and an optional total.</td></tr><tr><td><code class="code">table.sr-only</code></td><td>Generated. Every value, with the label as caption.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="variants"><h2>Variants and sizes</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Class or attribute</th><th>When</th></tr></thead><tbody><tr><td><code class="code">stacked: true</code></td><td>Series stack in order, series 1 at the bottom. Negative values stack below zero.</td></tr><tr><td><code class="code">step: true</code></td><td>Horizontal then vertical edges: the value holds until it changes.</td></tr><tr><td><code class="code">series[].kind: &quot;line&quot;, dashed: true</code></td><td>A comparison or previous period without fill.</td></tr><tr><td><code class="code">series[].color</code></td><td>1 to 4 for <code class="code">--series-n</code> (default: position), <code class="code">&quot;neutral&quot;</code> for Other.</td></tr><tr><td><code class="code">refs: [{ value, label }]</code></td><td>Dashed reference lines; the scale always includes them.</td></tr><tr><td><code class="code">format: { prefix, suffix, decimals, compact }</code></td><td>How values read in ticks, tooltip and table (&quot;$&quot;, &quot;%&quot;, 12.4k).</td></tr><tr><td><code class="code">xFull</code></td><td>Longer x labels for the tooltip and table (&quot;Thu 12 Nov&quot;) while ticks stay short.</td></tr><tr><td><code class="code">y: { min, max, ticks, hide }</code></td><td>Fix the scale (a percentage to 100) or hide the tick labels in tight cards.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="states"><h2>States</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>State</th><th>How</th></tr></thead><tbody><tr><td><code class="code">hover / focus</code></td><td>Crosshair, dots and tooltip on the nearest point; arrow keys, Home and End move it and announce the values.</td></tr><tr><td><code class="code">series off</code></td><td>Legend button <code class="code">aria-pressed=&quot;false&quot;</code>, hollow swatch, muted label; the series collapses (stacked) or fades (overlaid).</td></tr><tr><td><code class="code">data change</code></td><td><code class="code">drawChart(el, next)</code> or a range control: marks and scale move from what is on screen.</td></tr><tr><td><code class="code">loading, empty, error</code></td><td>See <a class="link" href="chart-states.html">chart states</a>: a skeleton of gridlines, then the chart.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="motion"><h2>Motion and microinteractions</h2><ul class="cdoc__list"><li>First view: fills and bars grow from the baseline over <code class="code">--d-smooth</code> (560 ms) on the enter curve; plain lines draw in once over 1.2 s on <code class="code">--ease-inout</code>; dashed lines fade.</li><li>Data changes, legend toggles and period switches tween every value and the scale over <code class="code">--d-considered</code> (480 ms) on <code class="code">--ease-inout</code>, starting from the values on screen, so a second click mid-way redirects without a jump. A different number of points first stretches the current shape over the new points.</li><li>Gridlines slide with the scale; the tooltip moves on <code class="code">--ease-standard</code> and fades over <code class="code">--d-instant</code>.</li><li>Reduced motion: no grow, no draw, no tween; values switch at once.</li></ul></section>
+        <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li>The plot is one focusable image named by <code class="code">label</code>, which should state the takeaway, not the chart type. Arrow keys read each point aloud through the shared live region.</li><li>A visually hidden table with every value is generated under the plot.</li><li>Legend items are toggle buttons with <code class="code">aria-pressed</code>; turning off the last one is refused with a shake.</li><li>Series differ by position and line style as well as color: stacked bands keep their order, comparisons are dashed.</li></ul></section>
+        <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Stack only things that add up to a meaningful total.</li><li>Keep the y axis at zero for areas; the fill implies an amount.</li><li>Put the period in the card subtitle and the long date in <code class="code">xFull</code>.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Overlap more than two filled areas; stack them or use lines.</li><li>Smooth the edge into curves that invent values between points.</li><li>Use more than four series; fold the rest into Other (<code class="code">color: &quot;neutral&quot;</code>).</li></ul></div></div></section>
+        <section class="cdoc__sec" id="code"><h2>Behavior and code</h2><p class="cdoc__p"><strong>Plain HTML.</strong> <code class="code">&lt;div class=&quot;chart&quot; data-lds-chart='{ &quot;label&quot;: &quot;…&quot;, &quot;x&quot;: [...], &quot;series&quot;: [{ &quot;name&quot;: &quot;…&quot;, &quot;values&quot;: [...] }] }'&gt;</code> (or a <code class="code">&lt;script type=&quot;application/json&quot;&gt;</code> child) is drawn by <code class="code">init()</code>. From code: <code class="code">import { drawChart } from 'lampung-design-system'; const chart = drawChart(el, config); chart.update({ series })</code> animates to new data; <code class="code">chart.toggle(1)</code> switches a series. The chart redraws at its new width when its container resizes.</p><p class="cdoc__p"><strong>React.</strong> From <code class="code">lampung-design-system/react</code>.</p><div class="codeblock"><pre>import { Chart, Segmented } from 'lampung-design-system/react';
+
+const [period, setPeriod] = useState&lt;'7d' | '30d'&gt;('30d');
+&lt;section className=&quot;chart-card&quot; aria-labelledby=&quot;orders-q&quot;&gt;
+  &lt;div className=&quot;chart-card__head&quot;&gt;
+    &lt;div className=&quot;chart-card__titles&quot;&gt;&lt;div className=&quot;chart-card__q&quot; id=&quot;orders-q&quot;&gt;Where do orders come from?&lt;/div&gt;&lt;/div&gt;
+    &lt;div className=&quot;chart-card__actions&quot;&gt;&lt;Segmented className=&quot;chart-card__range&quot; label=&quot;Period&quot; value={period} onChange={setPeriod} options={[{ value: '7d', label: '7 days' }, { value: '30d', label: '30 days' }]} /&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;Chart config={{ label: 'Orders per day by channel', stacked: true, x: data[period].x, series: data[period].series }} /&gt;
+&lt;/section&gt;</pre></div></section>
+        <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="chart-card.html"><span class="link-card__eyebrow">Charts</span><span class="link-card__title">Chart card</span><span class="link-card__body">The frame every dashboard chart sits in: the question as its title, what is measured under it, then optional actions (a range control, a menu), the headline figure with its change, the chart, and a footer with the source time or a link to the full report.</span></a><a class="link-card" href="line-chart.html"><span class="link-card__eyebrow">Charts</span><span class="link-card__title">Line chart</span><span class="link-card__body">A line per series over time, on an SVG with receding gridlines and labels at the line ends. For trends across many points; at most four series, the second one dashed.</span></a><a class="link-card" href="bar-chart.html"><span class="link-card__eyebrow">Charts</span><span class="link-card__title">Bar chart</span><span class="link-card__body">Vertical bars that compare one value across a few categories or periods (weekdays, grades, courses). Bars start at zero, the answer is highlighted, the rest recede.</span></a><a class="link-card" href="chart-principles.html"><span class="link-card__eyebrow">Charts</span><span class="link-card__title">Chart principles</span><span class="link-card__body">The rules every chart in the system follows: one question per chart, written as its title; thin marks on receding grids; four series colors in a fixed order; direct labels over legends; and a text alternative for every chart.</span></a></div></section>
+        <nav class="cdoc__pager" aria-label="Previous and next component">
+          <a class="link-card cdoc__prev" href="line-chart.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Previous</span><span class="link-card__title">Line chart</span></a>
+          <a class="link-card cdoc__next" href="combo-chart.html"><span class="link-card__eyebrow">Next<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Combo chart</span></a>
+        </nav>
+      </main>
+      <nav class="toc cdoc__toc" data-lds-toc aria-label="On this page"><span class="toc__ink" aria-hidden="true"></span><a href="#usage">Usage</a><a href="#examples">Examples</a><a href="#anatomy">Anatomy</a><a href="#variants">Variants and sizes</a><a href="#states">States</a><a href="#motion">Motion and microinteractions</a><a href="#a11y">Accessibility</a><a href="#practices">Do and don't</a><a href="#code">Behavior and code</a><a href="#related">Related</a></nav>
+    </div>
+  </div>
+</div>
+<script type="module">
+  import { init, restoreTheme } from '../../../js/lds.js';
+  const mode = restoreTheme(document.documentElement, 'light');
+  document.querySelectorAll('[data-lds-theme]').forEach((b) => b.setAttribute('aria-pressed', String(b.getAttribute('data-lds-theme') === mode)));
+  init();
+  document.querySelectorAll('[data-code-toggle]').forEach((b) => b.addEventListener('click', () => {
+    const box = document.getElementById(b.getAttribute('aria-controls'));
+    const open = b.getAttribute('aria-expanded') !== 'true';
+    b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
+    const stage = document.getElementById(b.getAttribute('data-replay'));
+    const tpl = document.getElementById(stage.id + '-tpl');
+    stage.innerHTML = tpl.innerHTML; init(stage);
+  }));
+</script>
+</body>
+</html>

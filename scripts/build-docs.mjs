@@ -15,8 +15,64 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const specDir = join(root, 'docs/spec');
-const outDir = join(root, 'docs/components');
+const idDir = join(specDir, 'id');
+const OUT = { id: join(root, 'docs/components'), en: join(root, 'docs/en/components') };
 const skillDir = join(root, 'skills/lampung-design-system/references/components');
+
+// Interface strings for the two documentation languages. Indonesian is the default site (docs/),
+// English lives under docs/en/. Spec text comes from docs/spec (en) merged with docs/spec/id (id).
+const STRINGS = {
+  en: {
+    html: 'en', docs: 'Documentation', components: 'Components', start: 'Getting started', all: 'All components', examples: 'Examples',
+    appearance: 'Appearance', light: 'Light', dark: 'Dark', skip: 'Skip to content', menu: 'Menu', newBadge: 'New',
+    useWhen: 'Use it when', useElse: 'Use something else when', use: 'use', where: 'Where it goes.', usage: 'Usage',
+    code: 'Code', replay: 'Replay', copy: 'Copy', copied: 'Copied', anatomy: 'Anatomy', part: 'Part', whatItIs: 'What it is',
+    variants: 'Variants and sizes', classOrAttr: 'Class or attribute', when: 'When', states: 'States', state: 'State', how: 'How',
+    motion: 'Motion and microinteractions', a11y: 'Accessibility', dd: 'Do and don\'t', do: 'Do', dont: 'Don\'t',
+    plain: 'Plain HTML.', react: 'React.', from: 'From', behavior: 'Behavior and code', related: 'Related', crumbs: 'Breadcrumb',
+    prev: 'Previous', next: 'Next', pager: 'Previous and next component', toc: 'On this page', other: 'Bahasa Indonesia', otherLang: 'id',
+    lede: (n) => `${n} components and recipes. Each page says when to use it, when to use something else, the markup, its motion and its accessibility. Start here before building anything new: if a need is covered, use that component; if it is not, add a component to the system instead of styling one page. To see them working together, open the <a class="link" href="../../examples/index.html">examples</a>: a city services dashboard, a citizen app and a public portal.`,
+  },
+  id: {
+    html: 'id', docs: 'Dokumentasi', components: 'Komponen', start: 'Memulai', all: 'Semua komponen', examples: 'Contoh',
+    appearance: 'Tampilan', light: 'Terang', dark: 'Gelap', skip: 'Langsung ke konten', menu: 'Menu', newBadge: 'Baru',
+    useWhen: 'Pakai saat', useElse: 'Pakai yang lain saat', use: 'pakai', where: 'Letaknya.', usage: 'Penggunaan',
+    code: 'Kode', replay: 'Putar ulang', copy: 'Salin', copied: 'Tersalin', anatomy: 'Anatomi', part: 'Bagian', whatItIs: 'Fungsinya',
+    variants: 'Varian dan ukuran', classOrAttr: 'Kelas atau atribut', when: 'Kapan', states: 'Status', state: 'Status', how: 'Caranya',
+    motion: 'Gerak dan mikrointeraksi', a11y: 'Aksesibilitas', dd: 'Lakukan dan hindari', do: 'Lakukan', dont: 'Hindari',
+    plain: 'HTML biasa.', react: 'React.', from: 'Dari', behavior: 'Perilaku dan kode', related: 'Terkait', crumbs: 'Remah roti',
+    prev: 'Sebelumnya', next: 'Berikutnya', pager: 'Komponen sebelumnya dan berikutnya', toc: 'Di halaman ini', other: 'English', otherLang: 'en',
+    lede: (n) => `${n} komponen dan resep. Setiap halaman menjelaskan kapan memakainya, kapan memakai yang lain, markup, gerak, dan aksesibilitasnya. Mulailah dari sini sebelum membuat sesuatu yang baru: jika kebutuhan sudah tercakup, pakai komponen itu; jika belum, tambahkan komponen ke sistem alih-alih menata satu halaman saja. Untuk melihat semuanya bekerja bersama, buka <a class="link" href="../examples/index.html">contoh</a>: dasbor layanan kota, aplikasi warga, dan portal publik.`,
+  },
+};
+const GROUP_ID = {
+  Foundations: ['Landasan', 'Aturan yang diikuti setiap komponen: tata letak, gerak, status'],
+  Actions: ['Aksi', 'Hal yang ditekan untuk menjalankan sesuatu'],
+  Inputs: ['Input', 'Kolom untuk mengetik atau memilih'],
+  Selection: ['Pilihan', 'Memilih di antara opsi dan menyalakan pengaturan'],
+  Navigation: ['Navigasi', 'Berpindah antarhalaman, bagian, dan langkah'],
+  Overlays: ['Lapisan', 'Lapisan yang melayang di atas halaman'],
+  Feedback: ['Umpan balik', 'Status, progres, pesan, dan keadaan kosong'],
+  'Data display': ['Tampilan data', 'Daftar, tabel, angka, dan catatan'],
+  Content: ['Konten', 'Teks panjang, kutipan, kode, dan media'],
+  Chat: ['Obrolan', 'Percakapan dengan orang atau asisten'],
+  'Page patterns': ['Pola halaman', 'Cara komponen bergabung menjadi halaman'],
+  Marketing: ['Promosi', 'Halaman produk, layanan, dan beranda di depan aplikasi'],
+  Motion: ['Gerak', 'Resep untuk hal yang bergerak'],
+  Microinteractions: ['Mikrointeraksi', 'Respons kecil yang membuat kontrol terasa hidup'],
+  Charts: ['Grafik', 'Menampilkan angka sebagai gambar'],
+};
+let LANG = 'en';
+let T = STRINGS.en;
+const groupLabel = (g) => (LANG === 'id' ? GROUP_ID[g]?.[0] || g : g);
+const groupDesc = (g, d) => (LANG === 'id' ? GROUP_ID[g]?.[1] || d : d);
+// Merge an Indonesian override onto the English spec: top-level keys replace, examples merge by index.
+const mergeId = (en, id) => {
+  if (!id) return en;
+  const out = { ...en, ...id, group: en.group, order: en.order, status: en.status, related: en.related, slug: en.slug };
+  if (id.examples) out.examples = en.examples.map((ex, i) => ({ ...ex, ...(id.examples[i] || {}) }));
+  return out;
+};
 
 // Navigation order. Every spec's `group` must be one of these.
 export const GROUPS = [
@@ -51,14 +107,19 @@ const CHECK = process.argv.includes('--check');
 const PREVIEW = process.argv.includes('--preview'); // build even with links to specs that do not exist yet
 const only = process.argv.slice(2).filter((a) => !a.startsWith('--'));
 const files = readdirSync(specDir).filter((f) => f.endsWith('.mjs') && !f.startsWith('_')).sort();
-const specs = [];
+const specsEn = [];
+const overrides = new Map();
 for (const f of files) {
   const m = await import(pathToFileURL(join(specDir, f)).href + `?t=${Date.now()}`);
   const s = m.default;
   s.slug ??= f.replace(/\.mjs$/, '');
-  specs.push(s);
+  specsEn.push(s);
+  if (existsSync(join(idDir, f))) overrides.set(s.slug, (await import(pathToFileURL(join(idDir, f)).href + `?t=${Date.now()}`)).default);
 }
-const bySlug = new Map(specs.map((s) => [s.slug, s]));
+const specsId = specsEn.map((s) => mergeId(s, overrides.get(s.slug)));
+for (const f of existsSync(idDir) ? readdirSync(idDir).filter((x) => x.endsWith('.mjs')) : []) if (!specsEn.some((s) => `${s.slug}.mjs` === f)) console.warn(`build-docs: docs/spec/id/${f} has no English spec`);
+let specs = specsEn;
+let bySlug = new Map(specs.map((s) => [s.slug, s]));
 const css = readFileSync(join(root, 'css/components.css'), 'utf8');
 const icons = new Set(Object.keys(JSON.parse(readFileSync(join(root, 'icons/icons.json'), 'utf8')).icons));
 const cssClasses = new Set([...css.matchAll(/\.([a-zA-Z][\w-]*)/g)].map((m) => m[1]));
@@ -68,9 +129,9 @@ for (const m of jsSrc.matchAll(/[.'"`\s]([a-z][a-z0-9-]*?(?:__[a-z0-9-]+|--[a-z0
 const problems = [];
 const ALLOWED_EXTRA = new Set(['lds', 'docs-demo', 'docs-row', 'docs-col', 'docs-phone', 'docs-scroll', 'docs-box', 'docs-note']);
 const warnings = [];
-for (const s of specs) {
+const checked = [...specsEn.map((s) => [s, `docs/spec/${s.slug}.mjs`]), ...specsId.filter((s) => overrides.has(s.slug)).map((s) => [s, `docs/spec/id/${s.slug}.mjs`])];
+for (const [s, where] of checked) {
   if (only.length && !only.includes(s.slug)) continue;
-  const where = `docs/spec/${s.slug}.mjs`;
   for (const k of ['title', 'group', 'summary', 'when', 'examples']) if (!s[k] || (Array.isArray(s[k]) && !s[k].length)) problems.push(`${where}: missing ${k}`);
   if (!GROUPS.some(([g]) => g === s.group)) problems.push(`${where}: unknown group "${s.group}"`);
   for (const r of [...(s.related || []), ...(s.whenNot || []).map((w) => w[1]).filter(Boolean)]) if (!bySlug.has(r)) (CHECK || PREVIEW ? warnings : problems).push(`${where}: links to missing spec "${r}"`);
@@ -89,13 +150,18 @@ if (problems.length) {
   process.exit(1);
 }
 
-if (CHECK) { console.log(`build-docs --check: ${only.length || specs.length} spec(s) ok`); process.exit(0); }
+if (CHECK) { console.log(`build-docs --check: ${only.length || specs.length} spec(s) ok (${overrides.size} with Indonesian text)`); process.exit(0); }
 
 // ---------- order ----------
-const ordered = GROUPS.flatMap(([g]) => specs.filter((s) => s.group === g).sort((a, b) => (a.order ?? 99) - (b.order ?? 99) || a.title.localeCompare(b.title)));
+const orderOf = (list) => GROUPS.flatMap(([g]) => list.filter((s) => s.group === g).sort((a, b) => (a.order ?? 99) - (b.order ?? 99) || a.title.localeCompare(b.title)));
+let ordered = orderOf(specs);
 const groupsWith = GROUPS.filter(([g]) => ordered.some((s) => s.group === g));
 
 // ---------- HTML ----------
+const UP = () => (LANG === 'en' ? '../../../' : '../../');
+const DOCS = () => (LANG === 'en' ? '../../' : '../');
+// The same page in the other language.
+const ALT = (current) => `${LANG === 'en' ? '../../components/' : '../en/components/'}${current ? current.slug : 'index'}.html`;
 const linkHtml = (h) => (/^(https?:|#|\.|\/)/.test(h) ? h : `${h}.html`);
 const nav = (current) => {
   const sections = groupsWith.map(([g], gi) => {
@@ -103,50 +169,53 @@ const nav = (current) => {
     const open = current && current.group === g;
     const id = `nav-g${gi}`;
     return `<div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="${open}" aria-controls="${id}"><span class="shell__section-label">${esc(g)}</span><span class="shell__section-count">${items.length}</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="${open}" aria-controls="${id}"><span class="shell__section-label">${esc(groupLabel(g))}</span><span class="shell__section-count">${items.length}</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel${open ? ' is-open' : ''}" id="${id}"><div><div class="shell__children">
-${items.map((s, i) => `          <a class="shell__link shell__link--child" href="${s.slug}.html"${current === s ? ' aria-current="page"' : ''}><span class="shell__num">${i + 1}</span><span class="shell__label">${esc(s.title)}</span>${s.status === 'new' ? '<span class="badge badge--accent shell__badge">New</span>' : ''}</a>`).join('\n')}
+${items.map((s, i) => `          <a class="shell__link shell__link--child" href="${s.slug}.html"${current === s ? ' aria-current="page"' : ''}><span class="shell__num">${i + 1}</span><span class="shell__label">${esc(s.title)}</span>${s.status === 'new' ? `<span class="badge badge--accent shell__badge">${T.newBadge}</span>` : ''}</a>`).join('\n')}
         </div></div></div>
       </div>`;
   }).join('\n      ');
-  return `<aside class="shell__side" id="side" aria-label="Documentation">
-    <a class="shell__brand" href="../index.html"><span class="page-head__mark">D</span>Lampung Design System</a>
-    <nav class="shell__nav" aria-label="Components">
+  return `<aside class="shell__side" id="side" aria-label="${T.docs}">
+    <a class="shell__brand" href="../index.html"><span class="page-head__mark">L</span>Lampung Design System</a>
+    <nav class="shell__nav" aria-label="${T.components}">
       <span class="shell__hl" aria-hidden="true"></span>
-      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Getting started</span></a>
-      <a class="shell__link" href="index.html"${current ? '' : ' aria-current="page"'}><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">All components</span></a>
-      <a class="shell__link" href="../examples/index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Examples</span></a>
-      <p class="shell__group">Components</p>
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">${T.start}</span></a>
+      <a class="shell__link" href="index.html"${current ? '' : ' aria-current="page"'}><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">${T.all}</span></a>
+      <a class="shell__link" href="${DOCS()}examples/index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">${T.examples}</span></a>
+      <p class="shell__group">${T.components}</p>
       ${sections}
     </nav>
     <div class="shell__foot">
-      <div class="seg" role="group" aria-label="Appearance" data-lds-segmented>
+      <a class="shell__link" href="${ALT(current)}" hreflang="${T.otherLang}" lang="${T.otherLang}"><span class="ic" aria-hidden="true">language</span><span class="shell__label">${T.other}</span></a>
+      <div class="seg" role="group" aria-label="${T.appearance}" data-lds-segmented>
         <span class="seg__thumb"></span>
-        <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
-        <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
+        <button class="seg__btn" aria-pressed="true" data-lds-theme="light">${T.light}</button>
+        <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">${T.dark}</button>
       </div>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>`;
 };
 const frame = (title, current, body, outline = '') => `<!doctype html>
-<html lang="en" class="lds" data-theme="light">
+<html lang="${T.html}" class="lds" data-theme="light">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(title)} · Lampung Design System</title>
+<meta name="description" content="${esc(current ? current.summary.replace(/[`*]/g, '') : T.lede(ordered.length).replace(/<[^>]+>/g, ''))}">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
-<link rel="stylesheet" href="../../css/lds.css">
-<link rel="stylesheet" href="../docs.css">
+<link rel="stylesheet" href="${UP()}css/lds.css">
+<link rel="stylesheet" href="${DOCS()}docs.css">
+<link rel="alternate" hreflang="${T.otherLang}" href="${ALT(current)}">
 </head>
 <body class="lds">
-<a class="skip" href="#main">Skip to content</a>
+<a class="skip" href="#main">${T.skip}</a>
 <div class="shell" data-lds-shell>
   ${nav(current)}
   <div class="shell__scrim"></div>
   <div class="shell__main">
     <header class="shell__top">
-      <button class="icon-btn" data-lds-shell-toggle aria-controls="side" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
+      <button class="icon-btn" data-lds-shell-toggle aria-controls="side" aria-expanded="false" aria-label="${T.menu}"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
       <span class="shell__toptitle">${esc(title)}</span>
       <span style="width: 44px;"></span>
     </header>
@@ -159,7 +228,7 @@ ${body}
   </div>
 </div>
 <script type="module">
-  import { init, restoreTheme } from '../../js/lds.js';
+  import { init, restoreTheme } from '${UP()}js/lds.js';
   const mode = restoreTheme(document.documentElement, 'light');
   document.querySelectorAll('[data-lds-theme]').forEach((b) => b.setAttribute('aria-pressed', String(b.getAttribute('data-lds-theme') === mode)));
   init();
@@ -188,12 +257,12 @@ function page(s, i) {
   const secs = [];
   const sec = (id, title, html) => secs.push({ id, title, html: `<section class="cdoc__sec" id="${id}"><h2>${esc(title)}</h2>${html}</section>` });
 
-  const usage = [`<p class="cdoc__p"><strong>Use it when</strong></p>`, list(s.when, link)];
-  if (s.whenNot?.length) usage.push(`<p class="cdoc__p"><strong>Use something else when</strong></p>`, list(s.whenNot.map(([why, slug, extra]) => `${why}: use [${bySlug.get(slug)?.title || slug}](${slug})${extra ? `. ${endDot(extra)}` : '.'}`), link));
-  if (s.where) usage.push(`<p class="cdoc__p"><strong>Where it goes.</strong> ${inline(s.where, link)}</p>`);
-  sec('usage', 'Usage', usage.join(''));
+  const usage = [`<p class="cdoc__p"><strong>${T.useWhen}</strong></p>`, list(s.when, link)];
+  if (s.whenNot?.length) usage.push(`<p class="cdoc__p"><strong>${T.useElse}</strong></p>`, list(s.whenNot.map(([why, slug, extra]) => `${why}: ${T.use} [${bySlug.get(slug)?.title || slug}](${slug})${extra ? `. ${endDot(extra)}` : '.'}`), link));
+  if (s.where) usage.push(`<p class="cdoc__p"><strong>${T.where}</strong> ${inline(s.where, link)}</p>`);
+  sec('usage', T.usage, usage.join(''));
 
-  sec('examples', 'Examples', s.examples.map((ex, k) => {
+  sec('examples', T.examples, s.examples.map((ex, k) => {
     const id = `ex-${k + 1}`;
     const code = esc(dedent(ex.code || ex.html));
     return `<figure class="cdoc__ex" id="${id}">
@@ -201,49 +270,49 @@ function page(s, i) {
           <div class="cdoc__stage${ex.stage ? ` cdoc__stage--${ex.stage}` : ''}" id="${id}-stage"${ex.height ? ` style="min-height: ${ex.height}px;"` : ''}>${ex.html}</div>
           ${ex.replay ? `<template id="${id}-stage-tpl">${ex.html}</template>` : ''}
           <div class="cdoc__bar">
-            <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="${id}-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
-            ${ex.replay ? `<button class="btn btn--plain btn--sm" data-replay="${id}-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>Replay</button>` : ''}
-            <button class="btn btn--plain btn--sm" data-lds-copy="${code}"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
+            <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="${id}-code"><span class="ic ic--sm" aria-hidden="true">code</span>${T.code}</button>
+            ${ex.replay ? `<button class="btn btn--plain btn--sm" data-replay="${id}-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>${T.replay}</button>` : ''}
+            <button class="btn btn--plain btn--sm" data-lds-copy="${code}"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="${T.copied}">${T.copy}</span></button>
           </div>
           <div class="collapse is-closed" id="${id}-code" inert><div><div class="codeblock"><pre>${code}</pre></div></div></div>
         </figure>`;
   }).join('\n'));
 
-  if (s.anatomy?.length) sec('anatomy', 'Anatomy', table(['Part', 'What it is'], s.anatomy, link));
-  if (s.variants?.length) sec('variants', 'Variants and sizes', table(['Class or attribute', 'When'], s.variants, link));
-  if (s.states?.length) sec('states', 'States', table(['State', 'How'], s.states, link));
-  if (s.motion?.length) sec('motion', 'Motion and microinteractions', list(s.motion, link));
-  if (s.a11y?.length) sec('a11y', 'Accessibility', list(s.a11y, link));
-  if (s.do?.length || s.dont?.length) sec('practices', 'Do and don\'t', `<div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p>${list(s.do || [], link)}</div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p>${list(s.dont || [], link)}</div></div>`);
+  if (s.anatomy?.length) sec('anatomy', T.anatomy, table([T.part, T.whatItIs], s.anatomy, link));
+  if (s.variants?.length) sec('variants', T.variants, table([T.classOrAttr, T.when], s.variants, link));
+  if (s.states?.length) sec('states', T.states, table([T.state, T.how], s.states, link));
+  if (s.motion?.length) sec('motion', T.motion, list(s.motion, link));
+  if (s.a11y?.length) sec('a11y', T.a11y, list(s.a11y, link));
+  if (s.do?.length || s.dont?.length) sec('practices', T.dd, `<div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>${T.do}</p>${list(s.do || [], link)}</div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>${T.dont}</p>${list(s.dont || [], link)}</div></div>`);
   if (s.js || s.react) {
     let h = '';
-    if (s.js) h += `<p class="cdoc__p"><strong>Plain HTML.</strong> ${inline(s.js, link)}</p>`;
-    if (s.react) h += `<p class="cdoc__p"><strong>React.</strong> From <code class="code">lampung-design-system/react</code>.</p><div class="codeblock"><pre>${esc(dedent(s.react))}</pre></div>`;
-    sec('code', 'Behavior and code', h);
+    if (s.js) h += `<p class="cdoc__p"><strong>${T.plain}</strong> ${inline(s.js, link)}</p>`;
+    if (s.react) h += `<p class="cdoc__p"><strong>${T.react}</strong> ${T.from} <code class="code">lampung-design-system/react</code>.</p><div class="codeblock"><pre>${esc(dedent(s.react))}</pre></div>`;
+    sec('code', T.behavior, h);
   }
-  if (s.related?.length) sec('related', 'Related', `<div class="link-grid">${s.related.filter((r) => bySlug.has(r)).map((r) => { const o = bySlug.get(r); return `<a class="link-card" href="${r}.html"><span class="link-card__eyebrow">${esc(o.group)}</span><span class="link-card__title">${esc(o.title)}</span><span class="link-card__body">${esc(o.summary)}</span></a>`; }).join('')}</div>`);
+  if (s.related?.length) sec('related', T.related, `<div class="link-grid">${s.related.filter((r) => bySlug.has(r)).map((r) => { const o = bySlug.get(r); return `<a class="link-card" href="${r}.html"><span class="link-card__eyebrow">${esc(groupLabel(o.group))}</span><span class="link-card__title">${esc(o.title)}</span><span class="link-card__body">${esc(o.summary)}</span></a>`; }).join('')}</div>`);
 
   const body = `        <header class="cdoc__head">
-          <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#${encodeURIComponent(s.group)}">${esc(s.group)}</a></li></ol></nav>
-          <h1>${esc(s.title)}${s.status === 'new' ? ' <span class="badge badge--accent">New</span>' : ''}</h1>
+          <nav aria-label="${T.crumbs}"><ol class="crumbs"><li><a href="index.html">${T.components}</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#${encodeURIComponent(s.group)}">${esc(groupLabel(s.group))}</a></li></ol></nav>
+          <h1>${esc(s.title)}${s.status === 'new' ? ` <span class="badge badge--accent">${T.newBadge}</span>` : ''}</h1>
           <p class="cdoc__lede">${inline(s.summary, link)}</p>
         </header>
         ${secs.map((x) => x.html).join('\n        ')}
-        <nav class="cdoc__pager" aria-label="Previous and next component">
-          ${prev ? `<a class="link-card cdoc__prev" href="${prev.slug}.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Previous</span><span class="link-card__title">${esc(prev.title)}</span></a>` : '<span></span>'}
-          ${next ? `<a class="link-card cdoc__next" href="${next.slug}.html"><span class="link-card__eyebrow">Next<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">${esc(next.title)}</span></a>` : '<span></span>'}
+        <nav class="cdoc__pager" aria-label="${T.pager}">
+          ${prev ? `<a class="link-card cdoc__prev" href="${prev.slug}.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>${T.prev}</span><span class="link-card__title">${esc(prev.title)}</span></a>` : '<span></span>'}
+          ${next ? `<a class="link-card cdoc__next" href="${next.slug}.html"><span class="link-card__eyebrow">${T.next}<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">${esc(next.title)}</span></a>` : '<span></span>'}
         </nav>`;
-  const outline = `<nav class="toc cdoc__toc" data-lds-toc aria-label="On this page"><span class="toc__ink" aria-hidden="true"></span>${secs.map((x) => `<a href="#${x.id}">${esc(x.title)}</a>`).join('')}</nav>`;
+  const outline = `<nav class="toc cdoc__toc" data-lds-toc aria-label="${T.toc}"><span class="toc__ink" aria-hidden="true"></span>${secs.map((x) => `<a href="#${x.id}">${esc(x.title)}</a>`).join('')}</nav>`;
   return frame(s.title, s, body, outline);
 }
 
 function indexPage() {
   const body = `        <header class="cdoc__head">
-          <h1>Components</h1>
-          <p class="cdoc__lede">${ordered.length} components and recipes. Each page says when to use it, when to use something else, the markup, its motion and its accessibility. Start here before building anything new: if a need is covered, use that component; if it is not, add a component to the system instead of styling one page. To see them working together, open the <a class="link" href="../examples/index.html">examples</a>: a landing page, an admin dashboard and phone apps.</p>
+          <h1>${T.components}</h1>
+          <p class="cdoc__lede">${T.lede(ordered.length)}</p>
         </header>
-        ${groupsWith.map(([g, d]) => `<section class="cdoc__sec" id="${encodeURIComponent(g)}"><h2>${esc(g)}</h2><p class="cdoc__p">${esc(d)}</p><div class="link-grid">${ordered.filter((s) => s.group === g).map((s) => `<a class="link-card" href="${s.slug}.html"><span class="link-card__title">${esc(s.title)}${s.status === 'new' ? ' <span class="badge badge--accent">New</span>' : ''}</span><span class="link-card__body">${esc(s.summary)}</span></a>`).join('')}</div></section>`).join('\n        ')}`;
-  return frame('Components', null, body);
+        ${groupsWith.map(([g, d]) => `<section class="cdoc__sec" id="${encodeURIComponent(g)}"><h2>${esc(groupLabel(g))}</h2><p class="cdoc__p">${esc(groupDesc(g, d))}</p><div class="link-grid">${ordered.filter((s) => s.group === g).map((s) => `<a class="link-card" href="${s.slug}.html"><span class="link-card__title">${esc(s.title)}${s.status === 'new' ? ` <span class="badge badge--accent">${T.newBadge}</span>` : ''}</span><span class="link-card__body">${esc(s.summary)}</span></a>`).join('')}</div></section>`).join('\n        ')}`;
+  return frame(T.components, null, body);
 }
 
 // ---------- Markdown for the skill ----------
@@ -282,11 +351,19 @@ function indexMd() {
 }
 
 // ---------- write ----------
-for (const d of [outDir, skillDir]) { if (existsSync(d)) rmSync(d, { recursive: true }); mkdirSync(d, { recursive: true }); }
-ordered.forEach((s, i) => {
-  writeFileSync(join(outDir, `${s.slug}.html`), page(s, i));
-  writeFileSync(join(skillDir, `${s.slug}.md`), md(s));
-});
-writeFileSync(join(outDir, 'index.html'), indexPage());
-writeFileSync(join(root, 'skills/lampung-design-system/references/components.md'), indexMd());
-console.log(`build-docs: ${ordered.length} components in ${groupsWith.length} groups`);
+for (const d of [OUT.id, OUT.en, skillDir]) { if (existsSync(d)) rmSync(d, { recursive: true }); mkdirSync(d, { recursive: true }); }
+// English first: the skill references (for agents) are written from the English specs.
+for (const lang of ['en', 'id']) {
+  LANG = lang; T = STRINGS[lang];
+  specs = lang === 'id' ? specsId : specsEn;
+  bySlug = new Map(specs.map((s) => [s.slug, s]));
+  ordered = orderOf(specs);
+  ordered.forEach((s, i) => {
+    writeFileSync(join(OUT[lang], `${s.slug}.html`), page(s, i));
+    if (lang === 'en') writeFileSync(join(skillDir, `${s.slug}.md`), md(s));
+  });
+  writeFileSync(join(OUT[lang], 'index.html'), indexPage());
+  if (lang === 'en') writeFileSync(join(root, 'skills/lampung-design-system/references/components.md'), indexMd());
+}
+const missing = specsEn.filter((s) => !overrides.has(s.slug)).map((s) => s.slug);
+console.log(`build-docs: ${ordered.length} components in ${groupsWith.length} groups, ${overrides.size} in Indonesian${missing.length ? ` (${missing.length} still English on the Indonesian site)` : ''}`);
