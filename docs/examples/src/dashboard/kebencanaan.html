@@ -1,0 +1,252 @@
+---
+title: Kebencanaan dan cuaca
+description: Tinggi muka air, curah hujan, peringatan dini, kejadian dan posko pengungsian hari ini.
+---
+<template data-slot="actions">
+<button class="btn btn--secondary btn--md" type="button" data-export><span class="btn__label"><span class="ic" aria-hidden="true">download</span>Unduh laporan situasi</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button>
+<button class="btn btn--primary btn--md" type="button" data-lds-modal="warn-dlg"><span class="ic" aria-hidden="true">campaign</span>Kirim peringatan dini</button>
+</template>
+
+<div class="alert alert--warning" role="status" data-early>
+  <span class="ic" aria-hidden="true">rainy</span>
+  <div><div class="alert__title" data-early-title>Prakiraan hujan lebat pukul 14.00 sampai 18.00 WIB</div><div class="alert__body" data-early-body>Hujan lebat disertai angin kencang di Kecamatan Utara, Bukit dan Pesisir. Pintu Air Sukamaju sudah berstatus Siaga. Peringatan untuk warga belum dikirim.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-lds-modal="warn-dlg"><span class="ic" aria-hidden="true">campaign</span>Kirim ke warga</button><button class="btn btn--plain btn--sm" type="button" data-pick="S1">Lihat Pintu Air Sukamaju</button></div></div>
+</div>
+
+<section aria-label="Ringkasan situasi" data-states>
+  <div class="stat-row-wrap" data-state-view="loaded"><dl class="stat-row stat-row--four" style="--n: 4">
+    <div class="stat-row__item"><dt class="stat-row__label">Posko aktif</dt><dd class="stat-row__value"><span class="roll" data-lds-roll="3"></span></dd><dd class="stat-row__sub">126 jiwa di Sukamaju</dd></div>
+    <div class="stat-row__item"><dt class="stat-row__label">Pengungsi</dt><dd class="stat-row__value">214 <small>jiwa</small></dd><dd class="stat-row__sub">58 kepala keluarga</dd></div>
+    <div class="stat-row__item"><dt class="stat-row__label">Kejadian terbuka</dt><dd class="stat-row__value"><span class="roll" data-lds-roll="5" data-inc-count></span></dd><dd class="stat-row__sub">2 menunggu tim</dd></div>
+    <div class="stat-row__item"><dt class="stat-row__label">Sensor daring</dt><dd class="stat-row__value">11 <small>dari 12</small></dd><dd class="stat-row__sub">Pos Kampus Timur mati</dd></div>
+  </dl></div>
+  <div class="stat-row-wrap" data-state-view="loading" role="status" aria-label="Memuat ringkasan situasi" hidden><dl class="stat-row stat-row--four" style="--n: 4"><div class="stat-row__item"><dt class="stat-row__label">Posko aktif</dt><dd class="stat-row__value"><span class="skel" style="display: block; height: 28px; width: 64px;"></span></dd></div><div class="stat-row__item"><dt class="stat-row__label">Pengungsi</dt><dd class="stat-row__value"><span class="skel" style="display: block; height: 28px; width: 64px;"></span></dd></div><div class="stat-row__item"><dt class="stat-row__label">Kejadian terbuka</dt><dd class="stat-row__value"><span class="skel" style="display: block; height: 28px; width: 64px;"></span></dd></div><div class="stat-row__item"><dt class="stat-row__label">Sensor daring</dt><dd class="stat-row__value"><span class="skel" style="display: block; height: 28px; width: 64px;"></span></dd></div></dl></div>
+  <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Ringkasan situasi tidak termuat</div><div class="alert__body">Layanan data kebencanaan tidak menjawab tepat waktu. Tidak ada data yang hilang.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+</section>
+
+<div class="dash-kebencanaan">
+  <section class="stack dash-kebencanaan__list" style="--gap: 12px;" aria-labelledby="sens-title" data-states>
+    <div class="cluster" style="justify-content: space-between; --gap: 12px;"><div class="section__head"><h2 class="section__title-sm" id="sens-title">Sensor tinggi muka air</h2><p class="section__sub">Yang paling tinggi statusnya di atas.</p></div><button class="btn btn--plain btn--sm" type="button" data-refresh><span class="ic" aria-hidden="true">refresh</span>Muat ulang</button></div>
+    <div class="list" data-state-view="loaded" data-sensors>
+      <button class="lrow" type="button" data-sensor="S1" aria-current="true"><span class="lrow__body"><span class="lrow__title">Pintu Air Sukamaju</span><span class="lrow__sub">Kecamatan Utara · 182 cm · naik 14 cm/jam</span></span><span class="status status--down"><i aria-hidden="true"></i>Siaga</span></button>
+      <button class="lrow" type="button" data-sensor="S2" aria-current="false"><span class="lrow__body"><span class="lrow__title">Bendung Mekarsari</span><span class="lrow__sub">Kecamatan Bukit · 158 cm · naik 9 cm/jam</span></span><span class="status status--warn"><i aria-hidden="true"></i>Waspada</span></button>
+      <button class="lrow" type="button" data-sensor="S3" aria-current="false"><span class="lrow__body"><span class="lrow__title">Muara Pesisir</span><span class="lrow__sub">Kecamatan Pesisir · 141 cm · naik 6 cm/jam</span></span><span class="status status--ok"><i aria-hidden="true"></i>Normal</span></button>
+      <button class="lrow" type="button" data-sensor="S4" aria-current="false"><span class="lrow__body"><span class="lrow__title">Pos Harapan Jaya</span><span class="lrow__sub">Kecamatan Timur · 96 cm · naik 3 cm/jam</span></span><span class="status status--ok"><i aria-hidden="true"></i>Normal</span></button>
+      <button class="lrow" type="button" data-sensor="S5" aria-current="false"><span class="lrow__body"><span class="lrow__title">Pintu Air Way Halim Baru</span><span class="lrow__sub">Kecamatan Tengah · 74 cm · naik 1 cm/jam</span></span><span class="status status--ok"><i aria-hidden="true"></i>Normal</span></button>
+      <button class="lrow" type="button" data-sensor="S6" aria-current="false"><span class="lrow__body"><span class="lrow__title">Embung Sukajaya</span><span class="lrow__sub">Kecamatan Barat · 112 cm · naik 2 cm/jam</span></span><span class="status status--ok"><i aria-hidden="true"></i>Normal</span></button>
+      <button class="lrow" type="button" data-sensor="S7" aria-current="false"><span class="lrow__body"><span class="lrow__title">Pos Teluk Indah</span><span class="lrow__sub">Kecamatan Teluk · 88 cm · naik 2 cm/jam</span></span><span class="status status--ok"><i aria-hidden="true"></i>Normal</span></button>
+      <button class="lrow" type="button" data-sensor="S8" aria-current="false"><span class="lrow__body"><span class="lrow__title">Pos Kampus Timur</span><span class="lrow__sub">Kecamatan Timur · Data terakhir pukul 07.12</span></span><span class="status"><i aria-hidden="true"></i>Mati</span></button>
+    </div>
+    <div class="list" data-state-view="loading" role="status" aria-label="Memuat sensor" hidden><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 56%;"></span><span class="skel" style="display: block; height: 11px; width: 36%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 64%;"></span><span class="skel" style="display: block; height: 11px; width: 42%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 48%;"></span><span class="skel" style="display: block; height: 11px; width: 30%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 60%;"></span><span class="skel" style="display: block; height: 11px; width: 38%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 52%;"></span><span class="skel" style="display: block; height: 11px; width: 34%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 56%;"></span><span class="skel" style="display: block; height: 11px; width: 36%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div></div>
+    <div class="list list--fill" data-state-view="empty" hidden><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">water_drop</span></div><div class="empty__title">Belum ada sensor terpasang</div><div class="empty__body">Sensor tinggi muka air muncul di sini setelah dipasang dan terhubung.</div></div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Sensor tidak termuat</div><div class="alert__body">Server telemetri tidak menjawab. Petugas pintu air tetap memantau di lapangan.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+  </section>
+
+  <div class="dash-kebencanaan__detail" data-detail-wrap>
+    <section class="stack" style="--gap: 20px;" aria-label="Rincian sensor" data-states>
+      <div class="stack" style="--gap: 20px;" data-state-view="loaded" data-detail>
+<div class="dash-kebencanaan__head"><div class="stack" style="--gap: 6px; min-width: 0;"><div class="cluster" style="--gap: 8px;"><h2 class="section__title-sm">Pintu Air Sukamaju</h2><span class="status status--down"><i aria-hidden="true"></i>Siaga</span></div><p class="section__sub">Sungai Utara · Kecamatan Utara</p></div><button type="button" class="btn btn--secondary btn--sm" data-act="call"><span class="ic" aria-hidden="true">call</span>Hubungi Pak Darmawan</button></div><div class="alert alert--danger" role="status"><span class="ic" aria-hidden="true">flood</span><div><div class="alert__title">Status Siaga: 182 cm, naik 14 cm per jam</div><div class="alert__body">Dengan laju ini, batas berikutnya (220 cm) tercapai sekitar 3 jam lagi. Petugas pintu air: Pak Darmawan.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-act="open-gate"><span class="btn__label">Minta buka pintu air</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></div></div></div><div class="dash-kebencanaan__vitals"><article class="kpi" aria-labelledby="v-lv"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">water_drop</span></span><span class="kpi__label" id="v-lv">Tinggi muka air</span></div><div class="kpi__value">182<small>cm</small></div><div class="kpi__meta"><span>Waspada 150, Siaga 180, Awas 220</span></div></article><article class="kpi" aria-labelledby="v-rate"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">trending_up</span></span><span class="kpi__label" id="v-rate">Laju kenaikan</span></div><div class="kpi__value">14<small>cm/jam</small></div><div class="kpi__meta"><span>rata-rata 3 jam terakhir</span></div></article><article class="kpi" aria-labelledby="v-rain"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">rainy</span></span><span class="kpi__label" id="v-rain">Hujan di hulu</span></div><div class="kpi__value">38<small>mm</small></div><div class="kpi__meta"><span>3 jam terakhir</span></div></article><article class="kpi" aria-labelledby="v-next"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">schedule</span></span><span class="kpi__label" id="v-next">Batas berikutnya</span></div><div class="kpi__value">220<small>cm</small></div><div class="kpi__meta"><span>kurang 38 cm</span></div></article></div>
+      </div>
+      <div class="stack" style="--gap: 16px;" data-state-view="loading" role="status" aria-label="Memuat rincian sensor" hidden><div class="skel" style="height: 24px; width: 40%;"></div><div class="skel" style="height: 72px; border-radius: 16px;"></div><div class="dash-kebencanaan__vitals"><div class="skel" style="height: 120px; border-radius: 16px;"></div><div class="skel" style="height: 120px; border-radius: 16px;"></div></div></div>
+      <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Rincian sensor tidak termuat</div><div class="alert__body">Sensor ini tidak menjawab. Hubungi petugas pintu air.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    </section>
+
+    <section class="chart-card" aria-labelledby="lvl-q" data-states data-lvl-card>
+      <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="lvl-q">Seberapa cepat air naik?</div><div class="chart-card__sub">Tinggi muka air per jam, 12 jam terakhir, dengan batas status</div></div></div>
+      <div class="chart" id="lvl" data-state-view="loaded" data-lds-chart='{"kind":"line","xName":"Jam","height":240,"x":["21.40","22.40","23.40","00.40","01.40","02.40","03.40","04.40","05.40","06.40","07.40","08.40","09.40"],"format":{"suffix":" cm","decimals":0},"y":{"min":0,"max":250,"ticks":4},"series":[{"name":"Tinggi muka air","values":[120,119,122,128,134,137,141,147,156,162,168,177,182]}],"refs":[{"value":150,"label":"Waspada 150"},{"value":180,"label":"Siaga 180"},{"value":220,"label":"Awas 220"}],"label":"Tinggi muka air Pintu Air Sukamaju 12 jam terakhir, dari 120 ke 182 cm."}'></div>
+      <div class="empty" data-state-view="empty" hidden><div class="empty__icon"><span class="ic" aria-hidden="true">wifi_off</span></div><div class="empty__title">Belum ada bacaan</div><div class="empty__body">Grafik terisi setelah sensor mengirim bacaan pertamanya.</div></div>
+      <div class="stack" style="--gap: 44px; padding-top: 24px;" data-state-view="loading" role="status" aria-label="Memuat grafik tinggi muka air" hidden><div class="skel" style="height: 32px; width: 30%;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div></div>
+      <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Grafik tidak termuat</div><div class="alert__body">Coba lagi sebentar lagi.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    </section>
+  </div>
+</div>
+
+<div class="dash-grid">
+  <section class="chart-card dash-span-8" aria-labelledby="rain-q" data-states>
+    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="rain-q">Seberapa deras hujan turun?</div><div class="chart-card__sub">Curah hujan di stasiun Kecamatan Utara</div></div><div class="chart-card__actions"><div class="seg chart-card__range" role="group" aria-label="Periode" data-lds-segmented data-lds-chart-for="rain"><span class="seg__thumb"></span><button type="button" class="seg__btn" aria-pressed="true" data-set="h24">24 jam</button><button type="button" class="seg__btn" aria-pressed="false" data-set="d14">14 hari</button></div></div></div>
+    <div class="stack" style="--gap: 14px;" data-state-view="loaded">
+      <div class="chart-card__figure"><div class="chart-card__big" data-chart-figure>106 mm</div><span class="chart-card__sub" data-chart-note>dalam 24 jam, puncak 16 mm/jam</span></div>
+      <div class="chart" id="rain" data-lds-chart='{"kind":"bar","xName":"Waktu","height":220,"format":{"suffix":" mm","decimals":0},"x":["10.00","11.00","12.00","13.00","14.00","15.00","16.00","17.00","18.00","19.00","20.00","21.00","22.00","23.00","00.00","01.00","02.00","03.00","04.00","05.00","06.00","07.00","08.00","09.00"],"xFull":["Min 10.00","Min 11.00","Min 12.00","Min 13.00","Min 14.00","Min 15.00","Min 16.00","Min 17.00","Min 18.00","Min 19.00","Min 20.00","Min 21.00","Min 22.00","Min 23.00","Sen 00.00","Sen 01.00","Sen 02.00","Sen 03.00","Sen 04.00","Sen 05.00","Sen 06.00","Sen 07.00","Sen 08.00","Sen 09.00"],"series":[{"name":"Curah hujan","values":[0,0,1,3,6,7,5,2,1,0,0,0,0,2,3,4,6,9,12,16,11,8,6,4]}],"figure":"106 mm","label":"Curah hujan per jam di Kecamatan Utara selama 24 jam terakhir: 106 mm, puncak 16 mm pada pukul 05.00.","note":"dalam 24 jam, puncak 16 mm/jam","refs":[{"value":10,"label":"Hujan lebat 10 mm/jam"}],"sets":{"h24":{"x":["10.00","11.00","12.00","13.00","14.00","15.00","16.00","17.00","18.00","19.00","20.00","21.00","22.00","23.00","00.00","01.00","02.00","03.00","04.00","05.00","06.00","07.00","08.00","09.00"],"xFull":["Min 10.00","Min 11.00","Min 12.00","Min 13.00","Min 14.00","Min 15.00","Min 16.00","Min 17.00","Min 18.00","Min 19.00","Min 20.00","Min 21.00","Min 22.00","Min 23.00","Sen 00.00","Sen 01.00","Sen 02.00","Sen 03.00","Sen 04.00","Sen 05.00","Sen 06.00","Sen 07.00","Sen 08.00","Sen 09.00"],"series":[{"name":"Curah hujan","values":[0,0,1,3,6,7,5,2,1,0,0,0,0,2,3,4,6,9,12,16,11,8,6,4]}],"figure":"106 mm","label":"Curah hujan per jam di Kecamatan Utara selama 24 jam terakhir: 106 mm, puncak 16 mm pada pukul 05.00.","note":"dalam 24 jam, puncak 16 mm/jam","refs":[{"value":10,"label":"Hujan lebat 10 mm/jam"}]},"d14":{"x":["3 Nov","4 Nov","5 Nov","6 Nov","7 Nov","8 Nov","9 Nov","10 Nov","11 Nov","12 Nov","13 Nov","14 Nov","15 Nov","16 Nov"],"xFull":["Sel, 3 Nov","Rab, 4 Nov","Kam, 5 Nov","Jum, 6 Nov","Sab, 7 Nov","Min, 8 Nov","Sen, 9 Nov","Sel, 10 Nov","Rab, 11 Nov","Kam, 12 Nov","Jum, 13 Nov","Sab, 14 Nov","Min, 15 Nov","Sen, 16 Nov"],"series":[{"name":"Curah hujan","values":[4,0,12,28,41,9,0,3,17,36,52,22,64,79]}],"figure":"367 mm","label":"Curah hujan harian di Kecamatan Utara selama 14 hari: 367 mm, tertinggi 79 mm hari ini sampai pukul 09.40.","note":"dalam 14 hari, hari ini tertinggi","refs":[{"value":50,"label":"Sangat lebat 50 mm/hari"}]}}}'></div>
+    </div>
+    <div class="stack" style="--gap: 30px; padding-top: 24px;" data-state-view="loading" role="status" aria-label="Memuat curah hujan" hidden><div class="skel" style="height: 32px; width: 30%;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div></div>
+    <div class="empty" data-state-view="empty" hidden><div class="empty__icon"><span class="ic" aria-hidden="true">sunny</span></div><div class="empty__title">Tidak ada hujan tercatat</div><div class="empty__body">Tidak ada hujan pada periode ini. Coba periode yang lebih panjang.</div><button class="btn btn--secondary btn--sm" type="button" data-state-set="loaded">Tampilkan 14 hari</button></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Curah hujan tidak termuat</div><div class="alert__body">Stasiun cuaca belum mengirim data.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    <div class="chart-card__foot"><span>Penakar hujan otomatis, Kantor Kecamatan Utara</span><span>Diperbarui 09.40</span></div>
+  </section>
+
+  <section class="stack dash-span-4" style="--gap: 12px;" aria-labelledby="wx-title" data-states>
+    <div class="cluster" style="justify-content: space-between; --gap: 12px;"><div class="section__head"><h2 class="section__title-sm" id="wx-title">Cuaca hari ini</h2><p class="section__sub">Prakiraan untuk seluruh kota, Senin 16 Nov.</p></div></div>
+    <div class="list" data-state-view="loaded">
+      <div class="lrow lrow--icon"><span class="lrow__icon"><span class="ic" aria-hidden="true">partly_cloudy_day</span></span><span class="lrow__body"><span class="lrow__title">Pagi, 06.00 sampai 12.00</span><span class="lrow__sub">Berawan, 26 sampai 30 °C</span></span><span class="lrow__value">Hujan 30%</span></div>
+      <div class="lrow lrow--icon"><span class="lrow__icon"><span class="ic" aria-hidden="true">rainy</span></span><span class="lrow__body"><span class="lrow__title">Siang, 12.00 sampai 14.00</span><span class="lrow__sub">Hujan ringan, 29 °C</span></span><span class="lrow__value">Hujan 60%</span></div>
+      <div class="lrow lrow--icon"><span class="lrow__icon"><span class="ic" aria-hidden="true">flood</span></span><span class="lrow__body"><span class="lrow__title">Sore, 14.00 sampai 18.00</span><span class="lrow__sub">Hujan lebat dan angin kencang, 25 °C</span></span><span class="lrow__value">Hujan 90%</span></div>
+      <div class="lrow lrow--icon"><span class="lrow__icon"><span class="ic" aria-hidden="true">cloud</span></span><span class="lrow__body"><span class="lrow__title">Malam, 18.00 sampai 24.00</span><span class="lrow__sub">Hujan ringan, 24 °C</span></span><span class="lrow__value">Hujan 50%</span></div>
+    </div>
+    <div class="list" data-state-view="loading" role="status" aria-label="Memuat prakiraan cuaca" hidden><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 56%;"></span><span class="skel" style="display: block; height: 11px; width: 36%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 64%;"></span><span class="skel" style="display: block; height: 11px; width: 42%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 48%;"></span><span class="skel" style="display: block; height: 11px; width: 30%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 60%;"></span><span class="skel" style="display: block; height: 11px; width: 38%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Prakiraan tidak termuat</div><div class="alert__body">Layanan prakiraan tidak menjawab.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+  </section>
+</div>
+
+<div class="dash-grid">
+  <section class="stack dash-span-7" style="--gap: 12px;" aria-labelledby="inc-title" data-states>
+    <div class="cluster" style="justify-content: space-between; --gap: 12px;"><div class="section__head"><h2 class="section__title-sm" id="inc-title">Kejadian terbuka</h2><p class="section__sub">Banjir, pohon tumbang dan longsor sejak tengah malam.</p></div><a class="btn btn--plain btn--sm" href="pusat-komando.html">Buka pusat komando<span class="ic" aria-hidden="true">chevron_right</span></a></div>
+    <div class="list" data-state-view="loaded" data-incidents>
+      <a class="lrow lrow--icon" href="pusat-komando.html"><span class="lrow__icon"><span class="ic" aria-hidden="true">flood</span></span><span class="lrow__body"><span class="lrow__title">Genangan 40 cm di Jalan Merpati</span><span class="lrow__sub">Kelurahan Sukamaju · sejak 06.20</span></span><span class="badge badge--warning">Ditangani</span></a>
+      <a class="lrow lrow--icon" href="pusat-komando.html"><span class="lrow__icon"><span class="ic" aria-hidden="true">park</span></span><span class="lrow__body"><span class="lrow__title">Pohon tumbang menutup Jalan Kenanga</span><span class="lrow__sub">Kelurahan Harapan Jaya · 08.05</span></span><span class="badge badge--warning">Ditangani</span></a>
+      <a class="lrow lrow--icon" href="pusat-komando.html"><span class="lrow__icon"><span class="ic" aria-hidden="true">landscape</span></span><span class="lrow__body"><span class="lrow__title">Longsor kecil di tebing RT 04</span><span class="lrow__sub">Kelurahan Bukit Indah · 07.30</span></span><span class="badge badge--danger">Menunggu tim</span></a>
+      <a class="lrow lrow--icon" href="pusat-komando.html"><span class="lrow__icon"><span class="ic" aria-hidden="true">home</span></span><span class="lrow__body"><span class="lrow__title">Rumah terendam di bantaran Sungai Utara</span><span class="lrow__sub">Kelurahan Sukamaju · sejak 05.50, 31 rumah</span></span><span class="badge badge--danger">Evakuasi</span></a>
+      <a class="lrow lrow--icon" href="pusat-komando.html"><span class="lrow__icon"><span class="ic" aria-hidden="true">park</span></span><span class="lrow__body"><span class="lrow__title">Pohon tumbang di Taman Kota</span><span class="lrow__sub">Kelurahan Mekarsari · 08.40</span></span><span class="badge badge--warning">Ditangani</span></a>
+    </div>
+    <div class="list" data-state-view="loading" role="status" aria-label="Memuat kejadian" hidden><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 56%;"></span><span class="skel" style="display: block; height: 11px; width: 36%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 64%;"></span><span class="skel" style="display: block; height: 11px; width: 42%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 48%;"></span><span class="skel" style="display: block; height: 11px; width: 30%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 60%;"></span><span class="skel" style="display: block; height: 11px; width: 38%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 52%;"></span><span class="skel" style="display: block; height: 11px; width: 34%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div></div>
+    <div class="list list--fill" data-state-view="empty" hidden><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">check_circle</span></div><div class="empty__title">Tidak ada kejadian terbuka</div><div class="empty__body">Kejadian baru dari warga, petugas dan sensor muncul di sini.</div></div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Kejadian tidak termuat</div><div class="alert__body">Layanan pusat komando tidak menjawab. Tim di lapangan tetap bekerja.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+  </section>
+
+  <section class="stack dash-span-5" style="--gap: 12px;" aria-labelledby="posko-title" data-states>
+    <div class="cluster" style="justify-content: space-between; --gap: 12px;"><div class="section__head"><h2 class="section__title-sm" id="posko-title">Posko pengungsian</h2><p class="section__sub">214 jiwa di 3 posko.</p></div></div>
+    <div class="list" data-state-view="loaded" data-posko>
+      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Posko Balai Kelurahan Sukamaju</span><span class="lrow__sub">Kecamatan Utara · 126 jiwa, 34 KK · butuh: <span data-need>Selimut, makanan bayi</span></span></span><button class="btn btn--secondary btn--sm" type="button" data-send="0" aria-label="Kirim bantuan ke Posko Balai Kelurahan Sukamaju"><span class="btn__label">Kirim bantuan</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></div>
+      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Posko Masjid Al Ikhlas Mekarsari</span><span class="lrow__sub">Kecamatan Bukit · 61 jiwa, 16 KK · butuh: <span data-need>Air minum</span></span></span><button class="btn btn--secondary btn--sm" type="button" data-send="1" aria-label="Kirim bantuan ke Posko Masjid Al Ikhlas Mekarsari"><span class="btn__label">Kirim bantuan</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></div>
+      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Posko SD Negeri 12 Pesisir</span><span class="lrow__sub">Kecamatan Pesisir · 27 jiwa, 8 KK · butuh: <span data-need>Obat-obatan</span></span></span><button class="btn btn--secondary btn--sm" type="button" data-send="2" aria-label="Kirim bantuan ke Posko SD Negeri 12 Pesisir"><span class="btn__label">Kirim bantuan</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></div>
+    </div>
+    <div class="list" data-state-view="loading" role="status" aria-label="Memuat posko" hidden><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 56%;"></span><span class="skel" style="display: block; height: 11px; width: 36%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 64%;"></span><span class="skel" style="display: block; height: 11px; width: 42%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div><div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 48%;"></span><span class="skel" style="display: block; height: 11px; width: 30%; margin-top: 8px;"></span></span><span class="skel" style="width: 72px; height: 22px; border-radius: 6px;"></span></div></div>
+    <div class="list list--fill" data-state-view="empty" hidden><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">home</span></div><div class="empty__title">Belum ada posko dibuka</div><div class="empty__body">Posko muncul di sini setelah dibuka oleh kelurahan atau BPBD Kota Contoh.</div></div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Posko tidak termuat</div><div class="alert__body">Coba lagi sebentar lagi.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+  </section>
+</div>
+
+<template data-slot="layers">
+<div class="scrim" data-lds-scrim="sensor-drawer"></div>
+<aside class="drawer dash-kebencanaan__drawer" id="sensor-drawer" role="dialog" aria-modal="true" aria-labelledby="sensor-drawer-t" data-lds-layer>
+  <div class="sheet__head" style="margin: 0;"><h2 class="sheet__title" id="sensor-drawer-t">Rincian sensor</h2><button class="icon-btn" type="button" aria-label="Tutup" data-lds-close style="margin: -10px -10px -10px 0;"><span class="ic" aria-hidden="true">close</span></button></div>
+  <div class="dash-kebencanaan__drawer-body" data-drawer-body></div>
+</aside>
+</template>
+
+<dialog class="modal" id="warn-dlg" aria-labelledby="warn-dlg-t">
+  <button class="icon-btn dialog__close" type="button" data-lds-modal-close aria-label="Tutup"><span class="ic" aria-hidden="true">close</span></button>
+  <h2 class="dialog__title" id="warn-dlg-t">Kirim peringatan dini</h2>
+  <p class="dialog__body">Pesan dikirim ke aplikasi warga dan ke ketua RT di kecamatan yang dipilih.</p>
+  <form class="form" id="warn-form" novalidate style="margin-top: 16px;">
+    <div class="field">
+      <span class="field__label" id="wr-level">Tingkat</span>
+      <div class="seg" role="group" aria-labelledby="wr-level" data-lds-segmented data-wr-level><span class="seg__thumb"></span><button type="button" class="seg__btn" aria-pressed="false" data-v="Waspada">Waspada</button><button type="button" class="seg__btn" aria-pressed="true" data-v="Siaga">Siaga</button><button type="button" class="seg__btn" aria-pressed="false" data-v="Awas">Awas</button></div>
+    </div>
+    <fieldset class="stack" style="border: 0; --gap: 10px;" data-wr-areas>
+      <legend class="field__label" style="margin-bottom: 12px;">Kecamatan</legend>
+      <label class="check"><input type="checkbox" name="area" value="Kecamatan Utara" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span><span class="check__text">Kecamatan Utara</span></label>
+      <label class="check"><input type="checkbox" name="area" value="Kecamatan Bukit" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span><span class="check__text">Kecamatan Bukit</span></label>
+      <label class="check"><input type="checkbox" name="area" value="Kecamatan Pesisir" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span><span class="check__text">Kecamatan Pesisir</span></label>
+      <label class="check"><input type="checkbox" name="area" value="Kecamatan Tengah"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span><span class="check__text">Kecamatan Tengah</span></label>
+      <label class="check"><input type="checkbox" name="area" value="Kecamatan Teluk"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span><span class="check__text">Kecamatan Teluk</span></label>
+      <span class="field__help" id="wr-area-help">Pilih minimal satu kecamatan.</span>
+    </fieldset>
+    <div class="field"><label class="field__label" for="wr-msg">Pesan</label><div class="control control--area"><textarea id="wr-msg" name="msg" maxlength="280" rows="4">Hujan lebat diperkirakan pukul 14.00 sampai 18.00. Warga di bantaran sungai siapkan dokumen penting dan pantau info dari RT. Posko terdekat: balai kelurahan.</textarea></div><span class="field__help" id="wr-msg-help">Paling banyak 280 karakter, agar muat di SMS.</span></div>
+    <div class="dialog__actions"><button class="btn btn--secondary" type="button" data-lds-modal-close>Batal</button><button class="btn btn--primary" type="submit"><span class="btn__label">Kirim peringatan</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></div>
+  </form>
+</dialog>
+
+<script type="module">
+import { init, drawChart, openLayer, closeLayer, setLoading, shake, closeModal, announce } from '../../../js/lds.js';
+import { notify, delay, showState } from './dashboard.js';
+
+const S = [{"id":"S1","name":"Pintu Air Sukamaju","river":"Sungai Utara","kec":"Kecamatan Utara","lv":182,"rate":14,"rain":38,"st":"siaga","refs":[150,180,220],"h":[120,119,122,128,134,137,141,147,156,162,168,177,182],"officer":"Pak Darmawan"},{"id":"S2","name":"Bendung Mekarsari","river":"Sungai Bukit","kec":"Kecamatan Bukit","lv":158,"rate":9,"rain":31,"st":"waspada","refs":[150,190,230],"h":[118,122,119,126,125,128,133,135,143,145,150,155,158],"officer":"Bu Ratna"},{"id":"S3","name":"Muara Pesisir","river":"Sungai Utara, hilir","kec":"Kecamatan Pesisir","lv":141,"rate":6,"rain":18,"st":"normal","refs":[150,180,210],"h":[122,123,123,124,124,125,126,131,131,137,137,136,141],"officer":"Pak Yusuf"},{"id":"S4","name":"Pos Harapan Jaya","river":"Kali Timur","kec":"Kecamatan Timur","lv":96,"rate":3,"rain":12,"st":"normal","refs":[140,170,210],"h":[84,82,88,86,87,87,90,89,92,93,94,94,96],"officer":"Pak Hendra"},{"id":"S5","name":"Pintu Air Way Halim Baru","river":"Kali Tengah","kec":"Kecamatan Tengah","lv":74,"rate":1,"rain":6,"st":"normal","refs":[120,150,190],"h":[70,73,71,71,70,70,69,73,75,72,72,72,74],"officer":"Bu Sari"},{"id":"S6","name":"Embung Sukajaya","river":"Tampungan air","kec":"Kecamatan Barat","lv":112,"rate":2,"rain":4,"st":"normal","refs":[160,190,220],"h":[104,106,103,106,108,106,109,108,111,108,111,110,112],"officer":"Pak Rudi"},{"id":"S7","name":"Pos Teluk Indah","river":"Kali Teluk","kec":"Kecamatan Teluk","lv":88,"rate":2,"rain":9,"st":"normal","refs":[130,160,200],"h":[80,78,78,83,83,82,85,83,82,83,87,88,88],"officer":"Pak Agus"},{"id":"S8","name":"Pos Kampus Timur","river":"Kali Timur, hulu","kec":"Kecamatan Timur","lv":null,"rate":null,"rain":null,"st":"off","refs":[140,170,210],"h":null,"officer":"Pak Hendra","since":"07.12"}];
+const X = ["21.40","22.40","23.40","00.40","01.40","02.40","03.40","04.40","05.40","06.40","07.40","08.40","09.40"];
+const render = (s) => {
+  const ST = { normal: ['Normal', 'ok'], waspada: ['Waspada', 'warn'], siaga: ['Siaga', 'down'], awas: ['Awas', 'down'], off: ['Tidak mengirim data', ''] };
+  const [w, c] = ST[s.st];
+  const next = s.lv === null ? null : s.refs.find((r) => r > s.lv);
+  const left = next ? next - s.lv : 0;
+  const hours = next && s.rate ? Math.max(1, Math.round(left / s.rate)) : null;
+  const card = (id, icon, label, value, meta) => '<article class="kpi" aria-labelledby="' + id + '"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">' + icon + '</span></span><span class="kpi__label" id="' + id + '">' + label + '</span></div><div class="kpi__value">' + value + '</div><div class="kpi__meta"><span>' + meta + '</span></div></article>';
+  const alert = s.st === 'off'
+    ? '<div class="alert alert--warning" role="status"><span class="ic" aria-hidden="true">wifi_off</span><div><div class="alert__title">Sensor tidak mengirim data sejak pukul ' + s.since + '</div><div class="alert__body">Kemungkinan baterai atau sinyal. Pantau secara manual sampai sensor menyala lagi.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-act="check"><span class="btn__label">Kirim petugas cek sensor</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></div></div></div>'
+    : s.st === 'normal' ? ''
+    : '<div class="alert alert--' + (s.st === 'waspada' ? 'warning' : 'danger') + '" role="status"><span class="ic" aria-hidden="true">flood</span><div><div class="alert__title">Status ' + w + ': ' + s.lv + ' cm, naik ' + s.rate + ' cm per jam</div><div class="alert__body">' + (hours ? 'Dengan laju ini, batas berikutnya (' + next + ' cm) tercapai sekitar ' + hours + ' jam lagi.' : 'Di atas batas tertinggi.') + ' Petugas pintu air: ' + s.officer + '.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-act="open-gate"><span class="btn__label">Minta buka pintu air</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></div></div></div>';
+  return '<div class="dash-kebencanaan__head"><div class="stack" style="--gap: 6px; min-width: 0;"><div class="cluster" style="--gap: 8px;"><h2 class="section__title-sm">' + s.name + '</h2><span class="status' + (c ? ' status--' + c : '') + '"><i aria-hidden="true"></i>' + w + '</span></div><p class="section__sub">' + s.river + ' · ' + s.kec + '</p></div><button type="button" class="btn btn--secondary btn--sm" data-act="call"><span class="ic" aria-hidden="true">call</span>Hubungi ' + s.officer + '</button></div>'
+    + alert
+    + (s.lv === null ? '' : '<div class="dash-kebencanaan__vitals">'
+      + card('v-lv', 'water_drop', 'Tinggi muka air', s.lv + '<small>cm</small>', 'Waspada ' + s.refs[0] + ', Siaga ' + s.refs[1] + ', Awas ' + s.refs[2])
+      + card('v-rate', 'trending_up', 'Laju kenaikan', s.rate + '<small>cm/jam</small>', 'rata-rata 3 jam terakhir')
+      + card('v-rain', 'rainy', 'Hujan di hulu', s.rain + '<small>mm</small>', '3 jam terakhir')
+      + card('v-next', 'schedule', 'Batas berikutnya', next ? next + '<small>cm</small>' : 'Lewat', next ? 'kurang ' + left + ' cm' : 'di atas batas Awas')
+      + '</div>');
+};
+const lvlCfg = (s) => ({ kind: 'line', xName: 'Jam', height: 240, x: X, format: { suffix: ' cm', decimals: 0 }, y: { min: 0, max: s.refs[2] + 30, ticks: 4 }, series: [{ name: 'Tinggi muka air', values: s.h }], refs: [{ value: s.refs[0], label: 'Waspada ' + s.refs[0] }, { value: s.refs[1], label: 'Siaga ' + s.refs[1] }, { value: s.refs[2], label: 'Awas ' + s.refs[2] }], label: `Tinggi muka air ${s.name} 12 jam terakhir, dari ${s.h[0]} ke ${s.h[12]} cm.` });
+
+const list = document.querySelector('[data-sensors]');
+const detail = document.querySelector('[data-detail]');
+const wrap = document.querySelector('[data-detail-wrap]');
+const home = wrap.parentElement;
+const drawerBody = document.querySelector('[data-drawer-body]');
+const lvl = document.getElementById('lvl');
+const lvlCard = document.querySelector('[data-lvl-card]');
+const wide = matchMedia('(min-width: 1280px)');
+let current = S[0];
+
+// Wide screens show the detail beside the list; narrower ones open it in a drawer
+const place = () => {
+  if (wide.matches) { if (wrap.parentElement !== home) { home.appendChild(wrap); closeLayer('sensor-drawer'); } }
+  else if (wrap.parentElement !== drawerBody) drawerBody.appendChild(wrap);
+};
+place(); wide.addEventListener('change', place);
+
+const show = (s, from) => {
+  current = s;
+  list.querySelectorAll('[data-sensor]').forEach((b) => b.setAttribute('aria-current', String(b.dataset.sensor === s.id)));
+  detail.innerHTML = render(s);
+  detail.classList.remove('view-in'); void detail.offsetWidth; detail.classList.add('view-in');
+  init(detail);
+  lvlCard.querySelectorAll(':scope > [data-state-view]').forEach((v) => { v.hidden = v.dataset.stateView !== (s.h ? 'loaded' : 'empty'); });
+  if (s.h) drawChart(lvl, lvlCfg(s));
+  if (!wide.matches && from) openLayer('sensor-drawer', from);
+  announce(`${s.name}, ${s.st === 'off' ? 'tidak mengirim data' : s.lv + ' sentimeter'}`);
+};
+list.addEventListener('click', (e) => { const b = e.target.closest('[data-sensor]'); if (b) show(S.find((s) => s.id === b.dataset.sensor), b); });
+document.querySelector('[data-pick]').addEventListener('click', (e) => { show(S.find((s) => s.id === e.currentTarget.dataset.pick), e.currentTarget); if (wide.matches) wrap.scrollIntoView({ behavior: 'smooth', block: 'start' }); });
+
+// Actions inside the detail
+wrap.addEventListener('click', async (e) => {
+  const a = e.target.closest('[data-act]'); if (!a) return;
+  const s = current;
+  if (a.dataset.act === 'call') notify({ title: `Menghubungi ${s.officer}`, body: 'Panggilan dibuka di aplikasi telepon pada produk lengkap.', icon: 'call' });
+  if (a.dataset.act === 'open-gate') { setLoading(a, true); await delay(1200); setLoading(a, false); a.disabled = true; a.querySelector('.btn__label').textContent = 'Permintaan terkirim'; notify({ title: 'Permintaan buka pintu air terkirim', body: `${s.officer} mengonfirmasi lewat radio.`, icon: 'check_circle' }); }
+  if (a.dataset.act === 'check') { setLoading(a, true); await delay(1000); setLoading(a, false); a.disabled = true; a.querySelector('.btn__label').textContent = 'Petugas dalam perjalanan'; notify({ title: 'Petugas dikirim ke sensor', body: `${s.name}, perkiraan tiba 30 menit.`, icon: 'check_circle' }); }
+});
+
+// Refresh the sensor list as a real request would
+document.querySelector('[data-refresh]').addEventListener('click', async () => { const sec = list.closest('[data-states]'); showState('loading', sec.parentElement); await delay(800); showState('loaded', sec.parentElement); announce('Sensor dimuat ulang'); });
+
+// Send relief to a shelter: the need line confirms in place
+document.querySelector('[data-posko]').addEventListener('click', async (e) => {
+  const b = e.target.closest('[data-send]'); if (!b) return;
+  setLoading(b, true); await delay(1000); setLoading(b, false);
+  const need = b.closest('.lrow').querySelector('[data-need]'); const was = need.textContent;
+  need.textContent = 'bantuan dikirim 09.41'; b.disabled = true;
+  notify({ title: 'Bantuan dikirim', body: was, icon: 'volunteer_activism', action: 'Urungkan', onAction: () => { need.textContent = was; b.disabled = false; return { title: 'Pengiriman dibatalkan', icon: 'undo' }; } });
+});
+
+// Download
+const ex = document.querySelector('[data-export]');
+ex.addEventListener('click', async () => { setLoading(ex, true); await delay(1000); setLoading(ex, false); notify({ title: 'Laporan situasi diunduh', body: 'Situasi kebencanaan 16 Nov 2026 pukul 09.41.pdf', icon: 'check_circle' }); });
+
+// Early warning: at least one district and a message, then the banner says it went out
+const form = document.getElementById('warn-form');
+let level = 'Siaga';
+form.querySelector('[data-wr-level]').addEventListener('lds:change', (e) => { level = e.detail.item.dataset.v; });
+const areaHelp = document.getElementById('wr-area-help');
+form.addEventListener('change', () => { areaHelp.classList.remove('field__help--error'); areaHelp.textContent = 'Pilih minimal satu kecamatan.'; });
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const areas = [...form.querySelectorAll('[name="area"]:checked')].map((x) => x.value);
+  if (!areas.length) { areaHelp.classList.add('field__help--error'); areaHelp.textContent = 'Pilih kecamatan yang menerima peringatan.'; shake(form.querySelector('[data-wr-areas]')); form.querySelector('[name="area"]').focus(); return; }
+  const msg = form.elements.msg;
+  if (!msg.value.trim()) { const c = msg.closest('.control'); c.classList.add('is-invalid'); const h = document.getElementById('wr-msg-help'); h.classList.add('field__help--error'); h.textContent = 'Tulis apa yang harus dilakukan warga.'; shake(c); msg.focus(); return; }
+  const btn = form.querySelector('[type="submit"]'); setLoading(btn, true); await delay(1100); setLoading(btn, false);
+  closeModal(document.getElementById('warn-dlg'));
+  const early = document.querySelector('[data-early]');
+  document.querySelector('[data-early-title]').textContent = `Peringatan ${level} terkirim pukul 09.41`;
+  document.querySelector('[data-early-body]').textContent = `Dikirim ke warga dan ketua RT di ${areas.join(', ')}. Hujan lebat diperkirakan pukul 14.00 sampai 18.00 WIB.`;
+  early.className = 'alert alert--success'; early.querySelector('.ic').textContent = 'check_circle';
+  notify({ title: `Peringatan ${level} terkirim`, body: `${areas.length} kecamatan`, icon: 'campaign' });
+});
+</script>
