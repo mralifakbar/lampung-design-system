@@ -12,6 +12,9 @@
    the DOM: render the markup, then call init(ref) in an effect.
    ========================================================================== */
 
+import { renderAksara } from './aksara.js';
+export { toAksara, aksaraSvg, renderAksara } from './aksara.js';
+
 const reduceMotion = () => typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $$ = (root, sel) => Array.from(root.querySelectorAll(sel));
 const bound = new WeakSet();
@@ -3769,6 +3772,7 @@ function bindMatrix(table) {
 
 export function init(root = document) {
   if (typeof document === 'undefined') return;
+  renderAksara(root);
   /* Each binder runs once per element. An element can match several selectors (a sheet is a layer
      and a draggable sheet; a scroller has a nav bar and pull to refresh), so the guard is per selector. */
   const on = (sel, fn) => $$(root, sel).forEach((el) => {

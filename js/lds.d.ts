@@ -21,6 +21,8 @@ export type ToastHandle = (() => void) & { update?: (o: { title?: string; icon?:
 
 /** Wires every [data-lds-*] element under root. Safe to call again after rendering new markup. */
 export function init(root?: Element | Document): void;
+export { toAksara, aksaraSvg, renderAksara } from './aksara';
+export type { AksaraCell } from './aksara';
 
 export function swapTheme(apply: () => void): void;
 export function setTheme(mode: ThemeMode, root?: Element): void;
