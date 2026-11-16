@@ -15,12 +15,117 @@
 import { renderAksara } from './aksara.js';
 export { toAksara, aksaraSvg, renderAksara } from './aksara.js';
 
+const labelText = (el) => { const c = el.cloneNode(true); c.querySelectorAll('.ic, [aria-hidden="true"]').forEach((x) => x.remove()); return c.textContent.replace(/\s+/g, ' ').trim(); };
 const reduceMotion = () => typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $$ = (root, sel) => Array.from(root.querySelectorAll(sel));
 const bound = new WeakSet();
 const once = (el) => (bound.has(el) ? false : (bound.add(el), true));
 const emit = (el, name, detail) => el.dispatchEvent(new CustomEvent(name, { bubbles: true, detail }));
 const FOCUSABLE = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
+/* ---------- Language ----------
+   Text the behaviors write follows the closest [lang] (then <html lang>): any "id*" tag reads Indonesian,
+   anything else English, unless setStrings() added that language. Author attributes (data-lds-copy-label,
+   data-more, data-remove…) still win over these defaults. {name} is filled in; a key with "_one" is used when n is 1. */
+const STRINGS = {
+  en: {
+    copied: 'Copied', edit: 'Edit', saved: 'Saved', saveFailed: 'Could not save. Restored the previous name.',
+    uploadProgress: 'Upload progress', showMore: 'Show more', showLess: 'Show less', resizePanels: 'Resize panels',
+    image: 'Image', close: 'Close', remove: 'Remove', removed: '{name} removed',
+    ascending: 'ascending', descending: 'descending', sortOrder: '{col}, {dir}', sortedBy: 'Sorted by {col}, {dir}', sortRemoved: 'Sort removed',
+    showPassword: 'Show password', hidePassword: 'Hide password',
+    filesAdded_one: '{n} file added', filesAdded: '{n} files added',
+    bytes: '{n} B', kilobytes: '{n} KB', megabytes: '{n} MB',
+    compactK: '{n}k', compactM: '{n}M',
+    chart: 'Chart', chartKeys: '{label}. Arrow keys read each value.', series: 'Series {n}', total: 'Total',
+    routeArrived: 'Arrived', routePassed: 'Passed', routeNext: 'Next stop', routeAhead: 'Ahead',
+    mapOrigin: 'Origin', mapDestination: 'Destination', mapStop: 'Stop', mapNow: 'Now', map: 'Map',
+    mapControls: 'Map controls', zoomIn: 'Zoom in', zoomOut: 'Zoom out', showEverything: 'Show everything',
+    mapFailed: 'Map tiles did not load. Places and routes are still shown.', tryAgain: 'Try again', mapLoading: 'Loading map',
+    mapKeys: '{summary}. Arrow keys move the map, plus and minus zoom.', showRoute: 'Show the whole route', showPlaces: 'Show every place',
+    mapHintMac: 'Hold ⌘ and scroll to zoom the map', mapHint: 'Hold Ctrl and scroll to zoom the map',
+    expandSidebar: 'Expand sidebar', collapseSidebar: 'Collapse sidebar',
+    selected: '{n} selected', selectionCleared: 'Selection cleared',
+    rows: 'rows', tableShowing: 'Showing {from} to {to} of {total} {noun}', tableNoMatch: 'No {noun} match',
+    tableLoading: 'Loading {noun}', tableEmpty: 'No {noun} yet', tableError: '{Noun} did not load',
+    prevPage: 'Previous page', nextPage: 'Next page', page: 'Page {n}',
+    deltaUp: 'up', deltaDown: 'down', deltaFlat: 'no change', deltaNote: 'from last period',
+    card: 'Card', cardWhere: '{col}, position {i} of {n}', cardMoved: 'Moved {card} to {where}',
+    cardCancelled: 'Move cancelled. {card} is back in {where}', cardDroppedIn: 'Dropped {card} in {where}', cardDropped: 'Dropped {card}',
+    cardPicked: 'Picked up {card}, {where}. Use the arrow keys to move, Space to drop, Escape to cancel.',
+    allDay: 'All day', today: 'Today', tomorrow: 'Tomorrow', dayToday: 'Today, {date}', dayTomorrow: 'Tomorrow, {date}', view: 'View',
+    viewMonth: 'Month', viewWeek: 'Week', viewAgenda: 'Agenda',
+    events_one: '{n} event', events: '{n} events', moreEvents: '{n} more',
+    nothingPlanned: 'Nothing planned for this day.', noEventsMonth: 'No events this month. Move to another month or clear the filter.',
+    prevMonth: 'Previous month', nextMonth: 'Next month', prevWeek: 'Previous week', nextWeek: 'Next week',
+    range: '{start} to {end}',
+    last7: 'Last 7 days', last30: 'Last 30 days', last90: 'Last 90 days', thisMonth: 'This month', lastMonth: 'Last month', thisYear: 'This year',
+    presets: 'Presets', pickLastDay: 'Pick the last day', days_one: '{n} day', days: '{n} days',
+    cancel: 'Cancel', apply: 'Apply', showing: 'Showing {range}',
+  },
+  id: {
+    copied: 'Disalin', edit: 'Ubah', saved: 'Tersimpan', saveFailed: 'Gagal menyimpan. Nama sebelumnya dikembalikan.',
+    uploadProgress: 'Progres unggahan', showMore: 'Tampilkan lebih banyak', showLess: 'Tampilkan lebih sedikit', resizePanels: 'Ubah ukuran panel',
+    image: 'Gambar', close: 'Tutup', remove: 'Hapus', removed: '{name} dihapus',
+    ascending: 'naik', descending: 'turun', sortOrder: '{col}, {dir}', sortedBy: 'Diurutkan menurut {col}, {dir}', sortRemoved: 'Urutan dihapus',
+    showPassword: 'Tampilkan kata sandi', hidePassword: 'Sembunyikan kata sandi',
+    filesAdded: '{n} file ditambahkan',
+    bytes: '{n} B', kilobytes: '{n} KB', megabytes: '{n} MB',
+    compactK: '{n} rb', compactM: '{n} jt',
+    chart: 'Grafik', chartKeys: '{label}. Tombol panah membacakan setiap nilai.', series: 'Seri {n}', total: 'Total',
+    routeArrived: 'Sudah tiba', routePassed: 'Sudah dilewati', routeNext: 'Pemberhentian berikutnya', routeAhead: 'Belum dilewati',
+    mapOrigin: 'Asal', mapDestination: 'Tujuan', mapStop: 'Pemberhentian', mapNow: 'Sekarang', map: 'Peta',
+    mapControls: 'Kontrol peta', zoomIn: 'Perbesar', zoomOut: 'Perkecil', showEverything: 'Tampilkan semua',
+    mapFailed: 'Peta dasar gagal dimuat. Lokasi dan rute tetap ditampilkan.', tryAgain: 'Coba lagi', mapLoading: 'Memuat peta',
+    mapKeys: '{summary}. Tombol panah menggeser peta, plus dan minus mengubah zoom.', showRoute: 'Tampilkan seluruh rute', showPlaces: 'Tampilkan semua lokasi',
+    mapHintMac: 'Tahan ⌘ lalu gulir untuk zoom peta', mapHint: 'Tahan Ctrl lalu gulir untuk zoom peta',
+    expandSidebar: 'Lebarkan bilah samping', collapseSidebar: 'Ciutkan bilah samping',
+    selected: '{n} dipilih', selectionCleared: 'Pilihan dikosongkan',
+    rows: 'baris', tableShowing: 'Menampilkan {from} sampai {to} dari {total} {noun}', tableNoMatch: 'Tidak ada {noun} yang cocok',
+    tableLoading: 'Memuat {noun}', tableEmpty: 'Belum ada {noun}', tableError: '{Noun} gagal dimuat',
+    prevPage: 'Halaman sebelumnya', nextPage: 'Halaman berikutnya', page: 'Halaman {n}',
+    deltaUp: 'naik', deltaDown: 'turun', deltaFlat: 'tidak berubah', deltaNote: 'dari periode lalu',
+    card: 'Kartu', cardWhere: '{col}, posisi {i} dari {n}', cardMoved: '{card} dipindahkan ke {where}',
+    cardCancelled: 'Pemindahan dibatalkan. {card} kembali ke {where}', cardDroppedIn: '{card} diletakkan di {where}', cardDropped: '{card} diletakkan',
+    cardPicked: '{card} diambil, {where}. Gunakan tombol panah untuk memindahkan, Spasi untuk meletakkan, Escape untuk membatalkan.',
+    allDay: 'Sepanjang hari', today: 'Hari ini', tomorrow: 'Besok', dayToday: 'Hari ini, {date}', dayTomorrow: 'Besok, {date}', view: 'Tampilan',
+    viewMonth: 'Bulan', viewWeek: 'Minggu', viewAgenda: 'Agenda',
+    events: '{n} acara', moreEvents: '{n} lainnya',
+    nothingPlanned: 'Tidak ada agenda di hari ini.', noEventsMonth: 'Tidak ada acara bulan ini. Pindah ke bulan lain atau hapus filter.',
+    prevMonth: 'Bulan sebelumnya', nextMonth: 'Bulan berikutnya', prevWeek: 'Minggu sebelumnya', nextWeek: 'Minggu berikutnya',
+    range: '{start} sampai {end}',
+    last7: '7 hari terakhir', last30: '30 hari terakhir', last90: '90 hari terakhir', thisMonth: 'Bulan ini', lastMonth: 'Bulan lalu', thisYear: 'Tahun ini',
+    presets: 'Pilihan cepat', pickLastDay: 'Pilih hari terakhir', days: '{n} hari',
+    cancel: 'Batal', apply: 'Terapkan', showing: 'Menampilkan {range}',
+  },
+};
+/** Adds or overrides behavior strings for a language ("id", "en", or any other tag such as "jv"). */
+export function setStrings(code, partial = {}) {
+  const k = String(code || '').toLowerCase();
+  if (k) STRINGS[k] = { ...(STRINGS[k] || {}), ...partial };
+}
+const langCode = (tag) => {
+  const l = String(tag || '').toLowerCase();
+  if (l.startsWith('id')) return 'id';
+  return STRINGS[l] ? l : STRINGS[l.split('-')[0]] ? l.split('-')[0] : 'en';
+};
+const langTag = (el) => (el && el.closest && el.closest('[lang]')?.getAttribute('lang')) || (typeof document !== 'undefined' && document.documentElement.lang) || '';
+/** The strings table an element reads: "id", "en" or a language added with setStrings(). */
+const lang = (el) => langCode(langTag(el));
+/** The Intl locale for numbers and dates: "id-ID", "en-US", or the page's own tag for a language added with setStrings(). */
+const locale = (el) => { const c = lang(el); return c === 'id' ? 'id-ID' : c === 'en' ? 'en-US' : langTag(el); };
+/* Dates in English keep the day-month order the components always used. */
+const dateLocale = (el) => (lang(el) === 'en' ? 'en-GB' : locale(el));
+const fill = (s, vars) => String(s).replace(/\{(\w+)\}/g, (m, k) => (vars && vars[k] != null ? vars[k] : m));
+const pick = (code, key, vars) => {
+  const one = vars && Number(vars.n) === 1 ? `${key}_one` : null;
+  const table = STRINGS[code] || STRINGS.en;
+  const s = (one && table[one]) ?? table[key] ?? (one && STRINGS.en[one]) ?? STRINGS.en[key] ?? key;
+  return fill(s, vars);
+};
+/** One behavior string in the element's language, with {vars} filled in. */
+const t = (el, key, vars) => pick(lang(el), key, vars);
+const num = (el, n, o) => Number(n).toLocaleString(locale(el), o);
 
 /* ---------- Theme ---------- */
 /* Swap the theme in one frame, with transitions held off so nothing fades in patches. */
@@ -510,13 +615,13 @@ export function slideReset(track) { track && track._reset && track._reset(); }
 function bindCopy(btn) {
   btn.addEventListener('click', async () => {
     try { await navigator.clipboard.writeText(btn.getAttribute('data-lds-copy')); } catch (e) { emit(btn, 'lds:copy-failed'); return; }
-    announce(btn.getAttribute('data-lds-copy-announce') || 'Copied');
+    announce(btn.getAttribute('data-lds-copy-announce') || t(btn, 'copied'));
     emit(btn, 'lds:copy');
     const swap = btn.querySelector('.swap');
     swap && swap.classList.add('is-swapped');
     const label = btn.querySelector('[data-lds-copy-label]');
     const old = label && label.textContent;
-    if (label) label.textContent = label.getAttribute('data-lds-copy-label') || 'Copied';
+    if (label) label.textContent = label.getAttribute('data-lds-copy-label') || t(btn, 'copied');
     setTimeout(() => { swap && swap.classList.remove('is-swapped'); if (label) label.textContent = old; }, 1600);
   });
 }
@@ -841,7 +946,7 @@ function bindInline(wrap) {
   btn.addEventListener('click', () => {
     const before = label.textContent.trim();
     const input = document.createElement('input');
-    input.className = 'inline-edit__input'; input.value = before; input.setAttribute('aria-label', btn.getAttribute('aria-label') || 'Edit');
+    input.className = 'inline-edit__input'; input.value = before; input.setAttribute('aria-label', btn.getAttribute('aria-label') || t(wrap, 'edit'));
     input.style.width = `${Math.max(btn.offsetWidth, 80)}px`;
     btn.hidden = true; wrap.insertBefore(input, btn); input.focus(); input.select();
     wrap.classList.remove('is-saved');
@@ -854,8 +959,8 @@ function bindInline(wrap) {
       label.textContent = v; btn.focus();
       let pending = null;
       emit(wrap, 'lds:save', { value: v, previous: before, wait: (p) => { pending = p; } });
-      Promise.resolve(pending).then(() => { wrap.classList.remove('is-saved'); void wrap.offsetWidth; wrap.classList.add('is-saved'); live.textContent = 'Saved'; setTimeout(() => wrap.classList.remove('is-saved'), 1800); },
-        () => { label.textContent = before; shake(wrap); live.textContent = 'Could not save. Restored the previous name.'; });
+      Promise.resolve(pending).then(() => { wrap.classList.remove('is-saved'); void wrap.offsetWidth; wrap.classList.add('is-saved'); live.textContent = t(wrap, 'saved'); setTimeout(() => wrap.classList.remove('is-saved'), 1800); },
+        () => { label.textContent = before; shake(wrap); live.textContent = t(wrap, 'saveFailed'); });
     };
     input.addEventListener('keydown', (e) => { if (e.key === 'Enter') { e.preventDefault(); finish(true); } if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); finish(false); } });
     input.addEventListener('blur', () => finish(true));
@@ -905,7 +1010,7 @@ export function uploadProgress(drop, pct) {
     ring = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); ring.setAttribute('class', 'drop__ring'); ring.setAttribute('aria-hidden', 'true');
     ring.innerHTML = '<rect x="1" y="1" pathLength="100"/>';
     drop.appendChild(ring);
-    const pill = document.createElement('span'); pill.className = 'drop__pct'; pill.setAttribute('role', 'progressbar'); pill.setAttribute('aria-valuemin', '0'); pill.setAttribute('aria-valuemax', '100'); pill.setAttribute('aria-label', 'Upload progress');
+    const pill = document.createElement('span'); pill.className = 'drop__pct'; pill.setAttribute('role', 'progressbar'); pill.setAttribute('aria-valuemin', '0'); pill.setAttribute('aria-valuemax', '100'); pill.setAttribute('aria-label', t(drop, 'uploadProgress'));
     drop.appendChild(pill);
   }
   const r = drop.getBoundingClientRect(), rect = ring.firstChild;
@@ -1252,7 +1357,7 @@ function bindElapsed(el) {
 function bindMore(box) {
   const btn = box.querySelector('.more__btn'), rest = box.querySelector('.more__rest');
   if (!btn || !rest) return;
-  const label = () => { const open = box.classList.contains('is-open'); btn.textContent = open ? box.getAttribute('data-less') || 'Show less' : box.getAttribute('data-more') || 'Show more'; btn.setAttribute('aria-expanded', String(open)); rest.inert = !open; };
+  const label = () => { const open = box.classList.contains('is-open'); btn.textContent = open ? box.getAttribute('data-less') || t(box, 'showLess') : box.getAttribute('data-more') || t(box, 'showMore'); btn.setAttribute('aria-expanded', String(open)); rest.inert = !open; };
   label();
   btn.addEventListener('click', () => { box.classList.toggle('is-open'); label(); });
 }
@@ -1266,7 +1371,7 @@ function bindResize(box) {
   let pct = parseFloat(getComputedStyle(box).getPropertyValue('--size')) || 50;
   const set = (v) => { pct = Math.min(max, Math.max(min, v)); box.style.setProperty('--size', `${pct}%`); h.setAttribute('aria-valuenow', String(Math.round(pct))); };
   h.setAttribute('role', 'separator'); h.setAttribute('tabindex', '0');
-  if (!h.hasAttribute('aria-label') && !h.hasAttribute('aria-labelledby')) h.setAttribute('aria-label', box.getAttribute('data-label') || 'Resize panels');
+  if (!h.hasAttribute('aria-label') && !h.hasAttribute('aria-labelledby')) h.setAttribute('aria-label', box.getAttribute('data-label') || t(box, 'resizePanels'));
   h.setAttribute('aria-orientation', vertical ? 'horizontal' : 'vertical'); h.setAttribute('aria-valuemin', String(min)); h.setAttribute('aria-valuemax', String(max));
   set(pct);
   h.addEventListener('pointerdown', (e) => {
@@ -1312,9 +1417,9 @@ function bindLightbox(a) {
     const thumb = a.querySelector('img');
     const box = document.createElement('div');
     box.className = 'lightbox'; box.setAttribute('role', 'dialog'); box.setAttribute('aria-modal', 'true');
-    box.setAttribute('aria-label', a.getAttribute('data-caption') || thumb?.alt || 'Image');
+    box.setAttribute('aria-label', a.getAttribute('data-caption') || thumb?.alt || t(a, 'image'));
     const img = document.createElement('img'); img.src = a.href; img.alt = thumb?.alt || '';
-    const close = document.createElement('button'); close.className = 'icon-btn lightbox__close'; close.setAttribute('aria-label', a.getAttribute('data-close') || 'Close'); close.innerHTML = '<span class="ic" aria-hidden="true">close</span>';
+    const close = document.createElement('button'); close.className = 'icon-btn lightbox__close'; close.setAttribute('aria-label', a.getAttribute('data-close') || t(a, 'close')); close.innerHTML = '<span class="ic" aria-hidden="true">close</span>';
     box.append(img, close);
     if (a.getAttribute('data-caption')) { const c = document.createElement('p'); c.className = 'lightbox__caption'; c.textContent = a.getAttribute('data-caption'); box.append(c); }
     document.body.append(box);
@@ -1441,7 +1546,7 @@ function bindSort(table) {
       const val = (r) => { const t = (r.cells[col]?.getAttribute('data-sort') ?? r.cells[col]?.textContent ?? '').trim(); const n = Number(t.replace(/[^\d.,-]/g, '').replace(/\.(?=\d{3}\b)/g, '').replace(',', '.')); return t !== '' && !isNaN(n) && /\d/.test(t) ? n : t.toLowerCase(); };
       const rows = Array.from(body.rows).sort((r1, r2) => { const a = val(r1), c = val(r2); return (a > c ? 1 : a < c ? -1 : 0) * (asc ? 1 : -1); });
       rows.forEach((r) => body.appendChild(r));
-      announce(`${b.textContent.trim()}, ${asc ? 'ascending' : 'descending'}`);
+      announce(t(table, 'sortOrder', { col: labelText(b), dir: t(table, asc ? 'ascending' : 'descending') }));
     });
   });
 }
@@ -1552,16 +1657,17 @@ function bindCrosshair(plot) {
    Clear:    <button class="control__btn" data-lds-clear aria-label="Clear"> empties its field and refocuses it. */
 function bindTags(box) {
   const input = box.querySelector('input'); if (!input) return;
+  const removeWord = () => box.getAttribute('data-remove') || t(box, 'remove');
   let hidden = null;
   if (box.dataset.name) { hidden = document.createElement('input'); hidden.type = 'hidden'; hidden.name = box.dataset.name; box.appendChild(hidden); }
   const sync = () => { const v = $$(box, '.tag').map((t) => t.firstChild.textContent.trim()); if (hidden) hidden.value = v.join(','); emit(box, 'lds:change', { tags: v }); };
-  const wire = (tag) => { const b = tag.querySelector('button'); if (b) { b.type = 'button'; b.addEventListener('click', () => { tag.remove(); announce(`${tag.firstChild.textContent.trim()} removed`); sync(); input.focus(); }); } };
+  const wire = (tag) => { const b = tag.querySelector('button'); if (b) { b.type = 'button'; b.addEventListener('click', () => { tag.remove(); announce(t(box, 'removed', { name: tag.firstChild.textContent.trim() })); sync(); input.focus(); }); } };
   const add = (text) => {
     const t = text.trim().replace(/,$/, ''); if (!t) return;
     if ($$(box, '.tag').some((x) => x.firstChild.textContent.trim().toLowerCase() === t.toLowerCase())) { shake(box); return; }
     const tag = document.createElement('span'); tag.className = 'tag';
     tag.append(document.createTextNode(t));
-    const b = document.createElement('button'); b.setAttribute('aria-label', `${box.getAttribute('data-remove') || 'Remove'} ${t}`); b.innerHTML = '<span class="ic" aria-hidden="true">close</span>';
+    const b = document.createElement('button'); b.setAttribute('aria-label', `${removeWord()} ${t}`); b.innerHTML = '<span class="ic" aria-hidden="true">close</span>';
     tag.append(b); box.insertBefore(tag, input); wire(tag); sync();
   };
   $$(box, '.tag').forEach(wire);
@@ -1614,7 +1720,7 @@ function bindRadios(group) {
 function bindPassword(btn) {
   const input = btn.closest('.control')?.querySelector('input'); if (!input) return;
   btn.type = 'button';
-  const show = btn.getAttribute('aria-label') || 'Show password', hide = btn.getAttribute('data-hide-label') || 'Hide password';
+  const show = btn.getAttribute('aria-label') || t(btn, 'showPassword'), hide = btn.getAttribute('data-hide-label') || t(btn, 'hidePassword');
   btn.setAttribute('aria-pressed', 'false');
   btn.addEventListener('click', () => {
     const on = input.type === 'password';
@@ -1648,7 +1754,7 @@ function bindClear(btn) {
 function bindFile(drop) {
   const input = drop.querySelector('input[type="file"]');
   const list = document.getElementById(drop.getAttribute('data-lds-file'));
-  const size = (n) => (n < 1024 ? `${n} B` : n < 1048576 ? `${Math.round(n / 1024)} KB` : `${(n / 1048576).toFixed(1)} MB`);
+  const size = (n) => (n < 1024 ? t(drop, 'bytes', { n: num(drop, n) }) : n < 1048576 ? t(drop, 'kilobytes', { n: num(drop, Math.round(n / 1024)) }) : t(drop, 'megabytes', { n: num(drop, n / 1048576, { minimumFractionDigits: 1, maximumFractionDigits: 1 }) }));
   const add = (files) => {
     const arr = Array.from(files || []); if (!arr.length) return;
     if (list) arr.forEach((f) => {
@@ -1656,11 +1762,12 @@ function bindFile(drop) {
       row.innerHTML = '<span class="file-row__icon"><span class="ic" aria-hidden="true">insert_drive_file</span></span><span class="file-row__body"><span class="file-row__name"></span><span class="file-row__meta"></span></span><button type="button" class="icon-btn"><span class="ic" aria-hidden="true">close</span></button>';
       row.querySelector('.file-row__name').textContent = f.name;
       row.querySelector('.file-row__meta').textContent = size(f.size);
-      const rm = row.querySelector('button'); rm.setAttribute('aria-label', `${drop.getAttribute('data-remove') || 'Remove'} ${f.name}`);
+      const rm = row.querySelector('button'); rm.setAttribute('aria-label', `${drop.getAttribute('data-remove') || t(drop, 'remove')} ${f.name}`);
       rm.addEventListener('click', () => { row.remove(); emit(drop, 'lds:file-removed', { name: f.name }); });
       list.appendChild(row);
     });
-    announce(`${arr.length} ${arr.length === 1 ? (drop.getAttribute('data-one') || 'file added') : (drop.getAttribute('data-many') || 'files added')}`);
+    const word = drop.getAttribute(arr.length === 1 ? 'data-one' : 'data-many');
+    announce(word ? `${arr.length} ${word}` : t(drop, 'filesAdded', { n: arr.length }));
     emit(drop, 'lds:files', { files: arr });
   };
   drop.querySelector('[data-lds-file-pick]')?.addEventListener('click', () => input && input.click());
@@ -1738,11 +1845,11 @@ function bindBilling(box) {
   const render = (animate) => {
     $$(box, '[data-price-month]').forEach((el) => {
       const n = Number(el.getAttribute(`data-price-${period}`)) * (el.hasAttribute('data-per-seat') ? seats(el) : 1);
-      setRoll(el, n.toLocaleString('en-US'));
+      setRoll(el, num(el, n));
     });
     $$(box, '[data-billing-month]').forEach((el) => {
       const s = seats(el);
-      const text = el.getAttribute(`data-billing-${period}`).replace('{seats}', s).replace('{total}', (Number(el.getAttribute('data-total-' + period) || 0) * s).toLocaleString('en-US'));
+      const text = el.getAttribute(`data-billing-${period}`).replace('{seats}', s).replace('{total}', num(el, Number(el.getAttribute('data-total-' + period) || 0) * s));
       if (el.dataset.shown === text) return;
       el.dataset.shown = text;
       if (animate && el.classList.contains('morph')) morphText(el, text); else el.textContent = text;
@@ -1771,8 +1878,9 @@ const seriesColor = (s, i) => (s.color === 'neutral' ? 'var(--neutral)' : s.colo
 const escHtml = (t) => String(t).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
 export function formatValue(v, f = {}) {
   const a = Math.abs(v); const d = f.decimals ?? 0; let s;
-  if (f.compact && a >= 1000) s = a >= 1e6 ? `${+(a / 1e6).toFixed(a >= 1e7 ? 0 : 1)}M` : `${+(a / 1e3).toFixed(a >= 1e4 ? 0 : 1)}k`;
-  else s = a.toLocaleString('en-US', { minimumFractionDigits: d, maximumFractionDigits: d });
+  const loc = f.locale || 'en-US', code = langCode(loc);
+  if (f.compact && a >= 1000) s = a >= 1e6 ? pick(code, 'compactM', { n: (+(a / 1e6).toFixed(a >= 1e7 ? 0 : 1)).toLocaleString(loc) }) : pick(code, 'compactK', { n: (+(a / 1e3).toFixed(a >= 1e4 ? 0 : 1)).toLocaleString(loc) });
+  else s = a.toLocaleString(loc, { minimumFractionDigits: d, maximumFractionDigits: d });
   return `${v < 0 ? '−' : ''}${f.prefix || ''}${s}${f.suffix || ''}`;
 }
 const niceStep = (span, n = 4) => { const raw = span / n || 1; const p = 10 ** Math.floor(Math.log10(raw)); const m = raw / p; return (m <= 1 ? 1 : m <= 2 ? 2 : m <= 2.5 ? 2.5 : m <= 5 ? 5 : 10) * p; };
@@ -1837,7 +1945,7 @@ function xyChart(el, cfg) {
     st.w = W;
     const ext = st.cur ? { max: st.cur.max, min: st.cur.min } : extent(target().v);
     el.classList.toggle('is-stacked', stacked());
-    const f = c.format || {};
+    const f = { locale: locale(el), ...(c.format || {}) };
     const tickStep = niceStep(ext.max - ext.min, (c.y && c.y.ticks) || 4);
     const ticks = []; for (let t = ext.min; t <= ext.max + tickStep / 1e3; t += tickStep) ticks.push(+t.toFixed(6));
     const showY = !(c.y && c.y.hide);
@@ -1878,7 +1986,7 @@ function xyChart(el, cfg) {
     const c = st.cfg, k = kinds(), { left, top, pw, ph, band, xAt, W, right } = st.geo, n = c.x.length, cur = st.cur;
     const y = (v) => top + ph - ((v - cur.min) / (cur.max - cur.min || 1)) * ph;
     // gridlines follow the animated scale
-    const step = niceStep(cur.max - cur.min, (c.y && c.y.ticks) || 4); const f = c.format || {};
+    const step = niceStep(cur.max - cur.min, (c.y && c.y.ticks) || 4); const f = { locale: locale(el), ...(c.format || {}) };
     let g = '';
     for (let t = Math.ceil(cur.min / step) * step; t <= cur.max + step / 1e3; t += step) {
       const yy = y(t).toFixed(1);
@@ -1942,11 +2050,11 @@ function xyChart(el, cfg) {
     else { parts.cross.setAttribute('x1', x); parts.cross.setAttribute('x2', x); parts.cross.classList.add('is-on'); }
     parts.dots.forEach((d, s) => { if (!d) return; d.setAttribute('cx', x); d.setAttribute('cy', y(st.tops[s][i])); d.classList.toggle('is-on', !st.hidden.has(s)); });
     if (!fill) return positionTip(x);
-    const f = { ...(c.format || {}), compact: false };
+    const f = { locale: locale(el), ...(c.format || {}), compact: false };
     const rows = c.series.map((s, si) => ({ s, si })).filter(({ si }) => !st.hidden.has(si));
     if (stacked()) rows.reverse();
     let html = `<div class="ctip__h">${escHtml((c.xFull || c.x)[i])}</div>` + rows.map(({ s, si }) => `<div class="ctip__row"><i style="background: ${seriesColor(s, si)};"></i><span>${escHtml(s.name || '')}</span><b>${formatValue(s.values[i], f)}</b></div>`).join('');
-    if (c.total && rows.length > 1) html += `<div class="ctip__row ctip__row--total"><span>Total</span><b>${formatValue(rows.reduce((a, { s }) => a + s.values[i], 0), f)}</b></div>`;
+    if (c.total && rows.length > 1) html += `<div class="ctip__row ctip__row--total"><span>${escHtml(t(el, 'total'))}</span><b>${formatValue(rows.reduce((a, { s }) => a + s.values[i], 0), f)}</b></div>`;
     st.say = `${(c.xFull || c.x)[i]}: ${rows.map(({ s, si }) => `${s.name || ''} ${formatValue(s.values[i], f)}`).join(', ')}`;
     tip.innerHTML = html; tip.classList.add('is-on');
     positionTip(x);
@@ -1980,17 +2088,17 @@ function xyChart(el, cfg) {
     const c = st.cfg;
     if (c.legend === false || c.series.length < 2) { legend.hidden = true; return; }
     legend.hidden = false;
-    legend.innerHTML = c.series.map((s, i) => `<button type="button" class="legend__btn" aria-pressed="${!st.hidden.has(i)}" data-s="${i}"><i style="background: ${seriesColor(s, i)};"></i>${escHtml(s.name || `Series ${i + 1}`)}</button>`).join('');
+    legend.innerHTML = c.series.map((s, i) => `<button type="button" class="legend__btn" aria-pressed="${!st.hidden.has(i)}" data-s="${i}"><i style="background: ${seriesColor(s, i)};"></i>${escHtml(s.name || t(el, 'series', { n: i + 1 }))}</button>`).join('');
   };
   const renderTable = () => {
-    const c = st.cfg, f = { ...(c.format || {}), compact: false };
+    const c = st.cfg, f = { locale: locale(el), ...(c.format || {}), compact: false };
     table.innerHTML = `<caption>${escHtml(c.label || '')}</caption><thead><tr><th scope="col">${escHtml(c.xName || '')}</th>${c.series.map((s) => `<th scope="col">${escHtml(s.name || '')}</th>`).join('')}</tr></thead><tbody>${c.x.map((x, i) => `<tr><th scope="row">${escHtml((c.xFull || c.x)[i])}</th>${c.series.map((s) => `<td>${formatValue(s.values[i], f)}</td>`).join('')}</tr>`).join('')}</tbody>`;
   };
 
   // DOM skeleton: legend, plot (svg + tip), visually hidden table
   el.innerHTML = '<div class="legend legend--toggle chart__legend"></div><div class="chart__plot" tabindex="0"><svg class="chart__svg" aria-hidden="true"></svg><div class="ctip" aria-hidden="true"></div></div><div class="sr-only"><table></table></div>';
   legend = el.querySelector('.chart__legend'); plot = el.querySelector('.chart__plot'); svg = el.querySelector('svg'); tip = el.querySelector('.ctip'); table = el.querySelector('table');
-  const label = () => { plot.setAttribute('role', 'img'); plot.setAttribute('aria-label', `${st.cfg.label || 'Chart'}. Arrow keys read each value.`); };
+  const label = () => { plot.setAttribute('role', 'img'); plot.setAttribute('aria-label', t(el, 'chartKeys', { label: st.cfg.label || t(el, 'chart') })); };
   label(); renderLegend(); renderTable();
   // First paint: area and bar series start on the baseline and grow in when the chart is first seen
   const enter = !reduceMotion() && typeof IntersectionObserver === 'function' && st.cfg.animate !== false;
@@ -2048,7 +2156,7 @@ function xyChart(el, cfg) {
 
 /* Donut: segments of one whole, total in the hole, a legend list with values and shares */
 function donutChart(el, cfg) {
-  const segs = cfg.segments || [], total = segs.reduce((a, s) => a + s.value, 0) || 1, f = cfg.format || {};
+  const segs = cfg.segments || [], total = segs.reduce((a, s) => a + s.value, 0) || 1, f = { locale: locale(el), ...(cfg.format || {}) };
   const size = cfg.size || 168, r = 64, C = 2 * Math.PI * r, gap = segs.length > 1 ? 2 : 0;
   const pct = (v) => `${Math.round((v / total) * 100)}%`;
   let at = 0;
@@ -2084,7 +2192,7 @@ function bindDonut(el) {
 
 /* Gauge: a half ring, either one value against a max or a row of ticks shared by a few parts */
 function gaugeChart(el, cfg) {
-  const f = cfg.format || {}; const R = 80, cx = 100, cy = 100;
+  const f = { locale: locale(el), ...(cfg.format || {}) }; const R = 80, cx = 100, cy = 100;
   el.classList.add('gauge');
   const val = el.querySelector('.gauge__val');
   if (val && !cfg.segments) {
@@ -2159,7 +2267,7 @@ export function drawRoute(el, config) {
   const nextIdx = pos >= n - 1 ? -1 : Math.floor(pos) + 1;
   el.setAttribute('role', 'group');
   if (cfg.label) el.setAttribute('aria-label', cfg.label);
-  const state = (i) => (i <= pos ? (i === n - 1 ? 'Arrived' : 'Passed') : i === nextIdx ? 'Next stop' : 'Ahead');
+  const state = (i) => t(el, i <= pos ? (i === n - 1 ? 'routeArrived' : 'routePassed') : i === nextIdx ? 'routeNext' : 'routeAhead');
   el.innerHTML = `<svg class="route__svg" aria-hidden="true" focusable="false"></svg><ol class="route__stops">${cfg.stops.map((s, i) => `<li class="route__stop${i === nextIdx ? ' is-next' : ''}"><span class="route__name">${routeEsc(s.name)}</span>${s.sub ? `<span class="route__sub">${routeEsc(s.sub)}</span>` : ''}<span class="sr-only">. ${state(i)}</span></li>`).join('')}</ol>${pos < n - 1 ? `<span class="route__vehicle" aria-hidden="true"><span class="ic">${ROUTE_ICON[cfg.mode] || ROUTE_ICON.road}</span></span>` : ''}`;
   const svg = el.querySelector('.route__svg'), list = el.querySelector('.route__stops'), car = el.querySelector('.route__vehicle');
   const animate = !reduceMotion() && cfg.animate !== false;
@@ -2235,7 +2343,7 @@ function bindRoute(el) {
    from tokens. drawMap(el, config) draws it; calling it again flies the map to the new routes. */
 const MAP_TILES = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
 const MAP_ATTR = '© <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors';
-const MAP_KIND = { origin: 'Origin', destination: 'Destination', stop: 'Stop', vehicle: 'Now', point: '' };
+const MAP_KIND = { origin: 'mapOrigin', destination: 'mapDestination', stop: 'mapStop', vehicle: 'mapNow', point: '' };
 let mapSeq = 0;
 const mapClamp = (v, a, b) => Math.max(a, Math.min(b, v));
 const mapProject = (p) => { const s = Math.sin(mapClamp(p[0], -85.0511, 85.0511) * Math.PI / 180); return [(p[1] + 180) / 360, 0.5 - Math.log((1 + s) / (1 - s)) / (4 * Math.PI)]; };
@@ -2291,7 +2399,7 @@ export function drawMap(el, config) {
   const uid = `lds-map-${++mapSeq}`;
   el.classList.add('map');
   el.innerHTML = `<div class="map__view" tabindex="0" role="region" aria-roledescription="map" aria-describedby="${uid}-sum"><div class="map__tiles" aria-hidden="true"></div><svg class="map__lines" aria-hidden="true" focusable="false"></svg><div class="map__markers"></div></div>`
-    + `<div class="map__controls" role="group" aria-label="Map controls"><button class="map__ctl" type="button" aria-label="Zoom in" data-map-zoom="1"><span class="ic" aria-hidden="true">add</span></button><button class="map__ctl" type="button" aria-label="Zoom out" data-map-zoom="-1"><span class="ic" aria-hidden="true">remove</span></button><button class="map__ctl" type="button" aria-label="Show everything" data-map-fit><span class="ic" aria-hidden="true">location_on</span></button></div>`
+    + `<div class="map__controls" role="group" aria-label="${mapEsc(t(el, 'mapControls'))}"><button class="map__ctl" type="button" aria-label="${mapEsc(t(el, 'zoomIn'))}" data-map-zoom="1"><span class="ic" aria-hidden="true">add</span></button><button class="map__ctl" type="button" aria-label="${mapEsc(t(el, 'zoomOut'))}" data-map-zoom="-1"><span class="ic" aria-hidden="true">remove</span></button><button class="map__ctl" type="button" aria-label="${mapEsc(t(el, 'showEverything'))}" data-map-fit><span class="ic" aria-hidden="true">location_on</span></button></div>`
     + `<div class="map__status" role="status"></div><div class="map__hint" aria-hidden="true"></div><div class="map__attr"></div><p class="sr-only" id="${uid}-sum"></p>`;
   const view = el.querySelector('.map__view'), tilePane = el.querySelector('.map__tiles'), svg = el.querySelector('.map__lines');
   const markPane = el.querySelector('.map__markers'), status = el.querySelector('.map__status'), hint = el.querySelector('.map__hint');
@@ -2350,10 +2458,10 @@ export function drawMap(el, config) {
     el.classList.toggle('is-failed', allFailed);
     if (allFailed && !failedShown) {
       failedShown = true;
-      status.innerHTML = '<span class="ic" aria-hidden="true">cloud_off</span><span>Map tiles did not load. Places and routes are still shown.</span><button class="btn btn--plain btn--sm" type="button" data-map-retry>Try again</button>';
+      status.innerHTML = `<span class="ic" aria-hidden="true">cloud_off</span><span>${mapEsc(t(el, 'mapFailed'))}</span><button class="btn btn--plain btn--sm" type="button" data-map-retry>${mapEsc(t(el, 'tryAgain'))}</button>`;
     } else if (!allFailed && (failedShown || !status.firstChild)) {
       failedShown = false;
-      status.innerHTML = '<span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>Loading map</span>';
+      status.innerHTML = '<span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span>' + mapEsc(t(el, 'mapLoading')) + '</span>';
     }
   };
   const path = (pts) => pts.map((p, i) => `${i ? 'L' : 'M'}${p[0].toFixed(1)} ${p[1].toFixed(1)}`).join('');
@@ -2473,7 +2581,7 @@ export function drawMap(el, config) {
     const first = !cfg;
     cfg = { ...next };
     minZ = cfg.minZoom == null ? 2 : cfg.minZoom; maxZ = cfg.maxZoom == null ? 18 : cfg.maxZoom;
-    view.setAttribute('aria-label', cfg.label || 'Map');
+    view.setAttribute('aria-label', cfg.label || t(el, 'map'));
     const url = cfg.tiles || MAP_TILES;
     if (url !== tileUrl) { tiles.forEach((t, k) => dropTile(k, t)); tileUrl = url; everLoaded = false; }
     attr.innerHTML = cfg.attribution || MAP_ATTR;
@@ -2490,7 +2598,7 @@ export function drawMap(el, config) {
       const icon = k === 'vehicle' ? `<span class="map__dir"></span><span class="ic" aria-hidden="true">${mapEsc(d.icon || 'local_shipping')}</span>` : d.icon ? `<span class="ic" aria-hidden="true">${mapEsc(d.icon)}</span>` : '';
       return {
         cls: `map__marker map__marker--${k}${tone}${size}${d.done ? ' is-done' : ''}${d.open ? ' is-open' : ''}${d.selected ? ' is-selected' : ''}`,
-        name: [MAP_KIND[k], d.label, d.sub].filter(Boolean).join(', '),
+        name: [MAP_KIND[k] && t(el, MAP_KIND[k]), d.label, d.sub].filter(Boolean).join(', '),
         pressed: typeof d.selected === 'boolean' ? String(d.selected) : null,
         turn: k === 'vehicle' && d.icon === 'flight',
         inner: `<span class="map__pin">${icon}</span>${d.label ? `<span class="map__label" aria-hidden="true">${mapEsc(d.label)}${d.sub ? `<span class="map__label-sub">${mapEsc(d.sub)}</span>` : ''}</span>` : ''}`,
@@ -2506,10 +2614,10 @@ export function drawMap(el, config) {
       b.toggleAttribute('data-map-turn', q.turn);
       if (b._ldsInner !== q.inner) { b.innerHTML = q.inner; b._ldsInner = q.inner; }
     });
-    const say = (m) => { const kw = m.kind === 'point' ? '' : MAP_KIND[m.kind]; return `${kw ? `${kw}: ` : ''}${m.data.label || ''}${m.data.sub ? `, ${m.data.sub}` : ''}`; };
-    sum.textContent = `${cfg.summary || marks.map(say).join('. ')}. Arrow keys move the map, plus and minus zoom.`;
+    const say = (m) => { const kw = m.kind === 'point' || !MAP_KIND[m.kind] ? '' : t(el, MAP_KIND[m.kind]); return `${kw ? `${kw}: ` : ''}${m.data.label || ''}${m.data.sub ? `, ${m.data.sub}` : ''}`; };
+    sum.textContent = t(el, 'mapKeys', { summary: cfg.summary || marks.map(say).join('. ') });
     fitBtn.querySelector('.ic').textContent = lines.length ? 'route' : 'location_on';
-    fitBtn.setAttribute('aria-label', lines.length ? 'Show the whole route' : 'Show every place');
+    fitBtn.setAttribute('aria-label', t(el, lines.length ? 'showRoute' : 'showPlaces'));
     if (!w) { needFit = true; return; }
     if (first) { fit(false); drawIn(1000); return; }
     if (cfg.fit === false && !cfg.center) { render(true); return; }
@@ -2585,7 +2693,7 @@ export function drawMap(el, config) {
   view.addEventListener('wheel', (e) => {
     if (cfg && cfg.scrollZoom === false) return;
     if (cfg && cfg.scrollZoom === 'modifier' && !e.ctrlKey && !e.metaKey) {
-      hint.textContent = /Mac|iPhone|iPad/.test(navigator.platform || '') ? 'Hold ⌘ and scroll to zoom the map' : 'Hold Ctrl and scroll to zoom the map';
+      hint.textContent = t(el, /Mac|iPhone|iPad/.test(navigator.platform || '') ? 'mapHintMac' : 'mapHint');
       el.classList.add('is-hinting'); clearTimeout(hintTimer); hintTimer = setTimeout(() => el.classList.remove('is-hinting'), 1100);
       return;
     }
@@ -2707,7 +2815,7 @@ export function setRail(shell, on) {
   try { localStorage.setItem(RAIL_KEY, on ? '1' : '0'); } catch (e) { /* ignore */ }
   $$(shell, '[data-lds-shell-rail]').forEach((b) => {
     b.setAttribute('aria-expanded', String(!on));
-    b.setAttribute('aria-label', on ? 'Expand sidebar' : 'Collapse sidebar');
+    b.setAttribute('aria-label', t(b, on ? 'expandSidebar' : 'collapseSidebar'));
     const ic = b.querySelector('.ic'); if (ic) ic.textContent = on ? 'left_panel_open' : 'left_panel_close';
   });
   emit(shell, 'lds:rail', { rail: on });
@@ -2782,7 +2890,7 @@ function bindSelection(box) {
       const open = picked.length > 0;
       selbar.classList.toggle('is-open', open); selbar.inert = !open;
       const c = selbar.querySelector('.selbar__count');
-      if (c && open) { const roll = c.querySelector('.roll'); if (roll) setRoll(roll, picked.length); else c.textContent = `${picked.length} selected`; }
+      if (c && open) { const roll = c.querySelector('.roll'); if (roll) setRoll(roll, picked.length); else c.textContent = t(box, 'selected', { n: num(box, picked.length) }); }
     }
     emit(box, 'lds:select', { count: picked.length, items: picked.map(holder) });
   };
@@ -2801,7 +2909,7 @@ function bindSelection(box) {
     if (all) shown().forEach((x) => { x.checked = all.checked; });
     if (all || e.target.closest('input[data-lds-select]')) sync();
   });
-  const clear = () => { items().forEach((x) => { x.checked = false; }); sync(); (shown()[0] || box).focus?.(); announce('Selection cleared'); };
+  const clear = () => { items().forEach((x) => { x.checked = false; }); sync(); (shown()[0] || box).focus?.(); announce(t(box, 'selectionCleared')); };
   box.addEventListener('keydown', (e) => { if (e.key === 'Escape' && items().some((x) => x.checked) && !openMenu) { e.stopPropagation(); clear(); } });
   if (selbar) $$(selbar, '[data-lds-select-clear]').forEach((b) => b.addEventListener('click', clear));
   sync();
@@ -2824,7 +2932,7 @@ function bindTable(root) {
   if (!tbody || !table.tHead) return;
   const name = root.getAttribute('data-lds-table');
   const key = name ? `lds-table:${name}` : null;
-  const noun = root.getAttribute('data-noun') || 'rows';
+  const noun = root.getAttribute('data-noun') || t(root, 'rows');
   let prefs = {};
   try { if (key) prefs = JSON.parse(localStorage.getItem(key) || '{}') || {}; } catch (e) { prefs = {}; }
   const save = () => { try { if (key) localStorage.setItem(key, JSON.stringify(prefs)); } catch (e) { /* ignore */ } };
@@ -2857,14 +2965,14 @@ function bindTable(root) {
     if (!pager) return;
     const fa = pager.contains(document.activeElement) ? document.activeElement : null;
     const had = fa ? (fa.hasAttribute('data-step') ? `[data-step="${fa.getAttribute('data-step')}"]` : '[aria-current="page"]') : null;
-    let h = `<button type="button" class="pager__btn" data-step="-1" aria-label="Previous page"${st.page <= 1 ? ' disabled' : ''}><span class="ic" aria-hidden="true">chevron_left</span></button>`;
+    let h = `<button type="button" class="pager__btn" data-step="-1" aria-label="${esc(t(root, 'prevPage'))}"${st.page <= 1 ? ' disabled' : ''}><span class="ic" aria-hidden="true">chevron_left</span></button>`;
     let prev = 0;
     for (const p of pageList(st.page, pages)) {
       if (p - prev > 1) h += '<span class="pager__gap" aria-hidden="true">…</span>';
-      h += `<button type="button" class="pager__btn" data-page="${p}" aria-label="Page ${p}"${p === st.page ? ' aria-current="page"' : ''}>${p}</button>`;
+      h += `<button type="button" class="pager__btn" data-page="${p}" aria-label="${esc(t(root, 'page', { n: p }))}"${p === st.page ? ' aria-current="page"' : ''}>${p}</button>`;
       prev = p;
     }
-    h += `<button type="button" class="pager__btn" data-step="1" aria-label="Next page"${st.page >= pages ? ' disabled' : ''}><span class="ic" aria-hidden="true">chevron_right</span></button>`;
+    h += `<button type="button" class="pager__btn" data-step="1" aria-label="${esc(t(root, 'nextPage'))}"${st.page >= pages ? ' disabled' : ''}><span class="ic" aria-hidden="true">chevron_right</span></button>`;
     pager.innerHTML = h;
     if (had) {
       const t = pager.querySelector(had);
@@ -2895,7 +3003,7 @@ function bindTable(root) {
     if (animate) { void tbody.offsetWidth; all.forEach((r) => { if (!r.hidden) r.classList.add('is-in'); }); }
     $$(tbody, '.dtable__state').forEach((r) => { r.hidden = true; });
     if (empty) empty.hidden = hit.length > 0;
-    if (info) info.textContent = hit.length ? `Showing ${from + 1} to ${from + show.size} of ${hit.length} ${noun}` : `No ${noun} match`;
+    if (info) info.textContent = hit.length ? t(root, 'tableShowing', { from: num(root, from + 1), to: num(root, from + show.size), total: num(root, hit.length), noun }) : t(root, 'tableNoMatch', { noun });
     drawPager(pages);
     const active = !!st.q || Object.values(st.filters).some((s) => s.size);
     $$(root, '[data-lds-table-reset]').forEach((b) => { if (!b.closest('.dtable__empty')) b.hidden = !active; });
@@ -2913,7 +3021,7 @@ function bindTable(root) {
     $$(tbody, '.dtable__state').forEach((r) => { r.hidden = r.getAttribute('data-state') !== mode; });
     // "empty" without its own state row falls back to the table's empty block
     if (empty) empty.hidden = !(mode === 'empty' && !own.length);
-    if (info) info.textContent = mode === 'loading' ? `Loading ${noun}` : mode === 'empty' ? `No ${noun} yet` : `${noun[0].toUpperCase()}${noun.slice(1)} did not load`;
+    if (info) info.textContent = mode === 'loading' ? t(root, 'tableLoading', { noun }) : mode === 'empty' ? t(root, 'tableEmpty', { noun }) : t(root, 'tableError', { noun, Noun: `${noun[0].toUpperCase()}${noun.slice(1)}` });
     if (pager) pager.innerHTML = '';
   };
   // Sort
@@ -2926,7 +3034,7 @@ function bindTable(root) {
       ths.forEach((x) => { x.setAttribute('aria-sort', 'none'); x.querySelector('button')?.classList.remove('is-sorted', 'is-desc'); });
       if (st.sort) { th.setAttribute('aria-sort', st.sort.asc ? 'ascending' : 'descending'); b.classList.add('is-sorted'); b.classList.toggle('is-desc', !st.sort.asc); }
       render(false);
-      announce(st.sort ? `Sorted by ${b.textContent.trim()}, ${st.sort.asc ? 'ascending' : 'descending'}` : 'Sort removed');
+      announce(st.sort ? t(root, 'sortedBy', { col: labelText(b), dir: t(root, st.sort.asc ? 'ascending' : 'descending') }) : t(root, 'sortRemoved'));
     });
   });
   if (st.sort) { const b = ths[st.sort.i].querySelector('button'); b && b.classList.add('is-sorted'); b && b.classList.toggle('is-desc', !st.sort.asc); }
@@ -3000,7 +3108,7 @@ function bindTable(root) {
     st.page = p; render(true);
     const top = root.getBoundingClientRect().top;
     if (top < 0) root.scrollIntoView({ block: 'start', behavior: reduceMotion() ? 'auto' : 'smooth' });
-    announce(`Page ${st.page}`);
+    announce(t(root, 'page', { n: st.page }));
   });
   render(false);
 }
@@ -3017,18 +3125,18 @@ export function tableState(root, mode) { root && root._tableState && root._table
 /* ---------- [dash-foundation] Trend delta ----------
    <span class="delta delta--up delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>12.5%<span class="sr-only"> up from last month</span></span>
    setDelta(el, change, { goodWhen: 'up' | 'down', unit: '%', note }) rewrites it: arrow turns on a spring, color follows meaning. */
-export function setDelta(el, change, { goodWhen = el?.getAttribute('data-good') || 'up', unit = el?.getAttribute('data-unit') ?? '%', note = el?.getAttribute('data-note') || 'from last period', digits = 1 } = {}) {
+export function setDelta(el, change, { goodWhen = el?.getAttribute('data-good') || 'up', unit = el?.getAttribute('data-unit') ?? '%', note = el?.getAttribute('data-note') || t(el, 'deltaNote'), digits = 1 } = {}) {
   if (!el) return;
   const dir = change > 0 ? 'up' : change < 0 ? 'down' : 'flat';
   const good = dir === 'flat' ? 'neutral' : dir === goodWhen ? 'good' : 'bad';
   el.classList.remove('delta--up', 'delta--down', 'delta--flat', 'delta--good', 'delta--bad', 'delta--neutral');
   el.classList.add(`delta--${dir}`, `delta--${good}`);
-  const abs = Math.abs(change).toFixed(digits).replace(/\.0+$/, '');
+  const abs = Math.abs(change).toFixed(digits).replace(/\.0+$/, '').replace('.', num(el, 1.5).charAt(1));
   let ic = el.querySelector('.ic');
   if (!ic) { ic = document.createElement('span'); ic.className = 'ic'; ic.setAttribute('aria-hidden', 'true'); }
   ic.textContent = 'arrow_upward';
   const sr = document.createElement('span'); sr.className = 'sr-only';
-  sr.textContent = ` ${dir === 'flat' ? 'no change' : dir} ${note}`;
+  sr.textContent = ` ${t(el, dir === 'flat' ? 'deltaFlat' : dir === 'up' ? 'deltaUp' : 'deltaDown')} ${note}`;
   el.replaceChildren(ic, document.createTextNode(`${dir === 'flat' ? '' : dir === 'up' ? '+' : '−'}${abs}${unit}`), sr);
   el.classList.remove('is-changed'); void el.offsetWidth; el.classList.add('is-changed');
 }
@@ -3047,8 +3155,8 @@ function bindKanban(board) {
   const cards = (list) => $$(list, ':scope > .kanban__card:not([hidden])');
   const colOf = (el) => el.closest('.kanban__col');
   const colName = (col) => col?.querySelector('.kanban__title')?.textContent.trim() || '';
-  const cardName = (c) => c.querySelector('.kanban__card-title')?.textContent.trim() || 'Card';
-  const where = (card) => { const l = card.parentElement; const cs = cards(l); return `${colName(colOf(l))}, position ${cs.indexOf(card) + 1} of ${cs.length}`; };
+  const cardName = (c) => c.querySelector('.kanban__card-title')?.textContent.trim() || t(board, 'card');
+  const where = (card) => { const l = card.parentElement; const cs = cards(l); return t(board, 'cardWhere', { col: colName(colOf(l)), i: cs.indexOf(card) + 1, n: cs.length }); };
   const counts = () => $$(board, '.kanban__col').forEach((col) => {
     const n = cards(col.querySelector('.kanban__list')).length;
     const c = col.querySelector('.kanban__count');
@@ -3153,7 +3261,7 @@ function bindKanban(board) {
     board.classList.remove('is-dragging-active');
     const moved = !cancel && (card.parentElement !== from.list || card.nextElementSibling !== from.next);
     drag = null;
-    if (moved) { emitMove(card, from.col); announce(`Moved ${cardName(card)} to ${where(card)}`); }
+    if (moved) { emitMove(card, from.col); announce(t(board, 'cardMoved', { card: cardName(card), where: where(card) })); }
     else counts();
   };
   const up = (e) => {
@@ -3195,9 +3303,9 @@ function bindKanban(board) {
     card.removeAttribute('aria-grabbed');
     grab = null;
     card.focus({ preventScroll: true });
-    if (cancel) { counts(); announce(`Move cancelled. ${cardName(card)} is back in ${where(card)}`); }
-    else if (card.parentElement !== list || card.nextElementSibling !== next) { emitMove(card, col); announce(`Dropped ${cardName(card)} in ${where(card)}`); }
-    else announce(`Dropped ${cardName(card)}`);
+    if (cancel) { counts(); announce(t(board, 'cardCancelled', { card: cardName(card), where: where(card) })); }
+    else if (card.parentElement !== list || card.nextElementSibling !== next) { emitMove(card, col); announce(t(board, 'cardDroppedIn', { card: cardName(card), where: where(card) })); }
+    else announce(t(board, 'cardDropped', { card: cardName(card) }));
   };
   board.addEventListener('keydown', (e) => {
     const card = e.target.closest('.kanban__card');
@@ -3207,7 +3315,7 @@ function bindKanban(board) {
         e.preventDefault();
         grab = { card, list: card.parentElement, next: card.nextElementSibling, col: colOf(card) };
         card.classList.add('is-grabbed'); card.setAttribute('aria-grabbed', 'true');
-        announce(`Picked up ${cardName(card)}, ${where(card)}. Use the arrow keys to move, Space to drop, Escape to cancel.`);
+        announce(t(board, 'cardPicked', { card: cardName(card), where: where(card) }));
       }
       return;
     }
@@ -3255,7 +3363,7 @@ export function eventCalendar(el, opts = {}) {
   if (el._evcal) return el._evcal;
   const json = el.querySelector('script[type="application/json"]');
   let events = opts.events || (json ? JSON.parse(json.textContent || '[]') : []);
-  const locale = el.getAttribute('data-locale') || 'en-GB';
+  const loc = el.getAttribute('data-locale') || dateLocale(el);
   const weekStart = Number(el.getAttribute('data-week-start') ?? 1);
   const [h0, h1] = (el.getAttribute('data-hours') || '7-20').split('-').map(Number);
   const todayD = el.getAttribute('data-today') ? dayOf(el.getAttribute('data-today')) : new Date();
@@ -3264,24 +3372,24 @@ export function eventCalendar(el, opts = {}) {
   let selected = ymd(cursor);
   let keep = () => true;
   let narrow = false;
-  const F = (o) => new Intl.DateTimeFormat(locale, o);
+  const F = (o) => new Intl.DateTimeFormat(loc, o);
   const fMonth = F({ month: 'long', year: 'numeric' }), fDay = F({ weekday: 'long', day: 'numeric', month: 'long' }), fDow = F({ weekday: 'short' }), fShort = F({ day: 'numeric', month: 'short' });
   const evStart = (e) => dayOf(e.start), evEnd = (e) => dayOf(e.end || e.start);
   const onDay = (d) => { const k = ymd(d); return events.filter(keep).filter((e) => ymd(evStart(e)) <= k && ymd(evEnd(e)) >= k).sort((a, b) => (a.allDay || minsOf(a.start) === null ? -1 : 0) - (b.allDay || minsOf(b.start) === null ? -1 : 0) || String(a.start).localeCompare(String(b.start))); };
-  const timeOf = (e) => (e.allDay || minsOf(e.start) === null ? 'All day' : hhmm(minsOf(e.start)));
+  const timeOf = (e) => (e.allDay || minsOf(e.start) === null ? t(el, 'allDay') : hhmm(minsOf(e.start)));
   const weekFirst = (d) => addD(d, -((d.getDay() - weekStart + 7) % 7));
   const tone = (e) => (e.tone > 1 && e.tone < 5 ? e.tone : 1);
   el.classList.add('evcal');
   el.innerHTML = `<div class="evcal__head"><h2 class="evcal__title" aria-live="polite"></h2><div class="evcal__nav">
-    <div class="btn-group"><button type="button" class="btn btn--md" data-ev="prev"><span class="ic" aria-hidden="true">chevron_left</span></button><button type="button" class="btn btn--md" data-ev="today">Today</button><button type="button" class="btn btn--md" data-ev="next"><span class="ic" aria-hidden="true">chevron_right</span></button></div>
-    <div class="seg evcal__views" role="group" aria-label="View"><span class="seg__thumb"></span></div></div></div>
+    <div class="btn-group"><button type="button" class="btn btn--md" data-ev="prev"><span class="ic" aria-hidden="true">chevron_left</span></button><button type="button" class="btn btn--md" data-ev="today">${esc(t(el, 'today'))}</button><button type="button" class="btn btn--md" data-ev="next"><span class="ic" aria-hidden="true">chevron_right</span></button></div>
+    <div class="seg evcal__views" role="group" aria-label="${esc(t(el, 'view'))}"><span class="seg__thumb"></span></div></div></div>
     <div class="evcal__body"></div>`;
   const title = el.querySelector('.evcal__title'), body = el.querySelector('.evcal__body'), seg = el.querySelector('.evcal__views');
   const views = () => (narrow ? ['month', 'agenda'] : ['month', 'week', 'agenda']);
   const drawSeg = () => {
     const vs = views(); if (!vs.includes(view)) view = 'agenda';
     const thumb = seg.querySelector('.seg__thumb');
-    seg.replaceChildren(thumb, ...vs.map((v) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'seg__btn'; b.setAttribute('data-view', v); b.setAttribute('aria-pressed', String(v === view)); b.textContent = v[0].toUpperCase() + v.slice(1); return b; }));
+    seg.replaceChildren(thumb, ...vs.map((v) => { const b = document.createElement('button'); b.type = 'button'; b.className = 'seg__btn'; b.setAttribute('data-view', v); b.setAttribute('aria-pressed', String(v === view)); b.textContent = t(el, `view${v[0].toUpperCase()}${v.slice(1)}`); return b; }));
     thumb.style.width = `calc((100% - 4px) / ${vs.length})`;
     thumb.style.transform = `translateX(${vs.indexOf(view) * 100}%)`;
   };
@@ -3291,8 +3399,8 @@ export function eventCalendar(el, opts = {}) {
     return `<button type="button" class="${cls} ${cls}--${tone(e)}${cont ? ' is-cont' : ''}" data-ev-id="${esc(e.id)}" aria-label="${esc(e.title)}, ${esc(timeOf(e))}${e.where ? `, ${esc(e.where)}` : ''}">${t}<span class="evcal__evt-label">${esc(e.title)}</span></button>`;
   };
   const row = (e) => `<button type="button" class="evcal__row evcal__row--${tone(e)}" data-ev-id="${esc(e.id)}"><time>${esc(timeOf(e))}${e.end && minsOf(e.end) !== null && !e.allDay ? `<br>${hhmm(minsOf(e.end))}` : ''}</time><span class="evcal__row-body"><span class="evcal__row-title">${esc(e.title)}</span>${e.where ? `<span class="evcal__row-meta">${esc(e.where)}</span>` : ''}</span></button>`;
-  const dayLabel = (d) => { const diff = Math.round((d - todayD) / 864e5); return diff === 0 ? `Today, ${fShort.format(d)}` : diff === 1 ? `Tomorrow, ${fShort.format(d)}` : fDay.format(d); };
-  const dayList = (d) => { const es = onDay(d); return es.length ? es.map(row).join('') : '<p class="evcal__none">Nothing planned for this day.</p>'; };
+  const dayLabel = (d) => { const diff = Math.round((d - todayD) / 864e5); return diff === 0 ? t(el, 'dayToday', { date: fShort.format(d) }) : diff === 1 ? t(el, 'dayTomorrow', { date: fShort.format(d) }) : fDay.format(d); };
+  const dayList = (d) => { const es = onDay(d); return es.length ? es.map(row).join('') : `<p class="evcal__none">${esc(t(el, 'nothingPlanned'))}</p>`; };
   let range = [cursor, cursor];
   const renderMonth = () => {
     const first = new Date(cursor.getFullYear(), cursor.getMonth(), 1);
@@ -3309,8 +3417,8 @@ export function eventCalendar(el, opts = {}) {
         const out = d.getMonth() !== cursor.getMonth(), today = k === ymd(todayD);
         const max = 3, shownE = es.length > max ? es.slice(0, max - 1) : es;
         h += `<div class="evcal__cell${out ? ' is-outside' : ''}${today ? ' is-today' : ''}${narrow && k === selected ? ' is-selected' : ''}" role="gridcell" data-day="${k}">
-          <button type="button" class="evcal__date" data-day-btn="${k}" tabindex="${k === selected ? 0 : -1}" aria-label="${esc(fDay.format(d))}${es.length ? `, ${es.length} event${es.length > 1 ? 's' : ''}` : ''}"${today ? ' aria-current="date"' : ''}>${d.getDate()}</button>
-          ${shownE.map((e) => chip(e, d)).join('')}${es.length > shownE.length ? `<button type="button" class="evcal__more" data-more="${k}">${es.length - shownE.length} more</button>` : ''}
+          <button type="button" class="evcal__date" data-day-btn="${k}" tabindex="${k === selected ? 0 : -1}" aria-label="${esc(fDay.format(d))}${es.length ? `, ${esc(t(el, 'events', { n: es.length }))}` : ''}"${today ? ' aria-current="date"' : ''}>${d.getDate()}</button>
+          ${shownE.map((e) => chip(e, d)).join('')}${es.length > shownE.length ? `<button type="button" class="evcal__more" data-more="${k}">${esc(t(el, 'moreEvents', { n: es.length - shownE.length }))}</button>` : ''}
           ${es.length ? `<span class="evcal__dots" aria-hidden="true">${es.slice(0, 3).map((e) => `<i class="evcal__dot--${tone(e)}"></i>`).join('')}</span>` : ''}</div>`;
       }
       h += '</div>';
@@ -3323,11 +3431,11 @@ export function eventCalendar(el, opts = {}) {
     const start = weekFirst(cursor);
     range = [start, addD(start, 6)];
     const end = addD(start, 6);
-    title.textContent = start.getMonth() === end.getMonth() ? `${start.getDate()} to ${fShort.format(end)} ${end.getFullYear()}` : `${fShort.format(start)} to ${fShort.format(end)} ${end.getFullYear()}`;
+    title.textContent = `${t(el, 'range', { start: start.getMonth() === end.getMonth() ? start.getDate() : fShort.format(start), end: fShort.format(end) })} ${end.getFullYear()}`;
     const hours = h1 - h0;
     let h = `<div class="evcal__week" style="--hours: ${hours};"><span class="evcal__wh" aria-hidden="true"></span>`;
     for (let i = 0; i < 7; i++) { const d = addD(start, i); h += `<div class="evcal__wh${ymd(d) === ymd(todayD) ? ' is-today' : ''}">${esc(fDow.format(d))}<b>${d.getDate()}</b></div>`; }
-    h += '<span class="evcal__gutter-label">All day</span>';
+    h += `<span class="evcal__gutter-label">${esc(t(el, 'allDay'))}</span>`;
     for (let i = 0; i < 7; i++) { const d = addD(start, i); h += `<div class="evcal__allday">${onDay(d).filter((e) => e.allDay || minsOf(e.start) === null).map((e) => chip(e, d)).join('')}</div>`; }
     h += `<div class="evcal__hours">${Array.from({ length: hours }, (_, i) => `<div class="evcal__hour">${i ? hhmm((h0 + i) * 60) : ''}</div>`).join('')}</div>`;
     for (let i = 0; i < 7; i++) {
@@ -3338,7 +3446,7 @@ export function eventCalendar(el, opts = {}) {
       h += `<div class="evcal__day${k === ymd(todayD) ? ' is-today' : ''}" data-day="${k}">`;
       es.forEach(({ e, s, f, lane }) => {
         const top = ((s - h0 * 60) / 60), hgt = Math.max(0.5, (f - s) / 60);
-        h += `<button type="button" class="evcal__block evcal__block--${tone(e)}" data-ev-id="${esc(e.id)}" style="--top: calc(var(--hour) * ${top.toFixed(3)}); --h: calc(var(--hour) * ${hgt.toFixed(3)} - 2px); --lane: ${lane}; --lanes: ${lanes.length};" aria-label="${esc(e.title)}, ${hhmm(s)} to ${hhmm(f)}"><span>${esc(e.title)}</span><time>${hhmm(s)} to ${hhmm(f)}</time></button>`;
+        h += `<button type="button" class="evcal__block evcal__block--${tone(e)}" data-ev-id="${esc(e.id)}" style="--top: calc(var(--hour) * ${top.toFixed(3)}); --h: calc(var(--hour) * ${hgt.toFixed(3)} - 2px); --lane: ${lane}; --lanes: ${lanes.length};" aria-label="${esc(e.title)}, ${esc(t(el, 'range', { start: hhmm(s), end: hhmm(f) }))}"><span>${esc(e.title)}</span><time>${esc(t(el, 'range', { start: hhmm(s), end: hhmm(f) }))}</time></button>`;
       });
       if (k === ymd(new Date()) || (el.getAttribute('data-now') && k === ymd(todayD))) {
         const now = el.getAttribute('data-now') ? minsOf(`0000-00-00T${el.getAttribute('data-now')}`) : new Date().getHours() * 60 + new Date().getMinutes();
@@ -3358,7 +3466,7 @@ export function eventCalendar(el, opts = {}) {
       any = true;
       h += `<h3 class="sep-label sep-label--start sep-label--sticky">${esc(dayLabel(d))}</h3>${es.map(row).join('')}`;
     }
-    if (!any) h += '<p class="evcal__none">No events this month. Move to another month or clear the filter.</p>';
+    if (!any) h += `<p class="evcal__none">${esc(t(el, 'noEventsMonth'))}</p>`;
     return `${h}</div>`;
   };
   let lastDir = 0;
@@ -3367,8 +3475,8 @@ export function eventCalendar(el, opts = {}) {
     const html = view === 'week' ? renderWeek() : view === 'agenda' ? renderAgenda() : renderMonth();
     body.innerHTML = `<div class="${dir > 0 ? 'view-in--forward' : dir < 0 ? 'view-in--back' : 'view-in'}" data-view-body>${html}</div>`;
     const unit = view === 'week' ? 'week' : 'month';
-    el.querySelector('[data-ev="prev"]').setAttribute('aria-label', `Previous ${unit}`);
-    el.querySelector('[data-ev="next"]').setAttribute('aria-label', `Next ${unit}`);
+    el.querySelector('[data-ev="prev"]').setAttribute('aria-label', t(el, unit === 'week' ? 'prevWeek' : 'prevMonth'));
+    el.querySelector('[data-ev="next"]').setAttribute('aria-label', t(el, unit === 'week' ? 'nextWeek' : 'nextMonth'));
     if (view === 'week') { const wk = body.querySelector('.evcal__week'); const first = body.querySelector('.evcal__block'); if (wk) wk.scrollLeft = 0; if (first && dir === 0) { /* keep */ } }
     lastDir = dir;
     emit(el, 'lds:range', { start: ymd(range[0]), end: ymd(range[1]), view });
@@ -3435,24 +3543,25 @@ export function dateRange(box) {
   if (!box || box._range) return box && box._range;
   const pop = box.querySelector('.daterange__pop'), trigger = box.querySelector('.daterange__trigger'), label = box.querySelector('.daterange__label');
   if (!pop) return null;
-  const locale = box.getAttribute('data-locale') || 'en-GB';
+  const loc = box.getAttribute('data-locale') || dateLocale(box);
   const today = box.getAttribute('data-today') ? dayOf(box.getAttribute('data-today')) : new Date();
   let start = dayOf(box.getAttribute('data-start') || ymd(addD(today, -29))), end = dayOf(box.getAttribute('data-end') || ymd(today));
   let a = start, b = end, picking = false, hover = null, focusK = ymd(end);
   let month = new Date(end.getFullYear(), end.getMonth() - 1, 1);
-  const fS = new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'short' }), fY = new Intl.DateTimeFormat(locale, { day: 'numeric', month: 'short', year: 'numeric' }), fM = new Intl.DateTimeFormat(locale, { month: 'long', year: 'numeric' }), fL = new Intl.DateTimeFormat(locale, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }), fN = new Intl.DateTimeFormat(locale, { weekday: 'narrow' });
-  const text = (s, e) => (ymd(s) === ymd(e) ? fY.format(s) : s.getFullYear() === e.getFullYear() ? `${fS.format(s)} to ${fY.format(e)}` : `${fY.format(s)} to ${fY.format(e)}`);
+  const fS = new Intl.DateTimeFormat(loc, { day: 'numeric', month: 'short' }), fY = new Intl.DateTimeFormat(loc, { day: 'numeric', month: 'short', year: 'numeric' }), fM = new Intl.DateTimeFormat(loc, { month: 'long', year: 'numeric' }), fL = new Intl.DateTimeFormat(loc, { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' }), fN = new Intl.DateTimeFormat(loc, { weekday: 'narrow' });
+  const text = (s, e) => (ymd(s) === ymd(e) ? fY.format(s) : t(box, 'range', { start: s.getFullYear() === e.getFullYear() ? fS.format(s) : fY.format(s), end: fY.format(e) }));
   const days = (s, e) => Math.round((e - s) / 864e5) + 1;
+  const daysText = (s, e) => t(box, 'days', { n: num(box, days(s, e)) });
   const presets = [
-    ['Today', () => [today, today]], ['Last 7 days', () => [addD(today, -6), today]], ['Last 30 days', () => [addD(today, -29), today]],
-    ['This month', () => [new Date(today.getFullYear(), today.getMonth(), 1), today]],
-    ['Last month', () => [new Date(today.getFullYear(), today.getMonth() - 1, 1), new Date(today.getFullYear(), today.getMonth(), 0)]],
-    ['Last 90 days', () => [addD(today, -89), today]], ['This year', () => [new Date(today.getFullYear(), 0, 1), today]],
+    [t(box, 'today'), () => [today, today]], [t(box, 'last7'), () => [addD(today, -6), today]], [t(box, 'last30'), () => [addD(today, -29), today]],
+    [t(box, 'thisMonth'), () => [new Date(today.getFullYear(), today.getMonth(), 1), today]],
+    [t(box, 'lastMonth'), () => [new Date(today.getFullYear(), today.getMonth() - 1, 1), new Date(today.getFullYear(), today.getMonth(), 0)]],
+    [t(box, 'last90'), () => [addD(today, -89), today]], [t(box, 'thisYear'), () => [new Date(today.getFullYear(), 0, 1), today]],
   ];
   const cal = (m, idx) => {
     const first = new Date(m.getFullYear(), m.getMonth(), 1), lead = (first.getDay() + 6) % 7, n = new Date(m.getFullYear(), m.getMonth() + 1, 0).getDate();
     const lo = picking ? (hover && hover < a ? hover : a) : a, hi = picking ? (hover && hover > a ? hover : a) : b;
-    let h = `<div class="cal" role="group" aria-label="${esc(fM.format(m))}"><div class="cal__head"><button type="button" class="icon-btn${idx === 0 ? '' : ' is-hidden'}" data-rm="-1" aria-label="Previous month"${idx === 0 ? '' : ' tabindex="-1" aria-hidden="true"'}><span class="ic" aria-hidden="true">chevron_left</span></button><span class="cal__month">${esc(fM.format(m))}</span><button type="button" class="icon-btn${idx === 1 ? ' daterange__next' : ' daterange__next1'}" data-rm="1" aria-label="Next month"><span class="ic" aria-hidden="true">chevron_right</span></button></div><div class="cal__grid">`;
+    let h = `<div class="cal" role="group" aria-label="${esc(fM.format(m))}"><div class="cal__head"><button type="button" class="icon-btn${idx === 0 ? '' : ' is-hidden'}" data-rm="-1" aria-label="${esc(t(box, 'prevMonth'))}"${idx === 0 ? '' : ' tabindex="-1" aria-hidden="true"'}><span class="ic" aria-hidden="true">chevron_left</span></button><span class="cal__month">${esc(fM.format(m))}</span><button type="button" class="icon-btn${idx === 1 ? ' daterange__next' : ' daterange__next1'}" data-rm="1" aria-label="${esc(t(box, 'nextMonth'))}"><span class="ic" aria-hidden="true">chevron_right</span></button></div><div class="cal__grid">`;
     for (let i = 0; i < 7; i++) h += `<span class="cal__dow" aria-hidden="true">${fN.format(addD(new Date(2026, 10, 16), i))}</span>`;
     for (let i = 0; i < lead; i++) h += '<span aria-hidden="true"></span>';
     for (let d = 1; d <= n; d++) {
@@ -3468,8 +3577,8 @@ export function dateRange(box) {
   const draw = (focus) => {
     const m2 = new Date(month.getFullYear(), month.getMonth() + 1, 1);
     const pre = presets.map(([n, f]) => { const [s, e] = f(); const on = !picking && ymd(s) === ymd(a) && ymd(e) === ymd(b); return `<button type="button" class="daterange__preset" aria-pressed="${on}" data-preset="${esc(n)}">${esc(n)}</button>`; }).join('');
-    pop.innerHTML = `<div class="daterange__presets" role="group" aria-label="Presets">${pre}</div><div class="daterange__main"><div class="daterange__months">${cal(month, 0)}${cal(m2, 1)}</div>
-      <div class="daterange__foot"><span class="daterange__sum" aria-live="polite">${picking ? 'Pick the last day' : `${days(a, b)} day${days(a, b) > 1 ? 's' : ''} · ${esc(text(a, b))}`}</span><button type="button" class="btn btn--plain btn--sm" data-act="cancel">Cancel</button><button type="button" class="btn btn--primary btn--sm" data-act="apply"${picking ? ' disabled' : ''}>Apply</button></div></div>`;
+    pop.innerHTML = `<div class="daterange__presets" role="group" aria-label="${esc(t(box, 'presets'))}">${pre}</div><div class="daterange__main"><div class="daterange__months">${cal(month, 0)}${cal(m2, 1)}</div>
+      <div class="daterange__foot"><span class="daterange__sum" aria-live="polite">${esc(picking ? t(box, 'pickLastDay') : `${daysText(a, b)} · ${text(a, b)}`)}</span><button type="button" class="btn btn--plain btn--sm" data-act="cancel">${esc(t(box, 'cancel'))}</button><button type="button" class="btn btn--primary btn--sm" data-act="apply"${picking ? ' disabled' : ''}>${esc(t(box, 'apply'))}</button></div></div>`;
     // On phones only the first month shows, so its own next button pages
     $$(pop, '.daterange__next1').forEach((x) => { x.classList.add('is-hidden'); x.tabIndex = -1; x.setAttribute('aria-hidden', 'true'); });
     if (matchMedia('(max-width: 720px)').matches) $$(pop, '.daterange__next1').forEach((x) => { x.classList.remove('is-hidden'); x.removeAttribute('tabindex'); x.removeAttribute('aria-hidden'); });
@@ -3484,7 +3593,7 @@ export function dateRange(box) {
   pop.addEventListener('click', (e) => {
     e.stopPropagation();
     const p = e.target.closest('[data-preset]');
-    if (p) { const [s, en] = presets.find(([n]) => n === p.getAttribute('data-preset'))[1](); commit(s, en); month = new Date(en.getFullYear(), en.getMonth() - 1, 1); closeMenus(); trigger?.focus(); announce(`Showing ${text(s, en)}`); return; }
+    if (p) { const [s, en] = presets.find(([n]) => n === p.getAttribute('data-preset'))[1](); commit(s, en); month = new Date(en.getFullYear(), en.getMonth() - 1, 1); closeMenus(); trigger?.focus(); announce(t(box, 'showing', { range: text(s, en) })); return; }
     const rm = e.target.closest('[data-rm]');
     if (rm) { month = new Date(month.getFullYear(), month.getMonth() + Number(rm.getAttribute('data-rm')), 1); draw(false); pop.querySelector('[data-rm]:not(.is-hidden)')?.focus(); return; }
     const d = e.target.closest('.cal__day[data-k]');
@@ -3495,13 +3604,13 @@ export function dateRange(box) {
       draw(true); return;
     }
     const act = e.target.closest('[data-act]');
-    if (act) { if (act.getAttribute('data-act') === 'apply' && !picking) { commit(a, b); announce(`Showing ${text(a, b)}`); } else { a = start; b = end; picking = false; } closeMenus(); trigger?.focus(); }
+    if (act) { if (act.getAttribute('data-act') === 'apply' && !picking) { commit(a, b); announce(t(box, 'showing', { range: text(a, b) })); } else { a = start; b = end; picking = false; } closeMenus(); trigger?.focus(); }
   });
   pop.addEventListener('pointerover', (e) => { if (!picking) return; const d = e.target.closest('.cal__day[data-k]'); if (!d || d.disabled) return; const k = d.getAttribute('data-k'); if (hover && ymd(hover) === k) return; hover = dayOf(k); paint(); });
   const paint = () => {
     const lo = hover && hover < a ? hover : a, hi = hover && hover > a ? hover : a;
     $$(pop, '.cal__day[data-k]').forEach((x) => { const day = dayOf(x.getAttribute('data-k')); x.classList.toggle('is-preview', day > lo && day < hi); x.classList.toggle('is-selected', ymd(day) === ymd(a) || (!!hover && ymd(day) === ymd(hover))); });
-    const sum = pop.querySelector('.daterange__sum'); if (sum && hover) sum.textContent = `${days(lo, hi)} day${days(lo, hi) > 1 ? 's' : ''}`;
+    const sum = pop.querySelector('.daterange__sum'); if (sum && hover) sum.textContent = daysText(lo, hi);
   };
   pop.addEventListener('keydown', (e) => {
     const d = e.target.closest('.cal__day[data-k]'); if (!d) return;
@@ -3900,4 +4009,4 @@ export function init(root = document) {
   }
 }
 
-export default { init, matrixRefresh, setTheme, swapTheme, restoreTheme, openLayer, closeLayer, closeMenus, toast, setLoading, setRoll, otpError, morphText, shake, haptic, likeRevert, resetHints, thinkingDone, uploadProgress, uploadReset, openModal, closeModal, observeReveal, placeShellHighlight, streamText, announce, slideReset, navProgress, flip, fitLayer, fitDevice, pushView, popView, popToRoot, startRefresh, drawChart, formatValue, restoreRail, setRail, selectionRefresh, tableRefresh, tableState, setDelta, eventCalendar, dateRange, drawRoute, drawMap };
+export default { init, setStrings, matrixRefresh, setTheme, swapTheme, restoreTheme, openLayer, closeLayer, closeMenus, toast, setLoading, setRoll, otpError, morphText, shake, haptic, likeRevert, resetHints, thinkingDone, uploadProgress, uploadReset, openModal, closeModal, observeReveal, placeShellHighlight, streamText, announce, slideReset, navProgress, flip, fitLayer, fitDevice, pushView, popView, popToRoot, startRefresh, drawChart, formatValue, restoreRail, setRail, selectionRefresh, tableRefresh, tableState, setDelta, eventCalendar, dateRange, drawRoute, drawMap };

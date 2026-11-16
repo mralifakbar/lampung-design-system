@@ -21,6 +21,26 @@ export type ToastHandle = (() => void) & { update?: (o: { title?: string; icon?:
 
 /** Wires every [data-lds-*] element under root. Safe to call again after rendering new markup. */
 export function init(root?: Element | Document): void;
+
+/** Keys of the text the behaviors write (button labels, aria-labels, announcements). Values may use {name} placeholders; a key ending in "_one" is used when n is 1. */
+export type LdsStringKey =
+  | "copied" | "edit" | "saved" | "saveFailed" | "uploadProgress" | "showMore" | "showLess" | "resizePanels" | "image" | "close" | "remove" | "removed"
+  | "ascending" | "descending" | "sortOrder" | "sortedBy" | "sortRemoved" | "showPassword" | "hidePassword" | "filesAdded" | "filesAdded_one"
+  | "bytes" | "kilobytes" | "megabytes" | "compactK" | "compactM" | "chart" | "chartKeys" | "series" | "total"
+  | "routeArrived" | "routePassed" | "routeNext" | "routeAhead" | "mapOrigin" | "mapDestination" | "mapStop" | "mapNow" | "map" | "mapControls"
+  | "zoomIn" | "zoomOut" | "showEverything" | "mapFailed" | "tryAgain" | "mapLoading" | "mapKeys" | "showRoute" | "showPlaces" | "mapHintMac" | "mapHint"
+  | "expandSidebar" | "collapseSidebar" | "selected" | "selectionCleared" | "rows" | "tableShowing" | "tableNoMatch" | "tableLoading" | "tableEmpty" | "tableError"
+  | "prevPage" | "nextPage" | "page" | "deltaUp" | "deltaDown" | "deltaFlat" | "deltaNote"
+  | "card" | "cardWhere" | "cardMoved" | "cardCancelled" | "cardDroppedIn" | "cardDropped" | "cardPicked"
+  | "allDay" | "today" | "tomorrow" | "dayToday" | "dayTomorrow" | "view" | "viewMonth" | "viewWeek" | "viewAgenda" | "events" | "events_one" | "moreEvents"
+  | "nothingPlanned" | "noEventsMonth" | "prevMonth" | "nextMonth" | "prevWeek" | "nextWeek" | "range"
+  | "last7" | "last30" | "last90" | "thisMonth" | "lastMonth" | "thisYear" | "presets" | "pickLastDay" | "days" | "days_one" | "cancel" | "apply" | "showing";
+/**
+ * Adds or overrides behavior text for a language. Behaviors read the closest [lang] (then <html lang>):
+ * "id*" uses Indonesian, a language added here uses its own strings (missing keys fall back to English), anything else English.
+ * Author attributes such as data-lds-copy-label or data-more still win.
+ */
+export function setStrings(lang: string, partial: Partial<Record<LdsStringKey, string>> & Record<string, string>): void;
 export { toAksara, aksaraSvg, renderAksara } from './aksara';
 export type { AksaraCell } from './aksara';
 
@@ -77,7 +97,7 @@ export function flip(from: Element | null | undefined, to: Element | null | unde
 export function streamText(el: Element, text: string, opts?: { wordMs?: number }): Promise<void>;
 
 /* ---------- Data charts ---------- */
-export interface ValueFormat { prefix?: string; suffix?: string; decimals?: number; /** Axis ticks read 12.4k (on by default from 10,000); tooltips and tables keep the full value. false turns it off. */ compact?: boolean }
+export interface ValueFormat { prefix?: string; suffix?: string; decimals?: number; /** Intl locale for separators and compact words ("id-ID" gives 1.050 and 12 rb). Charts fill it from the page language; formatValue() alone defaults to en-US. */ locale?: string; /** Axis ticks read 12.4k (on by default from 10,000); tooltips and tables keep the full value. false turns it off. */ compact?: boolean }
 /** 1 to 4 picks --series-n; 'neutral' is the Other series; 'muted' recedes it. Defaults to the series' position. */
 export type SeriesColor = 1 | 2 | 3 | 4 | 'neutral' | 'muted';
 export interface ChartSeries { name: string; values: number[]; kind?: 'area' | 'line' | 'bar'; color?: SeriesColor; /** Comparison or previous period: a thinner dashed line. */ dashed?: boolean }
@@ -213,7 +233,7 @@ export interface MapHandle {
 export function drawMap(el: Element | null | undefined, config: MapConfig): MapHandle | null;
 
 declare const lds: {
-  init: typeof init; setTheme: typeof setTheme; swapTheme: typeof swapTheme; restoreTheme: typeof restoreTheme;
+  init: typeof init; setStrings: typeof setStrings; setTheme: typeof setTheme; swapTheme: typeof swapTheme; restoreTheme: typeof restoreTheme;
   openLayer: typeof openLayer; closeLayer: typeof closeLayer; closeMenus: typeof closeMenus;
   toast: typeof toast; setLoading: typeof setLoading; setRoll: typeof setRoll; otpError: typeof otpError;
   morphText: typeof morphText; shake: typeof shake; haptic: typeof haptic; likeRevert: typeof likeRevert;
