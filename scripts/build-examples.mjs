@@ -269,7 +269,7 @@ const HUB = {
     h1: 'Layanan kota, dibangun dari satu sistem',
     lede: 'Setiap layar di sini hanya memakai <code class="code">css/lds.css</code> dan <code class="code">js/lds.js</code>: tidak ada halaman yang punya tombol, kartu, atau menu sendiri. Pemerintah Kota Contoh adalah pemerintah fiktif. Nama, angka, dan tanggal adalah data contoh, bukan layanan resmi.',
     cards: (n) => [
-      ['dashboard/ringkasan.html', 'Aplikasi admin', 'dashboard', 'Sakai Dasbor', `Dasbor operasional untuk pegawai Pemerintah Kota Contoh: pengaduan warga, perizinan, transportasi, kebencanaan, kesehatan, anggaran, dan ${n - 7} halaman lain dalam satu kerangka aplikasi.`, `${n} halaman`],
+      ['dashboard/ringkasan.html', 'Operasional kota', 'dashboard', 'Sakai Dasbor', `Dasbor operasional untuk pegawai Pemerintah Kota Contoh: pengaduan warga, perizinan, transportasi, kebencanaan, kesehatan, anggaran, dan ${n - 7} halaman lain dalam satu kerangka aplikasi.`, `${n} halaman`],
       ['mobile.html', 'Aplikasi ponsel', 'smartphone', 'Aplikasi warga Sakai', 'Layanan kota di ponsel warga: lapor masalah, pantau status, antre layanan, dan baca peringatan dini.', 'Bingkai ponsel'],
       ['landing.html', 'Situs publik', 'public', 'Portal layanan publik', 'Halaman depan layanan kota: cari layanan, syarat dan alur, jadwal, dan kontak.', 'Satu halaman panjang'],
     ],
@@ -286,7 +286,7 @@ const HUB = {
     h1: 'City services, built from one system',
     lede: 'Every screen here uses only <code class="code">css/lds.css</code> and <code class="code">js/lds.js</code>: no page has its own buttons, cards or menus. The examples themselves are in Indonesian, for a fictional local government, Pemerintah Kota Contoh. Names, figures and dates are example data, not an official service.',
     cards: (n) => [
-      ['../dashboard/ringkasan.html', 'Admin app', 'dashboard', 'Sakai Dasbor', `An operations dashboard for city staff: citizen reports, permits, transport, disasters, health, the budget and ${n - 7} more pages on one app shell.`, `${n} pages, in Indonesian`],
+      ['../dashboard/ringkasan.html', 'City operations', 'dashboard', 'Sakai Dasbor', `An operations dashboard for city staff: citizen reports, permits, transport, disasters, health, the budget and ${n - 7} more pages on one app shell.`, `${n} pages, in Indonesian`],
       ['../mobile.html', 'Phone app', 'smartphone', 'Aplikasi warga Sakai', 'City services on a resident\'s phone: report a problem, follow its status, queue for a service, read early warnings.', 'Phone frame, in Indonesian'],
       ['../landing.html', 'Public site', 'public', 'Portal layanan publik', 'The front page of the city\'s services: find a service, its requirements and steps, opening hours and contacts.', 'One long page, in Indonesian'],
     ],
