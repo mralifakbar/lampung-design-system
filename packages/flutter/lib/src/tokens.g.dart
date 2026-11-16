@@ -612,37 +612,37 @@ abstract final class LdsType {
   /// The package that bundles the fonts.
   static const String package = 'lampung_design_system';
   /// Family names as declared in this package's pubspec.yaml.
-  static const String familyName = 'Plus Jakarta Sans';
-  static const String monoName = 'JetBrains Mono';
+  static const String familyName = 'Geist';
+  static const String monoName = 'Geist Mono';
   static const String iconsName = 'LDS Icons';
   static const String iconsFillName = 'LDS Icons Fill';
   /// Family names to use in a [TextStyle] from any app (package prefix included).
-  static const String family = 'packages/lampung_design_system/Plus Jakarta Sans';
-  static const String mono = 'packages/lampung_design_system/JetBrains Mono';
+  static const String family = 'packages/lampung_design_system/Geist';
+  static const String mono = 'packages/lampung_design_system/Geist Mono';
   static const String icons = 'packages/lampung_design_system/LDS Icons';
   static const String iconsFill = 'packages/lampung_design_system/LDS Icons Fill';
-  static const TextStyle display = TextStyle(fontFamily: family, fontSize: 56, height: 1.0714, fontWeight: FontWeight.w600, letterSpacing: -1.680);
-  static const TextStyle largeTitle = TextStyle(fontFamily: family, fontSize: 34, height: 1.2059, fontWeight: FontWeight.w700, letterSpacing: -0.816);
-  static const TextStyle title1 = TextStyle(fontFamily: family, fontSize: 28, height: 1.2143, fontWeight: FontWeight.w600, letterSpacing: -0.560);
-  static const TextStyle title2 = TextStyle(fontFamily: family, fontSize: 22, height: 1.2727, fontWeight: FontWeight.w600, letterSpacing: -0.352);
-  static const TextStyle title3 = TextStyle(fontFamily: family, fontSize: 20, height: 1.2500, fontWeight: FontWeight.w600, letterSpacing: -0.240);
-  static const TextStyle headline = TextStyle(fontFamily: family, fontSize: 17, height: 1.2941, fontWeight: FontWeight.w600, letterSpacing: -0.136);
-  static const TextStyle body = TextStyle(fontFamily: family, fontSize: 15, height: 1.4667, fontWeight: FontWeight.w400, letterSpacing: -0.045);
-  static const TextStyle bodyStrong = TextStyle(fontFamily: family, fontSize: 15, height: 1.4667, fontWeight: FontWeight.w500, letterSpacing: -0.045);
+  static const TextStyle display = TextStyle(fontFamily: family, fontSize: 56, height: 1.0714, fontWeight: FontWeight.w600, letterSpacing: -1.960);
+  static const TextStyle largeTitle = TextStyle(fontFamily: family, fontSize: 34, height: 1.2059, fontWeight: FontWeight.w700, letterSpacing: -0.952);
+  static const TextStyle title1 = TextStyle(fontFamily: family, fontSize: 28, height: 1.2143, fontWeight: FontWeight.w600, letterSpacing: -0.616);
+  static const TextStyle title2 = TextStyle(fontFamily: family, fontSize: 22, height: 1.2727, fontWeight: FontWeight.w600, letterSpacing: -0.396);
+  static const TextStyle title3 = TextStyle(fontFamily: family, fontSize: 20, height: 1.2500, fontWeight: FontWeight.w600, letterSpacing: -0.280);
+  static const TextStyle headline = TextStyle(fontFamily: family, fontSize: 17, height: 1.2941, fontWeight: FontWeight.w600, letterSpacing: -0.170);
+  static const TextStyle body = TextStyle(fontFamily: family, fontSize: 15, height: 1.4667, fontWeight: FontWeight.w400, letterSpacing: -0.075);
+  static const TextStyle bodyStrong = TextStyle(fontFamily: family, fontSize: 15, height: 1.4667, fontWeight: FontWeight.w500, letterSpacing: -0.075);
   static const TextStyle subhead = TextStyle(fontFamily: family, fontSize: 14, height: 1.4286, fontWeight: FontWeight.w400, letterSpacing: 0.000);
   static const TextStyle footnote = TextStyle(fontFamily: family, fontSize: 13, height: 1.3846, fontWeight: FontWeight.w400, letterSpacing: 0.000);
   static const TextStyle caption = TextStyle(fontFamily: family, fontSize: 13, height: 1.3846, fontWeight: FontWeight.w500, letterSpacing: 0.130);
 
   /// Raw values from tokens.json: size and line in logical pixels, tracking in em.
   static const Map<String, ({double size, double line, int weight, double tracking})> scale = {
-    'display': (size: 56, line: 60, weight: 600, tracking: -0.03),
-    'large-title': (size: 34, line: 41, weight: 700, tracking: -0.024),
-    'title-1': (size: 28, line: 34, weight: 600, tracking: -0.02),
-    'title-2': (size: 22, line: 28, weight: 600, tracking: -0.016),
-    'title-3': (size: 20, line: 25, weight: 600, tracking: -0.012),
-    'headline': (size: 17, line: 22, weight: 600, tracking: -0.008),
-    'body': (size: 15, line: 22, weight: 400, tracking: -0.003),
-    'body-strong': (size: 15, line: 22, weight: 500, tracking: -0.003),
+    'display': (size: 56, line: 60, weight: 600, tracking: -0.035),
+    'large-title': (size: 34, line: 41, weight: 700, tracking: -0.028),
+    'title-1': (size: 28, line: 34, weight: 600, tracking: -0.022),
+    'title-2': (size: 22, line: 28, weight: 600, tracking: -0.018),
+    'title-3': (size: 20, line: 25, weight: 600, tracking: -0.014),
+    'headline': (size: 17, line: 22, weight: 600, tracking: -0.01),
+    'body': (size: 15, line: 22, weight: 400, tracking: -0.005),
+    'body-strong': (size: 15, line: 22, weight: 500, tracking: -0.005),
     'subhead': (size: 14, line: 20, weight: 400, tracking: 0),
     'footnote': (size: 13, line: 18, weight: 400, tracking: 0),
     'caption': (size: 13, line: 18, weight: 500, tracking: 0.01),
