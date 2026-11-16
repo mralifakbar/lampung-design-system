@@ -1,0 +1,463 @@
+---
+title: Arsip dokumen
+group: Halaman
+description: Peraturan, surat keputusan, laporan bulanan, notulen, dan foto lapangan yang dipakai bersama tim.
+wide: true
+---
+<template data-slot="actions">
+<button class="btn btn--secondary btn--md" type="button" data-lds-modal="folder-dlg" data-new-folder><span class="ic" aria-hidden="true">create_new_folder</span>Folder baru</button>
+<button class="btn btn--primary btn--md" type="button" data-upload><span class="ic" aria-hidden="true">upload_file</span>Unggah berkas</button>
+</template>
+
+<div class="dash-arsip">
+  <div class="dash-arsip__main">
+    <div class="dash-arsip__bar" role="search">
+      <div class="control search dtable__search"><span class="ic" aria-hidden="true">search</span><input type="search" placeholder="Cari berkas" aria-label="Cari berkas" data-f-search></div>
+      <div class="chip-row" data-lds-chips role="group" aria-label="Jenis berkas" data-f-types>
+        <button class="chip" type="button" value="doc"><span class="ic chip__check" aria-hidden="true">check</span>Dokumen</button>
+        <button class="chip" type="button" value="sheet"><span class="ic chip__check" aria-hidden="true">check</span>Lembar kerja</button>
+        <button class="chip" type="button" value="image"><span class="ic chip__check" aria-hidden="true">check</span>Gambar</button>
+        <button class="chip" type="button" value="media"><span class="ic chip__check" aria-hidden="true">check</span>Video dan audio</button>
+        <button class="chip" type="button" value="archive"><span class="ic chip__check" aria-hidden="true">check</span>Arsip zip</button>
+      </div>
+      <button class="btn btn--plain btn--md" type="button" data-f-clear hidden>Hapus filter</button>
+    </div>
+
+    <section class="stack" style="--gap: 12px;" aria-labelledby="folders-title" data-folders-sec data-states>
+      <div class="section__head"><h2 class="section__title-sm" id="folders-title">Folder</h2></div>
+      <div class="file-grid file-grid--compact" role="list" aria-label="Folder" data-folder-grid data-state-view="loaded">
+        <div class="file-tile file-tile--folder" role="listitem" data-folder="perwali">
+  <a class="file-tile__open" href="#perwali" data-open-folder="perwali"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">folder</span></span><span class="file-tile__name">Peraturan wali kota</span><span class="file-tile__meta">2 berkas · 728 KB</span></a>
+</div>
+        <div class="file-tile file-tile--folder" role="listitem" data-folder="sk">
+  <a class="file-tile__open" href="#sk" data-open-folder="sk"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">folder</span></span><span class="file-tile__name">Surat keputusan</span><span class="file-tile__meta">2 berkas · 18 MB</span></a>
+</div>
+        <div class="file-tile file-tile--folder" role="listitem" data-folder="bulanan">
+  <a class="file-tile__open" href="#bulanan" data-open-folder="bulanan"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">folder</span></span><span class="file-tile__name">Laporan bulanan</span><span class="file-tile__meta">4 berkas · 4,6 MB</span></a>
+</div>
+        <div class="file-tile file-tile--folder" role="listitem" data-folder="notulen">
+  <a class="file-tile__open" href="#notulen" data-open-folder="notulen"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">folder</span></span><span class="file-tile__name">Notulen rapat</span><span class="file-tile__meta">2 berkas · 248 MB</span></a>
+</div>
+        <div class="file-tile file-tile--folder" role="listitem" data-folder="foto">
+  <a class="file-tile__open" href="#foto" data-open-folder="foto"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">folder</span></span><span class="file-tile__name">Foto lapangan</span><span class="file-tile__meta">4 berkas · 161 MB</span></a>
+</div>
+        <div class="file-tile file-tile--folder" role="listitem" data-folder="pelatihan">
+  <a class="file-tile__open" href="#pelatihan" data-open-folder="pelatihan"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">folder</span></span><span class="file-tile__name">Bahan pelatihan</span><span class="file-tile__meta">1 berkas · 3,4 MB</span></a>
+</div>
+      </div>
+      <div class="file-grid" data-state-view="loading" role="status" aria-label="Memuat folder" hidden><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 64px; border-radius: 14px;"></div><div class="skel" style="height: 12px; width: 70%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 64px; border-radius: 14px;"></div><div class="skel" style="height: 12px; width: 70%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 64px; border-radius: 14px;"></div><div class="skel" style="height: 12px; width: 70%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 64px; border-radius: 14px;"></div><div class="skel" style="height: 12px; width: 70%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 64px; border-radius: 14px;"></div><div class="skel" style="height: 12px; width: 70%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 64px; border-radius: 14px;"></div><div class="skel" style="height: 12px; width: 70%;"></div></div></div>
+      <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Folder tidak dapat dimuat</div><div class="alert__body">Layanan berkas tidak menjawab. Berkas Anda aman.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    </section>
+
+    <section class="stack" style="--gap: 12px;" aria-labelledby="files-title" data-states data-files-sec>
+      <div class="cluster" style="justify-content: space-between; --gap: 8px;">
+        <div class="section__head"><button class="btn btn--plain btn--sm dash-arsip__back" type="button" data-f-home data-f-crumbs hidden><span class="ic" aria-hidden="true">arrow_back_ios_new</span>Semua berkas</button><h2 class="section__title-sm" id="files-title" data-f-title>Berkas terbaru</h2><p class="section__sub" aria-live="polite" data-f-count>15 berkas, terbaru dulu</p></div>
+        <div class="dash-arsip__tools">
+        <div class="tip-host">
+          <button class="btn btn--secondary btn--md" type="button" data-lds-menu="f-sort" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">sort</span><span data-f-sort-label>Terbaru</span></button>
+          <div class="menu menu--right" id="f-sort" role="menu" aria-label="Urutkan berkas" style="top: calc(100% + 6px); right: 0;">
+            <button class="menu__item is-selected" type="button" role="menuitemradio" aria-checked="true" data-sort="new">Terbaru dulu<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" type="button" role="menuitemradio" aria-checked="false" data-sort="name">Nama, A sampai Z<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" type="button" role="menuitemradio" aria-checked="false" data-sort="size">Terbesar dulu<span class="ic menu__check" aria-hidden="true">check</span></button>
+          </div>
+        </div>
+        <div class="seg" role="group" aria-label="Tampilan" data-lds-segmented data-f-view style="width: 96px;"><span class="seg__thumb"></span><button type="button" class="seg__btn" aria-pressed="true" aria-label="Kisi" data-v="grid"><span class="ic" aria-hidden="true">grid_view</span></button><button type="button" class="seg__btn" aria-pressed="false" aria-label="Daftar" data-v="list"><span class="ic" aria-hidden="true">list</span></button></div>
+      </div>
+      </div>
+      <div data-state-view="loaded" data-f-views>
+        <div class="file-grid" role="list" aria-label="Berkas" data-lds-selection="files-bar" data-f-grid>
+          <div class="file-tile file-tile--sheet" role="listitem" data-id="f1">
+  <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Rekap pengaduan 9-15 Nov 2026.xlsx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+  <a class="file-tile__open" href="#f1" data-open="f1"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Rekap pengaduan 9-15 Nov 2026.xlsx</span><span class="file-tile__meta">214 KB · Hari ini, 09.12</span></a>
+  <button class="icon-btn file-tile__more" type="button" aria-label="Tindakan lain untuk Rekap pengaduan 9-15 Nov 2026.xlsx" aria-haspopup="menu" aria-expanded="false" data-file-menu="f1"><span class="ic" aria-hidden="true">more_horiz</span></button>
+</div>
+          <div class="file-tile file-tile--image" role="listitem" data-id="f2">
+  <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Saluran Jalan Merpati.jpg"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+  <a class="file-tile__open" href="#f2" data-open="f2"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">image</span></span><span class="file-tile__name">Saluran Jalan Merpati.jpg</span><span class="file-tile__meta">1,8 MB · Kemarin</span></a>
+  <button class="icon-btn file-tile__more" type="button" aria-label="Tindakan lain untuk Saluran Jalan Merpati.jpg" aria-haspopup="menu" aria-expanded="false" data-file-menu="f2"><span class="ic" aria-hidden="true">more_horiz</span></button>
+</div>
+          <div class="file-tile file-tile--doc" role="listitem" data-id="f3">
+  <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Panduan operator dasbor.pdf"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+  <a class="file-tile__open" href="#f3" data-open="f3"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Panduan operator dasbor.pdf</span><span class="file-tile__meta">3,4 MB · 14 Nov</span></a>
+  <button class="icon-btn file-tile__more" type="button" aria-label="Tindakan lain untuk Panduan operator dasbor.pdf" aria-haspopup="menu" aria-expanded="false" data-file-menu="f3"><span class="ic" aria-hidden="true">more_horiz</span></button>
+</div>
+          <div class="file-tile file-tile--video" role="listitem" data-id="f4">
+  <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Rekaman rapat siaga banjir.mp4"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+  <a class="file-tile__open" href="#f4" data-open="f4"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">movie</span></span><span class="file-tile__name">Rekaman rapat siaga banjir.mp4</span><span class="file-tile__meta">248 MB · 13 Nov</span></a>
+  <button class="icon-btn file-tile__more" type="button" aria-label="Tindakan lain untuk Rekaman rapat siaga banjir.mp4" aria-haspopup="menu" aria-expanded="false" data-file-menu="f4"><span class="ic" aria-hidden="true">more_horiz</span></button>
+</div>
+          <div class="file-tile file-tile--audio" role="listitem" data-id="f5">
+  <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Wawancara warga Pesisir.m4a"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+  <a class="file-tile__open" href="#f5" data-open="f5"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">audio_file</span></span><span class="file-tile__name">Wawancara warga Pesisir.m4a</span><span class="file-tile__meta">64 MB · 12 Nov</span></a>
+  <button class="icon-btn file-tile__more" type="button" aria-label="Tindakan lain untuk Wawancara warga Pesisir.m4a" aria-haspopup="menu" aria-expanded="false" data-file-menu="f5"><span class="ic" aria-hidden="true">more_horiz</span></button>
+</div>
+          <div class="file-tile file-tile--doc" role="listitem" data-id="f6">
+  <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Notulen rapat koordinasi 12 Nov.docx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+  <a class="file-tile__open" href="#f6" data-open="f6"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Notulen rapat koordinasi 12 Nov.docx</span><span class="file-tile__meta">48 KB · 12 Nov</span></a>
+  <button class="icon-btn file-tile__more" type="button" aria-label="Tindakan lain untuk Notulen rapat koordinasi 12 Nov.docx" aria-haspopup="menu" aria-expanded="false" data-file-menu="f6"><span class="ic" aria-hidden="true">more_horiz</span></button>
+</div>
+          <div class="file-tile file-tile--archive" role="listitem" data-id="f7">
+  <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Foto lampu jalan Harapan Jaya.zip"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+  <a class="file-tile__open" href="#f7" data-open="f7"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">folder_zip</span></span><span class="file-tile__name">Foto lampu jalan Harapan Jaya.zip</span><span class="file-tile__meta">92 MB · 11 Nov</span></a>
+  <button class="icon-btn file-tile__more" type="button" aria-label="Tindakan lain untuk Foto lampu jalan Harapan Jaya.zip" aria-haspopup="menu" aria-expanded="false" data-file-menu="f7"><span class="ic" aria-hidden="true">more_horiz</span></button>
+</div>
+          <div class="file-tile file-tile--doc" role="listitem" data-id="f8">
+  <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Draf perwali jam layanan publik.docx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+  <a class="file-tile__open" href="#f8" data-open="f8"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Draf perwali jam layanan publik.docx</span><span class="file-tile__meta">88 KB · 10 Nov</span></a>
+  <button class="icon-btn file-tile__more" type="button" aria-label="Tindakan lain untuk Draf perwali jam layanan publik.docx" aria-haspopup="menu" aria-expanded="false" data-file-menu="f8"><span class="ic" aria-hidden="true">more_horiz</span></button>
+</div>
+          <div class="file-tile file-tile--sheet" role="listitem" data-id="f9">
+  <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Realisasi anggaran Oktober.xlsx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+  <a class="file-tile__open" href="#f9" data-open="f9"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Realisasi anggaran Oktober.xlsx</span><span class="file-tile__meta">96 KB · 9 Nov</span></a>
+  <button class="icon-btn file-tile__more" type="button" aria-label="Tindakan lain untuk Realisasi anggaran Oktober.xlsx" aria-haspopup="menu" aria-expanded="false" data-file-menu="f9"><span class="ic" aria-hidden="true">more_horiz</span></button>
+</div>
+          <div class="file-tile file-tile--image" role="listitem" data-id="f10">
+  <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Denah posko banjir Teluk.png"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+  <a class="file-tile__open" href="#f10" data-open="f10"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">image</span></span><span class="file-tile__name">Denah posko banjir Teluk.png</span><span class="file-tile__meta">2,8 MB · 6 Nov</span></a>
+  <button class="icon-btn file-tile__more" type="button" aria-label="Tindakan lain untuk Denah posko banjir Teluk.png" aria-haspopup="menu" aria-expanded="false" data-file-menu="f10"><span class="ic" aria-hidden="true">more_horiz</span></button>
+</div>
+          <div class="file-tile file-tile--doc" role="listitem" data-id="f11">
+  <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih SK tim siaga musim hujan 2026.pdf"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+  <a class="file-tile__open" href="#f11" data-open="f11"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">SK tim siaga musim hujan 2026.pdf</span><span class="file-tile__meta">410 KB · 4 Nov</span></a>
+  <button class="icon-btn file-tile__more" type="button" aria-label="Tindakan lain untuk SK tim siaga musim hujan 2026.pdf" aria-haspopup="menu" aria-expanded="false" data-file-menu="f11"><span class="ic" aria-hidden="true">more_horiz</span></button>
+</div>
+          <div class="file-tile file-tile--archive" role="listitem" data-id="f12">
+  <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Lampiran SK operator kecamatan.zip"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+  <a class="file-tile__open" href="#f12" data-open="f12"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">folder_zip</span></span><span class="file-tile__name">Lampiran SK operator kecamatan.zip</span><span class="file-tile__meta">18 MB · 2 Nov</span></a>
+  <button class="icon-btn file-tile__more" type="button" aria-label="Tindakan lain untuk Lampiran SK operator kecamatan.zip" aria-haspopup="menu" aria-expanded="false" data-file-menu="f12"><span class="ic" aria-hidden="true">more_horiz</span></button>
+</div>
+          <div class="file-tile file-tile--image" role="listitem" data-id="f13">
+  <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Peta titik rawan genangan.png"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+  <a class="file-tile__open" href="#f13" data-open="f13"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">image</span></span><span class="file-tile__name">Peta titik rawan genangan.png</span><span class="file-tile__meta">4,1 MB · 30 Okt</span></a>
+  <button class="icon-btn file-tile__more" type="button" aria-label="Tindakan lain untuk Peta titik rawan genangan.png" aria-haspopup="menu" aria-expanded="false" data-file-menu="f13"><span class="ic" aria-hidden="true">more_horiz</span></button>
+</div>
+          <div class="file-tile file-tile--doc" role="listitem" data-id="f14">
+  <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Perwali pengelolaan pengaduan.pdf"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+  <a class="file-tile__open" href="#f14" data-open="f14"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Perwali pengelolaan pengaduan.pdf</span><span class="file-tile__meta">640 KB · 28 Okt</span></a>
+  <button class="icon-btn file-tile__more" type="button" aria-label="Tindakan lain untuk Perwali pengelolaan pengaduan.pdf" aria-haspopup="menu" aria-expanded="false" data-file-menu="f14"><span class="ic" aria-hidden="true">more_horiz</span></button>
+</div>
+          <div class="file-tile file-tile--sheet" role="listitem" data-id="f15">
+  <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Survei kepuasan layanan Oktober.xlsx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+  <a class="file-tile__open" href="#f15" data-open="f15"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Survei kepuasan layanan Oktober.xlsx</span><span class="file-tile__meta">156 KB · 27 Okt</span></a>
+  <button class="icon-btn file-tile__more" type="button" aria-label="Tindakan lain untuk Survei kepuasan layanan Oktober.xlsx" aria-haspopup="menu" aria-expanded="false" data-file-menu="f15"><span class="ic" aria-hidden="true">more_horiz</span></button>
+</div>
+        </div>
+        <div class="table-box" tabindex="0" aria-label="Berkas, bisa digeser ke samping" data-lds-selection="files-bar" data-f-list hidden>
+          <table class="table">
+            <thead><tr><th class="dtable__select"><label class="check"><input type="checkbox" data-lds-select-all aria-label="Pilih semua berkas"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></th><th>Nama</th><th>Pemilik</th><th>Diubah</th><th class="num">Ukuran</th><th class="dtable__actions"><span class="sr-only">Tindakan</span></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="list list--fill" data-f-none hidden><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">filter_list</span></div><div class="empty__title" data-f-none-title>Tidak ada berkas yang cocok</div><div class="empty__body" data-f-none-body>Periksa ejaannya, atau hapus pencarian dan filter jenis.</div><button class="btn btn--secondary btn--md" type="button" data-f-reset>Hapus filter</button></div></div>
+      </div>
+      <div class="file-grid" data-state-view="loading" role="status" aria-label="Memuat berkas" hidden><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 104px; border-radius: 14px;"></div><div class="skel" style="height: 12px; width: 80%;"></div><div class="skel" style="height: 10px; width: 50%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 104px; border-radius: 14px;"></div><div class="skel" style="height: 12px; width: 80%;"></div><div class="skel" style="height: 10px; width: 50%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 104px; border-radius: 14px;"></div><div class="skel" style="height: 12px; width: 80%;"></div><div class="skel" style="height: 10px; width: 50%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 104px; border-radius: 14px;"></div><div class="skel" style="height: 12px; width: 80%;"></div><div class="skel" style="height: 10px; width: 50%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 104px; border-radius: 14px;"></div><div class="skel" style="height: 12px; width: 80%;"></div><div class="skel" style="height: 10px; width: 50%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 104px; border-radius: 14px;"></div><div class="skel" style="height: 12px; width: 80%;"></div><div class="skel" style="height: 10px; width: 50%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 104px; border-radius: 14px;"></div><div class="skel" style="height: 12px; width: 80%;"></div><div class="skel" style="height: 10px; width: 50%;"></div></div><div class="stack" style="--gap: 8px;"><div class="skel" style="height: 104px; border-radius: 14px;"></div><div class="skel" style="height: 12px; width: 80%;"></div><div class="skel" style="height: 10px; width: 50%;"></div></div></div>
+      <div class="list list--fill" data-state-view="empty" hidden><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">cloud_upload</span></div><div class="empty__title">Belum ada berkas</div><div class="empty__body">Unggah berkas atau taruh di kotak unggah. Semua anggota tim dapat menemukannya di sini.</div><button class="btn btn--primary btn--md" type="button" data-upload>Unggah berkas</button></div></div>
+      <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Berkas tidak dapat dimuat</div><div class="alert__body">Layanan berkas tidak menjawab tepat waktu. Tidak ada yang hilang.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    </section>
+  </div>
+
+  <aside class="dash-arsip__side" aria-label="Penyimpanan dan unggahan">
+    <section class="chart-card" aria-labelledby="store-q" data-states>
+      <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="store-q">Berapa sisa ruang penyimpanan?</div><div class="chart-card__sub">Kuota 50 GB untuk seluruh tim Sakai Dasbor</div></div></div>
+      <div class="stack" style="--gap: 14px;" data-state-view="loaded">
+        <div class="chart-card__figure"><div class="chart-card__big"><span data-f-used>18,4</span> GB</div><span class="chart-card__sub">terpakai dari 50 GB</span></div>
+        <div class="pbar" role="img" aria-label="Penyimpanan menurut jenis: video 9,6 GB, gambar 4,1 GB, dokumen 2,9 GB, arsip zip 1,8 GB, sisa 31,6 GB" data-f-pbar><span style="flex-grow: 9.6; background: var(--series-1);"></span><span style="flex-grow: 4.1; background: var(--series-2);"></span><span style="flex-grow: 2.9; background: var(--series-3);"></span><span style="flex-grow: 1.8; background: var(--series-4);"></span><span style="flex-grow: 31.6; background: var(--bg-track);"></span></div>
+        <div class="legend"><span><i style="background: var(--series-1);"></i>Video 9,6 GB</span><span><i style="background: var(--series-2);"></i>Gambar 4,1 GB</span><span><i style="background: var(--series-3);"></i>Dokumen 2,9 GB</span><span><i style="background: var(--series-4);"></i>Arsip zip 1,8 GB</span></div>
+      </div>
+      <div class="stack" style="--gap: 12px;" data-state-view="loading" role="status" aria-label="Memuat penyimpanan" hidden><div class="skel" style="height: 32px; width: 50%;"></div><div class="skel" style="height: 12px;"></div><div class="skel" style="height: 12px; width: 80%;"></div></div>
+      <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Penyimpanan tidak dapat dimuat</div><div class="alert__body">Coba lagi sebentar lagi.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    </section>
+
+    <section class="stack" style="--gap: 12px;" aria-labelledby="up-title">
+      <div class="section__head"><h2 class="section__title-sm" id="up-title">Unggah</h2><p class="section__sub">Hingga 2 GB per berkas. Berkas masuk ke <span data-f-target>Berkas terbaru</span>.</p></div>
+      <div class="drop" data-f-drop>
+        <span class="ic" aria-hidden="true">cloud_upload</span>
+        <span class="drop__title">Taruh berkas di sini</span>
+        <span class="drop__body">Atau pilih dari komputer Anda</span>
+        <button type="button" class="btn btn--secondary btn--sm" data-upload>Pilih berkas</button>
+        <input type="file" multiple hidden aria-label="Berkas untuk diunggah" data-f-input>
+      </div>
+      <ul class="dash-arsip__uploads" aria-label="Unggahan" data-f-uploads></ul>
+    </section>
+  </aside>
+</div>
+
+<div class="menu menu--right" id="file-menu" role="menu" aria-label="Tindakan berkas" style="position: fixed;">
+  <button class="menu__item" type="button" role="menuitem" data-act="preview"><span class="ic" aria-hidden="true">visibility</span>Pratinjau</button>
+  <button class="menu__item" type="button" role="menuitem" data-act="download"><span class="ic" aria-hidden="true">download</span>Unduh</button>
+  <button class="menu__item" type="button" role="menuitem" data-act="rename"><span class="ic" aria-hidden="true">edit</span>Ganti nama</button>
+  <div class="menu__sep"></div>
+  <button class="menu__item menu__item--danger" type="button" role="menuitem" data-act="delete"><span class="ic" aria-hidden="true">delete</span>Hapus</button>
+</div>
+
+<div class="selbar" id="files-bar" role="toolbar" aria-label="Berkas terpilih">
+  <span class="selbar__count" aria-live="polite"><span class="roll" data-lds-roll="0"></span> dipilih</span>
+  <button class="btn btn--md" type="button" data-bulk="download" aria-label="Unduh yang dipilih"><span class="ic" aria-hidden="true">download</span><span class="selbar__label">Unduh</span></button>
+  <button class="btn btn--md btn--danger" type="button" data-bulk="delete" aria-label="Hapus yang dipilih"><span class="ic" aria-hidden="true">delete</span><span class="selbar__label">Hapus</span></button>
+  <button class="icon-btn" type="button" data-lds-select-clear aria-label="Batalkan pilihan"><span class="ic" aria-hidden="true">close</span></button>
+</div>
+
+<dialog class="modal" id="folder-dlg" aria-labelledby="folder-dlg-t">
+  <button class="icon-btn dialog__close" type="button" data-lds-modal-close aria-label="Tutup"><span class="ic" aria-hidden="true">close</span></button>
+  <h2 class="dialog__title" id="folder-dlg-t">Folder baru</h2>
+  <form class="form" id="folder-form" novalidate style="margin-top: 16px;">
+    <div class="field"><label class="field__label" for="fd-name">Nama</label><div class="control"><input id="fd-name" name="name" placeholder="Rapat triwulan 1 2027" autocomplete="off" required></div><span class="field__help" id="fd-help">Semua anggota tim dapat melihatnya.</span></div>
+    <div class="dialog__actions"><button class="btn btn--secondary" type="button" data-lds-modal-close>Batal</button><button class="btn btn--primary" type="submit" data-fd-submit>Buat folder</button></div>
+  </form>
+</dialog>
+
+<template data-slot="layers">
+<div class="scrim" data-lds-scrim="preview"></div>
+<aside class="drawer dash-arsip__drawer" id="preview" role="dialog" aria-modal="true" aria-labelledby="preview-t" data-lds-layer>
+  <div class="sheet__head" style="margin: 0;"><h2 class="sheet__title" id="preview-t">Pratinjau</h2><button class="icon-btn" type="button" aria-label="Tutup" data-lds-close style="margin: -10px -10px -10px 0;"><span class="ic" aria-hidden="true">close</span></button></div>
+  <div class="dash-arsip__drawer-body stack" style="--gap: 16px;" data-preview></div>
+</aside>
+</template>
+
+<script type="module">
+import { init, openLayer, closeLayer, openModal, closeModal, closeMenus, selectionRefresh, setLoading, shake, morphText, announce, uploadProgress, uploadReset } from '../../../js/lds.js';
+import { notify, delay } from './dashboard.js';
+
+const FOLDERS = [{"id": "perwali", "name": "Peraturan wali kota"}, {"id": "sk", "name": "Surat keputusan"}, {"id": "bulanan", "name": "Laporan bulanan"}, {"id": "notulen", "name": "Notulen rapat"}, {"id": "foto", "name": "Foto lapangan"}, {"id": "pelatihan", "name": "Bahan pelatihan"}];
+let FILES = [{"id": "f1", "name": "Rekap pengaduan 9-15 Nov 2026.xlsx", "type": "sheet", "kb": 214, "owner": "Arif Setiawan", "when": "Hari ini, 09.12", "sort": "2026-11-16T09:12", "folder": "bulanan", "shared": true, "cols": ["Kategori", "Laporan"], "rows": [["Sampah", "362"], ["Genangan", "188"], ["Jalan rusak", "154"], ["Penerangan", "97"]], "excerpt": ""}, {"id": "f2", "name": "Saluran Jalan Merpati.jpg", "type": "image", "kb": 1840, "owner": "Hendra Gunawan", "when": "Kemarin", "sort": "2026-11-15T16:40", "folder": "foto", "shared": true, "excerpt": "Foto saluran tersumbat di Kelurahan Sukamaju, diambil 15 Nov 2026."}, {"id": "f3", "name": "Panduan operator dasbor.pdf", "type": "doc", "kb": 3480, "owner": "Rina Wijayanti", "when": "14 Nov", "sort": "2026-11-14T11:05", "folder": "pelatihan", "shared": true, "excerpt": "Minggu pertama operator kecamatan: masuk dengan kode sekali pakai, periksa laporan baru setiap pagi, dan teruskan laporan ke dinas paling lambat 1 hari kerja."}, {"id": "f4", "name": "Rekaman rapat siaga banjir.mp4", "type": "video", "kb": 253952, "owner": "Budi Santoso", "when": "13 Nov", "sort": "2026-11-13T18:22", "folder": "notulen", "shared": false, "length": "1 jam 12 menit", "excerpt": "Rapat siaga banjir bersama BPBD Kota Contoh dan sembilan kecamatan."}, {"id": "f5", "name": "Wawancara warga Pesisir.m4a", "type": "audio", "kb": 65536, "owner": "Wulan Sari", "when": "12 Nov", "sort": "2026-11-12T15:10", "folder": "foto", "shared": false, "length": "38 menit", "excerpt": "Lima warga Kelurahan Harapan Jaya bercerita soal genangan dan jalur evakuasi."}, {"id": "f6", "name": "Notulen rapat koordinasi 12 Nov.docx", "type": "doc", "kb": 48, "owner": "Budi Santoso", "when": "12 Nov", "sort": "2026-11-12T10:30", "folder": "notulen", "shared": true, "excerpt": "Diputuskan: angkut sampah tambahan di Kecamatan Timur mulai 16 Nov. Dinas Lingkungan Hidup menjadi penanggung jawab; tim dasbor memantau waktu tanggapan. Rapat berikutnya Kamis."}, {"id": "f7", "name": "Foto lampu jalan Harapan Jaya.zip", "type": "archive", "kb": 94208, "owner": "Arif Setiawan", "when": "11 Nov", "sort": "2026-11-11T13:45", "folder": "foto", "shared": false, "inside": ["titik-01-gang-melati.jpg", "titik-02-jalan-kenari.jpg", "titik-03-jalan-cempaka.jpg", "peta-titik.pdf", "lainnya/"], "excerpt": ""}, {"id": "f8", "name": "Draf perwali jam layanan publik.docx", "type": "doc", "kb": 88, "owner": "Dewi Lestari", "when": "10 Nov", "sort": "2026-11-10T09:00", "folder": "perwali", "shared": true, "excerpt": "Pasal 3: layanan tatap muka dibuka Senin sampai Jumat pukul 08.00 sampai 15.30 WIB. Pasal 4: layanan daring tersedia setiap hari."}, {"id": "f9", "name": "Realisasi anggaran Oktober.xlsx", "type": "sheet", "kb": 96, "owner": "Sari Handayani", "when": "9 Nov", "sort": "2026-11-09T17:20", "folder": "bulanan", "shared": false, "cols": ["Urusan", "Realisasi"], "rows": [["Pekerjaan umum", "68%"], ["Kesehatan", "74%"], ["Pendidikan", "71%"], ["Lingkungan hidup", "59%"]], "excerpt": ""}, {"id": "f10", "name": "Denah posko banjir Teluk.png", "type": "image", "kb": 2870, "owner": "Wulan Sari", "when": "6 Nov", "sort": "2026-11-06T08:15", "folder": "foto", "shared": false, "excerpt": "Denah posko di balai Kelurahan Harapan Jaya."}, {"id": "f11", "name": "SK tim siaga musim hujan 2026.pdf", "type": "doc", "kb": 410, "owner": "Budi Santoso", "when": "4 Nov", "sort": "2026-11-04T16:00", "folder": "sk", "shared": true, "excerpt": "Menetapkan tim siaga musim hujan Kota Contoh untuk masa 1 November 2026 sampai 31 Maret 2027, dengan posko di setiap kecamatan."}, {"id": "f12", "name": "Lampiran SK operator kecamatan.zip", "type": "archive", "kb": 18432, "owner": "Dewi Lestari", "when": "2 Nov", "sort": "2026-11-02T12:00", "folder": "sk", "shared": true, "inside": ["daftar-operator.pdf", "surat-tugas.pdf", "jadwal-piket.xlsx"], "excerpt": ""}, {"id": "f13", "name": "Peta titik rawan genangan.png", "type": "image", "kb": 4198, "owner": "Hendra Gunawan", "when": "30 Okt", "sort": "2026-10-30T14:00", "folder": "bulanan", "shared": false, "excerpt": "Peta 42 titik rawan genangan di sembilan kecamatan."}, {"id": "f14", "name": "Perwali pengelolaan pengaduan.pdf", "type": "doc", "kb": 640, "owner": "Dewi Lestari", "when": "28 Okt", "sort": "2026-10-28T10:00", "folder": "perwali", "shared": false, "excerpt": "Setiap laporan warga ditanggapi paling lambat 3 hari kerja dan diselesaikan atau dijelaskan alasannya paling lambat 14 hari kerja."}, {"id": "f15", "name": "Survei kepuasan layanan Oktober.xlsx", "type": "sheet", "kb": 156, "owner": "Sari Handayani", "when": "27 Okt", "sort": "2026-10-27T09:40", "folder": "bulanan", "shared": true, "cols": ["Jawaban", "Responden"], "rows": [["Sangat puas", "412"], ["Puas", "268"], ["Ragu-ragu", "74"], ["Tidak puas", "31"]], "excerpt": ""}];
+const TYPES = { folder: ['folder', 'Folder'], doc: ['description', 'Dokumen'], sheet: ['description', 'Lembar kerja'], image: ['image', 'Gambar'], video: ['movie', 'Video'], audio: ['audio_file', 'Audio'], archive: ['folder_zip', 'Arsip zip'] };
+const CHECK = '<span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span>';
+const esc = (t) => String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+const fmtSize = (kb) => (kb >= 1048576 ? `${(kb / 1048576).toFixed(1)} GB` : kb >= 1024 ? `${(kb / 1024).toFixed(kb >= 10240 ? 0 : 1)} MB` : `${Math.max(1, Math.round(kb))} KB`).replace('.', ',');
+const tile = (f) => `<div class="file-tile file-tile--${f.type}" role="listitem" data-id="${f.id}">
+  <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih ${esc(f.name)}">${CHECK}</label>
+  <a class="file-tile__open" href="#${f.id}" data-open="${f.id}"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">${TYPES[f.type][0]}</span></span><span class="file-tile__name">${esc(f.name)}</span><span class="file-tile__meta">${fmtSize(f.kb)} · ${f.when}</span></a>
+  <button class="icon-btn file-tile__more" type="button" aria-label="Tindakan lain untuk ${esc(f.name)}" aria-haspopup="menu" aria-expanded="false" data-file-menu="${f.id}"><span class="ic" aria-hidden="true">more_horiz</span></button>
+</div>`;
+const folderTile = (d, n, kb) => `<div class="file-tile file-tile--folder" role="listitem" data-folder="${d.id}">
+  <a class="file-tile__open" href="#${d.id}" data-open-folder="${d.id}"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">folder</span></span><span class="file-tile__name">${esc(d.name)}</span><span class="file-tile__meta">${n} berkas · ${fmtSize(kb)}</span></a>
+</div>`;
+const row = (f) => `<tr data-id="${f.id}">
+  <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih ${esc(f.name)}">${CHECK}</label></td>
+  <td><a class="dtable__user" href="#${f.id}" data-open="${f.id}"><span class="ic" aria-hidden="true">${TYPES[f.type][0]}</span><span><b>${esc(f.name)}</b><small>${TYPES[f.type][1]}${f.shared ? ' · Dibagikan' : ''}</small></span></a></td>
+  <td>${f.owner}</td>
+  <td data-sort="${f.sort}">${f.when}</td>
+  <td class="num" data-sort="${f.kb}">${fmtSize(f.kb)}</td>
+  <td class="dtable__actions"><button class="icon-btn" type="button" aria-label="Tindakan lain untuk ${esc(f.name)}" aria-haspopup="menu" aria-expanded="false" data-file-menu="${f.id}"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+</tr>`;
+const preview = (f) => {
+  if (f.type === 'sheet') return `<div class="table-box"><table class="table"><thead><tr><th>${f.cols[0]}</th><th class="num">${f.cols[1]}</th></tr></thead><tbody>${f.rows.map(([a, b]) => `<tr><td>${a}</td><td class="num">${b}</td></tr>`).join('')}</tbody></table></div>`;
+  if (f.type === 'archive') return `<div class="list">${f.inside.map((n) => `<div class="lrow"><span class="lrow__body"><span class="lrow__title">${n}</span></span></div>`).join('')}</div>`;
+  if (f.type === 'image') return `<div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">image</span></div><div class="empty__body">${f.excerpt}</div></div>`;
+  if (f.type === 'video' || f.type === 'audio') return `<div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">${TYPES[f.type][0]}</span></div><div class="empty__title">${f.length}</div><div class="empty__body">${f.excerpt}</div><button class="btn btn--secondary btn--sm" type="button" data-act="play"><span class="ic" aria-hidden="true">play_arrow</span>Putar</button></div>`;
+  return `<div class="prose"><p>${f.excerpt}</p></div>`;
+};
+const details = (f, folderName) => `<div class="card card--fill">${preview(f)}</div>
+  <dl class="kv-list">
+    <div class="kv"><dt>Jenis</dt><dd>${TYPES[f.type][1]}</dd></div>
+    <div class="kv"><dt>Ukuran</dt><dd>${fmtSize(f.kb)}</dd></div>
+    <div class="kv"><dt>Pemilik</dt><dd>${f.owner}</dd></div>
+    <div class="kv"><dt>Diubah</dt><dd>${f.when}</dd></div>
+    <div class="kv"><dt>Folder</dt><dd>${folderName}</dd></div>
+    <div class="kv"><dt>Akses</dt><dd>${f.shared ? 'Tim Sakai Dasbor, 12 orang' : 'Hanya Anda dan pemilik'}</dd></div>
+  </dl>
+  <div class="cluster" style="--gap: 8px;">
+    <button class="btn btn--primary btn--md" type="button" data-act="download"><span class="ic" aria-hidden="true">download</span>Unduh</button>
+    <button type="button" class="btn btn--secondary btn--md" data-lds-copy="https://arsip.kotacontoh.example/s/${f.id}"><span class="swap" aria-hidden="true" style="width: 18px; height: 18px;"><span class="ic swap__a">link</span><span class="ic swap__b" style="color: var(--success-text);">check</span></span><span data-lds-copy-label="Tautan tersalin" aria-live="polite">Salin tautan</span></button>
+    <button class="btn btn--danger-tinted btn--md" type="button" data-act="delete"><span class="ic" aria-hidden="true">delete</span>Hapus</button>
+  </div>`;
+
+const grid = document.querySelector('[data-f-grid]');
+const listBox = document.querySelector('[data-f-list]');
+const tbody = listBox.querySelector('tbody');
+const none = document.querySelector('[data-f-none]');
+const countEl = document.querySelector('[data-f-count]');
+const titleEl = document.querySelector('[data-f-title]');
+const crumbs = document.querySelector('[data-f-crumbs]');
+const foldersSec = document.querySelector('[data-folders-sec]');
+const folderGrid = document.querySelector('[data-folder-grid]');
+const search = document.querySelector('[data-f-search]');
+const typeChips = document.querySelector('[data-f-types]');
+const clearBtn = document.querySelector('[data-f-clear]');
+let view = 'grid', sortBy = 'new', folder = null, types = new Set();
+const SORT_LABEL = { new: 'Terbaru', name: 'Nama', size: 'Terbesar' };
+const folderName = (id) => (FOLDERS.find((d) => d.id === id) || { name: 'Tanpa folder' }).name;
+
+const visible = () => {
+  const q = search.value.trim().toLowerCase();
+  let out = FILES.filter((f) => (!folder || f.folder === folder) && (!q || f.name.toLowerCase().includes(q)) && (!types.size || types.has(f.type) || (types.has('media') && (f.type === 'video' || f.type === 'audio'))));
+  out.sort(sortBy === 'name' ? (a, b) => a.name.localeCompare(b.name) : sortBy === 'size' ? (a, b) => b.kb - a.kb : (a, b) => (a.sort < b.sort ? 1 : -1));
+  return out;
+};
+const render = (stagger) => {
+  const vs = visible();
+  grid.innerHTML = vs.map(tile).join('');
+  tbody.innerHTML = vs.map(row).join('');
+  grid.hidden = view !== 'grid' || !vs.length; listBox.hidden = view !== 'list' || !vs.length; none.hidden = !!vs.length;
+  const filtered = search.value.trim() || types.size;
+  document.querySelector('[data-f-none-title]').textContent = filtered ? 'Tidak ada berkas yang cocok' : 'Folder ini kosong';
+  document.querySelector('[data-f-none-body]').textContent = filtered ? 'Periksa ejaannya, atau hapus pencarian dan filter jenis.' : 'Taruh berkas di kotak unggah untuk menambahkannya ke sini.';
+  document.querySelector('[data-f-reset]').hidden = !filtered;
+  clearBtn.hidden = !filtered;
+  countEl.textContent = `${vs.length} berkas${filtered ? ` dari ${FILES.filter((f) => !folder || f.folder === folder).length}` : ''}, ${{ new: 'terbaru dulu', name: 'menurut nama', size: 'terbesar dulu' }[sortBy]}`;
+  if (stagger) { grid.classList.remove('stagger'); void grid.offsetWidth; grid.classList.add('stagger'); }
+  init(grid); init(listBox); selectionRefresh(grid); selectionRefresh(listBox);
+};
+const renderFolders = () => {
+  folderGrid.innerHTML = FOLDERS.map((d) => { const fs = FILES.filter((f) => f.folder === d.id); return folderTile(d, fs.length, fs.reduce((a, f) => a + f.kb, 0)); }).join('');
+};
+const clearSelection = () => { [grid, listBox].forEach((b) => { b.querySelectorAll('input[data-lds-select]:checked, input[data-lds-select-all]').forEach((i) => { i.checked = false; }); b._selSync && b._selSync(); }); };
+
+search.addEventListener('input', () => render());
+typeChips.addEventListener('lds:change', (e) => { types = new Set(e.detail.selected); render(true); });
+const resetFilters = () => { search.value = ''; types = new Set(); typeChips.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false')); render(true); search.focus(); };
+clearBtn.addEventListener('click', resetFilters);
+document.querySelector('[data-f-reset]').addEventListener('click', resetFilters);
+document.getElementById('f-sort').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-sort]'); if (!b) return;
+  sortBy = b.dataset.sort;
+  document.querySelectorAll('#f-sort [data-sort]').forEach((x) => { const on = x === b; x.setAttribute('aria-checked', String(on)); x.classList.toggle('is-selected', on); });
+  morphText(document.querySelector('[data-f-sort-label]'), SORT_LABEL[sortBy]); render(true);
+});
+document.querySelector('[data-f-view]').addEventListener('lds:change', (e) => { view = e.detail.item.dataset.v; clearSelection(); render(true); });
+
+// Folders: open one to see only its files; the back button returns to recent files
+const openFolder = (id) => {
+  folder = id; clearSelection();
+  titleEl.textContent = folderName(id); crumbs.hidden = false; foldersSec.hidden = true;
+  document.querySelector('[data-f-target]').textContent = folderName(id);
+  render(true); titleEl.scrollIntoView({ block: 'nearest' }); announce(`${folderName(id)} dibuka`);
+};
+document.querySelector('[data-f-home]').addEventListener('click', () => { folder = null; titleEl.textContent = 'Berkas terbaru'; crumbs.hidden = true; foldersSec.hidden = false; document.querySelector('[data-f-target]').textContent = 'Berkas terbaru'; renderFolders(); render(true); });
+folderGrid.addEventListener('click', (e) => { const a = e.target.closest('[data-open-folder]'); if (a) { e.preventDefault(); openFolder(a.dataset.openFolder); } });
+
+// Preview drawer
+const pv = document.querySelector('[data-preview]');
+let previewing = null;
+const openPreview = (id, from) => {
+  const f = FILES.find((x) => x.id === id); if (!f) return;
+  previewing = f;
+  document.getElementById('preview-t').textContent = f.name;
+  pv.innerHTML = details(f, folderName(f.folder)); init(pv);
+  openLayer('preview', from);
+};
+document.querySelector('[data-f-views]').addEventListener('click', (e) => { const a = e.target.closest('[data-open]'); if (a) { e.preventDefault(); openPreview(a.dataset.open, a); } });
+
+// Delete with Undo: files go back where they were
+const removeFiles = (ids) => {
+  const gone = FILES.filter((f) => ids.includes(f.id));
+  FILES = FILES.filter((f) => !ids.includes(f.id));
+  clearSelection(); render(); if (!folder) renderFolders();
+  notify({ title: gone.length === 1 ? `${gone[0].name} dihapus` : `${gone.length} berkas dihapus`, icon: 'delete', action: 'Urungkan', onAction: () => { FILES = FILES.concat(gone); render(); if (!folder) renderFolders(); return { title: 'Dikembalikan', icon: 'undo' }; } });
+};
+pv.addEventListener('click', (e) => {
+  const a = e.target.closest('[data-act]'); if (!a || !previewing) return;
+  if (a.dataset.act === 'download') notify({ title: 'Unduhan dimulai', body: previewing.name, icon: 'download' });
+  if (a.dataset.act === 'play') notify({ title: `Memutar ${previewing.name}`, body: 'Pemutar terbuka di aplikasi lengkap.', icon: 'play_arrow' });
+  if (a.dataset.act === 'delete') { closeLayer('preview'); removeFiles([previewing.id]); }
+});
+
+// One menu for every file, moved to the button that asked for it
+const menu = document.getElementById('file-menu');
+let menuFor = null, menuBtn = null;
+const closeMenu = (focus) => { menu.classList.remove('is-open'); if (menuBtn) { menuBtn.setAttribute('aria-expanded', 'false'); if (focus) menuBtn.focus(); } menuBtn = null; };
+document.querySelector('[data-f-views]').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-file-menu]'); if (!b) return;
+  e.stopPropagation();
+  if (menuBtn === b && menu.classList.contains('is-open')) { closeMenu(); return; }
+  closeMenus(); closeMenu(); menuFor = b.dataset.fileMenu; menuBtn = b;
+  const r = b.getBoundingClientRect();
+  menu.style.left = 'auto'; menu.style.right = `${Math.max(8, innerWidth - r.right)}px`;
+  const below = r.bottom + 6 + 200 < innerHeight;
+  menu.style.top = below ? `${r.bottom + 6}px` : 'auto'; menu.style.bottom = below ? 'auto' : `${innerHeight - r.top + 6}px`;
+  menu.classList.toggle('is-flipped-y', !below); menu.classList.add('is-open'); b.setAttribute('aria-expanded', 'true');
+  setTimeout(() => menu.querySelector('.menu__item').focus(), 30);
+});
+document.addEventListener('click', (e) => { if (!menu.contains(e.target)) closeMenu(); });
+addEventListener('scroll', () => closeMenu(), { passive: true });
+menu.addEventListener('keydown', (e) => {
+  const items = [...menu.querySelectorAll('.menu__item')]; const i = items.indexOf(document.activeElement);
+  if (e.key === 'ArrowDown') { e.preventDefault(); items[(i + 1) % items.length].focus(); }
+  if (e.key === 'ArrowUp') { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+  if (e.key === 'Escape') { e.stopPropagation(); closeMenu(true); }
+});
+const dlg = document.getElementById('folder-dlg');
+const dform = document.getElementById('folder-form');
+let renaming = null;
+menu.addEventListener('click', (e) => {
+  const it = e.target.closest('[data-act]'); if (!it || !menuFor) return;
+  const id = menuFor, btn = menuBtn; closeMenu(); const f = FILES.find((x) => x.id === id);
+  if (it.dataset.act === 'preview') openPreview(id, btn);
+  if (it.dataset.act === 'download') notify({ title: 'Unduhan dimulai', body: f.name, icon: 'download' });
+  if (it.dataset.act === 'delete') removeFiles([id]);
+  if (it.dataset.act === 'rename') { renaming = f; document.getElementById('folder-dlg-t').textContent = 'Ganti nama berkas'; dform.querySelector('[data-fd-submit]').textContent = 'Ganti nama'; dform.elements.name.value = f.name; document.getElementById('fd-help').textContent = 'Pertahankan ekstensinya agar terbuka di aplikasi yang tepat.'; openModal(dlg); setTimeout(() => { const n = dform.elements.name; n.focus(); n.setSelectionRange(0, f.name.lastIndexOf('.') > 0 ? f.name.lastIndexOf('.') : f.name.length); }, 60); }
+});
+document.getElementById('files-bar').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-bulk]'); if (!b) return;
+  const box = view === 'grid' ? grid : listBox;
+  const ids = [...box.querySelectorAll('input[data-lds-select]:checked')].map((i) => i.closest('[data-id]').dataset.id);
+  if (!ids.length) return;
+  if (b.dataset.bulk === 'download') { notify({ title: `Mengunduh ${ids.length} berkas`, body: 'Sebagai satu berkas zip', icon: 'download' }); clearSelection(); }
+  if (b.dataset.bulk === 'delete') removeFiles(ids);
+});
+
+// New folder and rename share one small form; an empty or taken name is refused in place
+document.querySelector('[data-new-folder]').addEventListener('click', () => { renaming = null; document.getElementById('folder-dlg-t').textContent = 'Folder baru'; dform.querySelector('[data-fd-submit]').textContent = 'Buat folder'; document.getElementById('fd-help').textContent = 'Semua anggota tim dapat melihatnya.'; dform.reset(); });
+dform.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const n = dform.elements.name, v = n.value.trim(), c = n.closest('.control'), h = document.getElementById('fd-help');
+  const taken = renaming ? FILES.some((f) => f !== renaming && f.name.toLowerCase() === v.toLowerCase()) : FOLDERS.some((d) => d.name.toLowerCase() === v.toLowerCase());
+  if (!v || taken) { c.classList.add('is-invalid'); h.classList.add('field__help--error'); h.textContent = !v ? 'Beri nama.' : 'Nama itu sudah dipakai di sini. Pilih nama lain.'; shake(c); n.focus(); return; }
+  c.classList.remove('is-invalid'); h.classList.remove('field__help--error');
+  if (renaming) { const old = renaming.name; renaming.name = v; render(); closeModal(dlg); notify({ title: 'Nama diganti', body: `${old} sekarang ${v}`, icon: 'edit', action: 'Urungkan', onAction: () => { const f = FILES.find((x) => x.name === v); if (f) f.name = old; render(); return { title: 'Nama dikembalikan', icon: 'undo' }; } }); return; }
+  const id = `d${Date.now()}`; FOLDERS.unshift({ id, name: v }); renderFolders();
+  folderGrid.firstElementChild.classList.add('view-in');
+  closeModal(dlg, () => dform.reset());
+  notify({ title: `Folder ${v} dibuat`, icon: 'create_new_folder' });
+});
+dform.elements.name.addEventListener('input', () => { const c = dform.elements.name.closest('.control'); if (c.classList.contains('is-invalid')) { c.classList.remove('is-invalid'); const h = document.getElementById('fd-help'); h.classList.remove('field__help--error'); h.textContent = renaming ? 'Pertahankan ekstensinya agar terbuka di aplikasi yang tepat.' : 'Semua anggota tim dapat melihatnya.'; } });
+
+// Upload: real files from the picker or a drop become rows with progress; done files join the list
+const drop = document.querySelector('[data-f-drop]');
+const input = document.querySelector('[data-f-input]');
+const ups = document.querySelector('[data-f-uploads]');
+document.addEventListener('click', (e) => { if (e.target.closest('[data-upload]')) input.click(); });
+['dragenter', 'dragover'].forEach((t) => drop.addEventListener(t, (e) => { e.preventDefault(); drop.classList.add('is-over'); }));
+['dragleave', 'drop'].forEach((t) => drop.addEventListener(t, (e) => { e.preventDefault(); drop.classList.remove('is-over'); }));
+drop.addEventListener('drop', (e) => { if (e.dataTransfer && e.dataTransfer.files.length) upload([...e.dataTransfer.files]); });
+input.addEventListener('change', () => { if (input.files.length) upload([...input.files]); input.value = ''; });
+const typeOf = (name) => { const x = name.split('.').pop().toLowerCase(); return ['xls', 'xlsx', 'csv', 'numbers'].includes(x) ? 'sheet' : ['png', 'jpg', 'jpeg', 'gif', 'webp', 'svg', 'heic', 'fig'].includes(x) ? 'image' : ['mp4', 'mov', 'webm'].includes(x) ? 'video' : ['mp3', 'm4a', 'wav'].includes(x) ? 'audio' : ['zip', 'rar', '7z', 'gz'].includes(x) ? 'archive' : 'doc'; };
+const upload = async (list) => {
+  uploadReset(drop);
+  const rows = list.map((file) => {
+    const li = document.createElement('li'); li.className = 'file-row';
+    li.innerHTML = `<span class="file-row__icon"><span class="ic" aria-hidden="true">${TYPES[typeOf(file.name)][0]}</span></span><span class="file-row__body"><span class="file-row__name"></span><span class="file-row__meta">Menunggu</span><span class="progress progress--thin" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span class="progress__fill" style="transform: scaleX(0);"></span></span></span><button type="button" class="icon-btn" aria-label="Batalkan unggahan ${esc(file.name)}"><span class="ic" aria-hidden="true">close</span></button>`;
+    li.querySelector('.file-row__name').textContent = file.name;
+    li.querySelector('.progress').setAttribute('aria-label', `Mengunggah ${file.name}`);
+    ups.prepend(li);
+    const r = { file, li, kb: Math.max(1, file.size / 1024), done: 0, cancelled: false };
+    li.querySelector('.icon-btn').addEventListener('click', () => { r.cancelled = true; li.remove(); notify({ title: 'Unggahan dibatalkan', body: file.name, icon: 'close' }); });
+    return r;
+  });
+  notify({ title: `Mengunggah ${list.length} berkas`, body: `Ke ${folder ? folderName(folder) : 'Berkas terbaru'}`, icon: 'cloud_upload' });
+  const total = rows.reduce((a, r) => a + r.kb, 0);
+  // a steady pretend connection of about 6 MB a second, never faster than 1.2 s per file
+  await new Promise((resolve) => {
+    const step = () => {
+      let left = false, sent = 0;
+      rows.forEach((r) => {
+        if (r.cancelled) return;
+        if (r.done < r.kb) { r.done = Math.min(r.kb, r.done + Math.max(r.kb / 12, 6144 / 10)); left = true; }
+        const pct = Math.round((r.done / r.kb) * 100);
+        r.li.querySelector('.progress__fill').style.transform = `scaleX(${pct / 100})`;
+        r.li.querySelector('.progress').setAttribute('aria-valuenow', String(pct));
+        r.li.querySelector('.file-row__meta').textContent = pct >= 100 ? `${fmtSize(r.kb)} · Terunggah` : `${fmtSize(r.done)} dari ${fmtSize(r.kb)} · ${pct}%`;
+        sent += r.done;
+      });
+      uploadProgress(drop, Math.min(100, (sent / total) * 100));
+      if (left) setTimeout(step, 100); else resolve();
+    };
+    step();
+  });
+  const ok = rows.filter((r) => !r.cancelled);
+  ok.forEach((r, i) => { r.li.querySelector('.icon-btn').remove(); FILES.push({ id: `u${Date.now()}${i}`, name: r.file.name, type: typeOf(r.file.name), kb: r.kb, owner: 'Rina Wijayanti', when: 'Baru saja', sort: '2026-11-16T23:59', folder, shared: false, excerpt: 'Baru diunggah. Pratinjau siap sebentar lagi.', cols: ['Kolom', 'Nilai'], rows: [], inside: [], length: 'Sedang diproses' }); });
+  render(true); if (!folder) renderFolders();
+  if (ok.length) notify({ title: `${ok.length} berkas terunggah`, body: ok.map((r) => r.file.name).join(', '), icon: 'check_circle' });
+  setTimeout(() => uploadReset(drop), 2400);
+};
+</script>
