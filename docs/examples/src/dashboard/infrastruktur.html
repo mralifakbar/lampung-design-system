@@ -1,0 +1,389 @@
+---
+title: Infrastruktur dan aset
+description: Kondisi jalan per kecamatan, lampu jalan, perintah kerja perbaikan dan aset bangunan milik kota.
+---
+<template data-slot="actions">
+<button class="btn btn--secondary btn--md" type="button" data-export><span class="btn__label"><span class="ic" aria-hidden="true">download</span>Unduh rekap aset</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button>
+<button class="btn btn--primary btn--md" type="button" data-lds-modal="new-order"><span class="ic" aria-hidden="true">add</span>Buat perintah kerja</button>
+</template>
+
+<section aria-label="Angka utama" data-states>
+  <div class="dash-kpis" data-state-view="loaded" data-lds-grow>
+    <article class="kpi" aria-labelledby="kpi-road">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">route</span></span><span class="kpi__label" id="kpi-road">Jalan kota kondisi baik</span></div>
+      <div class="kpi__value">72,4%</div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--up delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>2,6 poin<span class="sr-only"> naik dari 69,8 persen akhir 2025</span></span><span>678 dari 936 km, dari 69,8% akhir 2025</span></div>
+      <svg class="kpi__spark" viewBox="0 0 240 52" preserveAspectRatio="none" role="img" aria-label="Persentase jalan kondisi baik per bulan selama setahun, naik dari 66 ke 72 persen"><path class="series-area" d="M0.0 46.0 L21.8 41.8 L43.6 37.6 L65.5 33.3 L87.3 28.5 L109.1 23.7 L130.9 21.9 L152.7 18.9 L174.5 16.4 L196.4 13.4 L218.2 10.4 L240.0 8.0 L240 52 L0 52 Z"></path><path class="series-line" d="M0.0 46.0 L21.8 41.8 L43.6 37.6 L65.5 33.3 L87.3 28.5 L109.1 23.7 L130.9 21.9 L152.7 18.9 L174.5 16.4 L196.4 13.4 L218.2 10.4 L240.0 8.0"></path></svg>
+    </article>
+    <article class="kpi" aria-labelledby="kpi-lamp">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">lightbulb</span></span><span class="kpi__label" id="kpi-lamp">Lampu jalan menyala tadi malam</span></div>
+      <div class="kpi__value">96,1%</div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--down delta--bad"><span class="ic" aria-hidden="true">arrow_upward</span>0,6 poin<span class="sr-only"> turun dari 96,7 persen minggu lalu</span></span><span>11.842 dari 12.320 titik</span></div>
+      
+    </article>
+    <article class="kpi" aria-labelledby="kpi-ord">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">assignment</span></span><span class="kpi__label" id="kpi-ord">Perintah kerja terbuka</span></div>
+      <div class="kpi__value"><span class="roll" data-lds-roll="38" data-ord-count></span></div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--down delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>5<span class="sr-only"> lebih sedikit dari minggu lalu</span></span><span>4 terlambat</span></div>
+      
+    </article>
+    <article class="kpi" aria-labelledby="kpi-days">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">schedule</span></span><span class="kpi__label" id="kpi-days">Rata-rata penyelesaian</span></div>
+      <div class="kpi__value">4,2<small> hari</small></div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--down delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>0,6 hari<span class="sr-only"> lebih cepat dari Oktober</span></span><span>lebih cepat dari Oktober, target 5 hari</span></div>
+      
+    </article>
+  </div>
+  <div class="dash-kpis" data-state-view="loading" role="status" aria-label="Memuat angka utama" hidden><div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div><div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div><div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div><div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div></div>
+  <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Angka utama tidak termuat</div><div class="alert__body">Basis data aset tidak menjawab tepat waktu. Tidak ada data yang hilang.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+</section>
+
+<div class="dash-grid">
+  <section class="chart-card dash-span-7" aria-labelledby="road-q" data-states>
+    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="road-q">Seberapa baik jalan di tiap kecamatan?</div><div class="chart-card__sub">Panjang jalan kota menurut kondisi, survei Oktober 2026</div></div></div>
+    <div class="stack" style="--gap: 14px;" data-state-view="loaded">
+      <div class="stack" style="--gap: 6px;"><span class="card__sub" style="margin: 0;">Kecamatan Utara · 142 km</span><div class="pbar" role="img" aria-label="Kecamatan Utara, 142 kilometer: 74 persen baik, 18 persen sedang, 8 persen rusak"><span style="flex-grow: 74; background: var(--series-1);"></span><span style="flex-grow: 18; background: var(--series-2);"></span><span style="flex-grow: 8; background: var(--series-4);"></span></div></div>
+      <div class="stack" style="--gap: 6px;"><span class="card__sub" style="margin: 0;">Kecamatan Tengah · 96 km</span><div class="pbar" role="img" aria-label="Kecamatan Tengah, 96 kilometer: 81 persen baik, 14 persen sedang, 5 persen rusak"><span style="flex-grow: 81; background: var(--series-1);"></span><span style="flex-grow: 14; background: var(--series-2);"></span><span style="flex-grow: 5; background: var(--series-4);"></span></div></div>
+      <div class="stack" style="--gap: 6px;"><span class="card__sub" style="margin: 0;">Kecamatan Selatan · 118 km</span><div class="pbar" role="img" aria-label="Kecamatan Selatan, 118 kilometer: 76 persen baik, 17 persen sedang, 7 persen rusak"><span style="flex-grow: 76; background: var(--series-1);"></span><span style="flex-grow: 17; background: var(--series-2);"></span><span style="flex-grow: 7; background: var(--series-4);"></span></div></div>
+      <div class="stack" style="--gap: 6px;"><span class="card__sub" style="margin: 0;">Kecamatan Timur · 131 km</span><div class="pbar" role="img" aria-label="Kecamatan Timur, 131 kilometer: 70 persen baik, 20 persen sedang, 10 persen rusak"><span style="flex-grow: 70; background: var(--series-1);"></span><span style="flex-grow: 20; background: var(--series-2);"></span><span style="flex-grow: 10; background: var(--series-4);"></span></div></div>
+      <div class="stack" style="--gap: 6px;"><span class="card__sub" style="margin: 0;">Kecamatan Barat · 104 km</span><div class="pbar" role="img" aria-label="Kecamatan Barat, 104 kilometer: 73 persen baik, 19 persen sedang, 8 persen rusak"><span style="flex-grow: 73; background: var(--series-1);"></span><span style="flex-grow: 19; background: var(--series-2);"></span><span style="flex-grow: 8; background: var(--series-4);"></span></div></div>
+      <div class="stack" style="--gap: 6px;"><span class="card__sub" style="margin: 0;">Kecamatan Pesisir · 87 km</span><div class="pbar" role="img" aria-label="Kecamatan Pesisir, 87 kilometer: 58 persen baik, 26 persen sedang, 16 persen rusak"><span style="flex-grow: 58; background: var(--series-1);"></span><span style="flex-grow: 26; background: var(--series-2);"></span><span style="flex-grow: 16; background: var(--series-4);"></span></div></div>
+      <div class="stack" style="--gap: 6px;"><span class="card__sub" style="margin: 0;">Kecamatan Bukit · 112 km</span><div class="pbar" role="img" aria-label="Kecamatan Bukit, 112 kilometer: 61 persen baik, 25 persen sedang, 14 persen rusak"><span style="flex-grow: 61; background: var(--series-1);"></span><span style="flex-grow: 25; background: var(--series-2);"></span><span style="flex-grow: 14; background: var(--series-4);"></span></div></div>
+      <div class="stack" style="--gap: 6px;"><span class="card__sub" style="margin: 0;">Kecamatan Teluk · 64 km</span><div class="pbar" role="img" aria-label="Kecamatan Teluk, 64 kilometer: 66 persen baik, 22 persen sedang, 12 persen rusak"><span style="flex-grow: 66; background: var(--series-1);"></span><span style="flex-grow: 22; background: var(--series-2);"></span><span style="flex-grow: 12; background: var(--series-4);"></span></div></div>
+      <div class="stack" style="--gap: 6px;"><span class="card__sub" style="margin: 0;">Kecamatan Sukarame Baru · 78 km</span><div class="pbar" role="img" aria-label="Kecamatan Sukarame Baru, 78 kilometer: 79 persen baik, 15 persen sedang, 6 persen rusak"><span style="flex-grow: 79; background: var(--series-1);"></span><span style="flex-grow: 15; background: var(--series-2);"></span><span style="flex-grow: 6; background: var(--series-4);"></span></div></div>
+      <div class="legend"><span><i style="background: var(--series-1);"></i>Baik</span><span><i style="background: var(--series-2);"></i>Sedang</span><span><i style="background: var(--series-4);"></i>Rusak</span></div>
+    </div>
+    <div class="stack" style="--gap: 18px; padding: 8px 0;" data-state-view="loading" role="status" aria-label="Memuat kondisi jalan" hidden><div class="skel" style="height: 14px; width: 100%;"></div><div class="skel" style="height: 14px; width: 86%;"></div><div class="skel" style="height: 14px; width: 72%;"></div><div class="skel" style="height: 14px; width: 58%;"></div><div class="skel" style="height: 14px; width: 44%;"></div><div class="skel" style="height: 14px; width: 30%;"></div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Kondisi jalan tidak termuat</div><div class="alert__body">Data survei jalan tidak menjawab.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    <div class="chart-card__foot"><span>Pesisir dan Bukit paling banyak rusak</span><span>Survei berikutnya April 2027</span></div>
+  </section>
+
+  <section class="chart-card dash-span-5" aria-labelledby="tgt-q" data-states>
+    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="tgt-q">Apakah target perbaikan 2026 tercapai?</div><div class="chart-card__sub">Penanda menunjukkan posisi yang seharusnya per hari ini</div></div></div>
+    <div class="target-list" data-lds-grow data-state-view="loaded">
+      <div class="target target--warning" style="--v: 74%; --t: 87.5%;">
+        <div class="target__meta"><span class="target__label">Perbaikan jalan</span><span class="target__val"><b>38,6 km</b> dari 52 km</span></div>
+        <div class="target__track" role="img" aria-label="Perbaikan jalan 38,6 dari 52 kilometer, di belakang laju yang seharusnya 45,5 kilometer"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Laju</span></span></div>
+        <div class="target__foot"><span>Tertinggal 6,9 km</span><span>45 hari lagi</span></div>
+      </div>
+      <div class="target target--warning" style="--v: 71.3%; --t: 87.5%;">
+        <div class="target__meta"><span class="target__label">Lampu jalan LED baru</span><span class="target__val"><b>2.140</b> dari 3.000 titik</span></div>
+        <div class="target__track" role="img" aria-label="Lampu LED baru 2.140 dari 3.000 titik, di belakang laju 2.625"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Laju</span></span></div>
+        <div class="target__foot"><span>Tertinggal 485 titik</span><span>Pengadaan tahap 3 tiba Desember</span></div>
+      </div>
+      <div class="target target--success" style="--v: 92%; --t: 87.5%;">
+        <div class="target__meta"><span class="target__label">Normalisasi drainase</span><span class="target__val"><b>13,8 km</b> dari 15 km</span></div>
+        <div class="target__track" role="img" aria-label="Normalisasi drainase 13,8 dari 15 kilometer, di depan laju"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Laju</span></span></div>
+        <div class="target__foot"><span>Di depan laju</span><span>45 hari lagi</span></div>
+      </div>
+      <div class="target target--success" style="--v: 90%; --t: 87.5%;">
+        <div class="target__meta"><span class="target__label">Trotoar baru</span><span class="target__val"><b>7,2 km</b> dari 8 km</span></div>
+        <div class="target__track" role="img" aria-label="Trotoar baru 7,2 dari 8 kilometer, sesuai laju"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Laju</span></span></div>
+        <div class="target__foot"><span>Sesuai laju</span><span>45 hari lagi</span></div>
+      </div>
+    </div>
+    <div class="stack" style="--gap: 18px; padding: 8px 0;" data-state-view="loading" role="status" aria-label="Memuat target perbaikan" hidden><div class="skel" style="height: 14px; width: 100%;"></div><div class="skel" style="height: 14px; width: 86%;"></div><div class="skel" style="height: 14px; width: 72%;"></div><div class="skel" style="height: 14px; width: 58%;"></div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Target tidak termuat</div><div class="alert__body">Data rencana kerja tidak menjawab.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+  </section>
+</div>
+
+<div class="dash-grid">
+  <section class="chart-card dash-span-8" aria-labelledby="lamp-q" data-states>
+    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="lamp-q">Apakah lampu jalan menyala tiap malam?</div><div class="chart-card__sub">Status tiap panel lampu jalan, 30 malam terakhir</div></div></div>
+    <div class="stack" style="--gap: 24px;" data-state-view="loaded">
+    <div class="uptime-box">
+      <div class="cluster" style="justify-content: space-between; --gap: 8px;"><span class="status status--ok"><i aria-hidden="true"></i>Panel Kecamatan Utara, 1.480 titik</span><span class="section__sub">100% malam normal</span></div>
+      <div class="uptime" data-lds-uptime tabindex="0" role="img" aria-label="Panel Kecamatan Utara, 1.480 titik, 30 hari terakhir: 100% malam normal. Tombol panah membacakan tiap hari."><i class="is-ok" data-label="Malam Min, 18 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 19 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 20 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 21 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 22 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 23 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sab, 24 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Min, 25 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 26 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 27 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 28 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 29 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 30 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sab, 31 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Min, 1 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 2 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 3 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 4 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 5 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 6 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sab, 7 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Min, 8 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 9 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 10 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 11 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 12 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 13 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sab, 14 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Min, 15 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 16 Nov: menyala normal"></i></div>
+      <div class="uptime__axis" aria-hidden="true"><span><span class="uptime__long">30 hari lalu</span><span class="uptime__short">10 hari lalu</span></span><span>Hari ini</span></div>
+      <div class="uptime__now">Menyala 98% tadi malam</div>
+    </div>
+    <div class="uptime-box">
+      <div class="cluster" style="justify-content: space-between; --gap: 8px;"><span class="status status--ok"><i aria-hidden="true"></i>Panel Kecamatan Tengah, 1.920 titik</span><span class="section__sub">100% malam normal</span></div>
+      <div class="uptime" data-lds-uptime tabindex="0" role="img" aria-label="Panel Kecamatan Tengah, 1.920 titik, 30 hari terakhir: 100% malam normal. Tombol panah membacakan tiap hari."><i class="is-ok" data-label="Malam Min, 18 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 19 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 20 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 21 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 22 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 23 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sab, 24 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Min, 25 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 26 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 27 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 28 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 29 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 30 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sab, 31 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Min, 1 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 2 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 3 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 4 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 5 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 6 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sab, 7 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Min, 8 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 9 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 10 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 11 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 12 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 13 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sab, 14 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Min, 15 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 16 Nov: menyala normal"></i></div>
+      <div class="uptime__axis" aria-hidden="true"><span><span class="uptime__long">30 hari lalu</span><span class="uptime__short">10 hari lalu</span></span><span>Hari ini</span></div>
+      <div class="uptime__now">Menyala 99% tadi malam</div>
+    </div>
+    <div class="uptime-box">
+      <div class="cluster" style="justify-content: space-between; --gap: 8px;"><span class="status status--ok"><i aria-hidden="true"></i>Panel Kecamatan Timur, 1.350 titik</span><span class="section__sub">93% malam normal</span></div>
+      <div class="uptime" data-lds-uptime tabindex="0" role="img" aria-label="Panel Kecamatan Timur, 1.350 titik, 30 hari terakhir: 93% malam normal. Tombol panah membacakan tiap hari."><i class="is-ok" data-label="Malam Min, 18 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 19 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 20 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 21 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 22 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 23 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sab, 24 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Min, 25 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 26 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 27 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 28 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 29 Okt: menyala normal"></i><i class="is-warn" data-label="Malam Jum, 30 Okt: sebagian titik mati"></i><i class="is-ok" data-label="Malam Sab, 31 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Min, 1 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 2 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 3 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 4 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 5 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 6 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sab, 7 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Min, 8 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 9 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 10 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 11 Nov: menyala normal"></i><i class="is-warn" data-label="Malam Kam, 12 Nov: sebagian titik mati"></i><i class="is-ok" data-label="Malam Jum, 13 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sab, 14 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Min, 15 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 16 Nov: menyala normal"></i></div>
+      <div class="uptime__axis" aria-hidden="true"><span><span class="uptime__long">30 hari lalu</span><span class="uptime__short">10 hari lalu</span></span><span>Hari ini</span></div>
+      <div class="uptime__now">Menyala 95% tadi malam</div>
+    </div>
+    <div class="uptime-box">
+      <div class="cluster" style="justify-content: space-between; --gap: 8px;"><span class="status status--down"><i aria-hidden="true"></i>Panel Kecamatan Pesisir, 1.110 titik</span><span class="section__sub">80% malam normal</span></div>
+      <div class="uptime" data-lds-uptime tabindex="0" role="img" aria-label="Panel Kecamatan Pesisir, 1.110 titik, 30 hari terakhir: 80% malam normal. Tombol panah membacakan tiap hari."><i class="is-ok" data-label="Malam Min, 18 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 19 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 20 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 21 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 22 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 23 Okt: menyala normal"></i><i class="is-warn" data-label="Malam Sab, 24 Okt: sebagian titik mati"></i><i class="is-warn" data-label="Malam Min, 25 Okt: sebagian titik mati"></i><i class="is-ok" data-label="Malam Sen, 26 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 27 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 28 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 29 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 30 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sab, 31 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Min, 1 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 2 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 3 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 4 Nov: menyala normal"></i><i class="is-warn" data-label="Malam Kam, 5 Nov: sebagian titik mati"></i><i class="is-ok" data-label="Malam Jum, 6 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sab, 7 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Min, 8 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 9 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 10 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 11 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 12 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 13 Nov: menyala normal"></i><i class="is-down" data-label="Malam Sab, 14 Nov: lebih dari 10% titik mati"></i><i class="is-down" data-label="Malam Min, 15 Nov: lebih dari 10% titik mati"></i><i class="is-down" data-label="Malam Sen, 16 Nov: lebih dari 10% titik mati"></i></div>
+      <div class="uptime__axis" aria-hidden="true"><span><span class="uptime__long">30 hari lalu</span><span class="uptime__short">10 hari lalu</span></span><span>Hari ini</span></div>
+      <div class="uptime__now">168 titik mati, kabel dicuri di Jalan Raya Pesisir</div>
+    </div>
+    <div class="uptime-box">
+      <div class="cluster" style="justify-content: space-between; --gap: 8px;"><span class="status status--warn"><i aria-hidden="true"></i>Panel Kecamatan Bukit, 1.240 titik</span><span class="section__sub">90% malam normal</span></div>
+      <div class="uptime" data-lds-uptime tabindex="0" role="img" aria-label="Panel Kecamatan Bukit, 1.240 titik, 30 hari terakhir: 90% malam normal. Tombol panah membacakan tiap hari."><i class="is-ok" data-label="Malam Min, 18 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 19 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 20 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 21 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 22 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 23 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sab, 24 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Min, 25 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 26 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 27 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 28 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 29 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 30 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Sab, 31 Okt: menyala normal"></i><i class="is-ok" data-label="Malam Min, 1 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 2 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sel, 3 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 4 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 5 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 6 Nov: menyala normal"></i><i class="is-warn" data-label="Malam Sab, 7 Nov: sebagian titik mati"></i><i class="is-warn" data-label="Malam Min, 8 Nov: sebagian titik mati"></i><i class="is-warn" data-label="Malam Sen, 9 Nov: sebagian titik mati"></i><i class="is-ok" data-label="Malam Sel, 10 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Rab, 11 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Kam, 12 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Jum, 13 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sab, 14 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Min, 15 Nov: menyala normal"></i><i class="is-ok" data-label="Malam Sen, 16 Nov: menyala normal"></i></div>
+      <div class="uptime__axis" aria-hidden="true"><span><span class="uptime__long">30 hari lalu</span><span class="uptime__short">10 hari lalu</span></span><span>Hari ini</span></div>
+      <div class="uptime__now">94 titik mati, panel terendam</div>
+    </div>
+    </div>
+    <div class="stack" style="--gap: 32px; padding-top: 8px;" data-state-view="loading" role="status" aria-label="Memuat status lampu" hidden><div class="stack" style="--gap: 10px;"><div class="skel" style="height: 14px; width: 30%;"></div><div class="skel" style="height: 32px;"></div></div><div class="stack" style="--gap: 10px;"><div class="skel" style="height: 14px; width: 30%;"></div><div class="skel" style="height: 32px;"></div></div><div class="stack" style="--gap: 10px;"><div class="skel" style="height: 14px; width: 30%;"></div><div class="skel" style="height: 32px;"></div></div><div class="stack" style="--gap: 10px;"><div class="skel" style="height: 14px; width: 30%;"></div><div class="skel" style="height: 32px;"></div></div><div class="stack" style="--gap: 10px;"><div class="skel" style="height: 14px; width: 30%;"></div><div class="skel" style="height: 32px;"></div></div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Status lampu tidak termuat</div><div class="alert__body">Meteran pintar panel belum mengirim data malam ini.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    <div class="chart-card__foot"><span>Dari meteran pintar di tiap panel</span><span>Dibaca pukul 05.00</span></div>
+  </section>
+
+  <section class="chart-card dash-span-4" aria-labelledby="dark-q" data-states>
+    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="dark-q">Di mana paling banyak lampu mati?</div><div class="chart-card__sub">Titik lampu jalan mati tadi malam per kecamatan</div></div></div>
+    <div data-state-view="loaded">
+      <div class="hbars" role="list" data-lds-grow aria-label="Titik lampu mati per kecamatan">
+        <div role="listitem" class="hbar is-top"><span class="hbar__label"><span>Pesisir</span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 100%;"></span></span><span class="hbar__val">168 titik</span></div>
+        <div role="listitem" class="hbar"><span class="hbar__label"><span>Bukit</span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 56%;"></span></span><span class="hbar__val">94 titik</span></div>
+        <div role="listitem" class="hbar"><span class="hbar__label"><span>Timur</span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 42%;"></span></span><span class="hbar__val">71 titik</span></div>
+        <div role="listitem" class="hbar"><span class="hbar__label"><span>Utara</span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 33%;"></span></span><span class="hbar__val">55 titik</span></div>
+        <div role="listitem" class="hbar"><span class="hbar__label"><span>Teluk</span></span><span class="hbar__track"><span class="hbar__fill" style="--v: 25%;"></span></span><span class="hbar__val">42 titik</span></div>
+      </div>
+    </div>
+    <div class="stack" style="--gap: 18px; padding: 8px 0;" data-state-view="loading" role="status" aria-label="Memuat lampu mati" hidden><div class="skel" style="height: 14px; width: 100%;"></div><div class="skel" style="height: 14px; width: 86%;"></div><div class="skel" style="height: 14px; width: 72%;"></div><div class="skel" style="height: 14px; width: 58%;"></div><div class="skel" style="height: 14px; width: 44%;"></div></div>
+    <div class="empty" data-state-view="empty" hidden><div class="empty__icon"><span class="ic" aria-hidden="true">lightbulb</span></div><div class="empty__title">Semua lampu menyala</div><div class="empty__body">Tidak ada titik mati tadi malam.</div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Data lampu tidak termuat</div><div class="alert__body">Coba lagi sebentar lagi.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    <div class="chart-card__foot"><span>478 titik mati di seluruh kota</span></div>
+  </section>
+</div>
+
+<section class="stack" style="--gap: 16px;" aria-labelledby="ord-title">
+  <div class="cluster" style="justify-content: space-between; --gap: 12px;"><div class="section__head"><h2 class="section__title-sm" id="ord-title">Perintah kerja</h2><p class="section__sub">Pekerjaan perbaikan yang sedang berjalan, terlambat dulu.</p></div></div>
+  <div class="dtable" id="orders" data-lds-table="orders" data-page-size="8" data-noun="perintah kerja" data-states>
+    <div class="dtable__bar">
+      <div class="control search dtable__search"><span class="ic" aria-hidden="true">search</span><input type="search" data-lds-table-search placeholder="Cari nomor, pekerjaan atau lokasi" aria-label="Cari perintah kerja"></div>
+      <div class="chip-row" data-lds-chips data-lds-table-filter="kind" role="group" aria-label="Jenis">
+        <button class="chip" type="button" value="jalan"><span class="ic chip__check" aria-hidden="true">check</span>Jalan</button>
+        <button class="chip" type="button" value="lampu"><span class="ic chip__check" aria-hidden="true">check</span>Lampu jalan</button>
+        <button class="chip" type="button" value="drainase"><span class="ic chip__check" aria-hidden="true">check</span>Drainase</button>
+        <button class="chip" type="button" value="bangunan"><span class="ic chip__check" aria-hidden="true">check</span>Bangunan</button>
+      </div>
+      <div class="dtable__tools">
+        <button class="btn btn--plain btn--md" type="button" data-lds-table-reset hidden>Hapus filter</button>
+        <div class="tip-host">
+          <button class="btn btn--secondary btn--md" type="button" data-lds-menu="f-status" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">filter_list</span>Status<span class="dtable__filter-count" data-lds-table-filter-count="status" hidden>0</span></button>
+          <div class="menu menu--right" id="f-status" role="menu" aria-label="Saring menurut status" style="top: calc(100% + 6px); right: 0;">
+            <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="status" data-value="late">Terlambat<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="status" data-value="new">Baru<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="status" data-value="work">Dikerjakan<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="status" data-value="done">Selesai<span class="ic menu__check" aria-hidden="true">check</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="table-box" tabindex="0" aria-label="Perintah kerja, bisa digeser ke samping">
+      <table class="table">
+        <thead><tr>
+          <th data-col="job"><button type="button">Pekerjaan<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+          <th data-col="kind">Jenis</th>
+          <th data-col="prio"><button type="button">Prioritas<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+          <th data-col="due" aria-sort="ascending"><button type="button">Tenggat<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+          <th data-col="status"><button type="button">Status<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+          <th class="dtable__actions"><span class="sr-only">Tindakan</span></th>
+        </tr></thead>
+        <tbody>
+          <tr data-id="PK-2612" data-kind="lampu" data-status="new">
+            <td data-sort="Ganti 24 lampu jalan yang mati"><span class="dtable__user"><span><b>Ganti 24 lampu jalan yang mati</b><small>PK-2612 · Jalan Raya Pesisir, Kecamatan Pesisir</small></span></span></td>
+            <td><span class="cluster" style="--gap: 6px;"><span class="ic" aria-hidden="true">lightbulb</span>Lampu jalan</span></td>
+            <td data-sort="0"><span class="badge badge--danger">Tinggi</span></td>
+            <td data-sort="2026-11-17">17 Nov</td>
+            <td data-sort="1" data-status-cell><span class="badge badge--accent">Baru</span></td>
+            <td class="dtable__actions" data-act-cell><button class="btn btn--secondary btn--sm" type="button" data-act="assign" aria-label="Tugaskan regu untuk Ganti 24 lampu jalan yang mati"><span class="btn__label">Tugaskan regu</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></td>
+          </tr>
+          <tr data-id="PK-2614" data-kind="drainase" data-status="new">
+            <td data-sort="Pasang tutup gorong-gorong yang hilang"><span class="dtable__user"><span><b>Pasang tutup gorong-gorong yang hilang</b><small>PK-2614 · Jalan Cempaka, Kecamatan Barat</small></span></span></td>
+            <td><span class="cluster" style="--gap: 6px;"><span class="ic" aria-hidden="true">water_drop</span>Drainase</span></td>
+            <td data-sort="0"><span class="badge badge--danger">Tinggi</span></td>
+            <td data-sort="2026-11-17">17 Nov</td>
+            <td data-sort="1" data-status-cell><span class="badge badge--accent">Baru</span></td>
+            <td class="dtable__actions" data-act-cell><button class="btn btn--secondary btn--sm" type="button" data-act="assign" aria-label="Tugaskan regu untuk Pasang tutup gorong-gorong yang hilang"><span class="btn__label">Tugaskan regu</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></td>
+          </tr>
+          <tr data-id="PK-2611" data-kind="jalan" data-status="work">
+            <td data-sort="Tambal 12 lubang jalan"><span class="dtable__user"><span><b>Tambal 12 lubang jalan</b><small>PK-2611 · Jalan Merpati km 2, Kecamatan Tengah</small></span></span></td>
+            <td><span class="cluster" style="--gap: 6px;"><span class="ic" aria-hidden="true">route</span>Jalan</span></td>
+            <td data-sort="0"><span class="badge badge--danger">Tinggi</span></td>
+            <td data-sort="2026-11-18">18 Nov</td>
+            <td data-sort="2" data-status-cell><span class="badge badge--warning">Dikerjakan</span></td>
+            <td class="dtable__actions" data-act-cell><button class="btn btn--plain btn--sm" type="button" data-act="done" aria-label="Tandai Tambal 12 lubang jalan selesai">Tandai selesai</button></td>
+          </tr>
+          <tr data-id="PK-2608" data-kind="drainase" data-status="work">
+            <td data-sort="Bersihkan saluran tersumbat"><span class="dtable__user"><span><b>Bersihkan saluran tersumbat</b><small>PK-2608 · Jalan Kenanga, Kecamatan Timur</small></span></span></td>
+            <td><span class="cluster" style="--gap: 6px;"><span class="ic" aria-hidden="true">water_drop</span>Drainase</span></td>
+            <td data-sort="1"><span class="badge badge--warning">Sedang</span></td>
+            <td data-sort="2026-11-20">20 Nov</td>
+            <td data-sort="2" data-status-cell><span class="badge badge--warning">Dikerjakan</span></td>
+            <td class="dtable__actions" data-act-cell><button class="btn btn--plain btn--sm" type="button" data-act="done" aria-label="Tandai Bersihkan saluran tersumbat selesai">Tandai selesai</button></td>
+          </tr>
+          <tr data-id="PK-2603" data-kind="bangunan" data-status="work">
+            <td data-sort="Perbaiki atap bocor"><span class="dtable__user"><span><b>Perbaiki atap bocor</b><small>PK-2603 · Gedung Serbaguna Sukamaju, Kecamatan Utara</small></span></span></td>
+            <td><span class="cluster" style="--gap: 6px;"><span class="ic" aria-hidden="true">apartment</span>Bangunan</span></td>
+            <td data-sort="1"><span class="badge badge--warning">Sedang</span></td>
+            <td data-sort="2026-11-25">25 Nov</td>
+            <td data-sort="2" data-status-cell><span class="badge badge--warning">Dikerjakan</span></td>
+            <td class="dtable__actions" data-act-cell><button class="btn btn--plain btn--sm" type="button" data-act="done" aria-label="Tandai Perbaiki atap bocor selesai">Tandai selesai</button></td>
+          </tr>
+          <tr data-id="PK-2598" data-kind="jalan" data-status="new">
+            <td data-sort="Cat ulang zebra cross"><span class="dtable__user"><span><b>Cat ulang zebra cross</b><small>PK-2598 · Depan SD Negeri 4, Kecamatan Timur</small></span></span></td>
+            <td><span class="cluster" style="--gap: 6px;"><span class="ic" aria-hidden="true">route</span>Jalan</span></td>
+            <td data-sort="2"><span class="badge">Rendah</span></td>
+            <td data-sort="2026-11-30">30 Nov</td>
+            <td data-sort="1" data-status-cell><span class="badge badge--accent">Baru</span></td>
+            <td class="dtable__actions" data-act-cell><button class="btn btn--secondary btn--sm" type="button" data-act="assign" aria-label="Tugaskan regu untuk Cat ulang zebra cross"><span class="btn__label">Tugaskan regu</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></td>
+          </tr>
+          <tr data-id="PK-2590" data-kind="lampu" data-status="work">
+            <td data-sort="Ganti panel listrik lampu taman"><span class="dtable__user"><span><b>Ganti panel listrik lampu taman</b><small>PK-2590 · Taman Kota, Kecamatan Tengah</small></span></span></td>
+            <td><span class="cluster" style="--gap: 6px;"><span class="ic" aria-hidden="true">lightbulb</span>Lampu jalan</span></td>
+            <td data-sort="1"><span class="badge badge--warning">Sedang</span></td>
+            <td data-sort="2026-11-19">19 Nov</td>
+            <td data-sort="2" data-status-cell><span class="badge badge--warning">Dikerjakan</span></td>
+            <td class="dtable__actions" data-act-cell><button class="btn btn--plain btn--sm" type="button" data-act="done" aria-label="Tandai Ganti panel listrik lampu taman selesai">Tandai selesai</button></td>
+          </tr>
+          <tr data-id="PK-2585" data-kind="jalan" data-status="late">
+            <td data-sort="Perbaiki trotoar amblas"><span class="dtable__user"><span><b>Perbaiki trotoar amblas</b><small>PK-2585 · Jalan Anggrek, Kecamatan Selatan</small></span></span></td>
+            <td><span class="cluster" style="--gap: 6px;"><span class="ic" aria-hidden="true">route</span>Jalan</span></td>
+            <td data-sort="1"><span class="badge badge--warning">Sedang</span></td>
+            <td data-sort="2026-11-14">14 Nov</td>
+            <td data-sort="0" data-status-cell><span class="badge badge--danger">Terlambat</span></td>
+            <td class="dtable__actions" data-act-cell><button class="btn btn--plain btn--sm" type="button" data-act="done" aria-label="Tandai Perbaiki trotoar amblas selesai">Tandai selesai</button></td>
+          </tr>
+          <tr data-id="PK-2580" data-kind="bangunan" data-status="new">
+            <td data-sort="Perbaiki pagar pasar"><span class="dtable__user"><span><b>Perbaiki pagar pasar</b><small>PK-2580 · Pasar Mekarsari, Kecamatan Barat</small></span></span></td>
+            <td><span class="cluster" style="--gap: 6px;"><span class="ic" aria-hidden="true">apartment</span>Bangunan</span></td>
+            <td data-sort="2"><span class="badge">Rendah</span></td>
+            <td data-sort="2026-11-28">28 Nov</td>
+            <td data-sort="1" data-status-cell><span class="badge badge--accent">Baru</span></td>
+            <td class="dtable__actions" data-act-cell><button class="btn btn--secondary btn--sm" type="button" data-act="assign" aria-label="Tugaskan regu untuk Perbaiki pagar pasar"><span class="btn__label">Tugaskan regu</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></td>
+          </tr>
+          <tr data-id="PK-2566" data-kind="drainase" data-status="late">
+            <td data-sort="Keruk drainase"><span class="dtable__user"><span><b>Keruk drainase</b><small>PK-2566 · Kampung Nelayan, Kecamatan Pesisir</small></span></span></td>
+            <td><span class="cluster" style="--gap: 6px;"><span class="ic" aria-hidden="true">water_drop</span>Drainase</span></td>
+            <td data-sort="0"><span class="badge badge--danger">Tinggi</span></td>
+            <td data-sort="2026-11-15">15 Nov</td>
+            <td data-sort="0" data-status-cell><span class="badge badge--danger">Terlambat</span></td>
+            <td class="dtable__actions" data-act-cell><button class="btn btn--plain btn--sm" type="button" data-act="done" aria-label="Tandai Keruk drainase selesai">Tandai selesai</button></td>
+          </tr>
+          <tr data-id="PK-2577" data-kind="jalan" data-status="done">
+            <td data-sort="Tambal jalan berlubang"><span class="dtable__user"><span><b>Tambal jalan berlubang</b><small>PK-2577 · Jalan Lingkar Timur, Kecamatan Timur</small></span></span></td>
+            <td><span class="cluster" style="--gap: 6px;"><span class="ic" aria-hidden="true">route</span>Jalan</span></td>
+            <td data-sort="0"><span class="badge badge--danger">Tinggi</span></td>
+            <td data-sort="2026-11-12">12 Nov</td>
+            <td data-sort="3" data-status-cell><span class="badge badge--success">Selesai</span></td>
+            <td class="dtable__actions" data-act-cell></td>
+          </tr>
+          <tr data-id="PK-2571" data-kind="lampu" data-status="done">
+            <td data-sort="Ganti 8 lampu jalan"><span class="dtable__user"><span><b>Ganti 8 lampu jalan</b><small>PK-2571 · Jalan Stadion, Kecamatan Bukit</small></span></span></td>
+            <td><span class="cluster" style="--gap: 6px;"><span class="ic" aria-hidden="true">lightbulb</span>Lampu jalan</span></td>
+            <td data-sort="1"><span class="badge badge--warning">Sedang</span></td>
+            <td data-sort="2026-11-13">13 Nov</td>
+            <td data-sort="3" data-status-cell><span class="badge badge--success">Selesai</span></td>
+            <td class="dtable__actions" data-act-cell></td>
+          </tr>
+          <tr class="dtable__empty" hidden><td colspan="6"><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">filter_list</span></div><div class="empty__title">Tidak ada perintah kerja yang cocok</div><div class="empty__body">Periksa nomor atau lokasi, atau hapus filter.</div><button class="btn btn--secondary btn--md" type="button" data-lds-table-reset>Hapus filter</button></div></td></tr>
+          <tr class="dtable__state" data-state="loading" hidden><td colspan="6"><div class="stack" style="--gap: 14px; padding: 8px 0;"><div class="skel" style="height: 14px; width: 70%;"></div><div class="skel" style="height: 14px; width: 55%;"></div><div class="skel" style="height: 14px; width: 62%;"></div><div class="skel" style="height: 14px; width: 48%;"></div></div></td></tr>
+          <tr class="dtable__state" data-state="empty" hidden><td colspan="6"><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">assignment</span></div><div class="empty__title">Tidak ada perintah kerja terbuka</div><div class="empty__body">Buat perintah kerja dari laporan warga atau hasil inspeksi.</div><button class="btn btn--primary btn--md" type="button" data-lds-modal="new-order">Buat perintah kerja</button></div></td></tr>
+          <tr class="dtable__state" data-state="error" hidden><td colspan="6"><div class="alert alert--danger" role="alert"><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Perintah kerja tidak termuat</div><div class="alert__body">Layanan pemeliharaan tidak menjawab. Regu di lapangan tetap bekerja.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="dtable__foot"><span class="dtable__info" data-lds-table-info aria-live="polite"></span><nav aria-label="Halaman tabel"><div class="pager" data-lds-table-pager></div></nav></div>
+  </div>
+</section>
+
+<section class="stack" style="--gap: 16px;" aria-labelledby="asset-title" data-states>
+  <div class="cluster" style="justify-content: space-between; --gap: 12px;"><div class="section__head"><h2 class="section__title-sm" id="asset-title">Aset bangunan</h2><p class="section__sub">6 dari 214 bangunan milik kota, yang paling lama belum diperiksa di atas.</p></div><button class="btn btn--plain btn--sm" type="button" data-inspect><span class="ic" aria-hidden="true">event</span>Jadwalkan pemeriksaan</button></div>
+  <div class="table-box" tabindex="0" aria-label="Aset bangunan, bisa digeser ke samping" data-state-view="loaded">
+    <table class="table" data-lds-sort>
+      <thead><tr><th aria-sort="none"><button type="button">Bangunan<span class="ic" aria-hidden="true">arrow_upward</span></button></th><th>Kecamatan</th><th class="num" aria-sort="none"><button type="button">Luas<span class="ic" aria-hidden="true">arrow_upward</span></button></th><th aria-sort="none"><button type="button">Kondisi<span class="ic" aria-hidden="true">arrow_upward</span></button></th><th aria-sort="ascending"><button type="button" class="is-sorted">Diperiksa<span class="ic" aria-hidden="true">arrow_upward</span></button></th></tr></thead>
+      <tbody>
+        <tr><td><b>Gelanggang Olahraga Kota</b></td><td>Kecamatan Bukit</td><td class="num" data-sort="6300">6.300 m²</td><td data-sort="Rusak ringan"><span class="badge badge--warning">Rusak ringan</span></td><td data-sort="2026-07-30">30 Jul 2026</td></tr>
+        <tr><td><b>Kantor Kecamatan Pesisir</b></td><td>Kecamatan Pesisir</td><td class="num" data-sort="960">960 m²</td><td data-sort="Rusak sedang"><span class="badge badge--danger">Rusak sedang</span></td><td data-sort="2026-08-21">21 Agu 2026</td></tr>
+        <tr><td><b>Pasar Mekarsari</b></td><td>Kecamatan Barat</td><td class="num" data-sort="4800">4.800 m²</td><td data-sort="Baik"><span class="badge badge--success">Baik</span></td><td data-sort="2026-09-15">15 Sep 2026</td></tr>
+        <tr><td><b>Gedung Serbaguna Sukamaju</b></td><td>Kecamatan Utara</td><td class="num" data-sort="1250">1.250 m²</td><td data-sort="Rusak ringan"><span class="badge badge--warning">Rusak ringan</span></td><td data-sort="2026-10-02">2 Okt 2026</td></tr>
+        <tr><td><b>Puskesmas Sukajaya</b></td><td>Kecamatan Tengah</td><td class="num" data-sort="1420">1.420 m²</td><td data-sort="Baik"><span class="badge badge--success">Baik</span></td><td data-sort="2026-10-28">28 Okt 2026</td></tr>
+        <tr><td><b>Perpustakaan Kota</b></td><td>Kecamatan Tengah</td><td class="num" data-sort="2100">2.100 m²</td><td data-sort="Baik"><span class="badge badge--success">Baik</span></td><td data-sort="2026-11-03">3 Nov 2026</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="stack" style="--gap: 14px; padding: 8px 0;" data-state-view="loading" role="status" aria-label="Memuat aset" hidden><div class="skel" style="height: 14px; width: 70%;"></div><div class="skel" style="height: 14px; width: 55%;"></div><div class="skel" style="height: 14px; width: 62%;"></div></div>
+  <div class="list list--fill" data-state-view="empty" hidden><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">apartment</span></div><div class="empty__title">Belum ada aset tercatat</div><div class="empty__body">Aset bangunan muncul di sini setelah diinventarisasi.</div></div></div>
+  <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Aset tidak termuat</div><div class="alert__body">Basis data aset tidak menjawab.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+</section>
+
+<dialog class="modal" id="new-order" aria-labelledby="new-order-t">
+  <button class="icon-btn dialog__close" type="button" data-lds-modal-close aria-label="Tutup"><span class="ic" aria-hidden="true">close</span></button>
+  <h2 class="dialog__title" id="new-order-t">Buat perintah kerja</h2>
+  <p class="dialog__body">Perintah kerja masuk ke daftar dengan status Baru, lalu bisa ditugaskan ke regu.</p>
+  <form class="form" id="order-form" novalidate style="margin-top: 16px;">
+    <div class="field">
+      <span class="field__label" id="no-kind">Jenis</span>
+      <div class="seg" role="group" aria-labelledby="no-kind" data-lds-segmented data-no-kind><span class="seg__thumb"></span><button type="button" class="seg__btn" aria-pressed="true" data-v="jalan">Jalan</button><button type="button" class="seg__btn" aria-pressed="false" data-v="lampu">Lampu</button><button type="button" class="seg__btn" aria-pressed="false" data-v="drainase">Drainase</button><button type="button" class="seg__btn" aria-pressed="false" data-v="bangunan">Bangunan</button></div>
+    </div>
+    <div class="field"><label class="field__label" for="no-job">Pekerjaan</label><div class="control"><input id="no-job" name="job" placeholder="Tambal 6 lubang jalan" autocomplete="off"></div><span class="field__help" id="no-job-help">Apa yang harus dikerjakan, dengan jumlahnya.</span></div>
+    <div class="field"><label class="field__label" for="no-where">Lokasi</label><div class="control"><input id="no-where" name="where" placeholder="Jalan Melati, Kecamatan Tengah" autocomplete="off"></div></div>
+    <div class="field">
+      <span class="field__label" id="no-pr">Prioritas</span>
+      <div class="seg" role="group" aria-labelledby="no-pr" data-lds-segmented data-no-pr><span class="seg__thumb"></span><button type="button" class="seg__btn" aria-pressed="false" data-v="rendah">Rendah</button><button type="button" class="seg__btn" aria-pressed="true" data-v="sedang">Sedang</button><button type="button" class="seg__btn" aria-pressed="false" data-v="tinggi">Tinggi</button></div>
+    </div>
+    <div class="dialog__actions"><button class="btn btn--secondary" type="button" data-lds-modal-close>Batal</button><button class="btn btn--primary" type="submit"><span class="btn__label">Buat perintah kerja</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></div>
+  </form>
+</dialog>
+
+<script type="module">
+import { setLoading, shake, closeModal, tableRefresh, tableState, setRoll } from '../../../js/lds.js';
+import { notify, delay } from './dashboard.js';
+
+const KIND = {"jalan":["Jalan","route"],"lampu":["Lampu jalan","lightbulb"],"drainase":["Drainase","water_drop"],"bangunan":["Bangunan","apartment"]};
+const PRI = {"tinggi":["Tinggi","danger",0],"sedang":["Sedang","warning",1],"rendah":["Rendah","",2]};
+const OST = {"late":["Terlambat","danger",0],"new":["Baru","accent",1],"work":["Dikerjakan","warning",2],"done":["Selesai","success",3]};
+const SPIN = '<span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span>';
+const badge = ([t, tone]) => `<span class="badge${tone ? ' badge--' + tone : ''}">${t}</span>`;
+const actBtn = (s, n) => s === 'new' ? `<button class="btn btn--secondary btn--sm" type="button" data-act="assign" aria-label="Tugaskan regu untuk ${n}"><span class="btn__label">Tugaskan regu</span>${SPIN}</button>` : s === 'work' || s === 'late' ? `<button class="btn btn--plain btn--sm" type="button" data-act="done" aria-label="Tandai ${n} selesai">Tandai selesai</button>` : '';
+
+const table = document.getElementById('orders');
+const tbody = table.querySelector('tbody');
+const count = document.querySelector('[data-ord-count]');
+let open = 38;
+const setStatus = (tr, s) => {
+  tr.dataset.status = s;
+  const c = tr.querySelector('[data-status-cell]'); c.dataset.sort = OST[s][2]; c.innerHTML = badge(OST[s]);
+  tr.querySelector('[data-act-cell]').innerHTML = actBtn(s, tr.querySelector('b').textContent);
+  tableRefresh(table);
+};
+tbody.addEventListener('click', async (e) => {
+  const b = e.target.closest('[data-act]'); if (!b) return;
+  const tr = b.closest('tr'), job = tr.querySelector('b').textContent;
+  if (b.dataset.act === 'assign') { setLoading(b, true); await delay(900); setStatus(tr, 'work'); notify({ title: 'Regu ditugaskan', body: `${job}. Regu menerima tugas di aplikasi lapangan.`, icon: 'check_circle' }); }
+  if (b.dataset.act === 'done') {
+    const was = tr.dataset.status; setStatus(tr, 'done'); setRoll(count, --open);
+    notify({ title: `${tr.dataset.id} selesai`, body: job, icon: 'check_circle', action: 'Urungkan', onAction: () => { setStatus(tr, was); setRoll(count, ++open); return { title: 'Perintah kerja dibuka lagi', icon: 'undo' }; } });
+  }
+});
+table.addEventListener('dash:state', (e) => tableState(table, e.detail.state === 'loaded' ? 'ready' : e.detail.state));
+tbody.addEventListener('click', async (e) => { if (!e.target.closest('[data-retry]')) return; tableState(table, 'loading'); await delay(900); tableState(table, 'ready'); });
+
+// Inspections and download
+document.querySelector('[data-inspect]').addEventListener('click', () => notify({ title: 'Pemeriksaan dijadwalkan', body: 'Kantor Kecamatan Pesisir dan Gelanggang Olahraga Kota, minggu depan.', icon: 'event' }));
+const ex = document.querySelector('[data-export]');
+ex.addEventListener('click', async () => { setLoading(ex, true); await delay(1000); setLoading(ex, false); notify({ title: 'Rekap aset diunduh', body: 'Aset dan perintah kerja 16 Nov 2026.xlsx', icon: 'check_circle' }); });
+
+// New work order
+const form = document.getElementById('order-form');
+let kind = 'jalan', prio = 'sedang';
+form.querySelector('[data-no-kind]').addEventListener('lds:change', (e) => { kind = e.detail.item.dataset.v; });
+form.querySelector('[data-no-pr]').addEventListener('lds:change', (e) => { prio = e.detail.item.dataset.v; });
+const job = form.elements.job, help = document.getElementById('no-job-help');
+job.addEventListener('input', () => { job.closest('.control').classList.remove('is-invalid'); help.classList.remove('field__help--error'); help.textContent = 'Apa yang harus dikerjakan, dengan jumlahnya.'; });
+let seq = 2615;
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (!job.value.trim()) { const c = job.closest('.control'); c.classList.add('is-invalid'); help.classList.add('field__help--error'); help.textContent = 'Tulis pekerjaannya agar regu tahu apa yang dikerjakan.'; shake(c); job.focus(); return; }
+  const btn = form.querySelector('[type="submit"]'); setLoading(btn, true); await delay(800); setLoading(btn, false);
+  const text = job.value.trim();
+  const id = 'PK-' + seq++, where = form.elements.where.value.trim() || 'Lokasi menyusul';
+  const tr = document.createElement('tr'); tr.className = 'view-in';
+  tr.dataset.id = id; tr.dataset.kind = kind; tr.dataset.status = 'new';
+  tr.innerHTML = `<td><span class="dtable__user"><span><b></b><small></small></span></span></td><td><span class="cluster" style="--gap: 6px;"><span class="ic" aria-hidden="true">${KIND[kind][1]}</span>${KIND[kind][0]}</span></td><td data-sort="${PRI[prio][2]}">${badge(PRI[prio])}</td><td data-sort="2026-11-23">23 Nov</td><td data-status-cell></td><td class="dtable__actions" data-act-cell></td>`;
+  tr.querySelector('b').textContent = text; tr.querySelector('small').textContent = `${id} · ${where}`; tr.children[0].dataset.sort = text;
+  tbody.prepend(tr); setStatus(tr, 'new'); setRoll(count, ++open);
+  closeModal(document.getElementById('new-order'), () => form.reset());
+  notify({ title: `${id} dibuat`, body: `${text}, ${where}`, icon: 'check_circle' });
+});
+</script>
