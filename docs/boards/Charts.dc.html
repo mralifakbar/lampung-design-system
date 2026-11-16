@@ -9,10 +9,10 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700&amp;family=Plus Jakarta Sans+Mono:wght@400;500&amp;display=block">
 <style>
 body{margin:0}
-a{color:#1D4ED8}a:hover{color:#1E40AF}
+a{color:#0A6246}a:hover{color:#1E40AF}
 .plot{position:relative}
 .plot svg{display:block;width:100%;height:auto;overflow:visible}
 .ctip{position:absolute;top:0;padding:8px 10px;border-radius:10px;background:var(--bg-inverse);color:var(--text-inverse);font:500 12px/17px var(--font);pointer-events:none;white-space:nowrap;box-shadow:var(--shadow-md);transition:left 240ms var(--ease-standard),opacity 120ms;font-variant-numeric:tabular-nums}
@@ -381,7 +381,7 @@ class Component extends DCLogic {
       setLight: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'light' })),
       setDark: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'dark' })),
 
-      series: [1, 2, 3, 4].map(n => ({ n: 'Series ' + n, token: '--series-' + n, hex: dark ? ['#4F86F7', '#C47A0C', '#17A493', '#A970F0'][n - 1] : ['#2563EB', '#E8890C', '#0E9F8E', '#9333EA'][n - 1] })),
+      series: [1, 2, 3, 4].map(n => ({ n: 'Series ' + n, token: '--series-' + n, hex: dark ? ['#2BB585', '#C47A0C', '#17A493', '#A970F0'][n - 1] : ['#0B6E4F', '#E8890C', '#0E9F8E', '#9333EA'][n - 1] })),
 
       sparkLine, sparkArea: sparkLine + ' L216 64 L4 64 Z',
       sparkEndX: sx(11).toFixed(1), sparkEndY: sy(92).toFixed(1),

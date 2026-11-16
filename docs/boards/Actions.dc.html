@@ -9,10 +9,10 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700&amp;family=Plus Jakarta Sans+Mono:wght@400;500&amp;display=block">
 <style>
 body{margin:0}
-a{color:#1D4ED8}a:hover{color:#1E40AF}
+a{color:#0A6246}a:hover{color:#1E40AF}
 </style>
 </helmet>
 <div class="lds" data-theme="{{theme}}" style="width: 1280px; min-height: 2250px;">
@@ -157,7 +157,7 @@ a{color:#1D4ED8}a:hover{color:#1E40AF}
       <p class="sec__desc">Medium weight in the accent text color. The underline fades in on hover instead of snapping, and external links carry an arrow.</p>
     </div>
     <div class="stage stage--white" style="gap: 14px;">
-      <p style="font: 400 15px/24px var(--font); color: var(--text-default);">Your request was sent to your adviser. <a class="link" href="#link-demo">Track its status</a> or <a class="link link--external" href="https://fonts.google.com/specimen/Geist" target="_blank" rel="noreferrer">open the Geist specimen</a>.</p>
+      <p style="font: 400 15px/24px var(--font); color: var(--text-default);">Your request was sent to your adviser. <a class="link" href="#link-demo">Track its status</a> or <a class="link link--external" href="https://fonts.google.com/specimen/Plus Jakarta Sans" target="_blank" rel="noreferrer">open the Plus Jakarta Sans specimen</a>.</p>
       <p id="link-demo" style="font: 400 13px/18px var(--font); color: var(--text-subtle);">Inline links stay inside the sentence they belong to.</p>
     </div>
   </section>
@@ -169,7 +169,7 @@ a{color:#1D4ED8}a:hover{color:#1E40AF}
     </div>
     <div class="stage" style="flex-direction: row; gap: 16px; align-items: center;">
       <div class="control" style="width: 360px; padding-right: 6px;">
-        <span style="flex: 1; font: 400 14px/1 var(--mono); color: var(--text-default); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">--accent: #2563EB;</span>
+        <span style="flex: 1; font: 400 14px/1 var(--mono); color: var(--text-default); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">--accent: #0B6E4F;</span>
         <button class="btn btn--gray btn--sm" onClick="{{copy}}" aria-label="{{copyAria}}" style="min-width: 84px;">
           <span class="swap {{copyClass}}" aria-hidden="true" style="width: 16px; height: 16px;"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px; color: var(--success-text);">check</span></span>
           {{copyLabel}}
@@ -284,7 +284,7 @@ class Component extends DCLogic {
       copyLabel: s.copied ? 'Copied' : 'Copy',
       copyAria: s.copied ? 'Copied to clipboard' : 'Copy token',
       copy: () => {
-        try { navigator.clipboard && navigator.clipboard.writeText('--accent: #2563EB;'); } catch (err) {}
+        try { navigator.clipboard && navigator.clipboard.writeText('--accent: #0B6E4F;'); } catch (err) {}
         this.setState({ copied: true });
         this.later(() => this.setState({ copied: false }), 1600);
       },

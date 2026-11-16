@@ -5,7 +5,7 @@ description: Build any interface (plain HTML, Next.js or another web framework, 
 
 # Lampung Design System
 
-A white canvas, one blue, and type that tightens as it grows. Grouping comes from a quiet fill, depth only from layers that float, and every moving part runs on a spring you can interrupt.
+A white canvas, one Lampung green, siger gold for identity, and type that tightens as it grows. Grouping comes from a quiet fill, depth only from layers that float, and every moving part runs on a spring you can interrupt.
 
 This skill is the entry point. Read it fully, then open the reference that matches the task:
 
@@ -46,10 +46,10 @@ Never hand-edit generated files (`css/tokens.css`, `dist/*`). Change `tokens/tok
 ## The identity, in six decisions
 
 1. **White canvas.** `--bg-canvas` is pure white. Cards and lists sit on `--bg-fill` (#F4F4F6) with no shadow. Never put a fill on a fill: inside a filled group use `--bg-base`.
-2. **One accent.** `--accent` #2563EB marks the primary action, the current selection, and links. Text in the accent uses `--accent-text` (darker in light, lighter in dark). If a screen has three blue things, two are wrong.
+2. **One accent.** `--accent` #0B6E4F marks the primary action, the current selection, and links. Text in the accent uses `--accent-text` (darker in light, lighter in dark). If a screen has three green things, two are wrong.
 3. **Shadows only on what floats.** Menus, popovers, dialogs, sheets, toasts, the floating action button. Resting content never casts a shadow.
 4. **Blur only where content scrolls under it.** The navigation bar and the tab bar. Never on cards, never stacked.
-5. **Type moves as a set.** Geist, three weights (400, 500, 600; 700 only for the phone large title). Size, weight and tracking change together: large text tightens (−0.035em at 56px), small text opens (+0.01em at 12px), body sits at −0.005em.
+5. **Type moves as a set.** Plus Jakarta Sans, three weights (400, 500, 600; 700 only for the phone large title). Size, weight and tracking change together: large text tightens (−0.035em at 56px), small text opens (+0.01em at 12px), body sits at −0.005em.
 6. **Motion is calm and interruptible.** Enter on a critically damped spring, leave faster on the exit curve, start every transition from the current on-screen value. Bounce only after a flick.
 
 ## Hard rules

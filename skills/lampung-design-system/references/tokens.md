@@ -28,7 +28,7 @@ Themes: light on `:root` and `[data-theme="light"]`; dark on `[data-theme="dark"
 | `--text-subtle` | #5C5C66 6.6:1 | #A1A1AA 7.7:1 | Secondary text |
 | `--text-muted` | #6B6B75 5.3:1 | #8E8E96 6.1:1 | Placeholders, meta (still AA on the fill) |
 | `--text-faint` | #C4C4CA | #48484F | Non-text only: chevrons, grabbers, disabled marks |
-| `--accent-text` | #1D4ED8 6.7:1 | #8AB4FF 9.4:1 | Links, tinted labels |
+| `--accent-text` | #0A6246 6.7:1 | #5FD3A6 9.4:1 | Links, tinted labels |
 
 ## Lines
 
@@ -37,16 +37,16 @@ Outlines are inset box-shadow rings (`box-shadow: inset 0 0 0 1px var(--line)`),
 
 ## Accent and status
 
-`--accent` #2563EB stays the same in dark because white on it holds 5.2:1. `--accent-hover`, `--accent-pressed`, `--accent-tint`, `--accent-tint-strong`, `--accent-ring` (input focus halo).
+`--accent` #0B6E4F stays the same in dark because white on it holds 5.2:1. `--accent-hover`, `--accent-pressed`, `--accent-tint`, `--accent-tint-strong`, `--accent-ring` (input focus halo).
 Status sets: `--success | --warning | --danger | --neutral` each with `-text` (AA on its tint) and `-tint`. Use only for real states, always with an icon and words.
 Icon chip hues: `--tile-blue #0B7BC4`, `--tile-red #D93A2B`, `--tile-orange #C2410C`, `--tile-green #15803D`, `--tile-gray #71717A` (white text passes AA on all five; same in both appearances). They back list icon chips (`.lrow__icon`), file tile tones and swipe actions; never a card or a figure.
 Device frame: `--device-body` (light #1C1C20, dark #2A2A30), `--device-edge` (#4A4A52, #5A5A63) and `--device-island` (#000000) draw the phone body of `.device`; use them for nothing else.
 Inverse and on-accent text: `--text-inverse` on `--bg-inverse` (toasts, tooltips), with `--on-inverse-tint` and `--on-inverse-line` for hovers and dividers inside them; `--text-on-accent` on accent fills. `--bg-material-solid` replaces `--bg-material` when people ask for reduced transparency; `--skeleton-shine` is the sweep inside `.skel`.
-Chart series, fixed order, validated for color-blind separation: `--series-1..4` (light #2563EB #E8890C #0E9F8E #9333EA; dark #4F86F7 #C47A0C #17A493 #A970F0). Series 2 is under 3:1 on white: always label it.
+Chart series, fixed order, validated for color-blind separation: `--series-1..4` (light #0B6E4F #E8890C #0E9F8E #9333EA; dark #2BB585 #C47A0C #17A493 #A970F0). Series 2 is under 3:1 on white: always label it.
 
 ## Type
 
-Family `--font` Geist (fallback system UI), `--mono` Geist Mono. Each style is `--type-<name>` (a `font` shorthand) plus `--tracking-<name>`:
+Family `--font` Plus Jakarta Sans (fallback system UI), `--mono` JetBrains Mono. Each style is `--type-<name>` (a `font` shorthand) plus `--tracking-<name>`:
 
 | Style | Size/line | Weight | Tracking | Use |
 |---|---|---|---|---|

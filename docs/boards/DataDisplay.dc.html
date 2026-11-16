@@ -9,10 +9,10 @@
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700&amp;family=Plus Jakarta Sans+Mono:wght@400;500&amp;display=block">
 <style>
 body{margin:0}
-a{color:#1D4ED8}a:hover{color:#1E40AF}
+a{color:#0A6246}a:hover{color:#1E40AF}
 .carousel{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:2px}
 .carousel::-webkit-scrollbar{display:none}
 .carousel>*{scroll-snap-align:start;flex:0 0 calc((100% - 28px)/3)}
@@ -230,8 +230,8 @@ a{color:#1D4ED8}a:hover{color:#1E40AF}
         </div>
         <div class="codeblock">
           <div class="codeblock__bar"><span>tokens.css</span><button class="btn btn--plain btn--sm" onClick="{{copyCode}}"><span class="swap {{copyCls}}" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span>{{copyLabel}}</button></div>
-          <pre><span class="c">/* one blue, used sparingly */</span>
-<span class="k">--accent</span>: #2563EB;
+          <pre><span class="c">/* one green, used sparingly */</span>
+<span class="k">--accent</span>: #0B6E4F;
 <span class="k">--spring-smooth</span>: <span class="s">linear(0, 0.049, 0.156, …, 1)</span>;
 <span class="k">--d-exit</span>: 180ms;</pre>
         </div>
@@ -802,7 +802,7 @@ class Component extends DCLogic {
       count, countDigits,
       bump: () => this.setState({ count: Math.max(0, Math.min(999, count + Math.round((Math.random() - 0.35) * 160))) }),
       copyCls: s.copied ? 'is-swapped' : '', copyLabel: s.copied ? 'Copied' : 'Copy',
-      copyCode: () => { try { navigator.clipboard && navigator.clipboard.writeText('--accent: #2563EB;'); } catch (e) {} this.setState({ copied: true }); setTimeout(() => this.setState({ copied: false }), 1600); },
+      copyCode: () => { try { navigator.clipboard && navigator.clipboard.writeText('--accent: #0B6E4F;'); } catch (e) {} this.setState({ copied: true }); setTimeout(() => this.setState({ copied: false }), 1600); },
 
       slides: slideDefs,
       dots: [0, 1].map(i => ({ n: i + 1, cur: String(pageI === i), go: (e) => { const c = e.currentTarget.closest('.col').querySelector('.carousel'); if (c) c.scrollTo({ left: i * c.clientWidth, behavior: 'smooth' }); this.setState({ cpage: i }); } })),

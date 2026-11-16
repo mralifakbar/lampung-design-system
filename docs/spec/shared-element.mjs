@@ -1,5 +1,5 @@
 const pic = (sky, main, accent, ground) => 'data:image/svg+xml,' + encodeURIComponent(`<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 600'><rect width='800' height='600' fill='${sky}'/><circle cx='640' cy='130' r='56' fill='${accent}'/><rect x='170' y='210' width='460' height='270' rx='8' fill='${main}'/><path d='M150 220 L400 110 L650 220 Z' fill='${main}'/><g fill='${sky}' opacity='0.85'><rect x='220' y='270' width='60' height='80'/><rect x='320' y='270' width='60' height='80'/><rect x='420' y='270' width='60' height='80'/><rect x='520' y='270' width='60' height='80'/><rect x='360' y='380' width='80' height='100'/></g><rect y='480' width='800' height='120' fill='${ground}'/></svg>`);
-const LIB = pic('#DBEAFE', '#1D4ED8', '#F59E0B', '#16A34A');
+const LIB = pic('#DBEAFE', '#0A6246', '#F59E0B', '#16A34A');
 const LAB = pic('#DCFCE7', '#15803D', '#FDE68A', '#166534');
 const HALL = pic('#FFEDD5', '#C2410C', '#FEF3C7', '#78350F');
 const THUMB = (src, cap, alt) => `<a class="thumb" href="${src}" data-lds-lightbox data-caption="${cap}"><img src="${src}" alt="${alt}"></a>`;
