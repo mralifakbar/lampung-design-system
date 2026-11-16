@@ -21,7 +21,7 @@ The system is framework-agnostic: values live in `tokens/tokens.json`, the web l
 </body>
 </html>
 ```
-`css/lds.css` imports Plus Jakarta Sans from Google Fonts. Offline or privacy-sensitive projects: import `css/tokens.css` and `css/components.css` directly and self-host Plus Jakarta Sans (OFL).
+`css/lds.css` imports Geist from Google Fonts. Offline or privacy-sensitive projects: import `css/tokens.css` and `css/components.css` directly and self-host Geist (OFL).
 
 ## Next.js (App Router) and other React apps
 
@@ -69,7 +69,7 @@ Theme switching: set `data-theme` on `<html>` before paint (inline script readin
 
 `dist/shadcn/` themes a shadcn/ui app with the whole system, not only color. It sets:
 - every shadcn color, in light and dark,
-- Plus Jakarta Sans and JetBrains Mono through shadcn's font loader,
+- Geist and Geist Mono through shadcn's font loader,
 - the type scale as `text-*` utilities and letter spacing,
 - spacing, elevation, radius and motion curves.
 
@@ -82,7 +82,7 @@ npx shadcn@latest add $R/lds.json $R/lds-font-sans.json $R/lds-font-mono.json
 ```
 When the registry folder is hosted at a URL, run `LDS_REGISTRY_URL=https://host/path npm run build:tokens`. `lds.json` then lists the font items as dependencies, so `npx shadcn@latest add https://host/path/lds.json` installs everything, and `npx shadcn@latest init --preset https://host/path/lds.json` starts a new project with it.
 
-**Copy-paste instead.** `dist/shadcn/globals.css` is a complete Tailwind v4 `globals.css`, with Plus Jakarta Sans loaded from Google Fonts. For Tailwind v3, use `dist/shadcn/globals.v3.css` plus `presets: [require('lampung-design-system/shadcn/tailwind-preset')]`.
+**Copy-paste instead.** `dist/shadcn/globals.css` is a complete Tailwind v4 `globals.css`, with Geist loaded from Google Fonts. For Tailwind v3, use `dist/shadcn/globals.v3.css` plus `presets: [require('lampung-design-system/shadcn/tailwind-preset')]`.
 
 **Dark mode.** `.dark` (shadcn's switch) and `data-theme="dark"` both work in the copy-paste files. The registry install writes `.dark` only.
 
@@ -128,14 +128,14 @@ Same as plain HTML: import the CSS once, render the markup, call `init(el)` afte
 ```yaml
 flutter:
   fonts:
-    - family: Plus Jakarta Sans
+    - family: Geist
       fonts:
-        - asset: assets/fonts/Plus Jakarta Sans-Regular.ttf
-        - asset: assets/fonts/Plus Jakarta Sans-Medium.ttf
+        - asset: assets/fonts/Geist-Regular.ttf
+        - asset: assets/fonts/Geist-Medium.ttf
           weight: 500
-        - asset: assets/fonts/Plus Jakarta Sans-SemiBold.ttf
+        - asset: assets/fonts/Geist-SemiBold.ttf
           weight: 600
-        - asset: assets/fonts/Plus Jakarta Sans-Bold.ttf
+        - asset: assets/fonts/Geist-Bold.ttf
           weight: 700
     - family: LDS Icons
       fonts: [{ asset: assets/fonts/lds-icons.woff2 }]

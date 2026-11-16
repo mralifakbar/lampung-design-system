@@ -48,18 +48,18 @@ Chart series, fixed order, validated for color-blind separation: `--series-1..4`
 
 ## Type
 
-Family `--font` Plus Jakarta Sans (fallback system UI), `--mono` JetBrains Mono. Each style is `--type-<name>` (a `font` shorthand) plus `--tracking-<name>`:
+Family `--font` Geist (fallback system UI), `--mono` Geist Mono. Each style is `--type-<name>` (a `font` shorthand) plus `--tracking-<name>`:
 
 | Style | Size/line | Weight | Tracking | Use |
 |---|---|---|---|---|
-| display | 56/60 | 600 | −0.030em | Doc and marketing heads |
-| large-title | 34/41 | 700 | −0.024em | Phone tab roots |
-| title-1 | 28/34 | 600 | −0.020em | Screen titles, big values |
-| title-2 | 22/28 | 600 | −0.016em | Section heads |
-| title-3 | 20/25 | 600 | −0.012em | Dialog and sheet titles |
-| headline | 17/22 | 600 | −0.008em | Nav title, card title |
-| body | 15/22 | 400 | −0.003em | Content |
-| body-strong | 15/22 | 500 | −0.003em | Emphasis in content |
+| display | 56/60 | 600 | −0.035em | Doc and marketing heads |
+| large-title | 34/41 | 700 | −0.028em | Phone tab roots |
+| title-1 | 28/34 | 600 | −0.022em | Screen titles, big values |
+| title-2 | 22/28 | 600 | −0.018em | Section heads |
+| title-3 | 20/25 | 600 | −0.014em | Dialog and sheet titles |
+| headline | 17/22 | 600 | −0.010em | Nav title, card title |
+| body | 15/22 | 400 | −0.005em | Content |
+| body-strong | 15/22 | 500 | −0.005em | Emphasis in content |
 | subhead | 14/20 | 400 | 0 | List subtitles |
 | footnote | 13/18 | 400 | 0 | Meta, helper text |
 | caption | 13/18 | 500 | +0.010em | Group labels, eyebrows, small meta. 13 px is the floor for words people read; only numbers in badges, counts and chart ticks go smaller |

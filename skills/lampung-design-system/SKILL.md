@@ -51,7 +51,7 @@ Never hand-edit generated files (`css/tokens.css`, `dist/*`). Change `tokens/tok
 3. **Gold is identity, never action.** Siger gold (`--gold` #C9952B) marks ornament: the aksara band, identity badges, a highlight in a hero. It is never a button, a link or the selection; when gold must be read as text use `--gold-text`. Aksara Lampung (`references/aksara.md`) appears once or twice per page, always beside its Latin reading.
 4. **Shadows only on what floats.** Menus, popovers, dialogs, sheets, toasts, the floating action button. Resting content never casts a shadow.
 5. **Blur only where content scrolls under it.** The navigation bar and the tab bar. Never on cards, never stacked.
-6. **Type moves as a set.** Plus Jakarta Sans, three weights (400, 500, 600; 700 only for the phone large title). Size, weight and tracking change together: large text tightens (−0.03em at 56px), small text opens (+0.01em at 12px), body sits at −0.003em.
+6. **Type moves as a set.** Geist, three weights (400, 500, 600; 700 only for the phone large title). Size, weight and tracking change together: large text tightens (−0.035em at 56px), small text opens (+0.01em at 12px), body sits at −0.005em.
 7. **Motion is calm and interruptible.** Enter on a critically damped spring, leave faster on the exit curve, start every transition from the current on-screen value. Bounce only after a flick.
 
 ## Hard rules
