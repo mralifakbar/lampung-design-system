@@ -44,14 +44,15 @@ docs/                   live documentation, renders the same boards as the Claud
 
 Never hand-edit generated files (`css/tokens.css`, `dist/*`). Change `tokens/tokens.json`, then `npm run build:tokens`.
 
-## The identity, in six decisions
+## The identity, in seven decisions
 
-1. **White canvas.** `--bg-canvas` is pure white. Cards and lists sit on `--bg-fill` (#F4F4F6) with no shadow. Never put a fill on a fill: inside a filled group use `--bg-base`.
+1. **White canvas.** `--bg-canvas` is pure white. Cards and lists sit on `--bg-fill` (#F3F5F4) with no shadow. Never put a fill on a fill: inside a filled group use `--bg-base`.
 2. **One accent.** `--accent` #0B6E4F marks the primary action, the current selection, and links. Text in the accent uses `--accent-text` (darker in light, lighter in dark). If a screen has three green things, two are wrong.
-3. **Shadows only on what floats.** Menus, popovers, dialogs, sheets, toasts, the floating action button. Resting content never casts a shadow.
-4. **Blur only where content scrolls under it.** The navigation bar and the tab bar. Never on cards, never stacked.
-5. **Type moves as a set.** Plus Jakarta Sans, three weights (400, 500, 600; 700 only for the phone large title). Size, weight and tracking change together: large text tightens (−0.035em at 56px), small text opens (+0.01em at 12px), body sits at −0.005em.
-6. **Motion is calm and interruptible.** Enter on a critically damped spring, leave faster on the exit curve, start every transition from the current on-screen value. Bounce only after a flick.
+3. **Gold is identity, never action.** Siger gold (`--gold` #C9952B) marks ornament: the aksara band, identity badges, a highlight in a hero. It is never a button, a link or the selection; when gold must be read as text use `--gold-text`. Aksara Lampung (`references/aksara.md`) appears once or twice per page, always beside its Latin reading.
+4. **Shadows only on what floats.** Menus, popovers, dialogs, sheets, toasts, the floating action button. Resting content never casts a shadow.
+5. **Blur only where content scrolls under it.** The navigation bar and the tab bar. Never on cards, never stacked.
+6. **Type moves as a set.** Plus Jakarta Sans, three weights (400, 500, 600; 700 only for the phone large title). Size, weight and tracking change together: large text tightens (−0.03em at 56px), small text opens (+0.01em at 12px), body sits at −0.003em.
+7. **Motion is calm and interruptible.** Enter on a critically damped spring, leave faster on the exit curve, start every transition from the current on-screen value. Bounce only after a flick.
 
 ## Hard rules
 

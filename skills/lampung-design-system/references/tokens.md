@@ -8,14 +8,14 @@ Themes: light on `:root` and `[data-theme="light"]`; dark on `[data-theme="dark"
 
 | Token | Light | Dark | Use |
 |---|---|---|---|
-| `--bg-canvas` | #FFFFFF | #0B0B0D | The page |
-| `--bg-base` | #FFFFFF | #0B0B0D | Inputs, rows inside a filled group, white cards |
-| `--bg-fill` | #F4F4F6 | #18181B | Cards, grouped lists, stages: grouping without shadow |
-| `--bg-recessed` | #EFEFF2 | #26262A | Wells, search field, gray buttons |
-| `--bg-elevated` | #FFFFFF | #1F1F23 | Menus, dialogs, sheets |
-| `--bg-inverse` | #1C1C20 | #F4F4F5 | Toasts, tooltips, banners |
-| `--bg-material` | white 78% | zinc 72% | Nav bar and tab bar only, with blur(20px) saturate(180%) |
-| `--bg-scrim` | 9,9,11 at 32% | black 56% | Behind modal layers |
+| `--bg-canvas` | #FFFFFF | #0B0F0D | The page |
+| `--bg-base` | #FFFFFF | #0B0F0D | Inputs, rows inside a filled group, white cards |
+| `--bg-fill` | #F3F5F4 | #151A18 | Cards, grouped lists, stages: grouping without shadow |
+| `--bg-recessed` | #ECEFED | #232A27 | Wells, search field, gray buttons |
+| `--bg-elevated` | #FFFFFF | #1C2220 | Menus, dialogs, sheets |
+| `--bg-inverse` | #16201C | #F1F4F2 | Toasts, tooltips, banners |
+| `--bg-material` | white 78% | deep green-gray 72% | Nav bar and tab bar only, with blur(20px) saturate(180%) |
+| `--bg-scrim` | 6,12,10 at 32% | black 56% | Behind modal layers |
 | `--bg-tint`, `--bg-tint-strong` | ink 4%, 7% | white 5%, 9% | Hover and pressed fills |
 | `--bg-track`, `--bg-switch-off`, `--bg-segmented`, `--bg-segmented-thumb`, `--bg-skeleton` | | | Control tracks, already tuned per theme |
 
@@ -23,12 +23,13 @@ Themes: light on `:root` and `[data-theme="light"]`; dark on `[data-theme="dark"
 
 | Token | Light | Dark | Use |
 |---|---|---|---|
-| `--text-strong` | #0A0A0B 19.8:1 | #FAFAFA 18.8:1 | Titles, values |
-| `--text-default` | #27272A 14.9:1 | #E4E4E7 15.5:1 | Body |
-| `--text-subtle` | #5C5C66 6.6:1 | #A1A1AA 7.7:1 | Secondary text |
-| `--text-muted` | #6B6B75 5.3:1 | #8E8E96 6.1:1 | Placeholders, meta (still AA on the fill) |
-| `--text-faint` | #C4C4CA | #48484F | Non-text only: chevrons, grabbers, disabled marks |
-| `--accent-text` | #0A6246 6.7:1 | #5FD3A6 9.4:1 | Links, tinted labels |
+| `--text-strong` | #0A0F0D 19.3:1 | #F7FAF8 18.4:1 | Titles, values |
+| `--text-default` | #26302C 13.6:1 | #E1E6E3 15.3:1 | Body |
+| `--text-subtle` | #56615C 6.4:1 | #A0AAA5 8.1:1 | Secondary text |
+| `--text-muted` | #66716C 5.1:1 | #8B9590 6.2:1 | Placeholders, meta (still AA on the fill) |
+| `--text-faint` | #C1C8C4 | #45504B | Non-text only: chevrons, grabbers, disabled marks |
+| `--accent-text` | #0A6246 7.4:1 | #5FD3A6 10.4:1 | Links, tinted labels |
+| `--gold-text` | #8A6212 5.5:1 | #E8C26E 11.4:1 | Identity labels, aksara next to text |
 
 ## Lines
 
@@ -37,12 +38,13 @@ Outlines are inset box-shadow rings (`box-shadow: inset 0 0 0 1px var(--line)`),
 
 ## Accent and status
 
-`--accent` #0B6E4F stays the same in dark because white on it holds 5.2:1. `--accent-hover`, `--accent-pressed`, `--accent-tint`, `--accent-tint-strong`, `--accent-ring` (input focus halo).
+`--accent` is Lampung green, #0B6E4F in light and #0F7D59 in dark; white on it holds 6.3:1 and 5.1:1. `--accent-hover`, `--accent-pressed`, `--accent-tint`, `--accent-tint-strong`, `--accent-ring` (input focus halo).
+Siger gold: `--gold` (#C9952B / #D9A93F) for ornament, the aksara band, identity marks and highlights, never for actions or as text on white; `--gold-text` (#8A6212 / #E8C26E) when gold must be read; `--gold-tint` behind identity badges; `--on-gold` for text on a gold fill (7.2:1).
 Status sets: `--success | --warning | --danger | --neutral` each with `-text` (AA on its tint) and `-tint`. Use only for real states, always with an icon and words.
 Icon chip hues: `--tile-blue #0B7BC4`, `--tile-red #D93A2B`, `--tile-orange #C2410C`, `--tile-green #15803D`, `--tile-gray #71717A` (white text passes AA on all five; same in both appearances). They back list icon chips (`.lrow__icon`), file tile tones and swipe actions; never a card or a figure.
-Device frame: `--device-body` (light #1C1C20, dark #2A2A30), `--device-edge` (#4A4A52, #5A5A63) and `--device-island` (#000000) draw the phone body of `.device`; use them for nothing else.
+Device frame: `--device-body` (light #16201C, dark #232A27), `--device-edge` (#4A4A52, #58625D) and `--device-island` (#000000) draw the phone body of `.device`; use them for nothing else.
 Inverse and on-accent text: `--text-inverse` on `--bg-inverse` (toasts, tooltips), with `--on-inverse-tint` and `--on-inverse-line` for hovers and dividers inside them; `--text-on-accent` on accent fills. `--bg-material-solid` replaces `--bg-material` when people ask for reduced transparency; `--skeleton-shine` is the sweep inside `.skel`.
-Chart series, fixed order, validated for color-blind separation: `--series-1..4` (light #0B6E4F #E8890C #0E9F8E #9333EA; dark #2BB585 #C47A0C #17A493 #A970F0). Series 2 is under 3:1 on white: always label it.
+Chart series, fixed order, validated for color-blind separation: `--series-1..4` (light #0B6E4F #D08A12 #2F6FB5 #A6336A; dark #2BB585 #D9A23A #5B95D6 #D0679A). Series 2 is 2.9:1 on white: always label it.
 
 ## Type
 
@@ -50,14 +52,14 @@ Family `--font` Plus Jakarta Sans (fallback system UI), `--mono` JetBrains Mono.
 
 | Style | Size/line | Weight | Tracking | Use |
 |---|---|---|---|---|
-| display | 56/60 | 600 | −0.035em | Doc and marketing heads |
-| large-title | 34/41 | 700 | −0.028em | Phone tab roots |
-| title-1 | 28/34 | 600 | −0.022em | Screen titles, big values |
-| title-2 | 22/28 | 600 | −0.018em | Section heads |
-| title-3 | 20/25 | 600 | −0.014em | Dialog and sheet titles |
-| headline | 17/22 | 600 | −0.010em | Nav title, card title |
-| body | 15/22 | 400 | −0.005em | Content |
-| body-strong | 15/22 | 500 | −0.005em | Emphasis in content |
+| display | 56/60 | 600 | −0.030em | Doc and marketing heads |
+| large-title | 34/41 | 700 | −0.024em | Phone tab roots |
+| title-1 | 28/34 | 600 | −0.020em | Screen titles, big values |
+| title-2 | 22/28 | 600 | −0.016em | Section heads |
+| title-3 | 20/25 | 600 | −0.012em | Dialog and sheet titles |
+| headline | 17/22 | 600 | −0.008em | Nav title, card title |
+| body | 15/22 | 400 | −0.003em | Content |
+| body-strong | 15/22 | 500 | −0.003em | Emphasis in content |
 | subhead | 14/20 | 400 | 0 | List subtitles |
 | footnote | 13/18 | 400 | 0 | Meta, helper text |
 | caption | 13/18 | 500 | +0.010em | Group labels, eyebrows, small meta. 13 px is the floor for words people read; only numbers in badges, counts and chart ticks go smaller |
