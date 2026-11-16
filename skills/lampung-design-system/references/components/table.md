@@ -1,0 +1,115 @@
+# Table
+
+Group: Data display. Docs page: `docs/components/table.html`.
+
+Rows of records compared by the same columns, in a `.table-box` that scrolls sideways when it must. A real `<table>` by default, `.table--wrap` for text, and the `.dt` grid when a template repeats rows.
+
+## Use it when
+- Comparing many records by the same attributes: courses by code, credits and seats; payments by date, amount and status.
+- Data people sort, scan down a column or select rows from (grade books, rosters, invoices).
+- A two-column text table of rules or definitions (`.table--wrap`).
+
+## Use something else when
+- Items with one or two facts each, especially on phones: use [List](list.md).
+- The details of one record: use [Key-value](key-value.md).
+- A few summary figures: use [Stat row](stat-row.md).
+- The shape of the numbers matters more than the values: use [Bar chart](bar-chart.md).
+- A hierarchy of folders or sections: use [Tree](tree.md).
+
+## Where it goes
+In the content column, full width of it, inside `.table-box` (ring, radius, horizontal scroll). On phones keep the first column meaningful and let the box scroll, or show the same data as a [list](list.md) when people need only one or two columns. Put filters and actions above it, [pagination](pagination.md) under it.
+
+## Anatomy
+| Part | What it is |
+|---|---|
+| `.table-box` | Required. The surface: white, ring, large radius, `overflow: auto` so wide tables scroll inside it. |
+| `table.table` | Required. Full width, 14 px text; `th` is a 40 px header on the quiet fill, `td` rows are 52 px with a hairline above. |
+| `th > button (.is-sorted, .is-desc)` | A sortable header: an arrow icon that turns when sorted descending. |
+| `.num` | On `th` and `td`: right-aligned tabular figures. Every numeric column. |
+| `td.strong` | The cell that names the row (strong, medium weight). |
+| `tr.is-selected` | A selected row on the accent tint. |
+| `.table--wrap` | Text tables: cells wrap and grow, top-aligned; the first column takes 32 %. |
+| `.dt[role=table] > .dt__row[role=row] > .dt__cell` | The grid table: rows of cells, for templates that repeat rows freely. `.dt__head` for the header row, `.dt__sort` for sortable headers. Set `grid-template-columns` on `.dt__row` per table; it is at least 720 px wide. |
+
+## Markup
+
+**Records with sorting and selection.** Numbers right-aligned, the naming column strong, a selected row on the accent tint. Sorted by credits, descending.
+```html
+<div class="table-box">
+  <table class="table">
+    <thead><tr><th>Course</th><th>Code</th><th class="num" aria-sort="descending"><button class="is-sorted is-desc">Credits<span class="ic" aria-hidden="true">arrow_upward</span></button></th><th class="num">Seats left</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td class="strong">Database Systems</td><td>CS 2104</td><td class="num">4</td><td class="num">12</td><td><span class="badge badge--success">Open</span></td></tr>
+      <tr class="is-selected"><td class="strong">Computer Networks</td><td>CS 3102</td><td class="num">3</td><td class="num">0</td><td><span class="badge badge--danger">Full</span></td></tr>
+      <tr><td class="strong">Technical Writing</td><td>HU 1201</td><td class="num">2</td><td class="num">31</td><td><span class="badge badge--success">Open</span></td></tr>
+    </tbody>
+  </table>
+</div>
+```
+
+**Text table.** `.table--wrap` lets cells wrap and grow, for rules and definitions.
+```html
+<div class="table-box">
+  <table class="table table--wrap">
+    <thead><tr><th>Rule</th><th>What it means</th></tr></thead>
+    <tbody>
+      <tr><td class="strong">Late submission</td><td>Work handed in after the deadline loses 5 % a day, for up to five days. After that it is not graded.</td></tr>
+      <tr><td class="strong">Extension</td><td>Ask your lecturer before the deadline. Medical extensions need a letter within three days.</td></tr>
+    </tbody>
+  </table>
+</div>
+```
+
+**Grid table.** The `.dt` grid: rows of cells with ARIA table roles. Set the columns on each row. It scrolls inside the box under 720 px.
+```html
+<div class="table-box">
+  <div class="dt" role="table" aria-label="Payments">
+    <div class="dt__row dt__head" role="row" style="grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;"><span class="dt__cell" role="columnheader">Item</span><span class="dt__cell" role="columnheader" aria-sort="ascending"><button class="dt__sort is-sorted">Date<span class="ic" aria-hidden="true">arrow_upward</span></button></span><span class="dt__cell num" role="columnheader">Amount</span><span class="dt__cell" role="columnheader">Status</span></div>
+    <div class="dt__row" role="row" style="grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;"><span class="dt__cell strong" role="cell">Term fee</span><span class="dt__cell" role="cell">2 Sep 2026</span><span class="dt__cell num" role="cell">Rp 4.200.000</span><span class="dt__cell" role="cell"><span class="badge badge--success">Paid</span></span></div>
+    <div class="dt__row" role="row" style="grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;"><span class="dt__cell strong" role="cell">Graduation deposit</span><span class="dt__cell" role="cell">28 Nov 2026</span><span class="dt__cell num" role="cell">Rp 1.000.000</span><span class="dt__cell" role="cell"><span class="badge badge--warning">Due</span></span></div>
+  </div>
+</div>
+```
+
+## Variants and sizes
+| Class or attribute | When |
+|---|---|
+| `table` | One-line cells, 52 px rows. Records and numbers. |
+| `table--wrap` | Wrapping, top-aligned cells for text. |
+| `dt` | Grid table with ARIA roles, when a template engine repeats row components; cells ellipsize instead of wrapping. |
+
+## States
+| State | How |
+|---|---|
+| `hover` | Body rows tint `--bg-tint` (60 ms). |
+| `sorted` | `.is-sorted` on the header button (arrow at full opacity), `.is-desc` turns it; set `aria-sort` on the `th` (or the `columnheader` cell). |
+| `selected` | `tr.is-selected` / `.dt__row.is-selected`, with a checked [checkbox](checkbox.md) in the first column and a [selection bar](selection-bar.md) for bulk actions. |
+| `loading` | [Skeleton](skeleton.md) bars in each cell, keeping the header. |
+| `empty` | One row spanning all columns with an [empty state](empty-state.md), keeping the header and filters. |
+
+## Motion and microinteractions
+- Row hover: background over 60 ms linear, near instant so scanning never lags.
+- The sort arrow turns 180 degrees on `--spring-smooth` (`--d-smooth`); its opacity changes over `--d-fast`.
+- Re-sorting does not animate rows; the new order appears at once.
+
+## Accessibility
+- Prefer a real `<table>` with `<th>`; with `.dt`, give every element its role (`table`, `row`, `columnheader`, `cell`) and the table an `aria-label`.
+- Sortable headers are `<button>`s inside the header; put `aria-sort="ascending|descending"` on the header cell of the sorted column only.
+- The scrolling `.table-box` should be reachable by keyboard when it overflows: add `tabindex="0"` and an `aria-label`, or make sure a focusable element inside it scrolls it.
+- States in cells use words ([badge](badge.md)), not color alone.
+
+## Do
+- Right-align every numeric column with `.num`, header included.
+- Make the first column the one that names the row.
+- Keep the header and filters visible in the loading and empty states.
+
+## Don't
+- Use a table for layout or for a single record.
+- Squeeze a wide table onto a phone; let it scroll or switch to a list.
+- Add zebra stripes, vertical rules or a custom header color.
+
+## Behavior (plain HTML)
+None. Sorting, selection and paging are app logic: re-render the rows and update `.is-sorted`, `.is-desc` and `aria-sort`.
+
+## Related
+[List](list.md) · [Key-value](key-value.md) · [Pagination](pagination.md) · [Selection bar](selection-bar.md)
