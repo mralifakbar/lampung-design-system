@@ -1,0 +1,66 @@
+/* Sakai preview page. Placement only: every look comes from css/lds.css.
+   Wide screens: the intro, then a grid of device frames, one screen each, captioned.
+   Below 600 px one frame fills the screen (device--bleed), picked from a small bar. */
+
+body.lds { margin: 0; }
+.mp { max-width: 1440px; margin: 0 auto; padding: var(--s-24) var(--s-32) var(--s-72); }
+.mp__bar { display: none; }
+
+.mp__intro { display: flex; flex-direction: column; gap: var(--s-24); padding-bottom: var(--s-32); }
+.mp__head { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-24); align-items: end; }
+@media (min-width: 1024px) { .mp__head { grid-template-columns: minmax(0, 7fr) minmax(280px, 4fr); column-gap: var(--s-48); } }
+.mp__title { margin: 0 0 var(--s-8); font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong); }
+.mp__controls { display: flex; flex-direction: column; gap: var(--s-12); }
+.mp__controls .seg { width: 100%; }
+.mp__note { padding: 0; }
+
+.mp__grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)); gap: var(--s-56) var(--s-32); align-items: start; }
+.mp-shot { margin: 0; display: flex; flex-direction: column; gap: var(--s-20); min-width: 0; scroll-margin-top: var(--s-24); }
+.mp-shot__stage { display: flex; justify-content: center; min-width: 0; }
+.mp-shot__cap { display: flex; flex-direction: column; gap: var(--s-6); max-width: 414px; width: 100%; margin: 0 auto; padding-inline: var(--s-4); }
+.mp-shot__comps { margin: var(--s-4) 0 0; font: var(--type-footnote); color: var(--text-subtle); }
+
+@media (max-width: 767px) {
+  .mp { padding: var(--s-20) var(--s-16) var(--s-48); }
+}
+@media (max-width: 599px) {
+  .mp { display: flex; flex-direction: column; height: 100vh; height: 100dvh; padding: 0; overflow: hidden; }
+  .mp__intro { display: none; }
+  .mp__bar { position: relative; z-index: 30; display: flex; align-items: center; gap: var(--s-8); flex: none; padding: max(var(--s-8), env(safe-area-inset-top, 0px)) var(--s-12) var(--s-8) var(--s-16); }
+  .mp__bar .select { flex: 1; min-width: 0; }
+  .mp__grid { display: block; flex: 1; min-height: 0; position: relative; }
+  .mp-shot { display: none; position: absolute; inset: 0; gap: 0; }
+  .mp-shot.is-current { display: block; }
+  .mp-shot__stage { display: block; height: 100%; }
+  .mp-shot__cap { display: none; }
+}
+
+/* Inside the phone: the app and its tabs fill the screen */
+.app, .app__tab { position: absolute; inset: 0; }
+.mp-screen { display: flex; flex-direction: column; gap: var(--s-24); padding: var(--s-12) var(--s-16) calc(var(--phone-bottom, 30px) + 53px + var(--s-32)); }
+.phone > .toaster { bottom: calc(var(--phone-bottom, 30px) + 53px + var(--s-12)); }
+.phone > .sheet { padding-bottom: calc(var(--phone-bottom, 30px) + var(--s-8)); }
+.mp-greet { margin-top: calc(-1 * var(--s-16)); padding-left: var(--s-4); }
+
+/* Quick services: four tiles a row, icon over a short name */
+.mp-quick { --min: 72px; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--s-8); }
+.mp-quick .ptile { align-items: center; gap: var(--s-6); padding: var(--s-8) var(--s-4) var(--s-10); }
+.mp-quick .ptile__media { width: 100%; max-width: 52px; }
+.mp-quick .ptile__media > .ic { font-size: 26px; color: var(--accent-text); }
+.mp-quick .ptile__body { padding: 0; align-items: center; }
+.mp-quick .ptile__name { font-size: 12px; line-height: 16px; text-align: center; }
+
+/* Cards with a title row and parts under it */
+.mp-card { display: flex; flex-direction: column; gap: var(--s-16); }
+.mp-card__head { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--s-12); }
+.mp-card__head .card__title, .mp-card__head .card__sub { margin: 0; }
+.mp-weather { display: flex; align-items: center; gap: var(--s-12); }
+.mp-weather > .ic { color: var(--gold-text); }
+.mp-pad { padding: var(--s-16); }
+.mp-prose { margin: 0; font: var(--type-body); color: var(--text-default); }
+.mp-code { flex: 1; min-width: 0; font: 400 13px/1.3 var(--mono); color: var(--text-default); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* QR placeholder: the card's media slot, square, with the QR glyph */
+.mp-qr { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--s-2); }
+.mp-qr .card__media { width: calc(100% + var(--s-32)); height: auto; aspect-ratio: 1; max-height: 260px; }
+.mp-qr .card__media > .ic { font-size: 120px; color: var(--text-strong); }
