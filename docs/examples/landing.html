@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="id" class="lds" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pemerintah Kota Contoh · Portal layanan publik</title>
+<meta name="description" content="Contoh portal layanan publik untuk kota fiktif, dibangun dengan Lampung Design System. Bukan situs resmi pemerintah.">
+<link rel="stylesheet" href="../../css/lds.css">
+<link rel="stylesheet" href="landing.css">
+<script type="module">
+  import { restoreTheme } from '../../js/lds.js';
+  restoreTheme(document.documentElement, 'light');
+</script>
+</head>
+<body class="lds">
+
+<a class="skip-link" href="#main">Langsung ke isi</a>
+
+<!-- Masthead: says up front that this is an example, not a government site -->
+<div class="masthead" role="region" aria-label="Status situs" style="--masthead-max: 1200px;">
+  <div class="masthead__bar">
+    <span class="masthead__mark" aria-hidden="true"><span class="ic">info</span></span>
+    <span class="masthead__text">Contoh situs layanan publik untuk Lampung Design System. Bukan situs resmi pemerintah, dan Kota Contoh tidak ada.</span>
+    <button class="masthead__toggle" data-lds-masthead aria-expanded="false" aria-controls="lp-mast-more">Cara memastikan<span class="ic" aria-hidden="true">expand_more</span></button>
+  </div>
+  <div class="collapse is-closed" id="lp-mast-more" inert><div><div class="masthead__body">
+    <p class="masthead__item"><span class="ic" aria-hidden="true">groups</span><span><b>Halaman contoh.</b> Dibuat untuk menunjukkan komponen Lampung Design System. Semua nama, angka, dan layanan di sini fiktif.</span></p>
+    <p class="masthead__item"><span class="ic" aria-hidden="true">verified_user</span><span><b>Layanan resmi memakai go.id.</b> Situs pemerintah Indonesia berakhiran .go.id. Jangan masukkan NIK di situs yang Anda ragukan.</span></p>
+  </div></div></div>
+</div>
+
+<header class="topnav" data-lds-topnav>
+  <a class="topnav__brand" href="#top"><span class="lrow__icon" aria-hidden="true"><span class="ic">location_city</span></span><span>Kota Contoh</span></a>
+  <nav class="topnav__links" id="site-links" aria-label="Utama">
+    <a class="topnav__link" href="#layanan">Layanan</a>
+    <a class="topnav__link" href="#berita">Berita</a>
+    <a class="topnav__link" href="#agenda">Agenda</a>
+    <a class="topnav__link" href="#pengaduan">Pengaduan</a>
+    <a class="topnav__link" href="#tanya">Tanya jawab</a>
+  </nav>
+  <div class="topnav__actions">
+    <span class="tip-host"><button class="icon-btn" id="theme-btn" aria-label="Pakai tema gelap"><span class="swap" aria-hidden="true"><span class="ic swap__a">dark_mode</span><span class="ic swap__b">light_mode</span></span></button><span class="tip" role="tooltip" id="theme-tip">Tema gelap</span></span>
+    <button class="btn btn--primary btn--md lp-nav-cta" data-lds-modal="aduan">Buat pengaduan</button>
+    <button class="icon-btn topnav__toggle" data-lds-topnav-toggle aria-controls="site-links" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
+  </div>
+</header>
+
+<main id="main">
+  <span id="top"></span>
+
+  <!-- Hero: find a service by what you need -->
+  <section class="hero hero--center hero--enter lp-hero" aria-labelledby="hero-title">
+    <div class="hero__copy">
+      <h1 class="hero__title" id="hero-title">Urus layanan kota tanpa antre berjam-jam.</h1>
+      <p class="hero__lede">Cari layanan, lihat persyaratannya, lalu datang sekali saja ke loket yang tepat. Untuk warga Kota Contoh dan siapa saja yang tinggal di sini.</p>
+      <div class="lp-search">
+        <div class="search-wrap" data-lds-search>
+          <div class="control search" style="flex: 1;"><span class="ic" aria-hidden="true">search</span><input type="search" id="svc-q" placeholder="Cari layanan, misalnya akta kelahiran" aria-label="Cari layanan" aria-controls="svc-results" enterkeyhint="search" autocomplete="off"></div>
+          <button type="button" class="search__cancel">Batal</button>
+        </div>
+        <div class="cluster lp-search__hints" aria-label="Pencarian populer">
+          <span class="hero__note">Sering dicari:</span>
+          <button type="button" class="chip" data-q="KTP">KTP elektronik</button>
+          <button type="button" class="chip" data-q="Akta">Akta kelahiran</button>
+          <button type="button" class="chip" data-q="PBB">PBB</button>
+          <button type="button" class="chip" data-q="Usaha">Izin usaha</button>
+        </div>
+        <div id="svc-results" class="lp-results" aria-live="polite" hidden></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lp-band"><div class="aksara-band" aria-hidden="true"></div></div>
+
+  <!-- Popular services -->
+  <section class="msec" id="layanan" aria-labelledby="pop-title">
+    <div class="msec__head msec__head--row" data-lds-reveal>
+      <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">star</span>Layanan populer</span>
+      <h2 class="msec__title" id="pop-title">Yang paling sering diurus warga.</h2>
+      <p class="msec__lede">Pilih layanan untuk melihat persyaratan, lama proses dan biayanya.</p>
+    </div>
+    <div class="link-grid" id="pop-grid"></div>
+  </section>
+
+  <!-- Categories -->
+  <section class="msec msec--rule" id="kategori" aria-labelledby="cat-title">
+    <div class="msec__head" data-lds-reveal>
+      <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">grid_view</span>Kategori</span>
+      <h2 class="msec__title" id="cat-title">Semua layanan, menurut urusannya.</h2>
+    </div>
+    <div class="list list--fill lp-cats" id="cat-list"></div>
+  </section>
+
+  <!-- Announcements and news -->
+  <section class="msec msec--rule" id="berita" aria-labelledby="news-title">
+    <div class="msec__head" data-lds-reveal>
+      <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">campaign</span>Pengumuman dan berita</span>
+      <h2 class="msec__title" id="news-title">Kabar terbaru dari Kota Contoh.</h2>
+    </div>
+    <div class="lp-news">
+      <div class="lp-news__notes">
+        <h3 class="section__title-sm">Pengumuman</h3>
+        <div class="more" data-lds-more data-more="Tampilkan 2 pengumuman lagi" data-less="Tampilkan lebih sedikit">
+          <div class="list list--fill">
+            <div class="lrow" style="min-height: 72px;"><time class="datetile datetile--today" datetime="2026-11-16"><span class="datetile__m">Nov</span><span class="datetile__d">16</span></time><span class="lrow__body"><span class="lrow__title">Loket Disdukcapil di Mal Pelayanan Publik buka sampai 19.00 WIB selama November</span><span class="lrow__sub">Dinas Kependudukan dan Pencatatan Sipil</span></span></div>
+            <div class="lrow" style="min-height: 72px;"><time class="datetile" datetime="2026-11-19"><span class="datetile__m">Nov</span><span class="datetile__d">19</span></time><span class="lrow__body"><span class="lrow__title">Air bersih padam 09.00 sampai 15.00 WIB di Kecamatan Tanjung Raya</span><span class="lrow__sub">Perusahaan Daerah Air Minum Kota Contoh</span></span><span class="badge badge--warning">Gangguan</span></div>
+            <div class="lrow" style="min-height: 72px;"><time class="datetile" datetime="2026-11-30"><span class="datetile__m">Nov</span><span class="datetile__d">30</span></time><span class="lrow__body"><span class="lrow__title">Batas bayar PBB 2026 tanpa denda</span><span class="lrow__sub">Badan Pendapatan Daerah</span></span></div>
+          </div>
+          <div class="more__rest"><div><div class="list list--fill" style="margin-top: var(--s-8);">
+            <div class="lrow" style="min-height: 72px;"><time class="datetile" datetime="2026-12-01"><span class="datetile__m">Des</span><span class="datetile__d">1</span></time><span class="lrow__body"><span class="lrow__title">Bus Koridor 3 mulai melayani Sukamaju ke Terminal Tanjung</span><span class="lrow__sub">Dinas Perhubungan</span></span></div>
+            <div class="lrow" style="min-height: 72px;"><time class="datetile" datetime="2026-12-07"><span class="datetile__m">Des</span><span class="datetile__d">7</span></time><span class="lrow__body"><span class="lrow__title">Pendaftaran beasiswa pelajar berprestasi dibuka</span><span class="lrow__sub">Dinas Pendidikan</span></span></div>
+          </div></div></div>
+          <button class="btn btn--plain btn--sm more__btn"></button>
+        </div>
+      </div>
+      <div class="lp-news__stories">
+        <h3 class="section__title-sm">Berita</h3>
+        <article class="card lp-story lp-story--lead">
+          <span class="badge badge--accent">Lingkungan</span>
+          <h4 class="card__title">Sembilan kolam retensi baru menampung air hujan di Way Kandis</h4>
+          <p class="card__sub">Kolam selesai dibangun Oktober dan mulai dipakai saat hujan lebat pekan lalu. Genangan di Jl. Sultan Agung surut dua jam lebih cepat dari tahun lalu.</p>
+          <p class="lp-story__meta">14 Nov 2026 · Dinas Pekerjaan Umum</p>
+        </article>
+        <article class="card lp-story">
+          <span class="badge">Kesehatan</span>
+          <h4 class="card__title">Imunisasi anak gratis di 12 puskesmas, Sabtu 21 Nov</h4>
+          <p class="lp-story__meta">12 Nov 2026 · Dinas Kesehatan</p>
+        </article>
+        <article class="card lp-story">
+          <span class="badge">Ekonomi</span>
+          <h4 class="card__title">Pasar murah di Lapangan Sukamaju, 18 sampai 20 Nov</h4>
+          <p class="lp-story__meta">15 Nov 2026 · Dinas Perdagangan</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Numbers, marked as example data -->
+  <section class="msec msec--rule" aria-labelledby="num-title">
+    <div class="msec__head" data-lds-reveal>
+      <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">bar_chart</span>Layanan dalam angka</span>
+      <h2 class="msec__title" id="num-title">Oktober 2026 di loket dan di aplikasi.</h2>
+      <p class="msec__lede"><span class="badge badge--outline">Data contoh</span> Angka di bawah dibuat untuk contoh ini dan tidak berasal dari pemerintah mana pun.</p>
+    </div>
+    <div class="stat-row-wrap"><dl class="stat-row" style="--n: 4">
+      <div class="stat-row__item" data-lds-reveal style="--i: 0"><dt class="stat-row__label">Dokumen kependudukan terbit</dt><dd class="stat-row__value">4.812</dd><dd class="stat-row__sub">KTP, KK dan akta, data contoh</dd></div>
+      <div class="stat-row__item" data-lds-reveal style="--i: 1"><dt class="stat-row__label">Pengaduan selesai</dt><dd class="stat-row__value">87%</dd><dd class="stat-row__sub">1.126 dari 1.294, data contoh</dd></div>
+      <div class="stat-row__item" data-lds-reveal style="--i: 2"><dt class="stat-row__label">Rata-rata antre di loket</dt><dd class="stat-row__value">18 mnt</dd><dd class="stat-row__sub">Turun dari 41 menit, data contoh</dd></div>
+      <div class="stat-row__item" data-lds-reveal style="--i: 3"><dt class="stat-row__label">Izin usaha mikro</dt><dd class="stat-row__value">356</dd><dd class="stat-row__sub">Terbit dalam 1 hari kerja, data contoh</dd></div>
+    </dl></div>
+  </section>
+
+  <!-- Agenda -->
+  <section class="msec msec--rule lp-split" id="agenda" aria-labelledby="ag-title">
+    <div class="msec__head" data-lds-reveal>
+      <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">event</span>Agenda kota</span>
+      <h2 class="msec__title" id="ag-title">Dua minggu ke depan.</h2>
+      <p class="msec__lede">Kegiatan terbuka untuk warga. Datang tanpa mendaftar kecuali disebutkan.</p>
+    </div>
+    <div class="stack" style="--gap: var(--s-16);">
+      <div class="seg lp-ag-seg" role="group" aria-label="Saring agenda" data-lds-segmented id="ag-seg">
+        <span class="seg__thumb"></span>
+        <button class="seg__btn" aria-pressed="true" data-ag="all">Semua</button>
+        <button class="seg__btn" aria-pressed="false" data-ag="warga">Warga</button>
+        <button class="seg__btn" aria-pressed="false" data-ag="sehat">Kesehatan</button>
+      </div>
+      <div class="list list--fill stagger" id="ag-list"></div>
+    </div>
+  </section>
+
+  <!-- Complaint call to action -->
+  <section class="msec msec--tight" id="pengaduan" aria-labelledby="cta-title">
+    <div class="cta-band" data-lds-reveal>
+      <h2 class="cta-band__title" id="cta-title">Jalan rusak, sampah menumpuk, atau layanan lambat?</h2>
+      <p class="cta-band__body">Sampaikan di sini. Petugas kelurahan memeriksa setiap pengaduan dalam satu hari kerja dan meneruskannya ke dinas yang menangani.</p>
+      <div class="cta-band__actions">
+        <button class="btn btn--primary btn--lg" data-lds-modal="aduan">Buat pengaduan</button>
+        <button class="btn btn--secondary btn--lg" data-lds-modal="lacak">Lacak pengaduan</button>
+      </div>
+      <p class="hero__note">Lebih cepat dari ponsel: <a class="link" href="mobile.html">lihat contoh aplikasi Sakai</a>.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="msec msec--rule lp-faq" id="tanya" aria-labelledby="q-title">
+    <div class="msec__head" data-lds-reveal>
+      <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">help</span>Tanya jawab</span>
+      <h2 class="msec__title" id="q-title">Sebelum Anda datang ke loket.</h2>
+      <p class="msec__lede">Pertanyaan lain? Hubungi pusat panggilan di bagian bawah halaman.</p>
+    </div>
+    <div class="acc" data-lds-accordion="single">
+      <div class="acc__item"><button class="acc__btn" aria-expanded="true" aria-controls="q1">Jam berapa Mal Pelayanan Publik buka?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel is-open" id="q1" role="region"><div><p>Senin sampai Jumat pukul 08.00 sampai 15.00 WIB, dan Sabtu pukul 08.00 sampai 12.00 WIB. Selama November, loket kependudukan buka sampai 19.00 WIB pada hari kerja.</p></div></div></div>
+      <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="q2">Apakah mengurus KTP, KK atau akta dipungut biaya?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="q2" role="region"><div><p>Tidak. Semua dokumen kependudukan gratis. Jika ada petugas yang meminta bayaran, laporkan lewat tombol Buat pengaduan dengan kategori Pelayanan.</p></div></div></div>
+      <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="q3">Bisakah saya mengurus dokumen untuk anggota keluarga?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="q3" role="region"><div><p>Bisa, untuk anggota keluarga yang tercatat di kartu keluarga yang sama. Bawa kartu keluarga asli dan KTP Anda sendiri. Perekaman sidik jari dan foto KTP tetap harus dilakukan oleh yang bersangkutan.</p></div></div></div>
+      <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="q4">Bagaimana cara melacak pengaduan yang sudah saya kirim?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="q4" role="region"><div><p>Pakai nomor pengaduan yang Anda terima, misalnya LPR-2611-0417, di tombol Lacak pengaduan. Anda juga menerima pesan setiap kali statusnya berubah.</p></div></div></div>
+      <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="q5">Data pribadi saya dipakai untuk apa?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="q5" role="region"><div><p>Hanya untuk memproses layanan yang Anda ajukan dan menghubungi Anda tentang layanan itu. Nama pelapor pengaduan bisa disembunyikan dari publik.</p></div></div></div>
+      <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="q6">Apakah ini situs resmi?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="q6" role="region"><div><p>Bukan. Halaman ini contoh dari Lampung Design System. Kota Contoh, dinas, nomor dan angkanya fiktif. Pengaduan dan pencarian di halaman ini tidak dikirim ke mana pun.</p></div></div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <div class="site-footer__brand">
+      <span class="site-footer__name">Pemerintah Kota Contoh</span>
+      <p class="site-footer__about">Mal Pelayanan Publik, Jl. Merdeka No. 1, Kelurahan Sukamaju, Kota Contoh.</p>
+      <dl class="kv-list kv-list--stack lp-contact">
+        <div class="kv"><dt>Pusat panggilan</dt><dd>(0000) 123 456</dd></div>
+        <div class="kv"><dt>Surel</dt><dd>layanan@kotacontoh.example</dd></div>
+        <div class="kv"><dt>Jam layanan</dt><dd>Senin sampai Jumat, 08.00 sampai 15.00 WIB</dd></div>
+      </dl>
+    </div>
+    <nav class="site-footer__nav" aria-label="Kaki halaman">
+      <div class="site-footer__group"><h2>Layanan</h2><ul><li><a href="#layanan">Layanan populer</a></li><li><a href="#kategori">Kategori</a></li><li><a href="#pengaduan">Pengaduan</a></li></ul></div>
+      <div class="site-footer__group"><h2>Informasi</h2><ul><li><a href="#berita">Pengumuman dan berita</a></li><li><a href="#agenda">Agenda</a></li><li><a href="#tanya">Tanya jawab</a></li></ul></div>
+      <div class="site-footer__group"><h2>Contoh lain</h2><ul><li><a href="mobile.html">Aplikasi warga Sakai</a></li><li><a href="index.html">Semua contoh</a></li><li><a href="../index.html">Dokumentasi</a></li></ul></div>
+    </nav>
+  </div>
+  <div class="site-footer__bottom">
+    <p>Contoh situs layanan publik untuk Lampung Design System. Bukan situs resmi pemerintah. Semua nama, nomor dan angka fiktif.</p>
+    <div class="seg" role="group" aria-label="Tampilan" data-lds-segmented id="foot-seg" style="width: 200px;">
+      <span class="seg__thumb"></span>
+      <button class="seg__btn" aria-pressed="true" data-page-theme="light"><span class="ic ic--sm" aria-hidden="true">light_mode</span>&nbsp;Terang</button>
+      <button class="seg__btn" aria-pressed="false" data-page-theme="dark"><span class="ic ic--sm" aria-hidden="true">dark_mode</span>&nbsp;Gelap</button>
+    </div>
+  </div>
+</footer>
+
+<div class="lp-layers"><div class="toaster" id="page-toaster" role="status" aria-live="polite"></div></div>
+
+<!-- One service: requirements, time, cost -->
+<dialog class="modal" id="svc" aria-labelledby="svc-t">
+  <button class="icon-btn dialog__close" data-lds-modal-close aria-label="Tutup"><span class="ic" aria-hidden="true">close</span></button>
+  <h2 class="dialog__title" id="svc-t">Layanan</h2>
+  <p class="dialog__body" id="svc-sum"></p>
+  <dl class="kv-list kv-list--stack" id="svc-kv" style="margin-top: var(--s-16);"></dl>
+  <h3 class="list__header lp-req-h">Yang perlu dibawa</h3>
+  <div class="list list--fill" id="svc-req"></div>
+  <div class="dialog__actions"><button class="btn btn--secondary" data-lds-modal-close>Tutup</button><button class="btn btn--primary" id="svc-copy"><span class="ic" aria-hidden="true">content_copy</span>Salin daftar</button></div>
+</dialog>
+
+<!-- Complaint form -->
+<dialog class="modal" id="aduan" aria-labelledby="aduan-t">
+  <button class="icon-btn dialog__close" data-lds-modal-close aria-label="Tutup"><span class="ic" aria-hidden="true">close</span></button>
+  <h2 class="dialog__title" id="aduan-t">Buat pengaduan</h2>
+  <p class="dialog__body">Contoh formulir. Isinya tidak dikirim ke mana pun.</p>
+  <form class="form" id="aduan-form" novalidate style="margin-top: var(--s-16);">
+    <div class="field"><span class="field__label" id="ad-cat-l">Kategori</span>
+      <div class="chip-row" role="group" aria-labelledby="ad-cat-l" id="ad-cat">
+        <button type="button" class="chip" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Jalan dan saluran</button>
+        <button type="button" class="chip" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Sampah</button>
+        <button type="button" class="chip" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Lampu jalan</button>
+        <button type="button" class="chip" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Pelayanan</button>
+        <button type="button" class="chip" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Lainnya</button>
+      </div>
+      <span class="field__help" id="ad-cat-h">Pilih satu agar pengaduan sampai ke dinas yang tepat.</span>
+    </div>
+    <div class="field"><label class="field__label" for="ad-loc">Lokasi</label><div class="control"><input id="ad-loc" placeholder="Jl. Melati Raya No. 8, Kelurahan Sukamaju" aria-describedby="ad-loc-h"></div><span class="field__help" id="ad-loc-h">Nama jalan dan kelurahan.</span></div>
+    <div class="field"><label class="field__label" for="ad-desc">Keterangan <span class="counter" id="ad-desc-c">0 / 500</span></label><div class="control control--area"><textarea id="ad-desc" rows="4" maxlength="500" data-lds-count="ad-desc-c" aria-describedby="ad-desc-h ad-desc-c" placeholder="Lubang selebar satu meter di depan sekolah, sudah dua minggu."></textarea></div><span class="field__help" id="ad-desc-h">Paling sedikit 20 huruf: apa yang terjadi dan sejak kapan.</span></div>
+    <label class="switch"><input type="checkbox" role="switch" id="ad-anon"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="switch__text">Sembunyikan nama saya dari publik</span></label>
+    <div class="dialog__actions"><button type="button" class="btn btn--secondary" data-lds-modal-close>Batal</button><button type="submit" class="btn btn--primary" id="ad-send"><span class="btn__label">Kirim pengaduan</span><span class="btn__spin" aria-hidden="true"><span class="spinner"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></div>
+  </form>
+</dialog>
+
+<!-- Track a complaint -->
+<dialog class="modal" id="lacak" aria-labelledby="lacak-t">
+  <button class="icon-btn dialog__close" data-lds-modal-close aria-label="Tutup"><span class="ic" aria-hidden="true">close</span></button>
+  <h2 class="dialog__title" id="lacak-t">Lacak pengaduan</h2>
+  <form class="form" id="lacak-form" novalidate style="margin-top: var(--s-16);">
+    <div class="field"><label class="field__label" for="lk-no">Nomor pengaduan</label><div class="control"><input id="lk-no" autocomplete="off" autocapitalize="characters" placeholder="LPR-2611-0417" aria-describedby="lk-h"></div><span class="field__help" id="lk-h">Coba LPR-2611-0417, nomor contoh.</span></div>
+    <div id="lk-out" aria-live="polite"></div>
+    <div class="dialog__actions"><button type="button" class="btn btn--secondary" data-lds-modal-close>Tutup</button><button type="submit" class="btn btn--primary" id="lk-go"><span class="btn__label">Lihat status</span><span class="btn__spin" aria-hidden="true"><span class="spinner"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></div>
+  </form>
+</dialog>
+
+<script type="module">
+  import { init, setTheme, toast, setLoading, shake, announce, closeModal, openModal } from '../../js/lds.js';
+
+  const html = document.documentElement;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => Array.from(r.querySelectorAll(s));
+  const esc = (s) => String(s).replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const ic = (n, cls = '') => `<span class="ic${cls ? ` ${cls}` : ''}" aria-hidden="true">${n}</span>`;
+  const say = (o) => toast({ ...o, container: $('.lp-layers') });
+  const wait = (ms) => new Promise((r) => setTimeout(r, ms));
+
+  /* ---------- Example data ---------- */
+  const CATS = [
+    ['penduduk', 'Kependudukan', 'badge', 'blue'],
+    ['sehat', 'Kesehatan', 'local_hospital', 'red'],
+    ['didik', 'Pendidikan', 'school', 'orange'],
+    ['usaha', 'Perizinan dan usaha', 'storefront', 'green'],
+    ['pajak', 'Pajak daerah', 'payments', 'gray'],
+    ['hub', 'Transportasi', 'directions_bus', 'blue'],
+    ['lh', 'Lingkungan', 'eco', 'green'],
+    ['sosial', 'Sosial', 'volunteer_activism', 'orange'],
+    ['bencana', 'Kebencanaan', 'flood', 'red'],
+  ];
+  const S = (id, cat, name, sum, where, time, cost, req, popular) => ({ id, cat, name, sum, where, time, cost, req, popular });
+  const SERVICES = [
+    S('ktp', 'penduduk', 'KTP elektronik', 'Rekam baru, ganti yang rusak atau hilang, dan ubah data.', 'Loket Disdukcapil, Mal Pelayanan Publik', '1 hari kerja setelah perekaman', 'Gratis', ['Kartu keluarga asli', 'Surat kehilangan dari kepolisian, jika hilang', 'KTP lama, jika rusak'], true),
+    S('akta', 'penduduk', 'Akta kelahiran', 'Untuk bayi baru lahir dan untuk yang belum punya akta.', 'Loket Disdukcapil atau puskesmas', '3 hari kerja', 'Gratis', ['Surat keterangan lahir dari bidan atau rumah sakit', 'Kartu keluarga orang tua', 'KTP kedua orang tua'], true),
+    S('kk', 'penduduk', 'Kartu keluarga', 'Pecah KK, tambah anggota keluarga, atau pindah alamat.', 'Kantor kelurahan atau loket Disdukcapil', '2 hari kerja', 'Gratis', ['Kartu keluarga lama', 'Buku nikah atau akta cerai', 'Surat pindah, jika pindah alamat'], false),
+    S('pindah', 'penduduk', 'Surat pindah domisili', 'Pindah keluar atau masuk Kota Contoh.', 'Kantor kelurahan', '1 hari kerja', 'Gratis', ['Kartu keluarga', 'KTP semua anggota yang pindah'], false),
+    S('pbb', 'pajak', 'PBB rumah dan tanah', 'Cek tagihan, bayar, atau ajukan keringanan PBB.', 'Badan Pendapatan Daerah, atau bank yang bekerja sama', 'Tagihan langsung tampil', 'Sesuai tagihan', ['Nomor objek pajak dari lembar SPPT', 'KTP pemilik, untuk keringanan'], true),
+    S('pkb', 'pajak', 'Pajak kendaraan', 'Cek dan bayar pajak kendaraan tahunan.', 'Kantor bersama Samsat Kota Contoh', 'Langsung', 'Sesuai tagihan', ['STNK asli', 'KTP pemilik kendaraan'], false),
+    S('nib', 'usaha', 'Izin usaha mikro', 'Nomor induk berusaha untuk warung, kios dan usaha rumahan.', 'Loket perizinan, Mal Pelayanan Publik', '1 hari kerja', 'Gratis', ['KTP pemilik', 'Alamat tempat usaha', 'Nomor ponsel aktif'], true),
+    S('pbg', 'usaha', 'Persetujuan bangunan gedung', 'Izin membangun atau merenovasi rumah dan bangunan usaha.', 'Dinas Pekerjaan Umum', '14 hari kerja', 'Sesuai luas bangunan', ['Bukti kepemilikan tanah', 'Gambar denah dan tampak', 'KTP pemilik'], false),
+    S('puskesmas', 'sehat', 'Antrean puskesmas', 'Ambil nomor antrean poli umum, gigi, KIA dan lansia.', '18 puskesmas di Kota Contoh', 'Nomor langsung didapat', 'Gratis dengan jaminan kesehatan', ['KTP atau kartu keluarga', 'Kartu jaminan kesehatan'], true),
+    S('imunisasi', 'sehat', 'Imunisasi anak', 'Imunisasi dasar dan lanjutan untuk anak usia 0 sampai 6 tahun.', 'Puskesmas dan posyandu', 'Sesuai jadwal posyandu', 'Gratis', ['Buku kesehatan ibu dan anak'], false),
+    S('sekolah', 'didik', 'Pendaftaran sekolah negeri', 'Pendaftaran SD dan SMP negeri tahun ajaran baru.', 'Dinas Pendidikan', 'Sesuai jadwal pendaftaran', 'Gratis', ['Akta kelahiran anak', 'Kartu keluarga', 'Rapor terakhir, untuk SMP'], false),
+    S('beasiswa', 'didik', 'Beasiswa pelajar', 'Bantuan biaya sekolah untuk pelajar berprestasi dan keluarga kurang mampu.', 'Dinas Pendidikan', '30 hari kerja', 'Gratis', ['Kartu keluarga', 'Rapor dua semester terakhir', 'Surat keterangan dari sekolah'], false),
+    S('bus', 'hub', 'Kartu bus kota', 'Kartu untuk tarif pelajar dan lansia di bus kota.', 'Halte Pasar Kota dan Terminal Tanjung', 'Langsung', 'Rp 20.000 untuk kartu', ['KTP atau kartu pelajar'], false),
+    S('sampah', 'lh', 'Angkut sampah besar', 'Jadwal angkut kasur, lemari dan sisa renovasi.', 'Dinas Lingkungan Hidup', '3 hari kerja', 'Gratis sampai 2 m³', ['Alamat lengkap', 'Foto barang yang diangkut'], false),
+    S('bansos', 'sosial', 'Bantuan sosial', 'Daftar atau cek status bantuan pangan dan tunai.', 'Kantor kelurahan', '14 hari kerja', 'Gratis', ['Kartu keluarga', 'KTP kepala keluarga'], true),
+    S('banjir', 'bencana', 'Laporan banjir dan genangan', 'Laporkan genangan dan minta bantuan evakuasi.', 'BPBD Kota Contoh, siaga 24 jam', 'Petugas datang sesuai urutan darurat', 'Gratis', ['Lokasi yang jelas', 'Nomor ponsel yang bisa dihubungi'], false),
+  ];
+  const catOf = (k) => CATS.find((c) => c[0] === k);
+
+  /* ---------- Popular services and categories ---------- */
+  $('#pop-grid').innerHTML = SERVICES.filter((s) => s.popular).map((s) => {
+    const c = catOf(s.cat);
+    return `<button type="button" class="link-card" data-svc="${s.id}"><span class="link-card__eyebrow">${ic(c[2], 'ic--sm')}${esc(c[1])}</span><span class="link-card__title">${esc(s.name)}</span><span class="link-card__body">${esc(s.sum)}</span><span class="link-card__foot">${esc(s.time)} · ${esc(s.cost)}${ic('chevron_right', 'lrow__chev')}</span></button>`;
+  }).join('');
+  $('#cat-list').innerHTML = CATS.map(([k, name, icon, tile]) => {
+    const n = SERVICES.filter((s) => s.cat === k).length;
+    return `<button type="button" class="lrow lrow--icon" style="min-height: 64px;" data-cat="${k}"><span class="lrow__icon" style="background: var(--tile-${tile});">${ic(icon)}</span><span class="lrow__body"><span class="lrow__title" style="font-weight: 500;">${esc(name)}</span><span class="lrow__sub">${n} layanan</span></span>${ic('chevron_right', 'lrow__chev')}</button>`;
+  }).join('');
+
+  /* ---------- Search: filters as you type, a category fills it in ---------- */
+  const q = $('#svc-q'), out = $('#svc-results');
+  let catFilter = null;
+  const svcRow = (s) => { const c = catOf(s.cat); return `<button type="button" class="lrow lrow--icon" style="min-height: 60px;" data-svc="${s.id}"><span class="lrow__icon" style="background: var(--tile-${c[3]});">${ic(c[2])}</span><span class="lrow__body"><span class="lrow__title" style="font-weight: 500;">${esc(s.name)}</span><span class="lrow__sub">${esc(c[1])} · ${esc(s.time)}</span></span>${ic('chevron_right', 'lrow__chev')}</button>`; };
+  const render = () => {
+    const term = q.value.trim().toLowerCase();
+    if (!term && !catFilter) { out.hidden = true; out.innerHTML = ''; return; }
+    const hits = SERVICES.filter((s) => (!catFilter || s.cat === catFilter) && (!term || `${s.name} ${s.sum} ${catOf(s.cat)[1]}`.toLowerCase().includes(term)));
+    out.hidden = false;
+    const head = catFilter
+      ? `<div class="lp-results__head"><span>${hits.length} layanan ${esc(catOf(catFilter)[1].toLowerCase())}</span><button type="button" class="btn btn--plain btn--sm" data-clear-cat>${ic('close')}Semua kategori</button></div>`
+      : `<div class="lp-results__head"><span>${hits.length ? `${hits.length} layanan cocok` : ''}</span></div>`;
+    out.innerHTML = hits.length
+      ? `${head}<div class="list list--fill stagger">${hits.map(svcRow).join('')}</div>`
+      : `${catFilter ? head : ''}<div class="list list--fill"><div class="empty" role="status"><div class="empty__icon">${ic('search')}</div><div class="empty__title">Tidak ada layanan untuk "${esc(q.value.trim())}"</div><div class="empty__body">Coba kata lain, misalnya KTP, pajak atau puskesmas. Atau tanyakan ke pusat panggilan.</div><button type="button" class="btn btn--secondary btn--md" data-clear-q>Hapus pencarian</button></div></div>`;
+    init(out);
+  };
+  q.addEventListener('input', render);
+  $$('[data-q]').forEach((b) => b.addEventListener('click', () => { q.value = b.dataset.q; catFilter = null; render(); q.focus(); }));
+  out.addEventListener('click', (e) => {
+    if (e.target.closest('[data-clear-q]')) { q.value = ''; render(); q.focus(); }
+    if (e.target.closest('[data-clear-cat]')) { catFilter = null; render(); q.focus(); }
+  });
+  $('.search__cancel').addEventListener('click', () => { catFilter = null; setTimeout(render, 0); });
+  $('#cat-list').addEventListener('click', (e) => {
+    const b = e.target.closest('[data-cat]'); if (!b) return;
+    catFilter = b.dataset.cat; q.value = ''; render();
+    $('.lp-hero').scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    announce(`${out.querySelectorAll('[data-svc]').length} layanan ${catOf(catFilter)[1]}`);
+  });
+
+  /* ---------- One service in a modal ---------- */
+  let current = null;
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-svc]'); if (!b) return;
+    const s = SERVICES.find((x) => x.id === b.dataset.svc); current = s;
+    $('#svc-t').textContent = s.name;
+    $('#svc-sum').textContent = s.sum;
+    $('#svc-kv').innerHTML = `<div class="kv"><dt>Tempat</dt><dd>${esc(s.where)}</dd></div><div class="kv"><dt>Lama proses</dt><dd>${esc(s.time)}</dd></div><div class="kv"><dt>Biaya</dt><dd>${esc(s.cost)}</dd></div>`;
+    $('#svc-req').innerHTML = s.req.map((r) => `<div class="lrow lrow--check"><span class="ic lrow__check" aria-hidden="true">check_circle</span><span class="lrow__body"><span class="lrow__title">${esc(r)}</span></span></div>`).join('');
+    openModal($('#svc'));
+  });
+  $('#svc-copy').addEventListener('click', async () => {
+    const text = `${current.name}\n${current.req.map((r) => `- ${r}`).join('\n')}`;
+    try { await navigator.clipboard.writeText(text); say({ title: 'Persyaratan disalin', body: current.name, icon: 'content_copy' }); }
+    catch (err) { say({ title: 'Peramban menolak menyalin', body: 'Pilih teks persyaratan lalu salin manual.', icon: 'error' }); }
+  });
+
+  /* ---------- Agenda ---------- */
+  const AGENDA = [
+    ['2026-11-18', 'Nov', '18', 'Musyawarah warga Kelurahan Sukamaju', 'Rab, 19.30 WIB · Balai warga RW 002', 'warga', ''],
+    ['2026-11-21', 'Nov', '21', 'Imunisasi anak gratis', 'Sab, 08.00 sampai 13.00 WIB · 12 puskesmas', 'sehat', '<span class="badge badge--accent">Gratis</span>'],
+    ['2026-11-22', 'Nov', '22', 'Hari bebas kendaraan bermotor', 'Min, 06.00 sampai 09.00 WIB · Jl. Merdeka', 'warga', ''],
+    ['2026-11-25', 'Nov', '25', 'Donor darah', 'Rab, 09.00 sampai 14.00 WIB · Mal Pelayanan Publik', 'sehat', ''],
+    ['2026-11-28', 'Nov', '28', 'Kerja bakti bersih saluran Way Kandis', 'Sab, 07.00 WIB · Pos Way Kandis', 'warga', '<span class="badge">Bawa sarung tangan</span>'],
+  ];
+  const agList = $('#ag-list');
+  const renderAg = (f) => {
+    agList.innerHTML = AGENDA.filter((a) => f === 'all' || a[5] === f).map(([d, m, day, t, sub, , b]) => `<div class="lrow" style="min-height: 68px;"><time class="datetile" datetime="${d}"><span class="datetile__m">${m}</span><span class="datetile__d">${day}</span></time><span class="lrow__body"><span class="lrow__title">${esc(t)}</span><span class="lrow__sub">${esc(sub)}</span></span>${b}</div>`).join('');
+    agList.classList.remove('stagger'); void agList.offsetWidth; agList.classList.add('stagger');
+    Array.from(agList.children).forEach((c, i) => c.style.setProperty('--i', String(i)));
+  };
+  renderAg('all');
+  $('#ag-seg').addEventListener('lds:change', (e) => renderAg(e.detail.item.dataset.ag));
+
+  /* ---------- Complaint form ---------- */
+  const adCat = $('#ad-cat');
+  adCat.addEventListener('click', (e) => { const c = e.target.closest('.chip'); if (!c) return; $$('.chip', adCat).forEach((x) => x.setAttribute('aria-pressed', String(x === c))); okH('ad-cat-h', 'Pilih satu agar pengaduan sampai ke dinas yang tepat.'); });
+  const okH = (id, t) => { const h = $(`#${id}`); h.className = 'field__help'; h.textContent = t; };
+  const badH = (id, t) => { const h = $(`#${id}`); h.className = 'field__help field__help--error'; h.innerHTML = `${ic('error')}${esc(t)}`; };
+  const mark = (input, bad) => { input.parentElement.classList.toggle('is-invalid', bad); if (bad) input.setAttribute('aria-invalid', 'true'); else input.removeAttribute('aria-invalid'); };
+  const loc = $('#ad-loc'), desc = $('#ad-desc');
+  loc.addEventListener('input', () => { if (loc.value.trim().length >= 5) { mark(loc, false); okH('ad-loc-h', 'Nama jalan dan kelurahan.'); } });
+  desc.addEventListener('input', () => { if (desc.value.trim().length >= 20) { mark(desc, false); okH('ad-desc-h', 'Paling sedikit 20 huruf: apa yang terjadi dan sejak kapan.'); } });
+  let seq = 483;
+  $('#aduan-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const cat = $('.chip[aria-pressed="true"]', adCat);
+    let first = null;
+    if (!cat) { badH('ad-cat-h', 'Pilih kategori pengaduan.'); shake(adCat); first = first || adCat.querySelector('.chip'); }
+    if (loc.value.trim().length < 5) { badH('ad-loc-h', 'Tulis nama jalan dan kelurahan.'); mark(loc, true); first = first || loc; }
+    const n = desc.value.trim().length;
+    if (n < 20) { badH('ad-desc-h', `Tulis ${20 - n} huruf lagi: apa yang terjadi dan sejak kapan.`); mark(desc, true); first = first || desc; }
+    if (first) { shake($('#ad-send')); first.focus(); return; }
+    const btn = $('#ad-send');
+    setLoading(btn, true); await wait(1000); setLoading(btn, false);
+    const no = `LPR-2611-0${seq++}`;
+    closeModal($('#aduan'), () => {});
+    say({ title: 'Pengaduan terkirim', body: `Nomor ${no}. Simpan untuk melacaknya.`, icon: 'check_circle' });
+    $('#aduan-form').reset(); $$('.chip', adCat).forEach((x) => x.setAttribute('aria-pressed', 'false')); desc.dispatchEvent(new Event('input'));
+  });
+
+  /* ---------- Track a complaint ---------- */
+  const lk = $('#lk-no');
+  lk.addEventListener('input', () => { mark(lk, false); okH('lk-h', 'Coba LPR-2611-0417, nomor contoh.'); });
+  $('#lacak-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const v = lk.value.trim().toUpperCase();
+    const out2 = $('#lk-out');
+    if (!/^LPR-\d{4}-\d{4}$/.test(v)) { mark(lk, true); badH('lk-h', v ? 'Nomor berbentuk LPR, empat angka, lalu empat angka lagi.' : 'Isi nomor pengaduan Anda.'); shake($('#lk-go')); lk.focus(); return; }
+    const btn = $('#lk-go'); setLoading(btn, true); out2.innerHTML = ''; await wait(800); setLoading(btn, false);
+    if (v !== 'LPR-2611-0417') { out2.innerHTML = `<div class="alert alert--warning">${ic('warning')}<div><div class="alert__title">Nomor ${esc(v)} tidak ditemukan</div><div class="alert__body">Periksa lagi nomor di pesan konfirmasi. Di contoh ini hanya LPR-2611-0417 yang ada.</div></div></div>`; return; }
+    const steps = [['Diterima', '14 Nov, 07.52 WIB', 1], ['Diverifikasi petugas kelurahan', '14 Nov, 10.15 WIB', 1], ['Diteruskan ke Dinas Pekerjaan Umum', '15 Nov, 08.40 WIB', 1], ['Sedang dikerjakan', 'Perkiraan selesai 20 Nov', 0], ['Selesai', 'Menunggu pengerjaan', -1]];
+    out2.innerHTML = `<div class="stack" style="--gap: var(--s-12);"><div class="cluster"><span class="badge badge--accent">Diproses</span><span class="lrow__sub">Jalan berlubang di depan SD Negeri 2 Sukamaju</span></div><ol class="tl">${steps.map(([t, m, s]) => `<li class="tl__item"${s === 0 ? ' aria-current="step"' : ''}><span class="tl__dot${s === 1 ? ' tl__dot--done' : ''}">${s === 1 ? ic('check') : s === 0 ? ic('schedule') : ''}</span><div><div class="tl__title">${esc(t)}</div><div class="tl__meta">${s === 1 ? '<span class="sr-only">Selesai. </span>' : ''}${esc(m)}</div></div></li>`).join('')}</ol></div>`;
+  });
+  $('#lacak').addEventListener('close', () => { lk.value = ''; $('#lk-out').innerHTML = ''; mark(lk, false); okH('lk-h', 'Coba LPR-2611-0417, nomor contoh.'); });
+
+  /* ---------- Theme: the top bar button and the footer control ---------- */
+  const pressSeg = (seg, attr, value) => { const b = $(`[${attr}="${value}"]`, seg); if (b && b.getAttribute('aria-pressed') !== 'true') b.click(); };
+  const syncTheme = () => {
+    const dark = html.getAttribute('data-theme') === 'dark';
+    $('#theme-btn .swap').classList.toggle('is-swapped', dark);
+    $('#theme-btn').setAttribute('aria-label', dark ? 'Pakai tema terang' : 'Pakai tema gelap');
+    $('#theme-tip').textContent = dark ? 'Tema terang' : 'Tema gelap';
+    pressSeg($('#foot-seg'), 'data-page-theme', dark ? 'dark' : 'light');
+  };
+  if (html.getAttribute('data-theme') === 'system') html.setAttribute('data-theme', matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  $('#theme-btn').addEventListener('click', () => { setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark'); syncTheme(); });
+  $$('[data-page-theme]').forEach((b) => b.addEventListener('click', () => { if (html.getAttribute('data-theme') !== b.dataset.pageTheme) { setTheme(b.dataset.pageTheme); syncTheme(); } }));
+  init();
+  syncTheme();
+</script>
+</body>
+</html>
