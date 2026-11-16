@@ -29,7 +29,7 @@ Use [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). Ever
 ```
 
 - **Types:** `feat`, `fix`, `docs`, `style` (formatting only), `refactor`, `perf`, `test`, `build` (build system, generated output, packaging), `ci`, `chore`, `revert`.
-- **Scopes** (pick the area touched): `tokens`, `css`, `js`, `react`, `icons`, `type`, `aksara`, `docs`, `i18n`, `examples`, `landing`, `cli`, `flutter`, `skills`, `scripts`, `deploy`, `deps`, `release`.
+- **Scopes** (pick the area touched): `tokens`, `css`, `js`, `react`, `icons`, `type`, `aksara`, `docs`, `i18n`, `examples`, `landing`, `cli`, `flutter`, `skills`, `scripts`, `deploy`, `deps`, `release`, `dist` (generated output), `ci`, `test`.
 - **Small commits, always.** One logical change per commit: a token change, one component, one docs page, one example screen, one CLI command. Commit as soon as that change builds and passes its checks; never pile up a day of work into one commit. If a message needs "and" to describe two unrelated things, split it. Generated files go in the same commit as the source change that produced them.
 - Breaking changes add `!` after the type or scope (`feat(tokens)!: rename accent-text`) and a `BREAKING CHANGE:` footer.
 - Never commit secrets, `.env` files, `node_modules`, build output under `site/` or `apps/landing/dist/`, or `.cache/`.
