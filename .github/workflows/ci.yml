@@ -1,0 +1,48 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  web:
+    name: Build and test (web, CLI)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Conventional commits
+        if: github.event_name == 'pull_request'
+        run: node scripts/lint-commits.mjs origin/${{ github.base_ref }}..HEAD
+      - run: npm run build
+      - name: Generated files are committed
+        run: git diff --exit-code -- css dist docs js skills
+      - run: npm test
+      - run: npm run build:site
+      - run: npx wrangler deploy --dry-run
+
+  flutter:
+    name: Flutter package
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/flutter
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+      - run: flutter pub get
+      - run: flutter analyze
+      - run: flutter test
+      - run: dart pub publish --dry-run
