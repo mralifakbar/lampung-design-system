@@ -49,3 +49,26 @@ test('generated JS and Dart tokens carry the accent', () => {
   assert.ok(read('dist/tokens.mjs').includes('#0B6E4F'));
   assert.match(read('dist/flutter/lds_tokens.dart'), /0xFF0B6E4F/i);
 });
+
+test('accent presets cover the same roles in both themes', () => {
+  for (const [name, a] of Object.entries(t.accents).filter(([k]) => !k.startsWith('$'))) {
+    assert.deepEqual(Object.keys(a.light).sort(), Object.keys(a.dark).sort(), name);
+    for (const k of Object.keys(a.light)) assert.ok(k in t.color.light, `${name}: ${k} is not a color token`);
+    assert.ok(read('css/tokens.css').includes(`[data-accent="${name}"]`), `${name} missing from css/tokens.css`);
+  }
+});
+
+const ACCENT_PAIRS = [['text-on-accent', 'accent'], ['text-on-accent', 'accent-hover'], ['text-on-accent', 'accent-pressed'], ['accent-text', 'bg-canvas'], ['accent-text', 'bg-fill'], ['accent-text', 'accent-tint']];
+for (const [name, a] of Object.entries(t.accents).filter(([k]) => !k.startsWith('$'))) {
+  for (const theme of ['light', 'dark']) {
+    test(`${name} ${theme}: accent pairings hold AA`, () => {
+      const c = { ...t.color[theme], ...a[theme] };
+      for (const [fg, bg] of ACCENT_PAIRS) {
+        const back = over(c[bg], c['bg-canvas']);
+        const ratio = contrast(over(c[fg], back), back);
+        assert.ok(ratio >= 4.5, `${fg} on ${bg}: ${ratio.toFixed(2)}:1`);
+      }
+      assert.ok(contrast(c.focus, c['bg-canvas']) >= 3, 'focus ring under 3:1');
+    });
+  }
+}
