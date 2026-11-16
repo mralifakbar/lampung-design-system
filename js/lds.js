@@ -542,6 +542,15 @@ function bindSearch(wrap) {
   cancel && cancel.addEventListener('click', () => { input.value = ''; input.dispatchEvent(new Event('input', { bubbles: true })); wrap.classList.remove('is-active'); input.blur(); });
   wrap.addEventListener('focusout', (e) => { if (!wrap.contains(e.relatedTarget) && !input.value) wrap.classList.remove('is-active'); });
 }
+/* Masthead: the toggle opens the explanation (a .collapse) it controls. */
+function bindMasthead(btn) {
+  const panel = document.getElementById(btn.getAttribute('aria-controls'));
+  if (!panel) return;
+  const set = (open) => { btn.setAttribute('aria-expanded', String(open)); panel.classList.toggle('is-closed', !open); panel.inert = !open; };
+  set(btn.getAttribute('aria-expanded') === 'true');
+  btn.addEventListener('click', () => set(btn.getAttribute('aria-expanded') !== 'true'));
+}
+
 /* Dismiss: collapses the closest .collapse (alerts, banners). */
 function bindDismiss(btn) {
   btn.addEventListener('click', () => { const c = btn.closest('.collapse'); if (c) { c.classList.add('is-closed'); c.inert = true; } emit(btn, 'lds:dismiss'); });
@@ -3779,6 +3788,7 @@ export function init(root = document) {
     const done = el.__ldsBound || (el.__ldsBound = new Set());
     if (!done.has(sel)) { done.add(sel); fn(el); }
   });
+  on('[data-lds-masthead]', bindMasthead);
   on('[data-lds-segmented]', (g) => bindIndicator(g, { itemSel: '.seg__btn', thumbSel: '.seg__thumb', attr: 'aria-pressed' }));
   on('[data-lds-tabs]', (g) => bindIndicator(g, { itemSel: '[role="tab"]', thumbSel: '.tabs__ink', attr: 'aria-selected', onPick: (i, tab) => {
     $$(g, '[role="tab"]').forEach((t) => { const p = document.getElementById(t.getAttribute('aria-controls')); if (p) p.hidden = t !== tab; });
