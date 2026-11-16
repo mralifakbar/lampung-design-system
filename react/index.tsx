@@ -11,6 +11,22 @@ const lds = () => import('../js/lds.js');
 const reduced = () => typeof matchMedia === 'function' && matchMedia('(prefers-reduced-motion: reduce)').matches;
 const cx = (...c: (string | false | null | undefined)[]) => c.filter(Boolean).join(' ');
 
+// Default text follows the closest [lang] (then <html lang>): "id*" reads Indonesian, anything else English.
+// Props such as label, placeholder, emptyText and clearLabel still win. Read after mount so server output stays stable.
+const STRINGS = {
+  en: { steps: 'Steps', choose: 'Choose', noMatch: 'Nothing matches. Try other words.', clear: 'Clear' },
+  id: { steps: 'Langkah', choose: 'Pilih', noMatch: 'Tidak ada yang cocok. Coba kata lain.', clear: 'Hapus' },
+};
+type StringKey = keyof typeof STRINGS.en;
+function useStrings(ref: RefObject<Element | null>) {
+  const [code, setCode] = useState<keyof typeof STRINGS>('en');
+  useIso(() => {
+    const tag = ref.current?.closest('[lang]')?.getAttribute('lang') || document.documentElement.lang || '';
+    setCode(tag.toLowerCase().startsWith('id') ? 'id' : 'en');
+  }, []);
+  return (k: StringKey) => STRINGS[code][k];
+}
+
 // ---------- Navigation and selection ----------
 
 export type TabItem<T extends string> = { value: T; label: ReactNode; count?: number | string };
@@ -116,9 +132,11 @@ export function Switch({ checked, onChange, children, sub, size, disabled }: { c
 }
 
 /** Horizontal steps; everything before `current` is done. */
-export function Steps({ items, current, label = 'Steps' }: { items: ReactNode[]; current: number; label?: string }) {
+export function Steps({ items, current, label }: { items: ReactNode[]; current: number; label?: string }) {
+  const ref = useRef<HTMLOListElement>(null);
+  const str = useStrings(ref);
   return (
-    <ol className="steps" aria-label={label}>
+    <ol className="steps" aria-label={label ?? str('steps')} ref={ref}>
       {items.map((s, i) => (
         <li key={i} className={cx('step', i < current && 'is-done', i === current && 'is-current')} aria-current={i === current ? 'step' : undefined}>
           <span className="step__head">
@@ -311,13 +329,14 @@ function OptionRow({ o, i, lid, selected, active, onEnter, onPick }: { o: Option
  * Select: a .select-trigger opening a listbox below it. Arrows, Home/End, Enter or Space picks,
  * Escape closes, typing jumps to the first option that starts with the letters.
  */
-export function Select({ id, value, options, onChange, label, labelledBy, icon, placeholder = 'Choose', className }: { id?: string; value: string; options: Option[]; onChange: (v: string) => void; label?: string; labelledBy?: string; icon?: string; placeholder?: string; className?: string }) {
+export function Select({ id, value, options, onChange, label, labelledBy, icon, placeholder, className }: { id?: string; value: string; options: Option[]; onChange: (v: string) => void; label?: string; labelledBy?: string; icon?: string; placeholder?: string; className?: string }) {
   const uid = useId();
   const tid = id ?? `sel-${uid}`;
   const lid = `${tid}-list`;
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(0);
   const wrap = useRef<HTMLDivElement>(null);
+  const str = useStrings(wrap);
   const btn = useRef<HTMLButtonElement>(null);
   const list = useRef<HTMLUListElement>(null);
   const typed = useRef({ s: '', t: 0 });
@@ -385,7 +404,7 @@ export function Select({ id, value, options, onChange, label, labelledBy, icon, 
             {icon}
           </span>
         )}
-        <span className="select__value">{chosen?.label ?? placeholder}</span>
+        <span className="select__value">{chosen?.label ?? placeholder ?? str('choose')}</span>
         <span className="ic" aria-hidden="true">
           expand_more
         </span>
@@ -426,8 +445,8 @@ export function Combobox({
   icon,
   placeholder,
   minChars = 0,
-  emptyText = 'Nothing matches. Try other words.',
-  clearLabel = 'Clear',
+  emptyText,
+  clearLabel,
 }: {
   id?: string;
   value: string;
@@ -453,6 +472,8 @@ export function Combobox({
   const wrap = useRef<HTMLDivElement>(null);
   const list = useRef<HTMLUListElement>(null);
   const input = useRef<HTMLInputElement>(null);
+  const str = useStrings(wrap);
+  const clearText = clearLabel ?? str('clear');
   useEffect(() => setText(labelOf(value)), [value]); // eslint-disable-line react-hooks/exhaustive-deps
   useOutside(wrap, open, () => {
     setOpen(false);
@@ -543,7 +564,7 @@ export function Combobox({
           <button
             type="button"
             className="control__btn"
-            aria-label={label ? `${clearLabel} ${label}` : clearLabel}
+            aria-label={label ? `${clearText} ${label}` : clearText}
             onClick={() => {
               onChange('');
               setText('');
@@ -574,7 +595,7 @@ export function Combobox({
         ))}
         {!results.length && !needsChars && !loading && query.length > 0 && (
           <li className="select__empty" role="presentation">
-            {emptyText}
+            {emptyText ?? str('noMatch')}
           </li>
         )}
       </ul>
