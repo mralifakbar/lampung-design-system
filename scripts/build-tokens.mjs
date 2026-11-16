@@ -197,7 +197,7 @@ const springConsts = Object.entries(t.motion.spring).map(([k, s]) =>
   `  /// ${s.description}\n  static final SpringDescription ${camel(k)}Spring = SpringDescription.withDampingRatio(mass: 1, stiffness: ${((2 * Math.PI / s.response) ** 2).toFixed(2)}, ratio: ${s.damping});`).join('\n');
 
 write('dist/flutter/lds_tokens.dart', `// ${HEADER}
-// Copy into lib/ (or depend on this folder) and register Plus Jakarta Sans + the two icon fonts in pubspec.yaml.
+// Copy into lib/ (or depend on this folder) and register Geist + the two icon fonts in pubspec.yaml.
 import 'package:flutter/animation.dart';
 import 'package:flutter/painting.dart';
 
@@ -515,7 +515,7 @@ const shadcnThemeShared = {
 };
 const varLines = (obj, indent = '  ') => Object.entries(obj).map(([k, v]) => `${indent}--${k}: ${v};`).join('\n');
 
-// Registry items: the theme plus Plus Jakarta Sans fonts through shadcn's own font loader.
+// Registry items: the theme plus Geist fonts through shadcn's own font loader.
 const REG = 'dist/shadcn/registry';
 const SCHEMA = 'https://ui.shadcn.com/schema/registry-item.json';
 const fontItem = (name, family, imp, variable, dependency, weight, selector) => ({
@@ -523,8 +523,8 @@ const fontItem = (name, family, imp, variable, dependency, weight, selector) => 
   font: { family: `'${family} Variable', ${variable === '--font-mono' ? 'monospace' : 'sans-serif'}`, provider: 'google', import: imp, variable, weight, subsets: ['latin'], dependency, ...(selector && { selector }) }
 });
 const json = (o) => JSON.stringify(o, null, 2) + '\n';
-write(`${REG}/lds-font-sans.json`, json(fontItem('lds-font-sans', 'Plus Jakarta Sans', 'Plus_Jakarta_Sans', '--font-sans', '@fontsource-variable/plus-jakarta-sans', ['400', '500', '600', '700'])));
-write(`${REG}/lds-font-mono.json`, json(fontItem('lds-font-mono', 'JetBrains Mono', 'JetBrains_Mono', '--font-mono', '@fontsource-variable/jetbrains-mono', ['400', '500'], 'code, kbd, pre, samp')));
+write(`${REG}/lds-font-sans.json`, json(fontItem('lds-font-sans', 'Geist', 'Geist', '--font-sans', '@fontsource-variable/geist', ['400', '500', '600', '700'])));
+write(`${REG}/lds-font-mono.json`, json(fontItem('lds-font-mono', 'Geist Mono', 'Geist_Mono', '--font-mono', '@fontsource-variable/geist-mono', ['400', '500'], 'code, kbd, pre, samp')));
 const themeColors = Object.fromEntries(Object.keys(SHADCN_EXTRA).map((k) => [`color-${k}`, `var(--${k})`]));
 const shadcnBase = {
   '@layer base': {
@@ -536,7 +536,7 @@ const theme = (registryDependencies) => ({
   name: 'lds',
   type: 'registry:theme',
   title: "Lampung Design System",
-  description: "Colors (light and dark), Plus Jakarta Sans type and type scale, letter spacing, spacing, elevation, radius and motion curves from Lampung Design System.",
+  description: "Colors (light and dark), Geist type and type scale, letter spacing, spacing, elevation, radius and motion curves from Lampung Design System.",
   registryDependencies,
   cssVars: { theme: { ...themeColors, ...shadcnThemeShared }, light: shadcnLight, dark: shadcnDark },
   css: shadcnBase
@@ -563,7 +563,7 @@ write('dist/shadcn/globals.css', `/* ${HEADER} */
 /* shadcn/ui theme for Tailwind CSS v4. Replace the theme part of your globals.css with this file,
    or install it with: npx shadcn@latest add <path or URL to dist/shadcn/registry/lds.json>.
    Light is the default; dark applies under .dark or data-theme="dark". */
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap");
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
@@ -624,7 +624,7 @@ const v3Vars = (mode) => ({
 write('dist/shadcn/globals.v3.css', `/* ${HEADER} */
 /* shadcn/ui theme for Tailwind CSS v3. Use with dist/shadcn/tailwind.preset.cjs.
    Light is the default; dark applies under .dark or data-theme="dark". */
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

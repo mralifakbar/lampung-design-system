@@ -97,15 +97,15 @@ module.exports = {
         "2xl": "var(--elevation-lg)"
       },
       fontFamily: {
-        sans: ["\"Plus Jakarta Sans\"","-apple-system","BlinkMacSystemFont","\"Segoe UI\"","sans-serif"],
-        mono: ["\"JetBrains Mono\"","ui-monospace","\"SF Mono\"","Menlo","monospace"]
+        sans: ["\"Geist\"","-apple-system","BlinkMacSystemFont","\"Segoe UI\"","sans-serif"],
+        mono: ["\"Geist Mono\"","ui-monospace","\"SF Mono\"","Menlo","monospace"]
       },
       fontSize: {
         "display": [
           "56px",
           {
             "lineHeight": "60px",
-            "letterSpacing": "-0.03em",
+            "letterSpacing": "-0.035em",
             "fontWeight": "600"
           }
         ],
@@ -113,7 +113,7 @@ module.exports = {
           "34px",
           {
             "lineHeight": "41px",
-            "letterSpacing": "-0.024em",
+            "letterSpacing": "-0.028em",
             "fontWeight": "700"
           }
         ],
@@ -121,7 +121,7 @@ module.exports = {
           "28px",
           {
             "lineHeight": "34px",
-            "letterSpacing": "-0.02em",
+            "letterSpacing": "-0.022em",
             "fontWeight": "600"
           }
         ],
@@ -129,7 +129,7 @@ module.exports = {
           "22px",
           {
             "lineHeight": "28px",
-            "letterSpacing": "-0.016em",
+            "letterSpacing": "-0.018em",
             "fontWeight": "600"
           }
         ],
@@ -137,7 +137,7 @@ module.exports = {
           "20px",
           {
             "lineHeight": "25px",
-            "letterSpacing": "-0.012em",
+            "letterSpacing": "-0.014em",
             "fontWeight": "600"
           }
         ],
@@ -145,7 +145,7 @@ module.exports = {
           "17px",
           {
             "lineHeight": "22px",
-            "letterSpacing": "-0.008em",
+            "letterSpacing": "-0.01em",
             "fontWeight": "600"
           }
         ],
@@ -153,7 +153,7 @@ module.exports = {
           "15px",
           {
             "lineHeight": "22px",
-            "letterSpacing": "-0.003em",
+            "letterSpacing": "-0.005em",
             "fontWeight": "400"
           }
         ],
@@ -161,7 +161,7 @@ module.exports = {
           "15px",
           {
             "lineHeight": "22px",
-            "letterSpacing": "-0.003em",
+            "letterSpacing": "-0.005em",
             "fontWeight": "500"
           }
         ],
@@ -191,9 +191,9 @@ module.exports = {
         ]
       },
       letterSpacing: {
-        "tighter": "-0.03em",
-        "tight": "-0.02em",
-        "normal": "-0.003em",
+        "tighter": "-0.035em",
+        "tight": "-0.022em",
+        "normal": "-0.005em",
         "wide": "0.01em"
       },
       transitionTimingFunction: {
