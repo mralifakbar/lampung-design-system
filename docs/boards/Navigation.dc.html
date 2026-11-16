@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="utf-8">
-<title>Lampung Design System · Navigation</title>
+<title>Lampung Design System · Navigasi</title>
 <script src="./support.js"></script>
 <link rel="stylesheet" href="lds.css">
 </head>
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700&amp;family=Plus Jakarta Sans+Mono:wght@400;500&amp;display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=block">
 <style>
 body{margin:0}
 a{color:#0A6246}a:hover{color:#1E40AF}
@@ -29,25 +29,25 @@ a{color:#0A6246}a:hover{color:#1E40AF}
 
   <header class="page-head">
     <div>
-      <div class="page-head__crumb"><span class="page-head__mark">L</span>Components · Navigation</div>
-      <h1>Navigation</h1>
-      <p class="page-head__lede">Every screen answers where am I, where can I go, and how do I get back. Indicators slide between positions so the eye follows the change instead of hunting for it.</p>
+      <div class="page-head__crumb"><span class="page-head__mark">L</span>Komponen · Navigasi</div>
+      <h1>Navigasi</h1>
+      <p class="page-head__lede">Setiap layar menjawab tiga hal: saya di mana, bisa ke mana, dan bagaimana kembali. Penanda bergeser antarposisi sehingga mata mengikuti perubahan tanpa perlu mencari. Semua data di halaman ini adalah contoh.</p>
     </div>
-    <div class="appearance" role="group" aria-label="Appearance">
+    <div class="appearance" role="group" aria-label="Tampilan">
       <span class="appearance__thumb" style="transform: translateX({{thumbX}});"></span>
-      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Light</button>
-      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Dark</button>
+      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Terang</button>
+      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Gelap</button>
     </div>
   </header>
 
   <section class="sec">
     <div class="sec__aside">
-      <h2 class="sec__title">Tabs</h2>
-      <p class="sec__desc">For sibling views inside one page. The ink slides on the smooth spring; the new panel rises in with a short blur. Left and right arrows move between tabs.</p>
-      <ul class="spec"><li><b>Count</b><span>Only when the number helps decide where to go.</span></li></ul>
+      <h2 class="sec__title">Tab</h2>
+      <p class="sec__desc">Untuk tampilan setara dalam satu halaman. Garis penanda bergeser dengan spring halus, panel baru muncul dengan blur singkat. Panah kiri dan kanan berpindah antartab.</p>
+      <ul class="spec"><li><b>Jumlah</b><span>Tampilkan hanya jika angkanya membantu memilih tujuan.</span></li></ul>
     </div>
     <div class="stage stage--white" style="gap: 0; padding: 8px 24px 24px;">
-      <div class="tabs" role="tablist" aria-label="Course sections" onKeyDown="{{tabKey}}">
+      <div class="tabs" role="tablist" aria-label="Bagian permohonan" onKeyDown="{{tabKey}}">
         <span class="tabs__ink" style="width: calc(100% / 4); transform: translateX({{inkX}});"></span>
         <sc-for list="{{tabs}}" as="t" hint-placeholder-count="4">
           <button class="tabs__btn" role="tab" aria-selected="{{t.on}}" tabindex="{{t.tab}}" onClick="{{t.pick}}">{{t.label}}<sc-if value="{{t.hasCount}}" hint-placeholder-val="{{false}}"><span class="tabs__count">{{t.count}}</span></sc-if></button>
@@ -62,27 +62,27 @@ a{color:#0A6246}a:hover{color:#1E40AF}
 
   <section class="sec">
     <div class="sec__aside">
-      <h2 class="sec__title">Page header</h2>
-      <p class="sec__desc">Breadcrumbs on top, then the title with its actions on the same baseline. The last crumb is the current page and is not a link.</p>
+      <h2 class="sec__title">Kepala halaman</h2>
+      <p class="sec__desc">Breadcrumb di atas, lalu judul dengan aksinya pada garis dasar yang sama. Breadcrumb terakhir adalah halaman saat ini dan bukan tautan.</p>
     </div>
     <div class="stage stage--white" style="gap: 14px;">
       <nav aria-label="Breadcrumb">
         <ol class="crumbs">
-          <li><a href="#nav-ph">Academics</a></li>
+          <li><a href="#nav-ph">Layanan</a></li>
           <li><span class="ic" aria-hidden="true">chevron_right</span></li>
-          <li><a href="#nav-ph">Courses</a></li>
+          <li><a href="#nav-ph">Perizinan</a></li>
           <li><span class="ic" aria-hidden="true">chevron_right</span></li>
-          <li><span aria-current="page">Database Systems</span></li>
+          <li><span aria-current="page">Izin usaha mikro</span></li>
         </ol>
       </nav>
       <div class="ph" id="nav-ph">
         <div>
-          <h3 style="font: 600 28px/34px var(--font); letter-spacing: -0.022em; color: var(--text-strong);">Database Systems</h3>
-          <p style="font: 400 14px/20px var(--font); color: var(--text-subtle); margin-top: 4px;">CS 2104 · 3 credits · Mon and Thu, 08:00</p>
+          <h3 style="font: 600 28px/34px var(--font); letter-spacing: -0.022em; color: var(--text-strong);">Izin usaha mikro</h3>
+          <p style="font: 400 14px/20px var(--font); color: var(--text-subtle); margin-top: 4px;">IZN-2026-0412 · Dinas Layanan Kota Contoh · Diajukan 12 Nov 2026</p>
         </div>
         <div class="row" style="gap: 8px;">
-          <button class="btn btn--secondary btn--md"><span class="ic" aria-hidden="true">ios_share</span>Share</button>
-          <button class="btn btn--primary btn--md"><span class="ic" aria-hidden="true">add</span>New assignment</button>
+          <button class="btn btn--secondary btn--md"><span class="ic" aria-hidden="true">ios_share</span>Bagikan</button>
+          <button class="btn btn--primary btn--md"><span class="ic" aria-hidden="true">add</span>Ajukan permohonan</button>
         </div>
       </div>
     </div>
@@ -90,24 +90,24 @@ a{color:#0A6246}a:hover{color:#1E40AF}
 
   <section class="sec">
     <div class="sec__aside">
-      <h2 class="sec__title">Pagination and steps</h2>
-      <p class="sec__desc">Pagination keeps the first, last and neighbors of the current page. Steps show where you are in a fixed sequence; the connecting bar fills as each step completes.</p>
+      <h2 class="sec__title">Pagination dan langkah</h2>
+      <p class="sec__desc">Pagination menampilkan halaman pertama, terakhir, dan tetangga halaman saat ini. Langkah menunjukkan posisi Anda dalam urutan tetap; garis penghubung terisi setiap kali satu langkah selesai.</p>
     </div>
     <div class="stage" style="gap: 32px;">
-      <nav class="row" style="justify-content: space-between;" aria-label="Pagination">
-        <span style="font: 400 14px/20px var(--font); color: var(--text-subtle);">Page {{page}} of 12</span>
+      <nav class="row" style="justify-content: space-between;" aria-label="Navigasi halaman">
+        <span style="font: 400 14px/20px var(--font); color: var(--text-subtle);">Halaman {{page}} dari 12</span>
         <div class="pager">
-          <button class="pager__btn" disabled="{{prevOff}}" onClick="{{prev}}" aria-label="Previous page"><span class="ic" aria-hidden="true">chevron_left</span></button>
+          <button class="pager__btn" disabled="{{prevOff}}" onClick="{{prev}}" aria-label="Halaman sebelumnya"><span class="ic" aria-hidden="true">chevron_left</span></button>
           <sc-for list="{{pages}}" as="p" hint-placeholder-count="7">
             <sc-if value="{{p.gap}}" hint-placeholder-val="{{false}}"><span class="pager__gap" aria-hidden="true">…</span></sc-if>
-            <sc-if value="{{p.num}}" hint-placeholder-val="{{true}}"><button class="pager__btn" aria-current="{{p.cur}}" aria-label="Page {{p.n}}" onClick="{{p.go}}">{{p.n}}</button></sc-if>
+            <sc-if value="{{p.num}}" hint-placeholder-val="{{true}}"><button class="pager__btn" aria-current="{{p.cur}}" aria-label="Halaman {{p.n}}" onClick="{{p.go}}">{{p.n}}</button></sc-if>
           </sc-for>
-          <button class="pager__btn" disabled="{{nextOff}}" onClick="{{next}}" aria-label="Next page"><span class="ic" aria-hidden="true">chevron_right</span></button>
+          <button class="pager__btn" disabled="{{nextOff}}" onClick="{{next}}" aria-label="Halaman berikutnya"><span class="ic" aria-hidden="true">chevron_right</span></button>
         </div>
       </nav>
       <div class="sep"></div>
       <div class="col" style="gap: 20px;">
-        <ol class="steps" aria-label="Registration progress">
+        <ol class="steps" aria-label="Langkah permohonan">
           <sc-for list="{{steps}}" as="st" hint-placeholder-count="4">
             <li class="step {{st.cls}}" aria-current="{{st.cur}}">
               <div class="step__head">
@@ -120,7 +120,7 @@ a{color:#0A6246}a:hover{color:#1E40AF}
           </sc-for>
         </ol>
         <div class="row">
-          <button class="btn btn--secondary btn--md" onClick="{{stepBack}}" disabled="{{backOff}}">Back</button>
+          <button class="btn btn--secondary btn--md" onClick="{{stepBack}}" disabled="{{backOff}}">Kembali</button>
           <button class="btn btn--primary btn--md" onClick="{{stepNext}}">{{nextLabel}}</button>
         </div>
       </div>
@@ -129,18 +129,18 @@ a{color:#0A6246}a:hover{color:#1E40AF}
 
   <section class="sec">
     <div class="sec__aside">
-      <h2 class="sec__title">Sidebar and contents</h2>
-      <p class="sec__desc">Desktop navigation. One highlight moves between items rather than each item lighting up. The table of contents uses the same idea for long pages.</p>
+      <h2 class="sec__title">Sidebar dan daftar isi</h2>
+      <p class="sec__desc">Navigasi desktop. Satu sorotan berpindah antaritem, bukan setiap item menyala sendiri. Daftar isi memakai cara yang sama untuk halaman panjang.</p>
     </div>
     <div class="stage" style="flex-direction: row; gap: 40px; align-items: flex-start;">
-      <nav class="sidebar" aria-label="Main">
+      <nav class="sidebar" aria-label="Utama">
         <span class="sidebar__hl" style="transform: translateY({{hlY}});" aria-hidden="true"></span>
-        <span class="sidebar__head">Workspace</span>
+        <span class="sidebar__head">Layanan warga</span>
         <sc-for list="{{side}}" as="it" hint-placeholder-count="6">
           <button class="sidebar__item" aria-current="{{it.cur}}" onClick="{{it.pick}}"><span class="ic" aria-hidden="true">{{it.icon}}</span>{{it.label}}<sc-if value="{{it.hasBadge}}" hint-placeholder-val="{{false}}"><span class="sidebar__badge">{{it.badge}}</span></sc-if></button>
         </sc-for>
       </nav>
-      <nav class="toc" aria-label="On this page" style="width: 220px;">
+      <nav class="toc" aria-label="Di halaman ini" style="width: 220px;">
         <span class="toc__ink" style="transform: translateY({{tocY}});" aria-hidden="true"></span>
         <sc-for list="{{toc}}" as="t" hint-placeholder-count="5">
           <a href="#nav-ph" aria-current="{{t.cur}}" onClick="{{t.pick}}">{{t.label}}</a>
@@ -166,19 +166,19 @@ a{color:#0A6246}a:hover{color:#1E40AF}
 
   <section class="sec">
     <div class="sec__aside">
-      <h2 class="sec__title">Phone bars</h2>
-      <p class="sec__desc">The tab bar holds three to five top-level destinations, each with a filled glyph when active. It is translucent so content scrolls visibly under it; the active icon pops once on selection.</p>
+      <h2 class="sec__title">Bilah ponsel</h2>
+      <p class="sec__desc">Tab bar memuat tiga sampai lima tujuan utama, masing-masing dengan ikon terisi saat aktif. Bilahnya tembus pandang sehingga konten tetap terlihat saat bergulir di bawahnya; ikon aktif memantul sekali saat dipilih.</p>
       <ul class="spec">
-        <li><b>Height</b><span>49 + home indicator area.</span></li>
-        <li><b>Labels</b><span>Always shown, 10.5 px medium.</span></li>
+        <li><b>Tinggi</b><span>49 + area home indicator.</span></li>
+        <li><b>Label</b><span>Selalu tampil, 10,5 px medium.</span></li>
       </ul>
     </div>
     <div class="stage" style="flex-direction: row; gap: 32px; align-items: flex-start;">
       <div class="phone phone--inline" style="height: 420px;">
         <div class="navbar is-scrolled" style="height: 56px; padding-top: 8px;">
-          <span><button class="icon-btn" aria-label="Back"><span class="ic" aria-hidden="true">arrow_back_ios_new</span></button></span>
+          <span><button class="icon-btn" aria-label="Kembali"><span class="ic" aria-hidden="true">arrow_back_ios_new</span></button></span>
           <span class="navbar__title">{{tabTitle}}</span>
-          <div class="navbar__end"><button class="icon-btn" aria-label="Search"><span class="ic" aria-hidden="true">search</span></button></div>
+          <div class="navbar__end"><button class="icon-btn" aria-label="Cari"><span class="ic" aria-hidden="true">search</span></button></div>
         </div>
         <div class="phone__scroll" style="padding: 68px 16px 100px;">
           <div class="col" style="gap: 10px;" key="{{tabBarKey}}">
@@ -195,7 +195,7 @@ a{color:#0A6246}a:hover{color:#1E40AF}
         <span class="home-ind" style="bottom: 7px; width: 108px;" aria-hidden="true"></span>
       </div>
       <div class="col" style="flex: 1; gap: 12px;">
-        <div class="alert alert--info"><span class="ic" aria-hidden="true">touch_app</span><div><div class="alert__title">Tap a tab</div><div class="alert__body">The active glyph fills and pops on the snappy spring, the title updates, and the list staggers in at 35 ms per row.</div></div></div>
+        <div class="alert alert--info"><span class="ic" aria-hidden="true">touch_app</span><div><div class="alert__title">Ketuk salah satu tab</div><div class="alert__body">Ikon aktif terisi dan memantul dengan spring cepat, judul berganti, lalu daftar muncul bertahap 35 ms per baris.</div></div></div>
       </div>
     </div>
   </section>
@@ -211,10 +211,10 @@ class Component extends DCLogic {
     const dark = theme === 'dark';
 
     const tabDefs = [
-      { label: 'Overview', count: 0, title: 'Overview', body: 'Course goals, grading weights and the lecturer\'s office hours.' },
-      { label: 'Assignments', count: 3, title: 'Three assignments open', body: 'The nearest deadline is on Friday at 23:59.' },
-      { label: 'Materials', count: 0, title: 'Materials', body: 'Slides and readings, newest first.' },
-      { label: 'Discussion', count: 12, title: 'Twelve unread replies', body: 'Replies to threads you started or follow.' }
+      { label: 'Ringkasan', count: 0, title: 'Ringkasan', body: 'Syarat, biaya retribusi, dan perkiraan lama proses izin.' },
+      { label: 'Berkas', count: 3, title: 'Tiga berkas perlu dilengkapi', body: 'Batas unggah terdekat hari Jumat pukul 23.59.' },
+      { label: 'Riwayat', count: 0, title: 'Riwayat', body: 'Setiap perubahan status, yang terbaru di atas.' },
+      { label: 'Pesan', count: 12, title: 'Dua belas balasan belum dibaca', body: 'Balasan petugas pada permohonan yang Anda ajukan atau ikuti.' }
     ];
     const ti = s.tab || 0;
 
@@ -228,28 +228,28 @@ class Component extends DCLogic {
       pages.push({ gap: false, num: true, n, cur: n === page ? 'page' : 'false', go: () => this.setState({ page: n }) });
     });
 
-    const stepDefs = [['Personal details', 'Name and contact'], ['Courses', 'Pick up to 24 credits'], ['Payment', 'Tuition and fees'], ['Review', 'Check and submit']];
+    const stepDefs = [['Data diri', 'Nama dan kontak'], ['Jenis usaha', 'Bidang dan lokasi usaha'], ['Retribusi', 'Biaya dan cara bayar'], ['Tinjau', 'Periksa lalu kirim']];
     const si = s.step == null ? 1 : s.step;
     const steps = stepDefs.map(([label, sub], i) => ({
       label, sub, n: i + 1, done: i < si, notDone: !(i < si), bar: i < stepDefs.length - 1,
       cls: i < si ? 'is-done' : (i === si ? 'is-current' : ''), cur: i === si ? 'step' : 'false'
     }));
 
-    const sideDefs = [['home', 'Home', ''], ['calendar_month', 'Schedule', ''], ['menu_book', 'Courses', '6'], ['assignment', 'Assignments', '3'], ['receipt_long', 'Billing', ''], ['settings', 'Settings', '']];
+    const sideDefs = [['home', 'Beranda', ''], ['calendar_month', 'Jadwal antrean', ''], ['menu_book', 'Permohonan', '6'], ['assignment', 'Laporan warga', '3'], ['receipt_long', 'Pajak daerah', ''], ['settings', 'Pengaturan', '']];
     const sideI = s.side == null ? 2 : s.side;
 
-    const tocDefs = ['Introduction', 'Grading', 'Office hours', 'Policies', 'Contacts'];
+    const tocDefs = ['Pendahuluan', 'Persyaratan', 'Jam layanan', 'Ketentuan', 'Kontak'];
     const tocI = s.toc || 0;
 
     const menuDefs = [
-      { label: 'File', items: [['New note', '⌘N'], ['Open', '⌘O'], ['Export as PDF', '⇧⌘E']] },
-      { label: 'Edit', items: [['Undo', '⌘Z'], ['Redo', '⇧⌘Z'], ['Find', '⌘F']] },
-      { label: 'View', items: [['Zoom in', '⌘+'], ['Zoom out', '⌘−'], ['Show sidebar', '⌥⌘S']] },
-      { label: 'Help', items: [['Shortcuts', '⌘/'], ['Send feedback', '']] }
+      { label: 'Berkas', items: [['Catatan baru', '⌘N'], ['Buka', '⌘O'], ['Ekspor ke PDF', '⇧⌘E']] },
+      { label: 'Edit', items: [['Urungkan', '⌘Z'], ['Ulangi', '⇧⌘Z'], ['Cari', '⌘F']] },
+      { label: 'Tampilan', items: [['Perbesar', '⌘+'], ['Perkecil', '⌘−'], ['Tampilkan sidebar', '⌥⌘S']] },
+      { label: 'Bantuan', items: [['Pintasan', '⌘/'], ['Kirim masukan', '']] }
     ];
     const mOpen = s.menu == null ? -1 : s.menu;
 
-    const tbDefs = [['today', 'Today'], ['calendar_month', 'Schedule'], ['school', 'Courses'], ['person', 'Profile']];
+    const tbDefs = [['today', 'Hari ini'], ['calendar_month', 'Agenda'], ['school', 'Layanan'], ['person', 'Profil']];
     const tb = s.tb || 0;
 
     return {
@@ -274,7 +274,7 @@ class Component extends DCLogic {
 
       steps,
       backOff: si <= 0,
-      nextLabel: si >= stepDefs.length - 1 ? 'Submit' : (si >= stepDefs.length ? 'Done' : 'Continue'),
+      nextLabel: si >= stepDefs.length - 1 ? 'Kirim permohonan' : (si >= stepDefs.length ? 'Selesai' : 'Lanjut'),
       stepBack: () => this.setState({ step: Math.max(0, si - 1) }),
       stepNext: () => this.setState({ step: si >= stepDefs.length ? 0 : si + 1 }),
 
