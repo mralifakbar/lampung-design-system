@@ -1,0 +1,107 @@
+---
+title: Verifikasi OTP
+description: Langkah kedua masuk: enam angka yang dikirim lewat SMS ke nomor ponsel yang terdaftar.
+shell: false
+---
+<div class="dash-auth">
+  <header class="dash-auth__top">
+    <a class="shell__brand" href="ringkasan.html"><span class="shell__mark" aria-hidden="true">S</span><span class="shell__label">Sakai Dasbor</span></a>
+    <div class="seg" role="group" aria-label="Tampilan" data-lds-segmented>
+      <span class="seg__thumb"></span>
+      <button class="seg__btn" type="button" aria-pressed="true" data-lds-theme="light">Terang</button>
+      <button class="seg__btn" type="button" aria-pressed="false" data-lds-theme="dark">Gelap</button>
+    </div>
+  </header>
+
+  <div class="dash-auth__center">
+    <div class="card dash-auth__card view-in">
+      <ol class="steps" aria-label="Langkah masuk">
+        <li class="step is-done"><div class="step__head"><span class="step__dot"><span class="ic" aria-hidden="true">check</span></span><span class="step__bar"></span></div><span class="step__label">Kata sandi</span></li>
+        <li class="step is-current" aria-current="step"><div class="step__head"><span class="step__dot">2</span></div><span class="step__label">Kode dari SMS</span></li>
+      </ol>
+      <div class="section__head">
+        <h1 style="margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);">Masukkan kode dari SMS</h1>
+        <p class="section__sub">Kami mengirim enam angka ke 0812 •••• 4417. Kode berlaku 5 menit.</p>
+      </div>
+      <form class="form" id="otp-form" novalidate>
+        <div class="field">
+          <span class="field__label" id="vf-code-label">Kode verifikasi</span>
+          <div class="dash-auth__otp">
+            <div class="otp-wrap" data-lds-otp>
+              <div class="otp" aria-hidden="true">
+                <span class="otp__cell"></span><span class="otp__cell"></span><span class="otp__cell"></span>
+                <span class="otp__sep"></span>
+                <span class="otp__cell"></span><span class="otp__cell"></span><span class="otp__cell"></span>
+              </div>
+              <input class="otp__input" id="vf-code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" aria-labelledby="vf-code-label" aria-describedby="vf-code-help">
+            </div>
+            <span class="spinner" aria-hidden="true" data-checking hidden><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </div>
+          <span class="field__help" id="vf-code-help" aria-live="polite"><span>Contoh: kodenya <b>246810</b>.</span></span>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit"><span class="btn__label">Verifikasi dan masuk</span><span class="btn__spin" aria-hidden="true"><span class="spinner"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button>
+      </form>
+      <div class="dash-auth__row">
+        <a class="btn btn--plain btn--md" href="masuk.html"><span class="ic" aria-hidden="true">arrow_back_ios_new</span>Pakai akun lain</a>
+        <button class="btn btn--plain btn--md" type="button" data-resend disabled>Kirim kode baru dalam 30 detik</button>
+      </div>
+      <p class="section__sub">Nomor ponsel sudah tidak aktif? Hubungi admin dasbor di dinas Anda untuk memperbaruinya.</p>
+    </div>
+  </div>
+
+  <footer class="dash-auth__foot">
+    {{note}}
+    <a class="link" href="ringkasan.html">Kembali ke ringkasan kota</a>
+  </footer>
+</div>
+
+<script type="module">
+import { otpError, setLoading, announce, haptic } from '../../../js/lds.js';
+import { delay } from './dashboard.js';
+import { finish } from './auth.js';
+
+const form = document.getElementById('otp-form');
+const wrap = form.querySelector('[data-lds-otp]');
+const code = document.getElementById('vf-code');
+const help = document.getElementById('vf-code-help');
+const spin = form.querySelector('[data-checking]');
+const btn = form.querySelector('[type="submit"]');
+const hint = help.innerHTML;
+
+// Resend countdown
+const resend = document.querySelector('[data-resend]');
+let timer;
+const countdown = () => {
+  let s = 30; resend.disabled = true; clearInterval(timer);
+  const tick = () => { resend.textContent = s > 0 ? `Kirim kode baru dalam ${s} detik` : 'Kirim kode baru'; if (s <= 0) { resend.disabled = false; clearInterval(timer); } s--; };
+  tick(); timer = setInterval(tick, 1000);
+};
+countdown();
+code.focus({ preventScroll: true });
+resend.addEventListener('click', async () => { resend.disabled = true; resend.textContent = 'Mengirim'; await delay(700); announce('Kode baru sudah dikirim'); countdown(); code.focus(); });
+
+let checking = false;
+async function verify() {
+  if (checking || btn.classList.contains('is-done')) return;
+  const v = code.value.replace(/\D/g, '');
+  if (v.length < 6) { otpError(wrap); help.innerHTML = `<span class="ic" aria-hidden="true">error</span>Isi keenam angka. Kurang ${6 - v.length} lagi.`; help.classList.add('field__help--error'); code.focus(); return; }
+  checking = true; spin.hidden = false; setLoading(btn, true);
+  help.classList.remove('field__help--error'); help.textContent = 'Memeriksa kode';
+  await delay(900);
+  spin.hidden = true; setLoading(btn, false); checking = false;
+  if (v !== '246810') {
+    otpError(wrap); haptic('error');
+    help.classList.add('field__help--error');
+    help.innerHTML = '<span class="ic" aria-hidden="true">error</span>Kode tidak cocok. Periksa SMS terbaru, atau kirim kode baru.';
+    code.select();
+    return;
+  }
+  help.classList.add('field__help--ok');
+  help.innerHTML = '<span class="ic" aria-hidden="true">check_circle</span>Kode diterima.';
+  clearInterval(timer);
+  finish(btn, 'Berhasil masuk', 'ringkasan.html');
+}
+code.addEventListener('input', () => { if (help.classList.contains('field__help--error')) { help.classList.remove('field__help--error'); help.innerHTML = hint; } });
+wrap.addEventListener('lds:complete', verify);
+form.addEventListener('submit', (e) => { e.preventDefault(); verify(); });
+</script>

@@ -1,0 +1,83 @@
+---
+title: Lupa kata sandi
+description: Minta tautan untuk mengatur ulang kata sandi Sakai Dasbor lewat email kantor.
+shell: false
+---
+<div class="dash-auth">
+  <header class="dash-auth__top">
+    <a class="shell__brand" href="ringkasan.html"><span class="shell__mark" aria-hidden="true">S</span><span class="shell__label">Sakai Dasbor</span></a>
+    <div class="seg" role="group" aria-label="Tampilan" data-lds-segmented>
+      <span class="seg__thumb"></span>
+      <button class="seg__btn" type="button" aria-pressed="true" data-lds-theme="light">Terang</button>
+      <button class="seg__btn" type="button" aria-pressed="false" data-lds-theme="dark">Gelap</button>
+    </div>
+  </header>
+
+  <div class="dash-auth__center">
+    <div class="card dash-auth__card view-in" data-view="ask">
+      <div class="section__head">
+        <h1 style="margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);">Atur ulang kata sandi</h1>
+        <p class="section__sub">Kami kirim tautan ke email kantor Anda. Tautan berlaku 30 menit, dan kata sandi lama tetap bisa dipakai sampai Anda membuat yang baru.</p>
+      </div>
+      <form class="form" id="reset" novalidate>
+        <div class="field">
+          <label class="field__label" for="lk-email">Email kantor</label>
+          <div class="control"><span class="ic" aria-hidden="true">mail</span><input id="lk-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="nama@kotacontoh.example" aria-describedby="lk-email-help"></div>
+          <span class="field__help" id="lk-email-help">Email yang terdaftar di akun Sakai Dasbor Anda.</span>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit"><span class="btn__label">Kirim tautan atur ulang</span><span class="btn__spin" aria-hidden="true"><span class="spinner"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button>
+      </form>
+      <p class="section__sub" style="text-align: center;">Ingat kata sandinya? <a class="link" href="masuk.html">Kembali ke halaman masuk</a></p>
+    </div>
+
+    <div class="card dash-auth__card" data-view="sent" hidden>
+      <div class="section__head">
+        <span class="badge badge--success"><span class="ic" aria-hidden="true">check_circle</span>Terkirim</span>
+        <h1 style="margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);" tabindex="-1" data-sent-title>Periksa email Anda</h1>
+        <p class="section__sub" data-sent-body>Jika email itu terdaftar, tautan atur ulang sudah dikirim.</p>
+      </div>
+      <ul class="list list--fill">
+        <li class="lrow lrow--num"><span class="lrow__num">1</span><span class="lrow__body"><span class="lrow__title">Buka email dari Sakai Dasbor</span><span class="lrow__sub">Periksa juga folder spam jika belum ada dalam 5 menit</span></span></li>
+        <li class="lrow lrow--num"><span class="lrow__num">2</span><span class="lrow__body"><span class="lrow__title">Pilih Atur kata sandi baru</span><span class="lrow__sub">Tautan berlaku 30 menit dan hanya sekali pakai</span></span></li>
+        <li class="lrow lrow--num"><span class="lrow__num">3</span><span class="lrow__body"><span class="lrow__title">Masuk lagi dengan kata sandi baru</span><span class="lrow__sub">Kode SMS tetap diminta seperti biasa</span></span></li>
+      </ul>
+      <div class="dash-auth__row">
+        <button class="btn btn--plain btn--md" type="button" data-again><span class="ic" aria-hidden="true">arrow_back_ios_new</span>Pakai email lain</button>
+        <a class="btn btn--primary btn--md" href="masuk.html">Kembali ke halaman masuk</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="dash-auth__foot">
+    {{note}}
+    <a class="link" href="ringkasan.html">Kembali ke ringkasan kota</a>
+  </footer>
+</div>
+
+<script type="module">
+import { announce } from '../../../js/lds.js';
+import { fieldError, fieldOk, liveCheck, isEmail, busy } from './auth.js';
+
+const form = document.getElementById('reset');
+const email = form.email, btn = form.querySelector('[type="submit"]');
+const ask = document.querySelector('[data-view="ask"]'), sent = document.querySelector('[data-view="sent"]');
+const checkEmail = (focus = true) => {
+  const v = email.value.trim();
+  if (!v) return fieldError(email, 'Isi email kantor Anda.', { focus });
+  if (!isEmail(v)) return fieldError(email, `"${v}" belum lengkap. Tulis seperti nama@kotacontoh.example.`, { focus });
+  return fieldOk(email);
+};
+liveCheck(email, checkEmail);
+const swap = (show, hide, cls) => { hide.hidden = true; show.hidden = false; show.classList.remove('view-in', 'view-in--forward', 'view-in--back'); void show.offsetWidth; show.classList.add(cls); };
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (btn.classList.contains('is-loading') || !checkEmail()) return;
+  await busy(btn, 900);
+  document.querySelector('[data-sent-body]').textContent = `Jika ${email.value.trim()} terdaftar, tautan atur ulang sudah dikirim ke sana.`;
+  swap(sent, ask, 'view-in--forward');
+  document.querySelector('[data-sent-title]').focus();
+  announce('Tautan atur ulang sudah dikirim');
+});
+document.querySelector('[data-again]').addEventListener('click', () => { swap(ask, sent, 'view-in--back'); email.select(); email.focus(); });
+</script>

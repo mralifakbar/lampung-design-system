@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="id" class="lds" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Daftar · Sakai Dasbor · Contoh Lampung Design System</title>
+<meta name="description" content="Pegawai Pemerintah Kota Contoh mengajukan akun Sakai Dasbor; admin dasbor di dinasnya yang menyetujui.">
+<meta name="theme-color" content="#FFFFFF">
+<script>try { var t = localStorage.getItem('lds-theme'); if (t) document.documentElement.setAttribute('data-theme', t); if (localStorage.getItem('lds-shell-rail') === '1') document.documentElement.setAttribute('data-shell-rail', ''); } catch (e) {}</script>
+<link rel="stylesheet" href="../../../css/lds.css">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="lds">
+<a class="skip-link" href="#main">Lewati ke isi</a>
+<main class="dash-solo" id="main" tabindex="-1">
+<div class="dash-auth">
+  <header class="dash-auth__top">
+    <a class="shell__brand" href="ringkasan.html"><span class="shell__mark" aria-hidden="true">S</span><span class="shell__label">Sakai Dasbor</span></a>
+    <div class="cluster" style="--gap: 12px;">
+      <p class="section__sub">Sudah punya akun? <a class="link" href="masuk.html">Masuk</a></p>
+      <div class="seg" role="group" aria-label="Tampilan" data-lds-segmented>
+        <span class="seg__thumb"></span>
+        <button class="seg__btn" type="button" aria-pressed="true" data-lds-theme="light">Terang</button>
+        <button class="seg__btn" type="button" aria-pressed="false" data-lds-theme="dark">Gelap</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="dash-auth__center">
+    <div class="card dash-auth__card dash-auth__card--wide view-in" data-view="form">
+      <div class="section__head">
+        <h1 style="margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);">Ajukan akun Sakai Dasbor</h1>
+        <p class="section__sub">Akun hanya untuk pegawai Pemerintah Kota Contoh. Admin dasbor di dinas Anda memeriksa NIP dan memberi peran, biasanya dalam satu hari kerja.</p>
+      </div>
+      <form class="form" id="daftar" novalidate>
+        <div class="field">
+          <label class="field__label" for="df-name">Nama lengkap</label>
+          <div class="control"><input id="df-name" name="fullname" autocomplete="name" placeholder="Dewi Lestari" aria-describedby="df-name-help"></div>
+          <span class="field__help" id="df-name-help">Sesuai data kepegawaian, tanpa gelar.</span>
+        </div>
+        <div class="form__row">
+          <div class="field">
+            <label class="field__label" for="df-nip">NIP</label>
+            <div class="control"><span class="ic" aria-hidden="true">badge</span><input id="df-nip" name="nip" inputmode="numeric" autocomplete="off" maxlength="21" placeholder="198705122010012003" aria-describedby="df-nip-help"></div>
+            <span class="field__help" id="df-nip-help">18 angka, tanpa spasi.</span>
+          </div>
+          <div class="field">
+            <span class="field__label" id="df-dinas-label">Dinas</span>
+            <div class="select" data-lds-select data-dinas>
+              <button type="button" class="control select-trigger is-placeholder" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="df-dinas-label" aria-describedby="df-dinas-help"><span class="ic" aria-hidden="true">account_balance</span><span class="select__value">Pilih dinas</span><span class="ic" aria-hidden="true">expand_more</span></button>
+              <ul class="menu select__menu" role="listbox" aria-labelledby="df-dinas-label">
+                <li class="menu__item" role="option" aria-selected="false" data-value="layanan">Dinas Layanan Kota Contoh</li>
+                <li class="menu__item" role="option" aria-selected="false" data-value="perhubungan">Dinas Perhubungan Kota Contoh</li>
+                <li class="menu__item" role="option" aria-selected="false" data-value="kesehatan">Dinas Kesehatan Kota Contoh</li>
+                <li class="menu__item" role="option" aria-selected="false" data-value="pendidikan">Dinas Pendidikan Kota Contoh</li>
+                <li class="menu__item" role="option" aria-selected="false" data-value="sosial">Dinas Sosial Kota Contoh</li>
+                <li class="menu__item" role="option" aria-selected="false" data-value="lingkungan">Dinas Lingkungan Hidup Kota Contoh</li>
+                <li class="menu__item" role="option" aria-selected="false" data-value="pupr">Dinas Pekerjaan Umum Kota Contoh</li>
+                <li class="menu__item" role="option" aria-selected="false" data-value="bpbd">BPBD Kota Contoh</li>
+                <li class="menu__item" role="option" aria-selected="false" data-value="keuangan">Badan Keuangan Daerah Kota Contoh</li>
+              </ul>
+            </div>
+            <span class="field__help" id="df-dinas-help">Admin dinas ini yang menyetujui.</span>
+          </div>
+        </div>
+        <div class="field">
+          <label class="field__label" for="df-email">Email kantor</label>
+          <div class="control"><span class="ic" aria-hidden="true">mail</span><input id="df-email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="dewi.lestari@kotacontoh.example" aria-describedby="df-email-help"></div>
+          <span class="field__help" id="df-email-help">Hanya alamat @kotacontoh.example. Keputusan admin dikirim ke sini.</span>
+        </div>
+        <div class="field">
+          <label class="field__label" for="df-pw">Kata sandi</label>
+          <div class="control"><span class="ic" aria-hidden="true">lock</span><input id="df-pw" name="password" type="password" autocomplete="new-password" aria-describedby="df-pw-help"><button class="control__btn" type="button" data-lds-password aria-label="Tampilkan kata sandi" data-hide-label="Sembunyikan kata sandi"><span class="ic" aria-hidden="true">visibility</span></button></div>
+          <div class="meter-seg" style="grid-template-columns: repeat(4, minmax(0, 1fr));" aria-hidden="true" data-meter><i></i><i></i><i></i><i></i></div>
+          <span class="field__help" id="df-pw-help" aria-live="polite">Minimal 8 karakter. Frasa yang panjang lebih kuat daripada simbol.</span>
+        </div>
+        <button class="btn btn--primary btn--block" type="submit"><span class="btn__label">Kirim permintaan akun</span><span class="btn__spin" aria-hidden="true"><span class="spinner"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button>
+      </form>
+    </div>
+
+    <div class="card dash-auth__card dash-auth__card--wide" data-view="sent" hidden>
+      <div class="section__head">
+        <span class="badge badge--accent"><span class="ic" aria-hidden="true">schedule</span>Menunggu persetujuan</span>
+        <h1 style="margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);" tabindex="-1" data-sent-title>Permintaan Anda sudah terkirim</h1>
+        <p class="section__sub" data-sent-body>Admin dasbor di dinas Anda akan memeriksanya.</p>
+      </div>
+      <dl class="kv-list" data-sent-kv></dl>
+      <ol class="tl">
+        <li class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">check</span></span><div><div class="tl__title">Permintaan diterima</div><div class="tl__meta"><span class="sr-only">Selesai. </span>Sen, 16 Nov 2026</div></div></li>
+        <li class="tl__item" aria-current="step"><span class="tl__dot"><span class="ic" aria-hidden="true">schedule</span></span><div><div class="tl__title">Admin dinas memeriksa NIP dan memberi peran</div><div class="tl__meta">Biasanya dalam satu hari kerja</div></div></li>
+        <li class="tl__item"><span class="tl__dot"></span><div><div class="tl__title">Anda bisa masuk</div><div class="tl__meta">Kami kirim email saat akun aktif</div></div></li>
+      </ol>
+      <div class="dash-auth__row">
+        <button class="btn btn--plain btn--md" type="button" data-cancel><span class="ic" aria-hidden="true">undo</span>Batalkan permintaan</button>
+        <a class="btn btn--primary btn--md" href="masuk.html">Ke halaman masuk</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="dash-auth__foot">
+    <span class="badge badge--outline"><span class="ic" aria-hidden="true">info</span>Contoh. Data fiktif, bukan layanan resmi.</span>
+    <a class="link" href="ringkasan.html">Kembali ke ringkasan kota</a>
+  </footer>
+</div>
+</main>
+<div class="layer-host"></div>
+<script type="module" src="dashboard.js"></script>
+<script type="module">
+import { announce, shake } from '../../../js/lds.js';
+import { notify } from './dashboard.js';
+import { fieldError, fieldOk, liveCheck, isEmail, strength, busy } from './auth.js';
+
+const form = document.getElementById('daftar');
+const { fullname: name, nip, email, password: pw } = form;
+const btn = form.querySelector('[type="submit"]');
+const score = strength(pw, form.querySelector('[data-meter]'), document.getElementById('df-pw-help'));
+const dinas = form.querySelector('[data-dinas]');
+const dinasBtn = dinas.querySelector('.select-trigger');
+const dinasHelp = document.getElementById('df-dinas-help');
+const chosenDinas = () => dinas.querySelector('[role="option"][aria-selected="true"]');
+
+const checkName = (focus = true) => (name.value.trim().length >= 3 ? fieldOk(name) : fieldError(name, 'Tulis nama lengkap sesuai data kepegawaian.', { focus }));
+const checkNip = (focus = true) => {
+  const v = nip.value.replace(/\s+/g, '');
+  if (!v) return fieldError(nip, 'Isi NIP Anda.', { focus });
+  if (!/^\d+$/.test(v)) return fieldError(nip, 'NIP hanya berisi angka.', { focus });
+  if (v.length !== 18) return fieldError(nip, `NIP terdiri dari 18 angka. Yang terisi ${v.length} angka.`, { focus });
+  return fieldOk(nip);
+};
+const checkDinas = (focus = true) => {
+  if (chosenDinas()) { dinasBtn.classList.remove('is-invalid'); dinasBtn.removeAttribute('aria-invalid'); dinasHelp.classList.remove('field__help--error'); dinasHelp.textContent = 'Admin dinas ini yang menyetujui.'; return true; }
+  dinasBtn.classList.add('is-invalid'); dinasBtn.setAttribute('aria-invalid', 'true');
+  dinasHelp.classList.add('field__help--error');
+  dinasHelp.innerHTML = '<span class="ic" aria-hidden="true">error</span>Pilih dinas tempat Anda bekerja.';
+  shake(dinasBtn);
+  if (focus) dinasBtn.focus();
+  return false;
+};
+const checkEmail = (focus = true) => {
+  const v = email.value.trim().toLowerCase();
+  if (!v) return fieldError(email, 'Isi email kantor Anda.', { focus });
+  if (!isEmail(v)) return fieldError(email, `"${v}" belum lengkap. Tulis seperti nama@kotacontoh.example.`, { focus });
+  if (!v.endsWith('@kotacontoh.example')) return fieldError(email, 'Pakai email kantor yang berakhiran @kotacontoh.example, bukan email pribadi.', { focus });
+  return fieldOk(email);
+};
+const checkPw = (focus = true) => {
+  if (pw.value.length < 8) return fieldError(pw, `Pakai minimal 8 karakter. Kurang ${8 - pw.value.length} lagi.`, { focus });
+  fieldOk(pw); score(); return true;
+};
+liveCheck(name, checkName); liveCheck(nip, checkNip); liveCheck(email, checkEmail); liveCheck(pw, checkPw);
+dinas.addEventListener('click', () => setTimeout(() => { if (dinasBtn.classList.contains('is-invalid')) checkDinas(false); }, 0));
+
+const views = { form: document.querySelector('[data-view="form"]'), sent: document.querySelector('[data-view="sent"]') };
+const swap = (name, cls) => { Object.entries(views).forEach(([k, v]) => { v.hidden = k !== name; v.classList.remove('view-in', 'view-in--forward', 'view-in--back'); }); void views[name].offsetWidth; views[name].classList.add(cls); };
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (btn.classList.contains('is-loading')) return;
+  if (!checkName() || !checkNip() || !checkDinas() || !checkEmail() || !checkPw()) return;
+  await busy(btn, 1100);
+  if (email.value.trim().toLowerCase() === 'rina.wijayanti@kotacontoh.example') { fieldError(email, 'Email ini sudah punya akun. Masuk saja, atau atur ulang kata sandinya.'); return; }
+  const d = chosenDinas().textContent.trim();
+  document.querySelector('[data-sent-body]').textContent = `Admin dasbor ${d} akan memeriksa NIP Anda dan memberi peran. Keputusannya dikirim ke ${email.value.trim()}.`;
+  document.querySelector('[data-sent-kv]').innerHTML = [['Nama', name.value.trim()], ['NIP', nip.value.replace(/\s+/g, '')], ['Dinas', d], ['Email kantor', email.value.trim()]]
+    .map(([k, v]) => `<div class="kv"><dt>${k}</dt><dd>${v.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))}</dd></div>`).join('');
+  swap('sent', 'view-in--forward');
+  document.querySelector('[data-sent-title]').focus();
+  announce('Permintaan akun terkirim');
+});
+document.querySelector('[data-cancel]').addEventListener('click', () => {
+  swap('form', 'view-in--back');
+  name.focus();
+  notify({ title: 'Permintaan dibatalkan', body: 'Admin tidak akan melihatnya. Isian Anda masih ada.', icon: 'undo' });
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="id" class="lds" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Akses ditolak · Sakai Dasbor · Contoh Lampung Design System</title>
+<meta name="description" content="Saat peran Anda belum membuka sebuah halaman: alasannya, siapa yang memutuskan, dan permintaan akses yang langsung sampai ke admin.">
+<meta name="theme-color" content="#FFFFFF">
+<script>try { var t = localStorage.getItem('lds-theme'); if (t) document.documentElement.setAttribute('data-theme', t); if (localStorage.getItem('lds-shell-rail') === '1') document.documentElement.setAttribute('data-shell-rail', ''); } catch (e) {}</script>
+<link rel="stylesheet" href="../../../css/lds.css">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="lds">
+<a class="skip-link" href="#main">Lewati ke isi</a>
+<main class="dash-solo" id="main" tabindex="-1">
+<div class="dash-auth">
+  <header class="dash-auth__top">
+    <a class="shell__brand" href="ringkasan.html"><span class="shell__mark" aria-hidden="true">S</span><span class="shell__label">Sakai Dasbor</span></a>
+    <div class="seg" role="group" aria-label="Tampilan" data-lds-segmented>
+      <span class="seg__thumb"></span>
+      <button class="seg__btn" type="button" aria-pressed="true" data-lds-theme="light">Terang</button>
+      <button class="seg__btn" type="button" aria-pressed="false" data-lds-theme="dark">Gelap</button>
+    </div>
+  </header>
+
+  <div class="dash-auth__center">
+    <div class="card dash-auth__card dash-auth__card--wide">
+      <div class="section__head">
+        <div class="cluster" style="--gap: 8px;"><span class="badge badge--danger"><span class="ic" aria-hidden="true">lock</span>Tanpa akses</span><span class="badge badge--outline">Galat 403</span></div>
+        <h1 style="margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);">Anda belum bisa membuka Keuangan daerah</h1>
+        <p class="section__sub">Halaman ini memuat realisasi anggaran seluruh dinas, jadi hanya peran Pengelola keuangan yang bisa melihatnya. Akun Anda tidak bermasalah; hanya belum punya peran itu.</p>
+      </div>
+
+      <dl class="kv-list">
+        <div class="kv"><dt>Masuk sebagai</dt><dd>Galih Ramadhan</dd></div>
+        <div class="kv"><dt>Peran Anda</dt><dd>Petugas pengaduan, Dinas Layanan Kota Contoh</dd></div>
+        <div class="kv"><dt>Peran yang dibutuhkan</dt><dd>Pengelola keuangan</dd></div>
+        <div class="kv"><dt>Yang bisa memberi</dt><dd>Rina Wijayanti, admin dasbor</dd></div>
+      </dl>
+
+      <form class="form" id="request" novalidate>
+        <div class="field">
+          <label class="field__label" for="ad-why">Untuk apa Anda membutuhkannya?</label>
+          <div class="control control--area"><textarea id="ad-why" name="why" rows="3" maxlength="280" placeholder="Mengecek sisa anggaran perbaikan saluran di Kecamatan Pesisir untuk menjawab laporan warga" aria-describedby="ad-why-help"></textarea></div>
+          <span class="field__help" id="ad-why-help">Rina membaca ini bersama permintaan Anda. Satu atau dua kalimat cukup.</span>
+        </div>
+        <div class="field">
+          <span class="field__label" id="ad-len">Berapa lama</span>
+          <div class="seg" role="group" aria-labelledby="ad-len" data-lds-segmented data-length>
+            <span class="seg__thumb"></span>
+            <button class="seg__btn" type="button" aria-pressed="true" value="1 hari">1 hari</button>
+            <button class="seg__btn" type="button" aria-pressed="false" value="7 hari">7 hari</button>
+            <button class="seg__btn" type="button" aria-pressed="false" value="tetap">Tetap</button>
+          </div>
+        </div>
+        <div class="form__actions">
+          <a class="btn btn--secondary" href="ringkasan.html">Ke ringkasan kota</a>
+          <button class="btn btn--primary" type="submit"><span class="btn__label">Minta akses</span><span class="btn__spin" aria-hidden="true"><span class="spinner"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button>
+        </div>
+      </form>
+
+      <div class="stack" data-sent hidden>
+        <div class="alert alert--success" role="status">
+          <span class="ic" aria-hidden="true">check_circle</span>
+          <div><div class="alert__title">Permintaan terkirim ke Rina Wijayanti</div><div class="alert__body" data-sent-body>Rina mendapat email dan notifikasi.</div>
+            <div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-withdraw>Tarik permintaan</button></div>
+          </div>
+        </div>
+        <div class="form__actions"><a class="btn btn--primary" href="ringkasan.html">Ke ringkasan kota</a></div>
+      </div>
+
+      <p class="section__sub" style="text-align: center;">Akun yang salah? <a class="link" href="masuk.html">Masuk dengan akun lain</a></p>
+    </div>
+  </div>
+
+  <footer class="dash-auth__foot">
+    <span class="badge badge--outline"><span class="ic" aria-hidden="true">info</span>Contoh. Data fiktif, bukan layanan resmi.</span>
+    <a class="link" href="ringkasan.html">Kembali ke ringkasan kota</a>
+  </footer>
+</div>
+</main>
+<div class="layer-host"></div>
+<script type="module" src="dashboard.js"></script>
+<script type="module">
+import { announce } from '../../../js/lds.js';
+import { notify } from './dashboard.js';
+import { fieldError, fieldOk, liveCheck, busy } from './auth.js';
+
+const form = document.getElementById('request');
+const why = form.why;
+const sent = document.querySelector('[data-sent]');
+let length = '1 hari';
+form.querySelector('[data-length]').addEventListener('lds:change', (e) => { length = e.detail.item.value; });
+
+const checkWhy = (focus = true) => (why.value.trim().length >= 10 ? fieldOk(why) : fieldError(why, why.value.trim() ? 'Tambahkan beberapa kata lagi supaya Rina tahu keperluannya.' : 'Tulis untuk apa Anda membutuhkan halaman ini, supaya Rina bisa memutuskan.', { focus }));
+liveCheck(why, checkWhy);
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = form.querySelector('[type="submit"]');
+  if (btn.classList.contains('is-loading') || !checkWhy()) return;
+  await busy(btn, 1000);
+  document.querySelector('[data-sent-body]').textContent = `Anda meminta ${length === 'tetap' ? 'peran ini tetap di akun Anda' : `akses selama ${length}`}. Rina mendapat email dan notifikasi, dan biasanya menjawab dalam satu hari kerja. Kami kabari lewat email apa pun keputusannya.`;
+  form.hidden = true;
+  sent.hidden = false;
+  sent.classList.remove('view-in'); void sent.offsetWidth; sent.classList.add('view-in');
+  sent.querySelector('[data-withdraw]').focus();
+  announce('Permintaan terkirim ke Rina Wijayanti');
+});
+
+sent.querySelector('[data-withdraw]').addEventListener('click', () => {
+  sent.hidden = true;
+  form.hidden = false;
+  form.classList.remove('view-in'); void form.offsetWidth; form.classList.add('view-in');
+  why.focus();
+  notify({ title: 'Permintaan ditarik', body: 'Rina tidak akan melihatnya. Catatan Anda masih ada.', icon: 'undo' });
+});
+</script>
+</body>
+</html>

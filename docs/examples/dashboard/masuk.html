@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="id" class="lds" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Masuk · Sakai Dasbor · Contoh Lampung Design System</title>
+<meta name="description" content="Masuk ke Sakai Dasbor dengan NIP atau email kantor dan kata sandi, lalu kode dari SMS.">
+<meta name="theme-color" content="#FFFFFF">
+<script>try { var t = localStorage.getItem('lds-theme'); if (t) document.documentElement.setAttribute('data-theme', t); if (localStorage.getItem('lds-shell-rail') === '1') document.documentElement.setAttribute('data-shell-rail', ''); } catch (e) {}</script>
+<link rel="stylesheet" href="../../../css/lds.css">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="lds">
+<a class="skip-link" href="#main">Lewati ke isi</a>
+<main class="dash-solo" id="main" tabindex="-1">
+<div class="dash-auth dash-auth--split">
+  <header class="dash-auth__top">
+    <a class="shell__brand" href="ringkasan.html"><span class="shell__mark" aria-hidden="true">S</span><span class="shell__label">Sakai Dasbor</span></a>
+    <div class="cluster" style="--gap: 12px;">
+      <p class="section__sub">Belum punya akun? <a class="link" href="daftar.html">Ajukan akses</a></p>
+      <div class="seg" role="group" aria-label="Tampilan" data-lds-segmented>
+        <span class="seg__thumb"></span>
+        <button class="seg__btn" type="button" aria-pressed="true" data-lds-theme="light">Terang</button>
+        <button class="seg__btn" type="button" aria-pressed="false" data-lds-theme="dark">Gelap</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="dash-auth__center">
+    <div class="dash-auth__form">
+      <ol class="steps" aria-label="Langkah masuk">
+        <li class="step is-current" aria-current="step"><div class="step__head"><span class="step__dot">1</span><span class="step__bar"></span></div><span class="step__label">Kata sandi</span></li>
+        <li class="step"><div class="step__head"><span class="step__dot">2</span></div><span class="step__label">Kode dari SMS</span></li>
+      </ol>
+      <div class="section__head">
+        <h1 style="margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);">Masuk ke Sakai Dasbor</h1>
+        <p class="section__sub">Untuk pegawai Pemerintah Kota Contoh. Setelah kata sandi, kami kirim kode ke nomor ponsel yang terdaftar.</p>
+      </div>
+      <form class="form" id="masuk-form" novalidate>
+        <div class="field">
+          <label class="field__label" for="ms-id">NIP atau email kantor</label>
+          <div class="control"><span class="ic" aria-hidden="true">badge</span><input id="ms-id" name="who" autocomplete="username" autocapitalize="off" spellcheck="false" placeholder="198705122010012003 atau nama@kotacontoh.example" aria-describedby="ms-id-help"></div>
+          <span class="field__help" id="ms-id-help">NIP 18 angka tanpa spasi, atau email kantor Anda.</span>
+        </div>
+        <div class="field">
+          <div class="dash-auth__row"><label class="field__label" for="ms-pw">Kata sandi</label><a class="link" href="lupa-kata-sandi.html" style="font: var(--type-footnote);">Lupa kata sandi?</a></div>
+          <div class="control"><span class="ic" aria-hidden="true">lock</span><input id="ms-pw" name="password" type="password" autocomplete="current-password" aria-describedby="ms-pw-help"><button class="control__btn" type="button" data-lds-password aria-label="Tampilkan kata sandi" data-hide-label="Sembunyikan kata sandi"><span class="ic" aria-hidden="true">visibility</span></button></div>
+          <span class="field__help" id="ms-pw-help"><span>Contoh: NIP atau email apa pun bisa dipakai dengan kata sandi <b>sakai-2026</b>.</span></span>
+        </div>
+        <label class="check"><input type="checkbox" name="remember"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span><span class="check__text">Ingat perangkat ini selama 8 jam<small>Hanya di komputer kantor yang tidak dipakai bergantian</small></span></label>
+        <button class="btn btn--primary btn--block" type="submit"><span class="btn__label">Lanjutkan</span><span class="btn__spin" aria-hidden="true"><span class="spinner"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button>
+      </form>
+    </div>
+  </div>
+
+  <footer class="dash-auth__foot">
+    <span class="badge badge--outline"><span class="ic" aria-hidden="true">info</span>Contoh. Data fiktif, bukan layanan resmi.</span>
+    <a class="link" href="ringkasan.html">Kembali ke ringkasan kota</a>
+  </footer>
+
+  <aside class="card card--fill dash-auth__panel" aria-labelledby="ms-panel-title">
+    <div class="stack" style="--gap: 32px;">
+      <div class="section__head">
+        <span class="badge badge--outline">Pemerintah Kota Contoh</span>
+        <h2 id="ms-panel-title">Satu layar untuk urusan kota hari ini</h2>
+        <p class="section__sub">Pengaduan warga, izin yang menunggu, peringatan cuaca, dan anggaran dinas dalam satu dasbor. Begini keadaannya pagi ini.</p>
+      </div>
+      <div class="dash-auth__preview stagger">
+        <div class="dash-auth__preview-kpis">
+          <article class="kpi">
+            <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">campaign</span></span><span class="kpi__label">Pengaduan baru hari ini</span></div>
+            <div class="kpi__value">86</div>
+            <div class="kpi__meta"><span class="delta delta--pill delta--down delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>9%<span class="sr-only"> turun</span></span><span>dari Senin lalu</span></div>
+          </article>
+          <article class="kpi">
+            <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">verified</span></span><span class="kpi__label">Izin menunggu tanda tangan</span></div>
+            <div class="kpi__value">12</div>
+            <div class="kpi__bars" role="img" aria-label="Izin menunggu per hari minggu ini; hari ini paling sedikit"><i style="--h: 92%;"></i><i style="--h: 80%;"></i><i style="--h: 85%;"></i><i style="--h: 70%;"></i><i style="--h: 64%;"></i><i style="--h: 50%;"></i><i class="is-on" style="--h: 40%;"></i></div>
+          </article>
+        </div>
+        <div class="list">
+          <div class="lrow lrow--icon"><span class="lrow__icon"><span class="ic" aria-hidden="true">rainy</span></span><span class="lrow__body"><span class="lrow__title">Peringatan dini hujan lebat</span><span class="lrow__sub">Kecamatan Pesisir dan Teluk, 15.00 sampai 19.00 WIB</span></span><span class="badge badge--warning">Siaga</span></div>
+          <div class="lrow lrow--icon"><span class="lrow__icon"><span class="ic" aria-hidden="true">directions_bus</span></span><span class="lrow__body"><span class="lrow__title">42 dari 45 bus kota beroperasi</span><span class="lrow__sub">3 bus dalam perawatan rutin</span></span></div>
+        </div>
+      </div>
+    </div>
+    <p class="section__sub" style="max-width: 560px;">Nama Sakai diambil dari ungkapan Lampung <i>sakai sambayan</i>: bekerja bersama dan saling membantu.</p>
+  </aside>
+</div>
+</main>
+<div class="layer-host"></div>
+<script type="module" src="dashboard.js"></script>
+<script type="module">
+import { announce } from '../../../js/lds.js';
+import { fieldError, fieldOk, liveCheck, isEmail, busy, finish } from './auth.js';
+
+const form = document.getElementById('masuk-form');
+const who = form.who, pw = form.password, btn = form.querySelector('[type="submit"]');
+const checkWho = (focus = true) => {
+  const v = who.value.trim().replace(/\s+/g, '');
+  if (!v) return fieldError(who, 'Isi NIP atau email kantor Anda.', { focus });
+  if (/^\d+$/.test(v)) return v.length === 18 ? fieldOk(who) : fieldError(who, `NIP terdiri dari 18 angka. Yang terisi ${v.length} angka.`, { focus });
+  if (!isEmail(v)) return fieldError(who, `"${v}" belum lengkap. Tulis seperti nama@kotacontoh.example.`, { focus });
+  return fieldOk(who);
+};
+const checkPw = (focus = true) => (pw.value ? fieldOk(pw) : fieldError(pw, 'Isi kata sandi Anda.', { focus }));
+liveCheck(who, checkWho);
+liveCheck(pw, checkPw);
+
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  if (btn.classList.contains('is-loading') || btn.classList.contains('is-done')) return;
+  if (!checkWho() || !checkPw()) return;
+  await busy(btn, 1000);
+  if (pw.value !== 'sakai-2026') { fieldError(pw, 'Kata sandi tidak cocok dengan akun ini. Periksa Caps Lock, atau atur ulang kata sandi.'); pw.select(); return; }
+  fieldOk(pw);
+  announce('Kata sandi diterima. Lanjut ke kode dari SMS.');
+  finish(btn, 'Kata sandi diterima', 'verifikasi.html', 700);
+});
+</script>
+</body>
+</html>
