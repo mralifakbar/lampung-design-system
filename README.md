@@ -69,6 +69,7 @@ MaterialApp(theme: LdsTheme.light(), darkTheme: LdsTheme.dark(), home: const Ber
 | `css/` | `lds.css` (font, token, dan semua komponen), bisa diimpor per bagian |
 | `js/` | `lds.js`: perilaku interaktif lewat atribut `data-lds-*`, termasuk aksara Lampung |
 | `react/` | Binding React untuk komponen yang state-nya dipegang React |
+| `brand/` | Logo siger: `mark.svg` (ubin hijau), `siger.svg` (satu warna) |
 | `aksara/` | Glyph aksara Lampung (gambar orisinal), sprite SVG, dan transliterasi |
 | `dist/` | Token untuk JS/TS dan Flutter, tema dan registry shadcn/ui, registry komponen untuk CLI |
 | `packages/cli/` | CLI `lampung-ds` di npm |

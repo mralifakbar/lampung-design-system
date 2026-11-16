@@ -67,6 +67,7 @@ Before starting, follow the core's "Two Usage Modes" section in strict order: ex
 | `css/fonts.css`, `css/lds.css` | Font import; one-file entry (fonts + tokens + components) | Rarely |
 | `js/lds.js`, `js/lds.d.ts` | Behaviors and their types | Yes, types with every export change |
 | `react/index.tsx` | React bindings for components whose state React owns | Yes |
+| `brand/` | The siger mark (`siger.svg`, `mark.svg`, `mark-mono.svg`), drawn by `scripts/build-brand.mjs`; the landing favicon and docs mark come from it | Edit the script, then `npm run build:brand` |
 | `aksara/` | Aksara Lampung glyphs (original SVG drawings) and the transliteration helper | Yes, then `npm run build:aksara` |
 | `fonts/lds-icons*.woff2`, `icons/icons.json` | Solar icon fonts and the ligature list | `icons.json` yes, then `npm run build:icons` |
 | `docs/spec/*.mjs` | One English spec per component (source of docs pages and skill references) | Yes |

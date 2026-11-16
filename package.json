@@ -53,10 +53,12 @@
     "./shadcn/tailwind-preset": "./dist/shadcn/tailwind.preset.cjs",
     "./shadcn/*": "./dist/shadcn/*",
     "./react": "./react/index.tsx",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./brand/*": "./brand/*"
   },
   "files": [
     "aksara",
+    "brand",
     "css",
     "dist",
     "fonts",
@@ -81,9 +83,10 @@
     "build:icons": "sh scripts/build-icons.sh",
     "build:aksara": "node scripts/build-aksara.mjs",
     "build:registry": "node scripts/build-registry.mjs",
+    "build:brand": "node scripts/build-brand.mjs",
     "build:docs": "node scripts/build-docs.mjs",
     "build:examples": "node scripts/build-examples.mjs",
-    "build": "npm run build:tokens && npm run build:aksara && npm run build:registry && npm run build:docs && npm run build:examples",
+    "build": "npm run build:tokens && npm run build:brand && npm run build:aksara && npm run build:registry && npm run build:docs && npm run build:examples",
     "build:site": "node scripts/build-site.mjs",
     "serve": "python3 -m http.server 5173",
     "sync": "node scripts/sync.mjs",

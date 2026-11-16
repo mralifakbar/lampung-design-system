@@ -69,6 +69,7 @@ MaterialApp(theme: LdsTheme.light(), darkTheme: LdsTheme.dark(), home: const Hom
 | `css/` | `lds.css` (fonts, tokens and every component), importable in parts |
 | `js/` | `lds.js`: interactive behaviors through `data-lds-*` attributes, including aksara Lampung |
 | `react/` | React bindings for components whose state React owns |
+| `brand/` | The siger logo: `mark.svg` (green tile), `siger.svg` (one color) |
 | `aksara/` | Aksara Lampung glyphs (original drawings), SVG sprite and transliteration |
 | `dist/` | Tokens for JS/TS and Flutter, the shadcn/ui theme and registry, the component registry for the CLI |
 | `packages/cli/` | The `lampung-ds` CLI on npm |
