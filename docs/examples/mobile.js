@@ -26,7 +26,7 @@ const singleChoice = (row, cb) => row.addEventListener('click', (e) => {
 });
 const chipText = (c) => (c ? c.lastChild.textContent.trim() : '');
 const pickedChip = (row) => $('.chip[aria-pressed="true"]', row);
-const copyBtn = (value, label = 'Salin') => `<button type="button" class="btn btn--gray btn--sm" data-lds-copy="${esc(value)}" data-lds-copy-announce="Tersalin"><span class="swap" aria-hidden="true" style="width: 16px; height: 16px;"><span class="ic ic--sm swap__a">content_copy</span><span class="ic ic--sm swap__b">check</span></span><span data-lds-copy-label="Tersalin">${esc(label)}</span></button>`;
+const copyBtn = (value, label = 'Salin') => `<button type="button" class="btn btn--gray btn--sm" data-lds-copy="${esc(value)}" data-lds-copy-announce="Disalin"><span class="swap" aria-hidden="true" style="width: 16px; height: 16px;"><span class="ic ic--sm swap__a">content_copy</span><span class="ic ic--sm swap__b">check</span></span><span data-lds-copy-label="Disalin">${esc(label)}</span></button>`;
 
 /* ==========================================================================
    Example data, shared by every frame
