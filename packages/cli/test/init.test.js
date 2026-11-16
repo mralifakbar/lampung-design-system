@@ -267,7 +267,7 @@ test('package manager comes from the lockfile', async () => {
 test('--shadcn merges the shadcn theme into the global CSS, once', async () => {
   const { dir } = await initTwice('next', ['--shadcn']);
   const css = read(dir, 'app/globals.css');
-  assert.ok(css.startsWith('@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans'));
+  assert.ok(css.startsWith('@import url("https://fonts.googleapis.com/css2?family=Geist'));
   assert.equal(css.match(/@import "tailwindcss";/g).length, 1);
   assert.match(css, /@custom-variant dark \(&:where\(\.dark, \.dark \*, \[data-theme="dark"\]/);
   assert.equal(css.match(/lds-shadcn:start/g).length, 1);
