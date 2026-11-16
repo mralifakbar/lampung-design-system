@@ -12,6 +12,7 @@
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import { shell } from './docs-shell.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const specDir = join(root, 'docs/spec');
@@ -194,7 +195,7 @@ ${items.map((s, i) => `          <a class="shell__link shell__link--child" href=
       </div>`;
   }).join('\n      ');
   return `<aside class="shell__side" id="side" aria-label="${T.docs}">
-    <a class="shell__brand" href="../index.html"><span class="page-head__mark">L</span>Lampung Design System</a>
+    <a class="shell__brand" href="../index.html"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>Lampung Design System</a>
     <nav class="shell__nav" aria-label="${T.components}">
       <span class="shell__hl" aria-hidden="true"></span>
       <p class="shell__group">${T.start}</p>
@@ -422,5 +423,9 @@ for (const lang of ['en', 'id']) {
   SECTION = 'components';
   if (lang === 'en') writeFileSync(join(root, 'skills/lampung-design-system/references/components.md'), indexMd());
 }
+// Documentation home in both languages.
+mkdirSync(join(root, 'docs/en'), { recursive: true });
+writeFileSync(join(root, 'docs/index.html'), shell('id', { count: specsEn.length, guides: GUIDES, masthead: mastheadHtml(STRINGS.id) }));
+writeFileSync(join(root, 'docs/en/index.html'), shell('en', { count: specsEn.length, guides: GUIDES, masthead: mastheadHtml(STRINGS.en) }));
 const missing = specsEn.filter((s) => !overrides.has(s.slug)).map((s) => s.slug);
 console.log(`build-docs: ${ordered.length} components in ${groupsWith.length} groups, ${GUIDES.length} guides, ${overrides.size} in Indonesian${missing.length ? ` (${missing.length} still English on the Indonesian site)` : ''}`);
