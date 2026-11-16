@@ -241,7 +241,7 @@ class LdsColors {
     lineControl: Color(0xFF7C8681),
     hairline: Color(0x12FFFFFF),
     accent: Color(0xFF0F7D59),
-    accentHover: Color(0xFF128A63),
+    accentHover: Color(0xFF11845F),
     accentPressed: Color(0xFF0B6E4F),
     accentText: Color(0xFF5FD3A6),
     accentTint: Color(0x241FAF7D),
