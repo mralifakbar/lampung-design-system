@@ -18,6 +18,7 @@ This skill is the entry point. Read it fully, then open the reference that match
 | Feedback on a control: confirm in place, text morph, swipe rows, hints, haptics | `references/microinteractions.md`, then the Microinteraction recipes in `references/components/` |
 | Wiring the system into HTML, Next.js, Flutter | `references/platforms.md` |
 | Icons | `references/icons.md` |
+| Aksara Lampung (names, band, transliteration) | `references/aksara.md` |
 | Before you hand anything over | `references/checklist.md` |
 
 Companion skills live next to this one in `skills/`. Load them for the concern at hand; this system already follows them, they explain why:
