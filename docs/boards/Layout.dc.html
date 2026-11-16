@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lampung Design System · Space, radius, depth</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="lds.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=block">
+<style>
+body{margin:0}
+a{color:#1D4ED8}a:hover{color:#1E40AF}
+</style>
+</helmet>
+<div class="lds" data-theme="{{theme}}" style="width: 1280px; min-height: 2460px;">
+<div class="page">
+
+  <header class="page-head">
+    <div>
+      <div class="page-head__crumb"><span class="page-head__mark">D</span>Foundations · Space, radius, depth</div>
+      <h1>Space, radius, depth</h1>
+      <p class="page-head__lede">A 4 pt grid, radii that nest concentrically, and elevation that appears only when something actually floats above the page.</p>
+    </div>
+    <div class="appearance" role="group" aria-label="Appearance">
+      <span class="appearance__thumb" style="transform: translateX({{thumbX}});"></span>
+      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Light</button>
+      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Dark</button>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Spacing</h2>
+      <p class="sec__desc">Every gap is a multiple of 4. Related things sit 8 to 12 apart, groups 20 to 28, sections 48 and up.</p>
+      <ul class="spec">
+        <li><b>Gutter</b><span>20 on phone, 32 on tablet, 80 on desktop docs.</span></li>
+        <li><b>Rows</b><span>List rows at least 48 tall, controls 44.</span></li>
+      </ul>
+    </div>
+    <div class="stage stage--white" style="gap: 2px; padding: 20px 28px;">
+      <sc-for list="{{spaces}}" as="s" hint-placeholder-count="11">
+        <div class="ruler">
+          <span class="ruler__name">{{s.name}}</span>
+          <span class="ruler__px">{{s.px}}</span>
+          <span class="ruler__bar" style="width: {{s.w}};"></span>
+          <span class="ruler__use">{{s.use}}</span>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Concentric radius</h2>
+      <p class="sec__desc">An inner corner equals the outer corner minus the padding between them, so curves stay parallel. Move the padding and watch the inner radius follow.</p>
+      <ul class="spec">
+        <li><b>Formula</b><span><span class="code">inner = outer − padding</span></span></li>
+      </ul>
+    </div>
+    <div class="col" style="gap: 20px;">
+      <div class="stage" style="flex-direction: row; gap: 40px; align-items: center; padding: 32px;">
+        <div style="width: 300px; padding: {{padPx}}; border-radius: 22px; background: var(--bg-base); box-shadow: inset 0 0 0 1px var(--line-strong); transition: padding 560ms var(--spring-smooth);">
+          <div style="height: 150px; border-radius: {{innerPx}}; background: var(--accent-tint); box-shadow: inset 0 0 0 1px var(--accent-tint-strong); display: grid; place-items: center; font: 500 13px/1 var(--mono); color: var(--accent-text); transition: border-radius 560ms var(--spring-smooth);">{{innerPx}}</div>
+        </div>
+        <div class="col" style="flex: 1; gap: 14px;">
+          <div class="slider-row">
+            <span style="font: 500 13px/1 var(--font); color: var(--text-subtle); width: 60px;">Padding</span>
+            <input class="slider" type="range" min="0" max="20" step="2" value="{{pad}}" onChange="{{onPad}}" aria-label="Padding between outer and inner shape" style="--pct: {{padPct}};">
+            <span class="slider-value">{{padPx}}</span>
+          </div>
+          <dl style="margin: 0;">
+            <div class="kv"><dt>Outer</dt><dd>22 px</dd></div>
+            <div class="kv"><dt>Inner</dt><dd>{{innerPx}}</dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="grid3" style="grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 12px;">
+        <sc-for list="{{radii}}" as="r" hint-placeholder-count="6">
+          <div class="col" style="gap: 8px;">
+            <div class="radius-box" style="border-radius: {{r.v}};"></div>
+            <div><div class="swatch__name">{{r.name}} · {{r.v}}</div><div style="font: 400 12px/16px var(--font); color: var(--text-subtle);">{{r.use}}</div></div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Elevation</h2>
+      <p class="sec__desc">Shadows are tinted toward the ink, not pure black, and come in four steps. Resting content gets none.</p>
+      <ul class="spec">
+        <li><b>xs, sm</b><span>Thumbs, segmented selection.</span></li>
+        <li><b>md</b><span>Floating action button.</span></li>
+        <li><b>lg</b><span>Menus, dialogs, sheets, toasts.</span></li>
+      </ul>
+    </div>
+    <div class="stage" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; padding: 36px 32px;">
+      <div class="elev" style="background: var(--bg-fill); box-shadow: inset 0 0 0 1px var(--line);"><b style="font: 600 14px/20px var(--font); color: var(--text-strong);">Resting</b><span style="font: 400 12px/16px var(--font); color: var(--text-subtle);">fill, no shadow</span></div>
+      <div class="elev" style="box-shadow: var(--shadow-xs);"><b style="font: 600 14px/20px var(--font); color: var(--text-strong);">xs</b><span style="font: 400 12px/16px var(--font); color: var(--text-subtle);">hairline lift</span></div>
+      <div class="elev" style="box-shadow: var(--shadow-sm);"><b style="font: 600 14px/20px var(--font); color: var(--text-strong);">sm</b><span style="font: 400 12px/16px var(--font); color: var(--text-subtle);">selected thumb</span></div>
+      <div class="elev" style="box-shadow: var(--shadow-md);"><b style="font: 600 14px/20px var(--font); color: var(--text-strong);">md</b><span style="font: 400 12px/16px var(--font); color: var(--text-subtle);">floating button</span></div>
+      <div class="elev" style="box-shadow: var(--shadow-lg);"><b style="font: 600 14px/20px var(--font); color: var(--text-strong);">lg</b><span style="font: 400 12px/16px var(--font); color: var(--text-subtle);">menus, dialogs</span></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Material</h2>
+      <p class="sec__desc">Translucent chrome is allowed in exactly two places: the navigation bar and the tab bar, because content scrolls under them. Scroll the frame: the bar's material and title fade in only once something sits behind it.</p>
+      <ul class="spec">
+        <li><b>Blur</b><span><span class="code">blur(20px) saturate(180%)</span></span></li>
+        <li><b>Fallback</b><span>Solid surface under reduced transparency.</span></li>
+      </ul>
+    </div>
+    <div class="stage" style="flex-direction: row; gap: 32px; align-items: flex-start;">
+      <div class="phone phone--inline">
+        <div class="navbar {{navClass}}" style="height: 64px; padding-top: 16px;">
+          <span></span>
+          <span class="navbar__title">Inbox</span>
+          <div class="navbar__end"><button class="icon-btn" aria-label="Compose"><span class="ic" aria-hidden="true">edit_square</span></button></div>
+        </div>
+        <div class="phone__scroll" onScroll="{{onScroll}}">
+          <div style="height: 64px;"></div>
+          <h3 class="large-title" style="font-size: 30px; line-height: 36px;">Inbox</h3>
+          <div style="padding: 12px 16px 24px; display: flex; flex-direction: column; gap: 10px;">
+            <sc-for list="{{feed}}" as="f" hint-placeholder-count="8">
+              <div style="height: 64px; border-radius: 14px; background: {{f.bg}}; display: flex; align-items: center; gap: 12px; padding: 0 14px;">
+                <span class="avatar avatar--gray" style="--size: 36px;">{{f.ini}}</span>
+                <div style="flex: 1; min-width: 0;"><div class="skel" style="height: 10px; width: {{f.w}}; animation: none;"></div><div class="skel" style="height: 8px; width: 40%; margin-top: 8px;"></div></div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="flex: 1; gap: 14px; padding-top: 8px;">
+        <div class="alert alert--info"><span class="ic" aria-hidden="true">info</span><div><div class="alert__title">Why no blur on cards</div><div class="alert__body">Stacking translucent layers collapses legibility, and frosted cards flatten hierarchy. Cards use the fill.</div></div></div>
+        <div class="kv"><dt>Scroll offset</dt><dd>{{scrollY}} px</dd></div>
+        <div class="kv"><dt>Bar state</dt><dd>{{barState}}</dd></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Touch targets</h2>
+      <p class="sec__desc">The visible shape may be small; the hit area never is. Padding extends icon buttons, checkboxes and close glyphs to 44 by 44.</p>
+    </div>
+    <div class="stage" style="flex-direction: row; gap: 36px; align-items: center;">
+      <div style="position: relative; width: 44px; height: 44px; border-radius: 12px; box-shadow: inset 0 0 0 1.5px var(--accent); background: var(--accent-tint); display: grid; place-items: center;"><span class="ic" style="color: var(--text-strong);" aria-hidden="true">close</span></div>
+      <div class="col" style="gap: 4px;"><b style="font: 600 15px/20px var(--font); color: var(--text-strong);">44 × 44 minimum</b><span style="font: 400 13px/18px var(--font); color: var(--text-subtle);">Blue area is the hit target, the glyph is 20.</span></div>
+      <div class="divider-v"></div>
+      <div class="row" style="gap: 8px; flex: none; flex-wrap: nowrap;"><button class="icon-btn icon-btn--filled" aria-label="Previous"><span class="ic" aria-hidden="true">chevron_left</span></button><button class="icon-btn icon-btn--filled" aria-label="Next"><span class="ic" aria-hidden="true">chevron_right</span></button></div>
+      <div class="col" style="gap: 4px;"><b style="font: 600 15px/20px var(--font); color: var(--text-strong);">8 apart</b><span style="font: 400 13px/18px var(--font); color: var(--text-subtle);">Adjacent targets keep a clear gap.</span></div>
+    </div>
+  </section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1280,"height":2460}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const theme = s.theme || this.props.theme || 'light';
+    const dark = theme === 'dark';
+    const pad = s.pad == null ? 8 : s.pad;
+    const y = s.scrollY || 0;
+    const spaces = [
+      { name: 's-2', px: '2', w: '2px', use: 'Label to sub-label' },
+      { name: 's-4', px: '4', w: '4px', use: 'Icon to text in a badge' },
+      { name: 's-8', px: '8', w: '8px', use: 'Field label to control' },
+      { name: 's-12', px: '12', w: '12px', use: 'Row gap, button group' },
+      { name: 's-16', px: '16', w: '16px', use: 'Card padding' },
+      { name: 's-20', px: '20', w: '20px', use: 'Phone gutter' },
+      { name: 's-24', px: '24', w: '24px', use: 'Between groups in a form' },
+      { name: 's-32', px: '32', w: '32px', use: 'Stage padding' },
+      { name: 's-48', px: '48', w: '48px', use: 'Between doc sections' },
+      { name: 's-72', px: '72', w: '72px', use: 'Between doc chapters' }
+    ];
+    const radii = [
+      { name: 'xs', v: '6px', use: 'Badges, kbd' },
+      { name: 'sm', v: '8px', use: 'Small buttons, icon chips' },
+      { name: 'md', v: '12px', use: 'Buttons, inputs' },
+      { name: 'lg', v: '16px', use: 'Cards, lists' },
+      { name: 'xl', v: '22px', use: 'Sheets, dialogs' },
+      { name: 'pill', v: '999px', use: 'Chips, switches only' }
+    ];
+    const ini = ['AR', 'NS', 'DP', 'FK', 'MI', 'RS', 'LT', 'HY'];
+    const feed = ini.map((x, i) => ({ ini: x, w: (52 + (i * 13) % 38) + '%', bg: i % 3 === 0 ? 'var(--accent-tint)' : 'var(--bg-fill)' }));
+    return {
+      theme,
+      isLight: String(!dark),
+      isDark: String(dark),
+      thumbX: dark ? 'calc(100% + 2px)' : '0px',
+      setLight: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'light' })),
+      setDark: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'dark' })),
+      spaces, radii, feed,
+      pad,
+      padPx: pad + 'px',
+      padPct: (pad / 20 * 100) + '%',
+      innerPx: Math.max(22 - pad, 0) + 'px',
+      onPad: (e) => this.setState({ pad: Number(e.target.value) }),
+      navClass: y > 40 ? 'is-scrolled' : '',
+      scrollY: Math.round(y),
+      barState: y > 40 ? 'Material + title' : 'Clear',
+      onScroll: (e) => { const v = e.currentTarget.scrollTop; if ((v > 40) !== ((this.state && this.state.scrollY || 0) > 40) || Math.abs(v - ((this.state && this.state.scrollY) || 0)) > 8) this.setState({ scrollY: v }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

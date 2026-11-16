@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lampung Design System · Actions</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="lds.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=block">
+<style>
+body{margin:0}
+a{color:#1D4ED8}a:hover{color:#1E40AF}
+</style>
+</helmet>
+<div class="lds" data-theme="{{theme}}" style="width: 1280px; min-height: 2250px;">
+<div class="page">
+
+  <header class="page-head">
+    <div>
+      <div class="page-head__crumb"><span class="page-head__mark">D</span>Components · Actions</div>
+      <h1>Actions</h1>
+      <p class="page-head__lede">Buttons respond the moment a finger lands: they sink to 97% in 90 ms, then spring back. Labels name the outcome, so "Save changes" beats "Submit".</p>
+    </div>
+    <div class="appearance" role="group" aria-label="Appearance">
+      <span class="appearance__thumb" style="transform: translateX({{thumbX}});"></span>
+      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Light</button>
+      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Dark</button>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Button</h2>
+      <p class="sec__desc">One primary per view. Secondary for the alternative, tinted for a quieter positive action, plain for tertiary and inline actions.</p>
+      <ul class="spec">
+        <li><b>Heights</b><span>52 · 44 · 36 · 28. Small sizes keep a 44 hit area.</span></li>
+        <li><b>Press</b><span>scale 0.97, 90 ms; release on the snappy spring.</span></li>
+        <li><b>Finish</b><span>Soft inner top light on filled buttons only.</span></li>
+      </ul>
+    </div>
+    <div class="stage" style="gap: 24px;">
+      <div class="row">
+        <button class="btn btn--primary">Save changes</button>
+        <button class="btn btn--secondary">Cancel</button>
+        <button class="btn btn--tinted"><span class="ic" aria-hidden="true">add</span>Add course</button>
+        <button class="btn btn--gray">Skip for now</button>
+        <button class="btn btn--plain">Edit</button>
+      </div>
+      <div class="row">
+        <button class="btn btn--danger"><span class="ic" aria-hidden="true">delete</span>Delete file</button>
+        <button class="btn btn--danger-tinted">Leave group</button>
+        <button class="btn btn--primary" disabled="{{yes}}">Unavailable</button>
+        <button class="btn btn--secondary" disabled="{{yes}}">Unavailable</button>
+      </div>
+      <div class="row" style="align-items: flex-end;">
+        <div class="col" style="gap: 6px;"><span class="stage__label">Large · 52</span><button class="btn btn--primary btn--lg">Continue</button></div>
+        <div class="col" style="gap: 6px;"><span class="stage__label">Default · 44</span><button class="btn btn--primary">Continue</button></div>
+        <div class="col" style="gap: 6px;"><span class="stage__label">Medium · 36</span><button class="btn btn--primary btn--md">Continue</button></div>
+        <div class="col" style="gap: 6px;"><span class="stage__label">Small · 28</span><button class="btn btn--primary btn--sm">Continue</button></div>
+        <div class="col" style="gap: 6px; flex: 1; min-width: 240px;"><span class="stage__label">Block</span><button class="btn btn--primary btn--block">Continue</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Loading and done</h2>
+      <p class="sec__desc">The button keeps its width while busy. The label blurs out, a spinner takes its place, and the result rises in. Click to run it.</p>
+      <ul class="spec">
+        <li><b>Busy</b><span>Ignores further presses, keeps focus.</span></li>
+        <li><b>Done</b><span>Holds 1.6 s, then returns.</span></li>
+      </ul>
+    </div>
+    <div class="stage" style="flex-direction: row; align-items: center; gap: 16px;">
+      <button class="btn btn--primary {{saveClass}}" style="min-width: 168px;" onClick="{{save}}" aria-live="polite">
+        <span class="btn__label" key="{{saveKey}}" style="display: inline-flex; align-items: center; gap: 8px;"><span class="ic" aria-hidden="true">{{saveIcon}}</span>{{saveLabel}}</span>
+        <span class="btn__spin" aria-hidden="true"><span class="spinner" style="--c: #fff;"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
+      </button>
+      <button class="btn btn--secondary {{syncClass}}" style="min-width: 150px;" onClick="{{sync}}">
+        <span class="btn__label" style="display: inline-flex; align-items: center; gap: 8px;"><span class="ic" aria-hidden="true">sync</span>Sync now</span>
+        <span class="btn__spin" aria-hidden="true"><span class="spinner" style="--c: var(--text-strong);"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
+      </button>
+      <span style="font: 400 13px/18px var(--font); color: var(--text-subtle);">{{saveNote}}</span>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Icon button</h2>
+      <p class="sec__desc">Every icon-only button has an accessible name and a tooltip after 500 ms of hover. The glyph is 22, the target is 44.</p>
+    </div>
+    <div class="stage" style="flex-direction: row; align-items: center; gap: 8px;">
+      <span class="tip-host"><button class="icon-btn" aria-label="Share"><span class="ic" aria-hidden="true">ios_share</span></button><span class="tip" role="tooltip">Share</span></span>
+      <span class="tip-host"><button class="icon-btn" aria-label="Bookmark"><span class="ic" aria-hidden="true">bookmark</span></button><span class="tip" role="tooltip">Bookmark</span></span>
+      <span class="tip-host"><button class="icon-btn" aria-label="More options"><span class="ic" aria-hidden="true">more_horiz</span></button><span class="tip" role="tooltip">More options</span></span>
+      <div class="divider-v" style="margin: 0 12px;"></div>
+      <span class="tip-host"><button class="icon-btn icon-btn--filled" aria-label="Close"><span class="ic" aria-hidden="true">close</span></button><span class="tip" role="tooltip">Close<span class="kbd">esc</span></span></span>
+      <span class="tip-host"><button class="icon-btn icon-btn--filled" aria-label="Filter"><span class="ic" aria-hidden="true">tune</span></button><span class="tip" role="tooltip">Filter</span></span>
+      <div class="divider-v" style="margin: 0 12px;"></div>
+      <span class="tip-host"><button class="icon-btn icon-btn--accent" aria-label="New message" style="width: 52px; height: 52px; box-shadow: var(--finish-primary), var(--shadow-md);"><span class="ic" aria-hidden="true">edit</span></button><span class="tip" role="tooltip">New message</span></span>
+      <span style="margin-left: 8px; font: 400 13px/18px var(--font); color: var(--text-subtle);">Floating action, the one control that carries elevation.</span>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Groups and split</h2>
+      <p class="sec__desc">Attached groups for actions on the same object. A split button pairs the common action with a menu of its variants; the menu grows from the chevron.</p>
+    </div>
+    <div class="stage" style="flex-direction: row; align-items: flex-start; gap: 32px; z-index: 2;">
+      <div class="col" style="gap: 8px;">
+        <span class="stage__label">Button group</span>
+        <div class="btn-group">
+          <button class="btn btn--md"><span class="ic" aria-hidden="true">undo</span>Undo</button>
+          <button class="btn btn--md"><span class="ic" aria-hidden="true">redo</span>Redo</button>
+          <button class="btn btn--md"><span class="ic" aria-hidden="true">history</span>History</button>
+        </div>
+      </div>
+      <div class="col" style="gap: 8px;">
+        <span class="stage__label">Split button</span>
+        <div class="split {{splitClass}}">
+          <button class="btn btn--primary btn--md" onClick="{{closeSplit}}">Publish</button>
+          <button class="btn btn--primary btn--md" aria-haspopup="menu" aria-expanded="{{splitOpen}}" aria-label="More publish options" onClick="{{toggleSplit}}" onKeyDown="{{splitKey}}"><span class="ic" aria-hidden="true">expand_more</span></button>
+          <div class="menu menu--right {{splitMenu}}" role="menu" style="top: calc(100% + 6px); right: 0;" onKeyDown="{{splitKey}}">
+            <button class="menu__item" role="menuitem" onClick="{{closeSplit}}"><span class="ic" aria-hidden="true">schedule_send</span>Schedule for later</button>
+            <button class="menu__item" role="menuitem" onClick="{{closeSplit}}"><span class="ic" aria-hidden="true">group</span>Publish to members only</button>
+            <div class="menu__sep"></div>
+            <button class="menu__item" role="menuitem" onClick="{{closeSplit}}"><span class="ic" aria-hidden="true">draft</span>Save as draft</button>
+          </div>
+        </div>
+      </div>
+      <div class="col" style="gap: 8px;">
+        <span class="stage__label">Toggle</span>
+        <div class="toggle-group" role="group" aria-label="Text style">
+          <button class="toggle" aria-pressed="{{boldOn}}" aria-label="Bold" onClick="{{toggleBold}}"><span class="ic" aria-hidden="true">format_bold</span></button>
+          <button class="toggle" aria-pressed="{{italicOn}}" aria-label="Italic" onClick="{{toggleItalic}}"><span class="ic" aria-hidden="true">format_italic</span></button>
+          <button class="toggle" aria-pressed="{{underOn}}" aria-label="Underline" onClick="{{toggleUnder}}"><span class="ic" aria-hidden="true">format_underlined</span></button>
+        </div>
+      </div>
+      <div class="col" style="gap: 8px;">
+        <span class="stage__label">Toggle group, single</span>
+        <div class="toggle-group" role="radiogroup" aria-label="Alignment">
+          <sc-for list="{{aligns}}" as="a" hint-placeholder-count="3">
+            <button class="toggle" role="radio" aria-checked="{{a.on}}" aria-pressed="{{a.on}}" aria-label="{{a.label}}" onClick="{{a.pick}}"><span class="ic" aria-hidden="true">{{a.icon}}</span></button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Link</h2>
+      <p class="sec__desc">Medium weight in the accent text color. The underline fades in on hover instead of snapping, and external links carry an arrow.</p>
+    </div>
+    <div class="stage stage--white" style="gap: 14px;">
+      <p style="font: 400 15px/24px var(--font); color: var(--text-default);">Your request was sent to your adviser. <a class="link" href="#link-demo">Track its status</a> or <a class="link link--external" href="https://fonts.google.com/specimen/Geist" target="_blank" rel="noreferrer">open the Geist specimen</a>.</p>
+      <p id="link-demo" style="font: 400 13px/18px var(--font); color: var(--text-subtle);">Inline links stay inside the sentence they belong to.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Copy and icon swap</h2>
+      <p class="sec__desc">When an icon changes meaning, the old glyph shrinks and blurs out while the new one settles in on a spring. No color flash, no layout shift.</p>
+    </div>
+    <div class="stage" style="flex-direction: row; gap: 16px; align-items: center;">
+      <div class="control" style="width: 360px; padding-right: 6px;">
+        <span style="flex: 1; font: 400 14px/1 var(--mono); color: var(--text-default); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">--accent: #2563EB;</span>
+        <button class="btn btn--gray btn--sm" onClick="{{copy}}" aria-label="{{copyAria}}" style="min-width: 84px;">
+          <span class="swap {{copyClass}}" aria-hidden="true" style="width: 16px; height: 16px;"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px; color: var(--success-text);">check</span></span>
+          {{copyLabel}}
+        </button>
+      </div>
+      <button class="icon-btn icon-btn--filled" aria-label="{{likeAria}}" aria-pressed="{{likeOn}}" onClick="{{like}}">
+        <span class="swap {{likeClass}}" aria-hidden="true"><span class="ic swap__a">favorite</span><span class="ic ic--fill swap__b" style="color: var(--tile-red);">favorite</span></span>
+      </button>
+      <button class="icon-btn icon-btn--filled" aria-label="{{playAria}}" onClick="{{play}}">
+        <span class="swap {{playClass}}" aria-hidden="true"><span class="ic ic--fill swap__a">play_arrow</span><span class="ic ic--fill swap__b">pause</span></span>
+      </button>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Confirming on purpose</h2>
+      <p class="sec__desc">For actions that are costly but not dangerous enough for a dialog. Hold fills over 1.2 s and drains if you let go. Slide follows the thumb 1:1, resists past the end, and springs home if released short.</p>
+      <ul class="spec">
+        <li><b>Keyboard</b><span>Hold Space or Enter; the slider knob accepts Enter.</span></li>
+        <li><b>Threshold</b><span>Slide commits past 85% of travel.</span></li>
+      </ul>
+    </div>
+    <div class="stage" style="flex-direction: row; gap: 40px; align-items: center;">
+      <div class="col" style="gap: 8px;">
+        <span class="stage__label">Hold to confirm</span>
+        <button class="btn btn--danger hold {{holdClass}}" style="min-width: 200px;" onPointerDown="{{holdStart}}" onPointerUp="{{holdEnd}}" onPointerLeave="{{holdEnd}}" onKeyDown="{{holdKeyDown}}" onKeyUp="{{holdKeyUp}}">
+          <span class="hold__fill" aria-hidden="true"></span>
+          <span class="ic" aria-hidden="true">{{holdIcon}}</span>{{holdLabel}}
+        </button>
+      </div>
+      <div class="col" style="gap: 8px;">
+        <span class="stage__label">Slide to confirm</span>
+        <div class="slide {{slideClass}}">
+          <span class="slide__fill" style="width: {{fillW}};" aria-hidden="true"></span>
+          <span class="slide__label" style="opacity: {{slideLabelOp}};">{{slideLabel}}</span>
+          <button class="slide__knob" style="transform: translateX({{knobX}}); transition: {{knobT}};" aria-label="Slide to submit grades" onPointerDown="{{slDown}}" onPointerMove="{{slMove}}" onPointerUp="{{slUp}}" onPointerCancel="{{slUp}}" onKeyDown="{{slKey}}"><span class="ic" aria-hidden="true">{{slideIcon}}</span></button>
+        </div>
+      </div>
+      <button class="btn btn--plain btn--sm" onClick="{{resetConfirm}}"><span class="ic" aria-hidden="true">replay</span>Reset</button>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Keyboard keys</h2>
+      <p class="sec__desc">Shortcuts appear in menus and tooltips, never as the only way to reach an action.</p>
+    </div>
+    <div class="stage" style="flex-direction: row; gap: 28px; align-items: center;">
+      <span class="kbd-row"><span class="kbd">⌘</span><span class="kbd">K</span></span>
+      <span class="kbd-row"><span class="kbd">⇧</span><span class="kbd">⌘</span><span class="kbd">P</span></span>
+      <span class="kbd-row"><span class="kbd">esc</span></span>
+      <span class="kbd-row"><span class="kbd">↑</span><span class="kbd">↓</span><span style="font: 400 13px/1 var(--font); color: var(--text-subtle); margin-left: 6px;">to move</span></span>
+      <span class="kbd-row"><span class="kbd">↵</span><span style="font: 400 13px/1 var(--font); color: var(--text-subtle); margin-left: 6px;">to open</span></span>
+    </div>
+  </section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1280,"height":2250}}'>
+class Component extends DCLogic {
+  componentWillUnmount() { (this._timers || []).forEach(clearTimeout); }
+  later(fn, ms) { this._timers = this._timers || []; this._timers.push(setTimeout(fn, ms)); }
+  renderVals() {
+    const s = this.state || {};
+    const theme = s.theme || this.props.theme || 'light';
+    const dark = theme === 'dark';
+    const save = s.save || 'idle';
+    const TRAVEL = 340 - 8 - 48;
+    const sx = s.sx || 0;
+    const slideDone = !!s.slideDone;
+    const aligns = [['left', 'format_align_left', 'Align left'], ['center', 'format_align_center', 'Align center'], ['right', 'format_align_right', 'Align right']]
+      .map(([id, icon, label]) => ({ icon, label, on: String((s.align || 'left') === id), pick: () => this.setState({ align: id }) }));
+    const rubber = (over) => (over * 52 * 0.55) / (52 + 0.55 * Math.abs(over));
+    return {
+      theme, yes: true,
+      isLight: String(!dark),
+      isDark: String(dark),
+      thumbX: dark ? 'calc(100% + 2px)' : '0px',
+      setLight: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'light' })),
+      setDark: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'dark' })),
+
+      saveClass: save === 'busy' ? 'is-loading' : (save === 'done' ? 'is-done' : ''),
+      saveKey: save,
+      saveIcon: save === 'done' ? 'check' : 'cloud_upload',
+      saveLabel: save === 'done' ? 'Saved' : 'Save changes',
+      saveNote: save === 'busy' ? 'Saving to your account' : (save === 'done' ? 'All changes saved' : 'Click the primary button'),
+      save: () => {
+        if (save !== 'idle') return;
+        this.setState({ save: 'busy' });
+        this.later(() => this.setState({ save: 'done' }), 1300);
+        this.later(() => this.setState({ save: 'idle' }), 2900);
+      },
+      syncClass: s.syncing ? 'is-loading' : '',
+      sync: () => { if (s.syncing) return; this.setState({ syncing: true }); this.later(() => this.setState({ syncing: false }), 1600); },
+
+      splitOpen: String(!!s.split),
+      splitClass: s.split ? 'is-open' : '',
+      splitMenu: s.split ? 'is-open' : '',
+      toggleSplit: () => this.setState({ split: !s.split }),
+      closeSplit: () => this.setState({ split: false }),
+      splitKey: (e) => { if (e.key === 'Escape') this.setState({ split: false }); },
+
+      boldOn: String(!!s.bold), italicOn: String(!!s.italic), underOn: String(!!s.under),
+      toggleBold: () => this.setState({ bold: !s.bold }),
+      toggleItalic: () => this.setState({ italic: !s.italic }),
+      toggleUnder: () => this.setState({ under: !s.under }),
+      aligns,
+
+      copyClass: s.copied ? 'is-swapped' : '',
+      copyLabel: s.copied ? 'Copied' : 'Copy',
+      copyAria: s.copied ? 'Copied to clipboard' : 'Copy token',
+      copy: () => {
+        try { navigator.clipboard && navigator.clipboard.writeText('--accent: #2563EB;'); } catch (err) {}
+        this.setState({ copied: true });
+        this.later(() => this.setState({ copied: false }), 1600);
+      },
+      likeOn: String(!!s.liked), likeClass: s.liked ? 'is-swapped' : '', likeAria: s.liked ? 'Remove from favorites' : 'Add to favorites',
+      like: () => this.setState({ liked: !s.liked }),
+      playClass: s.playing ? 'is-swapped' : '', playAria: s.playing ? 'Pause' : 'Play',
+      play: () => this.setState({ playing: !s.playing }),
+
+      holdClass: s.holding ? 'is-holding' : '',
+      holdIcon: s.held ? 'check' : 'delete_forever',
+      holdLabel: s.held ? 'Archive deleted' : (s.holding ? 'Keep holding' : 'Hold to delete archive'),
+      holdStart: () => {
+        if (s.held) return;
+        this.setState({ holding: true });
+        clearTimeout(this._hold);
+        this._hold = setTimeout(() => this.setState({ holding: false, held: true }), 1200);
+      },
+      holdEnd: () => { clearTimeout(this._hold); if (this.state && this.state.holding) this.setState({ holding: false }); },
+      holdKeyDown: (e) => {
+        if ((e.key === ' ' || e.key === 'Enter') && !e.repeat) {
+          e.preventDefault();
+          if (s.held) return;
+          this.setState({ holding: true });
+          clearTimeout(this._hold);
+          this._hold = setTimeout(() => this.setState({ holding: false, held: true }), 1200);
+        }
+      },
+      holdKeyUp: (e) => { if (e.key === ' ' || e.key === 'Enter') { clearTimeout(this._hold); this.setState({ holding: false }); } },
+
+      slideClass: (s.sliding ? 'is-dragging ' : '') + (slideDone ? 'is-done' : ''),
+      knobX: (slideDone ? TRAVEL : sx) + 'px',
+      knobT: s.sliding ? 'none' : (s.thrown ? 'transform 600ms var(--spring-momentum)' : 'transform 560ms var(--spring-smooth)'),
+      fillW: ((slideDone ? TRAVEL : Math.max(sx, 0)) + 52) + 'px',
+      slideLabelOp: slideDone ? 1 : Math.max(0, 1 - Math.max(sx, 0) / (TRAVEL * 0.6)).toFixed(2),
+      slideLabel: slideDone ? 'Grades submitted' : 'Slide to submit grades',
+      slideIcon: slideDone ? 'check' : 'arrow_forward',
+      slDown: (e) => {
+        if (slideDone) return;
+        e.currentTarget.setPointerCapture && e.currentTarget.setPointerCapture(e.pointerId);
+        this._sl = { x0: e.clientX - sx, hist: [[e.clientX, performance.now()]] };
+        this.setState({ sliding: true, thrown: false });
+      },
+      slMove: (e) => {
+        if (!this._sl || !(this.state && this.state.sliding)) return;
+        let x = e.clientX - this._sl.x0;
+        if (x < 0) x = rubber(x);
+        if (x > TRAVEL) x = TRAVEL + rubber(x - TRAVEL);
+        this._sl.hist.push([e.clientX, performance.now()]);
+        if (this._sl.hist.length > 5) this._sl.hist.shift();
+        this.setState({ sx: x });
+      },
+      slUp: () => {
+        if (!this._sl) return;
+        const h = this._sl.hist, a = h[0], b = h[h.length - 1];
+        const v = (b[1] - a[1]) > 0 ? (b[0] - a[0]) / ((b[1] - a[1]) / 1000) : 0;
+        const projected = (this.state.sx || 0) + (v / 1000) * 0.99 / (1 - 0.99);
+        this._sl = null;
+        if (projected > TRAVEL * 0.85) this.setState({ sliding: false, slideDone: true, sx: TRAVEL, thrown: v > 400 });
+        else this.setState({ sliding: false, sx: 0, thrown: false });
+      },
+      slKey: (e) => { if (e.key === 'Enter' && !slideDone) this.setState({ slideDone: true, sx: TRAVEL }); },
+      resetConfirm: () => this.setState({ held: false, holding: false, slideDone: false, sx: 0 })
+    };
+  }
+}
+</script>
+</body>
+</html>

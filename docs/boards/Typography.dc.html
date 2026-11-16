@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lampung Design System · Typography</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="lds.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=block">
+<style>
+body{margin:0}
+a{color:#1D4ED8}a:hover{color:#1E40AF}
+</style>
+</helmet>
+<div class="lds" data-theme="{{theme}}" style="width: 1280px; min-height: 2630px;">
+<div class="page">
+
+  <header class="page-head">
+    <div>
+      <div class="page-head__crumb"><span class="page-head__mark">D</span>Foundations · Typography</div>
+      <h1>Typography</h1>
+      <p class="page-head__lede">One family, Geist, chosen for its neutral shapes and clear figures. Tracking and leading change with size, and hierarchy comes from size, weight and spacing moving together.</p>
+    </div>
+    <div class="appearance" role="group" aria-label="Appearance">
+      <span class="appearance__thumb" style="transform: translateX({{thumbX}});"></span>
+      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Light</button>
+      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Dark</button>
+    </div>
+  </header>
+
+  <section class="sec sec--full">
+    <div style="display: flex; justify-content: space-between; align-items: baseline;">
+      <h2 class="sec__title">Scale</h2>
+      <span style="font: 400 13px/18px var(--font); color: var(--text-subtle);">size / leading · weight · tracking</span>
+    </div>
+    <div>
+      <sc-for list="{{scale}}" as="r" hint-placeholder-count="12">
+        <div class="type-row">
+          <div>
+            <div class="type-row__name">{{r.name}}</div>
+            <div style="font: 400 12px/16px var(--font); color: var(--text-muted); margin-top: 2px;">{{r.use}}</div>
+          </div>
+          <div class="type-row__sample" style="font: {{r.font}}; letter-spacing: {{r.track}};">{{r.sample}}</div>
+          <div class="type-row__meta">{{r.meta}}</div>
+        </div>
+      </sc-for>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Tracking follows size</h2>
+      <p class="sec__desc">Drag the size. Letters pull together as text grows and open up as it shrinks; leading does the opposite. A single letter-spacing value would be wrong somewhere.</p>
+      <ul class="spec">
+        <li><b>12 px</b><span>+0.010 em, leading 1.33</span></li>
+        <li><b>15 px</b><span>−0.005 em, leading 1.47</span></li>
+        <li><b>34 px</b><span>−0.028 em, leading 1.21</span></li>
+        <li><b>56 px</b><span>−0.035 em, leading 1.07</span></li>
+      </ul>
+    </div>
+    <div class="stage stage--white" style="gap: 24px;">
+      <div class="slider-row">
+        <span class="ic" aria-hidden="true">text_fields</span>
+        <input class="slider" type="range" min="12" max="64" step="1" value="{{size}}" onChange="{{onSize}}" aria-label="Sample size in pixels" style="--pct: {{sizePct}};">
+        <span class="slider-value">{{size}} px</span>
+      </div>
+      <div style="height: 220px; display: flex; align-items: center; overflow: hidden;">
+        <p style="font-weight: 600; font-size: {{sizePx}}; line-height: {{leading}}; letter-spacing: {{trackEm}}; color: var(--text-strong); max-width: 100%;">Quiet interfaces let the content speak first.</p>
+      </div>
+      <div class="row" style="gap: 24px; font: 400 13px/18px var(--font); color: var(--text-subtle);">
+        <span>Tracking <b style="font-weight: 500; color: var(--text-strong); font-variant-numeric: tabular-nums;">{{trackEm}}</b></span>
+        <span>Leading <b style="font-weight: 500; color: var(--text-strong); font-variant-numeric: tabular-nums;">{{leading}}</b></span>
+        <span>Weight <b style="font-weight: 500; color: var(--text-strong);">600</b></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Weights</h2>
+      <p class="sec__desc">Three weights do all the work. Bold 700 is reserved for the large title on phone screens.</p>
+    </div>
+    <div class="grid4">
+      <div class="stage" style="padding: 24px; gap: 8px;"><span style="font: 400 44px/48px var(--font); letter-spacing: -0.03em; color: var(--text-strong);">Aa</span><span class="stage__label">Regular 400 · body, values in lists</span></div>
+      <div class="stage" style="padding: 24px; gap: 8px;"><span style="font: 500 44px/48px var(--font); letter-spacing: -0.03em; color: var(--text-strong);">Aa</span><span class="stage__label">Medium 500 · labels, badges, tabs</span></div>
+      <div class="stage" style="padding: 24px; gap: 8px;"><span style="font: 600 44px/48px var(--font); letter-spacing: -0.03em; color: var(--text-strong);">Aa</span><span class="stage__label">Semibold 600 · titles, buttons</span></div>
+      <div class="stage" style="padding: 24px; gap: 8px;"><span style="font: 700 44px/48px var(--font); letter-spacing: -0.03em; color: var(--text-strong);">Aa</span><span class="stage__label">Bold 700 · large title only</span></div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Numbers</h2>
+      <p class="sec__desc">Anything that updates or lines up in a column uses tabular figures, so digits stop jittering when a value changes.</p>
+      <ul class="spec"><li><b>CSS</b><span><span class="code">tabular-nums</span></span></li></ul>
+    </div>
+    <div class="grid2">
+      <div class="stage stage--white" style="padding: 20px 24px; gap: 6px;">
+        <span class="stage__label">Proportional</span>
+        <span style="font: 600 30px/36px var(--font); letter-spacing: -0.02em; color: var(--text-strong);">1,111.11</span>
+        <span style="font: 600 30px/36px var(--font); letter-spacing: -0.02em; color: var(--text-strong);">8,088.80</span>
+      </div>
+      <div class="stage stage--white" style="padding: 20px 24px; gap: 6px;">
+        <span class="stage__label">Tabular</span>
+        <span style="font: 600 30px/36px var(--font); letter-spacing: -0.02em; color: var(--text-strong); font-variant-numeric: tabular-nums;">1,111.11</span>
+        <span style="font: 600 30px/36px var(--font); letter-spacing: -0.02em; color: var(--text-strong); font-variant-numeric: tabular-nums;">8,088.80</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Reading</h2>
+      <p class="sec__desc">Body copy sits between 60 and 72 characters a line. Paragraphs are separated by space, never by indents.</p>
+    </div>
+    <div style="max-width: 620px; display: flex; flex-direction: column; gap: 14px;">
+      <h3 style="font: 600 22px/28px var(--font); letter-spacing: -0.018em; color: var(--text-strong);">Changing your study plan</h3>
+      <p style="font: 400 15px/24px var(--font); letter-spacing: -0.005em; color: var(--text-default);">You can add or drop courses until the end of the second week. After that, changes need your adviser's approval, and the request appears in their inbox the same day.</p>
+      <p style="font: 400 15px/24px var(--font); letter-spacing: -0.005em; color: var(--text-default);">Dropped courses stay visible in your history with a note, so the record always matches what happened. <a class="link" href="#reading">Read the full policy</a>.</p>
+      <p id="reading" style="font: 400 13px/18px var(--font); color: var(--text-subtle);">Sample copy for layout only.</p>
+    </div>
+  </section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1280,"height":2630}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const theme = (this.state && this.state.theme) || this.props.theme || 'light';
+    const dark = theme === 'dark';
+    const size = (this.state && this.state.size) || 34;
+    const stops = [[12, 0.010, 1.333], [15, -0.005, 1.467], [17, -0.010, 1.294], [22, -0.018, 1.273], [34, -0.028, 1.206], [56, -0.035, 1.071], [64, -0.036, 1.06]];
+    let t = stops[0][1], l = stops[0][2];
+    for (let i = 0; i < stops.length - 1; i++) {
+      const a = stops[i], b = stops[i + 1];
+      if (size >= a[0] && size <= b[0]) {
+        const k = (size - a[0]) / (b[0] - a[0]);
+        t = a[1] + (b[1] - a[1]) * k;
+        l = a[2] + (b[2] - a[2]) * k;
+      }
+    }
+    const scale = [
+      { name: 'Display', use: 'Doc and marketing heads', font: '600 56px/60px var(--font)', track: '-0.035em', sample: 'Every detail, considered', meta: '56/60 · 600 · −0.035' },
+      { name: 'Large title', use: 'Phone tab roots', font: '700 34px/41px var(--font)', track: '-0.028em', sample: 'Today', meta: '34/41 · 700 · −0.028' },
+      { name: 'Title 1', use: 'Screen titles, big values', font: '600 28px/34px var(--font)', track: '-0.022em', sample: 'Semester overview', meta: '28/34 · 600 · −0.022' },
+      { name: 'Title 2', use: 'Section heads', font: '600 22px/28px var(--font)', track: '-0.018em', sample: 'Upcoming classes', meta: '22/28 · 600 · −0.018' },
+      { name: 'Title 3', use: 'Dialog and sheet titles', font: '600 20px/25px var(--font)', track: '-0.014em', sample: 'Remove this course?', meta: '20/25 · 600 · −0.014' },
+      { name: 'Headline', use: 'Nav title, card title', font: '600 17px/22px var(--font)', track: '-0.01em', sample: 'Database Systems', meta: '17/22 · 600 · −0.010' },
+      { name: 'Body', use: 'Content', font: '400 15px/22px var(--font)', track: '-0.005em', sample: 'Your request is waiting for your adviser.', meta: '15/22 · 400 · −0.005' },
+      { name: 'Body strong', use: 'Emphasis in content', font: '500 15px/22px var(--font)', track: '-0.005em', sample: 'Room 2.14, building H', meta: '15/22 · 500 · −0.005' },
+      { name: 'Subhead', use: 'List subtitles', font: '400 14px/20px var(--font)', track: '0em', sample: 'Mon, 08:00 to 09:40', meta: '14/20 · 400 · 0' },
+      { name: 'Footnote', use: 'Meta, helper text', font: '400 13px/18px var(--font)', track: '0em', sample: 'Updated 4 minutes ago', meta: '13/18 · 400 · 0' },
+      { name: 'Caption', use: 'Badges, axis labels', font: '500 13px/18px var(--font)', track: '0.01em', sample: 'Due tomorrow', meta: '13/18 · 500 · +0.010' },
+      { name: 'Mono', use: 'Tokens, code', font: '400 12.5px/20px var(--mono)', track: '-0.01em', sample: '--accent: #2563EB;', meta: 'Geist Mono 12.5/20' }
+    ];
+    return {
+      theme,
+      isLight: String(!dark),
+      isDark: String(dark),
+      thumbX: dark ? 'calc(100% + 2px)' : '0px',
+      setLight: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'light' })),
+      setDark: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'dark' })),
+      scale,
+      size,
+      sizePx: size + 'px',
+      sizePct: ((size - 12) / 52 * 100).toFixed(1) + '%',
+      trackEm: (t >= 0 ? '+' : '') + t.toFixed(3) + 'em',
+      leading: l.toFixed(2),
+      onSize: (e) => this.setState({ size: Number(e.target.value) })
+    };
+  }
+}
+</script>
+</body>
+</html>

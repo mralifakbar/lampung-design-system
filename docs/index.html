@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en" data-theme="light" class="lds">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lampung Design System</title>
+<link rel="stylesheet" href="../css/lds.css">
+<link rel="stylesheet" href="./docs.css">
+</head>
+<body class="lds">
+<a class="skip" href="#board">Skip to content</a>
+<div class="shell" id="shell">
+
+  <aside class="shell__side" id="side" aria-label="Documentation">
+    <div class="shell__brand"><span class="page-head__mark">D</span>Lampung Design System</div>
+    <nav class="shell__nav" id="nav" aria-label="Pages">
+      <span class="shell__hl" id="nav-hl" aria-hidden="true"></span>
+      <span class="shell__group">Start</span>
+      <a class="shell__link" href="#/start" data-route="start"><span class="ic" aria-hidden="true">home</span>Getting started</a>
+      <a class="shell__link" href="./gallery.html"><span class="ic" aria-hidden="true">grid_view</span>Plain HTML gallery</a>
+      <a class="shell__link" href="./examples/index.html"><span class="ic" aria-hidden="true">dashboard</span>Examples</a>
+      <span class="shell__group">Foundations</span>
+      <a class="shell__link" href="#/color" data-route="color"><span class="ic" aria-hidden="true">contrast</span>Color</a>
+      <a class="shell__link" href="#/typography" data-route="typography"><span class="ic" aria-hidden="true">text_fields</span>Typography</a>
+      <a class="shell__link" href="#/layout" data-route="layout"><span class="ic" aria-hidden="true">grid_view</span>Space, radius, depth</a>
+      <a class="shell__link" href="#/motion" data-route="motion"><span class="ic" aria-hidden="true">timeline</span>Motion</a>
+      <a class="shell__link" href="#/micro" data-route="micro"><span class="ic" aria-hidden="true">touch_app</span>Microinteractions</a>
+      <span class="shell__group">Components</span>
+      <a class="shell__link" href="./components/index.html"><span class="ic" aria-hidden="true">grid_view</span>All components, one per page</a>
+      <span class="shell__group">Boards</span>
+      <a class="shell__link" href="#/actions" data-route="actions"><span class="ic" aria-hidden="true">touch_app</span>Actions</a>
+      <a class="shell__link" href="#/inputs" data-route="inputs"><span class="ic" aria-hidden="true">edit_square</span>Inputs</a>
+      <a class="shell__link" href="#/selection" data-route="selection"><span class="ic" aria-hidden="true">check_circle</span>Selection</a>
+      <a class="shell__link" href="#/navigation" data-route="navigation"><span class="ic" aria-hidden="true">near_me</span>Navigation</a>
+      <a class="shell__link" href="#/overlays" data-route="overlays"><span class="ic" aria-hidden="true">inventory_2</span>Overlays</a>
+      <a class="shell__link" href="#/feedback" data-route="feedback"><span class="ic" aria-hidden="true">notifications</span>Feedback</a>
+      <a class="shell__link" href="#/data" data-route="data"><span class="ic" aria-hidden="true">list</span>Data display</a>
+      <a class="shell__link" href="#/charts" data-route="charts"><span class="ic" aria-hidden="true">bar_chart</span>Charts</a>
+      <span class="shell__group">Patterns</span>
+      <a class="shell__link" href="#/phone" data-route="phone"><span class="ic" aria-hidden="true">call</span>Phone screen</a>
+      <a class="shell__link" href="#/patterns" data-route="patterns"><span class="ic" aria-hidden="true">dashboard</span>App patterns</a>
+      <a class="shell__link" href="#/marketing" data-route="marketing"><span class="ic" aria-hidden="true">public</span>Marketing</a>
+    </nav>
+    <div class="shell__foot">
+      <div class="seg" role="group" aria-label="Appearance" id="theme-seg">
+        <span class="seg__thumb" style="width: calc((100% - 4px) / 2);"></span>
+        <button class="seg__btn" aria-pressed="true" data-mode="light"><span class="ic ic--sm" aria-hidden="true">light_mode</span>&nbsp;Light</button>
+        <button class="seg__btn" aria-pressed="false" data-mode="dark"><span class="ic ic--sm" aria-hidden="true">dark_mode</span>&nbsp;Dark</button>
+      </div>
+    </div>
+  </aside>
+  <div class="shell__scrim" id="scrim" aria-hidden="true"></div>
+
+  <div class="shell__main">
+    <header class="shell__top">
+      <button class="icon-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="side"><span class="ic" aria-hidden="true">list</span></button>
+      <span style="font: 600 15px/20px var(--font); color: var(--text-strong);" id="top-title">Lampung Design System</span>
+      <span style="width: 44px;"></span>
+    </header>
+    <main class="board-host" id="board" tabindex="-1"></main>
+    <nav class="pager-next" id="pager" aria-label="Previous and next page"></nav>
+  </div>
+</div>
+
+<template id="tpl-start">
+  <div class="page">
+    <header class="page-head">
+      <div>
+        <div class="page-head__crumb"><span class="page-head__mark">D</span>Start</div>
+        <h1>Getting started</h1>
+        <p class="page-head__lede">One set of tokens and components for every project: plain HTML, Next.js or any web framework, and Flutter. The web side is plain CSS and one optional JavaScript module; nothing here assumes a framework.</p>
+      </div>
+    </header>
+    <div class="docs-prose">
+      <h2>What is in the box</h2>
+      <ul>
+        <li><span class="code">tokens/tokens.json</span>: the single source for colors (light and dark), type, space, radius, elevation and motion.</li>
+        <li><span class="code">css/lds.css</span>: tokens plus every component. Light by default; <span class="code">data-theme="dark"</span> or <span class="code">"system"</span> on any element switches it.</li>
+        <li><span class="code">js/lds.js</span>: optional behaviors wired by <span class="code">data-lds-*</span> attributes: layers, sheets with momentum, menus, toasts, steppers, OTP, confirms, data tables, kanban, calendars, maps and charts drawn from JSON (<span class="code">drawChart</span>).</li>
+        <li><span class="code">fonts/</span>: Solar icons as two ligature fonts. Type the name: <span class="code">&lt;span class="ic"&gt;search&lt;/span&gt;</span>.</li>
+        <li><span class="code">react/index.tsx</span>: optional React bindings that render the same markup and own the state (Tabs, Select, Combobox, Switch, Chart, notify and more).</li>
+        <li><span class="code">dist/</span>: generated tokens for JS/TS, Flutter and a shadcn/ui theme.</li>
+        <li><a href="examples/index.html">Examples</a>: whole products built only from the system: a landing page, a 33-page admin dashboard with a foldable sidebar and command palette, and three phone apps. Run <span class="code">npm run serve</span> and open <span class="code">/docs/examples/</span>; rebuild the dashboard with <span class="code">npm run build:examples</span>.</li>
+        <li><a href="components/">Components</a>: 177 components and recipes, one page each with usage, live examples, code, motion and accessibility. The same specs feed the agent skill in <span class="code">skills/lampung-design-system/</span>.</li>
+      </ul>
+      <h2>Add it to a project</h2>
+      <div class="codeblock"><pre><span class="c"># vendors css, js, react, icons and fonts into the folder, with a VERSION file</span>
+npm run sync -- ../my-app/vendor/lds</pre></div>
+      <h2>Plain HTML</h2>
+      <div class="codeblock"><pre>&lt;html class="lds" data-theme="light"&gt;
+&lt;link rel="stylesheet" href="lampung-design-system/css/lds.css"&gt;
+&lt;button class="btn btn--primary"&gt;Save changes&lt;/button&gt;
+&lt;script type="module"&gt;
+  import { init } from 'lampung-design-system/js/lds.js';
+  init();
+&lt;/script&gt;</pre></div>
+      <h2>Next.js</h2>
+      <div class="codeblock"><pre><span class="c">// app/layout.tsx</span>
+<span class="k">import</span> 'lampung-design-system/css';
+&lt;html lang="en" className="lds" data-theme="light"&gt;
+
+<span class="c">// any client component that needs behaviors</span>
+'use client';
+<span class="k">import</span> { useEffect, useRef } <span class="k">from</span> 'react';
+<span class="k">import</span> { init } <span class="k">from</span> 'lampung-design-system/js';
+<span class="k">const</span> ref = useRef(null);
+useEffect(() =&gt; { init(ref.current); }, []);
+
+<span class="c">// or let React own the state</span>
+<span class="k">import</span> { Tabs, Select, notify } <span class="k">from</span> 'lampung-design-system/react';</pre></div>
+      <h2>shadcn/ui</h2>
+      <p>Theme a shadcn app with the system's colors (light and dark), Geist, type scale, spacing, elevation, radius and motion curves. Component shapes stay shadcn's; for the exact LDS look and spring motion, use the CSS components.</p>
+      <div class="codeblock"><pre>R=node_modules/lampung-design-system/dist/shadcn/registry
+npx shadcn@latest add $R/lds.json $R/lds-font-sans.json $R/lds-font-mono.json</pre></div>
+      <h2>Flutter</h2>
+      <div class="codeblock"><pre><span class="c">// copy dist/flutter/lds_tokens.dart into lib/, register fonts in pubspec.yaml</span>
+<span class="k">final</span> c = LdsColors.light;
+Text('Today', style: LdsType.largeTitle.copyWith(color: c.textStrong));
+AnimatedContainer(duration: LdsMotion.smooth, curve: LdsMotion.standardCurve);
+SpringSimulation(LdsMotion.smoothSpring, 0, 1, velocity);</pre></div>
+      <h2>Rules that keep it looking like itself</h2>
+      <ul>
+        <li>White canvas. Group with <span class="code">--bg-fill</span>, never with a shadow. Shadows only on things that float.</li>
+        <li>One accent, used for the primary action, the selection and links.</li>
+        <li>Type moves as a set: size, weight and tracking together. Large tightens, small opens.</li>
+        <li>Enter on a spring, leave faster on the exit curve, and always start from where the element is now.</li>
+        <li>Every interactive element is 44 by 44 or larger, keyboard reachable, with a visible focus ring.</li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script type="module">
+  import { mount } from './runtime.js';
+
+  const ROUTES = [
+    { slug: 'start', title: 'Getting started', template: 'tpl-start' },
+    { slug: 'color', title: 'Color', file: 'Main' },
+    { slug: 'typography', title: 'Typography', file: 'Typography' },
+    { slug: 'layout', title: 'Space, radius, depth', file: 'Layout' },
+    { slug: 'motion', title: 'Motion', file: 'Motion' },
+    { slug: 'micro', title: 'Microinteractions', file: 'Micro' },
+    { slug: 'actions', title: 'Actions', file: 'Actions' },
+    { slug: 'inputs', title: 'Inputs', file: 'Inputs' },
+    { slug: 'selection', title: 'Selection', file: 'Selection' },
+    { slug: 'navigation', title: 'Navigation', file: 'Navigation' },
+    { slug: 'overlays', title: 'Overlays', file: 'Overlays' },
+    { slug: 'feedback', title: 'Feedback', file: 'Feedback' },
+    { slug: 'data', title: 'Data display', file: 'DataDisplay' },
+    { slug: 'charts', title: 'Charts', file: 'Charts' },
+    { slug: 'phone', title: 'Phone screen', file: 'Mobile' },
+    { slug: 'patterns', title: 'App patterns', file: 'Patterns' },
+    { slug: 'marketing', title: 'Marketing', file: 'Marketing' }
+  ];
+  const html = document.documentElement;
+  const host = document.getElementById('board');
+  const shell = document.getElementById('shell');
+  let current = null;
+  let mode = 'light';
+  try { mode = localStorage.getItem('lds-theme') || 'light'; } catch (e) { /* storage may be blocked */ }
+
+  /* Theme: the shell and the mounted board stay in sync either way. */
+  const seg = document.getElementById('theme-seg');
+  const applyTheme = (m, fromBoard) => {
+    mode = m;
+    /* Shell and board switch in the same frame, with transitions held off (no patchy flash). */
+    html.classList.add('lds-theme-swap');
+    setTimeout(() => html.classList.remove('lds-theme-swap'), 120);
+    html.setAttribute('data-theme', m);
+    const boardRoot = host.querySelector(':scope > .lds[data-theme]');
+    if (boardRoot) boardRoot.setAttribute('data-theme', m);
+    try { localStorage.setItem('lds-theme', m); } catch (e) { /* ignore */ }
+    seg.querySelectorAll('.seg__btn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === m)));
+    seg.querySelector('.seg__thumb').style.transform = `translateX(${m === 'dark' ? 100 : 0}%)`;
+    if (!fromBoard && current && current.component) { current.setProps({ theme: m }); current.component.setState({ theme: m }); }
+  };
+  seg.querySelectorAll('.seg__btn').forEach((b) => b.addEventListener('click', () => applyTheme(b.dataset.mode)));
+  new MutationObserver(() => {
+    const root = host.querySelector(':scope > .lds[data-theme]');
+    const m = root && root.getAttribute('data-theme');
+    if (m && m !== mode) applyTheme(m, true);
+  }).observe(host, { attributes: true, subtree: true, attributeFilter: ['data-theme'] });
+  applyTheme(mode, true);
+
+  /* Sidebar highlight glides to the current link on the smooth spring. */
+  const hl = document.getElementById('nav-hl');
+  const placeHighlight = (instant) => {
+    const a = document.querySelector('.shell__link[aria-current="page"]');
+    hl.style.opacity = a ? '1' : '0';
+    if (instant) hl.style.transition = 'none';
+    if (a) hl.style.transform = `translateY(${a.offsetTop}px)`;
+    if (instant) { void hl.offsetWidth; hl.style.transition = ''; }
+  };
+
+  /* Prefetch a board on hover so the transition never waits on the network. */
+  const fileUrl = (r) => `./boards/${r.file}.dc.html`;
+  document.querySelectorAll('.shell__link[data-route]').forEach((a) => a.addEventListener('pointerenter', () => {
+    const r = ROUTES.find((x) => x.slug === a.dataset.route);
+    if (r && r.file) fetch(fileUrl(r));
+  }, { once: true }));
+
+  const pager = document.getElementById('pager');
+  const renderPager = (i) => {
+    const prev = ROUTES[i - 1], next = ROUTES[i + 1];
+    pager.replaceChildren();
+    const link = (r, cls, label) => { const a = document.createElement('a'); a.href = `#/${r.slug}`; a.className = cls; const s = document.createElement('span'); s.textContent = label; a.append(s, document.createTextNode(r.title)); return a; };
+    if (prev) pager.appendChild(link(prev, '', 'Previous'));
+    if (next) pager.appendChild(link(next, 'is-next', 'Next'));
+  };
+
+  async function show(slug, first) {
+    const i = Math.max(0, ROUTES.findIndex((r) => r.slug === slug));
+    const route = ROUTES[i];
+    const swap = async () => {
+      if (current) { current.unmount(); current = null; }
+      host.className = 'board-host' + (route.file === 'Mobile' ? ' board-host--phone' : '');
+      if (route.template) host.replaceChildren(document.getElementById(route.template).content.cloneNode(true));
+      else current = await mount(host, fileUrl(route), { theme: mode });
+      if (current) current.component.setState({ theme: mode });
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      document.title = `${route.title} · Lampung Design System`;
+      document.getElementById('top-title').textContent = route.title;
+      document.querySelectorAll('.shell__link[data-route]').forEach((a) => a.setAttribute('aria-current', a.dataset.route === route.slug ? 'page' : 'false'));
+      placeHighlight(first);
+      renderPager(i);
+    };
+    const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!first && document.startViewTransition && !reduce) {
+      const vt = document.startViewTransition(swap);
+      vt.ready.catch(() => {}); vt.finished.catch(() => {});
+      // A tab that is not painting never captures the old frame; skip the effect rather than stall.
+      const guard = setTimeout(() => vt.skipTransition(), 700);
+      await vt.updateCallbackDone.catch(() => {});
+      clearTimeout(guard);
+    } else {
+      await swap();
+      if (!first) { host.classList.remove('is-entering'); void host.offsetWidth; host.classList.add('is-entering'); }
+    }
+    if (!first) host.focus({ preventScroll: true });
+    closeMenu();
+  }
+
+  /* Phone menu: the sidebar slides in on the smooth spring, leaves on the exit curve. */
+  const menuBtn = document.getElementById('menu-btn');
+  const openMenu = () => { shell.classList.add('is-menu'); menuBtn.setAttribute('aria-expanded', 'true'); document.querySelector('.shell__link[aria-current="page"]')?.focus(); };
+  const closeMenu = () => { if (!shell.classList.contains('is-menu')) return; shell.classList.remove('is-menu'); menuBtn.setAttribute('aria-expanded', 'false'); };
+  menuBtn.addEventListener('click', openMenu);
+  document.getElementById('scrim').addEventListener('click', closeMenu);
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && shell.classList.contains('is-menu')) { closeMenu(); menuBtn.focus(); } });
+
+  const slugFromHash = () => (location.hash.match(/^#\/([\w-]+)/) || [])[1] || 'start';
+  window.addEventListener('hashchange', () => show(slugFromHash()));
+  show(slugFromHash(), true);
+</script>
+</body>
+</html>

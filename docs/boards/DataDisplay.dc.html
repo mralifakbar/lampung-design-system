@@ -1,0 +1,815 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lampung Design System · Data display</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="lds.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=block">
+<style>
+body{margin:0}
+a{color:#1D4ED8}a:hover{color:#1E40AF}
+.carousel{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;padding:2px}
+.carousel::-webkit-scrollbar{display:none}
+.carousel>*{scroll-snap-align:start;flex:0 0 calc((100% - 28px)/3)}
+.dots{display:flex;gap:6px;justify-content:center}
+.dots button{width:24px;height:24px;display:grid;place-items:center}
+.dots i{width:6px;height:6px;border-radius:3px;background:var(--text-faint);transition:width 560ms var(--spring-smooth),background-color 240ms}
+.dots button[aria-current="true"] i{width:18px;background:var(--text-strong)}
+.big-num{font:600 44px/48px var(--font);letter-spacing:-0.035em;color:var(--text-strong)}
+</style>
+</helmet>
+<div class="lds" data-theme="{{theme}}" data-board="data" style="width: 1280px; min-height: 8100px;">
+<div class="page">
+
+  <header class="page-head">
+    <div>
+      <div class="page-head__crumb"><span class="page-head__mark">D</span>Components · Data display</div>
+      <h1>Data display</h1>
+      <p class="page-head__lede">Show the value first and the label second. Group with a quiet fill, separate rows with hairlines that start where the text starts, and let numbers change by rolling instead of blinking.</p>
+    </div>
+    <div class="appearance" role="group" aria-label="Appearance">
+      <span class="appearance__thumb" style="transform: translateX({{thumbX}});"></span>
+      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Light</button>
+      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Dark</button>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Avatar</h2>
+      <p class="sec__desc">Initials on a tint until a real photo exists; no generated faces. Stacks overlap by 8 px with a ring in the surface color and fan out slightly on hover.</p>
+    </div>
+    <div class="stage" style="flex-direction: row; align-items: center; gap: 28px;">
+      <div class="row" style="gap: 12px; align-items: flex-end;">
+        <span class="avatar" style="--size: 24px;">AR</span>
+        <span class="avatar" style="--size: 32px;">AR</span>
+        <span class="avatar" style="--size: 40px;">AR<span class="avatar__presence" aria-label="Online"></span></span>
+        <span class="avatar avatar--gray" style="--size: 56px;">NS</span>
+        <span class="avatar avatar--sq" style="--size: 56px; background: var(--tile-blue); color: #fff;"><span class="ic" style="font-size: 26px;" aria-hidden="true">school</span></span>
+      </div>
+      <div class="divider-v"></div>
+      <div class="row" style="gap: 12px;">
+        <div class="avatar-stack" aria-label="5 members">
+          <span class="avatar" style="--i: 0;">AR</span><span class="avatar avatar--gray" style="--i: 1;">NS</span><span class="avatar" style="--i: 2;">DP</span><span class="avatar avatar--gray" style="--i: 3;">+2</span>
+        </div>
+        <span style="font: 400 14px/20px var(--font); color: var(--text-subtle);">5 members are editing</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Cards</h2>
+      <p class="sec__desc">Cards hold one subject each. White with a ring on the fill, or fill on white; never both, never a shadow. A linked card sinks on press like a button.</p>
+    </div>
+    <div class="grid3">
+      <a class="card card--link" href="#cards">
+        <div class="card__media"><span class="ic" style="font-size: 28px;" aria-hidden="true">image</span></div>
+        <span class="badge badge--accent">Seminar</span>
+        <div class="card__title" style="margin-top: 10px;">Designing for slow networks</div>
+        <div class="card__sub">Thursday, 13:00 · Hall B</div>
+      </a>
+      <div class="card" id="cards">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;"><div><div class="card__title">Tuition</div><div class="card__sub">Odd semester 2026/2027</div></div><span class="badge badge--warning">Due in 5 days</span></div>
+        <div style="font: 600 28px/34px var(--font); letter-spacing: -0.022em; color: var(--text-strong); margin: 18px 0 2px; font-variant-numeric: tabular-nums;">Rp 7.500.000</div>
+        <div class="card__sub">Pay by bank transfer or virtual account.</div>
+        <button class="btn btn--primary btn--md btn--block" style="margin-top: 16px;">Pay tuition</button>
+      </div>
+      <div class="card card--fill">
+        <div style="display: flex; gap: 12px; align-items: center;"><span class="lrow__icon" style="width: 40px; height: 40px; border-radius: 12px; background: var(--tile-green);"><span class="ic" aria-hidden="true">check_circle</span></span><div><div class="card__title">Attendance</div><div class="card__sub">This semester</div></div></div>
+        <div class="progress" style="margin: 20px 0 8px;"><div class="progress__fill" style="transform: scaleX(0.86); background: var(--tile-green);"></div></div>
+        <div class="progress-meta" style="margin: 0;"><span>12 of 14 sessions</span><b>86%</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Grouped list</h2>
+      <p class="sec__desc">The settings pattern. Icon chips are solid with a white glyph, values sit right in the secondary ink, separators begin at the text. Rows highlight on press, not on hover.</p>
+    </div>
+    <div class="grid2" style="align-items: start;">
+      <div>
+        <div class="list__header">Account</div>
+        <div class="list list--fill">
+          <button class="lrow lrow--icon"><span class="lrow__icon"><span class="ic" aria-hidden="true">person</span></span><span class="lrow__body"><span class="lrow__title" style="display: block;">Profile</span></span><span class="lrow__value">[Name]</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
+          <button class="lrow lrow--icon"><span class="lrow__icon" style="background: var(--tile-red);"><span class="ic" aria-hidden="true">notifications</span></span><span class="lrow__body"><span class="lrow__title" style="display: block;">Notifications</span></span><span class="count">3</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
+          <button class="lrow lrow--icon"><span class="lrow__icon" style="background: var(--neutral);"><span class="ic" aria-hidden="true">lock</span></span><span class="lrow__body"><span class="lrow__title" style="display: block;">Password and security</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
+          <button class="lrow lrow--icon"><span class="lrow__icon" style="background: var(--tile-blue);"><span class="ic" aria-hidden="true">public</span></span><span class="lrow__body"><span class="lrow__title" style="display: block;">Language</span></span><span class="lrow__value">English</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
+        </div>
+        <div class="list__footer">Your profile is visible to lecturers and classmates.</div>
+      </div>
+      <div>
+        <div class="list__header">Course details</div>
+        <div class="list" style="padding: 0 16px;">
+          <dl style="margin: 0;">
+            <div class="kv"><dt>Code</dt><dd>CS 2104</dd></div>
+            <div class="kv"><dt>Credits</dt><dd>3</dd></div>
+            <div class="kv"><dt>Schedule</dt><dd>Mon, Thu · 08:00</dd></div>
+            <div class="kv"><dt>Room</dt><dd>2.14, building H</dd></div>
+            <div class="kv"><dt>Lecturer</dt><dd>Course lecturer</dd></div>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Table</h2>
+      <p class="sec__desc">Click a column to sort; the arrow turns rather than swapping. Numbers align right in tabular figures. Selecting rows reveals a bulk action bar that slides in above the table.</p>
+      <ul class="spec"><li><b>Overflow</b><span>Wide tables scroll inside their own box on small screens.</span></li></ul>
+    </div>
+    <div class="col" style="gap: 10px;">
+      <div class="collapse {{bulkCls}}">
+        <div><div class="banner" style="margin-bottom: 4px;"><span>{{selCount}} selected</span><button class="btn btn--sm">Export</button><button class="btn btn--sm" onClick="{{clearSel}}" style="margin-left: 0;">Clear</button></div></div>
+      </div>
+      <div class="table-box">
+        <div class="dt" role="table" aria-label="Courses">
+          <div class="dt__row dt__head" role="row">
+            <span class="dt__cell" role="columnheader"><label class="check"><input type="checkbox" checked="{{allSel}}" onChange="{{toggleAllSel}}" aria-label="Select all rows"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span></label></span>
+            <sc-for list="{{cols}}" as="c" hint-placeholder-count="4">
+              <span class="dt__cell {{c.thCls}}" role="columnheader" aria-sort="{{c.aria}}"><button class="dt__sort {{c.cls}}" onClick="{{c.sort}}">{{c.label}}<span class="ic" aria-hidden="true">arrow_upward</span></button></span>
+            </sc-for>
+            <span class="dt__cell" role="columnheader">Status</span>
+          </div>
+          <sc-for list="{{rows}}" as="r" hint-placeholder-count="5">
+            <div class="dt__row {{r.cls}}" role="row">
+              <span class="dt__cell" role="cell"><label class="check"><input type="checkbox" checked="{{r.sel}}" onChange="{{r.toggle}}" aria-label="Select {{r.name}}"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span></label></span>
+              <span class="dt__cell strong" role="cell">{{r.name}}</span>
+              <span class="dt__cell" role="cell">{{r.code}}</span>
+              <span class="dt__cell num" role="cell">{{r.credits}}</span>
+              <span class="dt__cell num" role="cell">{{r.seats}}</span>
+              <span class="dt__cell" role="cell"><span class="{{r.badge}}">{{r.status}}</span></span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Accordion and tree</h2>
+      <p class="sec__desc">Height animates through grid rows, so it is exact at any content size. The text inside fades in a beat after the space opens and leaves before it closes.</p>
+    </div>
+    <div class="grid2" style="align-items: start;">
+      <div class="acc">
+        <sc-for list="{{faqs}}" as="f" hint-placeholder-count="3">
+          <div class="acc__item">
+            <button class="acc__btn" aria-expanded="{{f.open}}" onClick="{{f.toggle}}">{{f.q}}<span class="ic" aria-hidden="true">expand_more</span></button>
+            <div class="acc__panel {{f.cls}}" role="region"><div><p>{{f.a}}</p></div></div>
+          </div>
+        </sc-for>
+      </div>
+      <div class="card" style="padding: 8px;">
+        <div class="tree" role="tree" aria-label="Course files">
+          <sc-for list="{{tree}}" as="n" hint-placeholder-count="3">
+            <div role="treeitem" aria-expanded="{{n.open}}">
+              <button class="tree__row" aria-expanded="{{n.open}}" onClick="{{n.toggle}}"><span class="ic tree__chev" aria-hidden="true">chevron_right</span><span class="ic" aria-hidden="true">{{n.icon}}</span>{{n.label}}</button>
+              <div class="tree__kids {{n.cls}}"><div role="group">
+                <sc-for list="{{n.kids}}" as="k" hint-placeholder-count="2">
+                  <button class="tree__row {{k.cls}}" role="treeitem" aria-selected="{{k.sel}}" onClick="{{k.pick}}"><span class="ic" aria-hidden="true">description</span>{{k.label}}</button>
+                </sc-for>
+              </div></div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Calendar and timeline</h2>
+      <p class="sec__desc">Pick a start and an end day; the range fills between them. Today is marked in accent text, the selection in the accent fill. A timeline lists events oldest first with filled dots for completed ones.</p>
+    </div>
+    <div class="row row--top" style="gap: 28px;">
+      <div class="cal" role="group" aria-label="Choose dates">
+        <div class="cal__head">
+          <button class="icon-btn" style="width: 36px; height: 36px;" aria-label="Previous month"><span class="ic" aria-hidden="true">chevron_left</span></button>
+          <span class="cal__month">November 2026</span>
+          <button class="icon-btn" style="width: 36px; height: 36px;" aria-label="Next month"><span class="ic" aria-hidden="true">chevron_right</span></button>
+        </div>
+        <div class="cal__grid">
+          <span class="cal__dow">S</span><span class="cal__dow">M</span><span class="cal__dow">T</span><span class="cal__dow">W</span><span class="cal__dow">T</span><span class="cal__dow">F</span><span class="cal__dow">S</span>
+          <sc-for list="{{days}}" as="d" hint-placeholder-count="35">
+            <button class="cal__day {{d.cls}}" onClick="{{d.pick}}" aria-pressed="{{d.sel}}" aria-label="{{d.aria}}">{{d.n}}</button>
+          </sc-for>
+        </div>
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 4px 0; font: 400 13px/18px var(--font); color: var(--text-subtle);"><span>{{rangeText}}</span><button class="btn btn--plain btn--sm" onClick="{{clearRange}}">Clear</button></div>
+      </div>
+      <div class="card" style="flex: 1; padding: 20px;">
+        <div class="card__title" style="margin-bottom: 16px;">Thesis submission</div>
+        <div class="tl">
+          <div class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">check</span></span><div><div class="tl__title">Proposal approved</div><div class="tl__meta">12 Sep</div></div></div>
+          <div class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">check</span></span><div><div class="tl__title">Draft sent to adviser</div><div class="tl__meta">20 Oct</div></div></div>
+          <div class="tl__item"><span class="tl__dot" style="box-shadow: inset 0 0 0 2px var(--accent); color: var(--accent-text);"><span class="ic" aria-hidden="true">schedule</span></span><div><div class="tl__title">Revision due</div><div class="tl__meta">18 Nov · in progress</div></div></div>
+          <div class="tl__item"><span class="tl__dot"></span><div><div class="tl__title" style="color: var(--text-subtle);">Final defense</div><div class="tl__meta">Date to be set</div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Numbers, code, carousel</h2>
+      <p class="sec__desc">Counters roll each digit to its new place on the smooth spring. Code blocks carry a copy action in their bar. Carousels snap per card and their dots stretch toward the current page.</p>
+    </div>
+    <div class="col" style="gap: 20px;">
+      <div class="grid2">
+        <div class="stage stage--white" style="gap: 12px;">
+          <span class="stage__label">Seats taken</span>
+          <span class="big-num"><span class="roll" aria-label="{{count}}"><sc-for list="{{countDigits}}" as="d" hint-placeholder-count="3"><span class="roll__col" style="transform: translateY({{d.y}});"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></sc-for></span></span>
+          <div class="row"><button class="btn btn--secondary btn--sm" onClick="{{bump}}"><span class="ic" aria-hidden="true">add</span>Random change</button></div>
+        </div>
+        <div class="codeblock">
+          <div class="codeblock__bar"><span>tokens.css</span><button class="btn btn--plain btn--sm" onClick="{{copyCode}}"><span class="swap {{copyCls}}" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span>{{copyLabel}}</button></div>
+          <pre><span class="c">/* one blue, used sparingly */</span>
+<span class="k">--accent</span>: #2563EB;
+<span class="k">--spring-smooth</span>: <span class="s">linear(0, 0.049, 0.156, …, 1)</span>;
+<span class="k">--d-exit</span>: 180ms;</pre>
+        </div>
+      </div>
+      <div class="col" style="gap: 12px;">
+        <div class="carousel" onScroll="{{onCarousel}}" aria-label="Featured courses" role="region">
+          <sc-for list="{{slides}}" as="sl" hint-placeholder-count="5">
+            <div class="card card--fill" style="min-height: 150px; display: flex; flex-direction: column; justify-content: space-between;">
+              <span class="lrow__icon" style="width: 40px; height: 40px; border-radius: 12px; background: {{sl.c}};"><span class="ic" aria-hidden="true">{{sl.icon}}</span></span>
+              <div><div class="card__title">{{sl.title}}</div><div class="card__sub">{{sl.sub}}</div></div>
+            </div>
+          </sc-for>
+        </div>
+        <div class="dots" role="group" aria-label="Carousel pages">
+          <sc-for list="{{dots}}" as="dt" hint-placeholder-count="3"><button aria-current="{{dt.cur}}" aria-label="Page {{dt.n}}" onClick="{{dt.go}}"><i></i></button></sc-for>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== Dashboard ============================== -->
+  <section class="sec" id="dashboard">
+    <div class="sec__aside">
+      <h2 class="sec__title">Dashboard</h2>
+      <p class="sec__desc">Key figures with what they compare against, a period picker, upcoming dates, a data table with search, filters, sorting and selection, a board you can drag, a calendar and files. The values are examples.</p>
+    </div>
+    <div class="col" style="gap: 32px;">
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">KPI cards</p>
+<div class="auto-grid" style="--min: 220px;" data-lds-grow>
+  <article class="kpi" aria-labelledby="kpi-rev">
+    <div class="kpi__head"><span class="kpi__label" id="kpi-rev">Course sales</span><div style="position: relative; margin-left: auto;">
+      <button class="icon-btn" aria-label="More actions for Course sales" aria-haspopup="menu" aria-expanded="false" data-lds-menu="kpi-rev-menu"><span class="ic" aria-hidden="true">more_horiz</span></button>
+      <div class="menu menu--right" id="kpi-rev-menu" role="menu" aria-label="Course sales" style="top: calc(100% + 6px); right: 0;">
+        <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">bar_chart</span>Open report</button>
+        <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download CSV</button>
+      </div>
+    </div></div>
+    <div class="kpi__value">$48,210</div>
+    <div class="kpi__meta"><span class="delta delta--pill delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>12.4%<span class="sr-only"> up</span></span><span>from $42,890 in October</span></div>
+    <svg class="kpi__spark" viewBox="0 0 240 52" preserveAspectRatio="none" role="img" aria-label="Daily sales over 30 days, rising"><path class="series-area" d="M0.0 45.5 L8.3 30.0 L16.6 28.6 L24.8 32.9 L33.1 43.7 L41.4 46.0 L49.7 45.5 L57.9 39.0 L66.2 26.8 L74.5 23.5 L82.8 25.4 L91.0 30.5 L99.3 38.0 L107.6 39.4 L115.9 31.9 L124.1 22.5 L132.4 16.4 L140.7 28.6 L149.0 27.7 L157.2 33.3 L165.5 33.3 L173.8 25.8 L182.1 18.8 L190.3 16.9 L198.6 15.0 L206.9 26.3 L215.2 33.8 L223.4 22.1 L231.7 12.2 L240.0 8.0 L240 52 L0 52 Z"></path><path class="series-line" d="M0.0 45.5 L8.3 30.0 L16.6 28.6 L24.8 32.9 L33.1 43.7 L41.4 46.0 L49.7 45.5 L57.9 39.0 L66.2 26.8 L74.5 23.5 L82.8 25.4 L91.0 30.5 L99.3 38.0 L107.6 39.4 L115.9 31.9 L124.1 22.5 L132.4 16.4 L140.7 28.6 L149.0 27.7 L157.2 33.3 L165.5 33.3 L173.8 25.8 L182.1 18.8 L190.3 16.9 L198.6 15.0 L206.9 26.3 L215.2 33.8 L223.4 22.1 L231.7 12.2 L240.0 8.0"></path></svg>
+  </article>
+  <article class="kpi" aria-labelledby="kpi-sign">
+    <div class="kpi__head"><span class="kpi__label" id="kpi-sign">New sign-ups</span></div>
+    <div class="kpi__value">632</div>
+    <div class="kpi__meta"><span class="delta delta--pill delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>8%<span class="sr-only"> up</span></span><span>this week</span></div>
+    <div class="kpi__bars" role="img" aria-label="Sign-ups per day over 14 days; today is the highest"><i style="--h: 59%;"></i><i style="--h: 78%;"></i><i style="--h: 79%;"></i><i style="--h: 71%;"></i><i style="--h: 60%;"></i><i style="--h: 54%;"></i><i style="--h: 60%;"></i><i style="--h: 71%;"></i><i style="--h: 89%;"></i><i style="--h: 100%;"></i><i style="--h: 90%;"></i><i style="--h: 68%;"></i><i style="--h: 59%;"></i><i class="is-on" style="--h: 63%;"></i></div>
+  </article>
+  <article class="kpi" aria-labelledby="kpi-ref">
+    <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">receipt_long</span></span><span class="kpi__label" id="kpi-ref">Refund requests</span></div>
+    <div class="kpi__value">14</div>
+    <div class="kpi__meta"><span class="delta delta--pill delta--down delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>36%<span class="sr-only"> down</span></span><span>fewer than last month</span></div>
+  </article>
+  <article class="kpi" aria-labelledby="kpi-time">
+    <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">schedule</span></span><span class="kpi__label" id="kpi-time">Average reply time</span></div>
+    <div class="kpi__value">3.2<small>hours</small></div>
+    <div class="kpi__meta"><span class="delta delta--pill delta--bad"><span class="ic" aria-hidden="true">arrow_upward</span>0.6 h<span class="sr-only"> up</span></span><span>slower than last week</span></div>
+  </article>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Trend delta</p>
+<span class="delta delta--up delta--good delta--pill"><span class="ic" aria-hidden="true">arrow_upward</span>+8.2%<span class="sr-only"> up from October</span></span> <span class="delta delta--down delta--bad delta--pill"><span class="ic" aria-hidden="true">arrow_upward</span>−4.1%<span class="sr-only"> down from October</span></span> <span class="delta delta--up delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>+320<span class="delta__note">vs October</span><span class="sr-only"> up from October</span></span>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Date range</p>
+<div style="min-height: 72px;"><div class="daterange" data-lds-daterange data-start="2026-10-18" data-end="2026-11-16" data-today="2026-11-16">
+  <button class="btn btn--secondary btn--md daterange__trigger" aria-haspopup="dialog" aria-expanded="false" data-lds-menu="dr-1"><span class="ic" aria-hidden="true">calendar_month</span><span class="daterange__label">18 Oct to 16 Nov 2026</span><span class="ic" aria-hidden="true">expand_more</span></button>
+  <div class="popover daterange__pop" id="dr-1" role="dialog" aria-label="Choose dates"></div>
+</div></div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Date tiles</p>
+<div class="list" style="max-width: 460px;">
+  <a class="lrow" href="#dt-2026-11-16" id="dt-2026-11-16"><time class="datetile datetile--today" datetime="2026-11-16"><span class="datetile__m">Nov</span><span class="datetile__d">16</span></time><span class="lrow__body"><span class="lrow__title">Statistics: live review</span><span class="lrow__sub">Today, 19:00 to 20:30 · Online</span></span><span class="badge badge--accent">Live</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+  <a class="lrow" href="#dt-2026-11-18" id="dt-2026-11-18"><time class="datetile" datetime="2026-11-18"><span class="datetile__m">Nov</span><span class="datetile__d">18</span></time><span class="lrow__body"><span class="lrow__title">Database Systems quiz 4</span><span class="lrow__sub">Wed, opens 08:00 · 30 minutes</span></span><span class="badge">Quiz</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+  <a class="lrow" href="#dt-2026-11-21" id="dt-2026-11-21"><time class="datetile" datetime="2026-11-21"><span class="datetile__m">Nov</span><span class="datetile__d">21</span></time><span class="lrow__body"><span class="lrow__title">Mock exam, hall B</span><span class="lrow__sub">Sat, 09:00 · Seat 42</span></span><span class="badge badge--warning">Bring ID</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+  <a class="lrow" href="#dt-2026-12-02" id="dt-2026-12-02"><time class="datetile" datetime="2026-12-02"><span class="datetile__m">Dec</span><span class="datetile__d">2</span></time><span class="lrow__body"><span class="lrow__title">Second tuition payment due</span><span class="lrow__sub">Wed · $420</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Data table</p>
+<div class="viewport docs-box" style="height: 620px; width: 100%;"><div class="viewport__content" style="overflow: auto; align-items: stretch;"><div class="dtable" data-lds-table="demo-members" data-lds-selection="dt-bar" data-page-size="5" data-noun="members">
+  <div class="dtable__bar">
+    <div class="control search dtable__search"><span class="ic" aria-hidden="true">search</span><input type="search" data-lds-table-search placeholder="Search name or email" aria-label="Search members"></div>
+    <div class="chip-row" data-lds-chips data-lds-table-filter="status" role="group" aria-label="Status">
+      <button class="chip" value="active"><span class="ic chip__check" aria-hidden="true">check</span>Active</button>
+      <button class="chip" value="invited"><span class="ic chip__check" aria-hidden="true">check</span>Invited</button>
+      <button class="chip" value="suspended"><span class="ic chip__check" aria-hidden="true">check</span>Suspended</button>
+    </div>
+    <div class="dtable__tools">
+      <div style="position: relative;">
+        <button class="btn btn--secondary btn--md" data-lds-menu="dt-role" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">filter_list</span>Role<span class="dtable__filter-count" data-lds-table-filter-count="role" hidden>0</span></button>
+        <div class="menu" id="dt-role" role="menu" aria-label="Role" style="top: calc(100% + 6px); left: 0;">
+          <button class="menu__item" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="role" data-value="admin">Admin<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="role" data-value="editor">Editor<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="role" data-value="viewer">Viewer<span class="ic menu__check" aria-hidden="true">check</span></button>
+        </div>
+      </div>
+      <div style="position: relative;">
+        <button class="btn btn--secondary btn--md" data-lds-menu="dt-cols" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">view_column</span>Columns</button>
+        <div class="menu menu--right" id="dt-cols" role="menu" aria-label="Columns" style="top: calc(100% + 6px); right: 0;">
+          <p class="menu__label">Show columns</p>
+          <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="role">Role<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="status">Status<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="team">Team<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="joined">Joined<span class="ic menu__check" aria-hidden="true">check</span></button>
+        </div>
+      </div>
+      <div class="toggle-group" role="group" aria-label="Row density">
+        <button class="toggle" data-lds-table-density="regular" aria-pressed="true">Regular</button>
+        <button class="toggle" data-lds-table-density="compact" aria-pressed="false">Compact</button>
+      </div>
+    </div>
+  </div>
+  <div class="table-box" tabindex="0" aria-label="Members, scrolls sideways">
+    <table class="table">
+      <thead><tr>
+        <th class="dtable__select"><label class="check"><input type="checkbox" data-lds-select-all aria-label="Select all members on this page"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></th>
+        <th data-col="name"><button>Name<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+        <th data-col="role"><button>Role<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+        <th data-col="status">Status</th>
+        <th data-col="team"><button>Team<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+        <th data-col="joined" aria-sort="descending"><button>Joined<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+      </tr></thead>
+      <tbody>
+      <tr data-status="active" data-role="admin">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Rina Wijaya"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Rina Wijaya"><span class="dtable__user"><span class="avatar">RW</span><span><b>Rina Wijaya</b><small>rina@kelola.id</small></span></span></td>
+        <td>Admin</td>
+        <td><span class="badge badge--success">Active</span></td>
+        <td>Platform</td>
+        <td data-sort="2024-06-24">24 Jun 2024</td>
+      </tr>
+      <tr data-status="active" data-role="editor">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Arif Santoso"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Arif Santoso"><span class="dtable__user"><span class="avatar">AS</span><span><b>Arif Santoso</b><small>arif@kelola.id</small></span></span></td>
+        <td>Editor</td>
+        <td><span class="badge badge--success">Active</span></td>
+        <td>Growth</td>
+        <td data-sort="2023-03-15">15 Mar 2023</td>
+      </tr>
+      <tr data-status="invited" data-role="viewer">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Dewi Lestari"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Dewi Lestari"><span class="dtable__user"><span class="avatar">DL</span><span><b>Dewi Lestari</b><small>dewi@kelola.id</small></span></span></td>
+        <td>Viewer</td>
+        <td><span class="badge badge--accent">Invited</span></td>
+        <td>Finance</td>
+        <td data-sort="2026-11-12">12 Nov 2026</td>
+      </tr>
+      <tr data-status="suspended" data-role="editor">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Bima Prasetyo"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Bima Prasetyo"><span class="dtable__user"><span class="avatar">BP</span><span><b>Bima Prasetyo</b><small>bima@kelola.id</small></span></span></td>
+        <td>Editor</td>
+        <td><span class="badge badge--danger">Suspended</span></td>
+        <td>Support</td>
+        <td data-sort="2022-04-10">10 Apr 2022</td>
+      </tr>
+      <tr data-status="active" data-role="admin">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Sari Handayani"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Sari Handayani"><span class="dtable__user"><span class="avatar">SH</span><span><b>Sari Handayani</b><small>sari@kelola.id</small></span></span></td>
+        <td>Admin</td>
+        <td><span class="badge badge--success">Active</span></td>
+        <td>Finance</td>
+        <td data-sort="2021-09-02">2 Sept 2021</td>
+      </tr>
+      <tr data-status="active" data-role="viewer">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Yusuf Hakim"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Yusuf Hakim"><span class="dtable__user"><span class="avatar">YH</span><span><b>Yusuf Hakim</b><small>yusuf@kelola.id</small></span></span></td>
+        <td>Viewer</td>
+        <td><span class="badge badge--success">Active</span></td>
+        <td>Support</td>
+        <td data-sort="2025-01-20">20 Jan 2025</td>
+      </tr>
+      <tr data-status="invited" data-role="editor">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Nadia Putri"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Nadia Putri"><span class="dtable__user"><span class="avatar">NP</span><span><b>Nadia Putri</b><small>nadia@kelola.id</small></span></span></td>
+        <td>Editor</td>
+        <td><span class="badge badge--accent">Invited</span></td>
+        <td>Growth</td>
+        <td data-sort="2026-11-14">14 Nov 2026</td>
+      </tr>
+      <tr data-status="active" data-role="viewer">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Galih Ramadhan"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Galih Ramadhan"><span class="dtable__user"><span class="avatar">GR</span><span><b>Galih Ramadhan</b><small>galih@kelola.id</small></span></span></td>
+        <td>Viewer</td>
+        <td><span class="badge badge--success">Active</span></td>
+        <td>Platform</td>
+        <td data-sort="2024-12-01">1 Dec 2024</td>
+      </tr>
+      <tr class="dtable__empty" hidden><td colspan="6"><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">filter_list</span></div><div class="empty__title">No members match</div><div class="empty__body">Try another name, or clear the search and filters.</div><button class="btn btn--secondary btn--md" data-lds-table-reset>Clear filters</button></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="dtable__foot">
+    <span class="dtable__info" data-lds-table-info aria-live="polite"></span>
+    <div class="dtable__pages">
+      <div style="position: relative;">
+        <button class="btn btn--plain btn--sm" data-lds-menu="dt-size" aria-haspopup="menu" aria-expanded="false"><span data-lds-table-size-label>5</span> per page<span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="menu menu--up" id="dt-size" role="menu" aria-label="Rows per page" style="bottom: calc(100% + 6px); left: 0; min-width: 160px;">
+          <button class="menu__item" role="menuitemradio" data-lds-table-size="5">5 per page<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" role="menuitemradio" data-lds-table-size="10">10 per page<span class="ic menu__check" aria-hidden="true">check</span></button>
+        </div>
+      </div>
+      <nav aria-label="Pagination"><div class="pager" data-lds-table-pager></div></nav>
+    </div>
+  </div>
+</div>
+<div class="selbar" id="dt-bar" role="toolbar" aria-label="Selected members"><span class="selbar__count" aria-live="polite"><span class="roll" data-lds-roll="0"></span> selected</span><button class="btn btn--md"><span class="ic" aria-hidden="true">mail</span>Email</button><button class="btn btn--md btn--danger"><span class="ic" aria-hidden="true">delete</span>Remove</button><button class="icon-btn" data-lds-select-clear aria-label="Clear selection"><span class="ic" aria-hidden="true">close</span></button></div></div></div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Kanban: drag a card, or focus it and use the arrow keys</p>
+<div class="kanban" data-lds-kanban aria-label="November cohort launch">
+    <section class="kanban__col" data-col="todo" aria-labelledby="kb-todo">
+      <header class="kanban__head"><h2 class="kanban__title" id="kb-todo">To do</h2><span class="kanban__count"><span class="roll" data-lds-roll="3"></span></span>
+        <span class="kanban__head-end"><button class="icon-btn" aria-label="Add a card to To do"><span class="ic" aria-hidden="true">add</span></button></span></header>
+      <div class="kanban__list" role="list" aria-labelledby="kb-todo">
+        <article class="kanban__card" role="listitem" tabindex="0" data-id="k1" aria-describedby="kb-help">
+          <div class="kanban__top"><span class="badge badge--accent">Content</span></div>
+          <h3 class="kanban__card-title">Write the welcome email</h3>
+          <p class="kanban__card-body">Three short paragraphs and the link to week 1.</p>
+          <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>18 Nov</span><span><span class="ic" aria-hidden="true">chat</span>4</span><span class="avatar avatar--gray" title="Dewi Lestari">DL</span></div>
+        </article>
+        <article class="kanban__card" role="listitem" tabindex="0" data-id="k2" aria-describedby="kb-help">
+          <div class="kanban__top"><span class="badge">Operations</span></div>
+          <h3 class="kanban__card-title">Book the venue for the kickoff</h3>
+          
+          <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>20 Nov</span><span><span class="ic" aria-hidden="true">chat</span>1</span><span class="avatar avatar--gray" title="Arif Santoso">AS</span></div>
+        </article>
+        <article class="kanban__card" role="listitem" tabindex="0" data-id="k3" aria-describedby="kb-help">
+          <div class="kanban__top"><span class="badge badge--warning">Finance</span></div>
+          <h3 class="kanban__card-title">Price the early bird seats</h3>
+          <p class="kanban__card-body">Compare with last cohort and the waitlist size.</p>
+          <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>21 Nov</span><span><span class="ic" aria-hidden="true">chat</span>7</span><span class="avatar avatar--gray" title="Sari Handayani">SH</span></div>
+        </article>
+        <div class="kanban__empty">Drop a card here</div>
+        <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Inbox list</p>
+<div class="inbox inbox--avatars card" data-lds-inbox style="padding: 0; overflow: hidden; max-width: 460px;" aria-label="Inbox">
+  <button class="inbox__row is-unread" type="button">
+    <span class="avatar" style="--size: 40px;" aria-hidden="true">NP</span>
+    <span class="inbox__body">
+      <span class="inbox__line"><span class="inbox__from">Nadia Putri</span><span class="ic inbox__flag" aria-label="Flagged">flag</span><time class="inbox__time">09:12</time></span>
+      <span class="inbox__subject">Q4 budget: two lines need your sign-off</span>
+      <span class="inbox__preview">I moved the design tools into opex as we agreed. The travel line is still 8% over, can you look before Friday?</span>
+    </span>
+  </button>
+  <button class="inbox__row" type="button" aria-current="true">
+    <span class="avatar avatar--gray" style="--size: 40px;" aria-hidden="true">GR</span>
+    <span class="inbox__body">
+      <span class="inbox__line"><span class="inbox__from">Galih Ramadhan</span><span class="ic" aria-label="Has attachments">attach_file</span><time class="inbox__time">08:40</time></span>
+      <span class="inbox__subject">Payment page is ready for review</span>
+      <span class="inbox__preview">Virtual account and card both work in staging. Receipts go out by email within a minute.</span>
+    </span>
+  </button>
+  <button class="inbox__row" type="button">
+    <span class="avatar avatar--gray" style="--size: 40px;" aria-hidden="true">SH</span>
+    <span class="inbox__body">
+      <span class="inbox__line"><span class="inbox__from">Sari Handayani</span><time class="inbox__time">Yesterday</time></span>
+      <span class="inbox__subject">Invoice reminders schedule</span>
+      <span class="inbox__preview">Three days before and on the due date, as discussed. I left the copy in the doc.</span>
+    </span>
+  </button>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Check matrix</p>
+<div class="matrix-box" tabindex="0" role="region" aria-label="Notifications by channel, scrolls" style="max-width: 520px;">
+  <table class="matrix" data-lds-matrix style="--min: 420px; --first: 180px; --col: 88px;">
+    <caption class="sr-only">Notifications by channel</caption>
+    <thead><tr><th scope="col">Event</th><th scope="col">Email</th><th scope="col">Push</th></tr></thead>
+    <tbody>
+      <tr><th scope="row">Mentions</th><td><label class="check"><input type="checkbox" checked aria-label="Email: Mentions"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td><td><label class="check"><input type="checkbox" checked aria-label="Push: Mentions"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td></tr>
+      <tr><th scope="row">Assigned to me</th><td><label class="check"><input type="checkbox" checked aria-label="Email: Assigned to me"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td><td><label class="check"><input type="checkbox" aria-label="Push: Assigned to me"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td></tr>
+      <tr><th scope="row">Weekly summary</th><td><label class="check"><input type="checkbox" checked aria-label="Email: Weekly summary"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td><td><label class="check"><input type="checkbox" aria-label="Push: Weekly summary"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td></tr>
+    </tbody>
+  </table>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Route schematic</p>
+<div class="route" style="max-width: 640px;" data-lds-route='{"label":"Road freight from Bandung to Yogyakarta, past Tasikmalaya, next stop Purwokerto.","mode":"road","position":1.4,"stops":[{"name":"Bandung","sub":"Loaded 15 Nov, 21:00"},{"name":"Tasikmalaya","sub":"Passed 16 Nov, 01:40"},{"name":"Purwokerto","sub":"Due 06:30"},{"name":"Yogyakarta","sub":"Due 10:15"}]}'></div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Floor plan</p>
+<div class="floor floor--flow" style="--unit: 84px; --row: 60px; max-width: 640px;">
+  <div class="floor__plan">
+    <div class="floor__label">Floor 2<small>6 rooms · 2 ready</small></div>
+    <button class="floor__unit floor__unit--success" type="button" aria-pressed="false"><span class="floor__name">201</span><span class="floor__meta">Ready</span></button><button class="floor__unit floor__unit--strong" type="button" aria-pressed="false"><span class="floor__name">202</span><span class="floor__meta">In use</span></button><button class="floor__unit floor__unit--warning" type="button" aria-pressed="false"><span class="floor__name">203</span><span class="floor__meta">To clean</span></button><button class="floor__unit floor__unit--success" type="button" aria-pressed="false"><span class="floor__name">204</span><span class="floor__meta">Ready</span></button><button class="floor__unit floor__unit--strong" type="button" aria-pressed="false"><span class="floor__name">205</span><span class="floor__meta">In use</span></button><button class="floor__unit floor__unit--muted" type="button" aria-pressed="false"><span class="floor__name">206</span><span class="floor__meta">Closed</span></button>
+    <div class="floor__label">Floor 1<small>4 rooms · 1 ready</small></div>
+    <button class="floor__unit floor__unit--strong" type="button" aria-pressed="false"><span class="floor__name">101</span><span class="floor__meta">In use</span></button><button class="floor__unit floor__unit--warning" type="button" aria-pressed="false"><span class="floor__name">102</span><span class="floor__meta">To clean</span></button><button class="floor__unit floor__unit--success" type="button" aria-pressed="false"><span class="floor__name">103</span><span class="floor__meta">Ready</span></button><button class="floor__unit floor__unit--accent" type="button" aria-pressed="false"><span class="floor__name">104</span><span class="floor__meta">Booked 13:00</span></button>
+  </div>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Map</p>
+<div class="map" style="--map-h: 320px; max-width: 640px;" data-lds-map='{"label":"Air freight from Jakarta to Singapore, 65 percent of the way","routes":[{"path":[[-6.1256,106.6559],[1.3644,103.9915]],"progress":0.65,"arc":true,"vehicle":{"icon":"flight","label":"Flight 884","sub":"Lands 08:45"}}],"markers":[{"at":[-6.1256,106.6559],"kind":"origin","label":"Jakarta CGK","sub":"Left 06:10"},{"at":[1.3644,103.9915],"kind":"destination","label":"Singapore SIN","sub":"Lands 08:45"}],"scrollZoom":"modifier"}'></div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Paper</p>
+<article class="paper" style="max-width: 640px;" aria-label="Invoice INV-2026-118">
+  <header class="paper__head">
+    <div class="paper__brand"><span class="paper__mark" aria-hidden="true">K</span>Kelola Studio</div>
+    <div class="paper__doc"><div class="paper__title">Invoice</div><span class="badge badge--warning">Due 30 Nov 2026</span></div>
+  </header>
+  <dl class="paper__meta">
+    <div><dt class="paper__label">Invoice number</dt><dd>INV-2026-118</dd></div>
+    <div><dt class="paper__label">Issued</dt><dd>16 Nov 2026</dd></div>
+    <div><dt class="paper__label">Due</dt><dd>30 Nov 2026</dd></div>
+  </dl>
+  <div class="paper__parties">
+    <div class="paper__party"><span class="paper__label">From</span><p>Kelola Studio</p><p>Jl. Kemang Raya 12, Jakarta 12730</p><p>billing@kelola.studio</p></div>
+    <div class="paper__party"><span class="paper__label">Bill to</span><p>Rumah Belajar Nusantara</p><p>Jl. Dago 88, Bandung 40135</p><p>finance@rumahbelajar.id</p></div>
+  </div>
+  <table class="paper__table">
+    <thead><tr><th scope="col">Description</th><th scope="col" class="num">Qty</th><th scope="col" class="num">Amount</th></tr></thead>
+    <tbody><tr><td>Brand identity refresh</td><td class="num">1</td><td class="num">$3,800.00</td></tr><tr><td>Landing page design and build</td><td class="num">1</td><td class="num">$2,600.00</td></tr><tr><td>Content workshop, half day</td><td class="num">2</td><td class="num">$450.00</td></tr></tbody>
+  </table>
+  <div class="paper__totals">
+    <div class="paper__sum"><span>Subtotal</span><b>$7,300.00</b></div>
+    <div class="paper__sum"><span>VAT 11%</span><b>$803.00</b></div>
+    <div class="paper__sum paper__sum--total"><span>Balance due</span><b>$8,103.00</b></div>
+  </div>
+  <footer class="paper__foot"><p>Pay by bank transfer to Bank Mandiri 123 000 4567 890, Kelola Studio.</p><p>Thank you. Questions about this invoice: billing@kelola.studio.</p></footer>
+</article>
+      </div>
+    </div>
+    </section>
+    <section class="kanban__col" data-col="doing" aria-labelledby="kb-doing" data-limit="3">
+      <header class="kanban__head"><h2 class="kanban__title" id="kb-doing">In progress</h2><span class="kanban__count"><span class="roll" data-lds-roll="2"></span></span>
+        <span class="kanban__head-end"><button class="icon-btn" aria-label="Add a card to In progress"><span class="ic" aria-hidden="true">add</span></button></span></header>
+      <div class="kanban__list" role="list" aria-labelledby="kb-doing">
+        <article class="kanban__card" role="listitem" tabindex="0" data-id="k4" aria-describedby="kb-help">
+          <div class="kanban__top"><span class="badge badge--accent">Content</span></div>
+          <h3 class="kanban__card-title">Record lesson 1 videos</h3>
+          
+          <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>19 Nov</span><span><span class="ic" aria-hidden="true">chat</span>2</span><span class="avatar avatar--gray" title="Rina Wijaya">RW</span></div>
+        </article>
+        <article class="kanban__card" role="listitem" tabindex="0" data-id="k5" aria-describedby="kb-help">
+          <div class="kanban__top"><span class="badge badge--success">Platform</span></div>
+          <h3 class="kanban__card-title">Set up the payment page</h3>
+          <p class="kanban__card-body">Virtual account and card, with receipts by email.</p>
+          <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>22 Nov</span><span><span class="ic" aria-hidden="true">chat</span>5</span><span class="avatar avatar--gray" title="Galih Ramadhan">GR</span></div>
+        </article>
+        <div class="kanban__empty">Drop a card here</div>
+      </div>
+    </section>
+    <section class="kanban__col" data-col="done" aria-labelledby="kb-done">
+      <header class="kanban__head"><h2 class="kanban__title" id="kb-done">Done</h2><span class="kanban__count"><span class="roll" data-lds-roll="0"></span></span>
+        <span class="kanban__head-end"><button class="icon-btn" aria-label="Add a card to Done"><span class="ic" aria-hidden="true">add</span></button></span></header>
+      <div class="kanban__list" role="list" aria-labelledby="kb-done">
+        
+        <div class="kanban__empty">Drop a card here</div>
+      </div>
+    </section>
+  </div>
+  <p class="sr-only" id="kb-help">Press Space to pick up the card, arrow keys to move it, Space to drop it, Escape to cancel.</p>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Paper as a receipt (paper--receipt)</p>
+<article class="paper paper--receipt" aria-label="Receipt for sale 1042">
+  <header class="paper__head"><div class="paper__brand"><span class="paper__mark" aria-hidden="true">K</span>Kelola Store, Kemang</div><div class="paper__doc"><div class="paper__title">Receipt</div><span class="badge badge--success">Paid · Card</span></div></header>
+  <dl class="paper__meta"><div><dt class="paper__label">Sale</dt><dd>1042</dd></div><div><dt class="paper__label">Date</dt><dd>16 Nov 2026, 10:24</dd></div><div><dt class="paper__label">Cashier</dt><dd>Rina W.</dd></div></dl>
+  <table class="paper__table"><thead><tr><th scope="col">Item</th><th scope="col" class="num">Qty</th><th scope="col" class="num">Amount</th></tr></thead><tbody><tr><td>Stoneware mug, set of 2</td><td class="num">1</td><td class="num">$36.00</td></tr><tr><td>Soy candle, vetiver</td><td class="num">2</td><td class="num">$56.00</td></tr></tbody></table>
+  <div class="paper__totals"><div class="paper__sum"><span>Subtotal</span><b>$92.00</b></div><div class="paper__sum"><span>Tax 11%</span><b>$10.12</b></div><div class="paper__sum paper__sum--total"><span>Total</span><b>$102.12</b></div></div>
+  <footer class="paper__foot"><p>Exchanges within 30 days with this receipt.</p></footer>
+</article>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Lanes: who is free when, with a line at now</p>
+<div class="lanes-box" tabindex="0" role="region" aria-label="Tutors today, scrolls sideways">
+  <div class="lanes lanes--now" style="--cols: 10; --now: 3.33;">
+    <div class="lanes__head"><div class="lanes__corner">Tutor</div><div class="lanes__ticks"><span class="lanes__tick">07:00</span><span class="lanes__tick">08:00</span><span class="lanes__tick">09:00</span><span class="lanes__tick">10:00</span><span class="lanes__tick">11:00</span><span class="lanes__tick">12:00</span><span class="lanes__tick">13:00</span><span class="lanes__tick">14:00</span><span class="lanes__tick">15:00</span><span class="lanes__tick">16:00</span></div></div>
+    <div class="lanes__row"><div class="lanes__who"><span class="avatar avatar--gray" aria-hidden="true">NP</span><span class="lanes__id"><span class="lanes__name">Nadia Putri</span><span class="lanes__sub">Statistics</span></span></div><div class="lanes__track"><div class="lanes__item" style="--from: 1; --span: 2;"><span>Group review</span><small>Room 3</small></div><div class="lanes__item lanes__item--muted" style="--from: 5; --span: 1;"><span>Lunch</span></div><button class="lanes__item lanes__item--free" type="button" style="--from: 6; --span: 1.5;"><span>Free</span><small>Book 13:00</small></button><div class="lanes__item lanes__item--3" style="--from: 7.5; --span: 2;"><span>Office hours</span><small>Online</small></div></div></div>
+    <div class="lanes__row"><div class="lanes__who"><span class="avatar avatar--gray" aria-hidden="true">RH</span><span class="lanes__id"><span class="lanes__name">Rizky Hartono</span><span class="lanes__sub">Database Systems</span></span></div><div class="lanes__track"><div class="lanes__item lanes__item--4" style="--from: 0; --span: 3;"><span>Lab session</span><small>Lab B</small></div><button class="lanes__item lanes__item--free" type="button" style="--from: 3.5; --span: 1.5;"><span>Free</span><small>Book 10:30</small></button><div class="lanes__item lanes__item--muted" style="--from: 5; --span: 1;"><span>Lunch</span></div><div class="lanes__item lanes__item--2" style="--from: 6; --span: 3;"><span>Exam marking</span></div></div></div>
+    <div class="lanes__row"><div class="lanes__who"><span class="avatar avatar--gray" aria-hidden="true">AL</span><span class="lanes__id"><span class="lanes__name">Ayu Lestari</span><span class="lanes__sub">Academic writing</span></span></div><div class="lanes__track"><span class="lanes__off" style="--from: 0; --span: 2;"></span><div class="lanes__item" style="--from: 2; --span: 2.5;"><span>One to one</span><small>6 students</small></div><div class="lanes__item lanes__item--muted" style="--from: 5; --span: 1;"><span>Lunch</span></div><div class="lanes__item lanes__item--pending" style="--from: 6; --span: 2;"><span>Hold: thesis clinic</span><small>Not confirmed</small></div></div></div>
+  </div>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Product tiles</p>
+<div class="ptile-grid" style="max-width: 680px;">
+  <button class="ptile is-in" type="button" aria-label="Stoneware mug, set of 2, $36.00, 2 in this sale"><span class="ptile__media"><img src="examples/dashboard/img/products/stoneware-mug.svg" alt=""></span><span class="ptile__body"><span class="ptile__name">Stoneware mug, set of 2</span><span class="ptile__meta">36 in stock</span></span><span class="ptile__price">$36.00</span><span class="ptile__qty">2</span></button>
+  <button class="ptile" type="button" aria-label="Soy candle, vetiver, $28.00"><span class="ptile__media"><img src="examples/dashboard/img/products/soy-candle.svg" alt=""></span><span class="ptile__body"><span class="ptile__name">Soy candle, vetiver</span><span class="ptile__meta ptile__meta--low">4 left</span></span><span class="ptile__price">$28.00</span><span class="ptile__qty" hidden></span></button>
+  <button class="ptile" type="button" aria-label="Heavy canvas tote, $34.00"><span class="ptile__media"><img src="examples/dashboard/img/products/canvas-tote.svg" alt=""></span><span class="ptile__body"><span class="ptile__name">Heavy canvas tote</span><span class="ptile__meta">58 in stock</span></span><span class="ptile__price">$34.00</span><span class="ptile__qty" hidden></span></button>
+  <button class="ptile" type="button" aria-disabled="true" aria-label="Field watch, 38 mm, $189.00"><span class="ptile__media"><img src="examples/dashboard/img/products/field-watch.svg" alt=""></span><span class="ptile__body"><span class="ptile__name">Field watch, 38 mm</span><span class="ptile__meta">Sold out until 2 Dec</span></span><span class="ptile__price">$189.00</span><span class="ptile__qty" hidden></span></button>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Event calendar</p>
+<div class="evcal" data-lds-events data-date="2026-11-16" data-today="2026-11-16" data-now="10:20" data-view="month"><script type="application/json">[{"id":"e1","title":"Monthly planning","start":"2026-11-02T09:30","end":"2026-11-02T10:30","tone":1,"where":"Room 4"},{"id":"e2","title":"Design review","start":"2026-11-04T11:00","end":"2026-11-04T12:00","tone":4},{"id":"e3","title":"Product workshop","start":"2026-11-09","end":"2026-11-11","allDay":true,"tone":2,"where":"Bandung office"},{"id":"e4","title":"Team standup","start":"2026-11-16T09:00","end":"2026-11-16T09:15","tone":3},{"id":"e5","title":"Client check-in: Northwind","start":"2026-11-16T14:00","end":"2026-11-16T14:45","tone":1,"where":"Video call"},{"id":"e6","title":"Finance sync","start":"2026-11-16T16:00","end":"2026-11-16T16:30","tone":2},{"id":"e7","title":"Sprint planning","start":"2026-11-17T10:00","end":"2026-11-17T11:30","tone":1},{"id":"e8","title":"Interview: data analyst","start":"2026-11-18T13:00","end":"2026-11-18T14:00","tone":4,"where":"Room 2"},{"id":"e9","title":"Quarterly report due","start":"2026-11-24","allDay":true,"tone":2},{"id":"e10","title":"Cohort kickoff","start":"2026-11-26T18:30","end":"2026-11-26T20:00","tone":3,"where":"Hall B"}]</script></div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">File tiles</p>
+<div class="file-grid file-grid--compact" role="list" aria-label="Recent" style="max-width: 640px;">
+  <div class="file-tile file-tile--doc" role="listitem">
+    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Minutes 12 Nov.docx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+    <a class="file-tile__open" href="#ft-11"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Minutes 12 Nov.docx</span><span class="file-tile__meta">48 KB</span></a>
+    <button class="icon-btn file-tile__more" aria-label="More actions for Minutes 12 Nov.docx" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-11"><span class="ic" aria-hidden="true">more_horiz</span></button>
+    <div class="menu menu--right" id="ft-m-11" role="menu" aria-label="Minutes 12 Nov.docx" style="top: 44px; right: 4px;">
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download</button>
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
+      <div class="menu__sep"></div>
+      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete</button>
+    </div>
+  </div>
+  <div class="file-tile file-tile--audio" role="listitem">
+    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Interview with Dewi.m4a"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+    <a class="file-tile__open" href="#ft-12"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">audio_file</span></span><span class="file-tile__name">Interview with Dewi.m4a</span><span class="file-tile__meta">18 MB</span></a>
+    <button class="icon-btn file-tile__more" aria-label="More actions for Interview with Dewi.m4a" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-12"><span class="ic" aria-hidden="true">more_horiz</span></button>
+    <div class="menu menu--right" id="ft-m-12" role="menu" aria-label="Interview with Dewi.m4a" style="top: 44px; right: 4px;">
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download</button>
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
+      <div class="menu__sep"></div>
+      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete</button>
+    </div>
+  </div>
+  <div class="file-tile file-tile--image" role="listitem">
+    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Receipt 0412.jpg"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+    <a class="file-tile__open" href="#ft-13"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">image</span></span><span class="file-tile__name">Receipt 0412.jpg</span><span class="file-tile__meta">820 KB</span></a>
+    <button class="icon-btn file-tile__more" aria-label="More actions for Receipt 0412.jpg" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-13"><span class="ic" aria-hidden="true">more_horiz</span></button>
+    <div class="menu menu--right" id="ft-m-13" role="menu" aria-label="Receipt 0412.jpg" style="top: 44px; right: 4px;">
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download</button>
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
+      <div class="menu__sep"></div>
+      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete</button>
+    </div>
+  </div>
+  <div class="file-tile file-tile--sheet" role="listitem">
+    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Payroll November.xlsx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+    <a class="file-tile__open" href="#ft-14"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Payroll November.xlsx</span><span class="file-tile__meta">96 KB</span></a>
+    <button class="icon-btn file-tile__more" aria-label="More actions for Payroll November.xlsx" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-14"><span class="ic" aria-hidden="true">more_horiz</span></button>
+    <div class="menu menu--right" id="ft-m-14" role="menu" aria-label="Payroll November.xlsx" style="top: 44px; right: 4px;">
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download</button>
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
+      <div class="menu__sep"></div>
+      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete</button>
+    </div>
+  </div>
+</div>
+      </div>
+      <div class="col" style="gap: 12px;" data-dc-own data-board-demo>
+        <p class="stage__label">Selection bar</p>
+<div class="viewport" style="height: 120px; transform: translateZ(0);"><div class="selbar is-open" role="toolbar" aria-label="Selected messages">
+  <span class="selbar__count">12 selected</span>
+  <button class="btn btn--md"><span class="ic" aria-hidden="true">inventory_2</span>Archive</button>
+  <button class="btn btn--md btn--danger"><span class="ic" aria-hidden="true">delete</span>Delete</button>
+  <button class="icon-btn" aria-label="Clear selection"><span class="ic" aria-hidden="true">close</span></button>
+</div></div>
+      </div>
+    </div>
+  </section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1280,"height":8100}}'>
+class Component extends DCLogic {
+  componentWillUnmount() { this._gone = true; }
+  boot() {
+    const root = document.querySelector('[data-board="data"]');
+    if (!root || this._booted) return;
+    this._booted = true;
+    /* The demos run the real behaviors from js/lds.js (published next to the boards as lds.js). */
+    const onDocs = !!document.querySelector('link[href*="docs.css"]');
+    import(onDocs ? '../js/lds.js' : './lds.js').then((m) => { if (!this._gone) root.querySelectorAll('[data-board-demo]').forEach((el) => m.init(el)); }).catch(() => {});
+  }
+  renderVals() {
+    if (!this._booted) setTimeout(() => this.boot(), 0);
+    const s = this.state || {};
+    const theme = s.theme || this.props.theme || 'light';
+    const dark = theme === 'dark';
+
+    const data = [
+      { id: 1, name: 'Database Systems', code: 'CS 2104', credits: 3, seats: 38, status: 'Open', badge: 'badge badge--success' },
+      { id: 2, name: 'Computer Networks', code: 'CS 3102', credits: 3, seats: 40, status: 'Full', badge: 'badge badge--danger' },
+      { id: 3, name: 'Linear Algebra', code: 'MA 1203', credits: 2, seats: 12, status: 'Open', badge: 'badge badge--success' },
+      { id: 4, name: 'Human-Computer Interaction', code: 'CS 3207', credits: 3, seats: 27, status: 'Waitlist', badge: 'badge badge--warning' },
+      { id: 5, name: 'Operating Systems', code: 'CS 2201', credits: 4, seats: 31, status: 'Open', badge: 'badge badge--success' }
+    ];
+    const sortKey = s.sortKey || 'name';
+    const desc = !!s.desc;
+    const sorted = [...data].sort((a, b) => { const x = a[sortKey], y = b[sortKey]; const r = typeof x === 'number' ? x - y : String(x).localeCompare(String(y)); return desc ? -r : r; });
+    const sel = s.sel || {};
+    const selCount = data.filter(d => sel[d.id]).length;
+    const cols = [['name', 'Course', false], ['code', 'Code', false], ['credits', 'Credits', true], ['seats', 'Seats taken', true]].map(([k, label, num]) => ({
+      label, thCls: num ? 'num' : '',
+      cls: (sortKey === k ? 'is-sorted ' : '') + (sortKey === k && desc ? 'is-desc' : ''),
+      aria: sortKey === k ? (desc ? 'descending' : 'ascending') : 'none',
+      sort: () => this.setState({ sortKey: k, desc: sortKey === k ? !desc : false })
+    }));
+
+    const faqDefs = [
+      ['Can I change my schedule after submitting?', 'Yes, until the end of the second week. After that your adviser has to approve the change.'],
+      ['What happens if I miss the payment deadline?', 'Registration is paused until the payment clears. Your seats are held for three days.'],
+      ['Where do I find my transcript?', 'Under Academics, then Records. You can download a signed PDF at any time.']
+    ];
+    const open = s.faq == null ? 0 : s.faq;
+
+    const treeDefs = [
+      { label: 'Week 1 · Introduction', icon: 'folder', kids: ['Syllabus.pdf', 'Slides.pdf'] },
+      { label: 'Week 2 · Relational model', icon: 'folder', kids: ['Slides.pdf', 'Exercise set.pdf', 'Reading list.pdf'] },
+      { label: 'Week 3 · SQL', icon: 'folder', kids: ['Slides.pdf', 'Lab guide.pdf'] }
+    ];
+    const tOpen = s.tOpen || { 1: true };
+    const tSel = s.tSel || '1-1';
+
+    const first = 0;
+    const r0 = s.r0 == null ? 9 : s.r0;
+    const r1 = s.r1 == null ? 13 : s.r1;
+    const today = 4;
+    const days = [];
+    for (let i = 0; i < 35; i++) {
+      const n = i - first + 1;
+      const valid = n >= 1 && n <= 30;
+      const label = valid ? n : (n < 1 ? 31 + n : n - 30);
+      let cls = valid ? '' : 'is-muted';
+      const isEnd = valid && (n === r0 || n === r1);
+      if (valid && r0 && r1 && n > r0 && n < r1) cls += ' is-range';
+      if (isEnd) cls += ' is-selected';
+      if (valid && n === today && !isEnd) cls += ' is-today';
+      days.push({ n: label, cls, sel: String(isEnd), aria: valid ? (n + ' November') : 'Outside this month', pick: () => {
+        if (!valid) return;
+        if (!r0 || (r0 && r1)) this.setState({ r0: n, r1: null });
+        else if (n < r0) this.setState({ r0: n, r1: r0 });
+        else this.setState({ r1: n });
+      } });
+    }
+
+    const count = s.count == null ? 128 : s.count;
+    const countDigits = String(count).padStart(3, '0').split('').map(d => ({ y: (-Number(d) * 1.2) + 'em' }));
+
+    const slideDefs = [
+      { title: 'Database Systems', sub: 'CS 2104 · 3 credits', icon: 'code', c: 'var(--tile-blue)' },
+      { title: 'Computer Networks', sub: 'CS 3102 · 3 credits', icon: 'lan', c: 'var(--tile-orange)' },
+      { title: 'Linear Algebra', sub: 'MA 1203 · 2 credits', icon: 'grid_view', c: 'var(--accent)' },
+      { title: 'Human-Computer Interaction', sub: 'CS 3207 · 3 credits', icon: 'touch_app', c: 'var(--tile-green)' },
+      { title: 'Operating Systems', sub: 'CS 2201 · 4 credits', icon: 'settings', c: 'var(--tile-red)' },
+      { title: 'Discrete Mathematics', sub: 'MA 1101 · 3 credits', icon: 'list', c: 'var(--neutral)' }
+    ];
+    const pageI = s.cpage || 0;
+
+    return {
+      theme,
+      isLight: String(!dark), isDark: String(dark),
+      thumbX: dark ? 'calc(100% + 2px)' : '0px',
+      setLight: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'light' })),
+      setDark: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'dark' })),
+
+      cols,
+      rows: sorted.map(d => ({ ...d, sel: !!sel[d.id], cls: sel[d.id] ? 'is-selected' : '', toggle: () => this.setState({ sel: { ...sel, [d.id]: !sel[d.id] } }) })),
+      allSel: selCount === data.length,
+      toggleAllSel: () => { const all = selCount < data.length; const next = {}; data.forEach(d => { next[d.id] = all; }); this.setState({ sel: next }); },
+      selCount, bulkCls: selCount ? '' : 'is-closed',
+      clearSel: () => this.setState({ sel: {} }),
+
+      faqs: faqDefs.map(([q, a], i) => ({ q, a, open: String(open === i), cls: open === i ? 'is-open' : '', toggle: () => this.setState({ faq: open === i ? -1 : i }) })),
+      tree: treeDefs.map((t, i) => ({
+        label: t.label, icon: tOpen[i] ? 'folder_open' : 'folder', open: String(!!tOpen[i]), cls: tOpen[i] ? 'is-open' : '',
+        toggle: () => this.setState({ tOpen: { ...tOpen, [i]: !tOpen[i] } }),
+        kids: t.kids.map((k, j) => ({ label: k, sel: String(tSel === i + '-' + j), cls: tSel === i + '-' + j ? 'is-selected' : '', pick: () => this.setState({ tSel: i + '-' + j }) }))
+      })),
+
+      days,
+      rangeText: r0 && r1 ? (r0 + ' to ' + r1 + ' Nov · ' + (r1 - r0 + 1) + ' days') : (r0 ? 'Pick an end date' : 'Pick a start date'),
+      clearRange: () => this.setState({ r0: 0, r1: 0 }),
+
+      count, countDigits,
+      bump: () => this.setState({ count: Math.max(0, Math.min(999, count + Math.round((Math.random() - 0.35) * 160))) }),
+      copyCls: s.copied ? 'is-swapped' : '', copyLabel: s.copied ? 'Copied' : 'Copy',
+      copyCode: () => { try { navigator.clipboard && navigator.clipboard.writeText('--accent: #2563EB;'); } catch (e) {} this.setState({ copied: true }); setTimeout(() => this.setState({ copied: false }), 1600); },
+
+      slides: slideDefs,
+      dots: [0, 1].map(i => ({ n: i + 1, cur: String(pageI === i), go: (e) => { const c = e.currentTarget.closest('.col').querySelector('.carousel'); if (c) c.scrollTo({ left: i * c.clientWidth, behavior: 'smooth' }); this.setState({ cpage: i }); } })),
+      onCarousel: (e) => { const c = e.currentTarget; const p = Math.round(c.scrollLeft / Math.max(c.clientWidth, 1)); if (p !== pageI) this.setState({ cpage: p }); }
+    };
+  }
+}
+</script>
+</body>
+</html>

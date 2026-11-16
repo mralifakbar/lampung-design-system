@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Lampung Design System · Feedback</title>
+<script src="./support.js"></script>
+<link rel="stylesheet" href="lds.css">
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;display=block">
+<style>
+body{margin:0}
+a{color:#1D4ED8}a:hover{color:#1E40AF}
+.coach{position:absolute;z-index:5;width:280px;padding:16px;border-radius:16px;background:var(--bg-inverse);color:var(--text-inverse);box-shadow:var(--shadow-lg);transition:transform 560ms var(--spring-smooth),opacity 240ms var(--ease-enter)}
+.coach::before{content:"";position:absolute;top:-6px;left:var(--arrow,24px);width:12px;height:12px;background:var(--bg-inverse);transform:rotate(45deg);border-radius:2px;transition:left 560ms var(--spring-smooth)}
+.coach__step{font:500 12px/16px var(--font);opacity:.7}
+.coach__title{font:600 15px/20px var(--font);margin-top:4px}
+.coach__body{font:400 13px/18px var(--font);opacity:.82;margin-top:4px}
+.coach .btn--sm{background:rgba(255,255,255,.14);color:var(--text-inverse)}
+.lds[data-theme="dark"] .coach .btn--sm{background:rgba(0,0,0,.08)}
+.coach .btn--sm.is-primary{background:var(--accent);color:#fff}
+.target{transition:box-shadow 240ms var(--ease-standard)}
+.target.is-lit{box-shadow:0 0 0 3px var(--bg-fill),0 0 0 5px var(--accent)}
+.state-card{min-height:236px}
+</style>
+</helmet>
+<div class="lds" data-theme="{{theme}}" style="width: 1280px; min-height: 2320px;">
+<div class="page">
+
+  <header class="page-head">
+    <div>
+      <div class="page-head__crumb"><span class="page-head__mark">D</span>Components · Feedback</div>
+      <h1>Feedback</h1>
+      <p class="page-head__lede">Status, completion, warning and error, each said in words with an icon, never in color alone. Every view that loads data designs its loading, empty and error states before its happy path.</p>
+    </div>
+    <div class="appearance" role="group" aria-label="Appearance">
+      <span class="appearance__thumb" style="transform: translateX({{thumbX}});"></span>
+      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Light</button>
+      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Dark</button>
+    </div>
+  </header>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Alert</h2>
+      <p class="sec__desc">Inline and persistent until resolved. Titles say what happened, bodies say what to do. Dismissing collapses the height on a spring, so content below glides up instead of jumping.</p>
+    </div>
+    <div class="col" style="gap: 0;">
+      <sc-for list="{{alerts}}" as="a" hint-placeholder-count="4">
+        <div class="collapse {{a.closed}}" style="margin-bottom: {{a.mb}};">
+          <div>
+            <div class="alert {{a.cls}}" role="{{a.role}}">
+              <span class="ic" aria-hidden="true">{{a.icon}}</span>
+              <div style="flex: 1; min-width: 0;">
+                <div class="alert__title">{{a.title}}</div>
+                <div class="alert__body">{{a.body}}</div>
+                <sc-if value="{{a.hasAction}}" hint-placeholder-val="{{false}}"><div class="alert__actions"><button class="btn btn--secondary btn--sm">{{a.action}}</button></div></sc-if>
+              </div>
+              <button class="icon-btn alert__close" aria-label="Dismiss: {{a.title}}" onClick="{{a.dismiss}}"><span class="ic" style="font-size: 18px;" aria-hidden="true">close</span></button>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+      <sc-if value="{{anyClosed}}" hint-placeholder-val="{{false}}"><button class="btn btn--plain btn--sm" style="align-self: flex-start;" onClick="{{restoreAlerts}}"><span class="ic" aria-hidden="true">replay</span>Show all again</button></sc-if>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Banner</h2>
+      <p class="sec__desc">One line across the top of a page for a system-wide condition. Inverse colors so it never reads as a card.</p>
+    </div>
+    <div class="banner" role="status"><span class="ic" aria-hidden="true">cloud_off</span><span>You are offline. Changes are saved on this device and sync when you reconnect.</span><button class="btn btn--sm">Try again</button></div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Progress</h2>
+      <p class="sec__desc">Determinate when the end is known, with the number in words beside it. Values ease in and out over 480 ms, the curve for things already on screen. Indeterminate only when the duration is truly unknown.</p>
+      <div class="row" style="margin-top: 12px;">
+        <button class="btn btn--secondary btn--md" onClick="{{stepUp}}"><span class="ic" aria-hidden="true">add</span>Advance</button>
+        <button class="btn btn--plain btn--md" onClick="{{resetProg}}">Reset</button>
+      </div>
+    </div>
+    <div class="stage" style="gap: 28px;">
+      <div>
+        <div class="progress-meta"><span>Uploading thesis_final.pdf</span><b>{{pct}}%</b></div>
+        <div class="progress" role="progressbar" aria-valuenow="{{pct}}" aria-valuemin="0" aria-valuemax="100" aria-label="Upload progress"><div class="progress__fill" style="transform: scaleX({{pctScale}}); background: {{progColor}};"></div></div>
+      </div>
+      <div>
+        <div class="progress-meta"><span>Preparing your transcript</span><span>Usually under a minute</span></div>
+        <div class="progress progress--thin progress--indeterminate" role="progressbar" aria-label="Preparing transcript"><div class="progress__fill"></div></div>
+      </div>
+      <div class="row" style="gap: 36px; align-items: center;">
+        <div class="row" style="gap: 14px;">
+          <div class="ring" role="progressbar" aria-valuenow="{{pct}}" aria-valuemin="0" aria-valuemax="100" aria-label="Upload progress ring">
+            <svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="{{ringOff}}"></circle></svg>
+            <span class="ring__label">{{pct}}</span>
+          </div>
+          <div><div class="card__title" style="font-size: 15px;">Ring</div><div class="card__sub">For compact tiles.</div></div>
+        </div>
+        <div class="divider-v"></div>
+        <div class="col" style="gap: 8px; min-width: 260px;">
+          <div class="progress-meta" style="margin: 0;"><span>Storage</span><b>{{segOn}} of 10 GB</b></div>
+          <div class="meter-seg {{segCls}}" aria-hidden="true"><sc-for list="{{segs}}" as="g" hint-placeholder-count="10"><i class="{{g.on}}"></i></sc-for></div>
+          <span class="field__help {{segHelpCls}}">{{segHelp}}</span>
+        </div>
+        <div class="divider-v"></div>
+        <div class="row" style="gap: 16px; color: var(--text-subtle);">
+          <span class="spinner" aria-label="Loading" role="status"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="spinner spinner--lg" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Data states</h2>
+      <p class="sec__desc">Switch between the four states of one card. Loading mirrors the real layout so nothing shifts when data lands. Empty explains why and offers the one action that fills it. Error names what failed and how to retry.</p>
+    </div>
+    <div class="col" style="gap: 16px;">
+      <div class="seg" role="group" aria-label="Card state" style="max-width: 440px;">
+        <span class="seg__thumb" style="width: calc((100% - 4px) / 4); transform: translateX({{stX}});"></span>
+        <sc-for list="{{stateOpts}}" as="o" hint-placeholder-count="4"><button class="seg__btn" aria-pressed="{{o.on}}" onClick="{{o.pick}}">{{o.label}}</button></sc-for>
+      </div>
+      <div class="card state-card" style="padding: 20px;" aria-busy="{{isLoading}}">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px;"><div class="card__title">Upcoming deadlines</div><span class="badge">This week</span></div>
+        <sc-if value="{{isLoading}}" hint-placeholder-val="{{true}}">
+          <div class="col" style="gap: 14px;" role="status" aria-label="Loading deadlines">
+            <sc-for list="{{three}}" as="x" hint-placeholder-count="3">
+              <div style="display: flex; gap: 12px; align-items: center;"><div class="skel" style="width: 36px; height: 36px; border-radius: 10px;"></div><div style="flex: 1;"><div class="skel" style="height: 12px; width: {{x.w}};"></div><div class="skel" style="height: 10px; width: 30%; margin-top: 8px;"></div></div></div>
+            </sc-for>
+          </div>
+        </sc-if>
+        <sc-if value="{{isEmpty}}" hint-placeholder-val="{{false}}">
+          <div class="empty" style="padding: 12px 0;"><div class="empty__icon"><span class="ic" aria-hidden="true">event_available</span></div><div class="empty__title">Nothing due this week</div><div class="empty__body">New assignments from your courses appear here as soon as they are posted.</div><button class="btn btn--secondary btn--md">Open full calendar</button></div>
+        </sc-if>
+        <sc-if value="{{isError}}" hint-placeholder-val="{{false}}">
+          <div class="empty" style="padding: 12px 0;"><div class="empty__icon" style="color: var(--danger-text);"><span class="ic" aria-hidden="true">sync_problem</span></div><div class="empty__title">Deadlines did not load</div><div class="empty__body">The course server did not respond. Your data is safe; try again in a moment.</div><button class="btn btn--secondary btn--md" onClick="{{retry}}"><span class="ic" aria-hidden="true">refresh</span>Try again</button></div>
+        </sc-if>
+        <sc-if value="{{isLoaded}}" hint-placeholder-val="{{false}}">
+          <div class="col" style="gap: 0;">
+            <sc-for list="{{deadlines}}" as="d" hint-placeholder-count="3">
+              <div style="display: flex; gap: 12px; align-items: center; min-height: 56px; animation: lds-blur-in 280ms var(--ease-enter) both; animation-delay: {{d.delay}};">
+                <span class="lrow__icon" style="width: 36px; height: 36px; border-radius: 10px; background: {{d.c}};"><span class="ic" aria-hidden="true">{{d.icon}}</span></span>
+                <div style="flex: 1; min-width: 0;"><div class="lrow__title" style="font-weight: 500;">{{d.title}}</div><div class="lrow__sub">{{d.course}}</div></div>
+                <span class="{{d.badge}}">{{d.due}}</span>
+              </div>
+            </sc-for>
+          </div>
+        </sc-if>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Badges and status</h2>
+      <p class="sec__desc">Badges label a real state in human words. Status dots sit next to text that says the same thing; the live dot pulses three times, then rests.</p>
+    </div>
+    <div class="stage" style="gap: 22px;">
+      <div class="row" style="gap: 8px;">
+        <span class="badge">Draft</span>
+        <span class="badge badge--accent">In review</span>
+        <span class="badge badge--success"><span class="ic" aria-hidden="true">check</span>Approved</span>
+        <span class="badge badge--warning"><span class="ic" aria-hidden="true">schedule</span>Due tomorrow</span>
+        <span class="badge badge--danger"><span class="ic" aria-hidden="true">error</span>Overdue</span>
+        <span class="badge badge--outline">3 credits</span>
+        <span class="badge badge--solid">Required</span>
+      </div>
+      <div class="row" style="gap: 28px;">
+        <span class="status status--ok"><i aria-hidden="true"></i>All systems running</span>
+        <span class="status status--warn"><i aria-hidden="true"></i>Grades delayed</span>
+        <span class="status status--down"><i aria-hidden="true"></i>Payments unavailable</span>
+        <span class="status status--live"><i aria-hidden="true"></i>Live now</span>
+        <span class="row" style="gap: 8px; font: 400 14px/20px var(--font); color: var(--text-default);">Inbox<span class="count">4</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="sec__aside">
+      <h2 class="sec__title">Coachmark</h2>
+      <p class="sec__desc">Point at one thing at a time, at most three steps, always skippable. The card glides between targets instead of disappearing and reappearing.</p>
+    </div>
+    <div class="stage" style="min-height: 300px; position: relative; justify-content: flex-start;">
+      <div class="row" style="gap: 12px;">
+        <button class="btn btn--secondary btn--md target {{lit0}}"><span class="ic" aria-hidden="true">search</span>Search</button>
+        <button class="btn btn--secondary btn--md target {{lit1}}"><span class="ic" aria-hidden="true">filter_list</span>Filter</button>
+        <button class="btn btn--primary btn--md target {{lit2}}"><span class="ic" aria-hidden="true">add</span>New note</button>
+      </div>
+      <sc-if value="{{coachOn}}" hint-placeholder-val="{{true}}">
+        <div class="coach" role="dialog" aria-labelledby="coach-t" style="top: 96px; left: 32px; transform: translateX({{coachX}}); --arrow: {{coachArrow}};">
+          <div class="coach__step">Step {{coachN}} of 3</div>
+          <div class="coach__title" id="coach-t" key="{{coachKey}}" style="animation: lds-rise 240ms var(--ease-enter);">{{coachTitle}}</div>
+          <div class="coach__body">{{coachBody}}</div>
+          <div class="row" style="gap: 8px; margin-top: 14px; justify-content: flex-end;">
+            <button class="btn btn--sm" onClick="{{coachSkip}}">Skip</button>
+            <button class="btn btn--sm is-primary" onClick="{{coachNext}}">{{coachNextLabel}}</button>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{coachOff}}" hint-placeholder-val="{{false}}"><button class="btn btn--plain btn--sm" style="align-self: flex-start;" onClick="{{coachRestart}}"><span class="ic" aria-hidden="true">replay</span>Show the tour again</button></sc-if>
+    </div>
+  </section>
+
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light"},"$preview":{"width":1280,"height":2320}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const s = this.state || {};
+    const theme = s.theme || this.props.theme || 'light';
+    const dark = theme === 'dark';
+
+    const alertDefs = [
+      { id: 'i', cls: 'alert--info', icon: 'info', role: 'status', title: 'Registration opens Monday at 08:00', body: 'Have your course list ready. Seats are assigned in the order requests arrive.', action: '' },
+      { id: 's', cls: 'alert--success', icon: 'check_circle', role: 'status', title: 'Payment received', body: 'Your receipt was emailed and is also in Billing.', action: '' },
+      { id: 'w', cls: 'alert--warning', icon: 'warning', role: 'status', title: 'Two courses overlap on Thursday', body: 'Database Systems and Statistics both meet at 10:00. Pick one before submitting.', action: 'Resolve conflict' },
+      { id: 'd', cls: 'alert--danger', icon: 'error', role: 'alert', title: 'Your card was declined', body: 'The bank did not approve the charge. Use another card or pay by transfer.', action: 'Update payment' }
+    ];
+    const closed = s.closed || {};
+    const alerts = alertDefs.map(a => ({ ...a, hasAction: !!a.action, closed: closed[a.id] ? 'is-closed' : '', mb: closed[a.id] ? '0px' : '12px',
+      dismiss: () => this.setState({ closed: { ...closed, [a.id]: true } }) }));
+
+    const pct = s.pct == null ? 35 : s.pct;
+    const segOn = s.seg == null ? 7 : s.seg;
+
+    const stateIds = ['loading', 'empty', 'error', 'loaded'];
+    const st = s.st || 'loaded';
+    const sti = stateIds.indexOf(st);
+
+    const coachSteps = [
+      { title: 'Find anything', body: 'Search notes, courses and people from one field.', x: 0, arrow: '40px' },
+      { title: 'Narrow it down', body: 'Filter by course or date once a list gets long.', x: 116, arrow: '40px' },
+      { title: 'Write a note', body: 'Notes attach to the course you are viewing.', x: 222, arrow: '52px' }
+    ];
+    const ci = s.coach == null ? 0 : s.coach;
+    const coachOn = ci >= 0 && ci < 3;
+    const c = coachSteps[Math.max(0, Math.min(ci, 2))];
+
+    return {
+      theme, false: false, true: true,
+      isLight: String(!dark), isDark: String(dark),
+      thumbX: dark ? 'calc(100% + 2px)' : '0px',
+      setLight: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'light' })),
+      setDark: () => (document.documentElement.classList.add('lds-theme-swap'), setTimeout(() => document.documentElement.classList.remove('lds-theme-swap'), 120), this.setState({ theme: 'dark' })),
+
+      alerts, anyClosed: Object.values(closed).some(Boolean),
+      restoreAlerts: () => this.setState({ closed: {} }),
+
+      pct, pctScale: (pct / 100).toFixed(3),
+      progColor: pct >= 100 ? 'var(--success)' : 'var(--accent)',
+      ringOff: (169.6 * (1 - pct / 100)).toFixed(1),
+      stepUp: () => this.setState({ pct: Math.min(100, pct + 15), seg: Math.min(10, segOn + 1) }),
+      resetProg: () => this.setState({ pct: 0, seg: 3 }),
+      segOn, segs: Array.from({ length: 10 }, (_, i) => ({ on: i < segOn ? 'on' : '' })),
+      segCls: segOn >= 10 ? 'is-full' : (segOn >= 8 ? 'is-warn' : ''),
+      segHelpCls: segOn >= 10 ? 'field__help--error' : '',
+      segHelp: segOn >= 10 ? 'Storage full. New uploads are paused.' : (segOn >= 8 ? 'Almost full. Consider removing old files.' : 'Plenty of room.'),
+
+      stateOpts: [['loading', 'Loading'], ['empty', 'Empty'], ['error', 'Error'], ['loaded', 'Loaded']].map(([id, label]) => ({ label, on: String(id === st), pick: () => this.setState({ st: id }) })),
+      stX: 'calc(' + sti + ' * 100%)',
+      isLoading: st === 'loading', isEmpty: st === 'empty', isError: st === 'error', isLoaded: st === 'loaded',
+      three: [{ w: '62%' }, { w: '48%' }, { w: '70%' }],
+      retry: () => { this.setState({ st: 'loading' }); setTimeout(() => this.setState({ st: 'loaded' }), 1200); },
+      deadlines: [
+        { title: 'Normalization worksheet', course: 'Database Systems', due: 'Tomorrow', badge: 'badge badge--warning', icon: 'description', c: 'var(--tile-blue)' },
+        { title: 'Routing lab report', course: 'Computer Networks', due: 'Thu', badge: 'badge', icon: 'lan', c: 'var(--tile-orange)' },
+        { title: 'Usability test plan', course: 'Human-Computer Interaction', due: 'Fri', badge: 'badge', icon: 'touch_app', c: 'var(--tile-green)' }
+      ].map((d, i) => ({ ...d, delay: (i * 35) + 'ms' })),
+
+      coachOn, coachOff: !coachOn,
+      coachN: Math.min(ci + 1, 3), coachTitle: c.title, coachBody: c.body, coachKey: 'c' + ci,
+      coachX: c.x + 'px', coachArrow: c.arrow,
+      coachNextLabel: ci >= 2 ? 'Done' : 'Next',
+      coachNext: () => this.setState({ coach: ci + 1 }),
+      coachSkip: () => this.setState({ coach: 3 }),
+      coachRestart: () => this.setState({ coach: 0 }),
+      lit0: coachOn && ci === 0 ? 'is-lit' : '', lit1: coachOn && ci === 1 ? 'is-lit' : '', lit2: coachOn && ci === 2 ? 'is-lit' : ''
+    };
+  }
+}
+</script>
+</body>
+</html>
