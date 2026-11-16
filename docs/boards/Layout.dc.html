@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="utf-8">
-<title>Lampung Design System · Space, radius, depth</title>
+<title>Lampung Design System · Jarak, radius, kedalaman</title>
 <script src="./support.js"></script>
 <link rel="stylesheet" href="lds.css">
 </head>
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700&amp;family=Plus Jakarta Sans+Mono:wght@400;500&amp;display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=block">
 <style>
 body{margin:0}
 a{color:#0A6246}a:hover{color:#1E40AF}
@@ -20,24 +20,24 @@ a{color:#0A6246}a:hover{color:#1E40AF}
 
   <header class="page-head">
     <div>
-      <div class="page-head__crumb"><span class="page-head__mark">L</span>Foundations · Space, radius, depth</div>
-      <h1>Space, radius, depth</h1>
-      <p class="page-head__lede">A 4 pt grid, radii that nest concentrically, and elevation that appears only when something actually floats above the page.</p>
+      <div class="page-head__crumb"><span class="page-head__mark">L</span>Fondasi · Jarak, radius, kedalaman</div>
+      <h1>Jarak, radius, kedalaman</h1>
+      <p class="page-head__lede">Grid 4 pt, radius yang bersarang secara konsentris, dan elevasi yang hanya muncul saat sebuah lapisan benar-benar melayang di atas halaman.</p>
     </div>
-    <div class="appearance" role="group" aria-label="Appearance">
+    <div class="appearance" role="group" aria-label="Tampilan">
       <span class="appearance__thumb" style="transform: translateX({{thumbX}});"></span>
-      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Light</button>
-      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Dark</button>
+      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Terang</button>
+      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Gelap</button>
     </div>
   </header>
 
   <section class="sec">
     <div class="sec__aside">
-      <h2 class="sec__title">Spacing</h2>
-      <p class="sec__desc">Every gap is a multiple of 4. Related things sit 8 to 12 apart, groups 20 to 28, sections 48 and up.</p>
+      <h2 class="sec__title">Jarak</h2>
+      <p class="sec__desc">Setiap jarak adalah kelipatan 4. Elemen yang berkaitan berjarak 8 sampai 12, antarkelompok 20 sampai 28, antarbagian 48 ke atas.</p>
       <ul class="spec">
-        <li><b>Gutter</b><span>20 on phone, 32 on tablet, 80 on desktop docs.</span></li>
-        <li><b>Rows</b><span>List rows at least 48 tall, controls 44.</span></li>
+        <li><b>Gutter</b><span>20 di ponsel, 32 di tablet, 80 di dokumentasi desktop.</span></li>
+        <li><b>Baris</b><span>Baris daftar minimal setinggi 48, kontrol 44.</span></li>
       </ul>
     </div>
     <div class="stage stage--white" style="gap: 2px; padding: 20px 28px;">
@@ -54,10 +54,10 @@ a{color:#0A6246}a:hover{color:#1E40AF}
 
   <section class="sec">
     <div class="sec__aside">
-      <h2 class="sec__title">Concentric radius</h2>
-      <p class="sec__desc">An inner corner equals the outer corner minus the padding between them, so curves stay parallel. Move the padding and watch the inner radius follow.</p>
+      <h2 class="sec__title">Radius konsentris</h2>
+      <p class="sec__desc">Sudut dalam sama dengan sudut luar dikurangi padding di antaranya, jadi lengkungnya tetap sejajar. Geser padding dan lihat radius dalam ikut berubah.</p>
       <ul class="spec">
-        <li><b>Formula</b><span><span class="code">inner = outer − padding</span></span></li>
+        <li><b>Rumus</b><span><span class="code">dalam = luar − padding</span></span></li>
       </ul>
     </div>
     <div class="col" style="gap: 20px;">
@@ -68,12 +68,12 @@ a{color:#0A6246}a:hover{color:#1E40AF}
         <div class="col" style="flex: 1; gap: 14px;">
           <div class="slider-row">
             <span style="font: 500 13px/1 var(--font); color: var(--text-subtle); width: 60px;">Padding</span>
-            <input class="slider" type="range" min="0" max="20" step="2" value="{{pad}}" onChange="{{onPad}}" aria-label="Padding between outer and inner shape" style="--pct: {{padPct}};">
+            <input class="slider" type="range" min="0" max="20" step="2" value="{{pad}}" onChange="{{onPad}}" aria-label="Padding antara bentuk luar dan dalam" style="--pct: {{padPct}};">
             <span class="slider-value">{{padPx}}</span>
           </div>
           <dl style="margin: 0;">
-            <div class="kv"><dt>Outer</dt><dd>22 px</dd></div>
-            <div class="kv"><dt>Inner</dt><dd>{{innerPx}}</dd></div>
+            <div class="kv"><dt>Luar</dt><dd>22 px</dd></div>
+            <div class="kv"><dt>Dalam</dt><dd>{{innerPx}}</dd></div>
           </dl>
         </div>
       </div>
@@ -90,42 +90,42 @@ a{color:#0A6246}a:hover{color:#1E40AF}
 
   <section class="sec">
     <div class="sec__aside">
-      <h2 class="sec__title">Elevation</h2>
-      <p class="sec__desc">Shadows are tinted toward the ink, not pure black, and come in four steps. Resting content gets none.</p>
+      <h2 class="sec__title">Elevasi</h2>
+      <p class="sec__desc">Bayangan diwarnai mendekati tinta, bukan hitam murni, dan tersedia dalam empat tingkat. Konten yang diam tidak diberi bayangan.</p>
       <ul class="spec">
-        <li><b>xs, sm</b><span>Thumbs, segmented selection.</span></li>
-        <li><b>md</b><span>Floating action button.</span></li>
-        <li><b>lg</b><span>Menus, dialogs, sheets, toasts.</span></li>
+        <li><b>xs, sm</b><span>Thumb, pilihan segmented.</span></li>
+        <li><b>md</b><span>Tombol aksi melayang.</span></li>
+        <li><b>lg</b><span>Menu, dialog, sheet, toast.</span></li>
       </ul>
     </div>
     <div class="stage" style="display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 20px; padding: 36px 32px;">
-      <div class="elev" style="background: var(--bg-fill); box-shadow: inset 0 0 0 1px var(--line);"><b style="font: 600 14px/20px var(--font); color: var(--text-strong);">Resting</b><span style="font: 400 12px/16px var(--font); color: var(--text-subtle);">fill, no shadow</span></div>
-      <div class="elev" style="box-shadow: var(--shadow-xs);"><b style="font: 600 14px/20px var(--font); color: var(--text-strong);">xs</b><span style="font: 400 12px/16px var(--font); color: var(--text-subtle);">hairline lift</span></div>
-      <div class="elev" style="box-shadow: var(--shadow-sm);"><b style="font: 600 14px/20px var(--font); color: var(--text-strong);">sm</b><span style="font: 400 12px/16px var(--font); color: var(--text-subtle);">selected thumb</span></div>
-      <div class="elev" style="box-shadow: var(--shadow-md);"><b style="font: 600 14px/20px var(--font); color: var(--text-strong);">md</b><span style="font: 400 12px/16px var(--font); color: var(--text-subtle);">floating button</span></div>
-      <div class="elev" style="box-shadow: var(--shadow-lg);"><b style="font: 600 14px/20px var(--font); color: var(--text-strong);">lg</b><span style="font: 400 12px/16px var(--font); color: var(--text-subtle);">menus, dialogs</span></div>
+      <div class="elev" style="background: var(--bg-fill); box-shadow: inset 0 0 0 1px var(--line);"><b style="font: 600 14px/20px var(--font); color: var(--text-strong);">Diam</b><span style="font: 400 12px/16px var(--font); color: var(--text-subtle);">isian, tanpa bayangan</span></div>
+      <div class="elev" style="box-shadow: var(--shadow-xs);"><b style="font: 600 14px/20px var(--font); color: var(--text-strong);">xs</b><span style="font: 400 12px/16px var(--font); color: var(--text-subtle);">terangkat tipis</span></div>
+      <div class="elev" style="box-shadow: var(--shadow-sm);"><b style="font: 600 14px/20px var(--font); color: var(--text-strong);">sm</b><span style="font: 400 12px/16px var(--font); color: var(--text-subtle);">thumb terpilih</span></div>
+      <div class="elev" style="box-shadow: var(--shadow-md);"><b style="font: 600 14px/20px var(--font); color: var(--text-strong);">md</b><span style="font: 400 12px/16px var(--font); color: var(--text-subtle);">tombol melayang</span></div>
+      <div class="elev" style="box-shadow: var(--shadow-lg);"><b style="font: 600 14px/20px var(--font); color: var(--text-strong);">lg</b><span style="font: 400 12px/16px var(--font); color: var(--text-subtle);">menu, dialog</span></div>
     </div>
   </section>
 
   <section class="sec">
     <div class="sec__aside">
       <h2 class="sec__title">Material</h2>
-      <p class="sec__desc">Translucent chrome is allowed in exactly two places: the navigation bar and the tab bar, because content scrolls under them. Scroll the frame: the bar's material and title fade in only once something sits behind it.</p>
+      <p class="sec__desc">Bingkai tembus pandang hanya boleh di dua tempat: bilah navigasi dan bilah tab, karena konten bergulir di bawahnya. Gulir bingkai ini: material dan judul bilah baru muncul saat ada konten di belakangnya.</p>
       <ul class="spec">
         <li><b>Blur</b><span><span class="code">blur(20px) saturate(180%)</span></span></li>
-        <li><b>Fallback</b><span>Solid surface under reduced transparency.</span></li>
+        <li><b>Cadangan</b><span>Permukaan padat saat transparansi dikurangi.</span></li>
       </ul>
     </div>
     <div class="stage" style="flex-direction: row; gap: 32px; align-items: flex-start;">
       <div class="phone phone--inline">
         <div class="navbar {{navClass}}" style="height: 64px; padding-top: 16px;">
           <span></span>
-          <span class="navbar__title">Inbox</span>
-          <div class="navbar__end"><button class="icon-btn" aria-label="Compose"><span class="ic" aria-hidden="true">edit_square</span></button></div>
+          <span class="navbar__title">Laporan warga</span>
+          <div class="navbar__end"><button class="icon-btn" aria-label="Buat laporan"><span class="ic" aria-hidden="true">edit_square</span></button></div>
         </div>
         <div class="phone__scroll" onScroll="{{onScroll}}">
           <div style="height: 64px;"></div>
-          <h3 class="large-title" style="font-size: 30px; line-height: 36px;">Inbox</h3>
+          <h3 class="large-title" style="font-size: 30px; line-height: 36px;">Laporan warga</h3>
           <div style="padding: 12px 16px 24px; display: flex; flex-direction: column; gap: 10px;">
             <sc-for list="{{feed}}" as="f" hint-placeholder-count="8">
               <div style="height: 64px; border-radius: 14px; background: {{f.bg}}; display: flex; align-items: center; gap: 12px; padding: 0 14px;">
@@ -137,24 +137,24 @@ a{color:#0A6246}a:hover{color:#1E40AF}
         </div>
       </div>
       <div class="col" style="flex: 1; gap: 14px; padding-top: 8px;">
-        <div class="alert alert--info"><span class="ic" aria-hidden="true">info</span><div><div class="alert__title">Why no blur on cards</div><div class="alert__body">Stacking translucent layers collapses legibility, and frosted cards flatten hierarchy. Cards use the fill.</div></div></div>
-        <div class="kv"><dt>Scroll offset</dt><dd>{{scrollY}} px</dd></div>
-        <div class="kv"><dt>Bar state</dt><dd>{{barState}}</dd></div>
+        <div class="alert alert--info"><span class="ic" aria-hidden="true">info</span><div><div class="alert__title">Mengapa kartu tidak diberi blur</div><div class="alert__body">Lapisan tembus pandang yang bertumpuk merusak keterbacaan, dan kartu buram meratakan hierarki. Kartu memakai isian.</div></div></div>
+        <div class="kv"><dt>Posisi gulir</dt><dd>{{scrollY}} px</dd></div>
+        <div class="kv"><dt>Keadaan bilah</dt><dd>{{barState}}</dd></div>
       </div>
     </div>
   </section>
 
   <section class="sec">
     <div class="sec__aside">
-      <h2 class="sec__title">Touch targets</h2>
-      <p class="sec__desc">The visible shape may be small; the hit area never is. Padding extends icon buttons, checkboxes and close glyphs to 44 by 44.</p>
+      <h2 class="sec__title">Target sentuh</h2>
+      <p class="sec__desc">Bentuk yang terlihat boleh kecil, tetapi area sentuhnya tidak. Padding memperluas tombol ikon, checkbox, dan ikon tutup sampai 44 kali 44.</p>
     </div>
     <div class="stage" style="flex-direction: row; gap: 36px; align-items: center;">
       <div style="position: relative; width: 44px; height: 44px; border-radius: 12px; box-shadow: inset 0 0 0 1.5px var(--accent); background: var(--accent-tint); display: grid; place-items: center;"><span class="ic" style="color: var(--text-strong);" aria-hidden="true">close</span></div>
-      <div class="col" style="gap: 4px;"><b style="font: 600 15px/20px var(--font); color: var(--text-strong);">44 × 44 minimum</b><span style="font: 400 13px/18px var(--font); color: var(--text-subtle);">Blue area is the hit target, the glyph is 20.</span></div>
+      <div class="col" style="gap: 4px;"><b style="font: 600 15px/20px var(--font); color: var(--text-strong);">Minimal 44 × 44</b><span style="font: 400 13px/18px var(--font); color: var(--text-subtle);">Area hijau adalah target sentuh, ikonnya 20.</span></div>
       <div class="divider-v"></div>
-      <div class="row" style="gap: 8px; flex: none; flex-wrap: nowrap;"><button class="icon-btn icon-btn--filled" aria-label="Previous"><span class="ic" aria-hidden="true">chevron_left</span></button><button class="icon-btn icon-btn--filled" aria-label="Next"><span class="ic" aria-hidden="true">chevron_right</span></button></div>
-      <div class="col" style="gap: 4px;"><b style="font: 600 15px/20px var(--font); color: var(--text-strong);">8 apart</b><span style="font: 400 13px/18px var(--font); color: var(--text-subtle);">Adjacent targets keep a clear gap.</span></div>
+      <div class="row" style="gap: 8px; flex: none; flex-wrap: nowrap;"><button class="icon-btn icon-btn--filled" aria-label="Sebelumnya"><span class="ic" aria-hidden="true">chevron_left</span></button><button class="icon-btn icon-btn--filled" aria-label="Berikutnya"><span class="ic" aria-hidden="true">chevron_right</span></button></div>
+      <div class="col" style="gap: 4px;"><b style="font: 600 15px/20px var(--font); color: var(--text-strong);">Berjarak 8</b><span style="font: 400 13px/18px var(--font); color: var(--text-subtle);">Target yang bersebelahan tetap punya jarak yang jelas.</span></div>
     </div>
   </section>
 
@@ -170,24 +170,24 @@ class Component extends DCLogic {
     const pad = s.pad == null ? 8 : s.pad;
     const y = s.scrollY || 0;
     const spaces = [
-      { name: 's-2', px: '2', w: '2px', use: 'Label to sub-label' },
-      { name: 's-4', px: '4', w: '4px', use: 'Icon to text in a badge' },
-      { name: 's-8', px: '8', w: '8px', use: 'Field label to control' },
-      { name: 's-12', px: '12', w: '12px', use: 'Row gap, button group' },
-      { name: 's-16', px: '16', w: '16px', use: 'Card padding' },
-      { name: 's-20', px: '20', w: '20px', use: 'Phone gutter' },
-      { name: 's-24', px: '24', w: '24px', use: 'Between groups in a form' },
-      { name: 's-32', px: '32', w: '32px', use: 'Stage padding' },
-      { name: 's-48', px: '48', w: '48px', use: 'Between doc sections' },
-      { name: 's-72', px: '72', w: '72px', use: 'Between doc chapters' }
+      { name: 's-2', px: '2', w: '2px', use: 'Label ke sublabel' },
+      { name: 's-4', px: '4', w: '4px', use: 'Ikon ke teks di dalam badge' },
+      { name: 's-8', px: '8', w: '8px', use: 'Label isian ke kontrol' },
+      { name: 's-12', px: '12', w: '12px', use: 'Jarak baris, grup tombol' },
+      { name: 's-16', px: '16', w: '16px', use: 'Padding kartu' },
+      { name: 's-20', px: '20', w: '20px', use: 'Gutter ponsel' },
+      { name: 's-24', px: '24', w: '24px', use: 'Antarkelompok dalam formulir' },
+      { name: 's-32', px: '32', w: '32px', use: 'Padding panggung contoh' },
+      { name: 's-48', px: '48', w: '48px', use: 'Antarbagian dokumentasi' },
+      { name: 's-72', px: '72', w: '72px', use: 'Antarbab dokumentasi' }
     ];
     const radii = [
-      { name: 'xs', v: '6px', use: 'Badges, kbd' },
-      { name: 'sm', v: '8px', use: 'Small buttons, icon chips' },
-      { name: 'md', v: '12px', use: 'Buttons, inputs' },
-      { name: 'lg', v: '16px', use: 'Cards, lists' },
-      { name: 'xl', v: '22px', use: 'Sheets, dialogs' },
-      { name: 'pill', v: '999px', use: 'Chips, switches only' }
+      { name: 'xs', v: '6px', use: 'Badge, kbd' },
+      { name: 'sm', v: '8px', use: 'Tombol kecil, chip ikon' },
+      { name: 'md', v: '12px', use: 'Tombol, input' },
+      { name: 'lg', v: '16px', use: 'Kartu, daftar' },
+      { name: 'xl', v: '22px', use: 'Sheet, dialog' },
+      { name: 'pill', v: '999px', use: 'Khusus chip dan switch' }
     ];
     const ini = ['AR', 'NS', 'DP', 'FK', 'MI', 'RS', 'LT', 'HY'];
     const feed = ini.map((x, i) => ({ ini: x, w: (52 + (i * 13) % 38) + '%', bg: i % 3 === 0 ? 'var(--accent-tint)' : 'var(--bg-fill)' }));
@@ -206,7 +206,7 @@ class Component extends DCLogic {
       onPad: (e) => this.setState({ pad: Number(e.target.value) }),
       navClass: y > 40 ? 'is-scrolled' : '',
       scrollY: Math.round(y),
-      barState: y > 40 ? 'Material + title' : 'Clear',
+      barState: y > 40 ? 'Material + judul' : 'Bening',
       onScroll: (e) => { const v = e.currentTarget.scrollTop; if ((v > 40) !== ((this.state && this.state.scrollY || 0) > 40) || Math.abs(v - ((this.state && this.state.scrollY) || 0)) > 8) this.setState({ scrollY: v }); }
     };
   }
