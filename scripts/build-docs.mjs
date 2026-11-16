@@ -15,6 +15,8 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { shell } from './docs-shell.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
+// The siger mark drawn by scripts/build-brand.mjs.
+const SIGER = readFileSync(join(root, 'brand/siger.inline.txt'), 'utf8').trim();
 const specDir = join(root, 'docs/spec');
 const idDir = join(specDir, 'id');
 const OUT = { id: join(root, 'docs/components'), en: join(root, 'docs/en/components') };
@@ -195,7 +197,7 @@ ${items.map((s, i) => `          <a class="shell__link shell__link--child" href=
       </div>`;
   }).join('\n      ');
   return `<aside class="shell__side" id="side" aria-label="${T.docs}">
-    <a class="shell__brand" href="../index.html"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>Lampung Design System</a>
+    <a class="shell__brand" href="../index.html"><span class="page-head__mark">${SIGER}</span>Lampung Design System</a>
     <nav class="shell__nav" aria-label="${T.components}">
       <span class="shell__hl" aria-hidden="true"></span>
       <p class="shell__group">${T.start}</p>
@@ -237,6 +239,7 @@ const frame = (title, current, body, outline = '') => `<!doctype html>
 <title>${esc(title)} · Lampung Design System</title>
 <meta name="description" content="${esc(current ? (current.kind === 'guide' ? (current[LANG].lede || current[LANG].title).replace(/<[^>]+>/g, '') : current.summary.replace(/[`*]/g, '')) : T.lede(ordered.length).replace(/<[^>]+>/g, ''))}">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
+<link rel="icon" href="${UP()}brand/mark.svg" type="image/svg+xml">
 <link rel="stylesheet" href="${UP()}css/lds.css">
 <link rel="stylesheet" href="${DOCS()}docs.css">
 <link rel="alternate" hreflang="${T.otherLang}" href="${ALT(current)}">

@@ -1,3 +1,8 @@
+import { readFileSync } from 'node:fs';
+
+// The siger mark drawn by scripts/build-brand.mjs.
+const SIGER = readFileSync(new URL('../brand/siger.inline.txt', import.meta.url), 'utf8').trim();
+
 // The documentation home: docs/index.html (Indonesian) and docs/en/index.html (English).
 // One template for both, so the two languages always have the same pages in the same order.
 // The boards render through docs/runtime.js; guides and components are static pages.
@@ -154,7 +159,7 @@ export function shell(lang, ctx) {
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>${s.title} · Lampung Design System</title>
 <meta name="description" content="${s.lede}">
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="${up}brand/mark.svg" type="image/svg+xml">
 <link rel="alternate" hreflang="${lang === 'id' ? 'en' : 'id'}" href="${s.otherHref}">
 <link rel="stylesheet" href="${up}css/lds.css">
 <link rel="stylesheet" href="${docs}docs.css">
@@ -166,7 +171,7 @@ ${ctx.masthead}
 <div class="shell" id="shell">
 
   <aside class="shell__side" id="side" aria-label="${s.docs}">
-    <a class="shell__brand" href="/" aria-label="${s.home}"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>Lampung Design System</a>
+    <a class="shell__brand" href="/" aria-label="${s.home}"><span class="page-head__mark">${SIGER}</span>Lampung Design System</a>
     <nav class="shell__nav" id="nav" aria-label="${s.pages}">
       <span class="shell__hl" id="nav-hl" aria-hidden="true"></span>
       <span class="shell__group">${s.start}</span>
@@ -211,7 +216,7 @@ ${routes.slice(14).map(link).join('\n')}
   <div class="page">
     <header class="page-head">
       <div>
-        <div class="page-head__crumb"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>${s.start}</div>
+        <div class="page-head__crumb"><span class="page-head__mark">${SIGER}</span>${s.start}</div>
         <h1>${s.title}</h1>
         <p class="page-head__lede">${s.lede}</p>
       </div>
