@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="id" class="lds" data-theme="system">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sakai, aplikasi warga · Lampung Design System</title>
+<meta name="description" content="Contoh aplikasi warga untuk kota fiktif, dibangun hanya dari komponen Lampung Design System: beranda, lapor, status laporan, layanan, info kota, pemberitahuan dan akun.">
+<script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'system'); } catch (e) {}</script>
+<link rel="stylesheet" href="../../css/lds.css">
+<link rel="stylesheet" href="./mobile.css">
+</head>
+<body class="lds">
+<div class="mp">
+
+  <header class="mp__bar">
+    <div class="select" data-lds-select data-shot-pick>
+      <button type="button" class="control select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-label="Pilih layar"><span class="select__value">Beranda</span><span class="ic" aria-hidden="true">expand_more</span></button>
+      <ul class="menu select__menu" role="listbox" aria-label="Layar">
+        <li class="menu__item" role="option" aria-selected="true" data-value="beranda"><span class="select__text">Beranda</span></li>
+        <li class="menu__item" role="option" aria-selected="false" data-value="lapor"><span class="select__text">Lapor</span></li>
+        <li class="menu__item" role="option" aria-selected="false" data-value="status"><span class="select__text">Status laporan</span></li>
+        <li class="menu__item" role="option" aria-selected="false" data-value="layanan"><span class="select__text">Layanan</span></li>
+        <li class="menu__item" role="option" aria-selected="false" data-value="info"><span class="select__text">Info kota</span></li>
+        <li class="menu__item" role="option" aria-selected="false" data-value="notif"><span class="select__text">Pemberitahuan</span></li>
+        <li class="menu__item" role="option" aria-selected="false" data-value="akun"><span class="select__text">Akun</span></li>
+      </ul>
+    </div>
+    <button type="button" class="icon-btn" aria-label="Tentang contoh ini" aria-haspopup="dialog" data-about><span class="ic" aria-hidden="true">info</span></button>
+  </header>
+
+  <section class="mp__intro" aria-labelledby="mp-title">
+    <nav aria-label="Breadcrumb">
+      <ol class="crumbs">
+        <li><a href="../index.html">Dokumentasi</a></li>
+        <li><span class="ic" aria-hidden="true">chevron_right</span></li>
+        <li><a href="index.html">Contoh</a></li>
+        <li><span class="ic" aria-hidden="true">chevron_right</span></li>
+        <li><span aria-current="page">Aplikasi warga</span></li>
+      </ol>
+    </nav>
+    <div class="mp__head">
+      <div class="section__head">
+        <h1 id="mp-title" class="mp__title">Sakai <span class="aksara" data-lds-aksara="Sakai" aria-label="Sakai"></span></h1>
+        <p class="section__sub">Aplikasi warga untuk kota fiktif Kota Contoh. Namanya dari <i>sakai sambayan</i>, bahasa Lampung untuk gotong royong. Satu aplikasi di tujuh layar: setiap bingkai menjalankan aplikasi utuh dan berbagi data yang sama, jadi laporan yang dikirim di satu layar ikut muncul di layar lain.</p>
+      </div>
+      <div class="mp__controls">
+        <div class="field">
+          <span class="field__label" id="mp-theme-l">Tampilan</span>
+          <div class="seg" role="group" aria-labelledby="mp-theme-l" data-lds-segmented>
+            <span class="seg__thumb"></span>
+            <button type="button" class="seg__btn" aria-pressed="false" data-lds-theme="light"><span class="ic ic--sm" aria-hidden="true">light_mode</span>&nbsp;Terang</button>
+            <button type="button" class="seg__btn" aria-pressed="false" data-lds-theme="dark"><span class="ic ic--sm" aria-hidden="true">dark_mode</span>&nbsp;Gelap</button>
+            <button type="button" class="seg__btn" aria-pressed="false" data-lds-theme="system"><span class="ic ic--sm" aria-hidden="true">contrast</span>&nbsp;Sistem</button>
+          </div>
+        </div>
+        <p class="list__footer mp__note">Contoh aplikasi. Data fiktif, bukan layanan resmi.</p>
+      </div>
+    </div>
+    <div class="aksara-band" aria-hidden="true"></div>
+  </section>
+
+  <main class="mp__grid" id="layar" aria-label="Layar aplikasi Sakai" data-shots></main>
+</div>
+
+<dialog class="modal" id="mp-about" aria-labelledby="mp-about-t">
+  <button type="button" class="icon-btn dialog__close" data-lds-modal-close aria-label="Tutup"><span class="ic" aria-hidden="true">close</span></button>
+  <h2 class="dialog__title" id="mp-about-t">Tentang Sakai</h2>
+  <p class="dialog__body">Aplikasi warga untuk kota fiktif, dibangun hanya dari komponen Lampung Design System. Contoh aplikasi. Data fiktif, bukan layanan resmi.</p>
+  <div class="stack" style="--gap: var(--s-20); margin-top: var(--s-20);">
+    <div class="field">
+      <span class="field__label" id="mp-theme-l2">Tampilan</span>
+      <div class="seg" role="group" aria-labelledby="mp-theme-l2" data-lds-segmented>
+        <span class="seg__thumb"></span>
+        <button type="button" class="seg__btn" aria-pressed="false" data-lds-theme="light">Terang</button>
+        <button type="button" class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
+        <button type="button" class="seg__btn" aria-pressed="false" data-lds-theme="system">Sistem</button>
+      </div>
+    </div>
+    <div class="cluster">
+      <a class="btn btn--secondary btn--md" href="index.html"><span class="ic" aria-hidden="true">grid_view</span>Semua contoh</a>
+      <a class="btn btn--plain btn--md" href="../index.html">Dokumentasi</a>
+    </div>
+  </div>
+</dialog>
+
+<script type="module" src="./mobile.js"></script>
+</body>
+</html>
