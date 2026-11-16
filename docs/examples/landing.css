@@ -1,0 +1,55 @@
+/* Public service portal: placement only. Every look comes from css/lds.css. */
+
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; overflow-x: clip; }
+main { display: block; }
+
+/* Page width shared by the strips that are not hero, msec or footer */
+.lp-band { --m-gutter: clamp(20px, 5vw, 48px); width: min(1200px, 100% - 2 * var(--m-gutter)); margin-inline: auto; }
+
+/* Masthead: one quiet line above everything, on the fill */
+
+/* Top bar: edges line up with the content; the button leaves on narrow screens */
+.topnav { padding-inline: max(clamp(20px, 5vw, 48px), calc((100% - 1200px) / 2)); }
+@media (max-width: 900px) { .lp-nav-cta { display: none; } }
+
+/* Hero: the search is the main action */
+.lp-hero .hero__copy { width: 100%; }
+.lp-search { display: grid; gap: var(--s-12); width: min(100%, 640px); margin-top: var(--s-8); text-align: left; }
+.lp-search__hints { justify-content: center; }
+.lp-results { display: grid; gap: var(--s-8); }
+.lp-results[hidden] { display: none; }
+.lp-results__head { display: flex; align-items: center; justify-content: space-between; gap: var(--s-12); min-height: 32px; padding-inline: var(--s-4); font: var(--type-footnote); color: var(--text-subtle); }
+
+/* Categories: one filled list laid out in columns */
+.lp-cats { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); column-gap: var(--s-8); padding: var(--s-4); }
+
+/* News: announcements beside stories, the lead story wider */
+.lp-news { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--s-40); }
+@media (min-width: 960px) { .lp-news { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); } }
+.lp-news__notes, .lp-news__stories { display: grid; gap: var(--s-12); align-content: start; }
+.lp-news__stories { grid-template-columns: minmax(0, 1fr); }
+@media (min-width: 600px) { .lp-news__stories { grid-template-columns: repeat(2, minmax(0, 1fr)); } .lp-news__stories > h3, .lp-story--lead { grid-column: 1 / -1; } }
+.lp-story { display: grid; gap: var(--s-8); align-content: start; justify-items: start; }
+.lp-story .card__title, .lp-story .card__sub { margin: 0; }
+.lp-story--lead .card__title { font: var(--type-title-3); letter-spacing: var(--tracking-title-3); }
+.lp-story__meta { margin: 0; font: var(--type-footnote); color: var(--text-subtle); }
+
+/* Agenda and FAQ: the head beside the content on wide screens */
+.lp-ag-seg { width: min(100%, 360px); }
+@media (min-width: 1024px) {
+  .lp-split, .lp-faq { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); column-gap: var(--s-72); align-items: start; }
+  .lp-split .msec__head, .lp-faq .msec__head { margin-bottom: 0; position: sticky; top: 96px; }
+}
+
+/* Footer contact */
+.lp-contact { width: 100%; max-width: 420px; margin-top: var(--s-8); }
+
+/* Service modal */
+.lp-req-h { margin: var(--s-20) 0 0; padding-left: var(--s-4); }
+
+/* Page layers float over the window */
+.lp-layers { position: fixed; inset: 0; z-index: 60; pointer-events: none; }
+.lp-layers > .toaster { position: fixed; }
+.lp-layers .toast { pointer-events: auto; }
