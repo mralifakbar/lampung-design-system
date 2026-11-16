@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en" class="lds" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Lampung Design System: an open design system for public services</title>
+<meta name="description" content="An unofficial, open source design system for public service websites and apps in Lampung and anywhere else: tokens, 170+ components documented in Indonesian and English, and a CLI for Next.js, Vite, Laravel, Flutter and HTML.">
+<link rel="canonical" href="https://lampung.kartadinata.app/en/">
+<link rel="alternate" hreflang="id" href="https://lampung.kartadinata.app/">
+<link rel="alternate" hreflang="en" href="https://lampung.kartadinata.app/en/">
+<link rel="alternate" hreflang="x-default" href="https://lampung.kartadinata.app/">
+<meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0B0B0D" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Lampung Design System">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="id_ID">
+<meta property="og:url" content="https://lampung.kartadinata.app/en/">
+<meta property="og:title" content="Lampung Design System">
+<meta property="og:description" content="An unofficial, open source design system for public service websites and apps. Tokens, components and a CLI, documented in Indonesian and English.">
+<meta property="og:image" content="https://lampung.kartadinata.app/og.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Lampung Design System, an open design system for public services.">
+<meta property="og:image" content="https://lampung.kartadinata.app/og.svg">
+<meta property="og:image:type" content="image/svg+xml">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Lampung Design System">
+<meta name="twitter:description" content="An unofficial, open source design system for public service websites and apps.">
+<meta name="twitter:image" content="https://lampung.kartadinata.app/og.png">
+<meta name="twitter:image:alt" content="Lampung Design System, an open design system for public services.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"Lampung Design System","description":"An unofficial, open source design system for public service websites and apps.","url":"https://lampung.kartadinata.app/en/","codeRepository":"https://github.com/mralifakbar/lampung-design-system","license":"https://opensource.org/license/mit","inLanguage":["id","en"]}
+</script>
+
+<script>
+  /* Apply the saved theme before first paint. Same key as restoreTheme() in /js/lds.js. */
+  try { var m = localStorage.getItem('lds-theme'); if (m === 'light' || m === 'dark' || m === 'system') document.documentElement.setAttribute('data-theme', m); } catch (e) {}
+</script>
+<link rel="stylesheet" href="/css/lds.css">
+<link rel="stylesheet" href="../landing.css">
+<script type="module" src="../landing.js"></script>
+</head>
+<body class="lds">
+
+<div class="masthead" role="region" aria-label="Site status">
+  <div class="masthead__bar">
+    <span class="masthead__mark" aria-hidden="true"><span class="ic">info</span></span>
+    <span class="masthead__text">An open community project. Not a government website.</span>
+    <button type="button" class="masthead__toggle" data-lds-masthead aria-expanded="false" aria-controls="masthead-info">How to tell<span class="ic" aria-hidden="true">expand_more</span></button>
+  </div>
+  <div class="collapse is-closed" id="masthead-info" inert><div><div class="masthead__body">
+    <p class="masthead__item"><span class="ic" aria-hidden="true">groups</span><span><b>Run by the community.</b> Built and maintained by an open source community, not by any government agency.</span></p>
+    <p class="masthead__item"><span class="ic" aria-hidden="true">verified_user</span><span><b>Official sites use go.id.</b> Government sites in Indonesia end in .go.id. Never enter your national ID number on a site you are unsure of.</span></p>
+  </div></div></div>
+</div>
+
+<header class="topnav" data-lds-topnav>
+  <a class="topnav__brand" href="./" aria-label="Lampung Design System, home">
+    <svg class="lp-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" rx="8" fill="#0B6E4F"/><path d="M7 19.5 8.6 13.2 10.6 17.4 12.4 11.4 14.3 16.6 16 8.5 17.7 16.6 19.6 11.4 21.4 17.4 23.4 13.2 25 19.5Z" fill="#FFFFFF"/><rect x="7" y="21" width="18" height="2.6" rx="1.3" fill="#C9952B"/></svg>
+    <span class="lp-brand-full">Lampung Design System</span><span class="lp-brand-short">LDS</span>
+  </a>
+  <nav class="topnav__links" id="site-links" aria-label="Main">
+    <a class="topnav__link" href="/docs/en/">Docs</a>
+    <a class="topnav__link" href="/docs/en/components/">Components</a>
+    <a class="topnav__link" href="/docs/examples/">Examples</a>
+    <a class="topnav__link" href="https://github.com/mralifakbar/lampung-design-system">GitHub</a>
+  </nav>
+  <div class="topnav__actions">
+    <nav class="lp-lang" aria-label="Language">
+      <a class="btn btn--plain btn--sm" href="../" lang="id" hreflang="id"><span class="sr-only">Bahasa Indonesia, </span>ID</a>
+      <a class="btn btn--gray btn--sm" href="./" lang="en" hreflang="en" aria-current="page"><span class="sr-only">English, </span>EN</a>
+    </nav>
+    <span class="tip-host"><button type="button" class="icon-btn" id="theme-btn" aria-label="Switch to dark theme" data-label-dark="Switch to dark theme" data-label-light="Switch to light theme" data-tip-dark="Dark theme" data-tip-light="Light theme"><span class="swap" aria-hidden="true"><span class="ic swap__a">dark_mode</span><span class="ic swap__b">light_mode</span></span></button><span class="tip" role="tooltip" id="theme-tip">Dark theme</span></span>
+    <button type="button" class="icon-btn topnav__toggle" data-lds-topnav-toggle aria-controls="site-links" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero hero--center hero--enter" aria-labelledby="hero-title">
+    <div class="hero__copy">
+      <h1 class="hero__title" id="hero-title">An open design system for public service websites and apps.</h1>
+      <p class="hero__lede">Lampung Design System (LDS) gives you tokens, components and guides written in Indonesian and English, so local governments, people in Lampung and anyone else can build websites and apps quickly with a consistent design.</p>
+      <div class="hero__actions">
+        <a class="btn btn--primary btn--lg" href="/docs/en/">Start building</a>
+        <a class="btn btn--secondary btn--lg" href="https://github.com/mralifakbar/lampung-design-system"><span class="ic" aria-hidden="true">code</span>View on GitHub</a>
+      </div>
+      <p class="hero__note">Free under the MIT license. Made by the community, not by the Provincial Government of Lampung.</p>
+    </div>
+  </section>
+  <div class="lp-frame lp-hero-band"><div class="aksara-band" aria-hidden="true"></div></div>
+
+  <section class="msec" id="who" aria-labelledby="who-title">
+    <div class="msec__head" data-lds-reveal>
+      <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">groups</span>Who it is for</span>
+      <h2 class="msec__title" id="who-title">For teams that build services for citizens.</h2>
+      <p class="msec__lede">Anyone may use it, for government, business or personal projects.</p>
+    </div>
+    <div class="lp-facts">
+      <div class="lp-fact" data-lds-reveal style="--i: 0"><span class="ic" aria-hidden="true">account_balance</span><h3 class="section__title-sm">Local governments and agencies</h3><p class="section__sub">Agency websites, service portals and internal dashboards that look the same across every office, without commissioning a design from scratch for each project.</p></div>
+      <div class="lp-fact" data-lds-reveal style="--i: 1"><span class="ic" aria-hidden="true">code</span><h3 class="section__title-sm">Developers</h3><p class="section__sub">Install with one command. Components are plain CSS classes, and their behavior is one optional script that works in any framework.</p></div>
+      <div class="lp-fact" data-lds-reveal style="--i: 2"><span class="ic" aria-hidden="true">palette</span><h3 class="section__title-sm">Designers</h3><p class="section__sub">Color, type, spacing and motion are stored as tokens, with light and dark values whose contrast has already been computed.</p></div>
+      <div class="lp-fact" data-lds-reveal style="--i: 3"><span class="ic" aria-hidden="true">storefront</span><h3 class="section__title-sm">Small businesses and communities</h3><p class="section__sub">A business page, a sign-up form or an event site that is tidy and easy to read on a phone, with no license fee.</p></div>
+    </div>
+  </section>
+
+  <section class="msec msec--rule" id="included" aria-labelledby="get-title">
+    <div class="msec__head" data-lds-reveal>
+      <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">inventory_2</span>What is included</span>
+      <h2 class="msec__title" id="get-title">What you get.</h2>
+      <p class="msec__lede">One npm package for the web, one pub.dev package for Flutter, and documentation in Indonesian and English.</p>
+    </div>
+
+    <div class="feature">
+      <div class="feature__copy" data-lds-reveal>
+        <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">tune</span>Tokens</span>
+        <h3 class="feature__title">One token file for CSS, JavaScript and Flutter.</h3>
+        <p class="feature__body">Color, type, spacing, radius, shadows and motion live in <span class="code">tokens.json</span>, each with a light and a dark value. One command writes CSS variables, a typed JavaScript module, a Dart class and a shadcn/ui theme.</p>
+        <ul class="feature__points">
+          <li><span class="ic" aria-hidden="true">check_circle</span><span>Change the accent once and the website and the Flutter app follow.</span></li>
+          <li><span class="ic" aria-hidden="true">check_circle</span><span>Springs are exported as curves, so motion feels the same on the web and on phones.</span></li>
+        </ul>
+      </div>
+      <div class="feature__stage">
+        <div class="seg lp-code-seg" role="group" aria-label="Token output" data-lds-segmented id="code-seg">
+          <span class="seg__thumb"></span>
+          <button type="button" class="seg__btn" aria-pressed="true" data-code="css">CSS</button>
+          <button type="button" class="seg__btn" aria-pressed="false" data-code="js">JS</button>
+          <button type="button" class="seg__btn" aria-pressed="false" data-code="flutter">Flutter</button>
+        </div>
+        <div class="codeblock lp-code">
+          <div class="codeblock__bar"><span id="code-file">css/tokens.css</span><button type="button" class="btn btn--plain btn--sm" id="code-copy" data-lds-copy=":root {&#10;  --accent: #0B6E4F;&#10;  --gold: #C9952B;&#10;  --r-lg: 16px;&#10;}&#10;[data-theme=&quot;dark&quot;] {&#10;  --accent: #0F7D59;&#10;  --gold: #D9A93F;&#10;}"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Copied">Copy</span><span class="sr-only"> token sample</span></button></div>
+          <pre id="code-pre"><span class="k">:root</span> {
+  <span class="k">--accent</span>: #0B6E4F;
+  <span class="k">--gold</span>: #C9952B;
+  <span class="k">--r-lg</span>: 16px;
+}
+[data-theme=<span class="s">"dark"</span>] {
+  <span class="k">--accent</span>: #0F7D59;
+  <span class="k">--gold</span>: #D9A93F;
+}</pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="lp-facts lp-facts--wide">
+      <div class="lp-fact" data-lds-reveal style="--i: 0"><span class="ic" aria-hidden="true">widgets</span><h3 class="section__title-sm">170+ components</h3><p class="section__sub">Buttons, forms, data tables, calendars, maps and charts. Every component has a documentation page in Indonesian and English: when to use it, markup, states and accessibility.</p></div>
+      <div class="lp-fact" data-lds-reveal style="--i: 1"><span class="ic" aria-hidden="true">rocket_launch</span><h3 class="section__title-sm">A CLI for eight frameworks</h3><p class="section__sub"><span class="code">lampung-ds init</span> sets up Next.js, Vite, TanStack Start, React Router, Astro, Laravel, plain HTML and Flutter.</p></div>
+      <div class="lp-fact" data-lds-reveal style="--i: 2"><span class="ic" aria-hidden="true">dark_mode</span><h3 class="section__title-sm">Dark mode</h3><p class="section__sub">Every color has its own dark value. The theme can follow the person's choice or the device setting.</p></div>
+      <div class="lp-fact" data-lds-reveal style="--i: 3"><span class="ic" aria-hidden="true">contrast</span><h3 class="section__title-sm">WCAG 2.2 AA contrast</h3><p class="section__sub">The contrast of every text color pairing is computed in light and dark: body text at least 4.5:1, control edges at least 3:1.</p></div>
+      <div class="lp-fact" data-lds-reveal style="--i: 4"><span class="ic" aria-hidden="true">text_fields</span><h3 class="section__title-sm">Aksara Lampung accents</h3><p class="section__sub">The Lampung script appears as a quiet ornament, always with the Latin reading next to it or for screen readers.</p></div>
+      <div class="lp-fact" data-lds-reveal style="--i: 5"><span class="ic" aria-hidden="true">menu_book</span><h3 class="section__title-sm">Skills for AI agents</h3><p class="section__sub">AI coding agents read the LDS component catalog and rules before they write UI, then use the components that already exist.</p></div>
+    </div>
+  </section>
+
+  <section class="msec msec--rule" id="install" aria-labelledby="install-title">
+    <div class="msec__head" data-lds-reveal>
+      <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">download</span>Install</span>
+      <h2 class="msec__title" id="install-title">Add it to your project.</h2>
+      <p class="msec__lede">Pick your framework, copy the command and run it in the project folder. The full guide for each framework is in the <a class="link" href="/docs/en/">documentation</a>.</p>
+    </div>
+
+    <div class="lp-install">
+      <div class="tabs tabs--start" role="tablist" aria-label="Framework" data-lds-tabs>
+        <span class="tabs__ink" aria-hidden="true"></span>
+        <button type="button" class="tabs__btn" role="tab" aria-selected="true" aria-controls="ins-next" id="ins-t-next">Next.js</button>
+        <button type="button" class="tabs__btn" role="tab" aria-selected="false" aria-controls="ins-vite" id="ins-t-vite">Vite</button>
+        <button type="button" class="tabs__btn" role="tab" aria-selected="false" aria-controls="ins-start" id="ins-t-start">TanStack Start</button>
+        <button type="button" class="tabs__btn" role="tab" aria-selected="false" aria-controls="ins-rr" id="ins-t-rr">React Router</button>
+        <button type="button" class="tabs__btn" role="tab" aria-selected="false" aria-controls="ins-astro" id="ins-t-astro">Astro</button>
+        <button type="button" class="tabs__btn" role="tab" aria-selected="false" aria-controls="ins-laravel" id="ins-t-laravel">Laravel</button>
+        <button type="button" class="tabs__btn" role="tab" aria-selected="false" aria-controls="ins-html" id="ins-t-html">HTML</button>
+        <button type="button" class="tabs__btn" role="tab" aria-selected="false" aria-controls="ins-flutter" id="ins-t-flutter">Flutter</button>
+      </div>
+
+      <div class="tab-panel" role="tabpanel" id="ins-next" aria-labelledby="ins-t-next" tabindex="0">
+        <div class="codeblock"><div class="codeblock__bar"><span>Terminal</span><button type="button" class="btn btn--plain btn--sm" data-lds-copy="npx lampung-ds@latest init -t next"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Copied">Copy</span><span class="sr-only"> Next.js command</span></button></div><pre><code>npx lampung-ds@latest init -t next</code></pre></div>
+        <p class="section__sub">Run it in the folder of an existing Next.js project.</p>
+      </div>
+      <div class="tab-panel" role="tabpanel" id="ins-vite" aria-labelledby="ins-t-vite" tabindex="0" hidden>
+        <div class="codeblock"><div class="codeblock__bar"><span>Terminal</span><button type="button" class="btn btn--plain btn--sm" data-lds-copy="npx lampung-ds@latest init -t vite"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Copied">Copy</span><span class="sr-only"> Vite command</span></button></div><pre><code>npx lampung-ds@latest init -t vite</code></pre></div>
+        <p class="section__sub">Run it in the folder of an existing Vite project.</p>
+      </div>
+      <div class="tab-panel" role="tabpanel" id="ins-start" aria-labelledby="ins-t-start" tabindex="0" hidden>
+        <div class="codeblock"><div class="codeblock__bar"><span>Terminal</span><button type="button" class="btn btn--plain btn--sm" data-lds-copy="npx lampung-ds@latest init -t start"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Copied">Copy</span><span class="sr-only"> TanStack Start command</span></button></div><pre><code>npx lampung-ds@latest init -t start</code></pre></div>
+        <p class="section__sub">Run it in the folder of an existing TanStack Start project.</p>
+      </div>
+      <div class="tab-panel" role="tabpanel" id="ins-rr" aria-labelledby="ins-t-rr" tabindex="0" hidden>
+        <div class="codeblock"><div class="codeblock__bar"><span>Terminal</span><button type="button" class="btn btn--plain btn--sm" data-lds-copy="npx lampung-ds@latest init -t react-router"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Copied">Copy</span><span class="sr-only"> React Router command</span></button></div><pre><code>npx lampung-ds@latest init -t react-router</code></pre></div>
+        <p class="section__sub">Run it in the folder of an existing React Router project.</p>
+      </div>
+      <div class="tab-panel" role="tabpanel" id="ins-astro" aria-labelledby="ins-t-astro" tabindex="0" hidden>
+        <div class="codeblock"><div class="codeblock__bar"><span>Terminal</span><button type="button" class="btn btn--plain btn--sm" data-lds-copy="npx lampung-ds@latest init -t astro"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Copied">Copy</span><span class="sr-only"> Astro command</span></button></div><pre><code>npx lampung-ds@latest init -t astro</code></pre></div>
+        <p class="section__sub">Run it in the folder of an existing Astro project.</p>
+      </div>
+      <div class="tab-panel" role="tabpanel" id="ins-laravel" aria-labelledby="ins-t-laravel" tabindex="0" hidden>
+        <div class="codeblock"><div class="codeblock__bar"><span>Terminal</span><button type="button" class="btn btn--plain btn--sm" data-lds-copy="laravel new my-app&#10;cd my-app&#10;npx lampung-ds@latest init -t laravel"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Copied">Copy</span><span class="sr-only"> Laravel commands</span></button></div><pre><code>laravel new my-app
+cd my-app
+npx lampung-ds@latest init -t laravel</code></pre></div>
+        <p class="section__sub">Already have a Laravel project? Skip the first two lines and run the last one in the project folder.</p>
+      </div>
+      <div class="tab-panel" role="tabpanel" id="ins-html" aria-labelledby="ins-t-html" tabindex="0" hidden>
+        <div class="codeblock"><div class="codeblock__bar"><span>Terminal</span><button type="button" class="btn btn--plain btn--sm" data-lds-copy="npx lampung-ds@latest init -t html"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Copied">Copy</span><span class="sr-only"> HTML command</span></button></div><pre><code>npx lampung-ds@latest init -t html</code></pre></div>
+        <p class="section__sub">No install? Link the CSS from the CDN inside <span class="code">&lt;head&gt;</span>:</p>
+        <div class="codeblock"><div class="codeblock__bar"><span>index.html</span><button type="button" class="btn btn--plain btn--sm" data-lds-copy="&lt;link rel=&quot;stylesheet&quot; href=&quot;https://cdn.jsdelivr.net/npm/lampung-design-system@0/css/lds.css&quot;&gt;"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Copied">Copy</span><span class="sr-only"> CDN link</span></button></div><pre><code>&lt;<span class="k">link</span> rel=<span class="s">"stylesheet"</span> href=<span class="s">"https://cdn.jsdelivr.net/npm/lampung-design-system@0/css/lds.css"</span>&gt;</code></pre></div>
+      </div>
+      <div class="tab-panel" role="tabpanel" id="ins-flutter" aria-labelledby="ins-t-flutter" tabindex="0" hidden>
+        <div class="codeblock"><div class="codeblock__bar"><span>Terminal</span><button type="button" class="btn btn--plain btn--sm" data-lds-copy="flutter pub add lampung_design_system"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Copied">Copy</span><span class="sr-only"> Flutter command</span></button></div><pre><code>flutter pub add lampung_design_system</code></pre></div>
+        <p class="section__sub">Run it in your Flutter project folder. The package holds the tokens, the theme and the widgets.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="msec msec--rule" id="preview" aria-labelledby="preview-title">
+    <div class="feature feature--reverse">
+      <div class="feature__copy" data-lds-reveal>
+        <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">touch_app</span>Preview</span>
+        <h2 class="feature__title" id="preview-title">Real components, straight from lds.css.</h2>
+        <p class="feature__body">This sample form uses the same classes you install: text fields, buttons, a status badge and an alert. Try it with the keyboard, send it with an empty name, or switch the theme at the top of the page.</p>
+        <ul class="feature__points">
+          <li><span class="ic" aria-hidden="true">check_circle</span><span>Every control works by keyboard and shows a visible focus ring.</span></li>
+          <li><span class="ic" aria-hidden="true">check_circle</span><span>Errors replace the helper line, so nothing below it moves.</span></li>
+        </ul>
+      </div>
+      <div class="feature__stage">
+        <form class="lp-demo" id="demo" novalidate aria-labelledby="demo-title"
+          data-msg-empty="Enter the applicant's name as written on their ID card before you send."
+          data-msg-help="As written on the ID card."
+          data-msg-sent="Application sent"
+          data-msg-send="Send application"
+          data-msg-saved="Draft saved"
+          data-msg-save="Save draft"
+          data-badge-done="Received">
+          <div class="lp-demo__head">
+            <div><h3 class="card__title" id="demo-title">Micro business permit</h3><p class="card__sub">Kelurahan Contoh, Bandar Lampung</p></div>
+            <span class="badge badge--warning" id="demo-badge"><span class="ic" aria-hidden="true">schedule</span><span id="demo-badge-label">Waiting for documents</span></span>
+          </div>
+          <div class="alert alert--warning" id="demo-alert"><span class="ic" aria-hidden="true">warning</span><div><div class="alert__title">ID card photo is missing</div><div class="alert__body">Upload it before 30 November to keep the application moving.</div></div></div>
+          <div class="form__row">
+            <div class="field">
+              <label class="field__label" for="demo-name">Applicant name</label>
+              <div class="control"><input id="demo-name" type="text" autocomplete="off" placeholder="Siti Rahmawati" aria-describedby="demo-name-help"></div>
+              <span class="field__help" id="demo-name-help">As written on the ID card.</span>
+            </div>
+            <div class="field">
+              <label class="field__label" for="demo-district">District <span>Optional</span></label>
+              <div class="control"><input id="demo-district" type="text" autocomplete="off" placeholder="Teluk Betung Utara"></div>
+            </div>
+          </div>
+          <div class="form__actions">
+            <button type="button" class="btn btn--secondary" id="demo-save"><span class="morph" data-lds-morph id="demo-save-label">Save draft</span></button>
+            <button type="submit" class="btn btn--primary" id="demo-send"><span class="btn__label"><span class="morph" data-lds-morph id="demo-send-label">Send application</span></span><span class="btn__spin" aria-hidden="true"><span class="spinner" style="--c: #fff;"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button>
+          </div>
+        </form>
+        <span class="feature__caption">Example data. Nothing is sent anywhere.</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="msec msec--rule" id="examples" aria-labelledby="ex-title">
+    <div class="msec__head msec__head--row" data-lds-reveal>
+      <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">grid_view</span>Examples</span>
+      <h2 class="msec__title" id="ex-title">Whole screens built with nothing but LDS.</h2>
+      <p class="msec__lede">Each example uses the same CSS file and script you install. The examples are in Indonesian, and every agency and figure in them is fictional.</p>
+      <a class="btn btn--secondary msec__aside" href="/docs/examples/">Open all examples</a>
+    </div>
+    <div class="link-grid">
+      <a class="link-card" href="/docs/examples/dashboard/ringkasan.html" hreflang="id"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">dashboard</span>Admin dashboard</span><span class="link-card__title">Sakai Dasbor</span><span class="link-card__body">An admin app for an example city with a sidebar, charts and tables.</span><span class="link-card__foot">Open the dashboard<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
+      <a class="link-card" href="/docs/examples/mobile.html" hreflang="id"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">smartphone</span>Phone app</span><span class="link-card__title">Aplikasi warga Sakai</span><span class="link-card__body">A citizen app in a device frame, with screens you can tap through one by one.</span><span class="link-card__foot">Open the app<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
+      <a class="link-card" href="/docs/examples/landing.html" hreflang="id"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">public</span>Public site</span><span class="link-card__title">Portal layanan publik</span><span class="link-card__body">The front page of a public service portal for an example city, from service search to contact details.</span><span class="link-card__foot">Open the portal<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
+    </div>
+  </section>
+
+  <section class="msec msec--rule" id="color" aria-labelledby="color-title">
+    <div class="msec__head" data-lds-reveal>
+      <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">palette</span>Color</span>
+      <h2 class="msec__title" id="color-title">Two colors that start in Lampung.</h2>
+      <p class="msec__lede">Both are inspired by the provincial emblem, the siger crown and tapis cloth. They are inspiration, not official use: LDS does not use the regional emblem, and these are not official government colors.</p>
+    </div>
+    <div class="lp-colors">
+      <div class="lp-color" data-lds-reveal style="--i: 0">
+        <div class="lp-color__swatch lp-color__swatch--green" aria-hidden="true"></div>
+        <div class="lp-color__name">
+          <h3 class="section__title-sm">Hijau Lampung <span class="code">#0B6E4F</span></h3>
+          <button type="button" class="btn btn--plain btn--sm" data-lds-copy="#0B6E4F"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Copied">Copy</span><span class="sr-only"> Hijau Lampung hex code</span></button>
+        </div>
+        <p class="section__sub">Lampung green, inspired by the green of the Lampung provincial emblem. Used for the main button, the current selection and links.</p>
+      </div>
+      <div class="lp-color" data-lds-reveal style="--i: 1">
+        <div class="lp-color__swatch lp-color__swatch--gold" aria-hidden="true"></div>
+        <div class="lp-color__name">
+          <h3 class="section__title-sm">Emas Siger <span class="code">#C9952B</span></h3>
+          <button type="button" class="btn btn--plain btn--sm" data-lds-copy="#C9952B"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Copied">Copy</span><span class="sr-only"> Emas Siger hex code</span></button>
+        </div>
+        <p class="section__sub">Siger gold, inspired by the siger crown and the gold thread of tapis cloth. Used for identity and ornament, never for buttons and never as text on white.</p>
+      </div>
+    </div>
+    <div class="lp-aksara-note">
+      <span class="aksara" data-lds-aksara="Lampung" aria-label="Lampung"></span>
+      <p class="section__sub">The word Lampung in aksara Lampung. In LDS the script is only ornament and always comes with its Latin reading.</p>
+    </div>
+  </section>
+
+  <section class="msec msec--rule" id="open-source" aria-labelledby="oss-title">
+    <div class="msec__head" data-lds-reveal>
+      <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">favorite</span>Open source</span>
+      <h2 class="msec__title" id="oss-title">Free to use, change and share.</h2>
+      <p class="msec__lede">LDS is <a class="link" href="https://opensource.org/license/mit">MIT</a> licensed. You may use it for government, business or personal projects and change the code. Bug reports and fixes are welcome on GitHub.</p>
+    </div>
+    <div class="link-grid">
+      <a class="link-card" href="https://github.com/mralifakbar/lampung-design-system"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">code</span>Source code</span><span class="link-card__title">GitHub</span><span class="link-card__body">Code, issues and release notes.</span><span class="link-card__foot">github.com<span class="ic lrow__chev" aria-hidden="true">north_east</span></span></a>
+      <a class="link-card" href="https://www.npmjs.com/package/lampung-design-system"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">inventory_2</span>npm package</span><span class="link-card__title">lampung-design-system</span><span class="link-card__body">Tokens, CSS, icons, aksara and the behavior script.</span><span class="link-card__foot">npmjs.com<span class="ic lrow__chev" aria-hidden="true">north_east</span></span></a>
+      <a class="link-card" href="https://www.npmjs.com/package/lampung-ds"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">rocket_launch</span>CLI on npm</span><span class="link-card__title">lampung-ds</span><span class="link-card__body">The <span class="code">init</span>, <span class="code">add</span>, <span class="code">create</span> and <span class="code">doctor</span> commands.</span><span class="link-card__foot">npmjs.com<span class="ic lrow__chev" aria-hidden="true">north_east</span></span></a>
+      <a class="link-card" href="https://pub.dev/packages/lampung_design_system"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">smartphone</span>Flutter package</span><span class="link-card__title">lampung_design_system</span><span class="link-card__body">Tokens, theme and widgets for Flutter apps.</span><span class="link-card__foot">pub.dev<span class="ic lrow__chev" aria-hidden="true">north_east</span></span></a>
+      <a class="link-card" href="/docs/en/"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">menu_book</span>Documentation</span><span class="link-card__title">Guides and components</span><span class="link-card__body">One page per component, in Indonesian and English.</span><span class="link-card__foot">Read the docs<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
+    </div>
+  </section>
+
+  <section class="msec msec--tight" aria-labelledby="cta-title">
+    <div class="cta-band" data-lds-reveal>
+      <h2 class="cta-band__title" id="cta-title">Want to use LDS in your agency or community?</h2>
+      <p class="cta-band__body">For partnerships or questions about using LDS, write to the address below.</p>
+      <div class="codeblock"><div class="codeblock__bar"><span>Partnership email</span><button type="button" class="btn btn--plain btn--sm" data-lds-copy="alif@kartadinata.app"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Copied">Copy</span><span class="sr-only"> email address</span></button></div><pre>alif@kartadinata.app</pre></div>
+      <div class="cta-band__actions">
+        <a class="btn btn--primary btn--lg" href="mailto:alif@kartadinata.app?subject=Kerja%20sama%20Lampung%20Design%20System"><span class="ic" aria-hidden="true">mail</span>Email about a partnership</a>
+        <a class="btn btn--secondary btn--lg" href="https://github.com/mralifakbar/lampung-design-system/issues">Report an issue on GitHub</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="site-footer__top">
+    <div class="site-footer__brand">
+      <span class="site-footer__name">Lampung Design System</span>
+      <p class="site-footer__about">An unofficial, open source design system. It is not made, endorsed or run by the Provincial Government of Lampung or any agency.</p>
+    </div>
+    <nav class="site-footer__nav" aria-label="Footer">
+      <div class="site-footer__group"><h2>Docs</h2><ul><li><a href="/docs/en/">Get started</a></li><li><a href="/docs/en/components/">Components</a></li><li><a href="/docs/examples/">Examples</a></li></ul></div>
+      <div class="site-footer__group"><h2>Packages</h2><ul><li><a href="https://www.npmjs.com/package/lampung-design-system">npm: core</a></li><li><a href="https://www.npmjs.com/package/lampung-ds">npm: CLI</a></li><li><a href="https://pub.dev/packages/lampung_design_system">pub.dev</a></li></ul></div>
+      <div class="site-footer__group"><h2>Project</h2><ul><li><a href="https://github.com/mralifakbar/lampung-design-system">GitHub</a></li><li><a href="https://opensource.org/license/mit">MIT license</a></li><li><a href="mailto:alif@kartadinata.app?subject=Kerja%20sama%20Lampung%20Design%20System">Partnerships</a></li></ul></div>
+    </nav>
+  </div>
+  <div class="site-footer__bottom">
+    <p>A community project, not a government website. Code under the MIT license. Dibuat di Lampung (made in Lampung).</p>
+    <a class="link" href="../" lang="id" hreflang="id">Baca dalam bahasa Indonesia</a>
+  </div>
+</footer>
+
+</body>
+</html>
