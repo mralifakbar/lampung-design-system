@@ -1,0 +1,336 @@
+---
+title: Pendapatan daerah
+description: Pajak dan retribusi Kota Contoh tahun 2026: realisasi terhadap target, kanal pembayaran, dan tunggakan yang perlu ditagih.
+---
+<template data-slot="actions">
+<button class="btn btn--secondary btn--md" type="button" data-export><span class="btn__label"><span class="ic" aria-hidden="true">download</span>Unduh rekap</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button>
+<button class="btn btn--primary btn--md" type="button" data-lds-modal="setoran"><span class="ic" aria-hidden="true">add</span>Catat setoran</button>
+</template>
+
+<section aria-label="Angka utama" data-states>
+  <div class="dash-kpis" data-state-view="loaded" data-lds-grow>
+    <article class="kpi" aria-labelledby="kpi-pad">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">account_balance</span></span><span class="kpi__label" id="kpi-pad">Pajak dan retribusi 2026</span></div>
+      <div class="kpi__value"><span class="roll" data-lds-roll="Rp 417,4 M" data-total></span></div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--up delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>85,5%<span class="sr-only"> dari target</span></span><span>dari target Rp 488 M</span></div>
+      <svg class="kpi__spark" viewBox="0 0 240 52" preserveAspectRatio="none" role="img" aria-label="Pendapatan kumulatif sejak Januari, naik setiap bulan"><path class="series-area" d="M0 48 L22 44 L44 40 L66 36 L88 32 L110 28 L132 24 L154 20 L176 17 L198 13 L220 10 L240 8 L240 52 L0 52 Z"></path><path class="series-line" d="M0 48 L22 44 L44 40 L66 36 L88 32 L110 28 L132 24 L154 20 L176 17 L198 13 L220 10 L240 8"></path></svg>
+    </article>
+    <article class="kpi" aria-labelledby="kpi-pajak">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">receipt_long</span></span><span class="kpi__label" id="kpi-pajak">Pajak masuk November</span></div>
+      <div class="kpi__value">Rp 22,1 M</div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--up delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>4,3%<span class="sr-only"> naik dibanding 1 sampai 16 Oktober</span></span><span>dibanding 1 sampai 16 Okt</span></div>
+      <div class="kpi__bars" role="img" aria-label="Pajak masuk per hari, 1 sampai 16 November; tertinggi pada 10 November, batas bayar PBB tahap dua"><i style="--h: 42%;"></i><i style="--h: 55%;"></i><i style="--h: 48%;"></i><i style="--h: 51%;"></i><i style="--h: 60%;"></i><i style="--h: 18%;"></i><i style="--h: 12%;"></i><i style="--h: 58%;"></i><i style="--h: 72%;"></i><i style="--h: 100%;"></i><i style="--h: 66%;"></i><i style="--h: 54%;"></i><i style="--h: 49%;"></i><i style="--h: 15%;"></i><i style="--h: 10%;"></i><i class="is-on" style="--h: 31%;"></i></div>
+    </article>
+    <article class="kpi" aria-labelledby="kpi-digital">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">qr_code</span></span><span class="kpi__label" id="kpi-digital">Dibayar lewat kanal digital</span></div>
+      <div class="kpi__value">60%</div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--up delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>7 poin<span class="sr-only"> naik dari 53% pada November 2025</span></span><span>dari 53% pada Nov 2025</span></div>
+      <svg class="kpi__spark" viewBox="0 0 240 52" preserveAspectRatio="none" role="img" aria-label="Porsi pembayaran digital per bulan selama setahun, naik pelan"><path class="series-area" d="M0 40 L22 41 L44 37 L66 38 L88 33 L110 31 L132 30 L154 26 L176 24 L198 22 L220 18 L240 16 L240 52 L0 52 Z"></path><path class="series-line" d="M0 40 L22 41 L44 37 L66 38 L88 33 L110 31 L132 30 L154 26 L176 24 L198 22 L220 18 L240 16"></path></svg>
+    </article>
+    <article class="kpi" aria-labelledby="kpi-tunggak">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">warning</span></span><span class="kpi__label" id="kpi-tunggak">Tunggakan pajak</span></div>
+      <div class="kpi__value">Rp 27,9 M</div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--down delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>6,2%<span class="sr-only"> turun dari Rp 29,7 M pada akhir Oktober</span></span><span>dari Rp 29,7 M akhir Okt</span></div>
+      <svg class="kpi__spark" viewBox="0 0 240 52" preserveAspectRatio="none" role="img" aria-label="Tunggakan pajak per bulan, turun sejak Juli"><path class="series-area" d="M0 14 L22 12 L44 10 L66 10 L88 9 L110 8 L132 12 L154 17 L176 21 L198 26 L220 30 L240 34 L240 52 L0 52 Z"></path><path class="series-line" d="M0 14 L22 12 L44 10 L66 10 L88 9 L110 8 L132 12 L154 17 L176 21 L198 26 L220 30 L240 34"></path></svg>
+    </article>
+  </div>
+  <div class="dash-kpis" data-state-view="loading" role="status" aria-label="Memuat angka utama" hidden>
+    <div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div>
+    <div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div>
+    <div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div>
+    <div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div>
+  </div>
+  <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Angka utama tidak termuat</div><div class="alert__body">Sistem kas daerah tidak menjawab tepat waktu. Tidak ada data yang hilang.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+</section>
+
+<div class="dash-grid dash-grid--stretch">
+  <section class="chart-card dash-span-7" aria-labelledby="bulan-q" data-states>
+    <div class="chart-card__head">
+      <div class="chart-card__titles"><div class="chart-card__q" id="bulan-q">Apakah setoran tiap bulan sesuai rencana?</div><div class="chart-card__sub">Realisasi per bulan terhadap target bulanan, 2026, dalam miliar rupiah</div></div>
+      <div class="chart-card__actions">
+        <div class="seg chart-card__range" role="group" aria-label="Jenis pendapatan" data-lds-segmented data-lds-chart-for="bulanan">
+          <span class="seg__thumb"></span>
+          <button type="button" class="seg__btn" aria-pressed="true" data-set="pajak">Pajak</button>
+          <button type="button" class="seg__btn" aria-pressed="false" data-set="retribusi">Retribusi</button>
+        </div>
+      </div>
+    </div>
+    <div class="stack" style="--gap: 14px;" data-state-view="loaded">
+      <div class="chart-card__figure"><div class="chart-card__big" data-chart-figure>Rp 368 M</div><span class="delta delta--pill delta--up delta--good" data-chart-delta><span class="ic" aria-hidden="true">arrow_upward</span>85,4%</span><span class="chart-card__sub" data-chart-note>dari target pajak Rp 431 M</span></div>
+      <div class="chart" id="bulanan" data-lds-chart='{"xName":"Bulan","height":260,"format":{"prefix":"Rp ","suffix":" M"},"x":["Jan","Feb","Mar","Apr","Mei","Jun","Jul","Agu","Sep","Okt","Nov","Des"],"xFull":["Januari 2026","Februari 2026","Maret 2026","April 2026","Mei 2026","Juni 2026","Juli 2026","Agustus 2026","September 2026","Oktober 2026","November 2026, sampai tanggal 16","Desember 2026"],"series":[{"name":"Realisasi","kind":"bar","values":[28,31,35,33,36,34,38,37,35,39,22,0]},{"name":"Target","kind":"line","dashed":true,"color":4,"values":[32,32,33,34,35,35,36,37,37,38,40,42]}],"figure":"Rp 368 M","delta":"85,4%","note":"dari target pajak Rp 431 M","label":"Realisasi pajak per bulan terhadap target, 2026: Rp 368 miliar dari Rp 431 miliar. Di atas target pada Maret, Mei, Juli dan Oktober; November baru sampai tanggal 16.","sets":{"pajak":{"series":[{"name":"Realisasi","kind":"bar","values":[28,31,35,33,36,34,38,37,35,39,22,0]},{"name":"Target","kind":"line","dashed":true,"color":4,"values":[32,32,33,34,35,35,36,37,37,38,40,42]}],"figure":"Rp 368 M","delta":"85,4%","note":"dari target pajak Rp 431 M","label":"Realisasi pajak per bulan terhadap target, 2026: Rp 368 miliar dari Rp 431 miliar. November baru sampai tanggal 16."},"retribusi":{"series":[{"name":"Realisasi","kind":"bar","values":[4,4,5,4,5,5,5,5,4,5,3,0]},{"name":"Target","kind":"line","dashed":true,"color":4,"values":[4,4,5,5,5,5,5,5,5,5,5,4]}],"figure":"Rp 49 M","delta":"86,0%","note":"dari target retribusi Rp 57 M","label":"Realisasi retribusi per bulan terhadap target, 2026: Rp 49 miliar dari Rp 57 miliar. November baru sampai tanggal 16."}}}'></div>
+    </div>
+    <div class="stack" style="--gap: 30px; padding-top: 24px;" data-state-view="loading" role="status" aria-label="Memuat setoran bulanan" hidden><div class="skel" style="height: 32px; width: 30%;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div></div>
+    <div class="empty" data-state-view="empty" hidden><div class="empty__title">Belum ada setoran tahun ini</div><div class="empty__body">Grafik terisi begitu kas daerah mencatat setoran pertama.</div><button class="btn btn--secondary btn--sm" type="button" data-lds-modal="setoran">Catat setoran</button></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Setoran bulanan tidak termuat</div><div class="alert__body">Sambungan ke kas daerah terputus.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    <div class="chart-card__foot"><span>Diperbarui 16 Nov 2026, 09.30 WIB</span><a class="btn btn--plain btn--sm" href="keuangan.html">Lihat keuangan daerah<span class="ic" aria-hidden="true">chevron_right</span></a></div>
+  </section>
+
+  <section class="chart-card dash-span-5" aria-labelledby="kanal-q" data-states>
+    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="kanal-q">Lewat mana warga membayar?</div><div class="chart-card__sub">Pajak dan retribusi, 1 sampai 16 November</div></div></div>
+    <div class="chart" data-state-view="loaded" data-lds-chart='{"type":"donut","format":{"prefix":"Rp ","suffix":" M"},"center":"Rp 25 M","unit":"dalam 16 hari","label":"Pembayaran 1 sampai 16 November, Rp 25 miliar: teller bank daerah 40%, rekening virtual 28%, kode QR 20%, gerai ritel 12%.","segments":[{"name":"Teller bank daerah","value":10},{"name":"Rekening virtual","value":7},{"name":"Kode QR","value":5},{"name":"Gerai ritel","value":3,"color":"neutral"}]}'></div>
+    <div class="cluster" style="--gap: 20px; padding: 12px 0;" data-state-view="loading" role="status" aria-label="Memuat kanal pembayaran" hidden><div class="skel" style="width: 140px; height: 140px; border-radius: 50%;"></div><div class="stack" style="--gap: 10px; flex: 1;"><div class="skel" style="height: 12px;"></div><div class="skel" style="height: 12px; width: 70%;"></div><div class="skel" style="height: 12px; width: 50%;"></div></div></div>
+    <div class="empty" data-state-view="empty" hidden><div class="empty__title">Belum ada pembayaran bulan ini</div><div class="empty__body">Pembagian kanal muncul setelah setoran pertama bulan ini tercatat.</div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Kanal pembayaran tidak termuat</div><div class="alert__body">Coba lagi sebentar lagi.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    <div class="chart-card__foot"><span>Kode QR naik dari 14% pada Oktober</span></div>
+  </section>
+</div>
+
+<section class="chart-card" aria-labelledby="jenis-q" data-states>
+  <div class="chart-card__head">
+    <div class="chart-card__titles"><div class="chart-card__q" id="jenis-q">Jenis mana yang tertinggal dari target?</div><div class="chart-card__sub">Realisasi sampai 16 November terhadap target setahun. Penanda menunjukkan posisi yang seharusnya hari ini (88%).</div></div>
+  </div>
+  <div class="dash-pendapatan__targets" data-state-view="loaded">
+    <div class="stack" style="--gap: 12px;">
+      <h3 class="sep-label sep-label--start">Pajak daerah</h3>
+      <div class="target-list" data-lds-grow>
+        <div class="target" style="--v: 87.3%; --t: 88%;"><div class="target__meta"><span class="target__label">Pajak penerangan jalan</span><span class="target__val"><b>Rp 96 M</b> dari Rp 110 M</span></div><div class="target__track" role="img" aria-label="Pajak penerangan jalan: Rp 96 miliar dari Rp 110 miliar, 87 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div><div class="target__foot"><span>Sesuai rencana</span></div></div>
+        <div class="target target--success" style="--v: 87.6%; --t: 88%;"><div class="target__meta"><span class="target__label">Pajak restoran</span><span class="target__val"><b>Rp 92 M</b> dari Rp 105 M</span></div><div class="target__track" role="img" aria-label="Pajak restoran: Rp 92 miliar dari Rp 105 miliar, 88 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div><div class="target__foot"><span>Sesuai rencana</span></div></div>
+        <div class="target" style="--v: 84.5%; --t: 88%;"><div class="target__meta"><span class="target__label">Pajak bumi dan bangunan</span><span class="target__val"><b>Rp 71 M</b> dari Rp 84 M</span></div><div class="target__track" role="img" aria-label="Pajak bumi dan bangunan: Rp 71 miliar dari Rp 84 miliar, 85 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div><div class="target__foot"><span>Tahap tiga jatuh tempo 30 Nov</span></div></div>
+        <div class="target target--success" style="--v: 88.5%; --t: 88%;"><div class="target__meta"><span class="target__label">Bea perolehan hak tanah dan bangunan</span><span class="target__val"><b>Rp 46 M</b> dari Rp 52 M</span></div><div class="target__track" role="img" aria-label="Bea perolehan hak tanah dan bangunan: Rp 46 miliar dari Rp 52 miliar, 88 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div><div class="target__foot"><span>Sedikit di depan rencana</span></div></div>
+        <div class="target" style="--v: 86.4%; --t: 88%;"><div class="target__meta"><span class="target__label">Pajak hotel</span><span class="target__val"><b>Rp 38 M</b> dari Rp 44 M</span></div><div class="target__track" role="img" aria-label="Pajak hotel: Rp 38 miliar dari Rp 44 miliar, 86 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div><div class="target__foot"><span>Libur akhir tahun biasanya menutup selisih</span></div></div>
+        <div class="target target--warning" style="--v: 70%; --t: 88%;"><div class="target__meta"><span class="target__label">Pajak reklame</span><span class="target__val"><b>Rp 14 M</b> dari Rp 20 M</span></div><div class="target__track" role="img" aria-label="Pajak reklame: Rp 14 miliar dari Rp 20 miliar, 70 persen, tertinggal"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div><div class="target__foot"><span>Tertinggal Rp 3,6 M dari rencana</span></div></div>
+        <div class="target target--warning" style="--v: 68.8%; --t: 88%;"><div class="target__meta"><span class="target__label">Pajak parkir</span><span class="target__val"><b>Rp 11 M</b> dari Rp 16 M</span></div><div class="target__track" role="img" aria-label="Pajak parkir: Rp 11 miliar dari Rp 16 miliar, 69 persen, tertinggal"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div><div class="target__foot"><span>Tertinggal Rp 3,1 M dari rencana</span></div></div>
+      </div>
+    </div>
+    <div class="stack" style="--gap: 12px;">
+      <h3 class="sep-label sep-label--start">Retribusi daerah</h3>
+      <div class="target-list" data-lds-grow>
+        <div class="target" style="--v: 87.5%; --t: 88%;"><div class="target__meta"><span class="target__label">Retribusi pasar</span><span class="target__val"><b>Rp 21 M</b> dari Rp 24 M</span></div><div class="target__track" role="img" aria-label="Retribusi pasar: Rp 21 miliar dari Rp 24 miliar, 88 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div><div class="target__foot"><span>14 pasar, 3.420 kios</span></div></div>
+        <div class="target" style="--v: 84.2%; --t: 88%;"><div class="target__meta"><span class="target__label">Retribusi sampah</span><span class="target__val"><b>Rp 16 M</b> dari Rp 19 M</span></div><div class="target__track" role="img" aria-label="Retribusi sampah: Rp 16 miliar dari Rp 19 miliar, 84 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div><div class="target__foot"><span>Ditagih bersama rekening air</span></div></div>
+        <div class="target target--warning" style="--v: 80%; --t: 88%;"><div class="target__meta"><span class="target__label">Retribusi parkir tepi jalan</span><span class="target__val"><b>Rp 8 M</b> dari Rp 10 M</span></div><div class="target__track" role="img" aria-label="Retribusi parkir tepi jalan: Rp 8 miliar dari Rp 10 miliar, 80 persen, tertinggal"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div><div class="target__foot"><span>Tertinggal Rp 0,8 M dari rencana</span></div></div>
+        <div class="target target--success" style="--v: 100%; --t: 88%;"><div class="target__meta"><span class="target__label">Pemakaian aset daerah</span><span class="target__val"><b>Rp 4 M</b> dari Rp 4 M</span></div><div class="target__track" role="img" aria-label="Pemakaian aset daerah: Rp 4 miliar dari Rp 4 miliar, tercapai"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div><div class="target__foot"><span>Target tercapai 3 Nov</span></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="stack" style="--gap: 16px;" data-state-view="loading" role="status" aria-label="Memuat realisasi per jenis" hidden><div class="skel" style="height: 12px; width: 40%;"></div><div class="skel" style="height: 10px;"></div><div class="skel" style="height: 12px; width: 32%;"></div><div class="skel" style="height: 10px;"></div><div class="skel" style="height: 12px; width: 46%;"></div><div class="skel" style="height: 10px;"></div></div>
+  <div class="empty" data-state-view="empty" hidden><div class="empty__title">Target 2026 belum ditetapkan</div><div class="empty__body">Realisasi per jenis tampil setelah target pendapatan disahkan bersama anggaran.</div><a class="btn btn--secondary btn--sm" href="keuangan.html">Buka keuangan daerah</a></div>
+  <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Realisasi per jenis tidak termuat</div><div class="alert__body">Tidak ada data yang berubah.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+</section>
+
+<div class="spotlight" data-spot>
+  <span class="spotlight__eyebrow"><span class="ic" aria-hidden="true">campaign</span>Langkah berikutnya</span>
+  <h3 class="spotlight__title">Kirim teguran pertama ke 9 wajib pajak parkir dan reklame</h3>
+  <p class="spotlight__body">Mereka belum membayar lebih dari tiga bulan, dengan total Rp 2,4 M. Teguran dikirim lewat surat dan pesan singkat ke nomor yang terdaftar.</p>
+  <div class="spotlight__actions"><button type="button" class="btn btn--primary" data-tegur-semua><span class="btn__label">Kirim 9 teguran</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button><a class="btn btn--secondary" href="#tunggak-title">Periksa daftarnya dulu</a></div>
+</div>
+
+<section class="stack" style="--gap: 16px;" aria-labelledby="tunggak-title">
+  <div class="cluster" style="justify-content: space-between; --gap: 12px;">
+    <div class="section__head"><h2 class="section__title-sm" id="tunggak-title">Tunggakan yang perlu ditagih</h2><p class="section__sub">Wajib pajak dengan tunggakan di atas Rp 50 jt, yang terlama di atas.</p></div>
+  </div>
+  <div class="dtable" id="tunggak" data-lds-table="pendapatan-tunggakan" data-page-size="8" data-noun="wajib pajak" data-states>
+    <div class="dtable__bar">
+      <div class="control search dtable__search"><span class="ic" aria-hidden="true">search</span><input type="search" data-lds-table-search placeholder="Cari nama atau nomor objek" aria-label="Cari tunggakan"></div>
+      <div class="chip-row" data-lds-chips data-lds-table-filter="jenis" role="group" aria-label="Jenis">
+        <button class="chip" type="button" value="pajak"><span class="ic chip__check" aria-hidden="true">check</span>Pajak</button>
+        <button class="chip" type="button" value="retribusi"><span class="ic chip__check" aria-hidden="true">check</span>Retribusi</button>
+      </div>
+      <div class="dtable__tools">
+        <button class="btn btn--plain btn--md" type="button" data-lds-table-reset hidden>Hapus filter</button>
+        <div class="tip-host">
+          <button class="btn btn--secondary btn--md" type="button" data-lds-menu="f-kec" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">location_on</span>Kecamatan<span class="dtable__filter-count" data-lds-table-filter-count="kec" hidden>0</span></button>
+          <div class="menu menu--right" id="f-kec" role="menu" aria-label="Saring menurut kecamatan" style="top: calc(100% + 6px); right: 0;">
+            <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="kec" data-value="tengah">Kecamatan Tengah<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="kec" data-value="utara">Kecamatan Utara<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="kec" data-value="selatan">Kecamatan Selatan<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="kec" data-value="pesisir">Kecamatan Pesisir<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="kec" data-value="teluk">Kecamatan Teluk<span class="ic menu__check" aria-hidden="true">check</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="table-box" tabindex="0" aria-label="Tunggakan, bisa digeser ke samping">
+      <table class="table">
+        <thead><tr>
+          <th data-col="nama"><button type="button">Wajib pajak<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+          <th data-col="jenis"><button type="button">Jenis<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+          <th data-col="kec">Kecamatan</th>
+          <th data-col="lama" aria-sort="descending"><button type="button">Lama<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+          <th data-col="status">Penagihan</th>
+          <th data-col="nilai" class="num"><button type="button">Tunggakan<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+          <th class="dtable__actions"><span class="sr-only">Tindakan</span></th>
+        </tr></thead>
+        <tbody>
+          <tr data-jenis="pajak" data-kec="tengah"><td data-sort="Hotel Teluk Indah"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 36px;" aria-hidden="true"><span class="ic">hotel</span></span><span><b>Hotel Teluk Indah</b><small>Objek 18.71.020.004</small></span></span></td><td>Pajak hotel</td><td>Tengah</td><td data-sort="9">9 bulan</td><td><span class="badge badge--danger">Teguran 2</span></td><td class="num" data-sort="412500000"><b>Rp 412,5 jt</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk Hotel Teluk Indah" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="pajak" data-kec="utara"><td data-sort="Reklame Simpang Lima Jaya"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 36px;" aria-hidden="true"><span class="ic">campaign</span></span><span><b>Reklame Simpang Lima Jaya</b><small>Objek 18.71.050.118</small></span></span></td><td>Pajak reklame</td><td>Utara</td><td data-sort="7">7 bulan</td><td><span class="badge badge--warning">Teguran 1</span></td><td class="num" data-sort="286000000"><b>Rp 286 jt</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk Reklame Simpang Lima Jaya" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="pajak" data-kec="pesisir"><td data-sort="Parkir Pasar Ikan Pesisir"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 36px;" aria-hidden="true"><span class="ic">directions_car</span></span><span><b>Parkir Pasar Ikan Pesisir</b><small>Objek 18.71.080.031</small></span></span></td><td>Pajak parkir</td><td>Pesisir</td><td data-sort="6">6 bulan</td><td><span class="badge">Belum ditegur</span></td><td class="num" data-sort="198400000"><b>Rp 198,4 jt</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk Parkir Pasar Ikan Pesisir" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="pajak" data-kec="tengah"><td data-sort="Rumah Makan Sederhana Rasa"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 36px;" aria-hidden="true"><span class="ic">restaurant</span></span><span><b>Rumah Makan Sederhana Rasa</b><small>Objek 18.71.020.077</small></span></span></td><td>Pajak restoran</td><td>Tengah</td><td data-sort="5">5 bulan</td><td><span class="badge badge--success">Mencicil</span></td><td class="num" data-sort="164200000"><b>Rp 164,2 jt</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk Rumah Makan Sederhana Rasa" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="retribusi" data-kec="selatan"><td data-sort="Blok C Pasar Selatan"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 36px;" aria-hidden="true"><span class="ic">storefront</span></span><span><b>Blok C Pasar Selatan</b><small>42 kios, dikelola koperasi pedagang</small></span></span></td><td>Retribusi pasar</td><td>Selatan</td><td data-sort="5">5 bulan</td><td><span class="badge badge--warning">Teguran 1</span></td><td class="num" data-sort="126000000"><b>Rp 126 jt</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk Blok C Pasar Selatan" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="pajak" data-kec="teluk"><td data-sort="Penginapan Bukit Hijau"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 36px;" aria-hidden="true"><span class="ic">hotel</span></span><span><b>Penginapan Bukit Hijau</b><small>Objek 18.71.090.012</small></span></span></td><td>Pajak hotel</td><td>Teluk</td><td data-sort="4">4 bulan</td><td><span class="badge">Belum ditegur</span></td><td class="num" data-sort="97800000"><b>Rp 97,8 jt</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk Penginapan Bukit Hijau" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="pajak" data-kec="utara"><td data-sort="Reklame Jalan Kenanga"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 36px;" aria-hidden="true"><span class="ic">campaign</span></span><span><b>Reklame Jalan Kenanga</b><small>Objek 18.71.050.204</small></span></span></td><td>Pajak reklame</td><td>Utara</td><td data-sort="4">4 bulan</td><td><span class="badge">Belum ditegur</span></td><td class="num" data-sort="88000000"><b>Rp 88 jt</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk Reklame Jalan Kenanga" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="retribusi" data-kec="tengah"><td data-sort="Parkir tepi Jalan Merpati"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 36px;" aria-hidden="true"><span class="ic">directions_car</span></span><span><b>Parkir tepi Jalan Merpati</b><small>Juru parkir zona 3</small></span></span></td><td>Retribusi parkir</td><td>Tengah</td><td data-sort="3">3 bulan</td><td><span class="badge">Belum ditegur</span></td><td class="num" data-sort="61500000"><b>Rp 61,5 jt</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk Parkir tepi Jalan Merpati" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="pajak" data-kec="selatan"><td data-sort="Kafe Sudut Sukamaju"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 36px;" aria-hidden="true"><span class="ic">restaurant</span></span><span><b>Kafe Sudut Sukamaju</b><small>Objek 18.71.030.145</small></span></span></td><td>Pajak restoran</td><td>Selatan</td><td data-sort="3">3 bulan</td><td><span class="badge badge--success">Mencicil</span></td><td class="num" data-sort="54300000"><b>Rp 54,3 jt</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk Kafe Sudut Sukamaju" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="pajak" data-kec="pesisir"><td data-sort="Parkir Dermaga Wisata"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 36px;" aria-hidden="true"><span class="ic">directions_car</span></span><span><b>Parkir Dermaga Wisata</b><small>Objek 18.71.080.066</small></span></span></td><td>Pajak parkir</td><td>Pesisir</td><td data-sort="3">3 bulan</td><td><span class="badge">Belum ditegur</span></td><td class="num" data-sort="52000000"><b>Rp 52 jt</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk Parkir Dermaga Wisata" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr class="dtable__empty" hidden><td colspan="7"><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">filter_list</span></div><div class="empty__title">Tidak ada tunggakan yang cocok</div><div class="empty__body">Coba nama atau nomor objek lain, atau hapus filter.</div><button class="btn btn--secondary btn--md" type="button" data-lds-table-reset>Hapus filter</button></div></td></tr>
+          <tr class="dtable__state" data-state="loading" hidden><td><span class="dtable__user"><span class="skel" style="width: 36px; height: 36px; border-radius: 10px;"></span><span class="stack" style="--gap: 6px; flex: 1;"><span class="skel" style="display: block; height: 13px; width: 56%;"></span><span class="skel" style="display: block; height: 11px; width: 40%;"></span></span></span></td><td colspan="6"><span class="skel" style="display: block; height: 12px; width: 44%;"></span></td></tr>
+          <tr class="dtable__state" data-state="loading" hidden><td><span class="dtable__user"><span class="skel" style="width: 36px; height: 36px; border-radius: 10px;"></span><span class="stack" style="--gap: 6px; flex: 1;"><span class="skel" style="display: block; height: 13px; width: 48%;"></span><span class="skel" style="display: block; height: 11px; width: 36%;"></span></span></span></td><td colspan="6"><span class="skel" style="display: block; height: 12px; width: 52%;"></span></td></tr>
+          <tr class="dtable__state" data-state="loading" hidden><td><span class="dtable__user"><span class="skel" style="width: 36px; height: 36px; border-radius: 10px;"></span><span class="stack" style="--gap: 6px; flex: 1;"><span class="skel" style="display: block; height: 13px; width: 62%;"></span><span class="skel" style="display: block; height: 11px; width: 42%;"></span></span></span></td><td colspan="6"><span class="skel" style="display: block; height: 12px; width: 38%;"></span></td></tr>
+          <tr class="dtable__state" data-state="loading" hidden><td><span class="dtable__user"><span class="skel" style="width: 36px; height: 36px; border-radius: 10px;"></span><span class="stack" style="--gap: 6px; flex: 1;"><span class="skel" style="display: block; height: 13px; width: 44%;"></span><span class="skel" style="display: block; height: 11px; width: 32%;"></span></span></span></td><td colspan="6"><span class="skel" style="display: block; height: 12px; width: 48%;"></span></td></tr>
+          <tr class="dtable__state" data-state="empty" hidden><td colspan="7"><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">check_circle</span></div><div class="empty__title">Tidak ada tunggakan di atas Rp 50 jt</div><div class="empty__body">Semua wajib pajak besar sudah membayar atau mencicil sesuai jadwal.</div><a class="btn btn--secondary btn--md" href="laporan.html">Lihat semua laporan</a></div></td></tr>
+          <tr class="dtable__state" data-state="error" hidden><td colspan="7"><div class="alert alert--danger" role="alert"><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Daftar tunggakan tidak termuat</div><div class="alert__body">Sistem pajak daerah tidak menjawab tepat waktu. Tidak ada data yang berubah.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="dtable__foot">
+      <span class="dtable__info" data-lds-table-info aria-live="polite"></span>
+      <nav aria-label="Halaman"><div class="pager" data-lds-table-pager></div></nav>
+    </div>
+  </div>
+</section>
+
+<div class="menu menu--right" id="tunggak-menu" role="menu" aria-label="Tindakan tunggakan" style="position: fixed;">
+  <button class="menu__item" type="button" role="menuitem" data-act="tegur"><span class="ic" aria-hidden="true">mail</span>Kirim teguran berikutnya</button>
+  <button class="menu__item" type="button" role="menuitem" data-act="salin"><span class="ic" aria-hidden="true">content_copy</span>Salin nomor objek</button>
+  <button class="menu__item" type="button" role="menuitem" data-act="cicil"><span class="ic" aria-hidden="true">event_available</span>Setujui cicilan</button>
+  <div class="menu__sep"></div>
+  <button class="menu__item" type="button" role="menuitem" data-act="lunas"><span class="ic" aria-hidden="true">check_circle</span>Tandai lunas</button>
+</div>
+
+<dialog class="modal" id="setoran" aria-labelledby="setoran-title">
+  <button class="icon-btn dialog__close" type="button" data-lds-modal-close aria-label="Tutup"><span class="ic" aria-hidden="true">close</span></button>
+  <h2 class="dialog__title" id="setoran-title">Catat setoran</h2>
+  <p class="dialog__body">Untuk setoran tunai yang diterima loket kecamatan. Setoran lewat bank dan kode QR tercatat sendiri.</p>
+  <form class="form" id="setoran-form" style="margin-top: 20px;" novalidate>
+    <div class="field">
+      <span class="field__label" id="st-jenis-l">Jenis pendapatan</span>
+      <div class="select" data-lds-select data-jenis>
+        <button type="button" class="control select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="st-jenis-l"><span class="ic" aria-hidden="true">receipt_long</span><span class="select__value">Retribusi pasar</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <ul class="menu select__menu" role="listbox" aria-labelledby="st-jenis-l">
+          <li class="menu__item is-selected" role="option" aria-selected="true" data-value="Retribusi pasar"><span class="select__text">Retribusi pasar</span></li>
+          <li class="menu__item" role="option" aria-selected="false" data-value="Retribusi parkir tepi jalan"><span class="select__text">Retribusi parkir tepi jalan</span></li>
+          <li class="menu__item" role="option" aria-selected="false" data-value="Retribusi sampah"><span class="select__text">Retribusi sampah</span></li>
+          <li class="menu__item" role="option" aria-selected="false" data-value="Pajak reklame"><span class="select__text">Pajak reklame</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="field">
+      <span class="field__label" id="st-loket-l">Loket</span>
+      <div class="chip-row" data-lds-chips="single" role="group" aria-labelledby="st-loket-l" data-loket>
+        <button class="chip" type="button" value="Kecamatan Tengah" aria-pressed="true"><span class="ic chip__check" aria-hidden="true">check</span>Tengah</button>
+        <button class="chip" type="button" value="Kecamatan Selatan" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Selatan</button>
+        <button class="chip" type="button" value="Kecamatan Pesisir" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Pesisir</button>
+      </div>
+    </div>
+    <div class="field">
+      <label class="field__label" for="st-nilai">Jumlah</label>
+      <div class="control" data-amount-control><span class="control__suffix">Rp</span><input id="st-nilai" name="nilai" inputmode="numeric" autocomplete="off" placeholder="0" aria-describedby="st-nilai-help"></div>
+      <span class="field__help" id="st-nilai-help">Tulis tanpa titik, misalnya 2500000.</span>
+    </div>
+    <div class="field">
+      <label class="field__label" for="st-ref">Nomor bukti setor <span>Opsional</span></label>
+      <div class="control"><input id="st-ref" name="ref" placeholder="STS/1124/PSR"></div>
+    </div>
+    <div class="form__actions">
+      <button class="btn btn--secondary" type="button" data-lds-modal-close>Batal</button>
+      <button class="btn btn--primary" type="submit"><span class="btn__label">Simpan setoran</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button>
+    </div>
+  </form>
+</dialog>
+
+<script type="module">
+import { tableRefresh, tableState, setLoading, shake, closeModal, closeMenus, morphText, announce } from '../../../js/lds.js';
+import { notify, delay } from './dashboard.js';
+
+const rupiah = (n) => 'Rp ' + Math.round(n).toLocaleString('id-ID');
+
+// Row menu placed next to its button (fixed, so it is not clipped by the table box)
+const rowMenuFor = (menu, root, onOpen) => {
+  let forRow = null, forBtn = null, openedAt = 0;
+  const close = (focus) => { menu.classList.remove('is-open'); if (forBtn) { forBtn.setAttribute('aria-expanded', 'false'); if (focus) forBtn.focus(); } forBtn = null; };
+  const open = (btn) => {
+    if (forBtn === btn && menu.classList.contains('is-open')) { close(); return; }
+    closeMenus(); close();
+    forRow = btn.closest('tr'); forBtn = btn;
+    onOpen && onOpen(forRow, menu);
+    const r = btn.getBoundingClientRect();
+    menu.style.left = 'auto'; menu.style.right = `${Math.max(8, innerWidth - r.right)}px`;
+    const below = r.bottom + 6 + menu.offsetHeight + 40 < innerHeight;
+    menu.style.top = below ? `${r.bottom + 6}px` : 'auto';
+    menu.style.bottom = below ? 'auto' : `${innerHeight - r.top + 6}px`;
+    menu.classList.toggle('is-flipped-y', !below);
+    menu.classList.add('is-open'); openedAt = performance.now();
+    btn.setAttribute('aria-expanded', 'true');
+    setTimeout(() => menu.querySelector('.menu__item:not([hidden])').focus(), 30);
+  };
+  root.addEventListener('click', (e) => { const b = e.target.closest('[data-row-menu]'); if (b) { e.stopPropagation(); open(b); } });
+  document.addEventListener('click', (e) => { if (!menu.contains(e.target)) close(); });
+  addEventListener('scroll', () => { if (performance.now() - openedAt > 300) close(); }, { passive: true });
+  menu.addEventListener('keydown', (e) => {
+    const items = [...menu.querySelectorAll('.menu__item:not([hidden])')];
+    const i = items.indexOf(document.activeElement);
+    if (e.key === 'ArrowDown') { e.preventDefault(); items[(i + 1) % items.length].focus(); }
+    if (e.key === 'ArrowUp') { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+    if (e.key === 'Escape') { e.stopPropagation(); close(true); }
+  });
+  return { row: () => forRow, close };
+};
+
+// Unduh rekap
+const ex = document.querySelector('[data-export]');
+ex.addEventListener('click', async () => { setLoading(ex, true); await delay(900); setLoading(ex, false); notify({ title: 'Rekap pendapatan diunduh', body: 'rekap-pendapatan-1-16-nov-2026.xlsx', icon: 'check_circle' }); });
+
+// Tunggakan: the next warning letter, installments, paid with Undo
+const table = document.getElementById('tunggak'), tbody = table.querySelector('tbody');
+const menu = document.getElementById('tunggak-menu');
+const NEXT = { 'Belum ditegur': ['Teguran 1', 'badge badge--warning'], 'Teguran 1': ['Teguran 2', 'badge badge--danger'], 'Teguran 2': ['Teguran 3', 'badge badge--danger'] };
+const rm = rowMenuFor(menu, tbody, (tr, m) => {
+  const st = tr.cells[4].textContent.trim();
+  m.querySelector('[data-act="tegur"]').hidden = !NEXT[st] || st === 'Mencicil';
+  m.querySelector('[data-act="cicil"]').hidden = st === 'Mencicil';
+});
+const tegur = (tr) => {
+  const badge = tr.cells[4].querySelector('.badge'); const st = badge.textContent.trim();
+  if (!NEXT[st]) return null;
+  const before = [st, badge.className];
+  badge.textContent = NEXT[st][0]; badge.className = NEXT[st][1];
+  return () => { badge.textContent = before[0]; badge.className = before[1]; };
+};
+menu.addEventListener('click', (e) => {
+  const it = e.target.closest('[data-act]'); const tr = rm.row(); if (!it || !tr) return;
+  rm.close(true);
+  const name = tr.querySelector('b').textContent, obj = tr.querySelector('small').textContent;
+  if (it.dataset.act === 'tegur') { const undo = tegur(tr); notify({ title: `Teguran dikirim ke ${name}`, body: 'Lewat surat dan pesan singkat', icon: 'mail', action: 'Urungkan', onAction: () => { undo && undo(); return { title: 'Teguran dibatalkan', icon: 'undo' }; } }); }
+  if (it.dataset.act === 'salin') { navigator.clipboard?.writeText(obj).catch(() => {}); notify({ title: 'Nomor objek disalin', body: obj, icon: 'content_copy' }); }
+  if (it.dataset.act === 'cicil') { const b = tr.cells[4].querySelector('.badge'); const prev = [b.textContent, b.className]; b.textContent = 'Mencicil'; b.className = 'badge badge--success'; notify({ title: `Cicilan ${name} disetujui`, body: '6 kali angsuran, mulai Desember', icon: 'event_available', action: 'Urungkan', onAction: () => { b.textContent = prev[0]; b.className = prev[1]; return { title: 'Cicilan dibatalkan', icon: 'undo' }; } }); }
+  if (it.dataset.act === 'lunas') {
+    const next = tr.nextElementSibling; tr.remove(); tableRefresh(table);
+    notify({ title: `${name} ditandai lunas`, body: 'Keluar dari daftar tunggakan', icon: 'check_circle', action: 'Urungkan', onAction: () => { tbody.insertBefore(tr, next); tableRefresh(table); return { title: 'Kembali ke daftar tunggakan', icon: 'undo' }; } });
+  }
+});
+table.addEventListener('dash:state', (e) => tableState(table, e.detail.state === 'loaded' ? 'ready' : e.detail.state));
+tbody.addEventListener('click', async (e) => { if (!e.target.closest('[data-retry]')) return; tableState(table, 'loading'); await delay(900); tableState(table, 'ready'); });
+
+// Spotlight: send the first warning to every parkir and reklame row not warned yet
+const all = document.querySelector('[data-tegur-semua]');
+all.addEventListener('click', async () => {
+  setLoading(all, true); await delay(1000); setLoading(all, false);
+  const rows = [...tbody.querySelectorAll('tr[data-jenis]')].filter((tr) => /parkir|reklame/i.test(tr.cells[1].textContent) && tr.cells[4].textContent.trim() === 'Belum ditegur');
+  const undos = rows.map(tegur);
+  const spot = document.querySelector('[data-spot]');
+  morphText(spot.querySelector('.spotlight__title'), '9 teguran pertama sudah dikirim');
+  spot.querySelector('.spotlight__body').textContent = 'Wajib pajak punya 14 hari untuk membayar atau mengajukan cicilan. Balasan masuk ke kotak masuk.';
+  all.disabled = true; all.querySelector('.btn__label').textContent = 'Terkirim';
+  notify({ title: '9 teguran dikirim', body: `${rows.length} di antaranya ada di daftar ini`, icon: 'mail', action: 'Urungkan', onAction: () => { undos.forEach((u) => u && u()); all.disabled = false; all.querySelector('.btn__label').textContent = 'Kirim 9 teguran'; morphText(spot.querySelector('.spotlight__title'), 'Kirim teguran pertama ke 9 wajib pajak parkir dan reklame'); return { title: 'Teguran dibatalkan', icon: 'undo' }; } });
+});
+
+// Catat setoran: validate the amount, then the yearly total moves
+const form = document.getElementById('setoran-form');
+let jenis = 'Retribusi pasar', loket = 'Kecamatan Tengah';
+const help = document.getElementById('st-nilai-help'), ctrl = form.querySelector('[data-amount-control]'), nilai = form.elements.nilai;
+const HELP = help.textContent;
+const clearErr = () => { ctrl.classList.remove('is-invalid'); help.classList.remove('field__help--error'); help.textContent = HELP; };
+form.querySelector('[data-jenis]').addEventListener('lds:change', (e) => { jenis = e.detail.value; });
+form.querySelector('[data-loket]').addEventListener('lds:change', (e) => { loket = e.detail.value; });
+nilai.addEventListener('input', clearErr);
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const v = Number(nilai.value.replace(/[^0-9]/g, ''));
+  const refuse = (t) => { ctrl.classList.add('is-invalid'); help.classList.add('field__help--error'); help.textContent = t; shake(ctrl); nilai.focus(); announce(t); };
+  if (!v) return refuse('Tulis jumlah setoran, misalnya 2500000.');
+  if (v > 500000000) return refuse('Setoran tunai di loket paling banyak Rp 500.000.000. Setoran lebih besar lewat bank.');
+  const submit = form.querySelector('[type="submit"]');
+  setLoading(submit, true); await delay(900); setLoading(submit, false);
+  closeModal(document.getElementById('setoran'), () => { form.reset(); clearErr(); });
+  notify({ title: `Setoran ${rupiah(v)} tercatat`, body: `${jenis}, loket ${loket}`, icon: 'check_circle' });
+});
+</script>

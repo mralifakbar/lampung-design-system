@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="id" class="lds" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Keuangan daerah · Sakai Dasbor · Contoh Lampung Design System</title>
+<meta name="description" content="Realisasi belanja APBD 2026 per dinas, posisi kas daerah, SP2D yang terbit, dan pembayaran dua minggu ke depan.">
+<meta name="theme-color" content="#FFFFFF">
+<script>try { var t = localStorage.getItem('lds-theme'); if (t) document.documentElement.setAttribute('data-theme', t); if (localStorage.getItem('lds-shell-rail') === '1') document.documentElement.setAttribute('data-shell-rail', ''); } catch (e) {}</script>
+<link rel="stylesheet" href="../../../css/lds.css">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="lds">
+<a class="skip-link" href="#main">Lewati ke isi</a>
+<div class="navprogress" aria-hidden="true"></div>
+<div class="shell" data-lds-shell>
+  <aside class="shell__side" id="side" aria-label="Menu samping">
+    <a class="shell__brand" href="ringkasan.html"><span class="shell__mark" aria-hidden="true">S</span><span class="shell__label">Sakai Dasbor</span></a>
+    <nav class="shell__nav" aria-label="Utama">
+      <span class="shell__hl" aria-hidden="true"></span>
+      <p class="shell__group">Dasbor</p>
+      <a class="shell__link" href="ringkasan.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Ringkasan kota</span></a>
+      <a class="shell__link" href="pengaduan.html"><span class="ic" aria-hidden="true">campaign</span><span class="shell__label">Pengaduan warga</span></a>
+      <a class="shell__link" href="perizinan.html"><span class="ic" aria-hidden="true">verified</span><span class="shell__label">Layanan perizinan</span></a>
+      <a class="shell__link" href="kependudukan.html"><span class="ic" aria-hidden="true">groups</span><span class="shell__label">Kependudukan</span></a>
+      <a class="shell__link" href="transportasi.html"><span class="ic" aria-hidden="true">directions_bus</span><span class="shell__label">Transportasi</span></a>
+      <a class="shell__link" href="kebencanaan.html"><span class="ic" aria-hidden="true">flood</span><span class="shell__label">Kebencanaan dan cuaca</span></a>
+      <a class="shell__link" href="kesehatan.html"><span class="ic" aria-hidden="true">local_hospital</span><span class="shell__label">Kesehatan</span></a>
+      <a class="shell__link" href="pendidikan.html"><span class="ic" aria-hidden="true">school</span><span class="shell__label">Pendidikan</span></a>
+      <a class="shell__link" href="pendapatan.html"><span class="ic" aria-hidden="true">request_quote</span><span class="shell__label">Pendapatan daerah</span></a>
+      <a class="shell__link" href="bantuan-sosial.html"><span class="ic" aria-hidden="true">volunteer_activism</span><span class="shell__label">Bantuan sosial</span></a>
+      <a class="shell__link" href="umkm.html"><span class="ic" aria-hidden="true">storefront</span><span class="shell__label">UMKM dan pasar</span></a>
+      <a class="shell__link" href="pariwisata.html"><span class="ic" aria-hidden="true">landscape</span><span class="shell__label">Pariwisata dan agenda</span></a>
+      <a class="shell__link" href="lingkungan.html"><span class="ic" aria-hidden="true">eco</span><span class="shell__label">Lingkungan</span></a>
+      <a class="shell__link" href="infrastruktur.html"><span class="ic" aria-hidden="true">lightbulb</span><span class="shell__label">Infrastruktur dan aset</span></a>
+      <a class="shell__link" href="pusat-komando.html"><span class="ic" aria-hidden="true">videocam</span><span class="shell__label">Pusat komando</span></a>
+      <a class="shell__link" href="kepegawaian.html"><span class="ic" aria-hidden="true">badge</span><span class="shell__label">Kepegawaian</span></a>
+      <a class="shell__link" href="keuangan.html" aria-current="page"><span class="ic" aria-hidden="true">account_balance</span><span class="shell__label">Keuangan daerah</span></a>
+      <p class="shell__group">Halaman</p>
+      <a class="shell__link" href="laporan.html"><span class="ic" aria-hidden="true">article</span><span class="shell__label">Daftar laporan</span></a>
+      <a class="shell__link" href="kotak-masuk.html"><span class="ic" aria-hidden="true">inbox</span><span class="shell__label">Kotak masuk</span></a>
+      <a class="shell__link" href="obrolan.html"><span class="ic" aria-hidden="true">chat</span><span class="shell__label">Obrolan</span></a>
+      <a class="shell__link" href="kalender.html"><span class="ic" aria-hidden="true">calendar_month</span><span class="shell__label">Kalender kegiatan</span></a>
+      <a class="shell__link" href="tindak-lanjut.html"><span class="ic" aria-hidden="true">view_kanban</span><span class="shell__label">Kanban tindak lanjut</span></a>
+      <a class="shell__link" href="tugas.html"><span class="ic" aria-hidden="true">checklist</span><span class="shell__label">Tugas</span></a>
+      <a class="shell__link" href="arsip.html"><span class="ic" aria-hidden="true">folder_open</span><span class="shell__label">Arsip dokumen</span></a>
+      <a class="shell__link" href="profil.html"><span class="ic" aria-hidden="true">person</span><span class="shell__label">Profil</span></a>
+      <a class="shell__link" href="pengguna.html"><span class="ic" aria-hidden="true">group</span><span class="shell__label">Pengguna</span></a>
+      <a class="shell__link" href="peran.html"><span class="ic" aria-hidden="true">shield_person</span><span class="shell__label">Peran dan akses</span></a>
+      <p class="shell__group">Masuk</p>
+      <a class="shell__link" href="masuk.html"><span class="ic" aria-hidden="true">login</span><span class="shell__label">Masuk</span></a>
+      <a class="shell__link" href="daftar.html"><span class="ic" aria-hidden="true">person_add</span><span class="shell__label">Daftar</span></a>
+      <a class="shell__link" href="lupa-kata-sandi.html"><span class="ic" aria-hidden="true">key</span><span class="shell__label">Lupa kata sandi</span></a>
+      <a class="shell__link" href="verifikasi.html"><span class="ic" aria-hidden="true">sms</span><span class="shell__label">Verifikasi OTP</span></a>
+      <a class="shell__link" href="akses-ditolak.html"><span class="ic" aria-hidden="true">do_not_disturb_on</span><span class="shell__label">Akses ditolak</span></a>
+    </nav>
+    <div class="shell__foot">
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">Semua contoh</span></a>
+      <a class="shell__link" href="../../index.html"><span class="ic" aria-hidden="true">menu_book</span><span class="shell__label">Dokumentasi sistem desain</span></a>
+    </div>
+  </aside>
+  <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
+  <div class="shell__scrim"></div>
+  <div class="shell__main">
+    <header class="shell__bar">
+      <button class="icon-btn" type="button" data-lds-shell-toggle aria-controls="side" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
+      <button class="icon-btn" type="button" data-lds-shell-rail aria-controls="side" aria-expanded="true" aria-label="Ciutkan menu samping"><span class="ic" aria-hidden="true">left_panel_close</span></button>
+      <span class="sep sep--v" aria-hidden="true"></span>
+      <nav aria-label="Jejak halaman"><ol class="crumbs"><li><a href="ringkasan.html">Sakai Dasbor</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="ringkasan.html">Dasbor</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><span aria-current="page">Keuangan daerah</span></li></ol></nav>
+      <div class="shell__bar-end">
+        <button class="control search shell__search" type="button" data-lds-open="palette" aria-haspopup="dialog"><span class="ic" aria-hidden="true">search</span>Cari halaman<span class="kbd">⌘K</span></button>
+        <button class="icon-btn shell__search-icon" type="button" data-lds-open="palette" aria-haspopup="dialog" aria-label="Cari halaman"><span class="ic" aria-hidden="true">search</span></button>
+        <div class="tip-host">
+          <button class="icon-btn" type="button" data-lds-menu="theme-menu" aria-haspopup="menu" aria-expanded="false" aria-label="Tampilan" data-theme-btn><span class="ic" aria-hidden="true">light_mode</span></button>
+          <div class="menu menu--right" id="theme-menu" role="menu" aria-label="Tampilan" style="top: calc(100% + 6px); right: 0; min-width: 180px;">
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-lds-theme="light"><span class="ic" aria-hidden="true">light_mode</span>Terang<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-lds-theme="dark"><span class="ic" aria-hidden="true">dark_mode</span>Gelap<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-lds-theme="system"><span class="ic" aria-hidden="true">desktop_windows</span>Ikuti sistem<span class="ic menu__check" aria-hidden="true">check</span></button>
+          </div>
+        </div>
+        <div class="tip-host">
+          <button class="icon-btn" type="button" data-lds-menu="notes" aria-haspopup="dialog" aria-expanded="false" aria-label="Notifikasi, 3 belum dibaca" data-notes-btn><span class="ic" aria-hidden="true">notifications</span><span class="count" data-notes-count>3</span></button>
+          <div class="popover dash-notes" id="notes" role="dialog" aria-labelledby="notes-title" style="top: calc(100% + 6px); right: 0;">
+            <div class="cluster dash-notes__head"><h2 class="section__title-sm" id="notes-title">Notifikasi</h2><button class="btn btn--plain btn--sm" type="button" data-notes-read>Tandai semua dibaca</button></div>
+            <div class="list list--fill">
+              <a class="lrow" href="tindak-lanjut.html" data-unread><span class="avatar avatar--gray" style="--size: 32px;">AS</span><span class="lrow__body"><span class="lrow__title">Arif Setiawan menugaskan Anda <b>Tindak lanjut genangan Jalan Merpati</b></span><span class="lrow__sub"><time data-lds-time="2026-11-16T09:12">09.12</time></span></span><span class="status status--ok" data-unread-dot><i></i><span class="sr-only">Belum dibaca</span></span></a>
+              <a class="lrow" href="perizinan.html" data-unread><span class="avatar avatar--gray" style="--size: 32px;">DL</span><span class="lrow__body"><span class="lrow__title">Dewi Lestari meminta persetujuan <b>12 izin usaha mikro</b></span><span class="lrow__sub"><time data-lds-time="2026-11-16T08:40">08.40</time></span></span><span class="status status--ok" data-unread-dot><i></i><span class="sr-only">Belum dibaca</span></span></a>
+              <a class="lrow" href="kebencanaan.html" data-unread><span class="avatar avatar--gray" style="--size: 32px;">BP</span><span class="lrow__body"><span class="lrow__title">BPBD Kota Contoh mengirim <b>peringatan dini hujan lebat</b> untuk sore ini</span><span class="lrow__sub"><time data-lds-time="2026-11-16T07:55">07.55</time></span></span><span class="status status--ok" data-unread-dot><i></i><span class="sr-only">Belum dibaca</span></span></a>
+              <a class="lrow" href="laporan.html"><span class="avatar avatar--gray" style="--size: 32px;">SH</span><span class="lrow__body"><span class="lrow__title">Sari Handayani mengekspor <b>1.204 laporan warga</b> ke CSV</span><span class="lrow__sub"><time data-lds-time="2026-11-15T11:30">11.30</time></span></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="tip-host">
+          <button class="icon-btn" type="button" data-lds-menu="user-menu" aria-haspopup="menu" aria-expanded="false" aria-label="Akun: Rina Wijayanti"><span class="avatar" style="--size: 32px;">RW</span></button>
+          <div class="menu menu--right" id="user-menu" role="menu" aria-label="Akun" style="top: calc(100% + 6px); right: 0; min-width: 240px;">
+            <div class="lrow dash-me"><span class="avatar" style="--size: 36px;">RW</span><span class="lrow__body"><span class="lrow__title">Rina Wijayanti</span><span class="lrow__sub">Admin dasbor</span></span></div>
+            <div class="menu__sep"></div>
+            <a class="menu__item" role="menuitem" href="profil.html"><span class="ic" aria-hidden="true">person</span>Profil</a>
+            <a class="menu__item" role="menuitem" href="peran.html"><span class="ic" aria-hidden="true">shield_person</span>Peran dan akses</a>
+            <a class="menu__item" role="menuitem" href="../../index.html"><span class="ic" aria-hidden="true">help</span>Bantuan dan dokumentasi</a>
+            <div class="menu__sep"></div>
+            <a class="menu__item" role="menuitem" href="masuk.html"><span class="ic" aria-hidden="true">logout</span>Keluar</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="dash" id="main" tabindex="-1">
+      <header class="dash-head">
+        <div class="section__head">
+          <div class="cluster" style="--gap: 10px;"><h1 style="margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);">Keuangan daerah</h1><span class="badge badge--outline"><span class="ic" aria-hidden="true">info</span>Contoh. Data fiktif, bukan layanan resmi.</span></div>
+          <p class="section__sub">Realisasi belanja APBD 2026 per dinas, posisi kas daerah, SP2D yang terbit, dan pembayaran dua minggu ke depan.</p>
+        </div>
+        <div class="dash-head__actions"><div class="tip-host">
+          <button class="btn btn--plain btn--md" type="button" data-lds-menu="state-menu" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">visibility</span>Pratinjau keadaan<span class="ic" aria-hidden="true">expand_more</span></button>
+          <div class="menu menu--right" id="state-menu" role="menu" aria-label="Pratinjau keadaan data" style="top: calc(100% + 6px); right: 0; min-width: 200px;">
+            <p class="menu__label">Tampilkan semua widget sebagai</p>
+            <button class="menu__item" role="menuitemradio" aria-checked="true" data-state-set="loaded">Termuat<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-state-set="loading">Memuat<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-state-set="empty">Kosong<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-state-set="error">Galat<span class="ic menu__check" aria-hidden="true">check</span></button>
+          </div>
+        </div>
+        <button class="btn btn--secondary btn--md" type="button" data-print><span class="ic" aria-hidden="true">print</span>Cetak ringkasan</button>
+<button class="btn btn--primary btn--md" type="button" data-export><span class="btn__label"><span class="ic" aria-hidden="true">download</span>Unduh laporan realisasi</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></div>
+      </header>
+<section aria-label="Angka utama" data-states>
+  <div class="dash-kpis" data-state-view="loaded" data-lds-grow>
+    <article class="kpi" aria-labelledby="kpi-pagu">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">account_balance</span></span><span class="kpi__label" id="kpi-pagu">Pagu belanja APBD 2026</span></div>
+      <div class="kpi__value">Rp 2,84 T</div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--up"><span class="ic" aria-hidden="true">arrow_upward</span>3,6%<span class="sr-only"> naik dari Rp 2,74 T pada 2025</span></span><span>dari Rp 2,74 T pada 2025</span></div>
+      <div class="kpi__bars" role="img" aria-label="Pagu belanja lima tahun terakhir, 2022 sampai 2026, naik setiap tahun"><i style="--h: 78%;"></i><i style="--h: 84%;"></i><i style="--h: 90%;"></i><i style="--h: 96%;"></i><i class="is-on" style="--h: 100%;"></i></div>
+    </article>
+    <article class="kpi" aria-labelledby="kpi-real">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">payments</span></span><span class="kpi__label" id="kpi-real">Realisasi belanja</span></div>
+      <div class="kpi__value">Rp 2,04 T</div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--down delta--bad"><span class="ic" aria-hidden="true">arrow_upward</span>4,1 poin<span class="sr-only"> di bawah rencana kas</span></span><span>71,8%, rencana kas 75,9%</span></div>
+      <svg class="kpi__spark" viewBox="0 0 240 52" preserveAspectRatio="none" role="img" aria-label="Realisasi belanja kumulatif per bulan sejak Januari, naik lebih cepat sejak Juli"><path class="series-area" d="M0 49 L22 47 L44 44 L66 41 L88 38 L110 34 L132 30 L154 25 L176 21 L198 16 L220 12 L240 10 L240 52 L0 52 Z"></path><path class="series-line" d="M0 49 L22 47 L44 44 L66 41 L88 38 L110 34 L132 30 L154 25 L176 21 L198 16 L220 12 L240 10"></path></svg>
+    </article>
+    <article class="kpi" aria-labelledby="kpi-kas">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">wallet</span></span><span class="kpi__label" id="kpi-kas">Saldo kas daerah</span></div>
+      <div class="kpi__value">Rp 361 M</div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--down"><span class="ic" aria-hidden="true">arrow_upward</span>13,6%<span class="sr-only"> turun dari Rp 418 M pada 18 Oktober</span></span><span>dari Rp 418 M pada 18 Okt</span></div>
+      <svg class="kpi__spark" viewBox="0 0 240 52" preserveAspectRatio="none" role="img" aria-label="Saldo kas harian 30 hari terakhir, turun pada 1 November karena gaji, naik lagi 10 November"><path class="series-area" d="M0 10 L40 12 L80 16 L112 17 L116 44 L176 46 L184 34 L192 23 L240 22 L240 52 L0 52 Z"></path><path class="series-line" d="M0 10 L40 12 L80 16 L112 17 L116 44 L176 46 L184 34 L192 23 L240 22"></path></svg>
+    </article>
+    <article class="kpi" aria-labelledby="kpi-sp2d">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">description</span></span><span class="kpi__label" id="kpi-sp2d">SP2D terbit November</span></div>
+      <div class="kpi__value">412</div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--up delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>1,8 hari<span class="sr-only"> lebih cepat, rata-rata 2,1 hari dari pengajuan</span></span><span>lebih cepat, rata-rata 2,1 hari</span></div>
+      <div class="kpi__bars" role="img" aria-label="SP2D terbit per hari kerja, 2 sampai 16 November"><i style="--h: 64%;"></i><i style="--h: 52%;"></i><i style="--h: 70%;"></i><i style="--h: 58%;"></i><i style="--h: 81%;"></i><i style="--h: 46%;"></i><i style="--h: 100%;"></i><i style="--h: 77%;"></i><i style="--h: 62%;"></i><i style="--h: 55%;"></i><i class="is-on" style="--h: 34%;"></i></div>
+    </article>
+  </div>
+  <div class="dash-kpis" data-state-view="loading" role="status" aria-label="Memuat angka utama" hidden>
+    <div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div>
+    <div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div>
+    <div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div>
+    <div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div>
+  </div>
+  <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Angka utama tidak termuat</div><div class="alert__body">Sistem keuangan daerah tidak menjawab tepat waktu. Tidak ada data yang hilang.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+</section>
+
+<div class="dash-grid dash-grid--stretch">
+  <section class="chart-card dash-span-8" aria-labelledby="dinas-q" data-states>
+    <div class="chart-card__head">
+      <div class="chart-card__titles"><div class="chart-card__q" id="dinas-q">Dinas mana yang belanjanya tertinggal?</div><div class="chart-card__sub">Realisasi sampai 16 November terhadap pagu. Penanda adalah rencana kas tiap dinas untuk hari ini.</div></div>
+      <div class="chart-card__actions">
+        <div class="seg chart-card__range" role="group" aria-label="Urutkan" data-lds-segmented data-urut>
+          <span class="seg__thumb"></span>
+          <button type="button" class="seg__btn" aria-pressed="true" data-by="pagu">Pagu</button>
+          <button type="button" class="seg__btn" aria-pressed="false" data-by="persen">Persentase</button>
+        </div>
+      </div>
+    </div>
+    <div class="target-list" data-state-view="loaded" data-lds-grow data-dinas>
+      <div class="target" style="--v: 78.1%; --t: 79%;" data-pagu="1040" data-persen="78.1"><div class="target__meta"><span class="target__label">Dinas Pendidikan</span><span class="target__val"><b>Rp 812 M</b> dari Rp 1,04 T</span></div><div class="target__track" role="img" aria-label="Dinas Pendidikan: Rp 812 miliar dari Rp 1,04 triliun, 78 persen, rencana 79 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Rencana</span></span></div><div class="target__foot"><span>Sesuai rencana</span><span>Gaji guru 61% dari belanjanya</span></div></div>
+      <div class="target target--success" style="--v: 80%; --t: 77%;" data-pagu="610" data-persen="80"><div class="target__meta"><span class="target__label">Dinas Kesehatan dan RSUD</span><span class="target__val"><b>Rp 488 M</b> dari Rp 610 M</span></div><div class="target__track" role="img" aria-label="Dinas Kesehatan dan RSUD: Rp 488 miliar dari Rp 610 miliar, 80 persen, rencana 77 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Rencana</span></span></div><div class="target__foot"><span>Di depan rencana</span></div></div>
+      <div class="target target--warning" style="--v: 60%; --t: 74%;" data-pagu="402" data-persen="60"><div class="target__meta"><span class="target__label">Dinas Pekerjaan Umum</span><span class="target__val"><b>Rp 241 M</b> dari Rp 402 M</span></div><div class="target__track" role="img" aria-label="Dinas Pekerjaan Umum: Rp 241 miliar dari Rp 402 miliar, 60 persen, rencana 74 persen, tertinggal"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Rencana</span></span></div><div class="target__foot"><span>Tertinggal Rp 56 M: termin 3 jalan lingkar belum ditagih</span></div></div>
+      <div class="target" style="--v: 81.8%; --t: 82%;" data-pagu="198" data-persen="81.8"><div class="target__meta"><span class="target__label">Sekretariat Daerah</span><span class="target__val"><b>Rp 162 M</b> dari Rp 198 M</span></div><div class="target__track" role="img" aria-label="Sekretariat Daerah: Rp 162 miliar dari Rp 198 miliar, 82 persen, rencana 82 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Rencana</span></span></div><div class="target__foot"><span>Sesuai rencana</span></div></div>
+      <div class="target target--warning" style="--v: 69%; --t: 78%;" data-pagu="84" data-persen="69"><div class="target__meta"><span class="target__label">Dinas Perhubungan</span><span class="target__val"><b>Rp 58 M</b> dari Rp 84 M</span></div><div class="target__track" role="img" aria-label="Dinas Perhubungan: Rp 58 miliar dari Rp 84 miliar, 69 persen, rencana 78 persen, tertinggal"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Rencana</span></span></div><div class="target__foot"><span>Tertinggal Rp 7,5 M: pengadaan 6 bus kota masih lelang</span></div></div>
+      <div class="target" style="--v: 80.8%; --t: 80%;" data-pagu="78" data-persen="80.8"><div class="target__meta"><span class="target__label">Dinas Lingkungan Hidup</span><span class="target__val"><b>Rp 63 M</b> dari Rp 78 M</span></div><div class="target__track" role="img" aria-label="Dinas Lingkungan Hidup: Rp 63 miliar dari Rp 78 miliar, 81 persen, rencana 80 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Rencana</span></span></div><div class="target__foot"><span>Sesuai rencana</span></div></div>
+      <div class="target" style="--v: 78.8%; --t: 80%;" data-pagu="52" data-persen="78.8"><div class="target__meta"><span class="target__label">Dinas Sosial</span><span class="target__val"><b>Rp 41 M</b> dari Rp 52 M</span></div><div class="target__track" role="img" aria-label="Dinas Sosial: Rp 41 miliar dari Rp 52 miliar, 79 persen, rencana 80 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Rencana</span></span></div><div class="target__foot"><span>Bantuan pangan tahap 4 cair 25 Nov</span></div></div>
+    </div>
+    <div class="stack" style="--gap: 16px;" data-state-view="loading" role="status" aria-label="Memuat realisasi per dinas" hidden><div class="skel" style="height: 12px; width: 40%;"></div><div class="skel" style="height: 10px;"></div><div class="skel" style="height: 12px; width: 32%;"></div><div class="skel" style="height: 10px;"></div><div class="skel" style="height: 12px; width: 46%;"></div><div class="skel" style="height: 10px;"></div></div>
+    <div class="empty" data-state-view="empty" hidden><div class="empty__title">Belum ada belanja tercatat</div><div class="empty__body">Realisasi per dinas tampil setelah SP2D pertama tahun anggaran ini terbit.</div><a class="btn btn--secondary btn--sm" href="#sp2d-title">Lihat SP2D</a></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Realisasi per dinas tidak termuat</div><div class="alert__body">Tidak ada data yang berubah.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    <div class="chart-card__foot"><span>7 dari 31 perangkat daerah, yang terbesar</span><a class="btn btn--plain btn--sm" href="pendapatan.html">Lihat pendapatan<span class="ic" aria-hidden="true">chevron_right</span></a></div>
+  </section>
+
+  <section class="chart-card dash-span-4" aria-labelledby="jenis-q" data-states>
+    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="jenis-q">Untuk apa uangnya dibelanjakan?</div><div class="chart-card__sub">Realisasi belanja menurut jenis, dalam miliar rupiah</div></div></div>
+    <div class="chart" data-state-view="loaded" data-lds-chart='{"type":"donut","format":{"prefix":"Rp ","suffix":" M"},"center":"Rp 2,04 T","unit":"terealisasi","label":"Realisasi belanja Rp 2,04 triliun menurut jenis: pegawai 38%, barang dan jasa 33%, modal 21%, lainnya 8%.","segments":[{"name":"Pegawai","value":775},{"name":"Barang dan jasa","value":673},{"name":"Modal","value":428},{"name":"Hibah, bantuan, tak terduga","value":163,"color":"neutral"}]}'></div>
+    <div class="cluster" style="--gap: 20px; padding: 12px 0;" data-state-view="loading" role="status" aria-label="Memuat belanja menurut jenis" hidden><div class="skel" style="width: 140px; height: 140px; border-radius: 50%;"></div><div class="stack" style="--gap: 10px; flex: 1;"><div class="skel" style="height: 12px;"></div><div class="skel" style="height: 12px; width: 70%;"></div><div class="skel" style="height: 12px; width: 50%;"></div></div></div>
+    <div class="empty" data-state-view="empty" hidden><div class="empty__title">Belum ada belanja</div><div class="empty__body">Pembagian per jenis muncul setelah ada realisasi.</div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Belanja menurut jenis tidak termuat</div><div class="alert__body">Coba lagi sebentar lagi.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    <div class="chart-card__foot"><span>Belanja modal baru 51% dari pagunya</span></div>
+  </section>
+</div>
+
+<div class="dash-grid dash-grid--stretch">
+  <section class="chart-card dash-span-7" aria-labelledby="kas-q" data-states>
+    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="kas-q">Cukupkah kas untuk gaji 1 Desember?</div><div class="chart-card__sub">Saldo kas daerah di akhir hari, 30 hari terakhir, dalam miliar rupiah</div></div></div>
+    <div class="stack" style="--gap: 14px;" data-state-view="loaded">
+      <div class="chart-card__figure"><div class="chart-card__big">Rp 361 M</div><span class="chart-card__sub">saldo hari ini; gaji dan tunjangan Desember butuh Rp 96 M</span></div>
+      <div class="chart" data-lds-chart='{"xName":"Hari","kind":"area","height":220,"format":{"prefix":"Rp ","suffix":" M"},"x":["18 Okt","19 Okt","20 Okt","21 Okt","22 Okt","23 Okt","24 Okt","25 Okt","26 Okt","27 Okt","28 Okt","29 Okt","30 Okt","31 Okt","1 Nov","2 Nov","3 Nov","4 Nov","5 Nov","6 Nov","7 Nov","8 Nov","9 Nov","10 Nov","11 Nov","12 Nov","13 Nov","14 Nov","15 Nov","16 Nov"],"xFull":["Min, 18 Okt","Sen, 19 Okt","Sel, 20 Okt","Rab, 21 Okt","Kam, 22 Okt","Jum, 23 Okt","Sab, 24 Okt","Min, 25 Okt","Sen, 26 Okt","Sel, 27 Okt","Rab, 28 Okt","Kam, 29 Okt","Jum, 30 Okt","Sab, 31 Okt","Min, 1 Nov","Sen, 2 Nov","Sel, 3 Nov","Rab, 4 Nov","Kam, 5 Nov","Jum, 6 Nov","Sab, 7 Nov","Min, 8 Nov","Sen, 9 Nov","Sel, 10 Nov","Rab, 11 Nov","Kam, 12 Nov","Jum, 13 Nov","Sab, 14 Nov","Min, 15 Nov","Sen, 16 Nov"],"series":[{"name":"Saldo kas","values":[418,418,412,415,421,416,409,402,393,396,404,404,396,394,306,314,316,315,311,305,304,301,292,329,366,363,359,359,359,361]}],"refs":[{"value":150,"label":"Batas aman Rp 150 M"}],"label":"Saldo kas daerah 30 hari terakhir: dari Rp 418 miliar turun ke Rp 306 miliar setelah gaji 1 November, naik ke Rp 361 miliar setelah transfer dana dari pusat 10 dan 11 November. Selalu di atas batas aman Rp 150 miliar."}'></div>
+    </div>
+    <div class="stack" style="--gap: 30px; padding-top: 24px;" data-state-view="loading" role="status" aria-label="Memuat saldo kas" hidden><div class="skel" style="height: 32px; width: 30%;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div></div>
+    <div class="empty" data-state-view="empty" hidden><div class="empty__title">Belum ada mutasi kas</div><div class="empty__body">Saldo harian tampil setelah rekening kas daerah tersambung.</div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Saldo kas tidak termuat</div><div class="alert__body">Sambungan ke bank daerah terputus.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    <div class="chart-card__foot"><span>Mutasi bank terakhir 16 Nov 2026, 09.20 WIB</span></div>
+  </section>
+
+  <section class="stack dash-span-5" style="--gap: 16px;" aria-labelledby="bayar-title" data-states>
+    <div class="section__head"><h2 class="section__title-sm" id="bayar-title">Pembayaran dua minggu ke depan</h2><p class="section__sub"><span data-bayar-left>3 belum dijadwalkan</span>, total Rp 131,6 M.</p></div>
+    <div class="list" data-state-view="loaded">
+      <div class="lrow"><time class="datetile" datetime="2026-11-20"><span class="datetile__m">Nov</span><span class="datetile__d">20</span></time><span class="lrow__body"><span class="lrow__title">Termin 2 rehabilitasi Puskesmas Mekarsari</span><span class="lrow__sub">Rp 4,8 M · Jum · Dinas Kesehatan</span></span><span class="badge badge--success">Terjadwal</span></div>
+      <div class="lrow"><time class="datetile" datetime="2026-11-23"><span class="datetile__m">Nov</span><span class="datetile__d">23</span></time><span class="lrow__body"><span class="lrow__title">Listrik penerangan jalan, Oktober</span><span class="lrow__sub">Rp 6,2 M · Sen · Dinas Perhubungan</span></span><button class="btn btn--secondary btn--sm" type="button" data-pay><span class="btn__label">Jadwalkan</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></div>
+      <div class="lrow"><time class="datetile" datetime="2026-11-25"><span class="datetile__m">Nov</span><span class="datetile__d">25</span></time><span class="lrow__body"><span class="lrow__title">Bantuan pangan tahap 4</span><span class="lrow__sub">Rp 9,4 M · Rab · Dinas Sosial, 18.420 keluarga</span></span><button class="btn btn--secondary btn--sm" type="button" data-pay><span class="btn__label">Jadwalkan</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></div>
+      <div class="lrow"><time class="datetile" datetime="2026-11-27"><span class="datetile__m">Nov</span><span class="datetile__d">27</span></time><span class="lrow__body"><span class="lrow__title">Termin 3 jalan lingkar Kecamatan Utara</span><span class="lrow__sub">Rp 15,2 M · Jum · Menunggu berita acara</span></span><button class="btn btn--secondary btn--sm" type="button" data-pay><span class="btn__label">Jadwalkan</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button></div>
+      <div class="lrow"><time class="datetile" datetime="2026-12-01"><span class="datetile__m">Des</span><span class="datetile__d">1</span></time><span class="lrow__body"><span class="lrow__title">Gaji dan tunjangan Desember</span><span class="lrow__sub">Rp 96 M · Sel · 8.214 pegawai</span></span><span class="badge badge--success">Terjadwal</span></div>
+    </div>
+    <div class="list" data-state-view="loading" role="status" aria-label="Memuat pembayaran" hidden><div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 10px;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 52%;"></span><span class="skel" style="display: block; height: 11px; width: 30%; margin-top: 8px;"></span></span></div><div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 10px;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 64%;"></span><span class="skel" style="display: block; height: 11px; width: 38%; margin-top: 8px;"></span></span></div><div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 10px;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 44%;"></span><span class="skel" style="display: block; height: 11px; width: 26%; margin-top: 8px;"></span></span></div></div>
+    <div class="list list--fill" data-state-view="empty" hidden><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">event_available</span></div><div class="empty__title">Tidak ada pembayaran dalam dua minggu</div><div class="empty__body">Tagihan yang sudah diajukan dinas tampil di sini sebulan sebelum jatuh tempo.</div></div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Pembayaran tidak termuat</div><div class="alert__body">Tidak ada pembayaran yang dijalankan atau diubah.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+  </section>
+</div>
+
+<section class="stack" style="--gap: 16px;" aria-labelledby="sp2d-title">
+  <div class="section__head"><h2 class="section__title-sm" id="sp2d-title">SP2D terbaru</h2><p class="section__sub">Surat perintah pencairan dana yang terbit minggu ini, terbaru di atas.</p></div>
+  <div class="dtable" id="sp2d" data-lds-table="keuangan-sp2d" data-page-size="8" data-noun="SP2D" data-states>
+    <div class="dtable__bar">
+      <div class="control search dtable__search"><span class="ic" aria-hidden="true">search</span><input type="search" data-lds-table-search placeholder="Cari nomor, dinas, atau uraian" aria-label="Cari SP2D"></div>
+      <div class="chip-row" data-lds-chips data-lds-table-filter="jenis" role="group" aria-label="Jenis pencairan">
+        <button class="chip" type="button" value="ls"><span class="ic chip__check" aria-hidden="true">check</span>Langsung</button>
+        <button class="chip" type="button" value="gu"><span class="ic chip__check" aria-hidden="true">check</span>Ganti uang</button>
+        <button class="chip" type="button" value="tu"><span class="ic chip__check" aria-hidden="true">check</span>Tambahan uang</button>
+      </div>
+      <div class="dtable__tools"><button class="btn btn--plain btn--md" type="button" data-lds-table-reset hidden>Hapus filter</button></div>
+    </div>
+    <div class="table-box" tabindex="0" aria-label="SP2D, bisa digeser ke samping">
+      <table class="table">
+        <thead><tr>
+          <th data-col="no"><button type="button">Nomor<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+          <th data-col="dinas"><button type="button">Perangkat daerah<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+          <th data-col="jenis">Jenis</th>
+          <th data-col="tgl" aria-sort="descending"><button type="button">Terbit<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+          <th data-col="status">Status</th>
+          <th data-col="nilai" class="num"><button type="button">Nilai<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+          <th class="dtable__actions"><span class="sr-only">Tindakan</span></th>
+        </tr></thead>
+        <tbody>
+          <tr data-jenis="ls"><td data-sort="04128"><b>04128/LS/2026</b></td><td data-sort="Dinas Pekerjaan Umum"><span class="dtable__user"><span><b>Dinas Pekerjaan Umum</b><small>Pemeliharaan drainase Jalan Merpati</small></span></span></td><td>Langsung</td><td data-sort="2026-11-16-3">16 Nov</td><td><span class="badge badge--accent">Terbit</span></td><td class="num" data-sort="1240000000"><b>Rp 1,24 M</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk SP2D 04128" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="gu"><td data-sort="04127"><b>04127/GU/2026</b></td><td data-sort="Kecamatan Pesisir"><span class="dtable__user"><span><b>Kecamatan Pesisir</b><small>Ganti uang persediaan Oktober</small></span></span></td><td>Ganti uang</td><td data-sort="2026-11-16-2">16 Nov</td><td><span class="badge badge--accent">Terbit</span></td><td class="num" data-sort="86400000"><b>Rp 86,4 jt</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk SP2D 04127" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="ls"><td data-sort="04126"><b>04126/LS/2026</b></td><td data-sort="RSUD Kota Contoh"><span class="dtable__user"><span><b>RSUD Kota Contoh</b><small>Obat dan bahan habis pakai, termin 4</small></span></span></td><td>Langsung</td><td data-sort="2026-11-16-1">16 Nov</td><td><span class="badge badge--success">Dicairkan</span></td><td class="num" data-sort="2810000000"><b>Rp 2,81 M</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk SP2D 04126" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="ls"><td data-sort="04119"><b>04119/LS/2026</b></td><td data-sort="Dinas Lingkungan Hidup"><span class="dtable__user"><span><b>Dinas Lingkungan Hidup</b><small>Sewa 12 truk sampah, November</small></span></span></td><td>Langsung</td><td data-sort="2026-11-13">13 Nov</td><td><span class="badge badge--success">Dicairkan</span></td><td class="num" data-sort="684000000"><b>Rp 684 jt</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk SP2D 04119" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="tu"><td data-sort="04114"><b>04114/TU/2026</b></td><td data-sort="Badan Penanggulangan Bencana Daerah"><span class="dtable__user"><span><b>BPBD Kota Contoh</b><small>Siaga banjir musim hujan</small></span></span></td><td>Tambahan uang</td><td data-sort="2026-11-12">12 Nov</td><td><span class="badge badge--success">Dicairkan</span></td><td class="num" data-sort="350000000"><b>Rp 350 jt</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk SP2D 04114" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="ls"><td data-sort="04108"><b>04108/LS/2026</b></td><td data-sort="Dinas Pendidikan"><span class="dtable__user"><span><b>Dinas Pendidikan</b><small>Honor guru tidak tetap, November</small></span></span></td><td>Langsung</td><td data-sort="2026-11-11">11 Nov</td><td><span class="badge badge--success">Dicairkan</span></td><td class="num" data-sort="3460000000"><b>Rp 3,46 M</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk SP2D 04108" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="gu"><td data-sort="04102"><b>04102/GU/2026</b></td><td data-sort="Dinas Perhubungan"><span class="dtable__user"><span><b>Dinas Perhubungan</b><small>Bahan bakar bus kota, Oktober</small></span></span></td><td>Ganti uang</td><td data-sort="2026-11-10">10 Nov</td><td><span class="badge badge--success">Dicairkan</span></td><td class="num" data-sort="412800000"><b>Rp 412,8 jt</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk SP2D 04102" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="ls"><td data-sort="04097"><b>04097/LS/2026</b></td><td data-sort="Dinas Sosial"><span class="dtable__user"><span><b>Dinas Sosial</b><small>Makan panti sosial, November</small></span></span></td><td>Langsung</td><td data-sort="2026-11-10">10 Nov</td><td><span class="badge badge--danger">Dikembalikan</span></td><td class="num" data-sort="128500000"><b>Rp 128,5 jt</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk SP2D 04097" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr data-jenis="gu"><td data-sort="04091"><b>04091/GU/2026</b></td><td data-sort="Kecamatan Utara"><span class="dtable__user"><span><b>Kecamatan Utara</b><small>Ganti uang persediaan Oktober</small></span></span></td><td>Ganti uang</td><td data-sort="2026-11-09">9 Nov</td><td><span class="badge badge--success">Dicairkan</span></td><td class="num" data-sort="92100000"><b>Rp 92,1 jt</b></td><td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk SP2D 04091" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td></tr>
+          <tr class="dtable__empty" hidden><td colspan="7"><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">filter_list</span></div><div class="empty__title">Tidak ada SP2D yang cocok</div><div class="empty__body">Coba nomor atau nama dinas lain, atau hapus filter.</div><button class="btn btn--secondary btn--md" type="button" data-lds-table-reset>Hapus filter</button></div></td></tr>
+          <tr class="dtable__state" data-state="loading" hidden><td><span class="skel" style="display: block; height: 13px; width: 80%;"></span></td><td colspan="6"><span class="skel" style="display: block; height: 12px; width: 50%;"></span></td></tr>
+          <tr class="dtable__state" data-state="loading" hidden><td><span class="skel" style="display: block; height: 13px; width: 72%;"></span></td><td colspan="6"><span class="skel" style="display: block; height: 12px; width: 42%;"></span></td></tr>
+          <tr class="dtable__state" data-state="loading" hidden><td><span class="skel" style="display: block; height: 13px; width: 84%;"></span></td><td colspan="6"><span class="skel" style="display: block; height: 12px; width: 56%;"></span></td></tr>
+          <tr class="dtable__state" data-state="loading" hidden><td><span class="skel" style="display: block; height: 13px; width: 76%;"></span></td><td colspan="6"><span class="skel" style="display: block; height: 12px; width: 38%;"></span></td></tr>
+          <tr class="dtable__state" data-state="empty" hidden><td colspan="7"><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">description</span></div><div class="empty__title">Belum ada SP2D minggu ini</div><div class="empty__body">SP2D muncul di sini begitu bendahara umum daerah menerbitkannya.</div><a class="btn btn--secondary btn--md" href="tugas.html">Periksa pengajuan di tugas</a></div></td></tr>
+          <tr class="dtable__state" data-state="error" hidden><td colspan="7"><div class="alert alert--danger" role="alert"><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">SP2D tidak termuat</div><div class="alert__body">Sistem keuangan daerah tidak menjawab. Tidak ada pencairan yang berubah.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="dtable__foot">
+      <span class="dtable__info" data-lds-table-info aria-live="polite"></span>
+      <nav aria-label="Halaman"><div class="pager" data-lds-table-pager></div></nav>
+    </div>
+  </div>
+</section>
+
+<div class="menu menu--right" id="sp2d-menu" role="menu" aria-label="Tindakan SP2D" style="position: fixed;">
+  <button class="menu__item" type="button" role="menuitem" data-act="unduh"><span class="ic" aria-hidden="true">download</span>Unduh dokumen</button>
+  <button class="menu__item" type="button" role="menuitem" data-act="salin"><span class="ic" aria-hidden="true">content_copy</span>Salin nomor</button>
+  <div class="menu__sep"></div>
+  <button class="menu__item menu__item--danger" type="button" role="menuitem" data-act="tahan"><span class="ic" aria-hidden="true">pause</span>Tahan pencairan</button>
+</div>
+    </main>
+  </div>
+</div>
+<div class="layer-host">
+  <div class="scrim" data-lds-scrim="palette"></div>
+  <div class="cmdk" id="palette" role="dialog" aria-modal="true" aria-label="Cari halaman dan tindakan" data-lds-layer data-lds-cmdk-key="k">
+    <div class="cmdk__search"><span class="ic" aria-hidden="true">search</span><input placeholder="Cari halaman dan tindakan" aria-label="Cari halaman dan tindakan" role="combobox" aria-expanded="true" aria-controls="palette-list" data-lds-filter="palette-list" data-lds-autofocus></div>
+    <div class="cmdk__list" id="palette-list" role="listbox" aria-label="Hasil">
+<div class="cmdk__group">Dasbor</div>
+<a class="cmdk__item" role="option" id="cmd-1" href="ringkasan.html"><span class="ic" aria-hidden="true">dashboard</span>Ringkasan kota</a>
+<a class="cmdk__item" role="option" id="cmd-2" href="pengaduan.html"><span class="ic" aria-hidden="true">campaign</span>Pengaduan warga</a>
+<a class="cmdk__item" role="option" id="cmd-3" href="perizinan.html"><span class="ic" aria-hidden="true">verified</span>Layanan perizinan</a>
+<a class="cmdk__item" role="option" id="cmd-4" href="kependudukan.html"><span class="ic" aria-hidden="true">groups</span>Kependudukan</a>
+<a class="cmdk__item" role="option" id="cmd-5" href="transportasi.html"><span class="ic" aria-hidden="true">directions_bus</span>Transportasi</a>
+<a class="cmdk__item" role="option" id="cmd-6" href="kebencanaan.html"><span class="ic" aria-hidden="true">flood</span>Kebencanaan dan cuaca</a>
+<a class="cmdk__item" role="option" id="cmd-7" href="kesehatan.html"><span class="ic" aria-hidden="true">local_hospital</span>Kesehatan</a>
+<a class="cmdk__item" role="option" id="cmd-8" href="pendidikan.html"><span class="ic" aria-hidden="true">school</span>Pendidikan</a>
+<a class="cmdk__item" role="option" id="cmd-9" href="pendapatan.html"><span class="ic" aria-hidden="true">request_quote</span>Pendapatan daerah</a>
+<a class="cmdk__item" role="option" id="cmd-10" href="bantuan-sosial.html"><span class="ic" aria-hidden="true">volunteer_activism</span>Bantuan sosial</a>
+<a class="cmdk__item" role="option" id="cmd-11" href="umkm.html"><span class="ic" aria-hidden="true">storefront</span>UMKM dan pasar</a>
+<a class="cmdk__item" role="option" id="cmd-12" href="pariwisata.html"><span class="ic" aria-hidden="true">landscape</span>Pariwisata dan agenda</a>
+<a class="cmdk__item" role="option" id="cmd-13" href="lingkungan.html"><span class="ic" aria-hidden="true">eco</span>Lingkungan</a>
+<a class="cmdk__item" role="option" id="cmd-14" href="infrastruktur.html"><span class="ic" aria-hidden="true">lightbulb</span>Infrastruktur dan aset</a>
+<a class="cmdk__item" role="option" id="cmd-15" href="pusat-komando.html"><span class="ic" aria-hidden="true">videocam</span>Pusat komando</a>
+<a class="cmdk__item" role="option" id="cmd-16" href="kepegawaian.html"><span class="ic" aria-hidden="true">badge</span>Kepegawaian</a>
+<a class="cmdk__item" role="option" id="cmd-17" href="keuangan.html"><span class="ic" aria-hidden="true">account_balance</span>Keuangan daerah</a>
+<div class="cmdk__group">Halaman</div>
+<a class="cmdk__item" role="option" id="cmd-18" href="laporan.html"><span class="ic" aria-hidden="true">article</span>Daftar laporan</a>
+<a class="cmdk__item" role="option" id="cmd-19" href="kotak-masuk.html"><span class="ic" aria-hidden="true">inbox</span>Kotak masuk</a>
+<a class="cmdk__item" role="option" id="cmd-20" href="obrolan.html"><span class="ic" aria-hidden="true">chat</span>Obrolan</a>
+<a class="cmdk__item" role="option" id="cmd-21" href="kalender.html"><span class="ic" aria-hidden="true">calendar_month</span>Kalender kegiatan</a>
+<a class="cmdk__item" role="option" id="cmd-22" href="tindak-lanjut.html"><span class="ic" aria-hidden="true">view_kanban</span>Kanban tindak lanjut</a>
+<a class="cmdk__item" role="option" id="cmd-23" href="tugas.html"><span class="ic" aria-hidden="true">checklist</span>Tugas</a>
+<a class="cmdk__item" role="option" id="cmd-24" href="arsip.html"><span class="ic" aria-hidden="true">folder_open</span>Arsip dokumen</a>
+<a class="cmdk__item" role="option" id="cmd-25" href="profil.html"><span class="ic" aria-hidden="true">person</span>Profil</a>
+<a class="cmdk__item" role="option" id="cmd-26" href="pengguna.html"><span class="ic" aria-hidden="true">group</span>Pengguna</a>
+<a class="cmdk__item" role="option" id="cmd-27" href="peran.html"><span class="ic" aria-hidden="true">shield_person</span>Peran dan akses</a>
+<a class="cmdk__item" role="option" id="cmd-28" href="segera-hadir.html"><span class="ic" aria-hidden="true">schedule</span>Segera hadir</a>
+<div class="cmdk__group">Masuk</div>
+<a class="cmdk__item" role="option" id="cmd-29" href="masuk.html"><span class="ic" aria-hidden="true">login</span>Masuk</a>
+<a class="cmdk__item" role="option" id="cmd-30" href="daftar.html"><span class="ic" aria-hidden="true">person_add</span>Daftar</a>
+<a class="cmdk__item" role="option" id="cmd-31" href="lupa-kata-sandi.html"><span class="ic" aria-hidden="true">key</span>Lupa kata sandi</a>
+<a class="cmdk__item" role="option" id="cmd-32" href="verifikasi.html"><span class="ic" aria-hidden="true">sms</span>Verifikasi OTP</a>
+<a class="cmdk__item" role="option" id="cmd-33" href="akses-ditolak.html"><span class="ic" aria-hidden="true">do_not_disturb_on</span>Akses ditolak</a>
+<div class="cmdk__group">Tindakan</div>
+<button type="button" class="cmdk__item" role="option" id="cmd-34" data-cmd="theme:light"><span class="ic" aria-hidden="true">light_mode</span>Pakai tampilan terang</button>
+<button type="button" class="cmdk__item" role="option" id="cmd-35" data-cmd="theme:dark"><span class="ic" aria-hidden="true">dark_mode</span>Pakai tampilan gelap</button>
+<button type="button" class="cmdk__item" role="option" id="cmd-36" data-cmd="theme:system"><span class="ic" aria-hidden="true">desktop_windows</span>Ikuti tampilan sistem</button>
+<button type="button" class="cmdk__item" role="option" id="cmd-37" data-cmd="rail"><span class="ic" aria-hidden="true">left_panel_close</span>Ciutkan atau lebarkan menu samping</button>
+<a class="cmdk__item" role="option" id="cmd-38" href="../index.html"><span class="ic" aria-hidden="true">grid_view</span>Semua contoh</a>
+<a class="cmdk__item" role="option" id="cmd-39" href="../../index.html"><span class="ic" aria-hidden="true">menu_book</span>Dokumentasi sistem desain</a>
+      <div class="cmdk__empty" data-lds-empty hidden>Tidak ada yang cocok. Coba nama halaman seperti "pengaduan" atau "kalender".</div>
+    </div>
+    <div class="cmdk__foot"><span><span class="kbd">↑</span> <span class="kbd">↓</span> untuk berpindah</span><span><span class="kbd">↵</span> untuk membuka</span><span><span class="kbd">esc</span> untuk menutup</span></div>
+  </div>
+</div>
+<script type="module" src="dashboard.js"></script>
+<script type="module">
+import { tableState, setLoading, closeMenus } from '../../../js/lds.js';
+import { notify, delay } from './dashboard.js';
+
+// Header actions
+document.querySelector('[data-print]').addEventListener('click', () => notify({ title: 'Ringkasan siap dicetak', body: 'Satu halaman A4, posisi 16 Nov 2026', icon: 'print' }));
+const ex = document.querySelector('[data-export]');
+ex.addEventListener('click', async () => { setLoading(ex, true); await delay(1000); setLoading(ex, false); notify({ title: 'Laporan realisasi diunduh', body: 'realisasi-apbd-2026-sd-16-nov.pdf', icon: 'check_circle' }); });
+
+// Sort the dinas list by budget or by percentage; the list re-orders in place
+const list = document.querySelector('[data-dinas]');
+document.querySelector('[data-urut]').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-by]'); if (!b) return;
+  const by = b.dataset.by;
+  [...list.children].sort((a, c) => Number(by === 'pagu' ? c.dataset.pagu - a.dataset.pagu : a.dataset.persen - c.dataset.persen)).forEach((el) => list.appendChild(el));
+});
+
+// Upcoming payments: schedule in place, Undo puts the button back
+const left = document.querySelector('[data-bayar-left]');
+const count = () => { const n = document.querySelectorAll('[data-pay]').length; left.textContent = n ? `${n} belum dijadwalkan` : 'Semua sudah dijadwalkan'; };
+document.addEventListener('click', async (e) => {
+  const b = e.target.closest('[data-pay]'); if (!b) return;
+  const title = b.closest('.lrow').querySelector('.lrow__title').textContent;
+  setLoading(b, true); await delay(700); setLoading(b, false);
+  const badge = document.createElement('span'); badge.className = 'badge badge--success'; badge.textContent = 'Terjadwal';
+  b.replaceWith(badge); count();
+  notify({ title: `${title} dijadwalkan`, body: 'Dibayar pada tanggal jatuh tempo', icon: 'event_available', action: 'Urungkan', onAction: () => { badge.replaceWith(b); count(); return { title: 'Jadwal dibatalkan', icon: 'undo' }; } });
+});
+
+// SP2D row menu
+const table = document.getElementById('sp2d'), tbody = table.querySelector('tbody'), menu = document.getElementById('sp2d-menu');
+let row = null, btn = null;
+const close = (focus) => { menu.classList.remove('is-open'); if (btn) { btn.setAttribute('aria-expanded', 'false'); if (focus) btn.focus(); } btn = null; };
+tbody.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-row-menu]'); if (!b) return;
+  e.stopPropagation();
+  if (btn === b) { close(); return; }
+  closeMenus(); close(); row = b.closest('tr'); btn = b;
+  menu.querySelector('[data-act="tahan"]').hidden = row.cells[4].textContent.trim() !== 'Terbit';
+  const r = b.getBoundingClientRect(); const below = r.bottom + 6 + menu.offsetHeight + 40 < innerHeight;
+  menu.style.left = 'auto'; menu.style.right = `${Math.max(8, innerWidth - r.right)}px`;
+  menu.style.top = below ? `${r.bottom + 6}px` : 'auto'; menu.style.bottom = below ? 'auto' : `${innerHeight - r.top + 6}px`;
+  menu.classList.add('is-open'); b.setAttribute('aria-expanded', 'true');
+  setTimeout(() => menu.querySelector('.menu__item:not([hidden])').focus(), 30);
+});
+document.addEventListener('click', (e) => { if (!menu.contains(e.target)) close(); });
+addEventListener('scroll', () => close(), { passive: true });
+menu.addEventListener('keydown', (e) => {
+  const items = [...menu.querySelectorAll('.menu__item:not([hidden])')]; const i = items.indexOf(document.activeElement);
+  if (e.key === 'ArrowDown') { e.preventDefault(); items[(i + 1) % items.length].focus(); }
+  if (e.key === 'ArrowUp') { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+  if (e.key === 'Escape') { e.stopPropagation(); close(true); }
+});
+menu.addEventListener('click', (e) => {
+  const it = e.target.closest('[data-act]'); if (!it || !row) return;
+  const no = row.cells[0].textContent; close(true);
+  if (it.dataset.act === 'unduh') notify({ title: `SP2D ${no} diunduh`, body: 'Dokumen bertanda tangan elektronik', icon: 'download' });
+  if (it.dataset.act === 'salin') { navigator.clipboard?.writeText(no).catch(() => {}); notify({ title: 'Nomor SP2D disalin', body: no, icon: 'content_copy' }); }
+  if (it.dataset.act === 'tahan') {
+    const badge = row.cells[4].querySelector('.badge');
+    badge.textContent = 'Ditahan'; badge.className = 'badge badge--warning';
+    notify({ title: `Pencairan ${no} ditahan`, body: 'Bank tidak mentransfer sampai dilepas lagi', icon: 'pause', action: 'Urungkan', onAction: () => { badge.textContent = 'Terbit'; badge.className = 'badge badge--accent'; return { title: 'Pencairan dilanjutkan', icon: 'undo' }; } });
+  }
+});
+table.addEventListener('dash:state', (e) => tableState(table, e.detail.state === 'loaded' ? 'ready' : e.detail.state));
+tbody.addEventListener('click', async (e) => { if (!e.target.closest('[data-retry]')) return; tableState(table, 'loading'); await delay(900); tableState(table, 'ready'); });
+</script>
+</body>
+</html>
