@@ -1,0 +1,61 @@
+{
+  "version": "0.1.0",
+  "slug": "toggle",
+  "title": "Toggle",
+  "group": "Actions",
+  "order": 6,
+  "summary": {
+    "en": "A button that stays pressed to show a mode is on (bold, pin, mute). Alone it is a `.toggle`; several sit in a `.toggle-group`, either independent (bold, italic, underline) or one at a time (align left, center, right).",
+    "id": "Tombol yang tetap tertekan untuk menunjukkan sebuah mode menyala (tebal, sematkan, bisukan). Sendirian ia adalah `.toggle`; beberapa berada di `.toggle-group`, bisa saling lepas (tebal, miring, garis bawah) atau satu per satu (rata kiri, tengah, kanan)."
+  },
+  "titleId": "Toggle",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Alone",
+        "desc": "Press to pin and unpin. The icon fills when on.",
+        "html": "<div class=\"docs-row\">\n  <button type=\"button\" class=\"toggle\" aria-pressed=\"true\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic\" aria-hidden=\"true\">keep</span>Pinned</button>\n  <button type=\"button\" class=\"toggle\" aria-pressed=\"false\" aria-label=\"Show grid\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic\" aria-hidden=\"true\">grid_view</span></button>\n</div>",
+        "code": "<button type=\"button\" class=\"toggle\" aria-pressed=\"true\"><span class=\"ic\" aria-hidden=\"true\">keep</span>Pinned</button>\n<button type=\"button\" class=\"toggle\" aria-pressed=\"false\" aria-label=\"Show grid\"><span class=\"ic\" aria-hidden=\"true\">grid_view</span></button>"
+      },
+      {
+        "title": "Independent group",
+        "desc": "Text style: any combination can be on.",
+        "html": "<div class=\"toggle-group\" role=\"group\" aria-label=\"Text style\">\n  <button type=\"button\" class=\"toggle\" aria-pressed=\"true\" aria-label=\"Bold\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic\" aria-hidden=\"true\">format_bold</span></button>\n  <button type=\"button\" class=\"toggle\" aria-pressed=\"false\" aria-label=\"Italic\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic\" aria-hidden=\"true\">format_italic</span></button>\n  <button type=\"button\" class=\"toggle\" aria-pressed=\"false\" aria-label=\"Underline\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic\" aria-hidden=\"true\">format_underlined</span></button>\n</div>",
+        "code": "<div class=\"toggle-group\" role=\"group\" aria-label=\"Text style\">\n  <button type=\"button\" class=\"toggle\" aria-pressed=\"true\" aria-label=\"Bold\"><span class=\"ic\" aria-hidden=\"true\">format_bold</span></button>\n  <button type=\"button\" class=\"toggle\" aria-pressed=\"false\" aria-label=\"Italic\"><span class=\"ic\" aria-hidden=\"true\">format_italic</span></button>\n  <button type=\"button\" class=\"toggle\" aria-pressed=\"false\" aria-label=\"Underline\"><span class=\"ic\" aria-hidden=\"true\">format_underlined</span></button>\n</div>"
+      },
+      {
+        "title": "One at a time",
+        "desc": "Alignment: exactly one is on. Each button is a radio for assistive tech; `aria-pressed` mirrors `aria-checked` because the style reads `aria-pressed`.",
+        "html": "<div class=\"toggle-group\" role=\"radiogroup\" aria-label=\"Alignment\">\n  <button type=\"button\" class=\"toggle\" role=\"radio\" aria-checked=\"true\" aria-pressed=\"true\" aria-label=\"Align left\" onclick=\"this.parentNode.querySelectorAll('.toggle').forEach(b => { const on = b === this; b.setAttribute('aria-checked', String(on)); b.setAttribute('aria-pressed', String(on)); })\"><span class=\"ic\" aria-hidden=\"true\">format_align_left</span></button>\n  <button type=\"button\" class=\"toggle\" role=\"radio\" aria-checked=\"false\" aria-pressed=\"false\" aria-label=\"Align center\" onclick=\"this.parentNode.querySelectorAll('.toggle').forEach(b => { const on = b === this; b.setAttribute('aria-checked', String(on)); b.setAttribute('aria-pressed', String(on)); })\"><span class=\"ic\" aria-hidden=\"true\">format_align_center</span></button>\n  <button type=\"button\" class=\"toggle\" role=\"radio\" aria-checked=\"false\" aria-pressed=\"false\" aria-label=\"Align right\" onclick=\"this.parentNode.querySelectorAll('.toggle').forEach(b => { const on = b === this; b.setAttribute('aria-checked', String(on)); b.setAttribute('aria-pressed', String(on)); })\"><span class=\"ic\" aria-hidden=\"true\">format_align_right</span></button>\n</div>",
+        "code": "<div class=\"toggle-group\" role=\"radiogroup\" aria-label=\"Alignment\">\n  <button type=\"button\" class=\"toggle\" role=\"radio\" aria-checked=\"true\" aria-pressed=\"true\" aria-label=\"Align left\"><span class=\"ic\" aria-hidden=\"true\">format_align_left</span></button>\n  <button type=\"button\" class=\"toggle\" role=\"radio\" aria-checked=\"false\" aria-pressed=\"false\" aria-label=\"Align center\"><span class=\"ic\" aria-hidden=\"true\">format_align_center</span></button>\n  <button type=\"button\" class=\"toggle\" role=\"radio\" aria-checked=\"false\" aria-pressed=\"false\" aria-label=\"Align right\"><span class=\"ic\" aria-hidden=\"true\">format_align_right</span></button>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Sendiri",
+        "desc": "Tekan untuk menyematkan dan melepas sematan. Ikon terisi saat menyala.",
+        "html": "<div class=\"docs-row\">\n  <button type=\"button\" class=\"toggle\" aria-pressed=\"true\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic\" aria-hidden=\"true\">keep</span>Disematkan</button>\n  <button type=\"button\" class=\"toggle\" aria-pressed=\"false\" aria-label=\"Tampilkan grid\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic\" aria-hidden=\"true\">grid_view</span></button>\n</div>",
+        "code": "<button type=\"button\" class=\"toggle\" aria-pressed=\"true\"><span class=\"ic\" aria-hidden=\"true\">keep</span>Disematkan</button>\n<button type=\"button\" class=\"toggle\" aria-pressed=\"false\" aria-label=\"Tampilkan grid\"><span class=\"ic\" aria-hidden=\"true\">grid_view</span></button>"
+      },
+      {
+        "title": "Grup saling lepas",
+        "desc": "Gaya teks: kombinasi apa pun bisa menyala.",
+        "html": "<div class=\"toggle-group\" role=\"group\" aria-label=\"Gaya teks\">\n  <button type=\"button\" class=\"toggle\" aria-pressed=\"true\" aria-label=\"Tebal\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic\" aria-hidden=\"true\">format_bold</span></button>\n  <button type=\"button\" class=\"toggle\" aria-pressed=\"false\" aria-label=\"Miring\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic\" aria-hidden=\"true\">format_italic</span></button>\n  <button type=\"button\" class=\"toggle\" aria-pressed=\"false\" aria-label=\"Garis bawah\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic\" aria-hidden=\"true\">format_underlined</span></button>\n</div>",
+        "code": "<div class=\"toggle-group\" role=\"group\" aria-label=\"Gaya teks\">\n  <button type=\"button\" class=\"toggle\" aria-pressed=\"true\" aria-label=\"Tebal\"><span class=\"ic\" aria-hidden=\"true\">format_bold</span></button>\n  <button type=\"button\" class=\"toggle\" aria-pressed=\"false\" aria-label=\"Miring\"><span class=\"ic\" aria-hidden=\"true\">format_italic</span></button>\n  <button type=\"button\" class=\"toggle\" aria-pressed=\"false\" aria-label=\"Garis bawah\"><span class=\"ic\" aria-hidden=\"true\">format_underlined</span></button>\n</div>"
+      },
+      {
+        "title": "Satu per satu",
+        "desc": "Perataan: tepat satu yang menyala. Setiap tombol adalah radio bagi teknologi bantu; `aria-pressed` mengikuti `aria-checked` karena gayanya membaca `aria-pressed`.",
+        "html": "<div class=\"toggle-group\" role=\"radiogroup\" aria-label=\"Perataan\">\n  <button type=\"button\" class=\"toggle\" role=\"radio\" aria-checked=\"true\" aria-pressed=\"true\" aria-label=\"Rata kiri\" onclick=\"this.parentNode.querySelectorAll('.toggle').forEach(b => { const on = b === this; b.setAttribute('aria-checked', String(on)); b.setAttribute('aria-pressed', String(on)); })\"><span class=\"ic\" aria-hidden=\"true\">format_align_left</span></button>\n  <button type=\"button\" class=\"toggle\" role=\"radio\" aria-checked=\"false\" aria-pressed=\"false\" aria-label=\"Rata tengah\" onclick=\"this.parentNode.querySelectorAll('.toggle').forEach(b => { const on = b === this; b.setAttribute('aria-checked', String(on)); b.setAttribute('aria-pressed', String(on)); })\"><span class=\"ic\" aria-hidden=\"true\">format_align_center</span></button>\n  <button type=\"button\" class=\"toggle\" role=\"radio\" aria-checked=\"false\" aria-pressed=\"false\" aria-label=\"Rata kanan\" onclick=\"this.parentNode.querySelectorAll('.toggle').forEach(b => { const on = b === this; b.setAttribute('aria-checked', String(on)); b.setAttribute('aria-pressed', String(on)); })\"><span class=\"ic\" aria-hidden=\"true\">format_align_right</span></button>\n</div>",
+        "code": "<div class=\"toggle-group\" role=\"radiogroup\" aria-label=\"Perataan\">\n  <button type=\"button\" class=\"toggle\" role=\"radio\" aria-checked=\"true\" aria-pressed=\"true\" aria-label=\"Rata kiri\"><span class=\"ic\" aria-hidden=\"true\">format_align_left</span></button>\n  <button type=\"button\" class=\"toggle\" role=\"radio\" aria-checked=\"false\" aria-pressed=\"false\" aria-label=\"Rata tengah\"><span class=\"ic\" aria-hidden=\"true\">format_align_center</span></button>\n  <button type=\"button\" class=\"toggle\" role=\"radio\" aria-checked=\"false\" aria-pressed=\"false\" aria-label=\"Rata kanan\"><span class=\"ic\" aria-hidden=\"true\">format_align_right</span></button>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "switch",
+    "segmented-control",
+    "button-group",
+    "icon-button"
+  ]
+}

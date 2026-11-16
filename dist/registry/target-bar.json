@@ -1,0 +1,45 @@
+{
+  "version": "0.1.0",
+  "slug": "target-bar",
+  "title": "Target bar",
+  "group": "Charts",
+  "order": 6.5,
+  "summary": {
+    "en": "A horizontal bar for progress toward a goal: the fill is where you are, a marker shows where you should be (the goal, or today's pace), and an optional tint ahead of the fill shows the forecast. Words above say the value against the goal.",
+    "id": "Batang horizontal untuk kemajuan menuju target: isian menunjukkan posisi sekarang, penanda menunjukkan posisi yang seharusnya (target, atau laju hari ini), dan tint opsional di depan isian menunjukkan prakiraan. Kata-kata di atasnya menyebut nilai terhadap target."
+  },
+  "titleId": "Target bar",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Quarter goal with a forecast",
+        "desc": "The fill is the revenue so far, the tint is where the trend ends the quarter, the marker is the goal. Fills grow in on first view.",
+        "html": "<section class=\"chart-card\" style=\"max-width: 520px;\" data-lds-grow aria-labelledby=\"tb-q\">\n  <div><div class=\"chart-card__q\" id=\"tb-q\">Will we reach the Q4 goal?</div><div class=\"chart-card__sub\">Course sales since 1 October</div></div>\n  <div class=\"target\" style=\"--v: 84.3%; --t: 100%; --f: 97%;\">\n    <div class=\"target__meta\"><span class=\"target__label\">Sales</span><span class=\"target__val\"><b>$84,300</b> of $100,000</span></div>\n    <div class=\"target__track\" role=\"img\" aria-label=\"Sales: $84,300 of $100,000, goal marked at 100 percent, forecast 97 percent\"><span class=\"target__forecast\"></span><span class=\"target__fill\"></span><span class=\"target__mark is-end\"><span class=\"target__mark-label\">Goal</span></span></div>\n    <div class=\"target__foot\"><span>Forecast $97,000 by 31 Dec</span><span>45 days left</span></div>\n  </div>\n</section>"
+      },
+      {
+        "title": "Marker at today's pace",
+        "desc": "Each goal's marker sits where the team should be today. Behind pace turns the fill to warning, and the words say so.",
+        "html": "<section class=\"chart-card\" style=\"max-width: 520px;\" aria-labelledby=\"tb-pace\">\n  <div><div class=\"chart-card__q\" id=\"tb-pace\">Which study plans are on track?</div><div class=\"chart-card__sub\">Hours studied this week against each plan</div></div>\n  <div class=\"target-list\" data-lds-grow>\n  <div class=\"target target--success\" style=\"--v: 87.5%; --t: 62%;\">\n    <div class=\"target__meta\"><span class=\"target__label\">Database Systems</span><span class=\"target__val\"><b>7 h</b> of 8 h</span></div>\n    <div class=\"target__track\" role=\"img\" aria-label=\"Database Systems: 7 h of 8 h, goal marked at 62 percent\"><span class=\"target__fill\"></span><span class=\"target__mark\"><span class=\"target__mark-label\">Today</span></span></div>\n    <div class=\"target__foot\"><span>Ahead of plan</span></div>\n  </div>\n  <div class=\"target target--warning\" style=\"--v: 33%; --t: 62%;\">\n    <div class=\"target__meta\"><span class=\"target__label\">Statistics</span><span class=\"target__val\"><b>2 h</b> of 6 h</span></div>\n    <div class=\"target__track\" role=\"img\" aria-label=\"Statistics: 2 h of 6 h, goal marked at 62 percent\"><span class=\"target__fill\"></span><span class=\"target__mark\"><span class=\"target__mark-label\">Today</span></span></div>\n    <div class=\"target__foot\"><span>1.7 h behind plan</span></div>\n  </div>\n  <div class=\"target\" style=\"--v: 60%; --t: 62%;\">\n    <div class=\"target__meta\"><span class=\"target__label\">Academic writing</span><span class=\"target__val\"><b>3 h</b> of 5 h</span></div>\n    <div class=\"target__track\" role=\"img\" aria-label=\"Academic writing: 3 h of 5 h, goal marked at 62 percent\"><span class=\"target__fill\"></span><span class=\"target__mark\"><span class=\"target__mark-label\">Today</span></span></div>\n    <div class=\"target__foot\"><span>On plan</span></div>\n  </div>\n  </div>\n</section>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Target triwulan dengan prakiraan",
+        "desc": "Isian adalah penerimaan sejauh ini, tint adalah posisi akhir triwulan menurut tren, penanda adalah targetnya. Isian tumbuh saat pertama terlihat.",
+        "html": "<section class=\"chart-card\" style=\"max-width: 520px;\" data-lds-grow aria-labelledby=\"tb-q\">\n  <div><div class=\"chart-card__q\" id=\"tb-q\">Apakah target triwulan IV tercapai?</div><div class=\"chart-card__sub\">Penerimaan pajak daerah sejak 1 Oktober</div></div>\n  <div class=\"target\" style=\"--v: 84.3%; --t: 100%; --f: 97%;\">\n    <div class=\"target__meta\"><span class=\"target__label\">Pajak daerah</span><span class=\"target__val\"><b>Rp 84,3 M</b> dari Rp 100 M</span></div>\n    <div class=\"target__track\" role=\"img\" aria-label=\"Pajak daerah: Rp 84,3 M dari Rp 100 M, target ditandai di 100 persen, prakiraan 97 persen\"><span class=\"target__forecast\"></span><span class=\"target__fill\"></span><span class=\"target__mark is-end\"><span class=\"target__mark-label\">Target</span></span></div>\n    <div class=\"target__foot\"><span>Prakiraan Rp 97 M pada 31 Des</span><span>45 hari lagi</span></div>\n  </div>\n</section>"
+      },
+      {
+        "title": "Penanda di laju hari ini",
+        "desc": "Penanda setiap target berada di posisi yang seharusnya dicapai tim hari ini. Jika tertinggal, isian berubah menjadi peringatan, dan kata-katanya menyebutkannya.",
+        "html": "<section class=\"chart-card\" style=\"max-width: 520px;\" aria-labelledby=\"tb-pace\">\n  <div><div class=\"chart-card__q\" id=\"tb-pace\">Puskesmas mana yang sesuai rencana?</div><div class=\"chart-card__sub\">Dosis vaksin yang diberikan minggu ini terhadap rencana tiap puskesmas</div></div>\n  <div class=\"target-list\" data-lds-grow>\n  <div class=\"target target--success\" style=\"--v: 87.5%; --t: 62%;\">\n    <div class=\"target__meta\"><span class=\"target__label\">Puskesmas Kota</span><span class=\"target__val\"><b>175</b> dari 200 dosis</span></div>\n    <div class=\"target__track\" role=\"img\" aria-label=\"Puskesmas Kota: 175 dari 200 dosis, target ditandai di 62 persen\"><span class=\"target__fill\"></span><span class=\"target__mark\"><span class=\"target__mark-label\">Hari ini</span></span></div>\n    <div class=\"target__foot\"><span>Di depan rencana</span></div>\n  </div>\n  <div class=\"target target--warning\" style=\"--v: 33%; --t: 62%;\">\n    <div class=\"target__meta\"><span class=\"target__label\">Puskesmas Pesisir</span><span class=\"target__val\"><b>60</b> dari 180 dosis</span></div>\n    <div class=\"target__track\" role=\"img\" aria-label=\"Puskesmas Pesisir: 60 dari 180 dosis, target ditandai di 62 persen\"><span class=\"target__fill\"></span><span class=\"target__mark\"><span class=\"target__mark-label\">Hari ini</span></span></div>\n    <div class=\"target__foot\"><span>52 dosis di belakang rencana</span></div>\n  </div>\n  <div class=\"target\" style=\"--v: 60%; --t: 62%;\">\n    <div class=\"target__meta\"><span class=\"target__label\">Puskesmas Bukit</span><span class=\"target__val\"><b>90</b> dari 150 dosis</span></div>\n    <div class=\"target__track\" role=\"img\" aria-label=\"Puskesmas Bukit: 90 dari 150 dosis, target ditandai di 62 persen\"><span class=\"target__fill\"></span><span class=\"target__mark\"><span class=\"target__mark-label\">Hari ini</span></span></div>\n    <div class=\"target__foot\"><span>Sesuai rencana</span></div>\n  </div>\n  </div>\n</section>"
+      }
+    ]
+  },
+  "related": [
+    "progress-bar",
+    "meter",
+    "kpi-card",
+    "ranked-bars"
+  ]
+}

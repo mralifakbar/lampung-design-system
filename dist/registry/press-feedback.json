@@ -1,0 +1,65 @@
+{
+  "version": "0.1.0",
+  "slug": "press-feedback",
+  "title": "Press feedback",
+  "group": "Motion",
+  "order": 2,
+  "summary": {
+    "en": "The control answers the moment a finger or mouse goes down: it sinks a little in 90 ms and springs back on release. Depth follows size, so small things sink more and wide things barely move. Every system control already does this; you only choose the right control.",
+    "id": "Kontrol menanggapi tepat saat jari atau mouse turun: ia sedikit tenggelam dalam 90 ms dan memantul kembali saat dilepas. Kedalamannya mengikuti ukuran, jadi elemen kecil tenggelam lebih dalam dan elemen lebar nyaris tidak bergerak. Setiap kontrol sistem sudah melakukannya; Anda cukup memilih kontrol yang tepat."
+  },
+  "titleId": "Press feedback",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Buttons",
+        "desc": "Press and hold each one. Standard buttons sink to 0.97; full-width and large ones to 0.985 so the motion stays the same size in pixels; a menu trigger does not sink because the menu opening is its feedback; icon buttons sink to 0.9 with a tint.",
+        "html": "<div class=\"docs-row\">\n  <button class=\"btn btn--primary\">Submit answers</button>\n  <button class=\"btn btn--secondary\">Preview</button>\n  <button class=\"btn btn--gray btn--md\" aria-haspopup=\"menu\">Sort by<span class=\"ic\" aria-hidden=\"true\">expand_more</span></button>\n  <button class=\"icon-btn\" aria-label=\"Bookmark\"><span class=\"ic\" aria-hidden=\"true\">bookmark</span></button>\n  <button class=\"icon-btn icon-btn--filled\" aria-label=\"Share\"><span class=\"ic\" aria-hidden=\"true\">share</span></button>\n</div>\n<div class=\"docs-col\" style=\"max-width: 360px; margin-top: 12px;\"><button class=\"btn btn--primary btn--block\">Start the tryout</button></div>"
+      },
+      {
+        "title": "List rows",
+        "desc": "Rows do not scale; they fill with the pressed tint at once. Scaling a full-width row would shift its edges against the list.",
+        "html": "<div class=\"list\" style=\"width: 100%; max-width: 420px;\">\n  <a class=\"lrow lrow--icon\" href=\"#\"><span class=\"lrow__icon\"><span class=\"ic\" aria-hidden=\"true\">person</span></span><span class=\"lrow__body\"><span class=\"lrow__title\">Profile</span></span><span class=\"ic lrow__chev\" aria-hidden=\"true\">chevron_right</span></a>\n  <a class=\"lrow lrow--icon\" href=\"#\"><span class=\"lrow__icon\" style=\"background: var(--tile-red);\"><span class=\"ic\" aria-hidden=\"true\">notifications</span></span><span class=\"lrow__body\"><span class=\"lrow__title\">Notifications</span></span><span class=\"lrow__value\">On</span><span class=\"ic lrow__chev\" aria-hidden=\"true\">chevron_right</span></a>\n  <a class=\"lrow lrow--icon\" href=\"#\"><span class=\"lrow__icon\" style=\"background: var(--neutral);\"><span class=\"ic\" aria-hidden=\"true\">lock</span></span><span class=\"lrow__body\"><span class=\"lrow__title\">Privacy</span></span><span class=\"ic lrow__chev\" aria-hidden=\"true\">chevron_right</span></a>\n</div>"
+      },
+      {
+        "title": "Cards",
+        "desc": "Tappable cards and radio cards sink to 0.985: enough to feel, not enough to move the grid. Resting cards (not links) do not move at all.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 420px;\">\n  <a class=\"card card--link\" href=\"#\"><span class=\"card__title\" style=\"display: block;\">Cell biology</span><span class=\"card__sub\" style=\"display: block;\">12 lessons, 3 quizzes</span></a>\n  <div role=\"radiogroup\" aria-label=\"Plan\" class=\"docs-col\">\n    <button class=\"rcard\" role=\"radio\" aria-checked=\"true\" onclick=\"this.parentElement.querySelectorAll('.rcard').forEach((r) => r.setAttribute('aria-checked', String(r === this)))\"><span class=\"radio__dot\"></span><span><span class=\"rcard__title\" style=\"display: block;\">Monthly</span><span class=\"rcard__sub\" style=\"display: block;\">Cancel any time</span></span><span class=\"rcard__price\">Rp 49.000</span></button>\n    <button class=\"rcard\" role=\"radio\" aria-checked=\"false\" onclick=\"this.parentElement.querySelectorAll('.rcard').forEach((r) => r.setAttribute('aria-checked', String(r === this)))\"><span class=\"radio__dot\"></span><span><span class=\"rcard__title\" style=\"display: block;\">Full term</span><span class=\"rcard__sub\" style=\"display: block;\">Four months, save 20 %</span></span><span class=\"rcard__price\">Rp 156.000</span></button>\n  </div>\n</div>"
+      },
+      {
+        "title": "Chips, toggles and checkboxes",
+        "desc": "Small targets sink deeper so the press is visible under a finger: chips 0.95, toggles 0.94, checkboxes and radios 0.88. The state change (fill, check, color) follows on release.",
+        "html": "<div class=\"chip-row\">\n  <button class=\"chip\" aria-pressed=\"true\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic chip__check\" aria-hidden=\"true\">check</span>Biology</button>\n  <button class=\"chip\" aria-pressed=\"false\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic chip__check\" aria-hidden=\"true\">check</span>Chemistry</button>\n  <button class=\"chip\" aria-pressed=\"false\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic chip__check\" aria-hidden=\"true\">check</span>Physics</button>\n</div>\n<div class=\"toggle-group\" role=\"group\" aria-label=\"Text style\">\n  <button class=\"toggle\" aria-pressed=\"false\" aria-label=\"Bold\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic\" aria-hidden=\"true\">format_bold</span></button>\n  <button class=\"toggle\" aria-pressed=\"false\" aria-label=\"Italic\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic\" aria-hidden=\"true\">format_italic</span></button>\n  <button class=\"toggle\" aria-pressed=\"false\" aria-label=\"Underline\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic\" aria-hidden=\"true\">format_underlined</span></button>\n</div>\n<label class=\"check\"><input type=\"checkbox\"><span class=\"check__box\" aria-hidden=\"true\"><svg viewBox=\"0 0 14 14\"><path class=\"tick\" d=\"M2.5 7.4 L5.7 10.4 L11.5 3.8\"></path></svg></span><span class=\"check__text\">Remind me a day before</span></label>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Tombol",
+        "desc": "Tekan dan tahan setiap tombol. Tombol standar tenggelam ke 0,97; tombol lebar penuh dan besar ke 0,985 agar gerakannya sama besar dalam piksel; pemicu menu tidak tenggelam karena menu yang terbuka sudah menjadi umpan baliknya; icon button tenggelam ke 0,9 dengan warna tipis.",
+        "html": "<div class=\"docs-row\">\n  <button class=\"btn btn--primary\">Kirim laporan</button>\n  <button class=\"btn btn--secondary\">Pratinjau</button>\n  <button class=\"btn btn--gray btn--md\" aria-haspopup=\"menu\">Urutkan<span class=\"ic\" aria-hidden=\"true\">expand_more</span></button>\n  <button class=\"icon-btn\" aria-label=\"Simpan ke penanda\"><span class=\"ic\" aria-hidden=\"true\">bookmark</span></button>\n  <button class=\"icon-btn icon-btn--filled\" aria-label=\"Bagikan\"><span class=\"ic\" aria-hidden=\"true\">share</span></button>\n</div>\n<div class=\"docs-col\" style=\"max-width: 360px; margin-top: 12px;\"><button class=\"btn btn--primary btn--block\">Mulai permohonan</button></div>"
+      },
+      {
+        "title": "Baris daftar",
+        "desc": "Baris tidak berubah skala; baris langsung terisi warna tekan. Mengubah skala baris selebar penuh akan menggeser tepinya terhadap daftar.",
+        "html": "<div class=\"list\" style=\"width: 100%; max-width: 420px;\">\n  <a class=\"lrow lrow--icon\" href=\"#\"><span class=\"lrow__icon\"><span class=\"ic\" aria-hidden=\"true\">person</span></span><span class=\"lrow__body\"><span class=\"lrow__title\">Profil</span></span><span class=\"ic lrow__chev\" aria-hidden=\"true\">chevron_right</span></a>\n  <a class=\"lrow lrow--icon\" href=\"#\"><span class=\"lrow__icon\" style=\"background: var(--tile-red);\"><span class=\"ic\" aria-hidden=\"true\">notifications</span></span><span class=\"lrow__body\"><span class=\"lrow__title\">Notifikasi</span></span><span class=\"lrow__value\">Aktif</span><span class=\"ic lrow__chev\" aria-hidden=\"true\">chevron_right</span></a>\n  <a class=\"lrow lrow--icon\" href=\"#\"><span class=\"lrow__icon\" style=\"background: var(--neutral);\"><span class=\"ic\" aria-hidden=\"true\">lock</span></span><span class=\"lrow__body\"><span class=\"lrow__title\">Privasi</span></span><span class=\"ic lrow__chev\" aria-hidden=\"true\">chevron_right</span></a>\n</div>"
+      },
+      {
+        "title": "Kartu",
+        "desc": "Kartu yang bisa diketuk dan kartu radio tenggelam ke 0,985: cukup terasa, tidak cukup untuk menggeser grid. Kartu diam (bukan tautan) tidak bergerak sama sekali.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 420px;\">\n  <a class=\"card card--link\" href=\"#\"><span class=\"card__title\" style=\"display: block;\">Izin usaha mikro</span><span class=\"card__sub\" style=\"display: block;\">5 langkah, 3 dokumen</span></a>\n  <div role=\"radiogroup\" aria-label=\"Cara pengambilan\" class=\"docs-col\">\n    <button class=\"rcard\" role=\"radio\" aria-checked=\"true\" onclick=\"this.parentElement.querySelectorAll('.rcard').forEach((r) => r.setAttribute('aria-checked', String(r === this)))\"><span class=\"radio__dot\"></span><span><span class=\"rcard__title\" style=\"display: block;\">Ambil di loket</span><span class=\"rcard__sub\" style=\"display: block;\">Siap dalam 3 hari kerja</span></span><span class=\"rcard__price\">Rp 0</span></button>\n    <button class=\"rcard\" role=\"radio\" aria-checked=\"false\" onclick=\"this.parentElement.querySelectorAll('.rcard').forEach((r) => r.setAttribute('aria-checked', String(r === this)))\"><span class=\"radio__dot\"></span><span><span class=\"rcard__title\" style=\"display: block;\">Dikirim ke rumah</span><span class=\"rcard__sub\" style=\"display: block;\">Tiba 2 sampai 4 hari setelah terbit</span></span><span class=\"rcard__price\">Rp 15.000</span></button>\n  </div>\n</div>"
+      },
+      {
+        "title": "Chip, toggle, dan checkbox",
+        "desc": "Target kecil tenggelam lebih dalam agar tekanannya terlihat di bawah jari: chip 0,95, toggle 0,94, checkbox dan radio 0,88. Perubahan state (isi, centang, warna) menyusul saat dilepas.",
+        "html": "<div class=\"chip-row\">\n  <button class=\"chip\" aria-pressed=\"true\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic chip__check\" aria-hidden=\"true\">check</span>Jalan</button>\n  <button class=\"chip\" aria-pressed=\"false\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic chip__check\" aria-hidden=\"true\">check</span>Drainase</button>\n  <button class=\"chip\" aria-pressed=\"false\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic chip__check\" aria-hidden=\"true\">check</span>Penerangan</button>\n</div>\n<div class=\"toggle-group\" role=\"group\" aria-label=\"Gaya teks\">\n  <button class=\"toggle\" aria-pressed=\"false\" aria-label=\"Tebal\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic\" aria-hidden=\"true\">format_bold</span></button>\n  <button class=\"toggle\" aria-pressed=\"false\" aria-label=\"Miring\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic\" aria-hidden=\"true\">format_italic</span></button>\n  <button class=\"toggle\" aria-pressed=\"false\" aria-label=\"Garis bawah\" onclick=\"this.setAttribute('aria-pressed', String(this.getAttribute('aria-pressed') !== 'true'))\"><span class=\"ic\" aria-hidden=\"true\">format_underlined</span></button>\n</div>\n<label class=\"check\"><input type=\"checkbox\"><span class=\"check__box\" aria-hidden=\"true\"><svg viewBox=\"0 0 14 14\"><path class=\"tick\" d=\"M2.5 7.4 L5.7 10.4 L11.5 3.8\"></path></svg></span><span class=\"check__text\">Ingatkan saya sehari sebelumnya</span></label>"
+      }
+    ]
+  },
+  "related": [
+    "button",
+    "motion-principles",
+    "haptics",
+    "icon-button"
+  ]
+}

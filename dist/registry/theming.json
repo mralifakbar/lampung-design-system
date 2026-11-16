@@ -1,0 +1,57 @@
+{
+  "version": "0.1.0",
+  "slug": "theming",
+  "title": "Theming",
+  "group": "Foundations",
+  "order": 4,
+  "summary": {
+    "en": "Light and dark come from one attribute: `data-theme=\"light|dark|system\"` on `<html>` or any subtree. Components read only tokens, so they switch by themselves; you never write dark-mode CSS for a component.",
+    "id": "Terang dan gelap berasal dari satu atribut: `data-theme=\"light|dark|system\"` pada `<html>` atau subtree mana pun. Komponen hanya membaca token, jadi mereka berganti sendiri; Anda tidak pernah menulis CSS dark mode untuk sebuah komponen."
+  },
+  "titleId": "Theming",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Appearance switch",
+        "desc": "A segmented control whose buttons carry `data-lds-theme`. It switches this whole page and remembers the choice in `localStorage`.",
+        "html": "<div class=\"seg\" role=\"group\" aria-label=\"Appearance\" data-lds-segmented style=\"width: 300px;\">\n  <span class=\"seg__thumb\"></span>\n  <button class=\"seg__btn\" aria-pressed=\"true\" data-lds-theme=\"light\"><span class=\"ic ic--sm\" aria-hidden=\"true\">light_mode</span>&nbsp;Light</button>\n  <button class=\"seg__btn\" aria-pressed=\"false\" data-lds-theme=\"dark\"><span class=\"ic ic--sm\" aria-hidden=\"true\">dark_mode</span>&nbsp;Dark</button>\n  <button class=\"seg__btn\" aria-pressed=\"false\" data-lds-theme=\"system\"><span class=\"ic ic--sm\" aria-hidden=\"true\">contrast</span>&nbsp;System</button>\n</div>"
+      },
+      {
+        "title": "Scoped theme",
+        "desc": "The same card in a light and a dark subtree, side by side on one page. Nothing in the card knows which theme it is in.",
+        "html": "<div class=\"auto-grid\" style=\"--min: 260px;\">\n  <div class=\"lds\" data-theme=\"light\" style=\"padding: 20px; border-radius: var(--r-lg);\">\n  <div class=\"card stack\" style=\"--gap: 12px;\">\n    <div class=\"cluster\" style=\"justify-content: space-between;\"><span class=\"card__title\">Database Systems</span><span class=\"badge badge--success\">Open</span></div>\n    <div class=\"progress\"><span class=\"progress__fill\" style=\"transform: scaleX(0.72);\"></span></div>\n    <div class=\"cluster\"><button class=\"btn btn--primary btn--md\">Continue</button><button class=\"btn btn--secondary btn--md\">Syllabus</button></div>\n  </div>\n  </div>\n  <div class=\"lds\" data-theme=\"dark\" style=\"padding: 20px; border-radius: var(--r-lg);\">\n  <div class=\"card stack\" style=\"--gap: 12px;\">\n    <div class=\"cluster\" style=\"justify-content: space-between;\"><span class=\"card__title\">Database Systems</span><span class=\"badge badge--success\">Open</span></div>\n    <div class=\"progress\"><span class=\"progress__fill\" style=\"transform: scaleX(0.72);\"></span></div>\n    <div class=\"cluster\"><button class=\"btn btn--primary btn--md\">Continue</button><button class=\"btn btn--secondary btn--md\">Syllabus</button></div>\n  </div>\n  </div>\n</div>"
+      },
+      {
+        "title": "Page setup without a flash",
+        "desc": "Read the saved choice before the body paints. `restoreTheme()` sets the attribute and returns the mode, so you can sync the switch.",
+        "html": "<div class=\"codeblock\" style=\"max-width: 640px;\"><pre>&lt;html lang=\"en\" class=\"lds\" data-theme=\"light\"&gt;\n&lt;head&gt;\n  &lt;link rel=\"stylesheet\" href=\"css/lds.css\"&gt;\n  &lt;script type=\"module\"&gt;\n    import { init, restoreTheme } from './js/lds.js';\n    const mode = restoreTheme(document.documentElement, 'light');\n    init();\n  &lt;/script&gt;\n&lt;/head&gt;</pre></div>",
+        "code": "<html lang=\"en\" class=\"lds\" data-theme=\"light\">\n<head>\n  <link rel=\"stylesheet\" href=\"css/lds.css\">\n  <script type=\"module\">\n    import { init, restoreTheme } from './js/lds.js';\n    const mode = restoreTheme(document.documentElement, 'light');\n    document.querySelectorAll('[data-lds-theme]').forEach((b) => b.setAttribute('aria-pressed', String(b.getAttribute('data-lds-theme') === mode)));\n    init();\n  </script>\n</head>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Pengalih tampilan",
+        "desc": "Segmented control yang tombolnya membawa `data-lds-theme`. Ia mengganti seluruh halaman ini dan mengingat pilihannya di `localStorage`.",
+        "html": "<div class=\"seg\" role=\"group\" aria-label=\"Tampilan\" data-lds-segmented style=\"width: 300px;\">\n  <span class=\"seg__thumb\"></span>\n  <button class=\"seg__btn\" aria-pressed=\"true\" data-lds-theme=\"light\"><span class=\"ic ic--sm\" aria-hidden=\"true\">light_mode</span>&nbsp;Terang</button>\n  <button class=\"seg__btn\" aria-pressed=\"false\" data-lds-theme=\"dark\"><span class=\"ic ic--sm\" aria-hidden=\"true\">dark_mode</span>&nbsp;Gelap</button>\n  <button class=\"seg__btn\" aria-pressed=\"false\" data-lds-theme=\"system\"><span class=\"ic ic--sm\" aria-hidden=\"true\">contrast</span>&nbsp;Sistem</button>\n</div>"
+      },
+      {
+        "title": "Tema terbatas",
+        "desc": "Kartu yang sama di subtree terang dan gelap, berdampingan di satu halaman. Tidak ada bagian kartu yang tahu sedang di tema apa.",
+        "html": "<div class=\"auto-grid\" style=\"--min: 260px;\">\n  <div class=\"lds\" data-theme=\"light\" style=\"padding: 20px; border-radius: var(--r-lg);\">\n  <div class=\"card stack\" style=\"--gap: 12px;\">\n    <div class=\"cluster\" style=\"justify-content: space-between;\"><span class=\"card__title\">Izin usaha mikro</span><span class=\"badge badge--success\">Buka</span></div>\n    <div class=\"progress\"><span class=\"progress__fill\" style=\"transform: scaleX(0.72);\"></span></div>\n    <div class=\"cluster\"><button class=\"btn btn--primary btn--md\">Lanjutkan</button><button class=\"btn btn--secondary btn--md\">Persyaratan</button></div>\n  </div>\n  </div>\n  <div class=\"lds\" data-theme=\"dark\" style=\"padding: 20px; border-radius: var(--r-lg);\">\n  <div class=\"card stack\" style=\"--gap: 12px;\">\n    <div class=\"cluster\" style=\"justify-content: space-between;\"><span class=\"card__title\">Izin usaha mikro</span><span class=\"badge badge--success\">Buka</span></div>\n    <div class=\"progress\"><span class=\"progress__fill\" style=\"transform: scaleX(0.72);\"></span></div>\n    <div class=\"cluster\"><button class=\"btn btn--primary btn--md\">Lanjutkan</button><button class=\"btn btn--secondary btn--md\">Persyaratan</button></div>\n  </div>\n  </div>\n</div>"
+      },
+      {
+        "title": "Penyiapan halaman tanpa kedipan",
+        "desc": "Baca pilihan yang tersimpan sebelum body digambar. `restoreTheme()` menyetel atribut dan mengembalikan mode, sehingga Anda bisa menyelaraskan pengalihnya.",
+        "html": "<div class=\"codeblock\" style=\"max-width: 640px;\"><pre>&lt;html lang=\"en\" class=\"lds\" data-theme=\"light\"&gt;\n&lt;head&gt;\n  &lt;link rel=\"stylesheet\" href=\"css/lds.css\"&gt;\n  &lt;script type=\"module\"&gt;\n    import { init, restoreTheme } from './js/lds.js';\n    const mode = restoreTheme(document.documentElement, 'light');\n    init();\n  &lt;/script&gt;\n&lt;/head&gt;</pre></div>",
+        "code": "<html lang=\"en\" class=\"lds\" data-theme=\"light\">\n<head>\n  <link rel=\"stylesheet\" href=\"css/lds.css\">\n  <script type=\"module\">\n    import { init, restoreTheme } from './js/lds.js';\n    const mode = restoreTheme(document.documentElement, 'light');\n    document.querySelectorAll('[data-lds-theme]').forEach((b) => b.setAttribute('aria-pressed', String(b.getAttribute('data-lds-theme') === mode)));\n    init();\n  </script>\n</head>"
+      }
+    ]
+  },
+  "related": [
+    "segmented-control",
+    "icon",
+    "chart-principles",
+    "layout-primitives"
+  ]
+}

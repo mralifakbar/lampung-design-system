@@ -1,0 +1,47 @@
+{
+  "version": "0.1.0",
+  "slug": "inline-edit",
+  "title": "Inline edit",
+  "group": "Microinteractions",
+  "order": 10,
+  "summary": {
+    "en": "Click a name to rename it where it is: the text becomes a field with the same font and width, Enter or leaving saves, Escape puts it back. A save draws a small check; a refused save restores the old name, shakes, and says why.",
+    "id": "Klik sebuah nama untuk mengganti namanya di tempat: teks menjadi kolom dengan font dan lebar yang sama, Enter atau meninggalkan kolom menyimpan, Escape mengembalikannya. Penyimpanan menggambar centang kecil; penyimpanan yang ditolak mengembalikan nama lama, bergoyang, dan menjelaskan alasannya."
+  },
+  "titleId": "Inline edit",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Rename a project",
+        "desc": "Click the name, type, press Enter. The check draws in; the new name stays. Escape restores the old one.",
+        "html": "<div class=\"docs-col\">\n  <span class=\"card__sub\">Project</span>\n  <span style=\"font: var(--type-title-2); letter-spacing: var(--tracking-title-2);\"><span class=\"inline-edit\" data-lds-inline><button class=\"inline-edit__text\" aria-label=\"Rename project\"><span class=\"inline-edit__value\">Thesis draft</span><span class=\"ic\" aria-hidden=\"true\">edit</span></button></span></span>\n</div>",
+        "code": "<h1><span class=\"inline-edit\" data-lds-inline>\n  <button class=\"inline-edit__text\" aria-label=\"Rename project\"><span class=\"inline-edit__value\">Thesis draft</span><span class=\"ic\" aria-hidden=\"true\">edit</span></button>\n</span></h1>\n<script type=\"module\">\n  document.querySelector('[data-lds-inline]').addEventListener('lds:save', (e) => {\n    e.detail.wait(api.rename(e.detail.value)); // rejection restores e.detail.previous, shakes, announces\n  });\n</script>"
+      },
+      {
+        "title": "Rename a file in a list",
+        "desc": "In a row the field takes the title's place and size; the size and date beside it do not move.",
+        "html": "<div class=\"list\" style=\"width: 100%; max-width: 440px;\">\n  <div class=\"lrow\"><span class=\"ic\" aria-hidden=\"true\">description</span><span class=\"lrow__body\"><span class=\"inline-edit\" data-lds-inline><button class=\"inline-edit__text\" aria-label=\"Rename Week 6 notes\"><span class=\"inline-edit__value\">Week 6 notes</span><span class=\"ic\" aria-hidden=\"true\">edit</span></button></span></span><span class=\"lrow__value\">340 KB</span></div>\n  <div class=\"lrow\"><span class=\"ic\" aria-hidden=\"true\">description</span><span class=\"lrow__body\"><span class=\"inline-edit\" data-lds-inline><button class=\"inline-edit__text\" aria-label=\"Rename Lab worksheet\"><span class=\"inline-edit__value\">Lab worksheet</span><span class=\"ic\" aria-hidden=\"true\">edit</span></button></span></span><span class=\"lrow__value\">1.1 MB</span></div>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Mengganti nama kegiatan",
+        "desc": "Klik namanya, ketik, tekan Enter. Centang tergambar; nama baru tetap. Escape mengembalikan nama lama.",
+        "html": "<div class=\"docs-col\">\n  <span class=\"card__sub\">Kegiatan</span>\n  <span style=\"font: var(--type-title-2); letter-spacing: var(--tracking-title-2);\"><span class=\"inline-edit\" data-lds-inline><button class=\"inline-edit__text\" aria-label=\"Ganti nama kegiatan\"><span class=\"inline-edit__value\">Vaksinasi balita Mei</span><span class=\"ic\" aria-hidden=\"true\">edit</span></button></span></span>\n</div>",
+        "code": "<h1><span class=\"inline-edit\" data-lds-inline>\n  <button class=\"inline-edit__text\" aria-label=\"Ganti nama kegiatan\"><span class=\"inline-edit__value\">Vaksinasi balita Mei</span><span class=\"ic\" aria-hidden=\"true\">edit</span></button>\n</span></h1>\n<script type=\"module\">\n  document.querySelector('[data-lds-inline]').addEventListener('lds:save', (e) => {\n    e.detail.wait(api.rename(e.detail.value)); // rejection restores e.detail.previous, shakes, announces\n  });\n</script>"
+      },
+      {
+        "title": "Mengganti nama berkas di daftar",
+        "desc": "Di dalam baris, kolom mengambil tempat dan ukuran judul; ukuran berkas dan tanggal di sampingnya tidak bergeser.",
+        "html": "<div class=\"list\" style=\"width: 100%; max-width: 440px;\">\n  <div class=\"lrow\"><span class=\"ic\" aria-hidden=\"true\">description</span><span class=\"lrow__body\"><span class=\"inline-edit\" data-lds-inline><button class=\"inline-edit__text\" aria-label=\"Ganti nama Notulen rapat RW\"><span class=\"inline-edit__value\">Notulen rapat RW</span><span class=\"ic\" aria-hidden=\"true\">edit</span></button></span></span><span class=\"lrow__value\">340 KB</span></div>\n  <div class=\"lrow\"><span class=\"ic\" aria-hidden=\"true\">description</span><span class=\"lrow__body\"><span class=\"inline-edit\" data-lds-inline><button class=\"inline-edit__text\" aria-label=\"Ganti nama Denah lokasi usaha\"><span class=\"inline-edit__value\">Denah lokasi usaha</span><span class=\"ic\" aria-hidden=\"true\">edit</span></button></span></span><span class=\"lrow__value\">1,1 MB</span></div>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "text-field",
+    "shake",
+    "text-morph",
+    "list"
+  ]
+}

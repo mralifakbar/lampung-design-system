@@ -1,0 +1,48 @@
+{
+  "version": "0.1.0",
+  "slug": "bell",
+  "title": "Bell",
+  "group": "Microinteractions",
+  "order": 6,
+  "summary": {
+    "en": "The bell icon rings once, a short swing from its top that settles in 640 ms, when notifications are turned on or a new one arrives. Once, never on a loop: it acknowledges, it does not nag.",
+    "id": "Ikon lonceng berbunyi sekali, ayunan pendek dari bagian atasnya yang berhenti dalam 640 ms, saat notifikasi dinyalakan atau notifikasi baru masuk. Sekali saja, tidak pernah berulang: lonceng memberi tanda, bukan merecoki."
+  },
+  "titleId": "Bell",
+  "react": true,
+  "examples": {
+    "en": [
+      {
+        "title": "Turning notifications on",
+        "desc": "Switch it on: the thumb lands and stretches, and the bell rings once. Switching off is silent.",
+        "html": "<label class=\"switch\"><input type=\"checkbox\" role=\"switch\"><span class=\"switch__track\" aria-hidden=\"true\"><span class=\"switch__thumb\"></span></span><span class=\"bell ic\" aria-hidden=\"true\">notifications</span>Notify me when grades are posted</label>"
+      },
+      {
+        "title": "A new notification arrives",
+        "desc": "Simulate one: the bell rings once and the count goes up. A second arrival rings again from the start.",
+        "html": "<div class=\"docs-row\">\n  <button class=\"icon-btn\" aria-label=\"Notifications\" style=\"position: relative;\"><span class=\"bell ic\" aria-hidden=\"true\">notifications</span><span class=\"count\" hidden style=\"position: absolute; top: 6px; right: 4px;\"></span></button>\n  <button class=\"btn btn--secondary btn--sm\" onclick=\"const b = this.closest('.docs-row').querySelector('.bell'); b.classList.remove('is-ringing'); void b.offsetWidth; b.classList.add('is-ringing'); const c = this.closest('.docs-row').querySelector('.count'); c.hidden = false; c.textContent = Number(c.textContent || 0) + 1;\">Simulate a notification</button>\n</div>",
+        "code": "<button class=\"icon-btn\" aria-label=\"Notifications, 2 unread\">\n  <span class=\"bell ic\" aria-hidden=\"true\">notifications</span>\n  <span class=\"count\">2</span>\n</button>\n// on arrival: bell.classList.remove('is-ringing'); void bell.offsetWidth; bell.classList.add('is-ringing');"
+      }
+    ],
+    "id": [
+      {
+        "title": "Menyalakan notifikasi",
+        "desc": "Nyalakan switch: thumb mendarat dan meregang, lalu lonceng berbunyi sekali. Mematikannya tidak memicu bunyi.",
+        "html": "<label class=\"switch\"><input type=\"checkbox\" role=\"switch\"><span class=\"switch__track\" aria-hidden=\"true\"><span class=\"switch__thumb\"></span></span><span class=\"bell ic\" aria-hidden=\"true\">notifications</span>Beri tahu saya saat laporan saya ditanggapi</label>"
+      },
+      {
+        "title": "Notifikasi baru masuk",
+        "desc": "Coba simulasikan: lonceng berbunyi sekali dan jumlahnya bertambah. Notifikasi berikutnya membunyikan lonceng lagi dari awal.",
+        "html": "<div class=\"docs-row\">\n  <button class=\"icon-btn\" aria-label=\"Notifikasi\" style=\"position: relative;\"><span class=\"bell ic\" aria-hidden=\"true\">notifications</span><span class=\"count\" hidden style=\"position: absolute; top: 6px; right: 4px;\"></span></button>\n  <button class=\"btn btn--secondary btn--sm\" onclick=\"const b = this.closest('.docs-row').querySelector('.bell'); b.classList.remove('is-ringing'); void b.offsetWidth; b.classList.add('is-ringing'); const c = this.closest('.docs-row').querySelector('.count'); c.hidden = false; c.textContent = Number(c.textContent || 0) + 1;\">Simulasikan notifikasi</button>\n</div>",
+        "code": "<button class=\"icon-btn\" aria-label=\"Notifikasi, 2 belum dibaca\">\n  <span class=\"bell ic\" aria-hidden=\"true\">notifications</span>\n  <span class=\"count\">2</span>\n</button>\n// on arrival: bell.classList.remove('is-ringing'); void bell.offsetWidth; bell.classList.add('is-ringing');"
+      }
+    ]
+  },
+  "reactUsage": "import { Switch } from 'lampung-design-system/react';\n\n<Switch checked={notify} onChange={setNotify}>Notify me when grades are posted</Switch>\n// Switch does not ring a bell itself: render <span className={`bell ic${ring ? ' is-ringing' : ''}`}>notifications</span> beside it and set ring when it turns on.",
+  "related": [
+    "switch",
+    "count",
+    "icon-button",
+    "haptics"
+  ]
+}

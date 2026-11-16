@@ -1,0 +1,55 @@
+{
+  "version": "0.1.0",
+  "slug": "motion-principles",
+  "title": "Motion principles",
+  "group": "Motion",
+  "order": 1,
+  "summary": {
+    "en": "Calm by default: things arrive on a spring with no overshoot, leave faster on an accelerating curve, start from wherever they are when interrupted, and only bounce after a gesture that carried momentum. Every value comes from a token; the recipes in this group say which one.",
+    "id": "Tenang secara bawaan: elemen tiba dengan spring tanpa overshoot, pergi lebih cepat dengan kurva yang makin cepat, mulai dari posisi mana pun saat diinterupsi, dan hanya memantul setelah gestur yang membawa momentum. Setiap nilai berasal dari token; resep di grup ini menyebut token yang dipakai."
+  },
+  "titleId": "Motion principles",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Enter slow, leave fast",
+        "desc": "The menu grows from its trigger on the smooth spring (560 ms, no overshoot) and leaves in 180 ms on the exit curve. Opening is information; closing should get out of the way.",
+        "html": "<div style=\"position: relative; display: inline-block;\">\n  <button class=\"btn btn--gray btn--md\" data-lds-menu=\"mp-menu\" aria-haspopup=\"menu\" aria-expanded=\"false\">Sort assignments<span class=\"ic\" aria-hidden=\"true\">expand_more</span></button>\n  <div class=\"menu\" id=\"mp-menu\" role=\"menu\" style=\"top: calc(100% + 6px); left: 0;\">\n    <button class=\"menu__item\" role=\"menuitem\"><span class=\"ic\" aria-hidden=\"true\">event</span>Due date</button>\n    <button class=\"menu__item\" role=\"menuitem\"><span class=\"ic\" aria-hidden=\"true\">school</span>Course</button>\n    <button class=\"menu__item\" role=\"menuitem\"><span class=\"ic\" aria-hidden=\"true\">schedule</span>Recently added</button>\n  </div>\n</div>"
+      },
+      {
+        "title": "Interruptible",
+        "desc": "Click quickly between the options. The thumb never finishes a stale trip: each click redirects it from where it is, because it is a CSS transition, not a keyframe animation.",
+        "html": "<div class=\"seg seg--lg\" role=\"group\" aria-label=\"Range\" data-lds-segmented style=\"width: 340px;\">\n  <span class=\"seg__thumb\"></span>\n  <button class=\"seg__btn\" aria-pressed=\"true\">Week</button>\n  <button class=\"seg__btn\" aria-pressed=\"false\">Month</button>\n  <button class=\"seg__btn\" aria-pressed=\"false\">Term</button>\n  <button class=\"seg__btn\" aria-pressed=\"false\">Year</button>\n</div>"
+      },
+      {
+        "title": "Same path back, bounce is earned",
+        "desc": "The sheet rises from the bottom and drops back to the bottom; the drawer leaves to its side. Open the sheet and flick it: only a released drag springs with a little overshoot.",
+        "html": "<div class=\"viewport docs-box\" data-lds-push=\"mp-sheet\">\n  <div class=\"viewport__content\">\n    <p class=\"card__title\">Biology 101, Tuesday</p>\n    <div class=\"docs-row\">\n      <button class=\"btn btn--secondary btn--md\" data-lds-open=\"mp-sheet\" aria-haspopup=\"dialog\">Mark attendance</button>\n      <button class=\"btn btn--secondary btn--md\" data-lds-open=\"mp-drawer\" aria-haspopup=\"dialog\"><span class=\"ic\" aria-hidden=\"true\">tune</span>Filters</button>\n    </div>\n  </div>\n  <div class=\"scrim\" data-lds-scrim=\"mp-sheet\"></div>\n  <div class=\"sheet\" id=\"mp-sheet\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"mp-sheet-t\" data-lds-layer>\n    <div class=\"sheet__grabber\" aria-hidden=\"true\"></div>\n    <div class=\"sheet__head\" data-lds-drag><h3 class=\"sheet__title\" id=\"mp-sheet-t\">Mark attendance</h3></div>\n    <div class=\"list list--fill\"><button class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Present</span></span></button><button class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Late, with reason</span></span></button><button class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Excused absence</span></span></button></div>\n    <button class=\"btn btn--primary btn--block\" style=\"margin-top: 16px;\" data-lds-close>Save attendance</button>\n  </div>\n  <div class=\"scrim\" data-lds-scrim=\"mp-drawer\"></div>\n  <aside class=\"drawer\" id=\"mp-drawer\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"mp-drawer-t\" data-lds-layer>\n    <div class=\"sheet__head\" style=\"margin: 0;\"><h3 class=\"sheet__title\" id=\"mp-drawer-t\">Filters</h3><button class=\"icon-btn\" aria-label=\"Close filters\" data-lds-close style=\"margin: -10px -10px -10px 0;\"><span class=\"ic\" aria-hidden=\"true\">close</span></button></div>\n    <label class=\"check\"><input type=\"checkbox\" checked><span class=\"check__box\" aria-hidden=\"true\"><svg viewBox=\"0 0 14 14\"><path class=\"tick\" d=\"M2.5 7.4 L5.7 10.4 L11.5 3.8\"></path></svg></span><span class=\"check__text\">Needs grading</span></label>\n    <button class=\"btn btn--primary btn--block\" style=\"margin-top: auto;\" data-lds-close>Show 12 results</button>\n  </aside>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Masuk pelan, keluar cepat",
+        "desc": "Menu tumbuh dari pemicunya dengan smooth spring (560 ms, tanpa overshoot) dan pergi dalam 180 ms dengan kurva keluar. Membuka adalah informasi; menutup sebaiknya cepat menyingkir.",
+        "html": "<div style=\"position: relative; display: inline-block;\">\n  <button class=\"btn btn--gray btn--md\" data-lds-menu=\"mp-menu\" aria-haspopup=\"menu\" aria-expanded=\"false\">Urutkan laporan<span class=\"ic\" aria-hidden=\"true\">expand_more</span></button>\n  <div class=\"menu\" id=\"mp-menu\" role=\"menu\" style=\"top: calc(100% + 6px); left: 0;\">\n    <button class=\"menu__item\" role=\"menuitem\"><span class=\"ic\" aria-hidden=\"true\">event</span>Tanggal lapor</button>\n    <button class=\"menu__item\" role=\"menuitem\"><span class=\"ic\" aria-hidden=\"true\">school</span>Jenis layanan</button>\n    <button class=\"menu__item\" role=\"menuitem\"><span class=\"ic\" aria-hidden=\"true\">schedule</span>Baru ditambahkan</button>\n  </div>\n</div>"
+      },
+      {
+        "title": "Bisa diinterupsi",
+        "desc": "Klik cepat di antara pilihan. Thumb tidak pernah menuntaskan perjalanan yang sudah basi: setiap klik mengalihkannya dari posisinya saat itu, karena ini transisi CSS, bukan animasi keyframe.",
+        "html": "<div class=\"seg seg--lg\" role=\"group\" aria-label=\"Rentang\" data-lds-segmented style=\"width: 340px;\">\n  <span class=\"seg__thumb\"></span>\n  <button class=\"seg__btn\" aria-pressed=\"true\">Minggu</button>\n  <button class=\"seg__btn\" aria-pressed=\"false\">Bulan</button>\n  <button class=\"seg__btn\" aria-pressed=\"false\">Triwulan</button>\n  <button class=\"seg__btn\" aria-pressed=\"false\">Tahun</button>\n</div>"
+      },
+      {
+        "title": "Jalur kembali yang sama, pantulan harus layak",
+        "desc": "Sheet naik dari bawah dan turun kembali ke bawah; drawer pergi ke sisinya. Buka sheet lalu jentikkan: hanya seretan yang dilepas yang memantul dengan sedikit overshoot.",
+        "html": "<div class=\"viewport docs-box\" data-lds-push=\"mp-sheet\">\n  <div class=\"viewport__content\">\n    <p class=\"card__title\">Kunjungan puskesmas, Selasa</p>\n    <div class=\"docs-row\">\n      <button class=\"btn btn--secondary btn--md\" data-lds-open=\"mp-sheet\" aria-haspopup=\"dialog\">Catat kehadiran</button>\n      <button class=\"btn btn--secondary btn--md\" data-lds-open=\"mp-drawer\" aria-haspopup=\"dialog\"><span class=\"ic\" aria-hidden=\"true\">tune</span>Filter</button>\n    </div>\n  </div>\n  <div class=\"scrim\" data-lds-scrim=\"mp-sheet\"></div>\n  <div class=\"sheet\" id=\"mp-sheet\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"mp-sheet-t\" data-lds-layer>\n    <div class=\"sheet__grabber\" aria-hidden=\"true\"></div>\n    <div class=\"sheet__head\" data-lds-drag><h3 class=\"sheet__title\" id=\"mp-sheet-t\">Catat kehadiran</h3></div>\n    <div class=\"list list--fill\"><button class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Hadir</span></span></button><button class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Terlambat, dengan alasan</span></span></button><button class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Batal dengan pemberitahuan</span></span></button></div>\n    <button class=\"btn btn--primary btn--block\" style=\"margin-top: 16px;\" data-lds-close>Simpan kehadiran</button>\n  </div>\n  <div class=\"scrim\" data-lds-scrim=\"mp-drawer\"></div>\n  <aside class=\"drawer\" id=\"mp-drawer\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"mp-drawer-t\" data-lds-layer>\n    <div class=\"sheet__head\" style=\"margin: 0;\"><h3 class=\"sheet__title\" id=\"mp-drawer-t\">Filter</h3><button class=\"icon-btn\" aria-label=\"Tutup filter\" data-lds-close style=\"margin: -10px -10px -10px 0;\"><span class=\"ic\" aria-hidden=\"true\">close</span></button></div>\n    <label class=\"check\"><input type=\"checkbox\" checked><span class=\"check__box\" aria-hidden=\"true\"><svg viewBox=\"0 0 14 14\"><path class=\"tick\" d=\"M2.5 7.4 L5.7 10.4 L11.5 3.8\"></path></svg></span><span class=\"check__text\">Perlu tindak lanjut</span></label>\n    <button class=\"btn btn--primary btn--block\" style=\"margin-top: auto;\" data-lds-close>Tampilkan 12 hasil</button>\n  </aside>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "press-feedback",
+    "enter-and-exit",
+    "sliding-indicator",
+    "reduced-motion"
+  ]
+}

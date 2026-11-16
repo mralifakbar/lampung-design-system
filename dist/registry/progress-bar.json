@@ -1,0 +1,67 @@
+{
+  "version": "0.1.0",
+  "slug": "progress-bar",
+  "title": "Progress bar",
+  "group": "Feedback",
+  "order": 3,
+  "summary": {
+    "en": "A 6 px track that fills as a task with a known size advances. Show the number next to it; use the indeterminate bar only when you truly cannot measure.",
+    "id": "Track 6 px yang terisi seiring tugas dengan ukuran yang diketahui berjalan. Tampilkan angkanya di samping; pakai bar indeterminate hanya jika benar-benar tidak bisa diukur."
+  },
+  "titleId": "Progress bar",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Determinate with its number",
+        "desc": "The label says what is happening, the number says how far. Press the button to advance it.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 420px;\">\n  <div>\n    <div class=\"progress-meta\"><span id=\"pb-l\">Uploading thesis.pdf</span><b id=\"pb-v\">36%</b></div>\n    <div class=\"progress\" id=\"pb\" role=\"progressbar\" aria-labelledby=\"pb-l\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"36\"><div class=\"progress__fill\" style=\"transform: scaleX(0.36);\"></div></div>\n  </div>\n  <div class=\"docs-row\"><button class=\"btn btn--secondary btn--sm\" onclick=\"const b = document.getElementById('pb'); const v = (Number(b.getAttribute('aria-valuenow')) + 21) % 105; b.setAttribute('aria-valuenow', v); b.firstElementChild.style.transform = 'scaleX(' + v / 100 + ')'; document.getElementById('pb-v').textContent = v + '%';\">Advance</button></div>\n</div>",
+        "code": "<div class=\"progress-meta\"><span id=\"up-l\">Uploading thesis.pdf</span><b>64%</b></div>\n<div class=\"progress\" role=\"progressbar\" aria-labelledby=\"up-l\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"64\">\n  <div class=\"progress__fill\" style=\"transform: scaleX(0.64);\"></div>\n</div>"
+      },
+      {
+        "title": "Course progress",
+        "desc": "Counted things read better as \"12 of 20\" than as a percentage. The thin bar fits inside cards and list rows.",
+        "html": "<div class=\"card\" style=\"max-width: 360px;\">\n  <div class=\"card__title\">Statistics for beginners</div>\n  <div class=\"card__sub\">Module 3: sampling</div>\n  <div style=\"margin-top: 16px;\">\n    <div class=\"progress-meta\"><span>Lessons</span><b>12 of 20</b></div>\n    <div class=\"progress progress--thin\" role=\"progressbar\" aria-label=\"Lessons done\" aria-valuemin=\"0\" aria-valuemax=\"20\" aria-valuenow=\"12\" aria-valuetext=\"12 of 20 lessons\"><div class=\"progress__fill\" style=\"transform: scaleX(0.6);\"></div></div>\n  </div>\n</div>"
+      },
+      {
+        "title": "Indeterminate",
+        "desc": "A segment sweeps across while the length is unknown. Pair it with words that set expectations.",
+        "html": "<div style=\"max-width: 420px; width: 100%;\">\n  <div class=\"progress-meta\"><span>Preparing your transcript</span><span>Usually under a minute</span></div>\n  <div class=\"progress progress--thin progress--indeterminate\" role=\"progressbar\" aria-label=\"Preparing your transcript\"><div class=\"progress__fill\"></div></div>\n</div>"
+      },
+      {
+        "title": "Finished",
+        "desc": "At 100 % the fill can turn to the success color; say \"Done\" in words too.",
+        "html": "<div style=\"max-width: 420px; width: 100%;\">\n  <div class=\"progress-meta\"><span>Report exported</span><b>Done</b></div>\n  <div class=\"progress\" role=\"progressbar\" aria-label=\"Report export\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"100\"><div class=\"progress__fill\" style=\"transform: scaleX(1); background: var(--success);\"></div></div>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Determinate dengan angkanya",
+        "desc": "Label menyebut apa yang sedang terjadi, angka menyebut sejauh mana. Tekan tombol untuk memajukannya.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 420px;\">\n  <div>\n    <div class=\"progress-meta\"><span id=\"pb-l\">Mengunggah denah-lokasi-usaha.pdf</span><b id=\"pb-v\">36%</b></div>\n    <div class=\"progress\" id=\"pb\" role=\"progressbar\" aria-labelledby=\"pb-l\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"36\"><div class=\"progress__fill\" style=\"transform: scaleX(0.36);\"></div></div>\n  </div>\n  <div class=\"docs-row\"><button class=\"btn btn--secondary btn--sm\" onclick=\"const b = document.getElementById('pb'); const v = (Number(b.getAttribute('aria-valuenow')) + 21) % 105; b.setAttribute('aria-valuenow', v); b.firstElementChild.style.transform = 'scaleX(' + v / 100 + ')'; document.getElementById('pb-v').textContent = v + '%';\">Majukan</button></div>\n</div>",
+        "code": "<div class=\"progress-meta\"><span id=\"up-l\">Mengunggah denah-lokasi-usaha.pdf</span><b>64%</b></div>\n<div class=\"progress\" role=\"progressbar\" aria-labelledby=\"up-l\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"64\">\n  <div class=\"progress__fill\" style=\"transform: scaleX(0.64);\"></div>\n</div>"
+      },
+      {
+        "title": "Kemajuan pelatihan",
+        "desc": "Hal yang dihitung lebih mudah dibaca sebagai \"12 dari 20\" daripada persentase. Bar tipis muat di dalam card dan baris list.",
+        "html": "<div class=\"card\" style=\"max-width: 360px;\">\n  <div class=\"card__title\">Pembukuan sederhana untuk UMKM</div>\n  <div class=\"card__sub\">Modul 3: mencatat arus kas</div>\n  <div style=\"margin-top: 16px;\">\n    <div class=\"progress-meta\"><span>Materi</span><b>12 dari 20</b></div>\n    <div class=\"progress progress--thin\" role=\"progressbar\" aria-label=\"Materi selesai\" aria-valuemin=\"0\" aria-valuemax=\"20\" aria-valuenow=\"12\" aria-valuetext=\"12 dari 20 materi\"><div class=\"progress__fill\" style=\"transform: scaleX(0.6);\"></div></div>\n  </div>\n</div>"
+      },
+      {
+        "title": "Indeterminate",
+        "desc": "Satu segmen menyapu selama lamanya belum diketahui. Pasangkan dengan kata-kata yang memberi gambaran waktu.",
+        "html": "<div style=\"max-width: 420px; width: 100%;\">\n  <div class=\"progress-meta\"><span>Menyiapkan surat keterangan Anda</span><span>Biasanya kurang dari satu menit</span></div>\n  <div class=\"progress progress--thin progress--indeterminate\" role=\"progressbar\" aria-label=\"Menyiapkan surat keterangan Anda\"><div class=\"progress__fill\"></div></div>\n</div>"
+      },
+      {
+        "title": "Selesai",
+        "desc": "Di 100 % isian boleh berubah ke warna success; tulis juga \"Selesai\" dengan kata-kata.",
+        "html": "<div style=\"max-width: 420px; width: 100%;\">\n  <div class=\"progress-meta\"><span>Laporan diekspor</span><b>Selesai</b></div>\n  <div class=\"progress\" role=\"progressbar\" aria-label=\"Ekspor laporan\" aria-valuemin=\"0\" aria-valuemax=\"100\" aria-valuenow=\"100\"><div class=\"progress__fill\" style=\"transform: scaleX(1); background: var(--success);\"></div></div>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "progress-ring",
+    "meter",
+    "spinner",
+    "upload-progress"
+  ]
+}

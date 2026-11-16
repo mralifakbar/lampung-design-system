@@ -1,0 +1,55 @@
+{
+  "version": "0.1.0",
+  "slug": "gauge",
+  "title": "Gauge",
+  "group": "Charts",
+  "order": 5.5,
+  "summary": {
+    "en": "A half ring with the value in its opening: one figure against its known range (seats booked, a score, a load), or a row of ticks shared out between a few states (in stock, low, sold out). Reads at a glance; the words under the number carry the detail.",
+    "id": "Setengah cincin dengan nilai di bukaannya: satu angka terhadap rentang yang diketahui (kuota terisi, skor, beban), atau deretan tick yang dibagi di antara beberapa status (tersedia, menipis, habis). Terbaca sekilas; kata-kata di bawah angka membawa rinciannya."
+  },
+  "titleId": "Gauge",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Capacity, switching days",
+        "desc": "Switch the day: the arc moves over 480 ms from where it is, and turns to warning when the hall is nearly full. The arc sweeps in on first view.",
+        "html": "<section class=\"chart-card\" style=\"max-width: 380px; align-items: center;\" aria-labelledby=\"ga-q\">\n  <div class=\"chart-card__head\" style=\"width: 100%;\"><div class=\"chart-card__titles\"><div class=\"chart-card__q\" id=\"ga-q\">How full is the exam hall?</div><div class=\"chart-card__sub\">Seats booked for the mock exam</div></div>\n    <div class=\"chart-card__actions\"><div class=\"seg chart-card__range\" role=\"group\" aria-label=\"Day\" data-lds-segmented data-lds-chart-for=\"ga-hall\" style=\"width: 180px;\"><span class=\"seg__thumb\"></span><button type=\"button\" class=\"seg__btn\" aria-pressed=\"true\" data-set=\"sat\">Saturday</button><button type=\"button\" class=\"seg__btn\" aria-pressed=\"false\" data-set=\"sun\">Sunday</button></div></div>\n  </div>\n  <div id=\"ga-hall\" data-lds-chart='{\"type\":\"gauge\",\"label\":\"Exam hall capacity booked: 78 of 120 seats.\",\"value\":78,\"max\":120,\"center\":\"65%\",\"unit\":\"78 of 120 seats\",\"minLabel\":\"0\",\"maxLabel\":\"120\",\"sets\":{\"sat\":{\"value\":78,\"center\":\"65%\",\"unit\":\"78 of 120 seats\",\"label\":\"Saturday: 78 of 120 seats booked.\",\"tone\":null},\"sun\":{\"value\":112,\"center\":\"93%\",\"unit\":\"112 of 120 seats\",\"label\":\"Sunday: 112 of 120 seats booked, nearly full.\",\"tone\":\"warning\"}}}' style=\"--size: 220px;\"></div>\n</section>"
+      },
+      {
+        "title": "Tones",
+        "desc": "Plain for a neutral level, success for good, warning for close to a limit. The tone repeats what the words say.",
+        "html": "<div class=\"docs-row\" style=\"gap: 32px;\">\n  <div data-lds-chart='{\"type\":\"gauge\",\"label\":\"Average quiz score 82 of 100.\",\"value\":82,\"max\":100,\"tone\":\"success\",\"unit\":\"average score\"}' style=\"--size: 180px;\"></div>\n  <div data-lds-chart='{\"type\":\"gauge\",\"label\":\"Server load at 64 percent.\",\"value\":64,\"max\":100,\"center\":\"64%\",\"unit\":\"server load\"}' style=\"--size: 180px;\"></div>\n  <div data-lds-chart='{\"type\":\"gauge\",\"label\":\"Storage 91 percent used.\",\"value\":91,\"max\":100,\"center\":\"91%\",\"tone\":\"warning\",\"unit\":\"storage used\"}' style=\"--size: 180px;\"></div>\n</div>"
+      },
+      {
+        "title": "Shared ticks",
+        "desc": "Thirty-two ticks shared by three states; the legend gives the counts. The ticks light up from the left on first view.",
+        "html": "<section class=\"chart-card\" style=\"max-width: 380px; align-items: center;\" aria-labelledby=\"ga-stock\">\n  <div style=\"width: 100%;\"><div class=\"chart-card__q\" id=\"ga-stock\">Is the shop well stocked?</div><div class=\"chart-card__sub\">240 products, today</div></div>\n  <div data-lds-chart='{\"type\":\"gauge\",\"label\":\"Stock of 240 products: 186 in stock, 38 running low, 16 sold out.\",\"segments\":[{\"name\":\"In stock\",\"value\":186,\"color\":3},{\"name\":\"Running low\",\"value\":38,\"color\":2},{\"name\":\"Sold out\",\"value\":16,\"color\":\"neutral\"}],\"center\":\"78%\",\"unit\":\"in stock\"}' style=\"--size: 220px;\"></div>\n  <div class=\"legend\" style=\"justify-content: center;\"><span><i style=\"background: var(--series-3);\"></i>In stock 186</span><span><i style=\"background: var(--series-2);\"></i>Running low 38</span><span><i style=\"background: var(--neutral);\"></i>Sold out 16</span></div>\n</section>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Kuota, mengganti hari",
+        "desc": "Ganti harinya: busur bergerak selama 480 ms dari posisinya, dan berubah menjadi peringatan saat kuota hampir penuh. Busur menyapu masuk saat pertama terlihat.",
+        "html": "<section class=\"chart-card\" style=\"max-width: 380px; align-items: center;\" aria-labelledby=\"ga-q\">\n  <div class=\"chart-card__head\" style=\"width: 100%;\"><div class=\"chart-card__titles\"><div class=\"chart-card__q\" id=\"ga-q\">Seberapa penuh kuota vaksinasi?</div><div class=\"chart-card__sub\">Tempat yang sudah dipesan di aula kelurahan</div></div>\n    <div class=\"chart-card__actions\"><div class=\"seg chart-card__range\" role=\"group\" aria-label=\"Hari\" data-lds-segmented data-lds-chart-for=\"ga-hall\" style=\"width: 180px;\"><span class=\"seg__thumb\"></span><button type=\"button\" class=\"seg__btn\" aria-pressed=\"true\" data-set=\"sat\">Sabtu</button><button type=\"button\" class=\"seg__btn\" aria-pressed=\"false\" data-set=\"sun\">Minggu</button></div></div>\n  </div>\n  <div id=\"ga-hall\" data-lds-chart='{\"type\":\"gauge\",\"label\":\"Kuota vaksinasi terisi: 78 dari 120 tempat.\",\"value\":78,\"max\":120,\"center\":\"65%\",\"unit\":\"78 dari 120 tempat\",\"minLabel\":\"0\",\"maxLabel\":\"120\",\"sets\":{\"sat\":{\"value\":78,\"center\":\"65%\",\"unit\":\"78 dari 120 tempat\",\"label\":\"Sabtu: 78 dari 120 tempat terisi.\",\"tone\":null},\"sun\":{\"value\":112,\"center\":\"93%\",\"unit\":\"112 dari 120 tempat\",\"label\":\"Minggu: 112 dari 120 tempat terisi, hampir penuh.\",\"tone\":\"warning\"}}}' style=\"--size: 220px;\"></div>\n</section>"
+      },
+      {
+        "title": "Tone",
+        "desc": "Polos untuk level netral, sukses untuk kondisi baik, peringatan untuk yang mendekati batas. Tone mengulang apa yang disebut kata-katanya.",
+        "html": "<div class=\"docs-row\" style=\"gap: 32px;\">\n  <div data-lds-chart='{\"type\":\"gauge\",\"label\":\"Rata-rata skor kepuasan 82 dari 100.\",\"value\":82,\"max\":100,\"tone\":\"success\",\"unit\":\"skor kepuasan\"}' style=\"--size: 180px;\"></div>\n  <div data-lds-chart='{\"type\":\"gauge\",\"label\":\"Beban server 64 persen.\",\"value\":64,\"max\":100,\"center\":\"64%\",\"unit\":\"beban server\"}' style=\"--size: 180px;\"></div>\n  <div data-lds-chart='{\"type\":\"gauge\",\"label\":\"Penyimpanan terpakai 91 persen.\",\"value\":91,\"max\":100,\"center\":\"91%\",\"tone\":\"warning\",\"unit\":\"penyimpanan terpakai\"}' style=\"--size: 180px;\"></div>\n</div>"
+      },
+      {
+        "title": "Tick bersama",
+        "desc": "Tiga puluh dua tick dibagi tiga status; legenda memberi jumlahnya. Tick menyala dari kiri saat pertama terlihat.",
+        "html": "<section class=\"chart-card\" style=\"max-width: 380px; align-items: center;\" aria-labelledby=\"ga-stock\">\n  <div style=\"width: 100%;\"><div class=\"chart-card__q\" id=\"ga-stock\">Apakah stok obat puskesmas cukup?</div><div class=\"chart-card__sub\">240 jenis obat, hari ini</div></div>\n  <div data-lds-chart='{\"type\":\"gauge\",\"label\":\"Stok 240 jenis obat: 186 tersedia, 38 menipis, 16 habis.\",\"segments\":[{\"name\":\"Tersedia\",\"value\":186,\"color\":3},{\"name\":\"Menipis\",\"value\":38,\"color\":2},{\"name\":\"Habis\",\"value\":16,\"color\":\"neutral\"}],\"center\":\"78%\",\"unit\":\"tersedia\"}' style=\"--size: 220px;\"></div>\n  <div class=\"legend\" style=\"justify-content: center;\"><span><i style=\"background: var(--series-3);\"></i>Tersedia 186</span><span><i style=\"background: var(--series-2);\"></i>Menipis 38</span><span><i style=\"background: var(--neutral);\"></i>Habis 16</span></div>\n</section>"
+      }
+    ]
+  },
+  "related": [
+    "progress-ring",
+    "meter",
+    "donut",
+    "chart-card"
+  ]
+}

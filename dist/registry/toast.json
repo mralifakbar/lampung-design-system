@@ -1,0 +1,48 @@
+{
+  "version": "0.1.0",
+  "slug": "toast",
+  "title": "Toast",
+  "group": "Overlays",
+  "order": 11,
+  "summary": {
+    "en": "A short dark message at the bottom that confirms something that just happened, then leaves by itself. When the action can be reversed, the Undo lives in the toast with an honest countdown.",
+    "id": "Pesan gelap singkat di bagian bawah yang memastikan sesuatu baru saja terjadi, lalu hilang sendiri. Jika aksinya bisa dibatalkan, tombol Urungkan ada di toast dengan hitung mundur yang jujur."
+  },
+  "titleId": "Toast",
+  "react": true,
+  "examples": {
+    "en": [
+      {
+        "title": "Saved, and archived with Undo",
+        "desc": "Press both. The Undo toast shows how long Undo lasts and pauses while hovered; pressing Undo changes the toast in place instead of stacking another.",
+        "html": "<div class=\"viewport docs-box\" style=\"height: 300px; min-height: 0;\">\n  <div class=\"viewport__content\">\n    <div class=\"docs-row\">\n      <button class=\"btn btn--secondary btn--md\" onclick=\"import('../../js/lds.js').then(({ toast }) => toast({ title: 'Draft saved', body: 'Only you can see it.', icon: 'check_circle', container: this.closest('.viewport') }));\">Save draft</button>\n      <button class=\"btn btn--secondary btn--md\" onclick=\"import('../../js/lds.js').then(({ toast }) => toast({ title: 'Thread archived', body: 'Moved out of your inbox.', icon: 'inventory_2', action: 'Undo', duration: 6000, onAction: () => ({ title: 'Thread restored', icon: 'undo' }), container: this.closest('.viewport') }));\"><span class=\"ic\" aria-hidden=\"true\">inventory_2</span>Archive thread</button>\n    </div>\n  </div>\n  <div class=\"toaster\" role=\"status\" aria-live=\"polite\"></div>\n</div>",
+        "code": "import { toast } from 'lampung-design-system/js';\n\ntoast({ title: 'Draft saved', body: 'Only you can see it.', icon: 'check_circle' });\n\ntoast({\n  title: 'Thread archived', body: 'Moved out of your inbox.', icon: 'inventory_2',\n  action: 'Undo', duration: 6000,\n  onAction: () => { restore(); return { title: 'Thread restored', icon: 'undo' }; },\n});"
+      },
+      {
+        "title": "Static markup",
+        "desc": "The markup `toast()` renders, shown resting in its toaster.",
+        "html": "<div class=\"viewport docs-box\" style=\"height: 140px; min-height: 0;\">\n  <div class=\"toaster\" role=\"status\" aria-live=\"polite\">\n    <div class=\"toast\"><span class=\"ic ic--fill\" aria-hidden=\"true\">check_circle</span><div><span>Invite sent</span><div class=\"toast__sub\">Rina gets an email in a minute.</div></div></div>\n  </div>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Tersimpan, dan diarsipkan dengan Urungkan",
+        "desc": "Tekan keduanya. Toast Urungkan menunjukkan berapa lama Urungkan berlaku dan berhenti selama di-hover; menekan Urungkan mengubah toast di tempat, tidak menumpuk toast baru.",
+        "html": "<div class=\"viewport docs-box\" style=\"height: 300px; min-height: 0;\">\n  <div class=\"viewport__content\">\n    <div class=\"docs-row\">\n      <button class=\"btn btn--secondary btn--md\" onclick=\"import('../../js/lds.js').then(({ toast }) => toast({ title: 'Draf tersimpan', body: 'Hanya Anda yang bisa melihatnya.', icon: 'check_circle', container: this.closest('.viewport') }));\">Simpan draf</button>\n      <button class=\"btn btn--secondary btn--md\" onclick=\"import('../../js/lds.js').then(({ toast }) => toast({ title: 'Laporan diarsipkan', body: 'Dipindahkan dari kotak masuk Anda.', icon: 'inventory_2', action: 'Urungkan', duration: 6000, onAction: () => ({ title: 'Laporan dipulihkan', icon: 'undo' }), container: this.closest('.viewport') }));\"><span class=\"ic\" aria-hidden=\"true\">inventory_2</span>Arsipkan laporan</button>\n    </div>\n  </div>\n  <div class=\"toaster\" role=\"status\" aria-live=\"polite\"></div>\n</div>",
+        "code": "import { toast } from 'lampung-design-system/js';\n\ntoast({ title: 'Draf tersimpan', body: 'Hanya Anda yang bisa melihatnya.', icon: 'check_circle' });\n\ntoast({\n  title: 'Laporan diarsipkan', body: 'Dipindahkan dari kotak masuk Anda.', icon: 'inventory_2',\n  action: 'Urungkan', duration: 6000,\n  onAction: () => { restore(); return { title: 'Laporan dipulihkan', icon: 'undo' }; },\n});"
+      },
+      {
+        "title": "Markup statis",
+        "desc": "Markup yang dirender `toast()`, ditampilkan diam di toaster-nya.",
+        "html": "<div class=\"viewport docs-box\" style=\"height: 140px; min-height: 0;\">\n  <div class=\"toaster\" role=\"status\" aria-live=\"polite\">\n    <div class=\"toast\"><span class=\"ic ic--fill\" aria-hidden=\"true\">check_circle</span><div><span>Undangan terkirim</span><div class=\"toast__sub\">Rina menerima email dalam satu menit.</div></div></div>\n  </div>\n</div>"
+      }
+    ]
+  },
+  "reactUsage": "import { notify } from 'lampung-design-system/react';\n\nnotify({ title: 'Invite sent', icon: 'check_circle' }, 'success');\nnotify({ title: 'Thread archived', action: 'Undo', onAction: restore });",
+  "related": [
+    "alert",
+    "banner",
+    "alert-dialog",
+    "text-morph"
+  ]
+}

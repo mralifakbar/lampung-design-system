@@ -1,0 +1,37 @@
+{
+  "version": "0.1.0",
+  "slug": "otp",
+  "title": "One-time code",
+  "group": "Inputs",
+  "order": 7,
+  "summary": {
+    "en": "Six cells for a verification code, backed by one real input, so paste, SMS autofill and password managers all work. A wrong code shakes the cells once and turns them red.",
+    "id": "Enam sel untuk kode verifikasi, didukung satu input sungguhan, sehingga tempel, isi otomatis SMS, dan pengelola kata sandi semuanya berfungsi. Kode yang salah membuat sel bergetar sekali dan berubah merah."
+  },
+  "titleId": "One-time code",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Verify a phone number",
+        "desc": "Type or paste a six-digit code. The caret blinks in the active cell; each digit pops in. Any code except 123456 is refused here, to show the error.",
+        "html": "<div class=\"field\" style=\"align-items: flex-start;\">\n  <span class=\"field__label\" id=\"otp-l\">Verification code</span>\n  <div class=\"otp-wrap\" data-lds-otp>\n    <div class=\"otp\" aria-hidden=\"true\"><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span><span class=\"otp__sep\"></span><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span></div>\n    <input class=\"otp__input\" inputmode=\"numeric\" autocomplete=\"one-time-code\" maxlength=\"6\" aria-labelledby=\"otp-l\" aria-describedby=\"otp-h\"\n      oninput=\"const w = this.parentElement, h = document.getElementById('otp-h'); if (this.value.length === 6 && this.value !== '123456') { import('../../js/lds.js').then((m) => m.otpError(w)); h.className = 'field__help field__help--error'; h.textContent = 'That code is not right. Check the latest SMS, or send a new code.'; } else { h.className = 'field__help'; h.textContent = 'Sent by SMS to 0812 •••• 7890.'; }\">\n  </div>\n  <span class=\"field__help\" id=\"otp-h\" aria-live=\"polite\">Sent by SMS to 0812 •••• 7890.</span>\n</div>",
+        "code": "<span class=\"field__label\" id=\"code-label\">Verification code</span>\n<div class=\"otp-wrap\" data-lds-otp>\n  <div class=\"otp\" aria-hidden=\"true\">\n    <span class=\"otp__cell\"></span><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span>\n    <span class=\"otp__sep\"></span>\n    <span class=\"otp__cell\"></span><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span>\n  </div>\n  <input class=\"otp__input\" inputmode=\"numeric\" autocomplete=\"one-time-code\" maxlength=\"6\" aria-labelledby=\"code-label\" aria-describedby=\"code-help\">\n</div>\n<span class=\"field__help\" id=\"code-help\" aria-live=\"polite\">Sent by SMS to 0812 •••• 7890.</span>\n\n<script type=\"module\">\n  import { otpError } from 'lampung-design-system/js';\n  wrap.addEventListener('lds:complete', async (e) => {\n    if (!(await verify(e.detail.value))) otpError(wrap);\n  });\n</script>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Verifikasi nomor ponsel",
+        "desc": "Ketik atau tempel kode enam digit. Caret berkedip di sel aktif; setiap digit muncul dengan efek pop. Kode apa pun selain 123456 ditolak di sini, untuk menunjukkan galatnya.",
+        "html": "<div class=\"field\" style=\"align-items: flex-start;\">\n  <span class=\"field__label\" id=\"otp-l\">Kode verifikasi</span>\n  <div class=\"otp-wrap\" data-lds-otp>\n    <div class=\"otp\" aria-hidden=\"true\"><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span><span class=\"otp__sep\"></span><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span></div>\n    <input class=\"otp__input\" inputmode=\"numeric\" autocomplete=\"one-time-code\" maxlength=\"6\" aria-labelledby=\"otp-l\" aria-describedby=\"otp-h\"\n      oninput=\"const w = this.parentElement, h = document.getElementById('otp-h'); if (this.value.length === 6 && this.value !== '123456') { import('../../js/lds.js').then((m) => m.otpError(w)); h.className = 'field__help field__help--error'; h.textContent = 'Kode itu tidak cocok. Periksa SMS terbaru, atau kirim kode baru.'; } else { h.className = 'field__help'; h.textContent = 'Dikirim lewat SMS ke 0812 •••• 7890.'; }\">\n  </div>\n  <span class=\"field__help\" id=\"otp-h\" aria-live=\"polite\">Dikirim lewat SMS ke 0812 •••• 7890.</span>\n</div>",
+        "code": "<span class=\"field__label\" id=\"code-label\">Kode verifikasi</span>\n<div class=\"otp-wrap\" data-lds-otp>\n  <div class=\"otp\" aria-hidden=\"true\">\n    <span class=\"otp__cell\"></span><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span>\n    <span class=\"otp__sep\"></span>\n    <span class=\"otp__cell\"></span><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span>\n  </div>\n  <input class=\"otp__input\" inputmode=\"numeric\" autocomplete=\"one-time-code\" maxlength=\"6\" aria-labelledby=\"code-label\" aria-describedby=\"code-help\">\n</div>\n<span class=\"field__help\" id=\"code-help\" aria-live=\"polite\">Dikirim lewat SMS ke 0812 •••• 7890.</span>\n\n<script type=\"module\">\n  import { otpError } from 'lampung-design-system/js';\n  wrap.addEventListener('lds:complete', async (e) => {\n    if (!(await verify(e.detail.value))) otpError(wrap);\n  });\n</script>"
+      }
+    ]
+  },
+  "related": [
+    "password-field",
+    "shake",
+    "timer",
+    "sheet"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "version": "0.1.0",
+  "slug": "pull-to-refresh",
+  "title": "Pull to refresh",
+  "group": "Microinteractions",
+  "order": 15,
+  "summary": {
+    "en": "Drag a phone list down from the top: the content follows with resistance, a spinner turns as it comes in, and past 56 px a release refreshes. The spinner holds until the work is done, at least 700 ms so it never flickers.",
+    "id": "Tarik daftar di ponsel ke bawah dari atas: konten mengikuti dengan hambatan, spinner berputar saat masuk, dan setelah melewati 56 px, melepas jari akan memuat ulang. Spinner bertahan sampai pekerjaan selesai, minimal 700 ms agar tidak berkedip."
+  },
+  "titleId": "Pull to refresh",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Refresh a schedule",
+        "desc": "Drag the list down with the mouse or a finger and let go past the spinner. The button does the same thing for people who cannot drag.",
+        "html": "<div class=\"phone phone--inline\" style=\"height: 500px; --phone-top: 0px;\">\n  <div class=\"navbar\" id=\"ptr-bar\"><span></span><span class=\"navbar__title\" aria-hidden=\"true\">Today</span><div class=\"navbar__end\"><button type=\"button\" class=\"icon-btn\" aria-label=\"Refresh\" data-lds-refresh-for=\"ptr-scroll\"><span class=\"ic\" aria-hidden=\"true\">refresh</span></button></div></div>\n  <div class=\"phone__scroll\" id=\"ptr-scroll\" data-lds-navbar=\"ptr-bar\" data-lds-refresh>\n    <div class=\"refresh\" aria-hidden=\"true\"><span class=\"spinner\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>\n    <div class=\"navbar-gap\"></div>\n    <h3 class=\"large-title\">Today</h3>\n    <div style=\"padding: 12px 16px 40px;\"><div class=\"list list--fill\">\n      <div class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Database Systems</span><span class=\"lrow__sub\">08:00 · Room H 2.14</span></span></div>\n      <div class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Computer Networks</span><span class=\"lrow__sub\">13:00 · Lab 3.01</span></span></div>\n      <div class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Software Engineering</span><span class=\"lrow__sub\">15:30 · Room H 3.05</span></span></div>\n    </div></div>\n  </div>\n</div>",
+        "code": "<div class=\"phone__scroll\" data-lds-navbar=\"today-bar\" data-lds-refresh>\n  <div class=\"refresh\" aria-hidden=\"true\"><span class=\"spinner\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>\n  <div class=\"navbar-gap\"></div>\n  <h1 class=\"large-title\">Today</h1>\n  …\n</div>\n<script type=\"module\">\n  import { toast } from 'lampung-design-system/js';\n  scroller.addEventListener('lds:refresh', (e) => e.detail.wait(loadSchedule().then(() => toast({ title: 'Schedule is up to date' }))));\n</script>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Memuat ulang jadwal",
+        "desc": "Tarik daftar ke bawah dengan mouse atau jari dan lepaskan setelah melewati spinner. Tombolnya melakukan hal yang sama untuk orang yang tidak bisa menarik.",
+        "html": "<div class=\"phone phone--inline\" style=\"height: 500px; --phone-top: 0px;\">\n  <div class=\"navbar\" id=\"ptr-bar\"><span></span><span class=\"navbar__title\" aria-hidden=\"true\">Hari ini</span><div class=\"navbar__end\"><button type=\"button\" class=\"icon-btn\" aria-label=\"Muat ulang\" data-lds-refresh-for=\"ptr-scroll\"><span class=\"ic\" aria-hidden=\"true\">refresh</span></button></div></div>\n  <div class=\"phone__scroll\" id=\"ptr-scroll\" data-lds-navbar=\"ptr-bar\" data-lds-refresh>\n    <div class=\"refresh\" aria-hidden=\"true\"><span class=\"spinner\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>\n    <div class=\"navbar-gap\"></div>\n    <h3 class=\"large-title\">Hari ini</h3>\n    <div style=\"padding: 12px 16px 40px;\"><div class=\"list list--fill\">\n      <div class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Pemeriksaan ibu hamil</span><span class=\"lrow__sub\">08.00 · Puskesmas, ruang 2</span></span></div>\n      <div class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Imunisasi balita</span><span class=\"lrow__sub\">13.00 · Posyandu Melati</span></span></div>\n      <div class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Konsultasi gizi</span><span class=\"lrow__sub\">15.30 · Puskesmas, ruang 5</span></span></div>\n    </div></div>\n  </div>\n</div>",
+        "code": "<div class=\"phone__scroll\" data-lds-navbar=\"today-bar\" data-lds-refresh>\n  <div class=\"refresh\" aria-hidden=\"true\"><span class=\"spinner\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>\n  <div class=\"navbar-gap\"></div>\n  <h1 class=\"large-title\">Hari ini</h1>\n  …\n</div>\n<script type=\"module\">\n  import { toast } from 'lampung-design-system/js';\n  scroller.addEventListener('lds:refresh', (e) => e.detail.wait(loadSchedule().then(() => toast({ title: 'Jadwal sudah terbaru' }))));\n</script>"
+      }
+    ]
+  },
+  "related": [
+    "phone-bars",
+    "spinner",
+    "toast",
+    "drag-and-momentum"
+  ]
+}

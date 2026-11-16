@@ -1,0 +1,57 @@
+{
+  "version": "0.1.0",
+  "slug": "form-layout",
+  "title": "Form layout",
+  "group": "Foundations",
+  "order": 2,
+  "summary": {
+    "en": "The frame every form uses: `form` stacks fields 20 px apart, `form__row` puts short fields side by side when there is room, and `form__actions` ends the form with its buttons. Fields inside are always `.field`.",
+    "id": "Kerangka yang dipakai setiap formulir: `form` menumpuk kolom berjarak 20 px, `form__row` menaruh kolom pendek berdampingan saat ada ruang, dan `form__actions` menutup formulir dengan tombolnya. Kolom di dalamnya selalu `.field`."
+  },
+  "titleId": "Form layout",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Profile form",
+        "desc": "Pairs share a row on wide screens and stack on phones. The cancel button comes first in the source so the primary is last on the row and on top when the actions stack.",
+        "html": "<form class=\"form\" style=\"max-width: 560px;\" onsubmit=\"event.preventDefault()\">\n  <div class=\"form__row\">\n    <div class=\"field\">\n      <label class=\"field__label\" for=\"pf-first\">First name</label>\n      <div class=\"control\"><input id=\"pf-first\" type=\"text\" value=\"Rina\"></div>\n    </div>\n    <div class=\"field\">\n      <label class=\"field__label\" for=\"pf-last\">Last name</label>\n      <div class=\"control\"><input id=\"pf-last\" type=\"text\" value=\"Kusuma\"></div>\n    </div>\n  </div>\n  <div class=\"field\">\n      <label class=\"field__label\" for=\"pf-email\">Email</label>\n      <div class=\"control\"><input id=\"pf-email\" type=\"email\" value=\"rina.kusuma@example.com\" aria-describedby=\"pf-email-help\"></div>\n      <span class=\"field__help\" id=\"pf-email-help\">Grades and receipts go here.</span>\n    </div>\n  <div class=\"field\">\n      <label class=\"field__label\" for=\"pf-phone\">Phone <span>Optional</span></label>\n      <div class=\"control\"><input id=\"pf-phone\" type=\"tel\" value=\"\" aria-describedby=\"pf-phone-help\"></div>\n      <span class=\"field__help\" id=\"pf-phone-help\">Only for exam day reminders.</span>\n    </div>\n  <div class=\"form__actions\">\n    <button type=\"button\" class=\"btn btn--secondary\">Cancel</button>\n    <button type=\"submit\" class=\"btn btn--primary\">Save profile</button>\n  </div>\n</form>"
+      },
+      {
+        "title": "Grouped with a fieldset",
+        "desc": "A fieldset with a legend names a group of related choices; the form keeps the same rhythm around it.",
+        "html": "<form class=\"form\" style=\"max-width: 560px;\" onsubmit=\"event.preventDefault()\">\n  <div class=\"field\">\n      <label class=\"field__label\" for=\"ex-name\">Exam name</label>\n      <div class=\"control\"><input id=\"ex-name\" type=\"text\" value=\"Midterm, Database Systems\"></div>\n    </div>\n  <div class=\"form__row\">\n    <div class=\"field\">\n      <label class=\"field__label\" for=\"ex-date\">Date</label>\n      <div class=\"control\"><input id=\"ex-date\" type=\"date\" value=\"2026-12-04\"></div>\n    </div>\n    <div class=\"field\">\n      <label class=\"field__label\" for=\"ex-time\">Start time</label>\n      <div class=\"control\"><input id=\"ex-time\" type=\"time\" value=\"09:00\"></div>\n    </div>\n  </div>\n  <fieldset class=\"stack\" style=\"--gap: 12px; border: 0;\">\n    <legend class=\"field__label\" style=\"margin-bottom: 12px;\">Notify students</legend>\n    <label class=\"check\"><input type=\"checkbox\" checked><span class=\"check__box\" aria-hidden=\"true\"><svg viewBox=\"0 0 14 14\"><path class=\"tick\" d=\"M2.5 7.4 L5.7 10.4 L11.5 3.8\"></path></svg></span><span class=\"check__text\">One week before</span></label>\n    <label class=\"check\"><input type=\"checkbox\" checked><span class=\"check__box\" aria-hidden=\"true\"><svg viewBox=\"0 0 14 14\"><path class=\"tick\" d=\"M2.5 7.4 L5.7 10.4 L11.5 3.8\"></path></svg></span><span class=\"check__text\">The evening before</span></label>\n  </fieldset>\n  <div class=\"form__actions\">\n    <button type=\"button\" class=\"btn btn--plain\">Save as draft</button>\n    <button type=\"submit\" class=\"btn btn--primary\">Schedule exam</button>\n  </div>\n</form>"
+      },
+      {
+        "title": "Error after submit",
+        "desc": "The helper line becomes the error in place, so nothing below it moves. Focus moves to the first invalid field.",
+        "html": "<form class=\"form\" style=\"max-width: 400px;\" onsubmit=\"event.preventDefault(); const c = this.querySelector('.control'); c.classList.add('is-invalid'); const i = c.querySelector('input'); i.setAttribute('aria-invalid', 'true'); const h = this.querySelector('.field__help'); h.classList.add('field__help--error'); h.innerHTML = '<span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>error</span>Enter the 10 digit student number on your card.'; i.focus();\">\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"sn\">Student number</label>\n    <div class=\"control\"><input id=\"sn\" inputmode=\"numeric\" value=\"21045\" aria-describedby=\"sn-help\"></div>\n    <span class=\"field__help\" id=\"sn-help\">It is on the front of your student card.</span>\n  </div>\n  <div class=\"form__actions\">\n    <button type=\"submit\" class=\"btn btn--primary\">Link my account</button>\n  </div>\n</form>",
+        "code": "<form class=\"form\">\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"sn\">Student number</label>\n    <div class=\"control is-invalid\"><input id=\"sn\" inputmode=\"numeric\" aria-invalid=\"true\" aria-describedby=\"sn-help\"></div>\n    <span class=\"field__help field__help--error\" id=\"sn-help\"><span class=\"ic\" aria-hidden=\"true\">error</span>Enter the 10 digit student number on your card.</span>\n  </div>\n  <div class=\"form__actions\">\n    <button type=\"submit\" class=\"btn btn--primary\">Link my account</button>\n  </div>\n</form>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Formulir profil",
+        "desc": "Pasangan kolom berbagi baris di layar lebar dan menumpuk di ponsel. Tombol batal ditulis lebih dulu di sumber agar tombol utama berada terakhir di baris dan di atas saat tombol menumpuk.",
+        "html": "<form class=\"form\" style=\"max-width: 560px;\" onsubmit=\"event.preventDefault()\">\n  <div class=\"form__row\">\n    <div class=\"field\">\n      <label class=\"field__label\" for=\"pf-first\">Nama depan</label>\n      <div class=\"control\"><input id=\"pf-first\" type=\"text\" value=\"Rina\"></div>\n    </div>\n    <div class=\"field\">\n      <label class=\"field__label\" for=\"pf-last\">Nama belakang</label>\n      <div class=\"control\"><input id=\"pf-last\" type=\"text\" value=\"Kusuma\"></div>\n    </div>\n  </div>\n  <div class=\"field\">\n      <label class=\"field__label\" for=\"pf-email\">Email</label>\n      <div class=\"control\"><input id=\"pf-email\" type=\"email\" value=\"rina.kusuma@example.com\" aria-describedby=\"pf-email-help\"></div>\n      <span class=\"field__help\" id=\"pf-email-help\">Bukti permohonan dan kuitansi dikirim ke sini.</span>\n    </div>\n  <div class=\"field\">\n      <label class=\"field__label\" for=\"pf-phone\">Nomor ponsel <span>Opsional</span></label>\n      <div class=\"control\"><input id=\"pf-phone\" type=\"tel\" value=\"\" aria-describedby=\"pf-phone-help\"></div>\n      <span class=\"field__help\" id=\"pf-phone-help\">Hanya untuk pengingat jadwal layanan.</span>\n    </div>\n  <div class=\"form__actions\">\n    <button type=\"button\" class=\"btn btn--secondary\">Batal</button>\n    <button type=\"submit\" class=\"btn btn--primary\">Simpan profil</button>\n  </div>\n</form>"
+      },
+      {
+        "title": "Dikelompokkan dengan fieldset",
+        "desc": "Fieldset dengan legend menamai sekelompok pilihan terkait; formulir menjaga ritme yang sama di sekitarnya.",
+        "html": "<form class=\"form\" style=\"max-width: 560px;\" onsubmit=\"event.preventDefault()\">\n  <div class=\"field\">\n      <label class=\"field__label\" for=\"ex-name\">Nama kegiatan</label>\n      <div class=\"control\"><input id=\"ex-name\" type=\"text\" value=\"Vaksinasi anak, Puskesmas Kedaton\"></div>\n    </div>\n  <div class=\"form__row\">\n    <div class=\"field\">\n      <label class=\"field__label\" for=\"ex-date\">Tanggal</label>\n      <div class=\"control\"><input id=\"ex-date\" type=\"date\" value=\"2026-12-04\"></div>\n    </div>\n    <div class=\"field\">\n      <label class=\"field__label\" for=\"ex-time\">Jam mulai</label>\n      <div class=\"control\"><input id=\"ex-time\" type=\"time\" value=\"09:00\"></div>\n    </div>\n  </div>\n  <fieldset class=\"stack\" style=\"--gap: 12px; border: 0;\">\n    <legend class=\"field__label\" style=\"margin-bottom: 12px;\">Ingatkan warga</legend>\n    <label class=\"check\"><input type=\"checkbox\" checked><span class=\"check__box\" aria-hidden=\"true\"><svg viewBox=\"0 0 14 14\"><path class=\"tick\" d=\"M2.5 7.4 L5.7 10.4 L11.5 3.8\"></path></svg></span><span class=\"check__text\">Satu minggu sebelumnya</span></label>\n    <label class=\"check\"><input type=\"checkbox\" checked><span class=\"check__box\" aria-hidden=\"true\"><svg viewBox=\"0 0 14 14\"><path class=\"tick\" d=\"M2.5 7.4 L5.7 10.4 L11.5 3.8\"></path></svg></span><span class=\"check__text\">Malam sebelumnya</span></label>\n  </fieldset>\n  <div class=\"form__actions\">\n    <button type=\"button\" class=\"btn btn--plain\">Simpan sebagai draf</button>\n    <button type=\"submit\" class=\"btn btn--primary\">Jadwalkan kegiatan</button>\n  </div>\n</form>"
+      },
+      {
+        "title": "Galat setelah dikirim",
+        "desc": "Baris bantuan berubah menjadi pesan galat di tempat yang sama, jadi tidak ada yang bergeser di bawahnya. Fokus pindah ke kolom pertama yang tidak valid.",
+        "html": "<form class=\"form\" style=\"max-width: 400px;\" onsubmit=\"event.preventDefault(); const c = this.querySelector('.control'); c.classList.add('is-invalid'); const i = c.querySelector('input'); i.setAttribute('aria-invalid', 'true'); const h = this.querySelector('.field__help'); h.classList.add('field__help--error'); h.innerHTML = '<span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>error</span>Masukkan 16 digit NIK sesuai KTP Anda.'; i.focus();\">\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"sn\">NIK</label>\n    <div class=\"control\"><input id=\"sn\" inputmode=\"numeric\" value=\"18710\" aria-describedby=\"sn-help\"></div>\n    <span class=\"field__help\" id=\"sn-help\">Tertera di bagian atas KTP Anda.</span>\n  </div>\n  <div class=\"form__actions\">\n    <button type=\"submit\" class=\"btn btn--primary\">Hubungkan akun saya</button>\n  </div>\n</form>",
+        "code": "<form class=\"form\">\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"sn\">NIK</label>\n    <div class=\"control is-invalid\"><input id=\"sn\" inputmode=\"numeric\" aria-invalid=\"true\" aria-describedby=\"sn-help\"></div>\n    <span class=\"field__help field__help--error\" id=\"sn-help\"><span class=\"ic\" aria-hidden=\"true\">error</span>Masukkan 16 digit NIK sesuai KTP Anda.</span>\n  </div>\n  <div class=\"form__actions\">\n    <button type=\"submit\" class=\"btn btn--primary\">Hubungkan akun saya</button>\n  </div>\n</form>"
+      }
+    ]
+  },
+  "related": [
+    "text-field",
+    "layout-primitives",
+    "button",
+    "alert"
+  ]
+}

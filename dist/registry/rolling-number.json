@@ -1,0 +1,47 @@
+{
+  "version": "0.1.0",
+  "slug": "rolling-number",
+  "title": "Rolling number",
+  "group": "Data display",
+  "order": 14,
+  "summary": {
+    "en": "A number whose digits each slide to their new value on the smooth spring, like an odometer. For a count that changes while the person watches.",
+    "id": "Angka yang setiap digitnya bergeser ke nilai barunya dengan spring yang halus, seperti odometer. Untuk hitungan yang berubah saat orang sedang melihatnya."
+  },
+  "titleId": "Rolling number",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Seats taken",
+        "desc": "Each digit slides to its new place. Press the buttons.",
+        "html": "<div class=\"docs-row\" style=\"gap: 20px;\">\n  <span style=\"font: 600 40px/1 var(--font); letter-spacing: -0.03em; color: var(--text-strong);\"><span class=\"roll\" id=\"rn\" role=\"img\" data-lds-roll=\"128\"></span></span>\n  <button class=\"btn btn--secondary btn--sm\" onclick=\"const el = document.getElementById('rn'); import('../../js/lds.js').then((m) => m.setRoll(el, Number(el.getAttribute('aria-label')) + 1));\"><span class=\"ic\" aria-hidden=\"true\">add</span>One more</button>\n  <button class=\"btn btn--secondary btn--sm\" onclick=\"const el = document.getElementById('rn'); import('../../js/lds.js').then((m) => m.setRoll(el, Number(el.getAttribute('aria-label')) + 47));\">Add 47</button>\n</div>",
+        "code": "<span class=\"roll\" role=\"img\" data-lds-roll=\"128\"></span>\n<script type=\"module\">\n  import { setRoll } from 'lampung-design-system/js';\n  setRoll(document.querySelector('.roll'), 129);\n</script>"
+      },
+      {
+        "title": "Inside a control",
+        "desc": "The like button rolls its count; the stepper rolls its value.",
+        "html": "<button class=\"like\" aria-pressed=\"false\" data-lds-like aria-label=\"Like\"><span class=\"like__heart\"><span class=\"ic\" aria-hidden=\"true\">favorite</span></span><span class=\"roll\" data-lds-roll=\"24\"></span></button>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Kursi terisi",
+        "desc": "Setiap digit bergeser ke tempat barunya. Tekan tombolnya.",
+        "html": "<div class=\"docs-row\" style=\"gap: 20px;\">\n  <span style=\"font: 600 40px/1 var(--font); letter-spacing: -0.03em; color: var(--text-strong);\"><span class=\"roll\" id=\"rn\" role=\"img\" data-lds-roll=\"128\"></span></span>\n  <button class=\"btn btn--secondary btn--sm\" onclick=\"const el = document.getElementById('rn'); import('../../js/lds.js').then((m) => m.setRoll(el, Number(el.getAttribute('aria-label')) + 1));\"><span class=\"ic\" aria-hidden=\"true\">add</span>Tambah satu</button>\n  <button class=\"btn btn--secondary btn--sm\" onclick=\"const el = document.getElementById('rn'); import('../../js/lds.js').then((m) => m.setRoll(el, Number(el.getAttribute('aria-label')) + 47));\">Tambah 47</button>\n</div>",
+        "code": "<span class=\"roll\" role=\"img\" data-lds-roll=\"128\"></span>\n<script type=\"module\">\n  import { setRoll } from 'lampung-design-system/js';\n  setRoll(document.querySelector('.roll'), 129);\n</script>"
+      },
+      {
+        "title": "Di dalam kontrol",
+        "desc": "Tombol suka menggulirkan hitungannya; stepper menggulirkan nilainya.",
+        "html": "<button class=\"like\" aria-pressed=\"false\" data-lds-like aria-label=\"Suka\"><span class=\"like__heart\"><span class=\"ic\" aria-hidden=\"true\">favorite</span></span><span class=\"roll\" data-lds-roll=\"24\"></span></button>"
+      }
+    ]
+  },
+  "related": [
+    "number-count",
+    "number-stepper",
+    "like",
+    "stat-row"
+  ]
+}

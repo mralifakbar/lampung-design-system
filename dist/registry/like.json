@@ -1,0 +1,47 @@
+{
+  "version": "0.1.0",
+  "slug": "like",
+  "title": "Like",
+  "group": "Microinteractions",
+  "order": 3,
+  "summary": {
+    "en": "Endorsing something is optimistic: the heart fills, pops and throws seven sparks the moment it is pressed, and the count rolls up, before the server answers. If the server refuses, it rolls back with a shake and says why.",
+    "id": "Memberi dukungan bersifat optimistis: hati terisi, memantul, dan melontarkan tujuh percikan begitu ditekan, dan jumlahnya bergulir naik, sebelum server menjawab. Jika server menolak, semuanya kembali dengan goyangan dan alasannya ditampilkan."
+  },
+  "titleId": "Like",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Like an answer",
+        "desc": "Press the heart: it fills at once, pops and bursts; the count rolls to 129. Press again to take it back (no burst on the way off).",
+        "html": "<div class=\"card\" style=\"max-width: 460px;\">\n  <p class=\"card__title\">How I memorize the Krebs cycle</p>\n  <p class=\"card__sub\" style=\"margin-top: 6px;\">Group the steps in threes and say them out loud on the way to class. It took me four days.</p>\n  <div class=\"docs-row\" style=\"margin-top: 14px;\"><button class=\"like\" aria-pressed=\"false\" data-lds-like aria-label=\"Like\"><span class=\"like__heart\"><span class=\"ic\" aria-hidden=\"true\">favorite</span></span><span class=\"roll\" data-lds-roll=\"128\"></span></button><button class=\"btn btn--plain btn--sm\">Reply</button></div>\n</div>"
+      },
+      {
+        "title": "When the server says no",
+        "desc": "This one is refused after 700 ms: the heart empties, the count rolls back, the button shakes, and the reason appears in words.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 360px;\">\n  <div class=\"docs-row\"><button class=\"like\" aria-pressed=\"false\" data-lds-like aria-label=\"Like\" onclick=\"if (this.getAttribute('aria-pressed') !== 'true') { const err = this.nextElementSibling; setTimeout(() => import('../../js/lds.js').then((m) => { m.likeRevert(this); err.hidden = false; }), 700); }\"><span class=\"like__heart\"><span class=\"ic\" aria-hidden=\"true\">favorite</span></span><span class=\"roll\" data-lds-roll=\"41\"></span></button><span class=\"field__help field__help--error\" hidden><span class=\"ic\" aria-hidden=\"true\">wifi_off</span>Could not save your like. You are offline.</span></div>\n</div>",
+        "code": "<button class=\"like\" aria-pressed=\"false\" data-lds-like aria-label=\"Like\">\n  <span class=\"like__heart\"><span class=\"ic\" aria-hidden=\"true\">favorite</span></span>\n  <span class=\"roll\" data-lds-roll=\"41\"></span>\n</button>\n<script type=\"module\">\n  import { likeRevert } from 'lampung-design-system/js';\n  btn.addEventListener('lds:change', async (e) => {\n    try { await saveLike(e.detail.pressed); }\n    catch { likeRevert(btn); showReason('Could not save your like. You are offline.'); }\n  });\n</script>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Mendukung sebuah usulan",
+        "desc": "Tekan hatinya: langsung terisi, memantul, dan meledak; jumlahnya bergulir ke 129. Tekan lagi untuk menariknya (tanpa ledakan saat dimatikan).",
+        "html": "<div class=\"card\" style=\"max-width: 460px;\">\n  <p class=\"card__title\">Lampu jalan di Jalan Pagar Alam sering padam</p>\n  <p class=\"card__sub\" style=\"margin-top: 6px;\">Usul agar tiga tiang dekat halte diganti lampu baru. Sudah gelap total selama empat malam.</p>\n  <div class=\"docs-row\" style=\"margin-top: 14px;\"><button class=\"like\" aria-pressed=\"false\" data-lds-like aria-label=\"Suka\"><span class=\"like__heart\"><span class=\"ic\" aria-hidden=\"true\">favorite</span></span><span class=\"roll\" data-lds-roll=\"128\"></span></button><button class=\"btn btn--plain btn--sm\">Balas</button></div>\n</div>"
+      },
+      {
+        "title": "Saat server menolak",
+        "desc": "Yang ini ditolak setelah 700 ms: hati kosong lagi, jumlahnya bergulir kembali, tombol bergoyang, dan alasannya muncul dalam kata-kata.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 360px;\">\n  <div class=\"docs-row\"><button class=\"like\" aria-pressed=\"false\" data-lds-like aria-label=\"Suka\" onclick=\"if (this.getAttribute('aria-pressed') !== 'true') { const err = this.nextElementSibling; setTimeout(() => import('../../js/lds.js').then((m) => { m.likeRevert(this); err.hidden = false; }), 700); }\"><span class=\"like__heart\"><span class=\"ic\" aria-hidden=\"true\">favorite</span></span><span class=\"roll\" data-lds-roll=\"41\"></span></button><span class=\"field__help field__help--error\" hidden><span class=\"ic\" aria-hidden=\"true\">wifi_off</span>Dukungan Anda gagal disimpan. Anda sedang offline.</span></div>\n</div>",
+        "code": "<button class=\"like\" aria-pressed=\"false\" data-lds-like aria-label=\"Suka\">\n  <span class=\"like__heart\"><span class=\"ic\" aria-hidden=\"true\">favorite</span></span>\n  <span class=\"roll\" data-lds-roll=\"41\"></span>\n</button>\n<script type=\"module\">\n  import { likeRevert } from 'lampung-design-system/js';\n  btn.addEventListener('lds:change', async (e) => {\n    try { await saveLike(e.detail.pressed); }\n    catch { likeRevert(btn); showReason('Dukungan Anda gagal disimpan. Anda sedang offline.'); }\n  });\n</script>"
+      }
+    ]
+  },
+  "related": [
+    "icon-swap",
+    "number-count",
+    "shake",
+    "haptics"
+  ]
+}

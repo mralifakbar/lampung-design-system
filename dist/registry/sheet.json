@@ -1,0 +1,47 @@
+{
+  "version": "0.1.0",
+  "slug": "sheet",
+  "title": "Sheet",
+  "group": "Overlays",
+  "order": 4,
+  "summary": {
+    "en": "A panel that rises from the bottom for a task that keeps its context: the page behind recedes but stays visible. Drag the grabber to dismiss with momentum. The phone answer to most dialogs.",
+    "id": "Panel yang naik dari bawah untuk tugas yang tetap menjaga konteks: halaman di belakang mundur tetapi tetap terlihat. Seret grabber untuk menutup dengan momentum. Jawaban versi ponsel untuk sebagian besar dialog."
+  },
+  "titleId": "Sheet",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Mark attendance",
+        "desc": "Open it, then drag the grabber or the title down and let go: a fast flick dismisses even from a short drag; a slow one springs back.",
+        "html": "<div class=\"viewport docs-box\" data-lds-push=\"sh-att\">\n  <div class=\"viewport__content\">\n    <button class=\"btn btn--secondary btn--md\" data-lds-open=\"sh-att\" aria-haspopup=\"dialog\">Mark attendance</button>\n    <p class=\"section__sub\">Database Systems · Monday 08:00</p>\n  </div>\n  <div class=\"scrim\" data-lds-scrim=\"sh-att\"></div>\n  <div class=\"sheet\" id=\"sh-att\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"sh-att-t\" data-lds-layer>\n    <div class=\"sheet__grabber\" aria-hidden=\"true\"></div>\n    <div class=\"sheet__head\" data-lds-drag>\n      <h3 class=\"sheet__title\" id=\"sh-att-t\">Mark attendance</h3>\n      <button class=\"icon-btn icon-btn--filled\" aria-label=\"Close\" data-lds-close><span class=\"ic\" aria-hidden=\"true\">close</span></button>\n    </div>\n    <div class=\"list list--fill\">\n      <button class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Present</span></span><span class=\"ic\" style=\"color: var(--accent-text);\" aria-hidden=\"true\">check</span></button>\n      <button class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Late, with reason</span></span></button>\n      <button class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Excused absence</span></span></button>\n    </div>\n    <button class=\"btn btn--primary btn--block\" style=\"margin-top: 16px;\" data-lds-close>Save attendance</button>\n  </div>\n</div>",
+        "code": "<div class=\"viewport\" data-lds-push=\"attendance\">\n<div class=\"viewport__content\">…screen content…</div>\n<div class=\"scrim\" data-lds-scrim=\"attendance\"></div>\n<div class=\"sheet\" id=\"attendance\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"attendance-t\" data-lds-layer>\n  <div class=\"sheet__grabber\" aria-hidden=\"true\"></div>\n  <div class=\"sheet__head\" data-lds-drag>\n    <h2 class=\"sheet__title\" id=\"attendance-t\">Mark attendance</h2>\n    <button class=\"icon-btn icon-btn--filled\" aria-label=\"Close\" data-lds-close><span class=\"ic\" aria-hidden=\"true\">close</span></button>\n  </div>\n  …\n  <button class=\"btn btn--primary btn--block\" data-lds-close>Save attendance</button>\n</div>\n</div>"
+      },
+      {
+        "title": "Share options",
+        "desc": "Without the push: the page stays put, only the scrim dims it.",
+        "html": "<div class=\"viewport docs-box\">\n  <div class=\"viewport__content\">\n    <button class=\"btn btn--secondary btn--md\" data-lds-open=\"sh-share\" aria-haspopup=\"dialog\"><span class=\"ic\" aria-hidden=\"true\">ios_share</span>Share result</button>\n  </div>\n  <div class=\"scrim\" data-lds-scrim=\"sh-share\"></div>\n  <div class=\"sheet\" id=\"sh-share\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"sh-share-t\" data-lds-layer>\n    <div class=\"sheet__grabber\" aria-hidden=\"true\"></div>\n    <div class=\"sheet__head\"><h3 class=\"sheet__title\" id=\"sh-share-t\">Share your tryout result</h3></div>\n    <div class=\"list list--fill\">\n      <button class=\"lrow\" data-lds-close><span class=\"ic\" aria-hidden=\"true\">link</span><span class=\"lrow__body\"><span class=\"lrow__title\">Copy link</span></span></button>\n      <button class=\"lrow\" data-lds-close><span class=\"ic\" aria-hidden=\"true\">download</span><span class=\"lrow__body\"><span class=\"lrow__title\">Save as image</span></span></button>\n      <button class=\"lrow\" data-lds-close><span class=\"ic\" aria-hidden=\"true\">mail</span><span class=\"lrow__body\"><span class=\"lrow__title\">Send by email</span></span></button>\n    </div>\n  </div>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Catat kehadiran",
+        "desc": "Buka, lalu seret grabber atau judulnya ke bawah dan lepaskan: sentilan cepat menutup meski seretannya pendek; yang pelan memantul kembali.",
+        "html": "<div class=\"viewport docs-box\" data-lds-push=\"sh-att\">\n  <div class=\"viewport__content\">\n    <button class=\"btn btn--secondary btn--md\" data-lds-open=\"sh-att\" aria-haspopup=\"dialog\">Catat kehadiran</button>\n    <p class=\"section__sub\">Posyandu Melati · Senin 08.00</p>\n  </div>\n  <div class=\"scrim\" data-lds-scrim=\"sh-att\"></div>\n  <div class=\"sheet\" id=\"sh-att\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"sh-att-t\" data-lds-layer>\n    <div class=\"sheet__grabber\" aria-hidden=\"true\"></div>\n    <div class=\"sheet__head\" data-lds-drag>\n      <h3 class=\"sheet__title\" id=\"sh-att-t\">Catat kehadiran</h3>\n      <button class=\"icon-btn icon-btn--filled\" aria-label=\"Tutup\" data-lds-close><span class=\"ic\" aria-hidden=\"true\">close</span></button>\n    </div>\n    <div class=\"list list--fill\">\n      <button class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Hadir</span></span><span class=\"ic\" style=\"color: var(--accent-text);\" aria-hidden=\"true\">check</span></button>\n      <button class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Terlambat, dengan alasan</span></span></button>\n      <button class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Izin tidak hadir</span></span></button>\n    </div>\n    <button class=\"btn btn--primary btn--block\" style=\"margin-top: 16px;\" data-lds-close>Simpan kehadiran</button>\n  </div>\n</div>",
+        "code": "<div class=\"viewport\" data-lds-push=\"attendance\">\n<div class=\"viewport__content\">…screen content…</div>\n<div class=\"scrim\" data-lds-scrim=\"attendance\"></div>\n<div class=\"sheet\" id=\"attendance\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"attendance-t\" data-lds-layer>\n  <div class=\"sheet__grabber\" aria-hidden=\"true\"></div>\n  <div class=\"sheet__head\" data-lds-drag>\n    <h2 class=\"sheet__title\" id=\"attendance-t\">Catat kehadiran</h2>\n    <button class=\"icon-btn icon-btn--filled\" aria-label=\"Tutup\" data-lds-close><span class=\"ic\" aria-hidden=\"true\">close</span></button>\n  </div>\n  …\n  <button class=\"btn btn--primary btn--block\" data-lds-close>Simpan kehadiran</button>\n</div>\n</div>"
+      },
+      {
+        "title": "Opsi berbagi",
+        "desc": "Tanpa efek dorong: halaman tetap di tempat, hanya scrim yang meredupkannya.",
+        "html": "<div class=\"viewport docs-box\">\n  <div class=\"viewport__content\">\n    <button class=\"btn btn--secondary btn--md\" data-lds-open=\"sh-share\" aria-haspopup=\"dialog\"><span class=\"ic\" aria-hidden=\"true\">ios_share</span>Bagikan bukti</button>\n  </div>\n  <div class=\"scrim\" data-lds-scrim=\"sh-share\"></div>\n  <div class=\"sheet\" id=\"sh-share\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"sh-share-t\" data-lds-layer>\n    <div class=\"sheet__grabber\" aria-hidden=\"true\"></div>\n    <div class=\"sheet__head\"><h3 class=\"sheet__title\" id=\"sh-share-t\">Bagikan bukti pendaftaran</h3></div>\n    <div class=\"list list--fill\">\n      <button class=\"lrow\" data-lds-close><span class=\"ic\" aria-hidden=\"true\">link</span><span class=\"lrow__body\"><span class=\"lrow__title\">Salin tautan</span></span></button>\n      <button class=\"lrow\" data-lds-close><span class=\"ic\" aria-hidden=\"true\">download</span><span class=\"lrow__body\"><span class=\"lrow__title\">Simpan sebagai gambar</span></span></button>\n      <button class=\"lrow\" data-lds-close><span class=\"ic\" aria-hidden=\"true\">mail</span><span class=\"lrow__body\"><span class=\"lrow__title\">Kirim lewat email</span></span></button>\n    </div>\n  </div>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "drawer",
+    "modal",
+    "drag-and-momentum",
+    "dialog"
+  ]
+}

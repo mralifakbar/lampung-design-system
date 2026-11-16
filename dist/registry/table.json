@@ -1,0 +1,55 @@
+{
+  "version": "0.1.0",
+  "slug": "table",
+  "title": "Table",
+  "group": "Data display",
+  "order": 7,
+  "summary": {
+    "en": "Rows of records compared by the same columns, in a `.table-box` that scrolls sideways when it must. A real `<table>` by default, `.table--wrap` for text, and the `.dt` grid when a template repeats rows.",
+    "id": "Baris catatan yang dibandingkan dengan kolom yang sama, di dalam `.table-box` yang bergulir ke samping bila perlu. `<table>` asli secara default, `.table--wrap` untuk teks, dan grid `.dt` bila sebuah template mengulang baris."
+  },
+  "titleId": "Table",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Records with sorting and selection",
+        "desc": "Numbers right-aligned, the naming column strong, a selected row on the accent tint. Sorted by credits, descending.",
+        "html": "<div class=\"table-box\">\n  <table class=\"table\">\n    <thead><tr><th>Course</th><th>Code</th><th class=\"num\" aria-sort=\"descending\"><button class=\"is-sorted is-desc\">Credits<span class=\"ic\" aria-hidden=\"true\">arrow_upward</span></button></th><th class=\"num\">Seats left</th><th>Status</th></tr></thead>\n    <tbody>\n      <tr><td class=\"strong\">Database Systems</td><td>CS 2104</td><td class=\"num\">4</td><td class=\"num\">12</td><td><span class=\"badge badge--success\">Open</span></td></tr>\n      <tr class=\"is-selected\"><td class=\"strong\">Computer Networks</td><td>CS 3102</td><td class=\"num\">3</td><td class=\"num\">0</td><td><span class=\"badge badge--danger\">Full</span></td></tr>\n      <tr><td class=\"strong\">Technical Writing</td><td>HU 1201</td><td class=\"num\">2</td><td class=\"num\">31</td><td><span class=\"badge badge--success\">Open</span></td></tr>\n    </tbody>\n  </table>\n</div>"
+      },
+      {
+        "title": "Text table",
+        "desc": "`.table--wrap` lets cells wrap and grow, for rules and definitions.",
+        "html": "<div class=\"table-box\">\n  <table class=\"table table--wrap\">\n    <thead><tr><th>Rule</th><th>What it means</th></tr></thead>\n    <tbody>\n      <tr><td class=\"strong\">Late submission</td><td>Work handed in after the deadline loses 5 % a day, for up to five days. After that it is not graded.</td></tr>\n      <tr><td class=\"strong\">Extension</td><td>Ask your lecturer before the deadline. Medical extensions need a letter within three days.</td></tr>\n    </tbody>\n  </table>\n</div>"
+      },
+      {
+        "title": "Grid table",
+        "desc": "The `.dt` grid: rows of cells with ARIA table roles. Set the columns on each row. It scrolls inside the box under 720 px.",
+        "html": "<div class=\"table-box\">\n  <div class=\"dt\" role=\"table\" aria-label=\"Payments\">\n    <div class=\"dt__row dt__head\" role=\"row\" style=\"grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;\"><span class=\"dt__cell\" role=\"columnheader\">Item</span><span class=\"dt__cell\" role=\"columnheader\" aria-sort=\"ascending\"><button class=\"dt__sort is-sorted\">Date<span class=\"ic\" aria-hidden=\"true\">arrow_upward</span></button></span><span class=\"dt__cell num\" role=\"columnheader\">Amount</span><span class=\"dt__cell\" role=\"columnheader\">Status</span></div>\n    <div class=\"dt__row\" role=\"row\" style=\"grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;\"><span class=\"dt__cell strong\" role=\"cell\">Term fee</span><span class=\"dt__cell\" role=\"cell\">2 Sep 2026</span><span class=\"dt__cell num\" role=\"cell\">Rp 4.200.000</span><span class=\"dt__cell\" role=\"cell\"><span class=\"badge badge--success\">Paid</span></span></div>\n    <div class=\"dt__row\" role=\"row\" style=\"grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;\"><span class=\"dt__cell strong\" role=\"cell\">Graduation deposit</span><span class=\"dt__cell\" role=\"cell\">28 Nov 2026</span><span class=\"dt__cell num\" role=\"cell\">Rp 1.000.000</span><span class=\"dt__cell\" role=\"cell\"><span class=\"badge badge--warning\">Due</span></span></div>\n  </div>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Catatan dengan pengurutan dan pemilihan",
+        "desc": "Angka rata kanan, kolom penamaan tegas, baris terpilih dengan tint aksen. Diurutkan menurut lama proses, menurun.",
+        "html": "<div class=\"table-box\">\n  <table class=\"table\">\n    <thead><tr><th>Layanan</th><th>Kode</th><th class=\"num\" aria-sort=\"descending\"><button class=\"is-sorted is-desc\">Lama proses (hari)<span class=\"ic\" aria-hidden=\"true\">arrow_upward</span></button></th><th class=\"num\">Kuota tersisa</th><th>Status</th></tr></thead>\n    <tbody>\n      <tr><td class=\"strong\">Izin usaha mikro</td><td>IUM 2104</td><td class=\"num\">4</td><td class=\"num\">12</td><td><span class=\"badge badge--success\">Dibuka</span></td></tr>\n      <tr class=\"is-selected\"><td class=\"strong\">Persetujuan bangunan gedung</td><td>PBG 3102</td><td class=\"num\">3</td><td class=\"num\">0</td><td><span class=\"badge badge--danger\">Penuh</span></td></tr>\n      <tr><td class=\"strong\">Surat keterangan domisili</td><td>SKD 1201</td><td class=\"num\">2</td><td class=\"num\">31</td><td><span class=\"badge badge--success\">Dibuka</span></td></tr>\n    </tbody>\n  </table>\n</div>"
+      },
+      {
+        "title": "Tabel teks",
+        "desc": "`.table--wrap` membiarkan sel turun baris dan membesar, untuk aturan dan definisi.",
+        "html": "<div class=\"table-box\">\n  <table class=\"table table--wrap\">\n    <thead><tr><th>Aturan</th><th>Artinya</th></tr></thead>\n    <tbody>\n      <tr><td class=\"strong\">Terlambat bayar</td><td>Pajak yang dibayar setelah jatuh tempo dikenai denda 2 % per bulan, paling lama 24 bulan.</td></tr>\n      <tr><td class=\"strong\">Keringanan</td><td>Ajukan sebelum jatuh tempo. Keringanan karena bencana perlu surat keterangan dari kelurahan dalam tiga hari.</td></tr>\n    </tbody>\n  </table>\n</div>"
+      },
+      {
+        "title": "Tabel grid",
+        "desc": "Grid `.dt`: baris berisi sel dengan role tabel ARIA. Atur kolom di setiap baris. Bergulir di dalam kotaknya di bawah 720 px.",
+        "html": "<div class=\"table-box\">\n  <div class=\"dt\" role=\"table\" aria-label=\"Pembayaran\">\n    <div class=\"dt__row dt__head\" role=\"row\" style=\"grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;\"><span class=\"dt__cell\" role=\"columnheader\">Butir</span><span class=\"dt__cell\" role=\"columnheader\" aria-sort=\"ascending\"><button class=\"dt__sort is-sorted\">Tanggal<span class=\"ic\" aria-hidden=\"true\">arrow_upward</span></button></span><span class=\"dt__cell num\" role=\"columnheader\">Jumlah</span><span class=\"dt__cell\" role=\"columnheader\">Status</span></div>\n    <div class=\"dt__row\" role=\"row\" style=\"grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;\"><span class=\"dt__cell strong\" role=\"cell\">Pajak bumi dan bangunan</span><span class=\"dt__cell\" role=\"cell\">2 Sep 2026</span><span class=\"dt__cell num\" role=\"cell\">Rp 1.250.000</span><span class=\"dt__cell\" role=\"cell\"><span class=\"badge badge--success\">Lunas</span></span></div>\n    <div class=\"dt__row\" role=\"row\" style=\"grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;\"><span class=\"dt__cell strong\" role=\"cell\">Pajak kendaraan bermotor</span><span class=\"dt__cell\" role=\"cell\">28 Nov 2026</span><span class=\"dt__cell num\" role=\"cell\">Rp 1.000.000</span><span class=\"dt__cell\" role=\"cell\"><span class=\"badge badge--warning\">Jatuh tempo</span></span></div>\n  </div>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "list",
+    "key-value",
+    "pagination",
+    "selection-bar"
+  ]
+}

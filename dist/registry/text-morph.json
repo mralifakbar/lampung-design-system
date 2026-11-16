@@ -1,0 +1,59 @@
+{
+  "version": "0.1.0",
+  "slug": "text-morph",
+  "title": "Text morph",
+  "group": "Microinteractions",
+  "order": 1,
+  "summary": {
+    "en": "A word changes in place and only the letters that differ move: kept letters slide to their new spot, new ones rise in, leaving ones blur out, and the width springs between the two words. Use it for the result of an action said in words, right where the action happened.",
+    "id": "Sebuah kata berubah di tempatnya dan hanya huruf yang berbeda yang bergerak: huruf yang tetap bergeser ke posisi barunya, huruf baru naik masuk, huruf yang pergi memudar kabur, dan lebarnya berpindah dengan spring di antara dua kata. Pakai untuk hasil sebuah aksi yang disampaikan dengan kata, tepat di tempat aksi itu terjadi."
+  },
+  "titleId": "Text morph",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "A status that moves on",
+        "desc": "Press Next status. Shared letters (\"in\", \"e\") slide instead of being replaced; the width springs to the new word.",
+        "html": "<span class=\"card__title\">Status: <span class=\"morph\" data-lds-morph id=\"tm-status\">Submitted</span></span>\n<button class=\"btn btn--secondary btn--md\" onclick=\"const el = document.getElementById('tm-status'); const list = ['Submitted', 'In review', 'Approved', 'Enrolled']; const i = (Number(el.dataset.i || 0) + 1) % list.length; el.dataset.i = i; import('../../js/lds.js').then((m) => m.morphText(el, list[i]));\">Next status</button>",
+        "code": "Status: <span class=\"morph\" data-lds-morph>Submitted</span>\n<script type=\"module\">\n  import { morphText } from 'lampung-design-system/js';\n  morphText(document.querySelector('.morph'), 'In review');\n</script>"
+      },
+      {
+        "title": "Save, saving, saved",
+        "desc": "The button tells the whole story in its own label, so no toast is needed. It goes back to Save draft once the moment has passed.",
+        "html": "<button class=\"btn btn--secondary\" onclick=\"const el = this.querySelector('.morph'); if (this.dataset.busy) return; this.dataset.busy = '1'; import('../../js/lds.js').then((m) => { m.morphText(el, 'Saving'); setTimeout(() => m.morphText(el, 'Saved'), 900); setTimeout(() => { m.morphText(el, 'Save draft'); delete this.dataset.busy; }, 2600); });\"><span class=\"ic\" aria-hidden=\"true\">draft</span><span class=\"morph\" data-lds-morph>Save draft</span></button>",
+        "code": "<button class=\"btn btn--secondary\"><span class=\"ic\" aria-hidden=\"true\">draft</span><span class=\"morph\" data-lds-morph>Save draft</span></button>\n// on click: morphText(label, 'Saving'); await save(); morphText(label, 'Saved');"
+      },
+      {
+        "title": "A count in words",
+        "desc": "Reserve seats until the class is full. Only the digit changes until the sentence itself changes.",
+        "html": "<span class=\"badge badge--warning\"><span class=\"morph\" data-lds-morph id=\"tm-seats\" aria-live=\"polite\">3 seats left</span></span>\n<button class=\"btn btn--primary btn--md\" onclick=\"const el = document.getElementById('tm-seats'); const n = Number(el.dataset.n || 3) - 1; if (n < 0) return; el.dataset.n = n; import('../../js/lds.js').then((m) => m.morphText(el, n === 0 ? 'Class full' : n === 1 ? '1 seat left' : n + ' seats left')); if (n === 0) this.disabled = true;\">Reserve a seat</button>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Status yang berlanjut",
+        "desc": "Tekan Status berikutnya. Huruf yang sama (\"Di\", \"a\") bergeser, tidak diganti; lebarnya berpindah dengan spring ke kata baru.",
+        "html": "<span class=\"card__title\">Status: <span class=\"morph\" data-lds-morph id=\"tm-status\">Diajukan</span></span>\n<button class=\"btn btn--secondary btn--md\" onclick=\"const el = document.getElementById('tm-status'); const list = ['Diajukan', 'Ditinjau', 'Disetujui', 'Terbit']; const i = (Number(el.dataset.i || 0) + 1) % list.length; el.dataset.i = i; import('../../js/lds.js').then((m) => m.morphText(el, list[i]));\">Status berikutnya</button>",
+        "code": "Status: <span class=\"morph\" data-lds-morph>Diajukan</span>\n<script type=\"module\">\n  import { morphText } from 'lampung-design-system/js';\n  morphText(document.querySelector('.morph'), 'Ditinjau');\n</script>"
+      },
+      {
+        "title": "Simpan, menyimpan, tersimpan",
+        "desc": "Tombol menceritakan semuanya lewat labelnya sendiri, jadi toast tidak diperlukan. Label kembali ke Simpan draf setelah momennya lewat.",
+        "html": "<button class=\"btn btn--secondary\" onclick=\"const el = this.querySelector('.morph'); if (this.dataset.busy) return; this.dataset.busy = '1'; import('../../js/lds.js').then((m) => { m.morphText(el, 'Menyimpan'); setTimeout(() => m.morphText(el, 'Tersimpan'), 900); setTimeout(() => { m.morphText(el, 'Simpan draf'); delete this.dataset.busy; }, 2600); });\"><span class=\"ic\" aria-hidden=\"true\">draft</span><span class=\"morph\" data-lds-morph>Simpan draf</span></button>",
+        "code": "<button class=\"btn btn--secondary\"><span class=\"ic\" aria-hidden=\"true\">draft</span><span class=\"morph\" data-lds-morph>Simpan draf</span></button>\n// on click: morphText(label, 'Menyimpan'); await save(); morphText(label, 'Tersimpan');"
+      },
+      {
+        "title": "Jumlah dalam kata",
+        "desc": "Ambil antrean sampai kuotanya habis. Hanya angkanya yang berubah sampai kalimatnya sendiri berganti.",
+        "html": "<span class=\"badge badge--warning\"><span class=\"morph\" data-lds-morph id=\"tm-seats\" aria-live=\"polite\">Sisa 3 kuota</span></span>\n<button class=\"btn btn--primary btn--md\" onclick=\"const el = document.getElementById('tm-seats'); const n = Number(el.dataset.n || 3) - 1; if (n < 0) return; el.dataset.n = n; import('../../js/lds.js').then((m) => m.morphText(el, n === 0 ? 'Kuota penuh' : n === 1 ? 'Sisa 1 kuota' : 'Sisa ' + n + ' kuota')); if (n === 0) this.disabled = true;\">Ambil antrean</button>"
+      }
+    ]
+  },
+  "related": [
+    "button",
+    "number-count",
+    "icon-swap",
+    "toast"
+  ]
+}

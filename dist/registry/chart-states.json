@@ -1,0 +1,45 @@
+{
+  "version": "0.1.0",
+  "slug": "chart-states",
+  "title": "Chart states",
+  "group": "Charts",
+  "order": 8,
+  "summary": {
+    "en": "Every chart is designed in loading, empty and error states inside the same `.chart-card`, at the same size as the loaded chart: a skeleton of its own shape, an empty message with the reason, and an error with a retry.",
+    "id": "Setiap grafik dirancang dalam state loading, kosong, dan error di dalam `.chart-card` yang sama, dengan ukuran yang sama seperti grafik yang sudah dimuat: skeleton berbentuk grafiknya sendiri, pesan kosong beserta alasannya, dan error dengan tombol coba lagi."
+  },
+  "titleId": "Chart states",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Loading, empty, error",
+        "desc": "The same bar chart in its three non-data states, side by side at the size of the real chart.",
+        "html": "<div class=\"auto-grid\" style=\"--min: 260px;\">\n<div class=\"chart-card\" style=\"min-height: 240px;\" role=\"status\" aria-busy=\"true\" aria-label=\"Loading submissions chart\">\n  <div class=\"stack\" style=\"--gap: 8px;\"><div class=\"skel\" style=\"height: 14px; width: 55%;\"></div><div class=\"skel\" style=\"height: 12px; width: 35%;\"></div></div>\n  <div style=\"display: flex; align-items: flex-end; gap: 8px; height: 140px;\">\n    <div class=\"skel\" style=\"flex: 1; height: 40%;\"></div><div class=\"skel\" style=\"flex: 1; height: 70%;\"></div><div class=\"skel\" style=\"flex: 1; height: 55%;\"></div><div class=\"skel\" style=\"flex: 1; height: 85%;\"></div><div class=\"skel\" style=\"flex: 1; height: 30%;\"></div><div class=\"skel\" style=\"flex: 1; height: 20%;\"></div><div class=\"skel\" style=\"flex: 1; height: 12%;\"></div>\n  </div>\n</div>\n<div class=\"chart-card\" style=\"min-height: 240px;\">\n  <div><div class=\"chart-card__q\">Which days are busiest?</div><div class=\"chart-card__sub\">Assignments submitted per weekday, this week</div></div>\n  <div class=\"empty\" style=\"padding: 16px 8px;\">\n    <div class=\"empty__title\">No submissions this week</div>\n    <div class=\"empty__body\">The chart fills in as assignments come in.</div>\n    <button class=\"btn btn--secondary btn--sm\">Show last week</button>\n  </div>\n</div>\n<div class=\"chart-card\" style=\"min-height: 240px;\">\n  <div><div class=\"chart-card__q\">Which days are busiest?</div><div class=\"chart-card__sub\">Assignments submitted per weekday, this week</div></div>\n  <div class=\"alert alert--danger\" role=\"alert\">\n    <span class=\"ic\" aria-hidden=\"true\">error</span>\n    <div>\n      <div class=\"alert__title\">Chart data did not load</div>\n      <div class=\"alert__body\">The grades service timed out.</div>\n      <div class=\"alert__actions\"><button class=\"btn btn--secondary btn--sm\"><span class=\"ic\" aria-hidden=\"true\">refresh</span>Try again</button></div>\n    </div>\n  </div>\n</div>\n</div>"
+      },
+      {
+        "title": "Loading shapes for other charts",
+        "desc": "A line chart loads as its gridlines, a donut as a ring, a percentage bar as one strip.",
+        "html": "<div class=\"auto-grid\" style=\"--min: 220px;\">\n  <div class=\"chart-card\" role=\"status\" aria-busy=\"true\" aria-label=\"Loading quiz scores\">\n    <div class=\"skel\" style=\"height: 14px; width: 60%;\"></div>\n    <div class=\"stack\" style=\"--gap: 30px; padding-top: 12px;\"><div class=\"skel\" style=\"height: 2px;\"></div><div class=\"skel\" style=\"height: 2px;\"></div><div class=\"skel\" style=\"height: 2px;\"></div><div class=\"skel\" style=\"height: 2px;\"></div></div>\n  </div>\n  <div class=\"chart-card\" role=\"status\" aria-busy=\"true\" aria-label=\"Loading grade distribution\">\n    <div class=\"skel\" style=\"height: 14px; width: 60%;\"></div>\n    <div class=\"cluster\" style=\"--gap: 20px;\"><div class=\"skel\" style=\"width: 120px; height: 120px; border-radius: 50%;\"></div><div class=\"stack\" style=\"--gap: 10px; flex: 1;\"><div class=\"skel\" style=\"height: 12px;\"></div><div class=\"skel\" style=\"height: 12px; width: 70%;\"></div><div class=\"skel\" style=\"height: 12px; width: 50%;\"></div></div></div>\n  </div>\n  <div class=\"chart-card\" role=\"status\" aria-busy=\"true\" aria-label=\"Loading credit split\">\n    <div class=\"skel\" style=\"height: 14px; width: 60%;\"></div>\n    <div class=\"skel\" style=\"height: 14px; border-radius: 4px;\"></div>\n    <div class=\"skel\" style=\"height: 12px; width: 80%;\"></div>\n  </div>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Loading, kosong, error",
+        "desc": "Grafik batang yang sama dalam tiga state tanpa data, berdampingan dengan ukuran grafik aslinya.",
+        "html": "<div class=\"auto-grid\" style=\"--min: 260px;\">\n<div class=\"chart-card\" style=\"min-height: 240px;\" role=\"status\" aria-busy=\"true\" aria-label=\"Memuat grafik laporan warga\">\n  <div class=\"stack\" style=\"--gap: 8px;\"><div class=\"skel\" style=\"height: 14px; width: 55%;\"></div><div class=\"skel\" style=\"height: 12px; width: 35%;\"></div></div>\n  <div style=\"display: flex; align-items: flex-end; gap: 8px; height: 140px;\">\n    <div class=\"skel\" style=\"flex: 1; height: 40%;\"></div><div class=\"skel\" style=\"flex: 1; height: 70%;\"></div><div class=\"skel\" style=\"flex: 1; height: 55%;\"></div><div class=\"skel\" style=\"flex: 1; height: 85%;\"></div><div class=\"skel\" style=\"flex: 1; height: 30%;\"></div><div class=\"skel\" style=\"flex: 1; height: 20%;\"></div><div class=\"skel\" style=\"flex: 1; height: 12%;\"></div>\n  </div>\n</div>\n<div class=\"chart-card\" style=\"min-height: 240px;\">\n  <div><div class=\"chart-card__q\">Hari apa yang paling sibuk?</div><div class=\"chart-card__sub\">Laporan warga yang masuk per hari, minggu ini</div></div>\n  <div class=\"empty\" style=\"padding: 16px 8px;\">\n    <div class=\"empty__title\">Belum ada laporan minggu ini</div>\n    <div class=\"empty__body\">Grafik terisi begitu laporan masuk.</div>\n    <button class=\"btn btn--secondary btn--sm\">Lihat minggu lalu</button>\n  </div>\n</div>\n<div class=\"chart-card\" style=\"min-height: 240px;\">\n  <div><div class=\"chart-card__q\">Hari apa yang paling sibuk?</div><div class=\"chart-card__sub\">Laporan warga yang masuk per hari, minggu ini</div></div>\n  <div class=\"alert alert--danger\" role=\"alert\">\n    <span class=\"ic\" aria-hidden=\"true\">error</span>\n    <div>\n      <div class=\"alert__title\">Data grafik gagal dimuat</div>\n      <div class=\"alert__body\">Layanan pengaduan tidak merespons tepat waktu.</div>\n      <div class=\"alert__actions\"><button class=\"btn btn--secondary btn--sm\"><span class=\"ic\" aria-hidden=\"true\">refresh</span>Coba lagi</button></div>\n    </div>\n  </div>\n</div>\n</div>"
+      },
+      {
+        "title": "Bentuk loading untuk grafik lain",
+        "desc": "Grafik garis dimuat sebagai garis grid-nya, donut sebagai cincin, bar persentase sebagai satu strip.",
+        "html": "<div class=\"auto-grid\" style=\"--min: 220px;\">\n  <div class=\"chart-card\" role=\"status\" aria-busy=\"true\" aria-label=\"Memuat kunjungan puskesmas\">\n    <div class=\"skel\" style=\"height: 14px; width: 60%;\"></div>\n    <div class=\"stack\" style=\"--gap: 30px; padding-top: 12px;\"><div class=\"skel\" style=\"height: 2px;\"></div><div class=\"skel\" style=\"height: 2px;\"></div><div class=\"skel\" style=\"height: 2px;\"></div><div class=\"skel\" style=\"height: 2px;\"></div></div>\n  </div>\n  <div class=\"chart-card\" role=\"status\" aria-busy=\"true\" aria-label=\"Memuat sebaran kategori laporan\">\n    <div class=\"skel\" style=\"height: 14px; width: 60%;\"></div>\n    <div class=\"cluster\" style=\"--gap: 20px;\"><div class=\"skel\" style=\"width: 120px; height: 120px; border-radius: 50%;\"></div><div class=\"stack\" style=\"--gap: 10px; flex: 1;\"><div class=\"skel\" style=\"height: 12px;\"></div><div class=\"skel\" style=\"height: 12px; width: 70%;\"></div><div class=\"skel\" style=\"height: 12px; width: 50%;\"></div></div></div>\n  </div>\n  <div class=\"chart-card\" role=\"status\" aria-busy=\"true\" aria-label=\"Memuat porsi pajak daerah\">\n    <div class=\"skel\" style=\"height: 14px; width: 60%;\"></div>\n    <div class=\"skel\" style=\"height: 14px; border-radius: 4px;\"></div>\n    <div class=\"skel\" style=\"height: 12px; width: 80%;\"></div>\n  </div>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "data-states",
+    "skeleton",
+    "empty-state",
+    "chart-principles"
+  ]
+}

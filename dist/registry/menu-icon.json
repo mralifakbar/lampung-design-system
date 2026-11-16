@@ -1,0 +1,45 @@
+{
+  "version": "0.1.0",
+  "slug": "menu-icon",
+  "title": "Menu icon",
+  "group": "Microinteractions",
+  "order": 7,
+  "summary": {
+    "en": "Three bars that fold into a close icon when their button opens a menu, and unfold when it closes: the top and bottom bars meet and turn 45 degrees, the middle one shrinks away. The button stays in place, so the same spot opens and closes.",
+    "id": "Tiga garis yang melipat menjadi ikon tutup saat tombolnya membuka menu, dan terbuka lagi saat menu ditutup: garis atas dan bawah bertemu lalu berputar 45 derajat, garis tengah mengecil hilang. Tombolnya tidak berpindah, jadi tempat yang sama membuka dan menutup."
+  },
+  "titleId": "Menu icon",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Open and close the navigation",
+        "desc": "Press the button: the bars fold into a close icon while the links open below. Press again to fold back.",
+        "html": "<div style=\"max-width: 360px;\">\n  <div class=\"docs-row\" style=\"justify-content: space-between;\">\n    <span class=\"card__title\">Campus</span>\n    <button class=\"icon-btn\" aria-label=\"Menu\" aria-expanded=\"false\" aria-controls=\"mi-nav\" onclick=\"const open = this.getAttribute('aria-expanded') !== 'true'; this.setAttribute('aria-expanded', String(open)); document.getElementById(this.getAttribute('aria-controls')).classList.toggle('is-closed', !open);\"><span class=\"burger\" aria-hidden=\"true\"><i></i><i></i><i></i></span></button>\n  </div>\n  <div class=\"collapse is-closed\" id=\"mi-nav\"><div><nav class=\"list list--fill\" aria-label=\"Main\" style=\"margin-top: 8px;\">\n    <a class=\"lrow\" href=\"#\" aria-current=\"page\"><span class=\"lrow__body\"><span class=\"lrow__title\">Home</span></span></a>\n    <a class=\"lrow\" href=\"#\"><span class=\"lrow__body\"><span class=\"lrow__title\">Courses</span></span></a>\n    <a class=\"lrow\" href=\"#\"><span class=\"lrow__body\"><span class=\"lrow__title\">Schedule</span></span></a>\n  </nav></div></div>\n</div>"
+      },
+      {
+        "title": "With a label",
+        "desc": "Where there is room, a word next to the icon helps. The fold still lives on the button that has `aria-expanded`.",
+        "html": "<button class=\"btn btn--gray btn--md\" aria-expanded=\"false\" onclick=\"this.setAttribute('aria-expanded', String(this.getAttribute('aria-expanded') !== 'true'))\"><span class=\"burger\" aria-hidden=\"true\"><i></i><i></i><i></i></span>Menu</button>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Membuka dan menutup navigasi",
+        "desc": "Tekan tombolnya: garis-garis melipat menjadi ikon tutup sementara tautan terbuka di bawahnya. Tekan lagi untuk membukanya kembali.",
+        "html": "<div style=\"max-width: 360px;\">\n  <div class=\"docs-row\" style=\"justify-content: space-between;\">\n    <span class=\"card__title\">Layanan Warga</span>\n    <button class=\"icon-btn\" aria-label=\"Menu\" aria-expanded=\"false\" aria-controls=\"mi-nav\" onclick=\"const open = this.getAttribute('aria-expanded') !== 'true'; this.setAttribute('aria-expanded', String(open)); document.getElementById(this.getAttribute('aria-controls')).classList.toggle('is-closed', !open);\"><span class=\"burger\" aria-hidden=\"true\"><i></i><i></i><i></i></span></button>\n  </div>\n  <div class=\"collapse is-closed\" id=\"mi-nav\"><div><nav class=\"list list--fill\" aria-label=\"Utama\" style=\"margin-top: 8px;\">\n    <a class=\"lrow\" href=\"#\" aria-current=\"page\"><span class=\"lrow__body\"><span class=\"lrow__title\">Beranda</span></span></a>\n    <a class=\"lrow\" href=\"#\"><span class=\"lrow__body\"><span class=\"lrow__title\">Layanan</span></span></a>\n    <a class=\"lrow\" href=\"#\"><span class=\"lrow__body\"><span class=\"lrow__title\">Jadwal</span></span></a>\n  </nav></div></div>\n</div>"
+      },
+      {
+        "title": "Dengan label",
+        "desc": "Bila ada ruang, satu kata di samping ikon membantu. Lipatannya tetap ada di tombol yang punya `aria-expanded`.",
+        "html": "<button class=\"btn btn--gray btn--md\" aria-expanded=\"false\" onclick=\"this.setAttribute('aria-expanded', String(this.getAttribute('aria-expanded') !== 'true'))\"><span class=\"burger\" aria-hidden=\"true\"><i></i><i></i><i></i></span>Menu</button>"
+      }
+    ]
+  },
+  "related": [
+    "top-nav",
+    "app-shell",
+    "icon-button",
+    "icon-swap"
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "version": "0.1.0",
+  "slug": "button",
+  "title": "Button",
+  "group": "Actions",
+  "order": 1,
+  "summary": {
+    "en": "The control people press to make something happen: save, send, start, delete. One primary per view; the label names the outcome.",
+    "id": "Kontrol yang ditekan untuk menjalankan sesuatu: simpan, kirim, mulai, hapus. Satu tombol utama per tampilan; labelnya menyebut hasilnya."
+  },
+  "titleId": "Button",
+  "react": true,
+  "examples": {
+    "en": [
+      {
+        "title": "Variants",
+        "desc": "Primary once per view; secondary for the alternative; tinted for a quiet positive; plain for inline and tertiary actions; danger only inside a confirm.",
+        "html": "<div class=\"docs-row\">\n  <button class=\"btn btn--primary\">Save changes</button>\n  <button class=\"btn btn--secondary\">Preview</button>\n  <button class=\"btn btn--tinted\">Add a note</button>\n  <button class=\"btn btn--gray\">Duplicate</button>\n  <button class=\"btn btn--plain\">Skip for now</button>\n  <button class=\"btn btn--danger-tinted\">Remove member</button>\n</div>"
+      },
+      {
+        "title": "Sizes and icons",
+        "desc": "52 for the one big call to action on a landing page, 44 by default, 36 in toolbars and dense rows, 28 inside rows and chips. Small sizes keep a 44 px hit area through the space around them.",
+        "html": "<div class=\"docs-row\">\n  <button class=\"btn btn--primary btn--lg\"><span class=\"ic\" aria-hidden=\"true\">play_arrow</span>Start the tryout</button>\n  <button class=\"btn btn--secondary\"><span class=\"ic\" aria-hidden=\"true\">add</span>Add course</button>\n  <button class=\"btn btn--secondary btn--md\"><span class=\"ic\" aria-hidden=\"true\">download</span>Export</button>\n  <button class=\"btn btn--plain btn--sm\">Edit</button>\n</div>"
+      },
+      {
+        "title": "Loading without a jump",
+        "desc": "The label blurs out, the spinner scales in, the width stays. Press it.",
+        "html": "<button class=\"btn btn--primary\" onclick=\"this.classList.add('is-loading'); this.setAttribute('aria-busy','true'); setTimeout(() => { this.classList.remove('is-loading'); this.removeAttribute('aria-busy'); }, 1600)\">\n  <span class=\"btn__label\"><span class=\"ic\" aria-hidden=\"true\">check</span>Submit answers</span>\n  <span class=\"btn__spin\" aria-hidden=\"true\"><span class=\"spinner\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span>\n</button>",
+        "code": "<button class=\"btn btn--primary is-loading\" aria-busy=\"true\">\n  <span class=\"btn__label\">Submit answers</span>\n  <span class=\"btn__spin\" aria-hidden=\"true\"><span class=\"spinner\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span>\n</button>"
+      },
+      {
+        "title": "Disabled",
+        "desc": "Prefer an enabled button that explains what is missing when pressed. Disable only when the reason is visible next to it.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 360px;\">\n  <button class=\"btn btn--primary\" disabled>Send report</button>\n  <span class=\"field__help\">Choose what kind of mistake it is to send the report.</span>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Varian",
+        "desc": "Primary sekali per tampilan; secondary untuk alternatifnya; tinted untuk aksi positif yang tenang; plain untuk aksi sebaris dan tersier; danger hanya di dalam konfirmasi.",
+        "html": "<div class=\"docs-row\">\n  <button class=\"btn btn--primary\">Simpan perubahan</button>\n  <button class=\"btn btn--secondary\">Pratinjau</button>\n  <button class=\"btn btn--tinted\">Tambah catatan</button>\n  <button class=\"btn btn--gray\">Gandakan</button>\n  <button class=\"btn btn--plain\">Lewati dulu</button>\n  <button class=\"btn btn--danger-tinted\">Keluarkan anggota</button>\n</div>"
+      },
+      {
+        "title": "Ukuran dan ikon",
+        "desc": "52 untuk satu ajakan utama di halaman depan, 44 sebagai bawaan, 36 di toolbar dan baris padat, 28 di dalam baris dan chip. Ukuran kecil tetap punya area sentuh 44 px lewat ruang di sekitarnya.",
+        "html": "<div class=\"docs-row\">\n  <button class=\"btn btn--primary btn--lg\"><span class=\"ic\" aria-hidden=\"true\">play_arrow</span>Mulai permohonan</button>\n  <button class=\"btn btn--secondary\"><span class=\"ic\" aria-hidden=\"true\">add</span>Tambah layanan</button>\n  <button class=\"btn btn--secondary btn--md\"><span class=\"ic\" aria-hidden=\"true\">download</span>Ekspor</button>\n  <button class=\"btn btn--plain btn--sm\">Ubah</button>\n</div>"
+      },
+      {
+        "title": "Memuat tanpa lompatan",
+        "desc": "Label memudar, spinner membesar masuk, lebar tetap. Coba tekan.",
+        "html": "<button class=\"btn btn--primary\" onclick=\"this.classList.add('is-loading'); this.setAttribute('aria-busy','true'); setTimeout(() => { this.classList.remove('is-loading'); this.removeAttribute('aria-busy'); }, 1600)\">\n  <span class=\"btn__label\"><span class=\"ic\" aria-hidden=\"true\">check</span>Kirim permohonan</span>\n  <span class=\"btn__spin\" aria-hidden=\"true\"><span class=\"spinner\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span>\n</button>",
+        "code": "<button class=\"btn btn--primary is-loading\" aria-busy=\"true\">\n  <span class=\"btn__label\">Kirim permohonan</span>\n  <span class=\"btn__spin\" aria-hidden=\"true\"><span class=\"spinner\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span>\n</button>"
+      },
+      {
+        "title": "Nonaktif",
+        "desc": "Lebih baik tombol tetap aktif dan menjelaskan apa yang kurang saat ditekan. Nonaktifkan hanya jika alasannya terlihat di sampingnya.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 360px;\">\n  <button class=\"btn btn--primary\" disabled>Kirim laporan</button>\n  <span class=\"field__help\">Pilih jenis masalahnya untuk mengirim laporan.</span>\n</div>"
+      }
+    ]
+  },
+  "reactUsage": "import { ButtonContent } from 'lampung-design-system/react';\n\n<button className={`btn btn--primary${saving ? ' is-loading' : ''}`} aria-busy={saving} onClick={save}>\n  <ButtonContent loading={saving}>Save changes</ButtonContent>\n</button>",
+  "related": [
+    "icon-button",
+    "link",
+    "hold-to-confirm",
+    "text-morph"
+  ]
+}

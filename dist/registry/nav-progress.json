@@ -1,0 +1,37 @@
+{
+  "version": "0.1.0",
+  "slug": "nav-progress",
+  "title": "Nav progress",
+  "group": "Navigation",
+  "order": 11,
+  "summary": {
+    "en": "A 3 px accent bar along the top edge of the window that runs while the next page loads. Add `.is-running` when navigation starts, remove it when the page is in.",
+    "id": "Bilah aksen setinggi 3 px di tepi atas jendela yang berjalan selama halaman berikutnya dimuat. Tambahkan `.is-running` saat navigasi dimulai, hapus saat halaman sudah tampil."
+  },
+  "titleId": "Nav progress",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Opening the next lesson",
+        "desc": "The bar runs along the top edge of this box while the \"page\" loads, then leaves. In an app it sits at the top of the window.",
+        "html": "<div class=\"navprogress\" aria-hidden=\"true\" id=\"np-bar\"></div>\n<div class=\"docs-col\">\n  <button class=\"btn btn--primary btn--md\" style=\"align-self: flex-start;\" onclick=\"const b = document.getElementById('np-bar'); const s = document.getElementById('np-status'); b.classList.add('is-running'); s.textContent = 'Loading lesson 4'; this.disabled = true; setTimeout(() => { b.classList.remove('is-running'); s.textContent = 'Lesson 4 is open'; this.disabled = false; }, 1800);\">Open lesson 4</button>\n  <p class=\"section__sub\" id=\"np-status\" role=\"status\">Lesson 3 is open</p>\n</div>",
+        "code": "<div class=\"navprogress\" aria-hidden=\"true\"></div>\n\n<script type=\"module\">\n  const bar = document.querySelector('.navprogress');\n  router.on('start', () => bar.classList.add('is-running'));\n  router.on('done', () => bar.classList.remove('is-running'));\n</script>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Membuka tahap berikutnya",
+        "desc": "Bilah berjalan di tepi atas kotak ini selama \"halaman\" dimuat, lalu hilang. Di aplikasi, bilah berada di atas jendela.",
+        "html": "<div class=\"navprogress\" aria-hidden=\"true\" id=\"np-bar\"></div>\n<div class=\"docs-col\">\n  <button class=\"btn btn--primary btn--md\" style=\"align-self: flex-start;\" onclick=\"const b = document.getElementById('np-bar'); const s = document.getElementById('np-status'); b.classList.add('is-running'); s.textContent = 'Memuat tahap 4'; this.disabled = true; setTimeout(() => { b.classList.remove('is-running'); s.textContent = 'Tahap 4 terbuka'; this.disabled = false; }, 1800);\">Buka tahap 4</button>\n  <p class=\"section__sub\" id=\"np-status\" role=\"status\">Tahap 3 terbuka</p>\n</div>",
+        "code": "<div class=\"navprogress\" aria-hidden=\"true\"></div>\n\n<script type=\"module\">\n  const bar = document.querySelector('.navprogress');\n  router.on('start', () => bar.classList.add('is-running'));\n  router.on('done', () => bar.classList.remove('is-running'));\n</script>"
+      }
+    ]
+  },
+  "related": [
+    "progress-bar",
+    "skeleton",
+    "app-shell",
+    "top-nav"
+  ]
+}

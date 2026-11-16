@@ -1,0 +1,60 @@
+{
+  "version": "0.1.0",
+  "slug": "streaming-text",
+  "title": "Streaming text",
+  "group": "Chat",
+  "order": 4,
+  "summary": {
+    "en": "An answer that arrives word by word, each word fading in from a 3 px blur, with a round caret at the end while more is coming. It shows real progress; never fake it for text you already have.",
+    "id": "Jawaban yang datang kata demi kata, setiap kata memudar masuk dari blur 3 px, dengan caret bulat di ujung selama masih ada yang datang. Ini menunjukkan kemajuan nyata; jangan pernah memalsukannya untuk teks yang sudah Anda miliki."
+  },
+  "titleId": "Streaming text",
+  "react": true,
+  "examples": {
+    "en": [
+      {
+        "title": "An answer arriving",
+        "desc": "Press Ask again. Words appear at the pace they arrive; the caret marks that more is coming and disappears when the answer is complete. The actions row appears only at the end.",
+        "html": "<div class=\"chat\" style=\"max-width: 560px;\">\n  <div class=\"msg msg--me\"><div class=\"bubble\">What is photosynthesis, in two sentences?</div></div>\n  <div class=\"msg msg--ai\"><div class=\"bubble\" id=\"st-a\">Photosynthesis turns light, water and carbon dioxide into sugar and oxygen. It happens in the chloroplasts, mostly in the leaves, and the sugar feeds the whole plant.</div><div class=\"msg__actions\"><button class=\"icon-btn\" aria-label=\"Copy answer\" data-lds-copy=\"Photosynthesis turns light, water and carbon dioxide into sugar and oxygen. It happens in the chloroplasts, mostly in the leaves, and the sugar feeds the whole plant.\"><span class=\"swap\" aria-hidden=\"true\"><span class=\"ic swap__a\">content_copy</span><span class=\"ic swap__b\">check</span></span></button></div></div>\n  <button class=\"btn btn--secondary btn--sm\" style=\"align-self: flex-start;\" onclick=\"const b = document.getElementById('st-a'); const acts = b.nextElementSibling; acts.hidden = true; b.setAttribute('aria-busy', 'true'); import('../../js/lds.js').then((m) => m.streamText(b, 'Photosynthesis turns light, water and carbon dioxide into sugar and oxygen. It happens in the chloroplasts, mostly in the leaves, and the sugar feeds the whole plant.')).then(() => { acts.hidden = false; b.removeAttribute('aria-busy'); });\"><span class=\"ic\" aria-hidden=\"true\">refresh</span>Ask again</button>\n</div>",
+        "code": "import { streamText } from 'lampung-design-system/js';\n\nbubble.setAttribute('aria-busy', 'true');\nactions.hidden = true;\nawait streamText(bubble, fullText, { wordMs: 40 }); // or append words yourself as they arrive\nbubble.removeAttribute('aria-busy');\nactions.hidden = false;"
+      },
+      {
+        "title": "After thinking",
+        "desc": "Thinking runs with a real timer while the assistant reads. When the first words are ready it settles into what it did, and the answer streams in under it.",
+        "html": "<div class=\"msg msg--ai\" style=\"max-width: 560px;\">\n  <div class=\"thinking\" data-lds-thinking role=\"status\"><span class=\"dotgrid\" aria-hidden=\"true\"></span><span class=\"shimmer\">Reading your notes</span><span class=\"thinking__time\"></span></div>\n  <div class=\"bubble\" id=\"st-b\"></div>\n  <button class=\"btn btn--secondary btn--sm\" style=\"align-self: flex-start;\" onclick=\"this.hidden = true; const msg = this.closest('.msg'); import('../../js/lds.js').then((m) => { m.thinkingDone(msg.querySelector('.thinking'), 'Read 3 pages of your notes'); return m.streamText(document.getElementById('st-b'), 'Your notes define osmosis as water moving through a membrane toward the side with more dissolved salt. Page 12 has the potato experiment that shows it.'); });\">Finish thinking</button>\n</div>",
+        "code": "<div class=\"msg msg--ai\">\n  <div class=\"thinking\" data-lds-thinking role=\"status\"><span class=\"dotgrid\" aria-hidden=\"true\"></span><span class=\"shimmer\">Reading your notes</span><span class=\"thinking__time\"></span></div>\n  <div class=\"bubble\"></div>\n</div>\n<script type=\"module\">\n  import { thinkingDone, streamText } from 'lampung-design-system/js';\n  // when the first token arrives:\n  thinkingDone(msg.querySelector('.thinking'), 'Read 3 pages of your notes');\n  await streamText(msg.querySelector('.bubble'), text);\n</script>"
+      },
+      {
+        "title": "A summary generated in a page",
+        "desc": "Streaming is not only for chat. A report summary can arrive the same way at the top of the page while the rest of the page is already usable.",
+        "html": "<div class=\"card\" style=\"max-width: 560px;\">\n  <p class=\"card__title\">Class summary</p>\n  <p class=\"card__sub stream is-streaming\" id=\"st-c\" style=\"margin-top: 8px;\"></p>\n  <button class=\"btn btn--plain btn--sm\" style=\"margin-top: 8px; margin-left: -10px;\" onclick=\"this.hidden = true; import('../../js/lds.js').then((m) => m.streamText(document.getElementById('st-c'), 'Most students finished the quiz in under 20 minutes. Question 7 was missed by 18 of 30, so it is worth reviewing on Monday.'));\">Generate summary</button>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Jawaban yang sedang datang",
+        "desc": "Tekan Tanya lagi. Kata muncul sesuai kecepatan datangnya; caret menandakan masih ada yang datang dan hilang saat jawaban lengkap. Baris aksi baru muncul di akhir.",
+        "html": "<div class=\"chat\" style=\"max-width: 560px;\">\n  <div class=\"msg msg--me\"><div class=\"bubble\">Apa itu fotosintesis, dalam dua kalimat?</div></div>\n  <div class=\"msg msg--ai\"><div class=\"bubble\" id=\"st-a\">Fotosintesis mengubah cahaya, air dan karbon dioksida menjadi gula dan oksigen. Prosesnya terjadi di kloroplas, terutama di daun, dan gulanya menjadi makanan bagi seluruh tumbuhan.</div><div class=\"msg__actions\"><button class=\"icon-btn\" aria-label=\"Salin jawaban\" data-lds-copy=\"Fotosintesis mengubah cahaya, air dan karbon dioksida menjadi gula dan oksigen. Prosesnya terjadi di kloroplas, terutama di daun, dan gulanya menjadi makanan bagi seluruh tumbuhan.\"><span class=\"swap\" aria-hidden=\"true\"><span class=\"ic swap__a\">content_copy</span><span class=\"ic swap__b\">check</span></span></button></div></div>\n  <button class=\"btn btn--secondary btn--sm\" style=\"align-self: flex-start;\" onclick=\"const b = document.getElementById('st-a'); const acts = b.nextElementSibling; acts.hidden = true; b.setAttribute('aria-busy', 'true'); import('../../js/lds.js').then((m) => m.streamText(b, 'Fotosintesis mengubah cahaya, air dan karbon dioksida menjadi gula dan oksigen. Prosesnya terjadi di kloroplas, terutama di daun, dan gulanya menjadi makanan bagi seluruh tumbuhan.')).then(() => { acts.hidden = false; b.removeAttribute('aria-busy'); });\"><span class=\"ic\" aria-hidden=\"true\">refresh</span>Tanya lagi</button>\n</div>",
+        "code": "import { streamText } from 'lampung-design-system/js';\n\nbubble.setAttribute('aria-busy', 'true');\nactions.hidden = true;\nawait streamText(bubble, fullText, { wordMs: 40 }); // or append words yourself as they arrive\nbubble.removeAttribute('aria-busy');\nactions.hidden = false;"
+      },
+      {
+        "title": "Setelah thinking",
+        "desc": "Thinking berjalan dengan timer sungguhan selama asisten membaca. Saat kata pertama siap, ia mengendap menjadi ringkasan apa yang dilakukan, dan jawaban mengalir di bawahnya.",
+        "html": "<div class=\"msg msg--ai\" style=\"max-width: 560px;\">\n  <div class=\"thinking\" data-lds-thinking role=\"status\"><span class=\"dotgrid\" aria-hidden=\"true\"></span><span class=\"shimmer\">Membaca catatan Anda</span><span class=\"thinking__time\"></span></div>\n  <div class=\"bubble\" id=\"st-b\"></div>\n  <button class=\"btn btn--secondary btn--sm\" style=\"align-self: flex-start;\" onclick=\"this.hidden = true; const msg = this.closest('.msg'); import('../../js/lds.js').then((m) => { m.thinkingDone(msg.querySelector('.thinking'), 'Membaca 3 halaman catatan Anda'); return m.streamText(document.getElementById('st-b'), 'Catatan Anda mendefinisikan osmosis sebagai perpindahan air melalui membran ke sisi yang kadar garamnya lebih tinggi. Halaman 12 memuat percobaan kentang yang membuktikannya.'); });\">Selesaikan thinking</button>\n</div>",
+        "code": "<div class=\"msg msg--ai\">\n  <div class=\"thinking\" data-lds-thinking role=\"status\"><span class=\"dotgrid\" aria-hidden=\"true\"></span><span class=\"shimmer\">Membaca catatan Anda</span><span class=\"thinking__time\"></span></div>\n  <div class=\"bubble\"></div>\n</div>\n<script type=\"module\">\n  import { thinkingDone, streamText } from 'lampung-design-system/js';\n  // when the first token arrives:\n  thinkingDone(msg.querySelector('.thinking'), 'Membaca 3 halaman catatan Anda');\n  await streamText(msg.querySelector('.bubble'), text);\n</script>"
+      },
+      {
+        "title": "Ringkasan yang dibuat di halaman",
+        "desc": "Streaming tidak hanya untuk chat. Ringkasan laporan bisa datang dengan cara yang sama di atas halaman sementara bagian lain halaman sudah bisa dipakai.",
+        "html": "<div class=\"card\" style=\"max-width: 560px;\">\n  <p class=\"card__title\">Ringkasan kelas</p>\n  <p class=\"card__sub stream is-streaming\" id=\"st-c\" style=\"margin-top: 8px;\"></p>\n  <button class=\"btn btn--plain btn--sm\" style=\"margin-top: 8px; margin-left: -10px;\" onclick=\"this.hidden = true; import('../../js/lds.js').then((m) => m.streamText(document.getElementById('st-c'), 'Sebagian besar siswa menyelesaikan kuis dalam waktu kurang dari 20 menit. Soal nomor 7 salah dijawab oleh 18 dari 30 siswa, jadi perlu dibahas ulang hari Senin.'));\">Buat ringkasan</button>\n</div>"
+      }
+    ]
+  },
+  "reactUsage": "import { Thinking } from 'lampung-design-system/react';\n\n{phase === 'thinking' && <Thinking label=\"Reading your notes\" startedAt={startedAt} />}\n<div className={`bubble stream${phase === 'streaming' ? ' is-streaming' : ''}`} aria-busy={phase === 'streaming'}>\n  {words.map((w, i) => <span key={i} className=\"stream__w\">{w} </span>)}\n</div>",
+  "related": [
+    "thinking",
+    "chat-message",
+    "chat-layout",
+    "text-morph"
+  ]
+}

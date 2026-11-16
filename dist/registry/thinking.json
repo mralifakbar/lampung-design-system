@@ -1,0 +1,58 @@
+{
+  "version": "0.1.0",
+  "slug": "thinking",
+  "title": "Thinking",
+  "group": "Feedback",
+  "order": 13,
+  "summary": {
+    "en": "A dot-grid wave, a shimmering label and an honest elapsed timer, for work of unknown length. When it finishes, the label turns into the result.",
+    "id": "Gelombang titik, label berkilau dan timer waktu berjalan yang jujur, untuk pekerjaan yang lamanya tidak diketahui. Saat selesai, labelnya berubah menjadi hasilnya."
+  },
+  "titleId": "Thinking",
+  "react": true,
+  "examples": {
+    "en": [
+      {
+        "title": "Working, then done",
+        "desc": "The wave runs in CSS; `data-lds-thinking` adds the timer. Press Finish to settle it into the result.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 420px;\">\n  <div class=\"thinking\" data-lds-thinking role=\"status\" id=\"th1\"><span class=\"dotgrid\" aria-hidden=\"true\"></span><span class=\"shimmer\">Checking your schedule</span><span class=\"thinking__time\"></span></div>\n  <div class=\"docs-row\"><button class=\"btn btn--secondary btn--sm\" onclick=\"import('../../js/lds.js').then((m) => m.thinkingDone(document.getElementById('th1'), 'Found 3 free slots'));\">Finish</button></div>\n</div>",
+        "code": "<div class=\"thinking\" data-lds-thinking role=\"status\">\n  <span class=\"dotgrid\" aria-hidden=\"true\"></span>\n  <span class=\"shimmer\">Checking your schedule</span>\n  <span class=\"thinking__time\"></span>\n</div>\n<script type=\"module\">\n  import { thinkingDone } from 'lampung-design-system/js';\n  // when the work ends:\n  thinkingDone(document.querySelector('.thinking'), 'Found 3 free slots');\n</script>"
+      },
+      {
+        "title": "Without a timer",
+        "desc": "Drop `.thinking__time` for waits that are usually short.",
+        "html": "<div class=\"thinking\" data-lds-thinking role=\"status\"><span class=\"dotgrid\" aria-hidden=\"true\"></span><span class=\"shimmer\">Grading your essay</span></div>"
+      },
+      {
+        "title": "Settled",
+        "desc": "After `thinkingDone` the line stays as the heading of the result.",
+        "html": "<div class=\"thinking is-done\" role=\"status\"><span class=\"dotgrid\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class=\"shimmer is-settled\">Study plan ready: 6 weeks, 4 sessions a week</span><span class=\"thinking__time\">8.4s</span></div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Bekerja, lalu selesai",
+        "desc": "Gelombangnya berjalan dengan CSS; `data-lds-thinking` menambahkan timer. Tekan Selesaikan untuk mengendapkannya menjadi hasil.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 420px;\">\n  <div class=\"thinking\" data-lds-thinking role=\"status\" id=\"th1\"><span class=\"dotgrid\" aria-hidden=\"true\"></span><span class=\"shimmer\">Memeriksa jadwal Anda</span><span class=\"thinking__time\"></span></div>\n  <div class=\"docs-row\"><button class=\"btn btn--secondary btn--sm\" onclick=\"import('../../js/lds.js').then((m) => m.thinkingDone(document.getElementById('th1'), 'Ditemukan 3 jadwal kosong'));\">Selesaikan</button></div>\n</div>",
+        "code": "<div class=\"thinking\" data-lds-thinking role=\"status\">\n  <span class=\"dotgrid\" aria-hidden=\"true\"></span>\n  <span class=\"shimmer\">Memeriksa jadwal Anda</span>\n  <span class=\"thinking__time\"></span>\n</div>\n<script type=\"module\">\n  import { thinkingDone } from 'lampung-design-system/js';\n  // when the work ends:\n  thinkingDone(document.querySelector('.thinking'), 'Ditemukan 3 jadwal kosong');\n</script>"
+      },
+      {
+        "title": "Tanpa timer",
+        "desc": "Buang `.thinking__time` untuk tunggu yang biasanya singkat.",
+        "html": "<div class=\"thinking\" data-lds-thinking role=\"status\"><span class=\"dotgrid\" aria-hidden=\"true\"></span><span class=\"shimmer\">Memeriksa kelengkapan berkas Anda</span></div>"
+      },
+      {
+        "title": "Mengendap",
+        "desc": "Setelah `thinkingDone`, baris ini tetap ada sebagai judul hasilnya.",
+        "html": "<div class=\"thinking is-done\" role=\"status\"><span class=\"dotgrid\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class=\"shimmer is-settled\">Rencana belajar siap: 6 minggu, 4 sesi per minggu</span><span class=\"thinking__time\">8.4s</span></div>"
+      }
+    ]
+  },
+  "reactUsage": "import { Thinking } from 'lampung-design-system/react';\n\nconst [started] = useState(() => Date.now());\n<Thinking label={done ? 'Found 3 free slots' : 'Checking your schedule'} startedAt={started} done={done} />\n// The React timer shows whole seconds as m:ss.",
+  "related": [
+    "streaming-text",
+    "tool-call",
+    "progress-bar",
+    "spinner"
+  ]
+}

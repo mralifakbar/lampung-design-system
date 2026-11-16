@@ -1,0 +1,47 @@
+{
+  "version": "0.1.0",
+  "slug": "paper",
+  "title": "Paper",
+  "group": "Content",
+  "order": 6,
+  "summary": {
+    "en": "A printable page shown as a sheet inside the app: an invoice, a receipt, a letter, a certificate. The text reflows with the width, so the preview stays readable on a phone, and it can be the only thing that prints.",
+    "id": "Halaman yang bisa dicetak, ditampilkan sebagai lembar di dalam aplikasi: faktur, kuitansi, surat, sertifikat. Teksnya mengalir ulang mengikuti lebar, jadi pratinjau tetap terbaca di ponsel, dan bisa menjadi satu-satunya bagian yang dicetak."
+  },
+  "titleId": "Paper",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "An invoice",
+        "desc": "A full invoice. Narrow the window: the parties stack, the dates wrap, the figures stay right-aligned.",
+        "html": "<article class=\"paper\" style=\"max-width: 640px;\" aria-label=\"Invoice INV-2026-118\">\n  <header class=\"paper__head\">\n    <div class=\"paper__brand\"><span class=\"paper__mark\" aria-hidden=\"true\">K</span>Kelola Studio</div>\n    <div class=\"paper__doc\"><div class=\"paper__title\">Invoice</div><span class=\"badge badge--warning\">Due 30 Nov 2026</span></div>\n  </header>\n  <dl class=\"paper__meta\">\n    <div><dt class=\"paper__label\">Invoice number</dt><dd>INV-2026-118</dd></div>\n    <div><dt class=\"paper__label\">Issued</dt><dd>16 Nov 2026</dd></div>\n    <div><dt class=\"paper__label\">Due</dt><dd>30 Nov 2026</dd></div>\n  </dl>\n  <div class=\"paper__parties\">\n    <div class=\"paper__party\"><span class=\"paper__label\">From</span><p>Kelola Studio</p><p>Jl. Kemang Raya 12, Jakarta 12730</p><p>billing@kelola.studio</p></div>\n    <div class=\"paper__party\"><span class=\"paper__label\">Bill to</span><p>Rumah Belajar Nusantara</p><p>Jl. Dago 88, Bandung 40135</p><p>finance@rumahbelajar.id</p></div>\n  </div>\n  <table class=\"paper__table\">\n    <thead><tr><th scope=\"col\">Description</th><th scope=\"col\" class=\"num\">Qty</th><th scope=\"col\" class=\"num\">Amount</th></tr></thead>\n    <tbody><tr><td>Brand identity refresh</td><td class=\"num\">1</td><td class=\"num\">$3,800.00</td></tr><tr><td>Landing page design and build</td><td class=\"num\">1</td><td class=\"num\">$2,600.00</td></tr><tr><td>Content workshop, half day</td><td class=\"num\">2</td><td class=\"num\">$450.00</td></tr></tbody>\n  </table>\n  <div class=\"paper__totals\">\n    <div class=\"paper__sum\"><span>Subtotal</span><b>$7,300.00</b></div>\n    <div class=\"paper__sum\"><span>VAT 11%</span><b>$803.00</b></div>\n    <div class=\"paper__sum paper__sum--total\"><span>Balance due</span><b>$8,103.00</b></div>\n  </div>\n  <footer class=\"paper__foot\"><p>Pay by bank transfer to Bank Mandiri 123 000 4567 890, Kelola Studio.</p><p>Thank you. Questions about this invoice: billing@kelola.studio.</p></footer>\n</article>"
+      },
+      {
+        "title": "Print only the paper",
+        "desc": "Add `paper--print` and call `window.print()` from a Print button. The app around it does not print, and the sheet prints dark on white even in the dark theme.",
+        "html": "<div class=\"docs-row\"><button class=\"btn btn--secondary btn--md\" type=\"button\" onclick=\"window.print()\"><span class=\"ic\" aria-hidden=\"true\">print</span>Print invoice</button></div>",
+        "code": "<button class=\"btn btn--secondary btn--md\" type=\"button\" onclick=\"window.print()\"><span class=\"ic\" aria-hidden=\"true\">print</span>Print invoice</button>\n<article class=\"paper paper--print\" aria-label=\"Invoice INV-2026-118\">…</article>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Faktur",
+        "desc": "Faktur lengkap dari usaha percetakan lokal. Persempit jendela: pihak pengirim dan penerima bertumpuk, tanggal terlipat, angka tetap rata kanan.",
+        "html": "<article class=\"paper\" style=\"max-width: 640px;\" aria-label=\"Faktur INV-2026-118\">\n  <header class=\"paper__head\">\n    <div class=\"paper__brand\"><span class=\"paper__mark\" aria-hidden=\"true\">S</span>Percetakan Sinar Way Halim</div>\n    <div class=\"paper__doc\"><div class=\"paper__title\">Faktur</div><span class=\"badge badge--warning\">Jatuh tempo 30 Nov 2026</span></div>\n  </header>\n  <dl class=\"paper__meta\">\n    <div><dt class=\"paper__label\">Nomor faktur</dt><dd>INV-2026-118</dd></div>\n    <div><dt class=\"paper__label\">Diterbitkan</dt><dd>16 Nov 2026</dd></div>\n    <div><dt class=\"paper__label\">Jatuh tempo</dt><dd>30 Nov 2026</dd></div>\n  </dl>\n  <div class=\"paper__parties\">\n    <div class=\"paper__party\"><span class=\"paper__label\">Dari</span><p>Percetakan Sinar Way Halim</p><p>Jl. Sultan Agung 45, Bandar Lampung 35132</p><p>tagihan@sinarwayhalim.id</p></div>\n    <div class=\"paper__party\"><span class=\"paper__label\">Ditagihkan kepada</span><p>Yayasan Pendidikan Tunas Harapan</p><p>Jl. Ahmad Yani 18, Metro 34111</p><p>keuangan@tunasharapan.sch.id</p></div>\n  </div>\n  <table class=\"paper__table\">\n    <thead><tr><th scope=\"col\">Uraian</th><th scope=\"col\" class=\"num\">Jml</th><th scope=\"col\" class=\"num\">Jumlah</th></tr></thead>\n    <tbody><tr><td>Cetak buku rapor, sampul keras</td><td class=\"num\">120</td><td class=\"num\">Rp 4.200.000</td></tr><tr><td>Desain dan cetak spanduk penerimaan siswa baru</td><td class=\"num\">2</td><td class=\"num\">Rp 900.000</td></tr><tr><td>Cetak kartu pelajar dengan foto</td><td class=\"num\">120</td><td class=\"num\">Rp 1.800.000</td></tr></tbody>\n  </table>\n  <div class=\"paper__totals\">\n    <div class=\"paper__sum\"><span>Subtotal</span><b>Rp 6.900.000</b></div>\n    <div class=\"paper__sum\"><span>PPN 11%</span><b>Rp 759.000</b></div>\n    <div class=\"paper__sum paper__sum--total\"><span>Total tagihan</span><b>Rp 7.659.000</b></div>\n  </div>\n  <footer class=\"paper__foot\"><p>Bayar dengan transfer ke rekening 123 000 4567 890 atas nama Percetakan Sinar Way Halim.</p><p>Terima kasih. Pertanyaan tentang faktur ini: tagihan@sinarwayhalim.id.</p></footer>\n</article>"
+      },
+      {
+        "title": "Cetak paper saja",
+        "desc": "Tambahkan `paper--print` dan panggil `window.print()` dari tombol Cetak. Aplikasi di sekitarnya tidak ikut tercetak, dan lembarnya tercetak gelap di atas putih walaupun dalam dark mode.",
+        "html": "<div class=\"docs-row\"><button class=\"btn btn--secondary btn--md\" type=\"button\" onclick=\"window.print()\"><span class=\"ic\" aria-hidden=\"true\">print</span>Cetak faktur</button></div>",
+        "code": "<button class=\"btn btn--secondary btn--md\" type=\"button\" onclick=\"window.print()\"><span class=\"ic\" aria-hidden=\"true\">print</span>Cetak faktur</button>\n<article class=\"paper paper--print\" aria-label=\"Faktur INV-2026-118\">…</article>"
+      }
+    ]
+  },
+  "related": [
+    "key-value",
+    "table",
+    "form-layout",
+    "card"
+  ]
+}

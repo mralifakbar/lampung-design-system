@@ -1,0 +1,47 @@
+{
+  "version": "0.1.0",
+  "slug": "popover",
+  "title": "Popover",
+  "group": "Overlays",
+  "order": 8,
+  "summary": {
+    "en": "A small floating card anchored to a button, for content richer than a menu: a mini form, a short explanation with a link, a quick setting. It does not block the page.",
+    "id": "Kartu mengambang kecil yang tertambat pada tombol, untuk konten yang lebih kaya dari menu: formulir mini, penjelasan singkat dengan tautan, pengaturan cepat. Tidak menghalangi halaman."
+  },
+  "titleId": "Popover",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Set a reminder",
+        "desc": "The popover toggles from its button, grows from the top and closes on Escape or a click outside.",
+        "html": "<div style=\"position: relative; align-self: flex-start;\">\n  <button class=\"btn btn--secondary btn--md\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"po-remind\" data-lds-menu=\"po-remind\"><span class=\"ic\" aria-hidden=\"true\">notifications</span>Remind me</button>\n  <div class=\"popover\" id=\"po-remind\" role=\"dialog\" aria-labelledby=\"po-remind-t\" style=\"top: calc(100% + 8px); left: 0;\">\n    <div class=\"stack\" style=\"--gap: 12px;\">\n      <h3 class=\"section__title-sm\" id=\"po-remind-t\">Remind me about Lab report 3</h3>\n      <label class=\"check\"><input type=\"checkbox\" checked><span class=\"check__box\" aria-hidden=\"true\"><svg viewBox=\"0 0 14 14\"><path class=\"tick\" d=\"M2.5 7.4 L5.7 10.4 L11.5 3.8\"></path></svg></span><span class=\"check__text\">One day before the deadline</span></label>\n      <label class=\"check\"><input type=\"checkbox\"><span class=\"check__box\" aria-hidden=\"true\"><svg viewBox=\"0 0 14 14\"><path class=\"tick\" d=\"M2.5 7.4 L5.7 10.4 L11.5 3.8\"></path></svg></span><span class=\"check__text\">One hour before the deadline</span></label>\n      <button class=\"btn btn--primary btn--md btn--block\" onclick=\"setTimeout(() => document.body.click(), 0);\">Set reminder</button>\n    </div>\n  </div>\n</div>",
+        "code": "<div style=\"position: relative;\">\n  <button class=\"btn btn--secondary\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"remind\" data-lds-menu=\"remind\">Remind me</button>\n  <div class=\"popover\" id=\"remind\" role=\"dialog\" aria-labelledby=\"remind-t\" style=\"top: calc(100% + 8px); left: 0;\">\n    <h3 class=\"section__title-sm\" id=\"remind-t\">Remind me about Lab report 3</h3>\n    …\n  </div>\n</div>"
+      },
+      {
+        "title": "Static, open",
+        "desc": "A popover explaining a score, shown open.",
+        "html": "<div style=\"position: relative; align-self: flex-start;\">\n  <button class=\"btn btn--plain btn--sm\" aria-haspopup=\"dialog\" aria-expanded=\"true\" aria-controls=\"po-score\">How is this scored?</button>\n  <div class=\"popover is-open\" id=\"po-score\" role=\"dialog\" aria-label=\"How the score works\" style=\"top: calc(100% + 8px); left: 0;\">\n    <p class=\"section__sub\">Each correct answer is worth 5 points, a wrong one 0. Unanswered questions do not count against you.</p>\n  </div>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Pasang pengingat",
+        "desc": "Popover dibuka dan ditutup dari tombolnya, tumbuh dari atas, dan tertutup dengan Escape atau klik di luar.",
+        "html": "<div style=\"position: relative; align-self: flex-start;\">\n  <button class=\"btn btn--secondary btn--md\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"po-remind\" data-lds-menu=\"po-remind\"><span class=\"ic\" aria-hidden=\"true\">notifications</span>Ingatkan saya</button>\n  <div class=\"popover\" id=\"po-remind\" role=\"dialog\" aria-labelledby=\"po-remind-t\" style=\"top: calc(100% + 8px); left: 0;\">\n    <div class=\"stack\" style=\"--gap: 12px;\">\n      <h3 class=\"section__title-sm\" id=\"po-remind-t\">Ingatkan saya tentang pajak kendaraan</h3>\n      <label class=\"check\"><input type=\"checkbox\" checked><span class=\"check__box\" aria-hidden=\"true\"><svg viewBox=\"0 0 14 14\"><path class=\"tick\" d=\"M2.5 7.4 L5.7 10.4 L11.5 3.8\"></path></svg></span><span class=\"check__text\">Satu hari sebelum jatuh tempo</span></label>\n      <label class=\"check\"><input type=\"checkbox\"><span class=\"check__box\" aria-hidden=\"true\"><svg viewBox=\"0 0 14 14\"><path class=\"tick\" d=\"M2.5 7.4 L5.7 10.4 L11.5 3.8\"></path></svg></span><span class=\"check__text\">Satu jam sebelum jatuh tempo</span></label>\n      <button class=\"btn btn--primary btn--md btn--block\" onclick=\"setTimeout(() => document.body.click(), 0);\">Pasang pengingat</button>\n    </div>\n  </div>\n</div>",
+        "code": "<div style=\"position: relative;\">\n  <button class=\"btn btn--secondary\" aria-haspopup=\"dialog\" aria-expanded=\"false\" aria-controls=\"remind\" data-lds-menu=\"remind\">Ingatkan saya</button>\n  <div class=\"popover\" id=\"remind\" role=\"dialog\" aria-labelledby=\"remind-t\" style=\"top: calc(100% + 8px); left: 0;\">\n    <h3 class=\"section__title-sm\" id=\"remind-t\">Ingatkan saya tentang pajak kendaraan</h3>\n    …\n  </div>\n</div>"
+      },
+      {
+        "title": "Statis, terbuka",
+        "desc": "Popover yang menjelaskan cara penilaian, dalam keadaan terbuka.",
+        "html": "<div style=\"position: relative; align-self: flex-start;\">\n  <button class=\"btn btn--plain btn--sm\" aria-haspopup=\"dialog\" aria-expanded=\"true\" aria-controls=\"po-score\">Bagaimana cara penilaiannya?</button>\n  <div class=\"popover is-open\" id=\"po-score\" role=\"dialog\" aria-label=\"Cara penilaian\" style=\"top: calc(100% + 8px); left: 0;\">\n    <p class=\"section__sub\">Setiap dokumen yang lengkap bernilai 5 poin, yang kurang 0. Dokumen opsional yang tidak dilampirkan tidak mengurangi nilai.</p>\n  </div>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "dropdown-menu",
+    "tooltip",
+    "hover-card",
+    "date-field"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "version": "0.1.0",
+  "slug": "tool-call",
+  "title": "Tool call",
+  "group": "Chat",
+  "order": 5,
+  "summary": {
+    "en": "One step the assistant took on the way to its answer (searched the notes, read a file, checked the calendar), shown as a quiet one-line `<details>` that opens to what it found. The answer stays the main thing.",
+    "id": "Satu langkah yang diambil asisten untuk sampai pada jawabannya (mencari di catatan, membaca berkas, memeriksa kalender), ditampilkan sebagai `<details>` satu baris yang tenang dan bisa dibuka untuk melihat temuannya. Jawaban tetap yang utama."
+  },
+  "titleId": "Tool call",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "What the assistant looked up",
+        "desc": "Closed by default. Open one to check the sources the answer used.",
+        "html": "<div class=\"msg msg--ai\" style=\"max-width: 560px;\">\n  <details class=\"toolcall\"><summary><span class=\"ic\" aria-hidden=\"true\">search</span>Searched your notes for \"net force\"<span class=\"ic\" aria-hidden=\"true\">expand_more</span></summary><div class=\"toolcall__body\">Found 3 pages: Week 4 lecture, page 2; Problem set 3, question 4; Lab 2 handout.</div></details>\n  <details class=\"toolcall\"><summary><span class=\"ic\" aria-hidden=\"true\">description</span>Read Problem set 3<span class=\"ic\" aria-hidden=\"true\">expand_more</span></summary><div class=\"toolcall__body\">Question 4: a 7 kg box pushed with 20 N against 6 N of friction.</div></details>\n  <div class=\"bubble\">The net force is 14 N, so the box accelerates at 2 m/s². Your answer used 20 N, the push alone.</div>\n</div>"
+      },
+      {
+        "title": "A step still running",
+        "desc": "While it runs, a spinner replaces the icon and the label shimmers. When it finishes, the label changes to what it found and the icon to a check.",
+        "html": "<div class=\"msg msg--ai\" style=\"max-width: 560px;\">\n  <details class=\"toolcall\"><summary><span class=\"ic\" aria-hidden=\"true\">check_circle</span>Checked your calendar<span class=\"ic\" aria-hidden=\"true\">expand_more</span></summary><div class=\"toolcall__body\">Free on Tuesday 13:00 to 15:00 and Thursday after 16:00.</div></details>\n  <details class=\"toolcall\" id=\"tc-run\"><summary><span class=\"spinner\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class=\"shimmer\">Booking the study room</span><span class=\"ic\" aria-hidden=\"true\">expand_more</span></summary><div class=\"toolcall__body\">Room 2.14, Tuesday 13:00 to 14:30.</div></details>\n  <button class=\"btn btn--plain btn--sm\" style=\"align-self: flex-start; margin-left: -10px;\" onclick=\"this.hidden = true; const s = document.querySelector('#tc-run summary'); s.firstElementChild.outerHTML = '<span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>check_circle</span>'; const l = s.querySelector('.shimmer'); l.classList.remove('shimmer'); l.textContent = 'Booked room 2.14';\">Finish the step</button>\n</div>",
+        "code": "<details class=\"toolcall\">\n  <summary>\n    <span class=\"spinner\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>\n    <span class=\"shimmer\">Booking the study room</span>\n    <span class=\"ic\" aria-hidden=\"true\">expand_more</span>\n  </summary>\n  <div class=\"toolcall__body\">…</div>\n</details>\n<!-- Done: replace the spinner with <span class=\"ic\" aria-hidden=\"true\">check_circle</span>,\n     drop the shimmer class and name the result: \"Booked room 2.14\". -->"
+      },
+      {
+        "title": "A step with code",
+        "desc": "When the step ran code or a query, the body holds a code block so the person can copy and check it.",
+        "html": "<details class=\"toolcall\" open style=\"max-width: 560px; width: 100%;\"><summary><span class=\"ic\" aria-hidden=\"true\">code</span>Ran a query on your grades<span class=\"ic\" aria-hidden=\"true\">expand_more</span></summary><div class=\"toolcall__body\"><div class=\"codeblock\"><pre>SELECT AVG(score) FROM grades WHERE course = 'BIO101';</pre></div></div></details>"
+      },
+      {
+        "title": "A step that failed",
+        "desc": "Say what failed and what the answer did instead. The answer below should not pretend the step worked.",
+        "html": "<div class=\"msg msg--ai\" style=\"max-width: 560px;\">\n  <details class=\"toolcall\"><summary><span class=\"ic\" aria-hidden=\"true\">cloud_off</span>Could not open lab-report.pdf<span class=\"ic\" aria-hidden=\"true\">expand_more</span></summary><div class=\"toolcall__body\">The file is larger than 20 MB. The answer below uses your notes only.</div></details>\n  <div class=\"bubble\">From your notes, the control group should keep the same light and water as the test group.</div>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Yang dicari asisten",
+        "desc": "Tertutup secara bawaan. Buka salah satunya untuk memeriksa sumber yang dipakai jawaban.",
+        "html": "<div class=\"msg msg--ai\" style=\"max-width: 560px;\">\n  <details class=\"toolcall\"><summary><span class=\"ic\" aria-hidden=\"true\">search</span>Mencari \"gaya total\" di catatan Anda<span class=\"ic\" aria-hidden=\"true\">expand_more</span></summary><div class=\"toolcall__body\">Menemukan 3 halaman: materi minggu 4, halaman 2; latihan soal 3, nomor 4; panduan praktikum 2.</div></details>\n  <details class=\"toolcall\"><summary><span class=\"ic\" aria-hidden=\"true\">description</span>Membaca latihan soal 3<span class=\"ic\" aria-hidden=\"true\">expand_more</span></summary><div class=\"toolcall__body\">Nomor 4: kotak 7 kg didorong dengan 20 N melawan gesekan 6 N.</div></details>\n  <div class=\"bubble\">Gaya totalnya 14 N, jadi percepatan kotak 2 m/s². Jawaban Anda memakai 20 N, yaitu gaya dorongnya saja.</div>\n</div>"
+      },
+      {
+        "title": "Langkah yang masih berjalan",
+        "desc": "Selama berjalan, spinner menggantikan ikon dan labelnya berkilau. Saat selesai, label berganti menjadi temuannya dan ikon menjadi tanda centang.",
+        "html": "<div class=\"msg msg--ai\" style=\"max-width: 560px;\">\n  <details class=\"toolcall\"><summary><span class=\"ic\" aria-hidden=\"true\">check_circle</span>Memeriksa kalender Anda<span class=\"ic\" aria-hidden=\"true\">expand_more</span></summary><div class=\"toolcall__body\">Kosong hari Selasa pukul 13.00 sampai 15.00 dan Kamis setelah pukul 16.00.</div></details>\n  <details class=\"toolcall\" id=\"tc-run\"><summary><span class=\"spinner\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class=\"shimmer\">Memesan ruang belajar</span><span class=\"ic\" aria-hidden=\"true\">expand_more</span></summary><div class=\"toolcall__body\">Ruang 2.14, Selasa pukul 13.00 sampai 14.30.</div></details>\n  <button class=\"btn btn--plain btn--sm\" style=\"align-self: flex-start; margin-left: -10px;\" onclick=\"this.hidden = true; const s = document.querySelector('#tc-run summary'); s.firstElementChild.outerHTML = '<span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>check_circle</span>'; const l = s.querySelector('.shimmer'); l.classList.remove('shimmer'); l.textContent = 'Ruang 2.14 sudah dipesan';\">Selesaikan langkah</button>\n</div>",
+        "code": "<details class=\"toolcall\">\n  <summary>\n    <span class=\"spinner\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>\n    <span class=\"shimmer\">Memesan ruang belajar</span>\n    <span class=\"ic\" aria-hidden=\"true\">expand_more</span>\n  </summary>\n  <div class=\"toolcall__body\">…</div>\n</details>\n<!-- Done: replace the spinner with <span class=\"ic\" aria-hidden=\"true\">check_circle</span>,\n     drop the shimmer class and name the result: \"Ruang 2.14 sudah dipesan\". -->"
+      },
+      {
+        "title": "Langkah dengan kode",
+        "desc": "Jika langkah menjalankan kode atau query, isinya berupa code block agar orang bisa menyalin dan memeriksanya.",
+        "html": "<details class=\"toolcall\" open style=\"max-width: 560px; width: 100%;\"><summary><span class=\"ic\" aria-hidden=\"true\">code</span>Menjalankan query pada nilai Anda<span class=\"ic\" aria-hidden=\"true\">expand_more</span></summary><div class=\"toolcall__body\"><div class=\"codeblock\"><pre>SELECT AVG(score) FROM grades WHERE course = 'BIO101';</pre></div></div></details>"
+      },
+      {
+        "title": "Langkah yang gagal",
+        "desc": "Sebutkan apa yang gagal dan apa yang dilakukan jawaban sebagai gantinya. Jawaban di bawahnya tidak boleh berpura-pura langkah itu berhasil.",
+        "html": "<div class=\"msg msg--ai\" style=\"max-width: 560px;\">\n  <details class=\"toolcall\"><summary><span class=\"ic\" aria-hidden=\"true\">cloud_off</span>Tidak bisa membuka laporan-praktikum.pdf<span class=\"ic\" aria-hidden=\"true\">expand_more</span></summary><div class=\"toolcall__body\">Ukuran berkas lebih dari 20 MB. Jawaban di bawah hanya memakai catatan Anda.</div></details>\n  <div class=\"bubble\">Menurut catatan Anda, kelompok kontrol harus mendapat cahaya dan air yang sama dengan kelompok uji.</div>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "chat-message",
+    "thinking",
+    "streaming-text",
+    "accordion"
+  ]
+}

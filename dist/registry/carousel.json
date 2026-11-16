@@ -1,0 +1,37 @@
+{
+  "version": "0.1.0",
+  "slug": "carousel",
+  "title": "Carousel",
+  "group": "Data display",
+  "order": 16,
+  "summary": {
+    "en": "A horizontal row of cards that snaps per card under the finger or trackpad, with dots that stretch toward the current page. For browsing optional items, never for content everyone must see.",
+    "id": "Baris kartu mendatar yang berhenti tepat per kartu di bawah jari atau trackpad, dengan titik yang memanjang ke halaman aktif. Untuk menjelajah butir opsional, jangan untuk isi yang wajib dilihat semua orang."
+  },
+  "titleId": "Carousel",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Featured practice sets",
+        "desc": "Scroll or swipe the row; it snaps per card. The dots jump to a page and follow the scroll.",
+        "html": "<div class=\"docs-col\">\n  <div class=\"carousel\" role=\"region\" aria-label=\"Featured practice sets\" tabindex=\"0\" onscroll=\"const p = Math.round(this.scrollLeft / Math.max(1, this.scrollWidth - this.clientWidth)); this.nextElementSibling.querySelectorAll('button').forEach((b, i) => b.setAttribute('aria-current', String(i === p)));\">\n    <div class=\"card card--fill\"><div class=\"card__title\">Verbal reasoning</div><div class=\"card__sub\">35 questions · 40 min</div></div>\n    <div class=\"card card--fill\"><div class=\"card__title\">Numerical reasoning</div><div class=\"card__sub\">30 questions · 30 min</div></div>\n    <div class=\"card card--fill\"><div class=\"card__title\">General knowledge</div><div class=\"card__sub\">40 questions · 35 min</div></div>\n    <div class=\"card card--fill\"><div class=\"card__title\">Reading speed</div><div class=\"card__sub\">10 passages · 20 min</div></div>\n    <div class=\"card card--fill\"><div class=\"card__title\">Logic puzzles</div><div class=\"card__sub\">20 questions · 25 min</div></div>\n    <div class=\"card card--fill\"><div class=\"card__title\">Civics basics</div><div class=\"card__sub\">30 questions · 20 min</div></div>\n  </div>\n  <div class=\"dots\" role=\"group\" aria-label=\"Pages\">\n    <button aria-label=\"Page 1\" aria-current=\"true\" onclick=\"const c = this.parentElement.previousElementSibling; c.scrollTo({ left: 0 });\"><i></i></button>\n    <button aria-label=\"Page 2\" aria-current=\"false\" onclick=\"const c = this.parentElement.previousElementSibling; c.scrollTo({ left: c.scrollWidth });\"><i></i></button>\n  </div>\n</div>",
+        "code": "<div class=\"carousel\" role=\"region\" aria-label=\"Featured practice sets\" tabindex=\"0\">\n  <div class=\"card card--fill\">…</div>\n  <div class=\"card card--fill\">…</div>\n</div>\n<div class=\"dots\" role=\"group\" aria-label=\"Pages\">\n  <button aria-label=\"Page 1\" aria-current=\"true\"><i></i></button>\n  <button aria-label=\"Page 2\" aria-current=\"false\"><i></i></button>\n</div>\n<!-- Your script: on dot click, carousel.scrollTo({ left: page * carousel.clientWidth });\n     on carousel scroll, set aria-current on the dot for Math.round(scrollLeft / clientWidth). -->"
+      }
+    ],
+    "id": [
+      {
+        "title": "Program pelatihan unggulan",
+        "desc": "Gulir atau geser barisnya; baris berhenti per kartu. Titik melompat ke halaman dan mengikuti guliran.",
+        "html": "<div class=\"docs-col\">\n  <div class=\"carousel\" role=\"region\" aria-label=\"Program pelatihan unggulan\" tabindex=\"0\" onscroll=\"const p = Math.round(this.scrollLeft / Math.max(1, this.scrollWidth - this.clientWidth)); this.nextElementSibling.querySelectorAll('button').forEach((b, i) => b.setAttribute('aria-current', String(i === p)));\">\n    <div class=\"card card--fill\"><div class=\"card__title\">Pemasaran daring UMKM</div><div class=\"card__sub\">6 sesi · 2 jam</div></div>\n    <div class=\"card card--fill\"><div class=\"card__title\">Pembukuan sederhana</div><div class=\"card__sub\">4 sesi · 90 menit</div></div>\n    <div class=\"card card--fill\"><div class=\"card__title\">Pengemasan produk</div><div class=\"card__sub\">3 sesi · 2 jam</div></div>\n    <div class=\"card card--fill\"><div class=\"card__title\">Sertifikasi halal</div><div class=\"card__sub\">2 sesi · 3 jam</div></div>\n    <div class=\"card card--fill\"><div class=\"card__title\">Foto produk dengan ponsel</div><div class=\"card__sub\">3 sesi · 90 menit</div></div>\n    <div class=\"card card--fill\"><div class=\"card__title\">Izin usaha mikro</div><div class=\"card__sub\">1 sesi · 2 jam</div></div>\n  </div>\n  <div class=\"dots\" role=\"group\" aria-label=\"Halaman\">\n    <button aria-label=\"Halaman 1\" aria-current=\"true\" onclick=\"const c = this.parentElement.previousElementSibling; c.scrollTo({ left: 0 });\"><i></i></button>\n    <button aria-label=\"Halaman 2\" aria-current=\"false\" onclick=\"const c = this.parentElement.previousElementSibling; c.scrollTo({ left: c.scrollWidth });\"><i></i></button>\n  </div>\n</div>",
+        "code": "<div class=\"carousel\" role=\"region\" aria-label=\"Program pelatihan unggulan\" tabindex=\"0\">\n  <div class=\"card card--fill\">…</div>\n  <div class=\"card card--fill\">…</div>\n</div>\n<div class=\"dots\" role=\"group\" aria-label=\"Halaman\">\n  <button aria-label=\"Halaman 1\" aria-current=\"true\"><i></i></button>\n  <button aria-label=\"Halaman 2\" aria-current=\"false\"><i></i></button>\n</div>\n<!-- Your script: on dot click, carousel.scrollTo({ left: page * carousel.clientWidth });\n     on carousel scroll, set aria-current on the dot for Math.round(scrollLeft / clientWidth). -->"
+      }
+    ]
+  },
+  "related": [
+    "link-card",
+    "card",
+    "lightbox",
+    "scroll-fades"
+  ]
+}

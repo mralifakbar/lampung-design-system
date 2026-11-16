@@ -1,0 +1,55 @@
+{
+  "version": "0.1.0",
+  "slug": "chart-principles",
+  "title": "Chart principles",
+  "group": "Charts",
+  "order": 1,
+  "summary": {
+    "en": "The rules every chart in the system follows: one question per chart, written as its title; thin marks on receding grids; four series colors in a fixed order; direct labels over legends; and a text alternative for every chart.",
+    "id": "Aturan yang diikuti setiap grafik di sistem ini: satu pertanyaan per grafik, ditulis sebagai judulnya; tanda tipis di atas grid yang samar; empat warna seri dengan urutan tetap; label langsung, bukan legenda; dan alternatif teks untuk setiap grafik."
+  },
+  "titleId": "Chart principles",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "One question, one highlight",
+        "desc": "The title asks the question, the highlighted bar answers it, the other bars recede. Hover a bar for its value.",
+        "html": "<div class=\"chart-card\" style=\"max-width: 520px;\">\n  <div><div class=\"chart-card__q\">Which days are busiest?</div><div class=\"chart-card__sub\">Assignments submitted per weekday, this week</div></div>\n  <div class=\"bars\" role=\"img\" aria-label=\"Submissions per weekday. Friday is busiest with 31, Sunday quietest with 4.\">\n      <div class=\"bars__col\"><span class=\"bars__bar bars__bar--muted\" style=\"height: 38%;\"><span class=\"bars__tip\">12 submitted</span></span><span class=\"bars__x\">Mon</span></div>\n      <div class=\"bars__col\"><span class=\"bars__bar bars__bar--muted\" style=\"height: 56%;\"><span class=\"bars__tip\">18 submitted</span></span><span class=\"bars__x\">Tue</span></div>\n      <div class=\"bars__col\"><span class=\"bars__bar bars__bar--muted\" style=\"height: 81%;\"><span class=\"bars__tip\">26 submitted</span></span><span class=\"bars__x\">Wed</span></div>\n      <div class=\"bars__col\"><span class=\"bars__bar bars__bar--muted\" style=\"height: 69%;\"><span class=\"bars__tip\">22 submitted</span></span><span class=\"bars__x\">Thu</span></div>\n      <div class=\"bars__col\"><span class=\"bars__bar\" style=\"height: 97%;\"><span class=\"bars__tip\">31 submitted</span></span><span class=\"bars__x\">Fri</span></div>\n      <div class=\"bars__col\"><span class=\"bars__bar bars__bar--muted\" style=\"height: 28%;\"><span class=\"bars__tip\">9 submitted</span></span><span class=\"bars__x\">Sat</span></div>\n      <div class=\"bars__col\"><span class=\"bars__bar bars__bar--muted\" style=\"height: 13%;\"><span class=\"bars__tip\">4 submitted</span></span><span class=\"bars__x\">Sun</span></div>\n  </div>\n</div>"
+      },
+      {
+        "title": "Series colors in fixed order",
+        "desc": "Always `--series-1` to `--series-4`, in this order, never cycled. A fifth series folds into Other in `--neutral`. Series 2 is under 3:1 on white, so it is always labelled.",
+        "html": "<div class=\"legend\">\n  <span><i style=\"background: var(--series-1);\"></i>Series 1</span>\n  <span><i style=\"background: var(--series-2);\"></i>Series 2</span>\n  <span><i style=\"background: var(--series-3);\"></i>Series 3</span>\n  <span><i style=\"background: var(--series-4);\"></i>Series 4</span>\n  <span><i style=\"background: var(--neutral);\"></i>Other</span>\n</div>"
+      },
+      {
+        "title": "A text alternative",
+        "desc": "The chart is one image with a summary; the exact values sit in a visually hidden table for screen readers.",
+        "html": "<div class=\"chart-card\" style=\"max-width: 420px;\">\n  <div><div class=\"chart-card__q\">Where do my credits go?</div><div class=\"chart-card__sub\">Share of 120 credits by course type</div></div>\n  <div class=\"pbar\" role=\"img\" aria-label=\"Core courses take half of all credits.\">\n    <span style=\"flex-grow: 50; background: var(--series-1);\"></span><span style=\"flex-grow: 25; background: var(--series-2);\"></span><span style=\"flex-grow: 15; background: var(--series-3);\"></span><span style=\"flex-grow: 10; background: var(--series-4);\"></span>\n  </div>\n  <div class=\"legend\"><span><i style=\"background: var(--series-1);\"></i>Core 50%</span><span><i style=\"background: var(--series-2);\"></i>Electives 25%</span><span><i style=\"background: var(--series-3);\"></i>Labs 15%</span><span><i style=\"background: var(--series-4);\"></i>General 10%</span></div>\n  <table class=\"sr-only\">\n    <caption>Share of credits by course type</caption>\n    <thead><tr><th>Type</th><th>Share</th></tr></thead>\n    <tbody><tr><td>Core</td><td>50%</td></tr><tr><td>Electives</td><td>25%</td></tr><tr><td>Labs</td><td>15%</td></tr><tr><td>General</td><td>10%</td></tr></tbody>\n  </table>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Satu pertanyaan, satu sorotan",
+        "desc": "Judul mengajukan pertanyaan, batang yang disorot menjawabnya, batang lain memudar. Arahkan kursor ke batang untuk melihat nilainya.",
+        "html": "<div class=\"chart-card\" style=\"max-width: 520px;\">\n  <div><div class=\"chart-card__q\">Hari apa yang paling sibuk?</div><div class=\"chart-card__sub\">Laporan warga yang masuk per hari, minggu ini</div></div>\n  <div class=\"bars\" role=\"img\" aria-label=\"Laporan warga per hari. Jumat paling sibuk dengan 31 laporan, Minggu paling sepi dengan 4.\">\n      <div class=\"bars__col\"><span class=\"bars__bar bars__bar--muted\" style=\"height: 38%;\"><span class=\"bars__tip\">12 laporan</span></span><span class=\"bars__x\">Sen</span></div>\n      <div class=\"bars__col\"><span class=\"bars__bar bars__bar--muted\" style=\"height: 56%;\"><span class=\"bars__tip\">18 laporan</span></span><span class=\"bars__x\">Sel</span></div>\n      <div class=\"bars__col\"><span class=\"bars__bar bars__bar--muted\" style=\"height: 81%;\"><span class=\"bars__tip\">26 laporan</span></span><span class=\"bars__x\">Rab</span></div>\n      <div class=\"bars__col\"><span class=\"bars__bar bars__bar--muted\" style=\"height: 69%;\"><span class=\"bars__tip\">22 laporan</span></span><span class=\"bars__x\">Kam</span></div>\n      <div class=\"bars__col\"><span class=\"bars__bar\" style=\"height: 97%;\"><span class=\"bars__tip\">31 laporan</span></span><span class=\"bars__x\">Jum</span></div>\n      <div class=\"bars__col\"><span class=\"bars__bar bars__bar--muted\" style=\"height: 28%;\"><span class=\"bars__tip\">9 laporan</span></span><span class=\"bars__x\">Sab</span></div>\n      <div class=\"bars__col\"><span class=\"bars__bar bars__bar--muted\" style=\"height: 13%;\"><span class=\"bars__tip\">4 laporan</span></span><span class=\"bars__x\">Min</span></div>\n  </div>\n</div>"
+      },
+      {
+        "title": "Warna seri dengan urutan tetap",
+        "desc": "Selalu `--series-1` sampai `--series-4`, dalam urutan ini, tidak pernah diputar ulang. Seri kelima digabung ke Lainnya dengan `--neutral`. Kontras seri 2 di bawah 3:1 di atas putih, jadi selalu diberi label.",
+        "html": "<div class=\"legend\">\n  <span><i style=\"background: var(--series-1);\"></i>Seri 1</span>\n  <span><i style=\"background: var(--series-2);\"></i>Seri 2</span>\n  <span><i style=\"background: var(--series-3);\"></i>Seri 3</span>\n  <span><i style=\"background: var(--series-4);\"></i>Seri 4</span>\n  <span><i style=\"background: var(--neutral);\"></i>Lainnya</span>\n</div>"
+      },
+      {
+        "title": "Alternatif teks",
+        "desc": "Grafik menjadi satu gambar dengan ringkasan; nilai pastinya ada di tabel tersembunyi untuk pembaca layar.",
+        "html": "<div class=\"chart-card\" style=\"max-width: 420px;\">\n  <div><div class=\"chart-card__q\">Dari mana pajak daerah berasal?</div><div class=\"chart-card__sub\">Porsi penerimaan pajak daerah menurut jenis, triwulan III</div></div>\n  <div class=\"pbar\" role=\"img\" aria-label=\"Pajak kendaraan menyumbang separuh penerimaan pajak daerah.\">\n    <span style=\"flex-grow: 50; background: var(--series-1);\"></span><span style=\"flex-grow: 25; background: var(--series-2);\"></span><span style=\"flex-grow: 15; background: var(--series-3);\"></span><span style=\"flex-grow: 10; background: var(--series-4);\"></span>\n  </div>\n  <div class=\"legend\"><span><i style=\"background: var(--series-1);\"></i>Kendaraan 50%</span><span><i style=\"background: var(--series-2);\"></i>PBB 25%</span><span><i style=\"background: var(--series-3);\"></i>Restoran 15%</span><span><i style=\"background: var(--series-4);\"></i>Lainnya 10%</span></div>\n  <table class=\"sr-only\">\n    <caption>Porsi penerimaan pajak daerah menurut jenis</caption>\n    <thead><tr><th>Jenis</th><th>Porsi</th></tr></thead>\n    <tbody><tr><td>Kendaraan</td><td>50%</td></tr><tr><td>PBB</td><td>25%</td></tr><tr><td>Restoran</td><td>15%</td></tr><tr><td>Lainnya</td><td>10%</td></tr></tbody>\n  </table>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "bar-chart",
+    "line-chart",
+    "chart-states",
+    "stat-row"
+  ]
+}

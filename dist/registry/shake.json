@@ -1,0 +1,50 @@
+{
+  "version": "0.1.0",
+  "slug": "shake",
+  "title": "Shake",
+  "group": "Microinteractions",
+  "order": 4,
+  "summary": {
+    "en": "A refusal: the control shakes twice, quickly and with shrinking swings (360 ms), and the reason appears in words next to it. The shake catches the eye at the exact place; the words say what to do.",
+    "id": "Tanda penolakan: kontrol bergoyang dua kali, cepat dan dengan ayunan yang mengecil (360 ms), dan alasannya muncul dalam kata-kata di sampingnya. Goyangan menarik mata tepat ke tempatnya; kata-katanya menjelaskan apa yang harus dilakukan."
+  },
+  "titleId": "Shake",
+  "react": true,
+  "examples": {
+    "en": [
+      {
+        "title": "An email without a domain",
+        "desc": "Press Send code. The field shakes, turns red, and says what is missing. Fix the address and try again: no shake.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 360px;\">\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"sh-email\">Campus email</label>\n    <div class=\"control\"><span class=\"ic\" aria-hidden=\"true\">mail</span><input id=\"sh-email\" type=\"email\" value=\"ana.putri@campus\" aria-describedby=\"sh-email-help\"></div>\n    <span class=\"field__help field__help--error\" id=\"sh-email-help\" hidden><span class=\"ic\" aria-hidden=\"true\">error</span>Add the end of the address, like ana.putri@campus.ac.id.</span>\n  </div>\n  <button class=\"btn btn--primary btn--block\" onclick=\"const f = this.closest('.docs-col'); const c = f.querySelector('.control'); const input = c.querySelector('input'); const help = f.querySelector('.field__help'); const ok = /@.+[.].+/.test(input.value); c.classList.toggle('is-invalid', !ok); input.setAttribute('aria-invalid', String(!ok)); help.hidden = ok; if (!ok) import('../../js/lds.js').then((m) => m.shake(c)); else this.textContent = 'Code sent';\">Send code</button>\n</div>",
+        "code": "import { shake } from 'lampung-design-system/js';\nif (!valid) {\n  control.classList.add('is-invalid');\n  input.setAttribute('aria-invalid', 'true');\n  help.hidden = false;          // the reason, in words\n  shake(control);               // plus an error haptic on phones\n}"
+      },
+      {
+        "title": "A wrong verification code",
+        "desc": "Press Verify. All six cells turn red and the row shakes once; the message under it says what to do next.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 360px;\">\n  <div class=\"field\">\n    <span class=\"field__label\" id=\"sh-otp\">Verification code</span>\n    <div class=\"otp-wrap\" data-lds-otp>\n      <div class=\"otp\" aria-hidden=\"true\"><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span><span class=\"otp__sep\"></span><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span></div>\n      <input class=\"otp__input\" inputmode=\"numeric\" autocomplete=\"one-time-code\" maxlength=\"6\" aria-labelledby=\"sh-otp\" value=\"482913\">\n    </div>\n    <span class=\"field__help field__help--error\" hidden><span class=\"ic\" aria-hidden=\"true\">error</span>That code does not match. Check the latest email or send a new code.</span>\n  </div>\n  <button class=\"btn btn--primary btn--block\" onclick=\"const f = this.closest('.docs-col'); f.querySelector('.field__help').hidden = false; import('../../js/lds.js').then((m) => m.otpError(f.querySelector('.otp-wrap')));\">Verify</button>\n</div>",
+        "code": "import { otpError } from 'lampung-design-system/js';\notpError(document.querySelector('.otp-wrap')); // red cells and one shake; typing clears both"
+      }
+    ],
+    "id": [
+      {
+        "title": "Email tanpa domain",
+        "desc": "Tekan Kirim kode. Kolom bergoyang, berubah merah, dan menyebut apa yang kurang. Perbaiki alamatnya lalu coba lagi: tanpa goyangan.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 360px;\">\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"sh-email\">Email</label>\n    <div class=\"control\"><span class=\"ic\" aria-hidden=\"true\">mail</span><input id=\"sh-email\" type=\"email\" value=\"ana.putri@contoh\" aria-describedby=\"sh-email-help\"></div>\n    <span class=\"field__help field__help--error\" id=\"sh-email-help\" hidden><span class=\"ic\" aria-hidden=\"true\">error</span>Lengkapi akhir alamatnya, misalnya ana.putri@contoh.go.id.</span>\n  </div>\n  <button class=\"btn btn--primary btn--block\" onclick=\"const f = this.closest('.docs-col'); const c = f.querySelector('.control'); const input = c.querySelector('input'); const help = f.querySelector('.field__help'); const ok = /@.+[.].+/.test(input.value); c.classList.toggle('is-invalid', !ok); input.setAttribute('aria-invalid', String(!ok)); help.hidden = ok; if (!ok) import('../../js/lds.js').then((m) => m.shake(c)); else this.textContent = 'Kode terkirim';\">Kirim kode</button>\n</div>",
+        "code": "import { shake } from 'lampung-design-system/js';\nif (!valid) {\n  control.classList.add('is-invalid');\n  input.setAttribute('aria-invalid', 'true');\n  help.hidden = false;          // the reason, in words\n  shake(control);               // plus an error haptic on phones\n}"
+      },
+      {
+        "title": "Kode verifikasi salah",
+        "desc": "Tekan Verifikasi. Keenam sel berubah merah dan barisnya bergoyang sekali; pesan di bawahnya menjelaskan langkah berikutnya.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 360px;\">\n  <div class=\"field\">\n    <span class=\"field__label\" id=\"sh-otp\">Kode verifikasi</span>\n    <div class=\"otp-wrap\" data-lds-otp>\n      <div class=\"otp\" aria-hidden=\"true\"><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span><span class=\"otp__sep\"></span><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span><span class=\"otp__cell\"></span></div>\n      <input class=\"otp__input\" inputmode=\"numeric\" autocomplete=\"one-time-code\" maxlength=\"6\" aria-labelledby=\"sh-otp\" value=\"482913\">\n    </div>\n    <span class=\"field__help field__help--error\" hidden><span class=\"ic\" aria-hidden=\"true\">error</span>Kode tidak cocok. Periksa email terbaru atau minta kode baru.</span>\n  </div>\n  <button class=\"btn btn--primary btn--block\" onclick=\"const f = this.closest('.docs-col'); f.querySelector('.field__help').hidden = false; import('../../js/lds.js').then((m) => m.otpError(f.querySelector('.otp-wrap')));\">Verifikasi</button>\n</div>",
+        "code": "import { otpError } from 'lampung-design-system/js';\notpError(document.querySelector('.otp-wrap')); // red cells and one shake; typing clears both"
+      }
+    ]
+  },
+  "reactUsage": "import { reject } from 'lampung-design-system/react';\n\nif (!valid) { setError('Add the end of the address, like ana.putri@campus.ac.id.'); reject(controlRef.current); }",
+  "related": [
+    "text-field",
+    "otp",
+    "haptics",
+    "confirm-in-place"
+  ]
+}

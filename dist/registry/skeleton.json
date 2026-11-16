@@ -1,0 +1,57 @@
+{
+  "version": "0.1.0",
+  "slug": "skeleton",
+  "title": "Skeleton",
+  "group": "Feedback",
+  "order": 7,
+  "summary": {
+    "en": "Grey shapes in the exact layout of the content that is loading, with a soft shine passing over them. When the data lands, nothing moves.",
+    "id": "Bentuk abu-abu dengan tata letak persis seperti konten yang sedang dimuat, dengan kilau lembut yang melintas di atasnya. Saat data datang, tidak ada yang bergeser."
+  },
+  "titleId": "Skeleton",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "List rows",
+        "desc": "A square icon and two lines, the same as the loaded row.",
+        "html": "<div class=\"list\" style=\"max-width: 420px;\" aria-busy=\"true\" aria-label=\"Loading courses\">\n  <div class=\"lrow\" aria-hidden=\"true\"><div class=\"skel\" style=\"width: 30px; height: 30px;\"></div><div class=\"lrow__body\"><div class=\"skel\" style=\"height: 12px; width: 60%;\"></div><div class=\"skel\" style=\"height: 10px; width: 35%; margin-top: 8px;\"></div></div></div>\n  <div class=\"lrow\" aria-hidden=\"true\"><div class=\"skel\" style=\"width: 30px; height: 30px;\"></div><div class=\"lrow__body\"><div class=\"skel\" style=\"height: 12px; width: 48%;\"></div><div class=\"skel\" style=\"height: 10px; width: 30%; margin-top: 8px;\"></div></div></div>\n  <div class=\"lrow\" aria-hidden=\"true\"><div class=\"skel\" style=\"width: 30px; height: 30px;\"></div><div class=\"lrow__body\"><div class=\"skel\" style=\"height: 12px; width: 66%;\"></div><div class=\"skel\" style=\"height: 10px; width: 40%; margin-top: 8px;\"></div></div></div>\n</div>"
+      },
+      {
+        "title": "Profile header",
+        "desc": "Circles for avatars, wider bars for headings.",
+        "html": "<div class=\"card\" style=\"max-width: 360px;\" aria-busy=\"true\" aria-label=\"Loading profile\">\n  <div class=\"docs-row\" aria-hidden=\"true\"><div class=\"skel\" style=\"width: 56px; height: 56px; border-radius: 50%;\"></div><div style=\"flex: 1;\"><div class=\"skel\" style=\"height: 16px; width: 70%;\"></div><div class=\"skel\" style=\"height: 12px; width: 45%; margin-top: 10px;\"></div></div></div>\n  <div class=\"skel\" style=\"height: 12px; width: 100%; margin-top: 20px;\" aria-hidden=\"true\"></div>\n  <div class=\"skel\" style=\"height: 12px; width: 82%; margin-top: 8px;\" aria-hidden=\"true\"></div>\n</div>"
+      },
+      {
+        "title": "Loading, then loaded",
+        "desc": "Press the button: the real row replaces the placeholder in the same box, so nothing shifts.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 420px;\">\n  <div class=\"list\" id=\"sk-l\" aria-busy=\"true\"><div class=\"lrow\" aria-hidden=\"true\"><div class=\"skel\" style=\"width: 30px; height: 30px;\"></div><div class=\"lrow__body\"><div class=\"skel\" style=\"height: 12px; width: 55%;\"></div><div class=\"skel\" style=\"height: 10px; width: 30%; margin-top: 8px;\"></div></div></div></div>\n  <div class=\"docs-row\"><button class=\"btn btn--secondary btn--sm\" onclick=\"const l = document.getElementById('sk-l'); l.removeAttribute('aria-busy'); l.innerHTML = '<div class=&quot;lrow lrow--icon&quot;><span class=&quot;lrow__icon&quot;><span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>menu_book</span></span><div class=&quot;lrow__body&quot;><div class=&quot;lrow__title&quot;>Database Systems</div><div class=&quot;lrow__sub&quot;>Week 9 of 14</div></div></div>';\">Finish loading</button></div>\n</div>",
+        "code": "<div class=\"list\" aria-busy=\"true\" aria-label=\"Loading courses\">\n  <div class=\"lrow\" aria-hidden=\"true\">\n    <div class=\"skel\" style=\"width: 30px; height: 30px;\"></div>\n    <div class=\"lrow__body\">\n      <div class=\"skel\" style=\"height: 12px; width: 55%;\"></div>\n      <div class=\"skel\" style=\"height: 10px; width: 30%; margin-top: 8px;\"></div>\n    </div>\n  </div>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Baris list",
+        "desc": "Ikon persegi dan dua baris, sama dengan baris yang sudah dimuat.",
+        "html": "<div class=\"list\" style=\"max-width: 420px;\" aria-busy=\"true\" aria-label=\"Memuat daftar permohonan\">\n  <div class=\"lrow\" aria-hidden=\"true\"><div class=\"skel\" style=\"width: 30px; height: 30px;\"></div><div class=\"lrow__body\"><div class=\"skel\" style=\"height: 12px; width: 60%;\"></div><div class=\"skel\" style=\"height: 10px; width: 35%; margin-top: 8px;\"></div></div></div>\n  <div class=\"lrow\" aria-hidden=\"true\"><div class=\"skel\" style=\"width: 30px; height: 30px;\"></div><div class=\"lrow__body\"><div class=\"skel\" style=\"height: 12px; width: 48%;\"></div><div class=\"skel\" style=\"height: 10px; width: 30%; margin-top: 8px;\"></div></div></div>\n  <div class=\"lrow\" aria-hidden=\"true\"><div class=\"skel\" style=\"width: 30px; height: 30px;\"></div><div class=\"lrow__body\"><div class=\"skel\" style=\"height: 12px; width: 66%;\"></div><div class=\"skel\" style=\"height: 10px; width: 40%; margin-top: 8px;\"></div></div></div>\n</div>"
+      },
+      {
+        "title": "Header profil",
+        "desc": "Lingkaran untuk avatar, bar lebih lebar untuk heading.",
+        "html": "<div class=\"card\" style=\"max-width: 360px;\" aria-busy=\"true\" aria-label=\"Memuat profil\">\n  <div class=\"docs-row\" aria-hidden=\"true\"><div class=\"skel\" style=\"width: 56px; height: 56px; border-radius: 50%;\"></div><div style=\"flex: 1;\"><div class=\"skel\" style=\"height: 16px; width: 70%;\"></div><div class=\"skel\" style=\"height: 12px; width: 45%; margin-top: 10px;\"></div></div></div>\n  <div class=\"skel\" style=\"height: 12px; width: 100%; margin-top: 20px;\" aria-hidden=\"true\"></div>\n  <div class=\"skel\" style=\"height: 12px; width: 82%; margin-top: 8px;\" aria-hidden=\"true\"></div>\n</div>"
+      },
+      {
+        "title": "Memuat, lalu termuat",
+        "desc": "Tekan tombolnya: baris sebenarnya menggantikan placeholder di kotak yang sama, jadi tidak ada yang bergeser.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 420px;\">\n  <div class=\"list\" id=\"sk-l\" aria-busy=\"true\"><div class=\"lrow\" aria-hidden=\"true\"><div class=\"skel\" style=\"width: 30px; height: 30px;\"></div><div class=\"lrow__body\"><div class=\"skel\" style=\"height: 12px; width: 55%;\"></div><div class=\"skel\" style=\"height: 10px; width: 30%; margin-top: 8px;\"></div></div></div></div>\n  <div class=\"docs-row\"><button class=\"btn btn--secondary btn--sm\" onclick=\"const l = document.getElementById('sk-l'); l.removeAttribute('aria-busy'); l.innerHTML = '<div class=&quot;lrow lrow--icon&quot;><span class=&quot;lrow__icon&quot;><span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>menu_book</span></span><div class=&quot;lrow__body&quot;><div class=&quot;lrow__title&quot;>Izin usaha mikro</div><div class=&quot;lrow__sub&quot;>Tahap 2 dari 4</div></div></div>';\">Selesaikan pemuatan</button></div>\n</div>",
+        "code": "<div class=\"list\" aria-busy=\"true\" aria-label=\"Memuat daftar permohonan\">\n  <div class=\"lrow\" aria-hidden=\"true\">\n    <div class=\"skel\" style=\"width: 30px; height: 30px;\"></div>\n    <div class=\"lrow__body\">\n      <div class=\"skel\" style=\"height: 12px; width: 55%;\"></div>\n      <div class=\"skel\" style=\"height: 10px; width: 30%; margin-top: 8px;\"></div>\n    </div>\n  </div>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "data-states",
+    "spinner",
+    "empty-state",
+    "list"
+  ]
+}

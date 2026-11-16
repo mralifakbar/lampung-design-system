@@ -1,0 +1,35 @@
+{
+  "version": "0.1.0",
+  "slug": "plans",
+  "title": "Plans",
+  "group": "Marketing",
+  "order": 4,
+  "summary": {
+    "en": "Pricing plans as cards, with a billing period control above them. Prices roll when the period or the seat count changes; the saving is said in words next to the control.",
+    "id": "Paket harga sebagai card, dengan kontrol periode pembayaran di atasnya. Harga bergulir saat periode atau jumlah peserta berubah; penghematannya disebut dengan kata-kata di samping kontrol."
+  },
+  "titleId": "Plans",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Monthly or yearly, with seats",
+        "desc": "Switch the period and change the seats: the prices roll, the words morph.",
+        "html": "<div data-lds-billing style=\"width: 100%;\">\n  <div class=\"billing\">\n    <div class=\"seg seg--lg\" role=\"group\" aria-label=\"Billing period\" data-lds-segmented><span class=\"seg__thumb\"></span><button class=\"seg__btn\" aria-pressed=\"true\" data-billing=\"month\">Monthly</button><button class=\"seg__btn\" aria-pressed=\"false\" data-billing=\"year\">Yearly</button></div>\n    <span class=\"billing__save\">Yearly saves 2 months</span>\n  </div>\n  <div class=\"plans\">\n    <article class=\"plan plan--featured\" aria-labelledby=\"pl-1\">\n      <div class=\"plan__head\"><h3 class=\"plan__name\" id=\"pl-1\">Teacher</h3><p class=\"plan__desc\">For one teacher and all their classes.</p></div>\n      <div class=\"plan__price\"><span class=\"plan__amount\"><span class=\"plan__currency\">$</span><span class=\"roll\" data-price-month=\"12\" data-price-year=\"10\" data-lds-roll-label=\"{n} US dollars a month\"></span></span><span class=\"plan__period morph\" data-lds-morph data-billing-month=\"a month\" data-billing-year=\"a month, billed yearly\">a month</span></div>\n      <ul class=\"plan__list\"><li><span class=\"ic\" aria-hidden=\"true\">check</span>Unlimited classes</li><li><span class=\"ic\" aria-hidden=\"true\">check</span>Rubrics and saved comments</li></ul>\n      <div class=\"plan__cta\"><button class=\"btn btn--primary btn--block\">Start the Teacher plan</button></div>\n    </article>\n    <article class=\"plan\" aria-labelledby=\"pl-2\">\n      <div class=\"plan__head\"><h3 class=\"plan__name\" id=\"pl-2\">School</h3><p class=\"plan__desc\">For every teacher in one school.</p></div>\n      <div class=\"plan__price\"><span class=\"plan__amount\"><span class=\"plan__currency\">$</span><span class=\"roll\" data-per-seat data-price-month=\"9\" data-price-year=\"7\" data-lds-roll-label=\"{n} US dollars a month\"></span></span><span class=\"plan__period morph\" data-lds-morph data-billing-month=\"a month for {seats} teachers\" data-billing-year=\"a month for {seats} teachers\">a month for 10 teachers</span></div>\n      <div class=\"plan__seats\"><span id=\"pl-s\">Teachers</span><div class=\"stepper-field\" role=\"group\" aria-labelledby=\"pl-s\" data-lds-stepper data-min=\"5\" data-max=\"200\" data-value=\"10\"><button aria-label=\"Fewer teachers\"><span class=\"ic\" aria-hidden=\"true\">remove</span></button><span class=\"stepper-field__value\"><span class=\"roll\" aria-live=\"polite\"></span></span><button aria-label=\"More teachers\"><span class=\"ic\" aria-hidden=\"true\">add</span></button></div></div>\n      <div class=\"plan__cta\"><button class=\"btn btn--secondary btn--block\">Ask for a school invoice</button></div>\n    </article>\n  </div>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Bulanan atau tahunan, dengan jumlah peserta",
+        "desc": "Paket bimbingan belajar dari usaha lokal fiktif. Ganti periode dan ubah jumlah siswa: harga bergulir, kata-kata berubah bentuk.",
+        "html": "<div data-lds-billing style=\"width: 100%;\">\n  <div class=\"billing\">\n    <div class=\"seg seg--lg\" role=\"group\" aria-label=\"Periode pembayaran\" data-lds-segmented><span class=\"seg__thumb\"></span><button class=\"seg__btn\" aria-pressed=\"true\" data-billing=\"month\">Bulanan</button><button class=\"seg__btn\" aria-pressed=\"false\" data-billing=\"year\">Tahunan</button></div>\n    <span class=\"billing__save\">Bayar tahunan hemat 2 bulan</span>\n  </div>\n  <div class=\"plans\">\n    <article class=\"plan plan--featured\" aria-labelledby=\"pl-1\">\n      <div class=\"plan__head\"><h3 class=\"plan__name\" id=\"pl-1\">Privat</h3><p class=\"plan__desc\">Untuk satu siswa, dua pertemuan per minggu.</p></div>\n      <div class=\"plan__price\"><span class=\"plan__amount\"><span class=\"plan__currency\">Rp</span><span class=\"roll\" data-price-month=\"360\" data-price-year=\"300\" data-lds-roll-label=\"{n} ribu rupiah per bulan\"></span></span><span class=\"plan__period morph\" data-lds-morph data-billing-month=\"ribu per bulan\" data-billing-year=\"ribu per bulan, dibayar tahunan\">ribu per bulan</span></div>\n      <ul class=\"plan__list\"><li><span class=\"ic\" aria-hidden=\"true\">check</span>Jadwal bisa diatur ulang</li><li><span class=\"ic\" aria-hidden=\"true\">check</span>Laporan kemajuan setiap bulan</li></ul>\n      <div class=\"plan__cta\"><button class=\"btn btn--primary btn--block\">Daftar paket Privat</button></div>\n    </article>\n    <article class=\"plan\" aria-labelledby=\"pl-2\">\n      <div class=\"plan__head\"><h3 class=\"plan__name\" id=\"pl-2\">Sekolah mitra</h3><p class=\"plan__desc\">Untuk kelas tambahan di satu sekolah.</p></div>\n      <div class=\"plan__price\"><span class=\"plan__amount\"><span class=\"plan__currency\">Rp</span><span class=\"roll\" data-per-seat data-price-month=\"30\" data-price-year=\"25\" data-lds-roll-label=\"{n} ribu rupiah per bulan\"></span></span><span class=\"plan__period morph\" data-lds-morph data-billing-month=\"ribu per bulan untuk {seats} siswa\" data-billing-year=\"ribu per bulan untuk {seats} siswa\">ribu per bulan untuk 10 siswa</span></div>\n      <div class=\"plan__seats\"><span id=\"pl-s\">Siswa</span><div class=\"stepper-field\" role=\"group\" aria-labelledby=\"pl-s\" data-lds-stepper data-min=\"5\" data-max=\"200\" data-value=\"10\"><button aria-label=\"Kurangi siswa\"><span class=\"ic\" aria-hidden=\"true\">remove</span></button><span class=\"stepper-field__value\"><span class=\"roll\" aria-live=\"polite\"></span></span><button aria-label=\"Tambah siswa\"><span class=\"ic\" aria-hidden=\"true\">add</span></button></div></div>\n      <div class=\"plan__cta\"><button class=\"btn btn--secondary btn--block\">Minta penawaran untuk sekolah</button></div>\n    </article>\n  </div>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "compare-table",
+    "radio-card",
+    "rolling-number",
+    "segmented-control"
+  ]
+}

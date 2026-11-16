@@ -1,0 +1,65 @@
+{
+  "version": "0.1.0",
+  "slug": "chat-message",
+  "title": "Chat message",
+  "group": "Chat",
+  "order": 2,
+  "summary": {
+    "en": "One turn in a conversation. Your words sit in an accent bubble on the right; the assistant answers as plain reading text in the column, with a quiet actions row under it. System lines are centered footnotes.",
+    "id": "Satu giliran dalam percakapan. Kata-kata Anda ada di bubble aksen di kanan; asisten menjawab dengan teks baca biasa di kolom, dengan baris aksi yang tenang di bawahnya. Baris sistem berupa footnote di tengah."
+  },
+  "titleId": "Chat message",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Your message and the answer",
+        "desc": "The person speaks in the accent bubble; the answer is plain text in the column, which is easier to read at length and to copy. Press copy to see the icon swap.",
+        "html": "<div class=\"chat\" role=\"log\" aria-label=\"Conversation\" style=\"max-width: 560px;\">\n  <div class=\"msg msg--me\"><div class=\"bubble\">What is the difference between mitosis and meiosis?</div><span class=\"msg__meta\">09:41</span></div>\n  <div class=\"msg msg--ai\">\n    <div class=\"bubble\">Mitosis makes two cells that are copies of the parent, for growth and repair. Meiosis makes four cells with half the chromosomes each, for reproduction, and shuffles genes on the way so each cell is different.</div>\n    <div class=\"msg__actions\"><button class=\"icon-btn\" aria-label=\"Copy answer\" data-lds-copy=\"Mitosis makes two identical cells; meiosis makes four cells with half the chromosomes.\"><span class=\"swap\" aria-hidden=\"true\"><span class=\"ic swap__a\">content_copy</span><span class=\"ic swap__b\">check</span></span></button><button class=\"icon-btn\" aria-label=\"Try again\"><span class=\"ic\" aria-hidden=\"true\">refresh</span></button><button class=\"icon-btn\" aria-label=\"Share answer\"><span class=\"ic\" aria-hidden=\"true\">share</span></button></div>\n  </div>\n</div>"
+      },
+      {
+        "title": "An answer with sources and code",
+        "desc": "Long answers use prose inside the bubble for paragraph spacing; sources are citations; inline code wraps instead of overflowing.",
+        "html": "<div class=\"chat\" style=\"max-width: 560px;\">\n  <div class=\"msg msg--me\"><div class=\"bubble\">How do I count the rows in the grades table?</div></div>\n  <div class=\"msg msg--ai\">\n    <div class=\"bubble prose\">\n      <p>Use <code class=\"code\">SELECT COUNT(*) FROM grades;</code> to count every row, including rows with empty scores.<a class=\"cite\" href=\"#\">1</a></p>\n      <p>To count only graded work, name the column: <code class=\"code\">COUNT(score)</code> skips rows where the score is empty.<a class=\"cite\" href=\"#\">2</a></p>\n    </div>\n    <div class=\"msg__actions\"><button class=\"icon-btn\" aria-label=\"Copy answer\" data-lds-copy=\"SELECT COUNT(*) FROM grades;\"><span class=\"swap\" aria-hidden=\"true\"><span class=\"ic swap__a\">content_copy</span><span class=\"ic swap__b\">check</span></span></button><button class=\"icon-btn\" aria-label=\"Try again\"><span class=\"ic\" aria-hidden=\"true\">refresh</span></button></div>\n  </div>\n</div>"
+      },
+      {
+        "title": "Meta: time, edited, not sent",
+        "desc": "Meta is one caption line. A message that failed says so in words under the bubble with a way to retry; nothing else turns red.",
+        "html": "<div class=\"chat\" style=\"max-width: 560px;\">\n  <div class=\"msg msg--me\"><div class=\"bubble\">Remind me what is due on Friday.</div><span class=\"msg__meta\"><time class=\"timestamp\" data-lds-time=\"2026-11-16T08:05:00+07:00\"></time></span></div>\n  <div class=\"msg msg--me\"><div class=\"bubble\">Also the lab report, please.</div><span class=\"msg__meta\">Edited</span></div>\n  <div class=\"msg msg--me\"><div class=\"bubble\">And the reading for week 6.</div><span class=\"field__help field__help--error\"><span class=\"ic\" aria-hidden=\"true\">error</span>Not sent. You are offline.<button class=\"btn btn--plain btn--sm\">Try again</button></span></div>\n</div>"
+      },
+      {
+        "title": "System line",
+        "desc": "Centered footnote text, no bubble. For what the conversation did, not for what someone said.",
+        "html": "<div class=\"chat\" style=\"max-width: 560px;\">\n  <p class=\"msg msg--system\">You switched to exam mode. Hints stay hidden until you submit.</p>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Pesan Anda dan jawabannya",
+        "desc": "Orang berbicara di bubble aksen; jawaban berupa teks biasa di kolom, lebih mudah dibaca panjang dan disalin. Tekan salin untuk melihat icon swap.",
+        "html": "<div class=\"chat\" role=\"log\" aria-label=\"Percakapan\" style=\"max-width: 560px;\">\n  <div class=\"msg msg--me\"><div class=\"bubble\">Apa beda mitosis dan meiosis?</div><span class=\"msg__meta\">09.41</span></div>\n  <div class=\"msg msg--ai\">\n    <div class=\"bubble\">Mitosis menghasilkan dua sel yang sama persis dengan sel induk, untuk pertumbuhan dan perbaikan. Meiosis menghasilkan empat sel yang masing-masing berisi separuh kromosom, untuk reproduksi, dan mengacak gen di prosesnya sehingga setiap sel berbeda.</div>\n    <div class=\"msg__actions\"><button class=\"icon-btn\" aria-label=\"Salin jawaban\" data-lds-copy=\"Mitosis menghasilkan dua sel identik; meiosis menghasilkan empat sel dengan separuh kromosom.\"><span class=\"swap\" aria-hidden=\"true\"><span class=\"ic swap__a\">content_copy</span><span class=\"ic swap__b\">check</span></span></button><button class=\"icon-btn\" aria-label=\"Coba lagi\"><span class=\"ic\" aria-hidden=\"true\">refresh</span></button><button class=\"icon-btn\" aria-label=\"Bagikan jawaban\"><span class=\"ic\" aria-hidden=\"true\">share</span></button></div>\n  </div>\n</div>"
+      },
+      {
+        "title": "Jawaban dengan sumber dan kode",
+        "desc": "Jawaban panjang memakai prose di dalam bubble untuk jarak paragraf; sumber berupa sitasi; kode inline terlipat, tidak meluber.",
+        "html": "<div class=\"chat\" style=\"max-width: 560px;\">\n  <div class=\"msg msg--me\"><div class=\"bubble\">Bagaimana cara menghitung jumlah baris di tabel nilai?</div></div>\n  <div class=\"msg msg--ai\">\n    <div class=\"bubble prose\">\n      <p>Pakai <code class=\"code\">SELECT COUNT(*) FROM grades;</code> untuk menghitung semua baris, termasuk baris dengan nilai kosong.<a class=\"cite\" href=\"#\">1</a></p>\n      <p>Untuk menghitung tugas yang sudah dinilai saja, sebut kolomnya: <code class=\"code\">COUNT(score)</code> melewati baris yang nilainya kosong.<a class=\"cite\" href=\"#\">2</a></p>\n    </div>\n    <div class=\"msg__actions\"><button class=\"icon-btn\" aria-label=\"Salin jawaban\" data-lds-copy=\"SELECT COUNT(*) FROM grades;\"><span class=\"swap\" aria-hidden=\"true\"><span class=\"ic swap__a\">content_copy</span><span class=\"ic swap__b\">check</span></span></button><button class=\"icon-btn\" aria-label=\"Coba lagi\"><span class=\"ic\" aria-hidden=\"true\">refresh</span></button></div>\n  </div>\n</div>"
+      },
+      {
+        "title": "Meta: jam, diedit, tidak terkirim",
+        "desc": "Meta adalah satu baris keterangan. Pesan yang gagal menyebutkannya dengan kata-kata di bawah bubble, beserta cara mencoba lagi; tidak ada bagian lain yang menjadi merah.",
+        "html": "<div class=\"chat\" style=\"max-width: 560px;\">\n  <div class=\"msg msg--me\"><div class=\"bubble\">Ingatkan saya tugas apa yang harus dikumpulkan hari Jumat.</div><span class=\"msg__meta\"><time class=\"timestamp\" data-lds-time=\"2026-11-16T08:05:00+07:00\"></time></span></div>\n  <div class=\"msg msg--me\"><div class=\"bubble\">Laporan praktikum juga, ya.</div><span class=\"msg__meta\">Diedit</span></div>\n  <div class=\"msg msg--me\"><div class=\"bubble\">Dan bacaan untuk minggu ke-6.</div><span class=\"field__help field__help--error\"><span class=\"ic\" aria-hidden=\"true\">error</span>Tidak terkirim. Anda sedang offline.<button class=\"btn btn--plain btn--sm\">Coba lagi</button></span></div>\n</div>"
+      },
+      {
+        "title": "Baris sistem",
+        "desc": "Teks footnote di tengah, tanpa bubble. Untuk hal yang dilakukan percakapan, bukan untuk ucapan seseorang.",
+        "html": "<div class=\"chat\" style=\"max-width: 560px;\">\n  <p class=\"msg msg--system\">Anda beralih ke mode ujian. Petunjuk disembunyikan sampai Anda mengumpulkan jawaban.</p>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "chat-layout",
+    "streaming-text",
+    "copy-button",
+    "citation"
+  ]
+}

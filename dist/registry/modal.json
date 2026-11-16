@@ -1,0 +1,48 @@
+{
+  "version": "0.1.0",
+  "slug": "modal",
+  "title": "Modal",
+  "group": "Overlays",
+  "order": 3,
+  "summary": {
+    "en": "A page-level dialog over the whole window: a native `<dialog class=\"modal\">` in the top layer, or `.overlay` rendered in place by a framework. Below 600 px the native modal becomes a bottom sheet. Close it with `closeModal()` so it plays its exit.",
+    "id": "Dialog tingkat halaman di atas seluruh jendela: `<dialog class=\"modal\">` native di top layer, atau `.overlay` yang dirender di tempat oleh framework. Di bawah 600 px modal native menjadi bottom sheet. Tutup dengan `closeModal()` agar animasi keluarnya diputar."
+  },
+  "titleId": "Modal",
+  "react": true,
+  "examples": {
+    "en": [
+      {
+        "title": "Native page modal",
+        "desc": "Opens above the whole page in the top layer. Escape, a click on the backdrop and Cancel all play the exit before it closes. Narrow the window below 600 px to see it as a bottom sheet.",
+        "html": "<button class=\"btn btn--secondary\" data-lds-modal=\"md-report\"><span class=\"ic\" aria-hidden=\"true\">error</span>Report a mistake</button>\n<dialog class=\"modal\" id=\"md-report\" aria-labelledby=\"md-report-t\">\n  <button class=\"icon-btn dialog__close\" data-lds-modal-close aria-label=\"Close\"><span class=\"ic\" aria-hidden=\"true\">close</span></button>\n  <h2 class=\"dialog__title\" id=\"md-report-t\">Report a mistake</h2>\n  <p class=\"dialog__body\">Tell us what is wrong in question 14 and what it should say.</p>\n  <div class=\"field\" style=\"margin-top: 16px;\"><div class=\"control control--area\"><textarea aria-label=\"What is wrong\" placeholder=\"The answer key says B, the explanation says C.\"></textarea></div></div>\n  <div class=\"dialog__actions\"><button class=\"btn btn--secondary\" data-lds-modal-close>Cancel</button><button class=\"btn btn--primary\" data-lds-modal-close>Send report</button></div>\n</dialog>"
+      },
+      {
+        "title": "In-place overlay",
+        "desc": "The same layer rendered by a framework: mount `.overlay` to open, call `closeModal(el, unmount)` to play the exit and then unmount. Shown here inside this box.",
+        "html": "<button class=\"btn btn--secondary\" id=\"md-ov-open\" onclick=\"const o = document.getElementById('md-ov'); o.hidden = false; o.querySelector('input').focus();\"><span class=\"ic\" aria-hidden=\"true\">person_add</span>Invite a student</button>\n<div class=\"overlay\" id=\"md-ov\" hidden>\n  <div class=\"overlay__panel\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"md-ov-t\">\n    <button class=\"icon-btn dialog__close\" aria-label=\"Close\" onclick=\"const o = this.closest('.overlay'); o.classList.add('is-closing'); setTimeout(() => { o.hidden = true; o.classList.remove('is-closing'); document.getElementById('md-ov-open').focus(); }, 180);\"><span class=\"ic\" aria-hidden=\"true\">close</span></button>\n    <h2 class=\"dialog__title\" id=\"md-ov-t\">Invite a student</h2>\n    <p class=\"dialog__body\">They get an email with a link to join Database Systems.</p>\n    <div class=\"control\"><input type=\"email\" aria-label=\"Email address\" placeholder=\"name@school.edu\"></div>\n    <div class=\"dialog__actions\"><button class=\"btn btn--secondary\" onclick=\"const o = this.closest('.overlay'); o.classList.add('is-closing'); setTimeout(() => { o.hidden = true; o.classList.remove('is-closing'); document.getElementById('md-ov-open').focus(); }, 180);\">Cancel</button><button class=\"btn btn--primary\" onclick=\"const o = this.closest('.overlay'); o.classList.add('is-closing'); setTimeout(() => { o.hidden = true; o.classList.remove('is-closing'); document.getElementById('md-ov-open').focus(); }, 180);\">Send invite</button></div>\n  </div>\n</div>",
+        "code": "{open && (\n  <div className=\"overlay\" ref={ref} onKeyDown={(e) => e.key === 'Escape' && closeModal(ref.current, () => setOpen(false))}>\n    <div className=\"overlay__panel\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"invite-t\">\n      <h2 className=\"dialog__title\" id=\"invite-t\">Invite a student</h2>\n      <p className=\"dialog__body\">They get an email with a link to join Database Systems.</p>\n      <div className=\"dialog__actions\">\n        <button className=\"btn btn--secondary\" onClick={() => closeModal(ref.current, () => setOpen(false))}>Cancel</button>\n        <button className=\"btn btn--primary\" onClick={send}>Send invite</button>\n      </div>\n    </div>\n  </div>\n)}"
+      }
+    ],
+    "id": [
+      {
+        "title": "Modal halaman native",
+        "desc": "Terbuka di atas seluruh halaman di top layer. Escape, klik pada backdrop, dan Batal semuanya memutar animasi keluar sebelum menutup. Persempit jendela di bawah 600 px untuk melihatnya sebagai bottom sheet.",
+        "html": "<button class=\"btn btn--secondary\" data-lds-modal=\"md-report\"><span class=\"ic\" aria-hidden=\"true\">error</span>Laporkan kesalahan data</button>\n<dialog class=\"modal\" id=\"md-report\" aria-labelledby=\"md-report-t\">\n  <button class=\"icon-btn dialog__close\" data-lds-modal-close aria-label=\"Tutup\"><span class=\"ic\" aria-hidden=\"true\">close</span></button>\n  <h2 class=\"dialog__title\" id=\"md-report-t\">Laporkan kesalahan data</h2>\n  <p class=\"dialog__body\">Beri tahu kami apa yang salah pada data jadwal puskesmas dan seharusnya seperti apa.</p>\n  <div class=\"field\" style=\"margin-top: 16px;\"><div class=\"control control--area\"><textarea aria-label=\"Apa yang salah\" placeholder=\"Jadwal menulis buka pukul 07.00, papan di lokasi menulis 08.00.\"></textarea></div></div>\n  <div class=\"dialog__actions\"><button class=\"btn btn--secondary\" data-lds-modal-close>Batal</button><button class=\"btn btn--primary\" data-lds-modal-close>Kirim laporan</button></div>\n</dialog>"
+      },
+      {
+        "title": "Overlay di tempat",
+        "desc": "Lapisan yang sama dirender oleh framework: pasang `.overlay` untuk membuka, panggil `closeModal(el, unmount)` untuk memutar animasi keluar lalu melepasnya. Di sini ditampilkan di dalam kotak ini.",
+        "html": "<button class=\"btn btn--secondary\" id=\"md-ov-open\" onclick=\"const o = document.getElementById('md-ov'); o.hidden = false; o.querySelector('input').focus();\"><span class=\"ic\" aria-hidden=\"true\">person_add</span>Undang petugas</button>\n<div class=\"overlay\" id=\"md-ov\" hidden>\n  <div class=\"overlay__panel\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"md-ov-t\">\n    <button class=\"icon-btn dialog__close\" aria-label=\"Tutup\" onclick=\"const o = this.closest('.overlay'); o.classList.add('is-closing'); setTimeout(() => { o.hidden = true; o.classList.remove('is-closing'); document.getElementById('md-ov-open').focus(); }, 180);\"><span class=\"ic\" aria-hidden=\"true\">close</span></button>\n    <h2 class=\"dialog__title\" id=\"md-ov-t\">Undang petugas</h2>\n    <p class=\"dialog__body\">Petugas menerima email berisi tautan untuk bergabung dengan tim verifikasi izin.</p>\n    <div class=\"control\"><input type=\"email\" aria-label=\"Alamat email\" placeholder=\"nama@contoh.id\"></div>\n    <div class=\"dialog__actions\"><button class=\"btn btn--secondary\" onclick=\"const o = this.closest('.overlay'); o.classList.add('is-closing'); setTimeout(() => { o.hidden = true; o.classList.remove('is-closing'); document.getElementById('md-ov-open').focus(); }, 180);\">Batal</button><button class=\"btn btn--primary\" onclick=\"const o = this.closest('.overlay'); o.classList.add('is-closing'); setTimeout(() => { o.hidden = true; o.classList.remove('is-closing'); document.getElementById('md-ov-open').focus(); }, 180);\">Kirim undangan</button></div>\n  </div>\n</div>",
+        "code": "{open && (\n  <div className=\"overlay\" ref={ref} onKeyDown={(e) => e.key === 'Escape' && closeModal(ref.current, () => setOpen(false))}>\n    <div className=\"overlay__panel\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"invite-t\">\n      <h2 className=\"dialog__title\" id=\"invite-t\">Undang petugas</h2>\n      <p className=\"dialog__body\">Petugas menerima email berisi tautan untuk bergabung dengan tim verifikasi izin.</p>\n      <div className=\"dialog__actions\">\n        <button className=\"btn btn--secondary\" onClick={() => closeModal(ref.current, () => setOpen(false))}>Batal</button>\n        <button className=\"btn btn--primary\" onClick={send}>Kirim undangan</button>\n      </div>\n    </div>\n  </div>\n)}"
+      }
+    ]
+  },
+  "reactUsage": "import { closeModal } from 'lampung-design-system/react';\n\nconst ref = useRef<HTMLDivElement>(null);\n{open && (\n  <div className=\"overlay\" ref={ref}>\n    <div className=\"overlay__panel\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"t\">…\n      <button className=\"btn btn--secondary\" onClick={() => closeModal(ref.current, () => setOpen(false))}>Cancel</button>\n    </div>\n  </div>\n)}",
+  "related": [
+    "dialog",
+    "alert-dialog",
+    "sheet",
+    "lightbox"
+  ]
+}

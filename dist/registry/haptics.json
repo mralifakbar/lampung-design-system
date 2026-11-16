@@ -1,0 +1,48 @@
+{
+  "version": "0.1.0",
+  "slug": "haptics",
+  "title": "Haptics",
+  "group": "Microinteractions",
+  "order": 14,
+  "summary": {
+    "en": "A short vibration on phones that support it, always together with a visible change, never alone. Four kinds: light for a tap that changed something, medium for a gesture that committed, success when something finished, error when something was refused.",
+    "id": "Getaran singkat di ponsel yang mendukungnya, selalu bersama perubahan yang terlihat, tidak pernah sendirian. Ada empat jenis: light untuk ketukan yang mengubah sesuatu, medium untuk gestur yang dijalankan, success saat sesuatu selesai, error saat sesuatu ditolak."
+  },
+  "titleId": "Haptics",
+  "react": true,
+  "examples": {
+    "en": [
+      {
+        "title": "The four kinds",
+        "desc": "On an Android phone with vibration, press each one. On desktops and on iPhone browsers nothing happens, which is why haptics only add to what the screen already shows.",
+        "html": "<div class=\"docs-row\">\n  <button class=\"btn btn--secondary btn--md\" onclick=\"import('../../js/lds.js').then((m) => m.haptic('light'))\">Light</button><button class=\"btn btn--secondary btn--md\" onclick=\"import('../../js/lds.js').then((m) => m.haptic('medium'))\">Medium</button><button class=\"btn btn--secondary btn--md\" onclick=\"import('../../js/lds.js').then((m) => m.haptic('success'))\">Success</button><button class=\"btn btn--secondary btn--md\" onclick=\"import('../../js/lds.js').then((m) => m.haptic('error'))\">Error</button>\n</div>\n<p class=\"docs-note\" style=\"width: 100%;\">Light 8 ms, medium 14 ms, success 10 + 40 + 18 ms, error five pulses of 12 and 30 ms.</p>",
+        "code": "import { haptic } from 'lampung-design-system/js';\nhaptic('success'); // 'light' | 'medium' | 'success' | 'error'"
+      },
+      {
+        "title": "Built in where it belongs",
+        "desc": "The like buzzes light when it fills; the confirm buzzes light when it asks and success when it is done; a refused shake buzzes error.",
+        "html": "<button class=\"like\" aria-pressed=\"false\" data-lds-like aria-label=\"Like\"><span class=\"like__heart\"><span class=\"ic\" aria-hidden=\"true\">favorite</span></span><span class=\"roll\" data-lds-roll=\"8\"></span></button>\n<div class=\"confirm\" data-lds-confirm>\n  <span class=\"confirm__face confirm__face--rest\"><button class=\"confirm__arm\" data-act=\"arm\"><span class=\"ic\" aria-hidden=\"true\">delete</span>Clear history</button></span>\n  <span class=\"confirm__face confirm__face--ask\"><span class=\"confirm__q\">Clear history?</span><button class=\"btn btn--plain\" data-act=\"cancel\">Cancel</button><button class=\"btn btn--danger\" data-act=\"confirm\">Clear</button></span>\n  <span class=\"confirm__face confirm__face--busy\" role=\"status\"><span class=\"spinner\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class=\"shimmer\">Clearing</span></span>\n  <span class=\"confirm__face confirm__face--done\" role=\"status\"><span class=\"ic\" aria-hidden=\"true\">check_circle</span>History cleared<button class=\"confirm__undo\" data-act=\"undo\">Undo</button></span>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Empat jenis",
+        "desc": "Di ponsel Android yang bisa bergetar, tekan satu per satu. Di desktop dan browser iPhone tidak terjadi apa-apa, karena itu haptics hanya menambah apa yang sudah tampil di layar.",
+        "html": "<div class=\"docs-row\">\n  <button class=\"btn btn--secondary btn--md\" onclick=\"import('../../js/lds.js').then((m) => m.haptic('light'))\">Light</button><button class=\"btn btn--secondary btn--md\" onclick=\"import('../../js/lds.js').then((m) => m.haptic('medium'))\">Medium</button><button class=\"btn btn--secondary btn--md\" onclick=\"import('../../js/lds.js').then((m) => m.haptic('success'))\">Success</button><button class=\"btn btn--secondary btn--md\" onclick=\"import('../../js/lds.js').then((m) => m.haptic('error'))\">Error</button>\n</div>\n<p class=\"docs-note\" style=\"width: 100%;\">Light 8 ms, medium 14 ms, success 10 + 40 + 18 ms, error lima denyut 12 dan 30 ms.</p>",
+        "code": "import { haptic } from 'lampung-design-system/js';\nhaptic('success'); // 'light' | 'medium' | 'success' | 'error'"
+      },
+      {
+        "title": "Sudah terpasang di tempatnya",
+        "desc": "Like bergetar light saat terisi; konfirmasi bergetar light saat bertanya dan success saat selesai; shake karena penolakan bergetar error.",
+        "html": "<button class=\"like\" aria-pressed=\"false\" data-lds-like aria-label=\"Suka\"><span class=\"like__heart\"><span class=\"ic\" aria-hidden=\"true\">favorite</span></span><span class=\"roll\" data-lds-roll=\"8\"></span></button>\n<div class=\"confirm\" data-lds-confirm>\n  <span class=\"confirm__face confirm__face--rest\"><button class=\"confirm__arm\" data-act=\"arm\"><span class=\"ic\" aria-hidden=\"true\">delete</span>Hapus riwayat</button></span>\n  <span class=\"confirm__face confirm__face--ask\"><span class=\"confirm__q\">Hapus riwayat?</span><button class=\"btn btn--plain\" data-act=\"cancel\">Batal</button><button class=\"btn btn--danger\" data-act=\"confirm\">Hapus</button></span>\n  <span class=\"confirm__face confirm__face--busy\" role=\"status\"><span class=\"spinner\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class=\"shimmer\">Menghapus</span></span>\n  <span class=\"confirm__face confirm__face--done\" role=\"status\"><span class=\"ic\" aria-hidden=\"true\">check_circle</span>Riwayat dihapus<button class=\"confirm__undo\" data-act=\"undo\">Urungkan</button></span>\n</div>"
+      }
+    ]
+  },
+  "reactUsage": "import { notify } from 'lampung-design-system/react';\n\nnotify({ title: 'Upload finished', icon: 'check_circle' }, 'success'); // toast plus a success haptic",
+  "related": [
+    "shake",
+    "like",
+    "press-feedback",
+    "reduced-motion"
+  ]
+}

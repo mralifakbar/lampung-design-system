@@ -1,0 +1,47 @@
+{
+  "version": "0.1.0",
+  "slug": "upload-progress",
+  "title": "Upload progress",
+  "group": "Microinteractions",
+  "order": 11,
+  "summary": {
+    "en": "An upload traces its progress around the edge of the drop zone it was dropped on, with a percent pill in the corner. The line turns green at 100 %. The number is real; it never crawls toward 90 % and waits.",
+    "id": "Unggahan menelusuri kemajuannya di sepanjang tepi drop zone tempat berkas dijatuhkan, dengan pil persentase di sudutnya. Garisnya berubah hijau di 100%. Angkanya nyata; tidak pernah merayap ke 90% lalu diam menunggu."
+  },
+  "titleId": "Upload progress",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Upload a thesis",
+        "desc": "Press Upload. The line runs around the edge as bytes arrive and the pill counts; at 100 % both turn green.",
+        "html": "<div class=\"drop\" style=\"max-width: 420px;\"><span class=\"ic\" aria-hidden=\"true\">cloud_upload</span><span class=\"card__title\">thesis-final.pdf</span><span class=\"card__sub\">4.2 MB</span><button class=\"btn btn--secondary btn--sm\" style=\"margin-top: 6px;\" onclick=\"const drop = this.closest('.drop'); const meta = drop.querySelector('.card__sub'); this.disabled = true; import('../../js/lds.js').then((m) => { m.uploadReset(drop); let p = 0; const t = setInterval(() => { p += 7 + Math.random() * 9;  m.uploadProgress(drop, Math.min(p, 100)); meta.textContent = Math.round(Math.min(p, 100) * 0.042 * 10) / 10 + ' of 4.2 MB'; if (p >= 100) { clearInterval(t); meta.textContent = 'Uploaded, 4.2 MB'; this.disabled = false; this.textContent = 'Upload again'; } }, 220); });\">Upload</button></div>",
+        "code": "import { uploadProgress, uploadReset } from 'lampung-design-system/js';\n\nxhr.upload.onprogress = (e) => uploadProgress(drop, (e.loaded / e.total) * 100);\n// to start over: uploadReset(drop)"
+      },
+      {
+        "title": "An upload that stops",
+        "desc": "This one fails halfway: the trace disappears, the zone shakes, and the reason replaces the size in words, with a way to try again.",
+        "html": "<div class=\"drop\" style=\"max-width: 420px;\"><span class=\"ic\" aria-hidden=\"true\">cloud_upload</span><span class=\"card__title\">lecture-6.mp4</span><span class=\"card__sub\">4.2 MB</span><button class=\"btn btn--secondary btn--sm\" style=\"margin-top: 6px;\" onclick=\"const drop = this.closest('.drop'); const meta = drop.querySelector('.card__sub'); this.disabled = true; import('../../js/lds.js').then((m) => { m.uploadReset(drop); let p = 0; const t = setInterval(() => { p += 7 + Math.random() * 9; if (p > 55) { clearInterval(t); m.uploadReset(drop); meta.textContent = 'Upload stopped at 58 %. Check your connection and try again.'; meta.classList.add('field__help--error'); this.disabled = false; this.textContent = 'Try again'; m.shake(drop); return; } m.uploadProgress(drop, Math.min(p, 100)); meta.textContent = Math.round(Math.min(p, 100) * 0.042 * 10) / 10 + ' of 4.2 MB'; if (p >= 100) { clearInterval(t); meta.textContent = 'Uploaded, 4.2 MB'; this.disabled = false; this.textContent = 'Upload again'; } }, 220); });\">Upload</button></div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Mengunggah dokumen izin",
+        "desc": "Tekan Unggah. Garis berjalan di sepanjang tepi seiring data terkirim dan pil menghitung; di 100% keduanya berubah hijau.",
+        "html": "<div class=\"drop\" style=\"max-width: 420px;\"><span class=\"ic\" aria-hidden=\"true\">cloud_upload</span><span class=\"card__title\">dokumen-izin-lingkungan.pdf</span><span class=\"card__sub\">4,2 MB</span><button class=\"btn btn--secondary btn--sm\" style=\"margin-top: 6px;\" onclick=\"const drop = this.closest('.drop'); const meta = drop.querySelector('.card__sub'); this.disabled = true; import('../../js/lds.js').then((m) => { m.uploadReset(drop); let p = 0; const t = setInterval(() => { p += 7 + Math.random() * 9;  m.uploadProgress(drop, Math.min(p, 100)); meta.textContent = String(Math.round(Math.min(p, 100) * 0.042 * 10) / 10).replace('.', ',') + ' dari 4,2 MB'; if (p >= 100) { clearInterval(t); meta.textContent = 'Terunggah, 4,2 MB'; this.disabled = false; this.textContent = 'Unggah lagi'; } }, 220); });\">Unggah</button></div>",
+        "code": "import { uploadProgress, uploadReset } from 'lampung-design-system/js';\n\nxhr.upload.onprogress = (e) => uploadProgress(drop, (e.loaded / e.total) * 100);\n// to start over: uploadReset(drop)"
+      },
+      {
+        "title": "Unggahan yang berhenti",
+        "desc": "Yang ini gagal di tengah jalan: garisnya hilang, zonanya bergoyang, dan alasannya menggantikan ukuran berkas dalam kata-kata, dengan cara untuk mencoba lagi.",
+        "html": "<div class=\"drop\" style=\"max-width: 420px;\"><span class=\"ic\" aria-hidden=\"true\">cloud_upload</span><span class=\"card__title\">rekaman-musrenbang.mp4</span><span class=\"card__sub\">4,2 MB</span><button class=\"btn btn--secondary btn--sm\" style=\"margin-top: 6px;\" onclick=\"const drop = this.closest('.drop'); const meta = drop.querySelector('.card__sub'); this.disabled = true; import('../../js/lds.js').then((m) => { m.uploadReset(drop); let p = 0; const t = setInterval(() => { p += 7 + Math.random() * 9; if (p > 55) { clearInterval(t); m.uploadReset(drop); meta.textContent = 'Unggahan berhenti di 58%. Periksa koneksi Anda lalu coba lagi.'; meta.classList.add('field__help--error'); this.disabled = false; this.textContent = 'Coba lagi'; m.shake(drop); return; } m.uploadProgress(drop, Math.min(p, 100)); meta.textContent = String(Math.round(Math.min(p, 100) * 0.042 * 10) / 10).replace('.', ',') + ' dari 4,2 MB'; if (p >= 100) { clearInterval(t); meta.textContent = 'Terunggah, 4,2 MB'; this.disabled = false; this.textContent = 'Unggah lagi'; } }, 220); });\">Unggah</button></div>"
+      }
+    ]
+  },
+  "related": [
+    "file-input",
+    "progress-bar",
+    "thinking",
+    "haptics"
+  ]
+}

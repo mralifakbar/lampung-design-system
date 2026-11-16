@@ -1,0 +1,57 @@
+{
+  "version": "0.1.0",
+  "slug": "amount-field",
+  "title": "Amount field",
+  "group": "Inputs",
+  "order": 2,
+  "summary": {
+    "en": "A text field for money and other numbers with a unit: the currency or unit sits inside the control as text, the keyboard is numeric. Type the number, never the symbol.",
+    "id": "Text field untuk uang dan angka lain yang bersatuan: mata uang atau satuannya berada di dalam kontrol sebagai teks, keyboard-nya numerik. Ketik angkanya, jangan pernah simbolnya."
+  },
+  "titleId": "Amount field",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Money with a currency and a period",
+        "desc": "The number groups its thousands as you type; the prefix and the period stay outside the value.",
+        "html": "<div class=\"field\" style=\"max-width: 320px;\">\n  <label class=\"field__label\" for=\"af-fee\">Monthly fee</label>\n  <div class=\"control\"><span class=\"control__suffix\">Rp</span><input id=\"af-fee\" inputmode=\"numeric\" autocomplete=\"off\" placeholder=\"0\" value=\"350.000\" aria-describedby=\"af-fee-help\"\n    oninput=\"const d = this.value.replace(/\\D/g, '').slice(0, 12); this.value = d ? Number(d).toLocaleString('id-ID') : '';\"><span class=\"control__suffix\">per month</span></div>\n  <span class=\"field__help\" id=\"af-fee-help\">Rounded to the nearest thousand.</span>\n</div>",
+        "code": "<div class=\"field\">\n  <label class=\"field__label\" for=\"fee\">Monthly fee</label>\n  <div class=\"control\">\n    <span class=\"control__suffix\">Rp</span>\n    <input id=\"fee\" inputmode=\"numeric\" autocomplete=\"off\" placeholder=\"0\" aria-describedby=\"fee-help\">\n    <span class=\"control__suffix\">per month</span>\n  </div>\n  <span class=\"field__help\" id=\"fee-help\">Rounded to the nearest thousand.</span>\n</div>\n<!-- Group digits on input in your own code, and parse the digits back before sending. -->"
+      },
+      {
+        "title": "Over the limit",
+        "desc": "The error names the limit and the current balance, so the fix is obvious.",
+        "html": "<div class=\"field\" style=\"max-width: 320px;\">\n  <label class=\"field__label\" for=\"af-pay\">Amount to withdraw</label>\n  <div class=\"control is-invalid\"><span class=\"control__suffix\">Rp</span><input id=\"af-pay\" inputmode=\"numeric\" value=\"2.500.000\" aria-invalid=\"true\" aria-describedby=\"af-pay-help\"></div>\n  <span class=\"field__help field__help--error\" id=\"af-pay-help\"><span class=\"ic\" aria-hidden=\"true\">error</span>Your balance is Rp 1.840.000. Enter that amount or less.</span>\n</div>"
+      },
+      {
+        "title": "Units other than money",
+        "desc": "Percent and weight follow the same shape. Decimals use `inputmode=\"decimal\"`.",
+        "html": "<div class=\"form__row\" style=\"max-width: 520px;\">\n  <div class=\"field\"><label class=\"field__label\" for=\"af-disc\">Discount</label><div class=\"control\"><input id=\"af-disc\" inputmode=\"decimal\" value=\"12,5\"><span class=\"control__suffix\">%</span></div></div>\n  <div class=\"field\"><label class=\"field__label\" for=\"af-time\">Time per question</label><div class=\"control\"><input id=\"af-time\" inputmode=\"numeric\" value=\"90\"><span class=\"control__suffix\">seconds</span></div></div>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Uang dengan mata uang dan periode",
+        "desc": "Angka mengelompokkan ribuan saat diketik; awalan dan periode tetap di luar nilai.",
+        "html": "<div class=\"field\" style=\"max-width: 320px;\">\n  <label class=\"field__label\" for=\"af-fee\">Iuran bulanan</label>\n  <div class=\"control\"><span class=\"control__suffix\">Rp</span><input id=\"af-fee\" inputmode=\"numeric\" autocomplete=\"off\" placeholder=\"0\" value=\"350.000\" aria-describedby=\"af-fee-help\"\n    oninput=\"const d = this.value.replace(/\\D/g, '').slice(0, 12); this.value = d ? Number(d).toLocaleString('id-ID') : '';\"><span class=\"control__suffix\">per bulan</span></div>\n  <span class=\"field__help\" id=\"af-fee-help\">Dibulatkan ke ribuan terdekat.</span>\n</div>",
+        "code": "<div class=\"field\">\n  <label class=\"field__label\" for=\"fee\">Iuran bulanan</label>\n  <div class=\"control\">\n    <span class=\"control__suffix\">Rp</span>\n    <input id=\"fee\" inputmode=\"numeric\" autocomplete=\"off\" placeholder=\"0\" aria-describedby=\"fee-help\">\n    <span class=\"control__suffix\">per bulan</span>\n  </div>\n  <span class=\"field__help\" id=\"fee-help\">Dibulatkan ke ribuan terdekat.</span>\n</div>\n<!-- Group digits on input in your own code, and parse the digits back before sending. -->"
+      },
+      {
+        "title": "Melebihi batas",
+        "desc": "Pesan galat menyebut batas dan saldo saat ini, sehingga perbaikannya jelas.",
+        "html": "<div class=\"field\" style=\"max-width: 320px;\">\n  <label class=\"field__label\" for=\"af-pay\">Jumlah yang dicairkan</label>\n  <div class=\"control is-invalid\"><span class=\"control__suffix\">Rp</span><input id=\"af-pay\" inputmode=\"numeric\" value=\"2.500.000\" aria-invalid=\"true\" aria-describedby=\"af-pay-help\"></div>\n  <span class=\"field__help field__help--error\" id=\"af-pay-help\"><span class=\"ic\" aria-hidden=\"true\">error</span>Saldo Anda Rp 1.840.000. Masukkan jumlah itu atau kurang.</span>\n</div>"
+      },
+      {
+        "title": "Satuan selain uang",
+        "desc": "Persen dan berat mengikuti bentuk yang sama. Desimal memakai `inputmode=\"decimal\"`.",
+        "html": "<div class=\"form__row\" style=\"max-width: 520px;\">\n  <div class=\"field\"><label class=\"field__label\" for=\"af-disc\">Keringanan retribusi</label><div class=\"control\"><input id=\"af-disc\" inputmode=\"decimal\" value=\"12,5\"><span class=\"control__suffix\">%</span></div></div>\n  <div class=\"field\"><label class=\"field__label\" for=\"af-time\">Waktu layanan per warga</label><div class=\"control\"><input id=\"af-time\" inputmode=\"numeric\" value=\"90\"><span class=\"control__suffix\">detik</span></div></div>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "text-field",
+    "number-stepper",
+    "rolling-number",
+    "form-layout"
+  ]
+}

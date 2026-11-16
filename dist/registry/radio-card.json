@@ -1,0 +1,47 @@
+{
+  "version": "0.1.0",
+  "slug": "radio-card",
+  "title": "Radio card",
+  "group": "Selection",
+  "order": 3,
+  "summary": {
+    "en": "A selectable card for one choice among two to four options that each need a title, a line of detail and often a price. The whole card is the target; the chosen one gets an accent edge and tint.",
+    "id": "Kartu yang bisa dipilih untuk satu pilihan di antara dua sampai empat opsi yang masing-masing butuh judul, satu baris keterangan, dan sering kali harga. Seluruh kartu adalah targetnya; yang dipilih mendapat tepi dan warna aksen."
+  },
+  "titleId": "Radio card",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Choose a plan",
+        "desc": "Click a card, or focus the group and use the arrow keys: focus and selection move together, as with native radios.",
+        "html": "<div class=\"stack\" role=\"radiogroup\" aria-label=\"Plan\" style=\"max-width: 460px; width: 100%;\" onclick=\"const c = event.target.closest('.rcard'); if (!c) return; this.querySelectorAll('.rcard').forEach((r) => { const on = r === c; r.setAttribute('aria-checked', String(on)); r.tabIndex = on ? 0 : -1; });\" onkeydown=\"const cards = [...this.querySelectorAll('.rcard')], i = cards.indexOf(document.activeElement), d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[event.key]; if (d === undefined || i < 0) return; event.preventDefault(); const n = cards[(i + d + cards.length) % cards.length]; n.focus(); n.click();\">\n  <button type=\"button\" class=\"rcard\" role=\"radio\" aria-checked=\"false\" tabindex=\"-1\"><span class=\"radio__dot\" aria-hidden=\"true\"></span><span><span class=\"rcard__title\" style=\"display: block;\">Free</span><span class=\"rcard__sub\" style=\"display: block;\">Five tryouts a month, basic scores</span></span><span class=\"rcard__price\">Rp 0</span></button>\n  <button type=\"button\" class=\"rcard\" role=\"radio\" aria-checked=\"true\" tabindex=\"0\"><span class=\"radio__dot\" aria-hidden=\"true\"></span><span><span class=\"rcard__title\" style=\"display: block;\">Monthly</span><span class=\"rcard__sub\" style=\"display: block;\">Unlimited tryouts and explanations</span></span><span class=\"rcard__price\">Rp 49.000</span></button>\n  <button type=\"button\" class=\"rcard\" role=\"radio\" aria-checked=\"false\" tabindex=\"-1\"><span class=\"radio__dot\" aria-hidden=\"true\"></span><span><span class=\"rcard__title\" style=\"display: block;\">Until exam day</span><span class=\"rcard__sub\" style=\"display: block;\">Everything, plus a study plan</span></span><span class=\"rcard__price\">Rp 199.000</span></button>\n</div>",
+        "code": "<div class=\"stack\" role=\"radiogroup\" aria-label=\"Plan\">\n  <button type=\"button\" class=\"rcard\" role=\"radio\" aria-checked=\"false\" tabindex=\"-1\">\n    <span class=\"radio__dot\" aria-hidden=\"true\"></span>\n    <span><span class=\"rcard__title\" style=\"display: block;\">Free</span><span class=\"rcard__sub\" style=\"display: block;\">Five tryouts a month, basic scores</span></span>\n    <span class=\"rcard__price\">Rp 0</span>\n  </button>\n  <button type=\"button\" class=\"rcard\" role=\"radio\" aria-checked=\"true\" tabindex=\"0\">…</button>\n</div>\n<!-- Your code: a click sets aria-checked on that card only; arrow keys move focus and selection; only the checked card has tabindex 0. -->"
+      },
+      {
+        "title": "Side by side, without prices",
+        "desc": "Two modes with an explanation each, in an auto grid that stacks on phones.",
+        "html": "<div class=\"auto-grid\" role=\"radiogroup\" aria-label=\"Mode\" style=\"--min: 220px; max-width: 560px; width: 100%;\" onclick=\"const c = event.target.closest('.rcard'); if (!c) return; this.querySelectorAll('.rcard').forEach((r) => { const on = r === c; r.setAttribute('aria-checked', String(on)); r.tabIndex = on ? 0 : -1; });\" onkeydown=\"const cards = [...this.querySelectorAll('.rcard')], i = cards.indexOf(document.activeElement), d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[event.key]; if (d === undefined || i < 0) return; event.preventDefault(); const n = cards[(i + d + cards.length) % cards.length]; n.focus(); n.click();\">\n  <button type=\"button\" class=\"rcard\" role=\"radio\" aria-checked=\"true\" tabindex=\"0\"><span class=\"radio__dot\" aria-hidden=\"true\"></span><span><span class=\"rcard__title\" style=\"display: block;\">Practice mode</span><span class=\"rcard__sub\" style=\"display: block;\">See the answer after each question</span></span></button>\n  <button type=\"button\" class=\"rcard\" role=\"radio\" aria-checked=\"false\" tabindex=\"-1\"><span class=\"radio__dot\" aria-hidden=\"true\"></span><span><span class=\"rcard__title\" style=\"display: block;\">Exam mode</span><span class=\"rcard__sub\" style=\"display: block;\">Timed, answers shown at the end</span></span></button>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Pilih cara pengambilan dokumen",
+        "desc": "Klik sebuah kartu, atau fokuskan kelompoknya lalu pakai tombol panah: fokus dan pilihan berpindah bersama, seperti radio bawaan.",
+        "html": "<div class=\"stack\" role=\"radiogroup\" aria-label=\"Cara pengambilan\" style=\"max-width: 460px; width: 100%;\" onclick=\"const c = event.target.closest('.rcard'); if (!c) return; this.querySelectorAll('.rcard').forEach((r) => { const on = r === c; r.setAttribute('aria-checked', String(on)); r.tabIndex = on ? 0 : -1; });\" onkeydown=\"const cards = [...this.querySelectorAll('.rcard')], i = cards.indexOf(document.activeElement), d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[event.key]; if (d === undefined || i < 0) return; event.preventDefault(); const n = cards[(i + d + cards.length) % cards.length]; n.focus(); n.click();\">\n  <button type=\"button\" class=\"rcard\" role=\"radio\" aria-checked=\"false\" tabindex=\"-1\"><span class=\"radio__dot\" aria-hidden=\"true\"></span><span><span class=\"rcard__title\" style=\"display: block;\">Ambil di loket</span><span class=\"rcard__sub\" style=\"display: block;\">Siap 3 hari kerja, bawa bukti permohonan</span></span><span class=\"rcard__price\">Rp 0</span></button>\n  <button type=\"button\" class=\"rcard\" role=\"radio\" aria-checked=\"true\" tabindex=\"0\"><span class=\"radio__dot\" aria-hidden=\"true\"></span><span><span class=\"rcard__title\" style=\"display: block;\">Kirim pos</span><span class=\"rcard__sub\" style=\"display: block;\">Tiba 5 sampai 7 hari kerja</span></span><span class=\"rcard__price\">Rp 15.000</span></button>\n  <button type=\"button\" class=\"rcard\" role=\"radio\" aria-checked=\"false\" tabindex=\"-1\"><span class=\"radio__dot\" aria-hidden=\"true\"></span><span><span class=\"rcard__title\" style=\"display: block;\">Kurir kilat</span><span class=\"rcard__sub\" style=\"display: block;\">Tiba esok hari di dalam kota</span></span><span class=\"rcard__price\">Rp 35.000</span></button>\n</div>",
+        "code": "<div class=\"stack\" role=\"radiogroup\" aria-label=\"Cara pengambilan\">\n  <button type=\"button\" class=\"rcard\" role=\"radio\" aria-checked=\"false\" tabindex=\"-1\">\n    <span class=\"radio__dot\" aria-hidden=\"true\"></span>\n    <span><span class=\"rcard__title\" style=\"display: block;\">Ambil di loket</span><span class=\"rcard__sub\" style=\"display: block;\">Siap 3 hari kerja, bawa bukti permohonan</span></span>\n    <span class=\"rcard__price\">Rp 0</span>\n  </button>\n  <button type=\"button\" class=\"rcard\" role=\"radio\" aria-checked=\"true\" tabindex=\"0\">…</button>\n</div>\n<!-- Your code: a click sets aria-checked on that card only; arrow keys move focus and selection; only the checked card has tabindex 0. -->"
+      },
+      {
+        "title": "Berdampingan, tanpa harga",
+        "desc": "Dua cara dengan penjelasan masing-masing, dalam auto grid yang menumpuk di ponsel.",
+        "html": "<div class=\"auto-grid\" role=\"radiogroup\" aria-label=\"Cara layanan\" style=\"--min: 220px; max-width: 560px; width: 100%;\" onclick=\"const c = event.target.closest('.rcard'); if (!c) return; this.querySelectorAll('.rcard').forEach((r) => { const on = r === c; r.setAttribute('aria-checked', String(on)); r.tabIndex = on ? 0 : -1; });\" onkeydown=\"const cards = [...this.querySelectorAll('.rcard')], i = cards.indexOf(document.activeElement), d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[event.key]; if (d === undefined || i < 0) return; event.preventDefault(); const n = cards[(i + d + cards.length) % cards.length]; n.focus(); n.click();\">\n  <button type=\"button\" class=\"rcard\" role=\"radio\" aria-checked=\"true\" tabindex=\"0\"><span class=\"radio__dot\" aria-hidden=\"true\"></span><span><span class=\"rcard__title\" style=\"display: block;\">Datang ke kantor</span><span class=\"rcard__sub\" style=\"display: block;\">Pilih jam kunjungan dan ambil nomor antrean</span></span></button>\n  <button type=\"button\" class=\"rcard\" role=\"radio\" aria-checked=\"false\" tabindex=\"-1\"><span class=\"radio__dot\" aria-hidden=\"true\"></span><span><span class=\"rcard__title\" style=\"display: block;\">Layanan daring</span><span class=\"rcard__sub\" style=\"display: block;\">Unggah berkas, hasil dikirim lewat email</span></span></button>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "radio",
+    "select",
+    "segmented-control",
+    "card"
+  ]
+}

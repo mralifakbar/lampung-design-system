@@ -1,0 +1,47 @@
+{
+  "version": "0.1.0",
+  "slug": "dialog",
+  "title": "Dialog",
+  "group": "Overlays",
+  "order": 1,
+  "summary": {
+    "en": "A small centered layer that interrupts to ask for one short input or decision, then gets out of the way. Use rarely: most tasks belong on the page, in a sheet or in a drawer.",
+    "id": "Lapisan kecil di tengah yang menyela untuk meminta satu isian singkat atau satu keputusan, lalu menyingkir. Pakai seperlunya: sebagian besar tugas tempatnya di halaman, sheet, atau drawer."
+  },
+  "titleId": "Dialog",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Rename a course",
+        "desc": "Open it: focus lands in the field, Tab stays inside, Escape or the scrim closes it and focus returns to the button.",
+        "html": "<div class=\"viewport docs-box\">\n  <div class=\"viewport__content\">\n    <button class=\"btn btn--secondary btn--md\" data-lds-open=\"dlg-rename\" aria-haspopup=\"dialog\"><span class=\"ic\" aria-hidden=\"true\">edit</span>Rename course</button>\n  </div>\n  <div class=\"scrim\" data-lds-scrim=\"dlg-rename\"></div>\n  <div class=\"dialog\" id=\"dlg-rename\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"dlg-rename-t\" data-lds-layer>\n    <button class=\"icon-btn dialog__close\" aria-label=\"Close\" data-lds-close><span class=\"ic\" aria-hidden=\"true\">close</span></button>\n    <h3 class=\"dialog__title\" id=\"dlg-rename-t\">Rename course</h3>\n    <p class=\"dialog__body\">Students see the new name the next time they open the app.</p>\n    <div class=\"control\" style=\"margin-top: 16px;\"><input aria-label=\"Course name\" value=\"Database Systems\" data-lds-autofocus></div>\n    <div class=\"dialog__actions\"><button class=\"btn btn--secondary btn--md\" data-lds-close>Cancel</button><button class=\"btn btn--primary btn--md\" data-lds-close>Save name</button></div>\n  </div>\n</div>",
+        "code": "<button class=\"btn btn--secondary\" data-lds-open=\"rename\" aria-haspopup=\"dialog\">Rename course</button>\n\n<div class=\"scrim\" data-lds-scrim=\"rename\"></div>\n<div class=\"dialog\" id=\"rename\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"rename-t\" data-lds-layer>\n  <button class=\"icon-btn dialog__close\" aria-label=\"Close\" data-lds-close><span class=\"ic\" aria-hidden=\"true\">close</span></button>\n  <h2 class=\"dialog__title\" id=\"rename-t\">Rename course</h2>\n  <p class=\"dialog__body\">Students see the new name the next time they open the app.</p>\n  <div class=\"control\" style=\"margin-top: 16px;\"><input aria-label=\"Course name\" value=\"Database Systems\" data-lds-autofocus></div>\n  <div class=\"dialog__actions\">\n    <button class=\"btn btn--secondary\" data-lds-close>Cancel</button>\n    <button class=\"btn btn--primary\" data-lds-close>Save name</button>\n  </div>\n</div>"
+      },
+      {
+        "title": "A short choice",
+        "desc": "No field, two outcomes. The first focusable element (the close button, if present) takes focus when nothing is marked with `data-lds-autofocus`.",
+        "html": "<div class=\"viewport docs-box\">\n  <div class=\"viewport__content\">\n    <button class=\"btn btn--secondary btn--md\" data-lds-open=\"dlg-publish\" aria-haspopup=\"dialog\">Publish results</button>\n  </div>\n  <div class=\"scrim\" data-lds-scrim=\"dlg-publish\"></div>\n  <div class=\"dialog\" id=\"dlg-publish\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"dlg-publish-t\" aria-describedby=\"dlg-publish-b\" data-lds-layer>\n    <h3 class=\"dialog__title\" id=\"dlg-publish-t\">Publish results now?</h3>\n    <p class=\"dialog__body\" id=\"dlg-publish-b\">32 students get a notification with their score. You can still edit scores afterwards.</p>\n    <div class=\"dialog__actions\"><button class=\"btn btn--secondary btn--md\" data-lds-close>Not yet</button><button class=\"btn btn--primary btn--md\" data-lds-close data-lds-autofocus>Publish</button></div>\n  </div>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Ganti nama layanan",
+        "desc": "Buka: fokus mendarat di field, Tab tetap di dalam, Escape atau scrim menutupnya dan fokus kembali ke tombol.",
+        "html": "<div class=\"viewport docs-box\">\n  <div class=\"viewport__content\">\n    <button class=\"btn btn--secondary btn--md\" data-lds-open=\"dlg-rename\" aria-haspopup=\"dialog\"><span class=\"ic\" aria-hidden=\"true\">edit</span>Ganti nama layanan</button>\n  </div>\n  <div class=\"scrim\" data-lds-scrim=\"dlg-rename\"></div>\n  <div class=\"dialog\" id=\"dlg-rename\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"dlg-rename-t\" data-lds-layer>\n    <button class=\"icon-btn dialog__close\" aria-label=\"Tutup\" data-lds-close><span class=\"ic\" aria-hidden=\"true\">close</span></button>\n    <h3 class=\"dialog__title\" id=\"dlg-rename-t\">Ganti nama layanan</h3>\n    <p class=\"dialog__body\">Warga melihat nama baru saat membuka aplikasi berikutnya.</p>\n    <div class=\"control\" style=\"margin-top: 16px;\"><input aria-label=\"Nama layanan\" value=\"Izin usaha mikro\" data-lds-autofocus></div>\n    <div class=\"dialog__actions\"><button class=\"btn btn--secondary btn--md\" data-lds-close>Batal</button><button class=\"btn btn--primary btn--md\" data-lds-close>Simpan nama</button></div>\n  </div>\n</div>",
+        "code": "<button class=\"btn btn--secondary\" data-lds-open=\"rename\" aria-haspopup=\"dialog\">Ganti nama layanan</button>\n\n<div class=\"scrim\" data-lds-scrim=\"rename\"></div>\n<div class=\"dialog\" id=\"rename\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"rename-t\" data-lds-layer>\n  <button class=\"icon-btn dialog__close\" aria-label=\"Tutup\" data-lds-close><span class=\"ic\" aria-hidden=\"true\">close</span></button>\n  <h2 class=\"dialog__title\" id=\"rename-t\">Ganti nama layanan</h2>\n  <p class=\"dialog__body\">Warga melihat nama baru saat membuka aplikasi berikutnya.</p>\n  <div class=\"control\" style=\"margin-top: 16px;\"><input aria-label=\"Nama layanan\" value=\"Izin usaha mikro\" data-lds-autofocus></div>\n  <div class=\"dialog__actions\">\n    <button class=\"btn btn--secondary\" data-lds-close>Batal</button>\n    <button class=\"btn btn--primary\" data-lds-close>Simpan nama</button>\n  </div>\n</div>"
+      },
+      {
+        "title": "Pilihan singkat",
+        "desc": "Tanpa field, dua hasil. Elemen pertama yang bisa difokus (tombol tutup, jika ada) mendapat fokus bila tidak ada yang ditandai `data-lds-autofocus`.",
+        "html": "<div class=\"viewport docs-box\">\n  <div class=\"viewport__content\">\n    <button class=\"btn btn--secondary btn--md\" data-lds-open=\"dlg-publish\" aria-haspopup=\"dialog\">Umumkan hasil</button>\n  </div>\n  <div class=\"scrim\" data-lds-scrim=\"dlg-publish\"></div>\n  <div class=\"dialog\" id=\"dlg-publish\" role=\"dialog\" aria-modal=\"true\" aria-labelledby=\"dlg-publish-t\" aria-describedby=\"dlg-publish-b\" data-lds-layer>\n    <h3 class=\"dialog__title\" id=\"dlg-publish-t\">Umumkan hasil seleksi sekarang?</h3>\n    <p class=\"dialog__body\" id=\"dlg-publish-b\">32 pendaftar menerima notifikasi berisi hasil mereka. Anda masih bisa mengubah hasil setelahnya.</p>\n    <div class=\"dialog__actions\"><button class=\"btn btn--secondary btn--md\" data-lds-close>Nanti saja</button><button class=\"btn btn--primary btn--md\" data-lds-close data-lds-autofocus>Umumkan</button></div>\n  </div>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "alert-dialog",
+    "modal",
+    "sheet",
+    "drawer"
+  ]
+}

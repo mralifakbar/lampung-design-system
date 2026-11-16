@@ -1,0 +1,48 @@
+{
+  "version": "0.1.0",
+  "slug": "combobox",
+  "title": "Combobox",
+  "group": "Inputs",
+  "order": 9,
+  "summary": {
+    "en": "A text field that filters a list of options as you type and stores the one picked. For long lists and server-backed options; it says so when nothing matches.",
+    "id": "Text field yang menyaring daftar opsi saat Anda mengetik dan menyimpan satu yang dipilih. Untuk daftar panjang dan opsi dari server; ia memberi tahu saat tidak ada yang cocok."
+  },
+  "titleId": "Combobox",
+  "react": true,
+  "examples": {
+    "en": [
+      {
+        "title": "Province",
+        "desc": "Focus selects the text and opens the list; typing filters on any part of the name; Enter picks the highlighted row. Try \"java\" or \"kal\".",
+        "html": "<div class=\"field\" style=\"max-width: 360px; width: 100%;\">\n  <label class=\"field__label\" for=\"cb-prov\">Province</label>\n  <div class=\"select combobox\" data-lds-combobox>\n    <div class=\"control combobox__control\"><span class=\"ic\" aria-hidden=\"true\">location_on</span><input id=\"cb-prov\" role=\"combobox\" placeholder=\"All provinces\"><span class=\"control__btn combobox__arrow\" aria-hidden=\"true\"><span class=\"ic\">expand_more</span></span></div>\n    <ul class=\"menu select__menu\" role=\"listbox\" aria-label=\"Province\">\n      <li class=\"menu__item\" role=\"option\" data-value=\"jabar\">West Java</li>\n      <li class=\"menu__item\" role=\"option\" data-value=\"jateng\">Central Java</li>\n      <li class=\"menu__item\" role=\"option\" data-value=\"jatim\">East Java</li>\n      <li class=\"menu__item\" role=\"option\" data-value=\"bali\">Bali</li>\n      <li class=\"menu__item\" role=\"option\" data-value=\"kalbar\">West Kalimantan</li>\n      <li class=\"menu__item\" role=\"option\" data-value=\"kaltim\">East Kalimantan</li>\n      <li class=\"menu__item\" role=\"option\" data-value=\"sulsel\">South Sulawesi</li>\n      <li class=\"menu__item\" role=\"option\" data-value=\"papua\">Papua</li>\n      <li class=\"select__empty\" role=\"presentation\" hidden>Nothing matches. Try other words.</li>\n    </ul>\n  </div>\n</div>"
+      },
+      {
+        "title": "Options from a server (React)",
+        "desc": "With `loadOptions` the query is debounced (180 ms) and the previous request is aborted when the text changes; a spinner shows in the field while loading. `minChars` waits for enough letters.",
+        "html": "<div class=\"field\" style=\"max-width: 360px; width: 100%;\">\n  <label class=\"field__label\" for=\"cb-uni\">University</label>\n  <div class=\"select combobox\">\n    <div class=\"control combobox__control is-open\"><span class=\"ic\" aria-hidden=\"true\">school</span><input id=\"cb-uni\" role=\"combobox\" aria-expanded=\"true\" aria-autocomplete=\"list\" aria-controls=\"cb-uni-list\" value=\"univ\"><span class=\"spinner\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>\n    <ul class=\"menu select__menu is-open\" role=\"listbox\" id=\"cb-uni-list\" aria-label=\"University\">\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\"><span class=\"select__text\">State University of Surabaya<small>Surabaya, East Java</small></span></li>\n      <li class=\"menu__item is-hover\" role=\"option\" aria-selected=\"false\"><span class=\"select__text\">University of Mataram<small>Mataram, West Nusa Tenggara</small></span></li>\n    </ul>\n  </div>\n</div>",
+        "code": "<Combobox\n  label=\"University\"\n  icon=\"school\"\n  value={uni}\n  onChange={setUni}\n  minChars={3}\n  loadOptions={(q, signal) =>\n    fetch(`/api/universities?q=${encodeURIComponent(q)}`, { signal }).then((r) => r.json())\n  }\n/>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Provinsi",
+        "desc": "Fokus memilih teks dan membuka daftar; mengetik menyaring bagian mana pun dari nama; Enter memilih baris yang disorot. Coba \"jawa\" atau \"kal\".",
+        "html": "<div class=\"field\" style=\"max-width: 360px; width: 100%;\">\n  <label class=\"field__label\" for=\"cb-prov\">Provinsi</label>\n  <div class=\"select combobox\" data-lds-combobox>\n    <div class=\"control combobox__control\"><span class=\"ic\" aria-hidden=\"true\">location_on</span><input id=\"cb-prov\" role=\"combobox\" placeholder=\"Semua provinsi\"><span class=\"control__btn combobox__arrow\" aria-hidden=\"true\"><span class=\"ic\">expand_more</span></span></div>\n    <ul class=\"menu select__menu\" role=\"listbox\" aria-label=\"Provinsi\">\n      <li class=\"menu__item\" role=\"option\" data-value=\"jabar\">Jawa Barat</li>\n      <li class=\"menu__item\" role=\"option\" data-value=\"jateng\">Jawa Tengah</li>\n      <li class=\"menu__item\" role=\"option\" data-value=\"jatim\">Jawa Timur</li>\n      <li class=\"menu__item\" role=\"option\" data-value=\"bali\">Bali</li>\n      <li class=\"menu__item\" role=\"option\" data-value=\"kalbar\">Kalimantan Barat</li>\n      <li class=\"menu__item\" role=\"option\" data-value=\"kaltim\">Kalimantan Timur</li>\n      <li class=\"menu__item\" role=\"option\" data-value=\"sulsel\">Sulawesi Selatan</li>\n      <li class=\"menu__item\" role=\"option\" data-value=\"papua\">Papua</li>\n      <li class=\"select__empty\" role=\"presentation\" hidden>Tidak ada yang cocok. Coba kata lain.</li>\n    </ul>\n  </div>\n</div>"
+      },
+      {
+        "title": "Opsi dari server (React)",
+        "desc": "Dengan `loadOptions` kueri ditunda (debounce 180 ms) dan permintaan sebelumnya dibatalkan saat teks berubah; spinner tampil di kolom selama memuat. `minChars` menunggu sampai hurufnya cukup.",
+        "html": "<div class=\"field\" style=\"max-width: 360px; width: 100%;\">\n  <label class=\"field__label\" for=\"cb-uni\">Sekolah</label>\n  <div class=\"select combobox\">\n    <div class=\"control combobox__control is-open\"><span class=\"ic\" aria-hidden=\"true\">school</span><input id=\"cb-uni\" role=\"combobox\" aria-expanded=\"true\" aria-autocomplete=\"list\" aria-controls=\"cb-uni-list\" value=\"sma\"><span class=\"spinner\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>\n    <ul class=\"menu select__menu is-open\" role=\"listbox\" id=\"cb-uni-list\" aria-label=\"Sekolah\">\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\"><span class=\"select__text\">SMA Negeri 3 Kotabumi<small>Kotabumi, Lampung Utara</small></span></li>\n      <li class=\"menu__item is-hover\" role=\"option\" aria-selected=\"false\"><span class=\"select__text\">SMA Negeri 1 Pringsewu<small>Pringsewu, Kabupaten Pringsewu</small></span></li>\n    </ul>\n  </div>\n</div>",
+        "code": "<Combobox\n  label=\"Sekolah\"\n  icon=\"school\"\n  value={uni}\n  onChange={setUni}\n  minChars={3}\n  loadOptions={(q, signal) =>\n    fetch(`/api/universities?q=${encodeURIComponent(q)}`, { signal }).then((r) => r.json())\n  }\n/>"
+      }
+    ]
+  },
+  "reactUsage": "import { Combobox } from 'lampung-design-system/react';\n\n// Local options, filtered in the browser\n<Combobox label=\"Province\" icon=\"location_on\" value={prov} onChange={setProv}\n  options={[{ value: 'jabar', label: 'West Java' }, { value: 'bali', label: 'Bali' }]} />\n\n// From a server: debounced 180 ms, aborted when the query changes\n<Combobox label=\"University\" icon=\"school\" value={uni} onChange={setUni} minChars={3}\n  loadOptions={(q, signal) => fetch(`/api/universities?q=${q}`, { signal }).then((r) => r.json())}\n  emptyText=\"No university by that name. Check the spelling.\" />",
+  "related": [
+    "select",
+    "search-field",
+    "tag-input",
+    "command-palette"
+  ]
+}

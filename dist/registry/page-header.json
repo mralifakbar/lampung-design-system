@@ -1,0 +1,45 @@
+{
+  "version": "0.1.0",
+  "slug": "page-header",
+  "title": "Page header",
+  "group": "Navigation",
+  "order": 5,
+  "summary": {
+    "en": "The top of a page: breadcrumbs, the title with one line of context, and the page actions on the same baseline. A composition of existing parts, not a component of its own.",
+    "id": "Bagian atas halaman: breadcrumbs, judul dengan satu baris konteks, dan aksi halaman pada garis dasar yang sama. Gabungan dari bagian yang sudah ada, bukan komponen tersendiri."
+  },
+  "titleId": "Page header",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Course page",
+        "desc": "Breadcrumbs, the title with its context, and two actions on the same baseline.",
+        "html": "<header class=\"stack\" style=\"--gap: 14px;\">\n  <nav aria-label=\"Breadcrumb\">\n    <ol class=\"crumbs\">\n      <li><a href=\"#ph\">Academics</a></li>\n      <li><span class=\"ic\" aria-hidden=\"true\">chevron_right</span></li>\n      <li><a href=\"#ph\">Courses</a></li>\n      <li><span class=\"ic\" aria-hidden=\"true\">chevron_right</span></li>\n      <li><span aria-current=\"page\">Database Systems</span></li>\n    </ol>\n  </nav>\n  <div class=\"cluster\" style=\"justify-content: space-between; align-items: flex-end; --gap: 16px;\">\n    <div class=\"section__head\">\n      <h1 style=\"margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);\">Database Systems</h1>\n      <p class=\"section__sub\">CS 2104 · 3 credits · Mon and Thu, 08:00</p>\n    </div>\n    <div class=\"cluster\">\n      <button class=\"btn btn--secondary btn--md\"><span class=\"ic\" aria-hidden=\"true\">ios_share</span>Share</button>\n      <button class=\"btn btn--primary btn--md\"><span class=\"ic\" aria-hidden=\"true\">add</span>New assignment</button>\n    </div>\n  </div>\n</header>"
+      },
+      {
+        "title": "With tabs under it",
+        "desc": "A record page: no breadcrumbs, a \"more\" menu for rare actions, and tabs as the last line of the header.",
+        "html": "<header class=\"stack\" style=\"--gap: 14px;\">\n  <div class=\"cluster\" style=\"justify-content: space-between; align-items: flex-end; --gap: 16px;\">\n    <div class=\"section__head\">\n      <h1 style=\"margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);\">Rina Wijaya</h1>\n      <p class=\"section__sub\">Student 2023-0418 · Computer Science · Year 2</p>\n    </div>\n    <div class=\"cluster\">\n      <button class=\"btn btn--secondary btn--md\"><span class=\"ic\" aria-hidden=\"true\">mail</span>Send message</button>\n      <button class=\"icon-btn\" aria-label=\"More actions\"><span class=\"ic\" aria-hidden=\"true\">more_horiz</span></button>\n    </div>\n  </div>\n  <div class=\"tabs tabs--start\" role=\"tablist\" aria-label=\"Student record\">\n    <button class=\"tabs__btn\" role=\"tab\" aria-selected=\"true\">Profile</button>\n    <button class=\"tabs__btn\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">Grades</button>\n    <button class=\"tabs__btn\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">Attendance</button>\n  </div>\n</header>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Halaman layanan",
+        "desc": "Breadcrumbs, judul dengan konteksnya, dan dua aksi pada garis dasar yang sama.",
+        "html": "<header class=\"stack\" style=\"--gap: 14px;\">\n  <nav aria-label=\"Breadcrumb\">\n    <ol class=\"crumbs\">\n      <li><a href=\"#ph\">Layanan</a></li>\n      <li><span class=\"ic\" aria-hidden=\"true\">chevron_right</span></li>\n      <li><a href=\"#ph\">Perizinan</a></li>\n      <li><span class=\"ic\" aria-hidden=\"true\">chevron_right</span></li>\n      <li><span aria-current=\"page\">Izin usaha mikro</span></li>\n    </ol>\n  </nav>\n  <div class=\"cluster\" style=\"justify-content: space-between; align-items: flex-end; --gap: 16px;\">\n    <div class=\"section__head\">\n      <h1 style=\"margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);\">Izin usaha mikro</h1>\n      <p class=\"section__sub\">IUM 2104 · selesai 3 hari kerja · Senin sampai Kamis, 08.00</p>\n    </div>\n    <div class=\"cluster\">\n      <button class=\"btn btn--secondary btn--md\"><span class=\"ic\" aria-hidden=\"true\">ios_share</span>Bagikan</button>\n      <button class=\"btn btn--primary btn--md\"><span class=\"ic\" aria-hidden=\"true\">add</span>Permohonan baru</button>\n    </div>\n  </div>\n</header>"
+      },
+      {
+        "title": "Dengan tabs di bawahnya",
+        "desc": "Halaman data: tanpa breadcrumbs, menu \"lainnya\" untuk aksi yang jarang, dan tabs sebagai baris terakhir header.",
+        "html": "<header class=\"stack\" style=\"--gap: 14px;\">\n  <div class=\"cluster\" style=\"justify-content: space-between; align-items: flex-end; --gap: 16px;\">\n    <div class=\"section__head\">\n      <h1 style=\"margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);\">Rina Wijaya</h1>\n      <p class=\"section__sub\">Pemohon 2023-0418 · Kecamatan Kedaton · 2 permohonan aktif</p>\n    </div>\n    <div class=\"cluster\">\n      <button class=\"btn btn--secondary btn--md\"><span class=\"ic\" aria-hidden=\"true\">mail</span>Kirim pesan</button>\n      <button class=\"icon-btn\" aria-label=\"Aksi lainnya\"><span class=\"ic\" aria-hidden=\"true\">more_horiz</span></button>\n    </div>\n  </div>\n  <div class=\"tabs tabs--start\" role=\"tablist\" aria-label=\"Data pemohon\">\n    <button class=\"tabs__btn\" role=\"tab\" aria-selected=\"true\">Profil</button>\n    <button class=\"tabs__btn\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">Permohonan</button>\n    <button class=\"tabs__btn\" role=\"tab\" aria-selected=\"false\" tabindex=\"-1\">Riwayat</button>\n  </div>\n</header>"
+      }
+    ]
+  },
+  "related": [
+    "breadcrumbs",
+    "tabs",
+    "sections",
+    "button"
+  ]
+}

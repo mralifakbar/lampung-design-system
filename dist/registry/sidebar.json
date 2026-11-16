@@ -1,0 +1,47 @@
+{
+  "version": "0.1.0",
+  "slug": "sidebar",
+  "title": "Sidebar",
+  "group": "Navigation",
+  "order": 8,
+  "summary": {
+    "en": "A bordered panel of links with one sliding highlight, placed inside the content: the sections of a settings page, the folders of an inbox. Not the frame of the app.",
+    "id": "Panel berbingkai berisi tautan dengan satu sorotan yang bergeser, diletakkan di dalam konten: bagian-bagian halaman pengaturan, folder kotak masuk. Bukan kerangka aplikasi."
+  },
+  "titleId": "Sidebar",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Workspace sections",
+        "desc": "Pick an item: the highlight glides to it on a spring instead of each item lighting up.",
+        "html": "<nav class=\"sidebar\" aria-label=\"Workspace\" onclick=\"const b = event.target.closest('.sidebar__item'); if (!b) return; this.querySelectorAll('.sidebar__item').forEach((x) => x.removeAttribute('aria-current')); b.setAttribute('aria-current', 'page'); this.querySelector('.sidebar__hl').style.transform = 'translateY(' + b.offsetTop + 'px)';\">\n  <span class=\"sidebar__hl\" aria-hidden=\"true\" style=\"transform: translateY(120px);\"></span>\n  <span class=\"sidebar__head\">Workspace</span>\n  <button class=\"sidebar__item\"><span class=\"ic\" aria-hidden=\"true\">home</span>Home</button>\n  <button class=\"sidebar__item\"><span class=\"ic\" aria-hidden=\"true\">calendar_month</span>Schedule</button>\n  <button class=\"sidebar__item\" aria-current=\"page\"><span class=\"ic\" aria-hidden=\"true\">menu_book</span>Courses<span class=\"sidebar__badge\">6</span></button>\n  <button class=\"sidebar__item\"><span class=\"ic\" aria-hidden=\"true\">assignment</span>Assignments<span class=\"sidebar__badge\">3</span></button>\n  <button class=\"sidebar__item\"><span class=\"ic\" aria-hidden=\"true\">receipt_long</span>Billing</button>\n  <button class=\"sidebar__item\"><span class=\"ic\" aria-hidden=\"true\">settings</span>Settings</button>\n</nav>",
+        "code": "<nav class=\"sidebar\" aria-label=\"Workspace\">\n  <span class=\"sidebar__hl\" aria-hidden=\"true\" style=\"transform: translateY(120px);\"></span>\n  <span class=\"sidebar__head\">Workspace</span>\n  <a class=\"sidebar__item\" href=\"/home\"><span class=\"ic\" aria-hidden=\"true\">home</span>Home</a>\n  <a class=\"sidebar__item\" href=\"/courses\" aria-current=\"page\"><span class=\"ic\" aria-hidden=\"true\">menu_book</span>Courses<span class=\"sidebar__badge\">6</span></a>\n</nav>\n<script type=\"module\">\n  // Move the one highlight to the current item\n  const nav = document.querySelector('.sidebar');\n  const cur = nav.querySelector('[aria-current=\"page\"]');\n  nav.querySelector('.sidebar__hl').style.transform = `translateY(${cur.offsetTop}px)`;\n</script>"
+      },
+      {
+        "title": "Settings page beside its content",
+        "desc": "In the left column of `split-2`; stacks above the content below 860 px.",
+        "html": "<div class=\"split-2\" style=\"--side: 240px;\">\n  <nav class=\"sidebar\" aria-label=\"Settings\">\n    <span class=\"sidebar__hl\" aria-hidden=\"true\" style=\"transform: translateY(10px);\"></span>\n    <a class=\"sidebar__item\" href=\"#sb2\" aria-current=\"page\"><span class=\"ic\" aria-hidden=\"true\">person</span>Profile</a>\n    <a class=\"sidebar__item\" href=\"#sb2\"><span class=\"ic\" aria-hidden=\"true\">notifications</span>Notifications</a>\n    <a class=\"sidebar__item\" href=\"#sb2\"><span class=\"ic\" aria-hidden=\"true\">lock</span>Password and sign in</a>\n  </nav>\n  <div class=\"section\" id=\"sb2\">\n    <div class=\"section__head\"><h2>Profile</h2><p class=\"section__sub\">How your name and photo appear to lecturers and classmates.</p></div>\n  </div>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Bagian ruang kerja",
+        "desc": "Pilih sebuah item: sorotan meluncur ke sana dengan spring, bukan setiap item menyala sendiri.",
+        "html": "<nav class=\"sidebar\" aria-label=\"Ruang kerja\" onclick=\"const b = event.target.closest('.sidebar__item'); if (!b) return; this.querySelectorAll('.sidebar__item').forEach((x) => x.removeAttribute('aria-current')); b.setAttribute('aria-current', 'page'); this.querySelector('.sidebar__hl').style.transform = 'translateY(' + b.offsetTop + 'px)';\">\n  <span class=\"sidebar__hl\" aria-hidden=\"true\" style=\"transform: translateY(120px);\"></span>\n  <span class=\"sidebar__head\">Ruang kerja</span>\n  <button class=\"sidebar__item\"><span class=\"ic\" aria-hidden=\"true\">home</span>Beranda</button>\n  <button class=\"sidebar__item\"><span class=\"ic\" aria-hidden=\"true\">calendar_month</span>Jadwal</button>\n  <button class=\"sidebar__item\" aria-current=\"page\"><span class=\"ic\" aria-hidden=\"true\">menu_book</span>Layanan<span class=\"sidebar__badge\">6</span></button>\n  <button class=\"sidebar__item\"><span class=\"ic\" aria-hidden=\"true\">assignment</span>Permohonan<span class=\"sidebar__badge\">3</span></button>\n  <button class=\"sidebar__item\"><span class=\"ic\" aria-hidden=\"true\">receipt_long</span>Tagihan</button>\n  <button class=\"sidebar__item\"><span class=\"ic\" aria-hidden=\"true\">settings</span>Pengaturan</button>\n</nav>",
+        "code": "<nav class=\"sidebar\" aria-label=\"Ruang kerja\">\n  <span class=\"sidebar__hl\" aria-hidden=\"true\" style=\"transform: translateY(120px);\"></span>\n  <span class=\"sidebar__head\">Ruang kerja</span>\n  <a class=\"sidebar__item\" href=\"/home\"><span class=\"ic\" aria-hidden=\"true\">home</span>Beranda</a>\n  <a class=\"sidebar__item\" href=\"/courses\" aria-current=\"page\"><span class=\"ic\" aria-hidden=\"true\">menu_book</span>Layanan<span class=\"sidebar__badge\">6</span></a>\n</nav>\n<script type=\"module\">\n  // Move the one highlight to the current item\n  const nav = document.querySelector('.sidebar');\n  const cur = nav.querySelector('[aria-current=\"page\"]');\n  nav.querySelector('.sidebar__hl').style.transform = `translateY(${cur.offsetTop}px)`;\n</script>"
+      },
+      {
+        "title": "Halaman pengaturan di samping kontennya",
+        "desc": "Di kolom kiri `split-2`; menumpuk di atas konten di bawah 860 px.",
+        "html": "<div class=\"split-2\" style=\"--side: 240px;\">\n  <nav class=\"sidebar\" aria-label=\"Pengaturan\">\n    <span class=\"sidebar__hl\" aria-hidden=\"true\" style=\"transform: translateY(10px);\"></span>\n    <a class=\"sidebar__item\" href=\"#sb2\" aria-current=\"page\"><span class=\"ic\" aria-hidden=\"true\">person</span>Profil</a>\n    <a class=\"sidebar__item\" href=\"#sb2\"><span class=\"ic\" aria-hidden=\"true\">notifications</span>Notifikasi</a>\n    <a class=\"sidebar__item\" href=\"#sb2\"><span class=\"ic\" aria-hidden=\"true\">lock</span>Kata sandi dan masuk</a>\n  </nav>\n  <div class=\"section\" id=\"sb2\">\n    <div class=\"section__head\"><h2>Profil</h2><p class=\"section__sub\">Cara nama dan foto Anda tampil bagi petugas layanan.</p></div>\n  </div>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "app-shell",
+    "outline",
+    "sliding-indicator",
+    "layout-primitives"
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "version": "0.1.0",
+  "slug": "text-field",
+  "title": "Text field",
+  "group": "Inputs",
+  "order": 1,
+  "summary": {
+    "en": "A single line of free text with its label above and a helper line below. The helper turns into the error message, so the layout never jumps.",
+    "id": "Satu baris teks bebas dengan label di atasnya dan baris bantuan di bawahnya. Baris bantuan berubah menjadi pesan galat, sehingga tata letak tidak pernah melompat."
+  },
+  "titleId": "Text field",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Label, control, helper",
+        "desc": "The label is always visible; the placeholder is only an example, never the label. The helper says the format before anyone gets it wrong.",
+        "html": "<div class=\"form\" style=\"max-width: 420px;\">\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"tf-name\">Full name</label>\n    <div class=\"control\"><input id=\"tf-name\" autocomplete=\"name\" placeholder=\"Siti Rahmawati\" aria-describedby=\"tf-name-help\"></div>\n    <span class=\"field__help\" id=\"tf-name-help\">As written on your ID card.</span>\n  </div>\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"tf-school\">School <span>Optional</span></label>\n    <div class=\"control\"><span class=\"ic\" aria-hidden=\"true\">school</span><input id=\"tf-school\" autocomplete=\"organization\" placeholder=\"SMA Negeri 3 Bandung\"></div>\n  </div>\n</div>"
+      },
+      {
+        "title": "Error and success in the helper slot",
+        "desc": "The helper line becomes the message, so nothing below moves. Errors say what happened and how to fix it. Type a valid address and leave the field to see it turn green.",
+        "html": "<div class=\"form\" style=\"max-width: 420px;\">\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"tf-email\">Email</label>\n    <div class=\"control is-invalid\"><span class=\"ic\" aria-hidden=\"true\">mail</span><input id=\"tf-email\" type=\"email\" autocomplete=\"email\" value=\"siti@campus\" aria-invalid=\"true\" aria-describedby=\"tf-email-help\"\n      onblur=\"const ok = /^[^@\\s]+@[^@\\s]+\\.[^@\\s]{2,}$/.test(this.value); const c = this.parentElement, h = document.getElementById('tf-email-help'); c.classList.toggle('is-invalid', !ok); this.setAttribute('aria-invalid', String(!ok)); h.className = 'field__help ' + (ok ? 'field__help--ok' : 'field__help--error'); h.firstElementChild.textContent = ok ? 'check_circle' : 'error'; h.lastChild.textContent = ok ? 'We will send the receipt here.' : 'This address is missing a domain, like siti@campus.ac.id.';\"></div>\n    <span class=\"field__help field__help--error\" id=\"tf-email-help\"><span class=\"ic\" aria-hidden=\"true\">error</span><span>This address is missing a domain, like siti@campus.ac.id.</span></span>\n  </div>\n</div>",
+        "code": "<div class=\"field\">\n  <label class=\"field__label\" for=\"email\">Email</label>\n  <div class=\"control is-invalid\">\n    <span class=\"ic\" aria-hidden=\"true\">mail</span>\n    <input id=\"email\" type=\"email\" autocomplete=\"email\" aria-invalid=\"true\" aria-describedby=\"email-help\">\n  </div>\n  <span class=\"field__help field__help--error\" id=\"email-help\"><span class=\"ic\" aria-hidden=\"true\">error</span>This address is missing a domain, like siti@campus.ac.id.</span>\n</div>\n\n<!-- Valid -->\n<span class=\"field__help field__help--ok\" id=\"email-help\"><span class=\"ic\" aria-hidden=\"true\">check_circle</span>We will send the receipt here.</span>"
+      },
+      {
+        "title": "Trailing action and disabled",
+        "desc": "A clear button appears once there is text. A disabled field says who can change it, in the helper.",
+        "html": "<div class=\"form\" style=\"max-width: 420px;\">\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"tf-course\">Course name</label>\n    <div class=\"control\"><input id=\"tf-course\" value=\"Database Systems\" oninput=\"this.nextElementSibling.hidden = !this.value\"><button type=\"button\" class=\"control__btn\" aria-label=\"Clear course name\" onclick=\"const i = this.previousElementSibling; i.value = ''; this.hidden = true; i.focus();\"><span class=\"ic\" aria-hidden=\"true\">close</span></button></div>\n  </div>\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"tf-sid\">Student ID</label>\n    <div class=\"control is-disabled\"><span class=\"ic\" aria-hidden=\"true\">lock</span><input id=\"tf-sid\" value=\"2207112045\" disabled aria-describedby=\"tf-sid-help\"></div>\n    <span class=\"field__help\" id=\"tf-sid-help\">Set by the registrar. Ask them to change it.</span>\n  </div>\n</div>"
+      },
+      {
+        "title": "In a form",
+        "desc": "Pairs sit side by side when there is room and stack on phones; the actions end the form and go full width below 560 px.",
+        "html": "<form class=\"form\" style=\"max-width: 560px;\" onsubmit=\"event.preventDefault()\">\n  <div class=\"form__row\">\n    <div class=\"field\"><label class=\"field__label\" for=\"tf-first\">First name</label><div class=\"control\"><input id=\"tf-first\" autocomplete=\"given-name\"></div></div>\n    <div class=\"field\"><label class=\"field__label\" for=\"tf-last\">Last name</label><div class=\"control\"><input id=\"tf-last\" autocomplete=\"family-name\"></div></div>\n  </div>\n  <div class=\"field\"><label class=\"field__label\" for=\"tf-phone\">Phone</label><div class=\"control\"><span class=\"ic\" aria-hidden=\"true\">call</span><input id=\"tf-phone\" type=\"tel\" inputmode=\"tel\" autocomplete=\"tel\" placeholder=\"0812 3456 7890\"></div></div>\n  <div class=\"form__actions\"><button type=\"button\" class=\"btn btn--secondary\">Cancel</button><button type=\"submit\" class=\"btn btn--primary\">Save profile</button></div>\n</form>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Label, kontrol, bantuan",
+        "desc": "Label selalu terlihat; placeholder hanya contoh, tidak pernah menjadi label. Teks bantuan menyebut format sebelum ada yang salah mengisi.",
+        "html": "<div class=\"form\" style=\"max-width: 420px;\">\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"tf-name\">Nama lengkap</label>\n    <div class=\"control\"><input id=\"tf-name\" autocomplete=\"name\" placeholder=\"Siti Rahmawati\" aria-describedby=\"tf-name-help\"></div>\n    <span class=\"field__help\" id=\"tf-name-help\">Sesuai yang tertulis di KTP.</span>\n  </div>\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"tf-school\">Sekolah <span>Opsional</span></label>\n    <div class=\"control\"><span class=\"ic\" aria-hidden=\"true\">school</span><input id=\"tf-school\" autocomplete=\"organization\" placeholder=\"SMA Negeri 2 Metro\"></div>\n  </div>\n</div>"
+      },
+      {
+        "title": "Galat dan berhasil di tempat bantuan",
+        "desc": "Baris bantuan menjadi pesannya, jadi tidak ada yang bergeser di bawahnya. Pesan galat menyebut apa yang terjadi dan cara memperbaikinya. Ketik alamat yang valid lalu tinggalkan kolom untuk melihatnya menjadi hijau.",
+        "html": "<div class=\"form\" style=\"max-width: 420px;\">\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"tf-email\">Email</label>\n    <div class=\"control is-invalid\"><span class=\"ic\" aria-hidden=\"true\">mail</span><input id=\"tf-email\" type=\"email\" autocomplete=\"email\" value=\"siti@contoh\" aria-invalid=\"true\" aria-describedby=\"tf-email-help\"\n      onblur=\"const ok = /^[^@\\s]+@[^@\\s]+\\.[^@\\s]{2,}$/.test(this.value); const c = this.parentElement, h = document.getElementById('tf-email-help'); c.classList.toggle('is-invalid', !ok); this.setAttribute('aria-invalid', String(!ok)); h.className = 'field__help ' + (ok ? 'field__help--ok' : 'field__help--error'); h.firstElementChild.textContent = ok ? 'check_circle' : 'error'; h.lastChild.textContent = ok ? 'Bukti permohonan dikirim ke sini.' : 'Alamat ini belum punya domain, misalnya siti@contoh.id.';\"></div>\n    <span class=\"field__help field__help--error\" id=\"tf-email-help\"><span class=\"ic\" aria-hidden=\"true\">error</span><span>Alamat ini belum punya domain, misalnya siti@contoh.id.</span></span>\n  </div>\n</div>",
+        "code": "<div class=\"field\">\n  <label class=\"field__label\" for=\"email\">Email</label>\n  <div class=\"control is-invalid\">\n    <span class=\"ic\" aria-hidden=\"true\">mail</span>\n    <input id=\"email\" type=\"email\" autocomplete=\"email\" aria-invalid=\"true\" aria-describedby=\"email-help\">\n  </div>\n  <span class=\"field__help field__help--error\" id=\"email-help\"><span class=\"ic\" aria-hidden=\"true\">error</span>Alamat ini belum punya domain, misalnya siti@contoh.id.</span>\n</div>\n\n<!-- Valid -->\n<span class=\"field__help field__help--ok\" id=\"email-help\"><span class=\"ic\" aria-hidden=\"true\">check_circle</span>Bukti permohonan dikirim ke sini.</span>"
+      },
+      {
+        "title": "Aksi di belakang dan nonaktif",
+        "desc": "Tombol hapus muncul setelah ada teks. Kolom nonaktif menyebut siapa yang bisa mengubahnya, di teks bantuan.",
+        "html": "<div class=\"form\" style=\"max-width: 420px;\">\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"tf-course\">Nama usaha</label>\n    <div class=\"control\"><input id=\"tf-course\" value=\"Keripik Pisang Bu Rina\" oninput=\"this.nextElementSibling.hidden = !this.value\"><button type=\"button\" class=\"control__btn\" aria-label=\"Hapus nama usaha\" onclick=\"const i = this.previousElementSibling; i.value = ''; this.hidden = true; i.focus();\"><span class=\"ic\" aria-hidden=\"true\">close</span></button></div>\n  </div>\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"tf-sid\">NIK</label>\n    <div class=\"control is-disabled\"><span class=\"ic\" aria-hidden=\"true\">lock</span><input id=\"tf-sid\" value=\"1871024508900003\" disabled aria-describedby=\"tf-sid-help\"></div>\n    <span class=\"field__help\" id=\"tf-sid-help\">Diambil dari data kependudukan. Ajukan perubahan di kantor kelurahan.</span>\n  </div>\n</div>"
+      },
+      {
+        "title": "Di dalam formulir",
+        "desc": "Pasangan kolom berdampingan saat ada ruang dan menumpuk di ponsel; tombol menutup formulir dan menjadi selebar layar di bawah 560 px.",
+        "html": "<form class=\"form\" style=\"max-width: 560px;\" onsubmit=\"event.preventDefault()\">\n  <div class=\"form__row\">\n    <div class=\"field\"><label class=\"field__label\" for=\"tf-first\">Nama depan</label><div class=\"control\"><input id=\"tf-first\" autocomplete=\"given-name\"></div></div>\n    <div class=\"field\"><label class=\"field__label\" for=\"tf-last\">Nama belakang</label><div class=\"control\"><input id=\"tf-last\" autocomplete=\"family-name\"></div></div>\n  </div>\n  <div class=\"field\"><label class=\"field__label\" for=\"tf-phone\">Nomor ponsel</label><div class=\"control\"><span class=\"ic\" aria-hidden=\"true\">call</span><input id=\"tf-phone\" type=\"tel\" inputmode=\"tel\" autocomplete=\"tel\" placeholder=\"0812 3456 7890\"></div></div>\n  <div class=\"form__actions\"><button type=\"button\" class=\"btn btn--secondary\">Batal</button><button type=\"submit\" class=\"btn btn--primary\">Simpan profil</button></div>\n</form>"
+      }
+    ]
+  },
+  "related": [
+    "form-layout",
+    "textarea",
+    "amount-field",
+    "password-field"
+  ]
+}

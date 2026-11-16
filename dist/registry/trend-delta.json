@@ -1,0 +1,57 @@
+{
+  "version": "0.1.0",
+  "slug": "trend-delta",
+  "title": "Trend delta",
+  "group": "Data display",
+  "order": 19,
+  "summary": {
+    "en": "The change next to a figure: an arrow for the direction, a color for what it means, the amount in tabular figures and a sentence for screen readers. Direction and meaning are separate, because a falling number can be good news.",
+    "id": "Perubahan di samping sebuah angka: panah untuk arah, warna untuk artinya, jumlah dalam angka tabular, dan kalimat untuk pembaca layar. Arah dan arti dipisahkan, karena angka yang turun bisa jadi kabar baik."
+  },
+  "titleId": "Trend delta",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Next to key figures",
+        "desc": "Revenue rose (good), new customers fell (bad), refunds fell (good, because fewer refunds is better), the conversion rate stayed flat.",
+        "html": "<div class=\"auto-grid\" style=\"--min: 180px;\">\n  <div class=\"stack\" style=\"--gap: 4px;\"><span class=\"section__sub\">Revenue</span><span class=\"chart-card__big\">$128,430</span><span class=\"delta delta--up delta--good\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span>+12.5%<span class=\"sr-only\"> up from last month</span></span></div>\n  <div class=\"stack\" style=\"--gap: 4px;\"><span class=\"section__sub\">New customers</span><span class=\"chart-card__big\">1,234</span><span class=\"delta delta--down delta--bad\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span>−20%<span class=\"sr-only\"> down from last month</span></span></div>\n  <div class=\"stack\" style=\"--gap: 4px;\"><span class=\"section__sub\">Refunds</span><span class=\"chart-card__big\">18</span><span class=\"delta delta--down delta--good\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span>−3<span class=\"sr-only\"> down from last month</span></span></div>\n  <div class=\"stack\" style=\"--gap: 4px;\"><span class=\"section__sub\">Conversion</span><span class=\"chart-card__big\">3.4%</span><span class=\"delta delta--flat delta--neutral\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span>0.0 pt<span class=\"sr-only\"> no change from last month</span></span></div>\n</div>"
+      },
+      {
+        "title": "Pill, with a visible comparison",
+        "desc": "`delta--pill` puts the delta on its tint where it sits beside a large number; `.delta__note` names the comparison once.",
+        "html": "<span class=\"delta delta--up delta--good delta--pill\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span>+8.2%<span class=\"sr-only\"> up from October</span></span> <span class=\"delta delta--down delta--bad delta--pill\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span>−4.1%<span class=\"sr-only\"> down from October</span></span> <span class=\"delta delta--up delta--good\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span>+320<span class=\"delta__note\">vs October</span><span class=\"sr-only\"> up from October</span></span>"
+      },
+      {
+        "title": "Updating in place",
+        "desc": "Press the button: `setDelta()` rewrites the amount, turns the arrow on a spring when the direction flips and recolors by meaning.",
+        "html": "<span class=\"delta delta--up delta--good\" id=\"dl-demo\" data-good=\"up\" data-note=\"from last week\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span>+4.2%<span class=\"sr-only\"> up from last week</span></span>\n<button class=\"btn btn--secondary btn--sm\" onclick=\"import('../../js/lds.js').then((m) => { const v = Math.round((Math.random() * 30 - 15) * 10) / 10; m.setDelta(document.getElementById('dl-demo'), v); })\">New week</button>",
+        "code": "<span class=\"delta delta--up delta--good\" id=\"weekly\" data-good=\"up\" data-note=\"from last week\">…</span>\n<script type=\"module\">\n  import { setDelta } from 'lampung-design-system/js';\n  setDelta(document.getElementById('weekly'), -3.1); // arrow turns down, color turns to danger\n</script>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Di samping angka kunci",
+        "desc": "Penerimaan naik (baik), pemohon baru turun (buruk), pengaduan turun (baik, karena makin sedikit pengaduan makin baik), tingkat penyelesaian tetap.",
+        "html": "<div class=\"auto-grid\" style=\"--min: 180px;\">\n  <div class=\"stack\" style=\"--gap: 4px;\"><span class=\"section__sub\">Penerimaan retribusi</span><span class=\"chart-card__big\">Rp 128,4 jt</span><span class=\"delta delta--up delta--good\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span>+12,5%<span class=\"sr-only\"> naik dari bulan lalu</span></span></div>\n  <div class=\"stack\" style=\"--gap: 4px;\"><span class=\"section__sub\">Pemohon baru</span><span class=\"chart-card__big\">1.234</span><span class=\"delta delta--down delta--bad\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span>−20%<span class=\"sr-only\"> turun dari bulan lalu</span></span></div>\n  <div class=\"stack\" style=\"--gap: 4px;\"><span class=\"section__sub\">Pengaduan</span><span class=\"chart-card__big\">18</span><span class=\"delta delta--down delta--good\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span>−3<span class=\"sr-only\"> turun dari bulan lalu</span></span></div>\n  <div class=\"stack\" style=\"--gap: 4px;\"><span class=\"section__sub\">Tingkat penyelesaian</span><span class=\"chart-card__big\">3,4%</span><span class=\"delta delta--flat delta--neutral\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span>0,0 poin<span class=\"sr-only\"> tidak berubah dari bulan lalu</span></span></div>\n</div>"
+      },
+      {
+        "title": "Pil, dengan pembanding yang terlihat",
+        "desc": "`delta--pill` menaruh delta di atas tint-nya bila berada di samping angka besar; `.delta__note` menyebut pembandingnya sekali.",
+        "html": "<span class=\"delta delta--up delta--good delta--pill\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span>+8,2%<span class=\"sr-only\"> naik dari Oktober</span></span> <span class=\"delta delta--down delta--bad delta--pill\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span>−4,1%<span class=\"sr-only\"> turun dari Oktober</span></span> <span class=\"delta delta--up delta--good\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span>+320<span class=\"delta__note\">dibanding Oktober</span><span class=\"sr-only\"> naik dari Oktober</span></span>"
+      },
+      {
+        "title": "Diperbarui di tempat",
+        "desc": "Tekan tombolnya: `setDelta()` menulis ulang jumlahnya, memutar panah dengan spring bila arahnya berbalik, dan mewarnai ulang menurut artinya.",
+        "html": "<span class=\"delta delta--up delta--good\" id=\"dl-demo\" data-good=\"up\" data-note=\"dari minggu lalu\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span>+4,2%<span class=\"sr-only\"> naik dari minggu lalu</span></span>\n<button class=\"btn btn--secondary btn--sm\" onclick=\"import('../../js/lds.js').then((m) => { const v = Math.round((Math.random() * 30 - 15) * 10) / 10; m.setDelta(document.getElementById('dl-demo'), v); })\">Minggu berikutnya</button>",
+        "code": "<span class=\"delta delta--up delta--good\" id=\"weekly\" data-good=\"up\" data-note=\"dari minggu lalu\">…</span>\n<script type=\"module\">\n  import { setDelta } from 'lampung-design-system/js';\n  setDelta(document.getElementById('weekly'), -3.1); // arrow turns down, color turns to danger\n</script>"
+      }
+    ]
+  },
+  "related": [
+    "stat-row",
+    "sparkline-stat",
+    "badge",
+    "table"
+  ]
+}

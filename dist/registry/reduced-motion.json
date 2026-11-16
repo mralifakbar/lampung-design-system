@@ -1,0 +1,45 @@
+{
+  "version": "0.1.0",
+  "slug": "reduced-motion",
+  "title": "Reduced motion",
+  "group": "Motion",
+  "order": 12,
+  "summary": {
+    "en": "When people ask their device for less motion, the system keeps every state change and drops the travel: transitions become 120 ms linear changes, keyframe animations play once in 1 ms, dialogs and menus stop scaling, shimmer and sparks stop, flights and scroll reveals are skipped. Spinners keep turning because they report work.",
+    "id": "Saat orang meminta perangkatnya mengurangi gerakan, sistem mempertahankan setiap perubahan state dan membuang perpindahannya: transisi menjadi perubahan 120 ms linear, animasi keyframe diputar sekali dalam 1 ms, dialog dan menu berhenti berubah skala, shimmer dan percikan berhenti, gerakan terbang dan kemunculan saat scroll dilewati. Spinner tetap berputar karena melaporkan pekerjaan."
+  },
+  "titleId": "Reduced motion",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "What keeps moving",
+        "desc": "Turn on Reduce motion in your system settings and come back. The spinner still turns and the bar still fills, because they report work in progress. The shimmer stops and becomes plain text.",
+        "html": "<div class=\"docs-row\">\n  <span class=\"docs-row\" style=\"gap: 8px;\"><span class=\"spinner\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class=\"shimmer\">Grading your answers</span></span>\n  <div style=\"width: 200px;\"><div class=\"progress progress--indeterminate\" role=\"progressbar\" aria-label=\"Preparing your transcript\"><div class=\"progress__fill\"></div></div></div>\n</div>"
+      },
+      {
+        "title": "What changes",
+        "desc": "Open the dialog and switch the toggle in both modes. With reduced motion the dialog fades without scaling, the switch thumb moves in 120 ms with no spring, and the like burst shows the filled heart without sparks.",
+        "html": "<div class=\"viewport docs-box\" style=\"height: 300px;\">\n  <div class=\"viewport__content\">\n    <div class=\"docs-row\">\n      <button class=\"btn btn--secondary btn--md\" data-lds-open=\"rm-dialog\" aria-haspopup=\"dialog\">Leave the course</button>\n      <label class=\"switch\"><input type=\"checkbox\" role=\"switch\"><span class=\"switch__track\" aria-hidden=\"true\"><span class=\"switch__thumb\"></span></span>Reminders</label>\n      <button class=\"like\" aria-pressed=\"false\" data-lds-like aria-label=\"Like\"><span class=\"like__heart\"><span class=\"ic\" aria-hidden=\"true\">favorite</span></span><span class=\"roll\" data-lds-roll=\"12\"></span></button>\n    </div>\n  </div>\n  <div class=\"scrim\" data-lds-scrim=\"rm-dialog\"></div>\n  <div class=\"dialog\" id=\"rm-dialog\" role=\"alertdialog\" aria-modal=\"true\" aria-labelledby=\"rm-dialog-t\" data-lds-layer>\n    <h3 class=\"dialog__title\" id=\"rm-dialog-t\">Leave Biology 101?</h3>\n    <p class=\"dialog__body\">Your submitted work stays; you can join again before the second week.</p>\n    <div class=\"dialog__actions\"><button class=\"btn btn--secondary btn--md\" data-lds-close data-lds-autofocus>Stay</button><button class=\"btn btn--danger btn--md\" data-lds-close>Leave</button></div>\n  </div>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Yang tetap bergerak",
+        "desc": "Nyalakan Kurangi gerakan di pengaturan sistem Anda lalu kembali ke sini. Spinner tetap berputar dan bar tetap terisi, karena keduanya melaporkan pekerjaan yang sedang berjalan. Shimmer berhenti dan menjadi teks biasa.",
+        "html": "<div class=\"docs-row\">\n  <span class=\"docs-row\" style=\"gap: 8px;\"><span class=\"spinner\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class=\"shimmer\">Memeriksa kelengkapan berkas</span></span>\n  <div style=\"width: 200px;\"><div class=\"progress progress--indeterminate\" role=\"progressbar\" aria-label=\"Menyiapkan bukti pembayaran pajak\"><div class=\"progress__fill\"></div></div></div>\n</div>"
+      },
+      {
+        "title": "Yang berubah",
+        "desc": "Buka dialog dan ubah toggle dalam kedua mode. Dengan reduced motion, dialog memudar tanpa berubah skala, thumb switch berpindah dalam 120 ms tanpa spring, dan ledakan suka menampilkan hati terisi tanpa percikan.",
+        "html": "<div class=\"viewport docs-box\" style=\"height: 300px;\">\n  <div class=\"viewport__content\">\n    <div class=\"docs-row\">\n      <button class=\"btn btn--secondary btn--md\" data-lds-open=\"rm-dialog\" aria-haspopup=\"dialog\">Batalkan kunjungan</button>\n      <label class=\"switch\"><input type=\"checkbox\" role=\"switch\"><span class=\"switch__track\" aria-hidden=\"true\"><span class=\"switch__thumb\"></span></span>Pengingat</label>\n      <button class=\"like\" aria-pressed=\"false\" data-lds-like aria-label=\"Suka\"><span class=\"like__heart\"><span class=\"ic\" aria-hidden=\"true\">favorite</span></span><span class=\"roll\" data-lds-roll=\"12\"></span></button>\n    </div>\n  </div>\n  <div class=\"scrim\" data-lds-scrim=\"rm-dialog\"></div>\n  <div class=\"dialog\" id=\"rm-dialog\" role=\"alertdialog\" aria-modal=\"true\" aria-labelledby=\"rm-dialog-t\" data-lds-layer>\n    <h3 class=\"dialog__title\" id=\"rm-dialog-t\">Batalkan kunjungan puskesmas?</h3>\n    <p class=\"dialog__body\">Nomor antrean Anda dilepas; Anda bisa mendaftar lagi untuk hari lain.</p>\n    <div class=\"dialog__actions\"><button class=\"btn btn--secondary btn--md\" data-lds-close data-lds-autofocus>Tetap datang</button><button class=\"btn btn--danger btn--md\" data-lds-close>Batalkan</button></div>\n  </div>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "motion-principles",
+    "haptics",
+    "theming",
+    "enter-and-exit"
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "version": "0.1.0",
+  "slug": "hints",
+  "title": "Hints",
+  "group": "Microinteractions",
+  "order": 13,
+  "summary": {
+    "en": "A short tip that teaches a shortcut or a gesture, shown on the first few visits only and gone for good once closed. It gets quieter with use: by the time people know the trick, the hint has retired itself.",
+    "id": "Tip singkat yang mengajarkan pintasan atau gestur, hanya tampil pada beberapa kunjungan pertama dan hilang selamanya setelah ditutup. Makin sering dipakai, makin jarang muncul: saat orang sudah paham caranya, petunjuk itu sudah pensiun sendiri."
+  },
+  "titleId": "Hints",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Teach a gesture",
+        "desc": "Shown on the first three visits to this page. Close it and it is gone for good; Show again resets it (from a help menu in a real product).",
+        "html": "<div class=\"docs-col\" style=\"max-width: 420px;\">\n  <div class=\"collapse\"><div><div class=\"hint\" data-lds-hint=\"docs-swipe-rows\" data-max=\"3\" role=\"note\"><span class=\"ic\" aria-hidden=\"true\">touch_app</span><span><b>Swipe a row left</b> to pin, archive or delete it.</span><button class=\"hint__close\" data-lds-hint-close aria-label=\"Hide this hint\"><span class=\"ic ic--sm\" aria-hidden=\"true\">close</span></button></div></div></div>\n  <div class=\"list\">\n    <div class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Lab report feedback</span><span class=\"lrow__sub\">Two comments on section 3</span></span></div>\n    <div class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Seminar room changed</span><span class=\"lrow__sub\">Now in building C, room 204</span></span></div>\n  </div>\n  <button class=\"btn btn--plain btn--sm\" style=\"align-self: flex-start; margin-left: -10px;\" onclick=\"import('../../js/lds.js').then((m) => { m.resetHints(['docs-swipe-rows']); const box = this.closest('.docs-col'); const h = box.querySelector('.hint'); h.hidden = false; box.querySelector('.collapse').classList.remove('is-closed'); });\"><span class=\"ic\" aria-hidden=\"true\">refresh</span>Show the hint again</button>\n</div>",
+        "code": "<div class=\"collapse\"><div>\n  <div class=\"hint\" data-lds-hint=\"swipe-rows\" data-max=\"3\" role=\"note\">\n    <span class=\"ic\" aria-hidden=\"true\">touch_app</span>\n    <span><b>Swipe a row left</b> to pin, archive or delete it.</span>\n    <button class=\"hint__close\" data-lds-hint-close aria-label=\"Hide this hint\"><span class=\"ic ic--sm\" aria-hidden=\"true\">close</span></button>\n  </div>\n</div></div>\n<!-- Help menu: import { resetHints } from 'lampung-design-system/js'; resetHints(); -->"
+      },
+      {
+        "title": "Teach a shortcut",
+        "desc": "A keyboard shortcut next to the search it opens, for the first five visits.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 420px;\">\n  <div class=\"collapse\"><div><div class=\"hint\" data-lds-hint=\"docs-slash-search\" data-max=\"5\" role=\"note\"><span class=\"ic\" aria-hidden=\"true\">search</span><span>Press <span class=\"kbd\">/</span> to search your courses from anywhere.</span><button class=\"hint__close\" data-lds-hint-close aria-label=\"Hide this hint\"><span class=\"ic ic--sm\" aria-hidden=\"true\">close</span></button></div></div></div>\n  <div class=\"control search\"><span class=\"ic\" aria-hidden=\"true\">search</span><input aria-label=\"Search courses\" placeholder=\"Search courses\"></div>\n  <button class=\"btn btn--plain btn--sm\" style=\"align-self: flex-start; margin-left: -10px;\" onclick=\"import('../../js/lds.js').then((m) => { m.resetHints(['docs-slash-search']); const box = this.closest('.docs-col'); const h = box.querySelector('.hint'); h.hidden = false; box.querySelector('.collapse').classList.remove('is-closed'); });\"><span class=\"ic\" aria-hidden=\"true\">refresh</span>Show the hint again</button>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Mengajarkan gestur",
+        "desc": "Tampil pada tiga kunjungan pertama ke halaman ini. Tutup dan petunjuk hilang selamanya; Tampilkan lagi mengaturnya ulang (di produk nyata, dari menu bantuan).",
+        "html": "<div class=\"docs-col\" style=\"max-width: 420px;\">\n  <div class=\"collapse\"><div><div class=\"hint\" data-lds-hint=\"docs-swipe-rows\" data-max=\"3\" role=\"note\"><span class=\"ic\" aria-hidden=\"true\">touch_app</span><span><b>Geser baris ke kiri</b> untuk menyematkan, mengarsipkan, atau menghapusnya.</span><button class=\"hint__close\" data-lds-hint-close aria-label=\"Sembunyikan petunjuk ini\"><span class=\"ic ic--sm\" aria-hidden=\"true\">close</span></button></div></div></div>\n  <div class=\"list\">\n    <div class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Tanggapan laporan jalan rusak</span><span class=\"lrow__sub\">Dua catatan dari petugas lapangan</span></span></div>\n    <div class=\"lrow\"><span class=\"lrow__body\"><span class=\"lrow__title\">Jadwal posyandu berubah</span><span class=\"lrow__sub\">Pindah ke balai warga RW 04</span></span></div>\n  </div>\n  <button class=\"btn btn--plain btn--sm\" style=\"align-self: flex-start; margin-left: -10px;\" onclick=\"import('../../js/lds.js').then((m) => { m.resetHints(['docs-swipe-rows']); const box = this.closest('.docs-col'); const h = box.querySelector('.hint'); h.hidden = false; box.querySelector('.collapse').classList.remove('is-closed'); });\"><span class=\"ic\" aria-hidden=\"true\">refresh</span>Tampilkan petunjuk lagi</button>\n</div>",
+        "code": "<div class=\"collapse\"><div>\n  <div class=\"hint\" data-lds-hint=\"swipe-rows\" data-max=\"3\" role=\"note\">\n    <span class=\"ic\" aria-hidden=\"true\">touch_app</span>\n    <span><b>Geser baris ke kiri</b> untuk menyematkan, mengarsipkan, atau menghapusnya.</span>\n    <button class=\"hint__close\" data-lds-hint-close aria-label=\"Sembunyikan petunjuk ini\"><span class=\"ic ic--sm\" aria-hidden=\"true\">close</span></button>\n  </div>\n</div></div>\n<!-- Help menu: import { resetHints } from 'lampung-design-system/js'; resetHints(); -->"
+      },
+      {
+        "title": "Mengajarkan pintasan",
+        "desc": "Pintasan keyboard di samping pencarian yang dibukanya, untuk lima kunjungan pertama.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 420px;\">\n  <div class=\"collapse\"><div><div class=\"hint\" data-lds-hint=\"docs-slash-search\" data-max=\"5\" role=\"note\"><span class=\"ic\" aria-hidden=\"true\">search</span><span>Tekan <span class=\"kbd\">/</span> untuk mencari layanan dari halaman mana pun.</span><button class=\"hint__close\" data-lds-hint-close aria-label=\"Sembunyikan petunjuk ini\"><span class=\"ic ic--sm\" aria-hidden=\"true\">close</span></button></div></div></div>\n  <div class=\"control search\"><span class=\"ic\" aria-hidden=\"true\">search</span><input aria-label=\"Cari layanan\" placeholder=\"Cari layanan\"></div>\n  <button class=\"btn btn--plain btn--sm\" style=\"align-self: flex-start; margin-left: -10px;\" onclick=\"import('../../js/lds.js').then((m) => { m.resetHints(['docs-slash-search']); const box = this.closest('.docs-col'); const h = box.querySelector('.hint'); h.hidden = false; box.querySelector('.collapse').classList.remove('is-closed'); });\"><span class=\"ic\" aria-hidden=\"true\">refresh</span>Tampilkan petunjuk lagi</button>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "coachmark",
+    "swipe-actions",
+    "height-expand",
+    "tooltip"
+  ]
+}

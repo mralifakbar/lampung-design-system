@@ -1,0 +1,56 @@
+{
+  "version": "0.1.0",
+  "slug": "select",
+  "title": "Select",
+  "group": "Inputs",
+  "order": 8,
+  "summary": {
+    "en": "A field-shaped button that opens a list of options below it and shows the one chosen. For one choice from a fixed list too long to show as radios; if people need to type to find it, use a combobox.",
+    "id": "Tombol berbentuk kolom yang membuka daftar opsi di bawahnya dan menampilkan yang dipilih. Untuk satu pilihan dari daftar tetap yang terlalu panjang untuk ditampilkan sebagai radio; jika orang perlu mengetik untuk menemukannya, pakai combobox."
+  },
+  "titleId": "Select",
+  "react": true,
+  "examples": {
+    "en": [
+      {
+        "title": "Choose a level",
+        "desc": "Click or press Enter, Space or Down to open; arrows move; Enter picks; Escape closes; typing jumps to the first option starting with the letters.",
+        "html": "<div class=\"field\" style=\"max-width: 360px; width: 100%;\">\n  <span class=\"field__label\" id=\"se-level\">Education level</span>\n  <div class=\"select\" data-lds-select>\n    <button type=\"button\" class=\"control select-trigger is-placeholder\" aria-haspopup=\"listbox\" aria-expanded=\"false\" aria-labelledby=\"se-level\"><span class=\"select__value\">Choose a level</span><span class=\"ic\" aria-hidden=\"true\">expand_more</span></button>\n    <ul class=\"menu select__menu\" role=\"listbox\" aria-labelledby=\"se-level\">\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"d3\"><span class=\"select__text\">Diploma<small>D-III</small></span></li>\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"s1\"><span class=\"select__text\">Bachelor<small>S-1, D-IV</small></span></li>\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"s2\"><span class=\"select__text\">Master<small>S-2</small></span></li>\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"s3\"><span class=\"select__text\">Doctorate<small>S-3</small></span></li>\n    </ul>\n  </div>\n</div>"
+      },
+      {
+        "title": "With an icon and a chosen value",
+        "desc": "A filter bar select, chosen already. The check marks the selected row in the list.",
+        "html": "<div class=\"field\" style=\"max-width: 260px; width: 100%;\">\n  <span class=\"field__label\" id=\"se-sem\">Semester</span>\n  <div class=\"select\" data-lds-select>\n    <button type=\"button\" class=\"control select-trigger\" aria-haspopup=\"listbox\" aria-expanded=\"false\" aria-labelledby=\"se-sem\"><span class=\"ic\" aria-hidden=\"true\">calendar_month</span><span class=\"select__value\">Odd 2026/2027</span><span class=\"ic\" aria-hidden=\"true\">expand_more</span></button>\n    <ul class=\"menu select__menu\" role=\"listbox\" aria-labelledby=\"se-sem\">\n      <li class=\"menu__item is-selected\" role=\"option\" aria-selected=\"true\" data-value=\"2026-1\">Odd 2026/2027</li>\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"2025-2\">Even 2025/2026</li>\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"2025-1\">Odd 2025/2026</li>\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"2024-2\">Even 2024/2025</li>\n    </ul>\n  </div>\n</div>"
+      },
+      {
+        "title": "Required and missing",
+        "desc": "The trigger is a `.control`, so the error state is the same as any field.",
+        "html": "<div class=\"field\" style=\"max-width: 360px; width: 100%;\">\n  <span class=\"field__label\" id=\"se-cat\">Exam category</span>\n  <div class=\"select\" data-lds-select>\n    <button type=\"button\" class=\"control select-trigger is-placeholder is-invalid\" aria-haspopup=\"listbox\" aria-expanded=\"false\" aria-labelledby=\"se-cat\" aria-invalid=\"true\" aria-describedby=\"se-cat-help\"><span class=\"select__value\">Choose a category</span><span class=\"ic\" aria-hidden=\"true\">expand_more</span></button>\n    <ul class=\"menu select__menu\" role=\"listbox\" aria-labelledby=\"se-cat\">\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"twk\">National insight test</li>\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"tiu\">General aptitude test</li>\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"tkp\">Personal character test</li>\n    </ul>\n  </div>\n  <span class=\"field__help field__help--error\" id=\"se-cat-help\"><span class=\"ic\" aria-hidden=\"true\">error</span>Choose a category to see its question bank.</span>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Pilih jenjang",
+        "desc": "Klik atau tekan Enter, Spasi, atau Bawah untuk membuka; panah berpindah; Enter memilih; Escape menutup; mengetik huruf melompat ke opsi pertama yang diawali huruf itu.",
+        "html": "<div class=\"field\" style=\"max-width: 360px; width: 100%;\">\n  <span class=\"field__label\" id=\"se-level\">Jenjang pendidikan</span>\n  <div class=\"select\" data-lds-select>\n    <button type=\"button\" class=\"control select-trigger is-placeholder\" aria-haspopup=\"listbox\" aria-expanded=\"false\" aria-labelledby=\"se-level\"><span class=\"select__value\">Pilih jenjang</span><span class=\"ic\" aria-hidden=\"true\">expand_more</span></button>\n    <ul class=\"menu select__menu\" role=\"listbox\" aria-labelledby=\"se-level\">\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"d3\"><span class=\"select__text\">Diploma<small>D-III</small></span></li>\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"s1\"><span class=\"select__text\">Sarjana<small>S-1, D-IV</small></span></li>\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"s2\"><span class=\"select__text\">Magister<small>S-2</small></span></li>\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"s3\"><span class=\"select__text\">Doktor<small>S-3</small></span></li>\n    </ul>\n  </div>\n</div>"
+      },
+      {
+        "title": "Dengan ikon dan nilai terpilih",
+        "desc": "Select di bilah filter yang sudah dipilih. Tanda centang menandai baris terpilih di daftar.",
+        "html": "<div class=\"field\" style=\"max-width: 260px; width: 100%;\">\n  <span class=\"field__label\" id=\"se-sem\">Semester</span>\n  <div class=\"select\" data-lds-select>\n    <button type=\"button\" class=\"control select-trigger\" aria-haspopup=\"listbox\" aria-expanded=\"false\" aria-labelledby=\"se-sem\"><span class=\"ic\" aria-hidden=\"true\">calendar_month</span><span class=\"select__value\">Ganjil 2026/2027</span><span class=\"ic\" aria-hidden=\"true\">expand_more</span></button>\n    <ul class=\"menu select__menu\" role=\"listbox\" aria-labelledby=\"se-sem\">\n      <li class=\"menu__item is-selected\" role=\"option\" aria-selected=\"true\" data-value=\"2026-1\">Ganjil 2026/2027</li>\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"2025-2\">Genap 2025/2026</li>\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"2025-1\">Ganjil 2025/2026</li>\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"2024-2\">Genap 2024/2025</li>\n    </ul>\n  </div>\n</div>"
+      },
+      {
+        "title": "Wajib dan belum diisi",
+        "desc": "Pemicunya adalah `.control`, jadi status galatnya sama dengan kolom lainnya.",
+        "html": "<div class=\"field\" style=\"max-width: 360px; width: 100%;\">\n  <span class=\"field__label\" id=\"se-cat\">Kategori ujian</span>\n  <div class=\"select\" data-lds-select>\n    <button type=\"button\" class=\"control select-trigger is-placeholder is-invalid\" aria-haspopup=\"listbox\" aria-expanded=\"false\" aria-labelledby=\"se-cat\" aria-invalid=\"true\" aria-describedby=\"se-cat-help\"><span class=\"select__value\">Pilih kategori</span><span class=\"ic\" aria-hidden=\"true\">expand_more</span></button>\n    <ul class=\"menu select__menu\" role=\"listbox\" aria-labelledby=\"se-cat\">\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"twk\">Tes wawasan kebangsaan</li>\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"tiu\">Tes intelegensia umum</li>\n      <li class=\"menu__item\" role=\"option\" aria-selected=\"false\" data-value=\"tkp\">Tes karakteristik pribadi</li>\n    </ul>\n  </div>\n  <span class=\"field__help field__help--error\" id=\"se-cat-help\"><span class=\"ic\" aria-hidden=\"true\">error</span>Pilih kategori untuk melihat bank soalnya.</span>\n</div>"
+      }
+    ]
+  },
+  "reactUsage": "import { Select } from 'lampung-design-system/react';\n\n<span className=\"field__label\" id=\"level-label\">Education level</span>\n<Select\n  labelledBy=\"level-label\"\n  value={level}\n  onChange={setLevel}\n  placeholder=\"Choose a level\"\n  options={[\n    { value: 'd3', label: 'Diploma', sub: 'D-III' },\n    { value: 's1', label: 'Bachelor', sub: 'S-1, D-IV' },\n  ]}\n/>",
+  "related": [
+    "combobox",
+    "radio-card",
+    "segmented-control",
+    "dropdown-menu"
+  ]
+}

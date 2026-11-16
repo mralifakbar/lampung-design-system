@@ -1,0 +1,49 @@
+{
+  "version": "0.1.0",
+  "slug": "hold-to-confirm",
+  "title": "Hold to confirm",
+  "group": "Actions",
+  "order": 9,
+  "summary": {
+    "en": "A button you press and hold for 1.2 s to confirm something costly but not dangerous enough for a dialog. A fill sweeps across while you hold and drains if you let go early.",
+    "id": "Tombol yang ditekan dan ditahan selama 1,2 detik untuk mengonfirmasi sesuatu yang mahal tetapi tidak cukup berbahaya untuk dialog. Isian menyapu tombol selama ditahan dan surut jika dilepas lebih awal."
+  },
+  "titleId": "Hold to confirm",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Submit an exam",
+        "desc": "Press and hold for 1.2 s, or focus it and hold Space or Enter. Let go early and the fill drains.",
+        "html": "<button class=\"btn btn--primary hold\" data-lds-hold style=\"min-width: 240px;\" onpointerenter=\"if (!this.dataset.wired) { this.dataset.wired = '1'; this.addEventListener('lds:confirm', () => { this.lastChild.textContent = 'Answers submitted'; this.disabled = true; }); }\" onfocus=\"if (!this.dataset.wired) { this.dataset.wired = '1'; this.addEventListener('lds:confirm', () => { this.lastChild.textContent = 'Answers submitted'; this.disabled = true; }); }\"><span class=\"hold__fill\" aria-hidden=\"true\"></span><span class=\"ic\" aria-hidden=\"true\">touch_app</span>Hold to submit answers</button>",
+        "code": "<button class=\"btn btn--primary hold\" data-lds-hold id=\"submit-exam\">\n  <span class=\"hold__fill\" aria-hidden=\"true\"></span>\n  <span class=\"ic\" aria-hidden=\"true\">touch_app</span>Hold to submit answers\n</button>\n<script type=\"module\">\n  document.getElementById('submit-exam').addEventListener('lds:confirm', submitAnswers);\n</script>"
+      },
+      {
+        "title": "Destructive, local only",
+        "desc": "Danger tone for something that removes data on this device and can be downloaded again.",
+        "html": "<button class=\"btn btn--danger hold\" data-lds-hold style=\"min-width: 240px;\" onpointerenter=\"if (!this.dataset.wired) { this.dataset.wired = '1'; this.addEventListener('lds:confirm', () => { this.lastChild.textContent = 'Offline copies deleted'; this.disabled = true; }); }\" onfocus=\"if (!this.dataset.wired) { this.dataset.wired = '1'; this.addEventListener('lds:confirm', () => { this.lastChild.textContent = 'Offline copies deleted'; this.disabled = true; }); }\"><span class=\"hold__fill\" aria-hidden=\"true\"></span><span class=\"ic\" aria-hidden=\"true\">delete</span>Hold to delete offline copies</button>",
+        "code": "<button class=\"btn btn--danger hold\" data-lds-hold>\n  <span class=\"hold__fill\" aria-hidden=\"true\"></span>\n  <span class=\"ic\" aria-hidden=\"true\">delete</span>Hold to delete offline copies\n</button>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Mengirim ujian",
+        "desc": "Tekan dan tahan selama 1,2 detik, atau fokuskan lalu tahan Spasi atau Enter. Lepas lebih awal dan isiannya surut.",
+        "html": "<button class=\"btn btn--primary hold\" data-lds-hold style=\"min-width: 240px;\" onpointerenter=\"if (!this.dataset.wired) { this.dataset.wired = '1'; this.addEventListener('lds:confirm', () => { this.lastChild.textContent = 'Jawaban terkirim'; this.disabled = true; }); }\" onfocus=\"if (!this.dataset.wired) { this.dataset.wired = '1'; this.addEventListener('lds:confirm', () => { this.lastChild.textContent = 'Jawaban terkirim'; this.disabled = true; }); }\"><span class=\"hold__fill\" aria-hidden=\"true\"></span><span class=\"ic\" aria-hidden=\"true\">touch_app</span>Tahan untuk mengirim jawaban</button>",
+        "code": "<button class=\"btn btn--primary hold\" data-lds-hold id=\"submit-exam\">\n  <span class=\"hold__fill\" aria-hidden=\"true\"></span>\n  <span class=\"ic\" aria-hidden=\"true\">touch_app</span>Tahan untuk mengirim jawaban\n</button>\n<script type=\"module\">\n  document.getElementById('submit-exam').addEventListener('lds:confirm', submitAnswers);\n</script>"
+      },
+      {
+        "title": "Merusak, hanya lokal",
+        "desc": "Nada danger untuk sesuatu yang menghapus data di perangkat ini dan bisa diunduh lagi.",
+        "html": "<button class=\"btn btn--danger hold\" data-lds-hold style=\"min-width: 240px;\" onpointerenter=\"if (!this.dataset.wired) { this.dataset.wired = '1'; this.addEventListener('lds:confirm', () => { this.lastChild.textContent = 'Salinan offline terhapus'; this.disabled = true; }); }\" onfocus=\"if (!this.dataset.wired) { this.dataset.wired = '1'; this.addEventListener('lds:confirm', () => { this.lastChild.textContent = 'Salinan offline terhapus'; this.disabled = true; }); }\"><span class=\"hold__fill\" aria-hidden=\"true\"></span><span class=\"ic\" aria-hidden=\"true\">delete</span>Tahan untuk menghapus salinan offline</button>",
+        "code": "<button class=\"btn btn--danger hold\" data-lds-hold>\n  <span class=\"hold__fill\" aria-hidden=\"true\"></span>\n  <span class=\"ic\" aria-hidden=\"true\">delete</span>Tahan untuk menghapus salinan offline\n</button>"
+      }
+    ]
+  },
+  "related": [
+    "slide-to-confirm",
+    "alert-dialog",
+    "confirm-in-place",
+    "button"
+  ]
+}

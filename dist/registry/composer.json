@@ -1,0 +1,57 @@
+{
+  "version": "0.1.0",
+  "slug": "composer",
+  "title": "Composer",
+  "group": "Chat",
+  "order": 3,
+  "summary": {
+    "en": "The reply box under a conversation: a rounded field that grows with the text, Enter to send, Shift+Enter for a new line, and one round send button that stays disabled until there is something to send.",
+    "id": "Kotak balasan di bawah percakapan: kolom membulat yang tumbuh mengikuti teks, Enter untuk mengirim, Shift+Enter untuk baris baru, dan satu tombol kirim bulat yang nonaktif sampai ada yang bisa dikirim."
+  },
+  "titleId": "Composer",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Send a question",
+        "desc": "Type and press Enter (or the button). Your message joins the column and the answer streams in. Shift+Enter adds a line instead of sending.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 520px;\">\n  <div class=\"chat\" id=\"cp-chat\" role=\"log\" aria-label=\"Conversation\">\n    <div class=\"msg msg--ai\"><div class=\"bubble\">Ask me anything about this week's physics problems.</div></div>\n  </div>\n  <form class=\"composer\" data-lds-composer onsubmit=\"event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const c = document.getElementById('cp-chat'); const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); c.append(m); const a = document.createElement('div'); a.className = 'msg msg--ai is-new'; const ab = document.createElement('div'); ab.className = 'bubble'; a.append(ab); setTimeout(() => { c.append(a); import('../../js/lds.js').then((d) => d.streamText(ab, 'Good question. Start with the units: you are asked for meters per second, so divide the distance in meters by the time in seconds.')); }, 400);\"><textarea rows=\"1\" aria-label=\"Message\" placeholder=\"Ask about this lesson\"></textarea><button class=\"composer__send\" type=\"submit\" aria-label=\"Send\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span></button></form>\n</div>",
+        "code": "<form class=\"composer\" data-lds-composer>\n  <textarea rows=\"1\" aria-label=\"Message\" placeholder=\"Ask about this lesson\"></textarea>\n  <button class=\"composer__send\" type=\"submit\" aria-label=\"Send\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span></button>\n</form>\n<script type=\"module\">\n  import { init } from 'lampung-design-system/js';\n  init();\n  document.querySelector('.composer').addEventListener('lds:send', (e) => {\n    addMyMessage(e.detail.text); // the textarea is already cleared and focused\n    askAssistant(e.detail.text);\n  });\n</script>"
+      },
+      {
+        "title": "With an attach button",
+        "desc": "Tools sit before the textarea and keep the 44 px hit area. Send stays the only filled control.",
+        "html": "<form class=\"composer\" data-lds-composer style=\"max-width: 520px; width: 100%;\">\n  <button class=\"icon-btn\" type=\"button\" aria-label=\"Attach a file\"><span class=\"ic\" aria-hidden=\"true\">attach_file</span></button>\n  <textarea rows=\"1\" aria-label=\"Message\" placeholder=\"Describe the mistake you found\"></textarea><button class=\"composer__send\" type=\"submit\" aria-label=\"Send\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span></button>\n</form>"
+      },
+      {
+        "title": "Grows with the text",
+        "desc": "A long draft grows the box line by line up to 200 px, then scrolls inside. The button stays at the bottom, next to the last line.",
+        "html": "<form class=\"composer\" data-lds-composer style=\"max-width: 520px; width: 100%;\">\n  <textarea rows=\"1\" aria-label=\"Message\">I read chapter 4 twice but I still do not understand why the enzyme stops working above 40 degrees.\nIs it the same reason fever is dangerous?\nCould you give me an example with numbers?</textarea><button class=\"composer__send\" type=\"submit\" aria-label=\"Send\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span></button>\n</form>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Kirim pertanyaan",
+        "desc": "Ketik lalu tekan Enter (atau tombolnya). Pesan Anda masuk ke kolom dan jawaban mengalir masuk. Shift+Enter menambah baris, bukan mengirim.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 520px;\">\n  <div class=\"chat\" id=\"cp-chat\" role=\"log\" aria-label=\"Percakapan\">\n    <div class=\"msg msg--ai\"><div class=\"bubble\">Tanyakan apa saja tentang soal fisika minggu ini.</div></div>\n  </div>\n  <form class=\"composer\" data-lds-composer onsubmit=\"event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const c = document.getElementById('cp-chat'); const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); c.append(m); const a = document.createElement('div'); a.className = 'msg msg--ai is-new'; const ab = document.createElement('div'); ab.className = 'bubble'; a.append(ab); setTimeout(() => { c.append(a); import('../../js/lds.js').then((d) => d.streamText(ab, 'Pertanyaan bagus. Mulai dari satuannya: yang ditanyakan meter per detik, jadi bagi jarak dalam meter dengan waktu dalam detik.')); }, 400);\"><textarea rows=\"1\" aria-label=\"Pesan\" placeholder=\"Tanyakan tentang materi ini\"></textarea><button class=\"composer__send\" type=\"submit\" aria-label=\"Kirim\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span></button></form>\n</div>",
+        "code": "<form class=\"composer\" data-lds-composer>\n  <textarea rows=\"1\" aria-label=\"Pesan\" placeholder=\"Tanyakan tentang materi ini\"></textarea>\n  <button class=\"composer__send\" type=\"submit\" aria-label=\"Kirim\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span></button>\n</form>\n<script type=\"module\">\n  import { init } from 'lampung-design-system/js';\n  init();\n  document.querySelector('.composer').addEventListener('lds:send', (e) => {\n    addMyMessage(e.detail.text); // the textarea is already cleared and focused\n    askAssistant(e.detail.text);\n  });\n</script>"
+      },
+      {
+        "title": "Dengan tombol lampiran",
+        "desc": "Alat ada sebelum textarea dan mempertahankan area sentuh 44 px. Tombol kirim tetap satu-satunya kontrol berisi warna.",
+        "html": "<form class=\"composer\" data-lds-composer style=\"max-width: 520px; width: 100%;\">\n  <button class=\"icon-btn\" type=\"button\" aria-label=\"Lampirkan berkas\"><span class=\"ic\" aria-hidden=\"true\">attach_file</span></button>\n  <textarea rows=\"1\" aria-label=\"Pesan\" placeholder=\"Jelaskan kesalahan yang Anda temukan\"></textarea><button class=\"composer__send\" type=\"submit\" aria-label=\"Kirim\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span></button>\n</form>"
+      },
+      {
+        "title": "Tumbuh mengikuti teks",
+        "desc": "Draf panjang membuat kotak tumbuh baris demi baris sampai 200 px, lalu bergulir di dalam. Tombol tetap di bawah, di samping baris terakhir.",
+        "html": "<form class=\"composer\" data-lds-composer style=\"max-width: 520px; width: 100%;\">\n  <textarea rows=\"1\" aria-label=\"Pesan\">Saya sudah membaca bab 4 dua kali, tetapi masih belum paham kenapa enzim berhenti bekerja di atas 40 derajat.\nApakah alasannya sama dengan kenapa demam tinggi berbahaya?\nBisa beri contoh dengan angka?</textarea><button class=\"composer__send\" type=\"submit\" aria-label=\"Kirim\"><span class=\"ic\" aria-hidden=\"true\">arrow_upward</span></button>\n</form>"
+      }
+    ]
+  },
+  "related": [
+    "chat-layout",
+    "chat-message",
+    "streaming-text",
+    "textarea"
+  ]
+}

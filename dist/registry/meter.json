@@ -1,0 +1,57 @@
+{
+  "version": "0.1.0",
+  "slug": "meter",
+  "title": "Meter",
+  "group": "Feedback",
+  "order": 5,
+  "summary": {
+    "en": "A segmented gauge for a level within a known range: storage used, seats taken, password strength. It shows how full, not how far along.",
+    "id": "Pengukur bersegmen untuk tingkat dalam rentang yang diketahui: penyimpanan terpakai, kuota terisi, kekuatan kata sandi. Menunjukkan seberapa penuh, bukan seberapa jauh kemajuannya."
+  },
+  "titleId": "Meter",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Storage near the limit",
+        "desc": "Seven of ten filled is normal; at nine the meter warns and the help text says what to do.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 320px;\">\n  <div>\n    <div class=\"progress-meta\"><span id=\"m1\">Storage</span><b>6.2 of 10 GB</b></div>\n    <div class=\"meter-seg\" role=\"meter\" aria-labelledby=\"m1\" aria-valuemin=\"0\" aria-valuemax=\"10\" aria-valuenow=\"6.2\" aria-valuetext=\"6.2 of 10 GB used\"><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i></i><i></i><i></i><i></i></div>\n  </div>\n  <div>\n    <div class=\"progress-meta\"><span id=\"m2\">Storage</span><b>9.1 of 10 GB</b></div>\n    <div class=\"meter-seg is-warn\" role=\"meter\" aria-labelledby=\"m2\" aria-valuemin=\"0\" aria-valuemax=\"10\" aria-valuenow=\"9.1\" aria-valuetext=\"9.1 of 10 GB used, almost full\"><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i></i></div>\n    <span class=\"field__help\">Almost full. Remove old recordings to keep uploading.</span>\n  </div>\n</div>"
+      },
+      {
+        "title": "Seats taken",
+        "desc": "Full turns the segments to danger; the word \"Full\" goes next to it.",
+        "html": "<div style=\"max-width: 320px; width: 100%;\">\n  <div class=\"progress-meta\"><span id=\"m3\">Seats taken</span><b>40 of 40, full</b></div>\n  <div class=\"meter-seg is-full\" role=\"meter\" aria-labelledby=\"m3\" aria-valuemin=\"0\" aria-valuemax=\"40\" aria-valuenow=\"40\" aria-valuetext=\"40 of 40 seats, full\"><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i></div>\n</div>"
+      },
+      {
+        "title": "Password strength in four steps",
+        "desc": "Set four columns inline. Pair the segments with a word: weak, fair, good, strong. Type to try.",
+        "html": "<div class=\"field\" style=\"max-width: 320px; width: 100%;\">\n  <label class=\"field__label\" for=\"pw-demo\">New password</label>\n  <div class=\"control\"><input id=\"pw-demo\" type=\"password\" autocomplete=\"new-password\" aria-describedby=\"pw-word\" oninput=\"const n = Math.min(4, Math.floor(this.value.length / 3)); const m = document.getElementById('pw-m'); [...m.children].forEach((x, i) => x.classList.toggle('on', i < n)); m.classList.toggle('is-warn', n > 0 && n < 3); document.getElementById('pw-word').textContent = ['Too short', 'Weak', 'Fair', 'Good', 'Strong'][n];\"></div>\n  <div class=\"meter-seg\" id=\"pw-m\" style=\"grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 8px;\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i></div>\n  <span class=\"field__help\" id=\"pw-word\">Too short</span>\n</div>",
+        "code": "<div class=\"meter-seg is-warn\" style=\"grid-template-columns: repeat(4, minmax(0, 1fr));\" aria-hidden=\"true\">\n  <i class=\"on\"></i><i class=\"on\"></i><i></i><i></i>\n</div>\n<span class=\"field__help\" id=\"pw-word\">Fair</span>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Penyimpanan mendekati batas",
+        "desc": "Tujuh dari sepuluh terisi itu normal; di sembilan meter memberi peringatan dan teks bantuan menyebut apa yang perlu dilakukan.",
+        "html": "<div class=\"docs-col\" style=\"max-width: 320px;\">\n  <div>\n    <div class=\"progress-meta\"><span id=\"m1\">Penyimpanan</span><b>6,2 dari 10 GB</b></div>\n    <div class=\"meter-seg\" role=\"meter\" aria-labelledby=\"m1\" aria-valuemin=\"0\" aria-valuemax=\"10\" aria-valuenow=\"6.2\" aria-valuetext=\"6,2 dari 10 GB terpakai\"><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i></i><i></i><i></i><i></i></div>\n  </div>\n  <div>\n    <div class=\"progress-meta\"><span id=\"m2\">Penyimpanan</span><b>9,1 dari 10 GB</b></div>\n    <div class=\"meter-seg is-warn\" role=\"meter\" aria-labelledby=\"m2\" aria-valuemin=\"0\" aria-valuemax=\"10\" aria-valuenow=\"9.1\" aria-valuetext=\"9,1 dari 10 GB terpakai, hampir penuh\"><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i></i></div>\n    <span class=\"field__help\">Hampir penuh. Hapus berkas lampiran lama agar tetap bisa mengunggah.</span>\n  </div>\n</div>"
+      },
+      {
+        "title": "Kuota terisi",
+        "desc": "Saat penuh, segmen berubah menjadi danger; kata \"penuh\" ditulis di sampingnya.",
+        "html": "<div style=\"max-width: 320px; width: 100%;\">\n  <div class=\"progress-meta\"><span id=\"m3\">Kuota peserta pelatihan</span><b>40 dari 40, penuh</b></div>\n  <div class=\"meter-seg is-full\" role=\"meter\" aria-labelledby=\"m3\" aria-valuemin=\"0\" aria-valuemax=\"40\" aria-valuenow=\"40\" aria-valuetext=\"40 dari 40 kursi, penuh\"><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i><i class=\"on\"></i></div>\n</div>"
+      },
+      {
+        "title": "Kekuatan kata sandi dalam empat langkah",
+        "desc": "Atur empat kolom secara inline. Pasangkan segmen dengan kata: lemah, cukup, baik, kuat. Ketik untuk mencoba.",
+        "html": "<div class=\"field\" style=\"max-width: 320px; width: 100%;\">\n  <label class=\"field__label\" for=\"pw-demo\">Kata sandi baru</label>\n  <div class=\"control\"><input id=\"pw-demo\" type=\"password\" autocomplete=\"new-password\" aria-describedby=\"pw-word\" oninput=\"const n = Math.min(4, Math.floor(this.value.length / 3)); const m = document.getElementById('pw-m'); [...m.children].forEach((x, i) => x.classList.toggle('on', i < n)); m.classList.toggle('is-warn', n > 0 && n < 3); document.getElementById('pw-word').textContent = ['Terlalu pendek', 'Lemah', 'Cukup', 'Baik', 'Kuat'][n];\"></div>\n  <div class=\"meter-seg\" id=\"pw-m\" style=\"grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 8px;\" aria-hidden=\"true\"><i></i><i></i><i></i><i></i></div>\n  <span class=\"field__help\" id=\"pw-word\">Terlalu pendek</span>\n</div>",
+        "code": "<div class=\"meter-seg is-warn\" style=\"grid-template-columns: repeat(4, minmax(0, 1fr));\" aria-hidden=\"true\">\n  <i class=\"on\"></i><i class=\"on\"></i><i></i><i></i>\n</div>\n<span class=\"field__help\" id=\"pw-word\">Cukup</span>"
+      }
+    ]
+  },
+  "related": [
+    "progress-bar",
+    "progress-ring",
+    "percentage-bar",
+    "password-field"
+  ]
+}

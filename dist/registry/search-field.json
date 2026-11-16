@@ -1,0 +1,45 @@
+{
+  "version": "0.1.0",
+  "slug": "search-field",
+  "title": "Search field",
+  "group": "Inputs",
+  "order": 4,
+  "summary": {
+    "en": "The filled, label-less field for finding things: courses, students, questions. On phones, focusing it slides in a Cancel button that clears and leaves search.",
+    "id": "Kolom berisi tanpa label untuk menemukan sesuatu: layanan, warga, laporan. Di ponsel, memfokuskannya menggeser masuk tombol Batal yang menghapus teks dan keluar dari pencarian."
+  },
+  "titleId": "Search field",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "Phone search with Cancel",
+        "desc": "Focus slides Cancel in and the field gives it room. Cancel clears the text, fires `input`, and leaves search.",
+        "html": "<div class=\"search-wrap\" data-lds-search style=\"max-width: 420px; width: 100%;\">\n  <div class=\"control search\" style=\"flex: 1;\"><span class=\"ic\" aria-hidden=\"true\">search</span><input placeholder=\"Search courses\" aria-label=\"Search courses\" enterkeyhint=\"search\"></div>\n  <button type=\"button\" class=\"search__cancel\">Cancel</button>\n</div>"
+      },
+      {
+        "title": "Filtering a list, with clear and no results",
+        "desc": "Results update as you type. When nothing matches, say so and suggest what to try. Type \"net\" or \"zzz\".",
+        "html": "<div class=\"docs-col\" style=\"max-width: 420px;\">\n  <div class=\"control search\"><span class=\"ic\" aria-hidden=\"true\">search</span><input placeholder=\"Search courses\" aria-label=\"Search courses\" aria-controls=\"sf-list\"\n    oninput=\"const q = this.value.trim().toLowerCase(); let n = 0; document.querySelectorAll('#sf-list .lrow').forEach((r) => { const hit = r.textContent.toLowerCase().includes(q); r.hidden = !hit; n += hit; }); document.getElementById('sf-empty').hidden = n > 0; this.nextElementSibling.hidden = !this.value;\"><button type=\"button\" class=\"control__btn\" aria-label=\"Clear search\" hidden onclick=\"const i = this.previousElementSibling; i.value = ''; i.dispatchEvent(new Event('input')); i.focus();\"><span class=\"ic ic--fill\" aria-hidden=\"true\">cancel</span></button></div>\n  <div class=\"list\" id=\"sf-list\">\n    <a class=\"lrow\" href=\"#\"><span class=\"lrow__body\"><span class=\"lrow__title\">Database Systems</span></span><span class=\"lrow__value\">CS 2104</span></a>\n    <a class=\"lrow\" href=\"#\"><span class=\"lrow__body\"><span class=\"lrow__title\">Computer Networks</span></span><span class=\"lrow__value\">CS 3102</span></a>\n    <a class=\"lrow\" href=\"#\"><span class=\"lrow__body\"><span class=\"lrow__title\">Linear Algebra</span></span><span class=\"lrow__value\">MA 1203</span></a>\n  </div>\n  <div class=\"empty\" id=\"sf-empty\" role=\"status\" hidden><div class=\"empty__title\">No courses match</div><div class=\"empty__body\">Check the spelling, or search by course code.</div></div>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Pencarian ponsel dengan Batal",
+        "desc": "Fokus menggeser Batal masuk dan kolom memberinya ruang. Batal menghapus teks, memicu `input`, dan keluar dari pencarian.",
+        "html": "<div class=\"search-wrap\" data-lds-search style=\"max-width: 420px; width: 100%;\">\n  <div class=\"control search\" style=\"flex: 1;\"><span class=\"ic\" aria-hidden=\"true\">search</span><input placeholder=\"Cari layanan\" aria-label=\"Cari layanan\" enterkeyhint=\"search\"></div>\n  <button type=\"button\" class=\"search__cancel\">Batal</button>\n</div>"
+      },
+      {
+        "title": "Menyaring daftar, dengan hapus dan tanpa hasil",
+        "desc": "Hasil diperbarui saat mengetik. Jika tidak ada yang cocok, katakan begitu dan sarankan apa yang bisa dicoba. Ketik \"izin\" atau \"zzz\".",
+        "html": "<div class=\"docs-col\" style=\"max-width: 420px;\">\n  <div class=\"control search\"><span class=\"ic\" aria-hidden=\"true\">search</span><input placeholder=\"Cari layanan\" aria-label=\"Cari layanan\" aria-controls=\"sf-list\"\n    oninput=\"const q = this.value.trim().toLowerCase(); let n = 0; document.querySelectorAll('#sf-list .lrow').forEach((r) => { const hit = r.textContent.toLowerCase().includes(q); r.hidden = !hit; n += hit; }); document.getElementById('sf-empty').hidden = n > 0; this.nextElementSibling.hidden = !this.value;\"><button type=\"button\" class=\"control__btn\" aria-label=\"Hapus pencarian\" hidden onclick=\"const i = this.previousElementSibling; i.value = ''; i.dispatchEvent(new Event('input')); i.focus();\"><span class=\"ic ic--fill\" aria-hidden=\"true\">cancel</span></button></div>\n  <div class=\"list\" id=\"sf-list\">\n    <a class=\"lrow\" href=\"#\"><span class=\"lrow__body\"><span class=\"lrow__title\">Kartu tanda penduduk</span></span><span class=\"lrow__value\">DUK-01</span></a>\n    <a class=\"lrow\" href=\"#\"><span class=\"lrow__body\"><span class=\"lrow__title\">Izin usaha mikro</span></span><span class=\"lrow__value\">IZN-03</span></a>\n    <a class=\"lrow\" href=\"#\"><span class=\"lrow__body\"><span class=\"lrow__title\">Pajak kendaraan bermotor</span></span><span class=\"lrow__value\">PJK-02</span></a>\n  </div>\n  <div class=\"empty\" id=\"sf-empty\" role=\"status\" hidden><div class=\"empty__title\">Tidak ada layanan yang cocok</div><div class=\"empty__body\">Periksa ejaannya, atau cari dengan kode layanan.</div></div>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "command-palette",
+    "combobox",
+    "empty-state",
+    "list"
+  ]
+}

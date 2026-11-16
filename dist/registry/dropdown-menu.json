@@ -1,0 +1,45 @@
+{
+  "version": "0.1.0",
+  "slug": "dropdown-menu",
+  "title": "Dropdown menu",
+  "group": "Overlays",
+  "order": 6,
+  "summary": {
+    "en": "A list of commands that drops from a button: sort options, row actions, the \"more\" menu behind an icon button. Items do something; they are not a form field.",
+    "id": "Daftar perintah yang turun dari tombol: opsi urutan, aksi baris, menu \"lainnya\" di balik icon button. Item menjalankan sesuatu; bukan field formulir."
+  },
+  "titleId": "Dropdown menu",
+  "react": false,
+  "examples": {
+    "en": [
+      {
+        "title": "The \"more\" menu",
+        "desc": "Rare actions behind a `more_horiz` icon button at the end of a row; the menu aligns to the right edge and grows from that corner.",
+        "html": "<div class=\"list\" style=\"width: 100%; max-width: 420px; overflow: visible;\">\n  <div class=\"lrow\">\n    <span class=\"lrow__body\"><span class=\"lrow__title\" style=\"display: block;\">Lab report 3</span><span class=\"lrow__sub\" style=\"display: block;\">Computer Networks · due tomorrow</span></span>\n    <div style=\"position: relative;\">\n      <button class=\"icon-btn\" aria-label=\"More actions for Lab report 3\" aria-haspopup=\"menu\" aria-expanded=\"false\" data-lds-menu=\"dm-more\"><span class=\"ic\" aria-hidden=\"true\">more_horiz</span></button>\n      <div class=\"menu menu--right\" id=\"dm-more\" role=\"menu\" aria-label=\"Lab report 3\" style=\"top: calc(100% + 6px); right: 0;\">\n        <button class=\"menu__item\" role=\"menuitem\"><span class=\"ic\" aria-hidden=\"true\">edit</span>Edit brief</button>\n        <button class=\"menu__item\" role=\"menuitem\"><span class=\"ic\" aria-hidden=\"true\">content_copy</span>Duplicate<kbd>⌘D</kbd></button>\n        <button class=\"menu__item\" role=\"menuitem\"><span class=\"ic\" aria-hidden=\"true\">download</span>Export submissions</button>\n        <div class=\"menu__sep\"></div>\n        <button class=\"menu__item menu__item--danger\" role=\"menuitem\"><span class=\"ic\" aria-hidden=\"true\">delete</span>Delete assignment</button>\n      </div>\n    </div>\n  </div>\n</div>"
+      },
+      {
+        "title": "Sort a list",
+        "desc": "A labelled button opens radio items; the current one is checked. Arrow keys move, Enter picks, Escape closes and returns focus.",
+        "html": "<div style=\"position: relative; align-self: flex-start;\">\n  <button class=\"btn btn--gray btn--md\" data-lds-menu=\"dm-sort\" aria-haspopup=\"menu\" aria-expanded=\"false\"><span class=\"ic\" aria-hidden=\"true\">sort</span>Sort by due date<span class=\"ic\" aria-hidden=\"true\">expand_more</span></button>\n  <div class=\"menu\" id=\"dm-sort\" role=\"menu\" aria-label=\"Sort by\" style=\"top: calc(100% + 6px); left: 0;\">\n    <p class=\"menu__label\">Sort by</p>\n    <button class=\"menu__item is-selected\" role=\"menuitemradio\" aria-checked=\"true\">Due date<span class=\"ic menu__check\" aria-hidden=\"true\">check</span></button>\n    <button class=\"menu__item\" role=\"menuitemradio\" aria-checked=\"false\">Course</button>\n    <button class=\"menu__item\" role=\"menuitemradio\" aria-checked=\"false\">Recently added</button>\n    <div class=\"menu__sep\"></div>\n    <button class=\"menu__item menu__item--danger\" role=\"menuitem\"><span class=\"ic\" aria-hidden=\"true\">delete</span>Clear completed</button>\n  </div>\n</div>"
+      }
+    ],
+    "id": [
+      {
+        "title": "Menu \"lainnya\"",
+        "desc": "Aksi yang jarang di balik icon button `more_horiz` di ujung baris; menu rata dengan tepi kanan dan tumbuh dari sudut itu.",
+        "html": "<div class=\"list\" style=\"width: 100%; max-width: 420px; overflow: visible;\">\n  <div class=\"lrow\">\n    <span class=\"lrow__body\"><span class=\"lrow__title\" style=\"display: block;\">Laporan jalan berlubang</span><span class=\"lrow__sub\" style=\"display: block;\">Dinas pekerjaan umum · tenggat besok</span></span>\n    <div style=\"position: relative;\">\n      <button class=\"icon-btn\" aria-label=\"Aksi lainnya untuk Laporan jalan berlubang\" aria-haspopup=\"menu\" aria-expanded=\"false\" data-lds-menu=\"dm-more\"><span class=\"ic\" aria-hidden=\"true\">more_horiz</span></button>\n      <div class=\"menu menu--right\" id=\"dm-more\" role=\"menu\" aria-label=\"Laporan jalan berlubang\" style=\"top: calc(100% + 6px); right: 0;\">\n        <button class=\"menu__item\" role=\"menuitem\"><span class=\"ic\" aria-hidden=\"true\">edit</span>Edit laporan</button>\n        <button class=\"menu__item\" role=\"menuitem\"><span class=\"ic\" aria-hidden=\"true\">content_copy</span>Duplikat<kbd>⌘D</kbd></button>\n        <button class=\"menu__item\" role=\"menuitem\"><span class=\"ic\" aria-hidden=\"true\">download</span>Ekspor lampiran</button>\n        <div class=\"menu__sep\"></div>\n        <button class=\"menu__item menu__item--danger\" role=\"menuitem\"><span class=\"ic\" aria-hidden=\"true\">delete</span>Hapus laporan</button>\n      </div>\n    </div>\n  </div>\n</div>"
+      },
+      {
+        "title": "Urutkan daftar",
+        "desc": "Tombol berlabel membuka item radio; yang aktif dicentang. Tombol panah berpindah, Enter memilih, Escape menutup dan mengembalikan fokus.",
+        "html": "<div style=\"position: relative; align-self: flex-start;\">\n  <button class=\"btn btn--gray btn--md\" data-lds-menu=\"dm-sort\" aria-haspopup=\"menu\" aria-expanded=\"false\"><span class=\"ic\" aria-hidden=\"true\">sort</span>Urutkan menurut tenggat<span class=\"ic\" aria-hidden=\"true\">expand_more</span></button>\n  <div class=\"menu\" id=\"dm-sort\" role=\"menu\" aria-label=\"Urutkan menurut\" style=\"top: calc(100% + 6px); left: 0;\">\n    <p class=\"menu__label\">Urutkan menurut</p>\n    <button class=\"menu__item is-selected\" role=\"menuitemradio\" aria-checked=\"true\">Tenggat<span class=\"ic menu__check\" aria-hidden=\"true\">check</span></button>\n    <button class=\"menu__item\" role=\"menuitemradio\" aria-checked=\"false\">Layanan</button>\n    <button class=\"menu__item\" role=\"menuitemradio\" aria-checked=\"false\">Terbaru ditambahkan</button>\n    <div class=\"menu__sep\"></div>\n    <button class=\"menu__item menu__item--danger\" role=\"menuitem\"><span class=\"ic\" aria-hidden=\"true\">delete</span>Hapus yang selesai</button>\n  </div>\n</div>"
+      }
+    ]
+  },
+  "related": [
+    "context-menu",
+    "select",
+    "split-button",
+    "icon-button"
+  ]
+}
