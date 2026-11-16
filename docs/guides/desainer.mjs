@@ -24,8 +24,8 @@ export default {
 <div class="table-box"><table class="table table--wrap">
   <thead><tr><th>Font</th><th>Tebal yang dipakai</th><th>Untuk</th></tr></thead>
   <tbody>
-    <tr><td>Plus Jakarta Sans</td><td>400, 500, 600 (700 hanya untuk judul besar di ponsel)</td><td>Semua teks antarmuka</td></tr>
-    <tr><td>JetBrains Mono</td><td>400, 500</td><td>Kode, nomor tiket, nilai teknis</td></tr>
+    <tr><td>Geist</td><td>400, 500, 600 (700 hanya untuk judul besar di ponsel)</td><td>Semua teks antarmuka</td></tr>
+    <tr><td>Geist Mono</td><td>400, 500</td><td>Kode, nomor tiket, nilai teknis</td></tr>
   </tbody>
 </table></div>
 <p class="cdoc__p">Ukuran, tebal dan jarak huruf berubah bersamaan. Teks besar dirapatkan (minus 0,03 em pada 56 px), teks kecil dilonggarkan (plus 0,01 em pada 12 px). Salin nilai dari papan tipografi, jangan mengira-ngira.</p>
@@ -37,7 +37,7 @@ export default {
   <li><strong>Emas untuk identitas, bukan tindakan.</strong> Emas siger untuk hiasan, pita aksara, lencana identitas dan sorotan. Tidak pernah untuk tombol, tautan atau pilihan.</li>
   <li><strong>Bayangan hanya untuk yang melayang.</strong> Menu, popover, dialog, sheet, toast dan tombol aksi mengambang. Konten yang diam tidak berbayang.</li>
   <li><strong>Blur hanya di tempat konten bergulir di bawahnya.</strong> Bilah navigasi dan bilah tab. Tidak di kartu, tidak bertumpuk.</li>
-  <li><strong>Huruf bergerak sebagai satu set.</strong> Plus Jakarta Sans dengan tiga tebal; ukuran, tebal dan jarak huruf berubah bersama.</li>
+  <li><strong>Huruf bergerak sebagai satu set.</strong> Geist dengan tiga tebal; ukuran, tebal dan jarak huruf berubah bersama.</li>
   <li><strong>Gerak tenang dan bisa disela.</strong> Masuk dengan pegas yang tidak memantul, keluar lebih cepat, dan setiap transisi bisa dihentikan di tengah jalan. Pantulan hanya muncul setelah gerakan sentak.</li>
 </ul>
 
@@ -79,8 +79,8 @@ export default {
 <div class="table-box"><table class="table table--wrap">
   <thead><tr><th>Font</th><th>Weights used</th><th>For</th></tr></thead>
   <tbody>
-    <tr><td>Plus Jakarta Sans</td><td>400, 500, 600 (700 only for the large phone title)</td><td>All interface text</td></tr>
-    <tr><td>JetBrains Mono</td><td>400, 500</td><td>Code, ticket numbers, technical values</td></tr>
+    <tr><td>Geist</td><td>400, 500, 600 (700 only for the large phone title)</td><td>All interface text</td></tr>
+    <tr><td>Geist Mono</td><td>400, 500</td><td>Code, ticket numbers, technical values</td></tr>
   </tbody>
 </table></div>
 <p class="cdoc__p">Size, weight and tracking change together. Large text tightens (minus 0.03 em at 56 px), small text opens up (plus 0.01 em at 12 px). Copy the values from the typography board instead of estimating them.</p>
@@ -92,7 +92,7 @@ export default {
   <li><strong>Gold is identity, not action.</strong> Siger gold is for ornament, the aksara band, identity badges and highlights. Never for a button, a link or a selection.</li>
   <li><strong>Shadows only on what floats.</strong> Menus, popovers, dialogs, sheets, toasts and the floating action button. Resting content casts no shadow.</li>
   <li><strong>Blur only where content scrolls under it.</strong> The navigation bar and the tab bar. Not on cards, never stacked.</li>
-  <li><strong>Type moves as a set.</strong> Plus Jakarta Sans in three weights; size, weight and tracking change together.</li>
+  <li><strong>Type moves as a set.</strong> Geist in three weights; size, weight and tracking change together.</li>
   <li><strong>Motion is calm and can be interrupted.</strong> Things enter on a spring that does not bounce, leave faster, and every transition can be stopped halfway. Bounce appears only after a flick.</li>
 </ul>
 

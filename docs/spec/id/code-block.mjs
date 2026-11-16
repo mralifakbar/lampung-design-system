@@ -34,7 +34,7 @@ export default {
   <pre><code><span class="c">/* satu hijau, dipakai seperlunya */</span>
 <span class="k">--accent</span>: #0B6E4F;
 <span class="k">--d-exit</span>: 180ms;
-<span class="k">--font</span>: <span class="s">"Plus Jakarta Sans", system-ui, sans-serif</span>;</code></pre>
+<span class="k">--font</span>: <span class="s">"Geist", system-ui, sans-serif</span>;</code></pre>
 </div>`,
     },
   ],

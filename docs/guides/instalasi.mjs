@@ -117,7 +117,7 @@ const T = {
     m1: 'Pasang paketnya', m2: 'Impor CSS', m3: 'Tandai elemen root', m4: 'Nyalakan perilaku interaktif',
     first: 'Komponen pertama', firstP: 'Tambahkan komponen ke proyek Anda. CLI menyalin markup yang sudah teruji ke folder komponen Anda, siap diubah.',
     firstFlutter: 'Widget pertama', flutterAdd: 'Tambahkan paket', flutterUse: 'Pakai tema dan widget', flutterMore: 'Widget lain',
-    shadcnLede: 'Sudah memakai shadcn/ui? Pasang tema LDS (warna terang dan gelap, Plus Jakarta Sans, skala tipe, spasi, radius, bayangan, dan kurva gerak) lewat registry. Bentuk komponen tetap milik shadcn; untuk tampilan dan gerak LDS yang persis, pakai kelas CSS LDS.',
+    shadcnLede: 'Sudah memakai shadcn/ui? Pasang tema LDS (warna terang dan gelap, Geist, skala tipe, spasi, radius, bayangan, dan kurva gerak) lewat registry. Bentuk komponen tetap milik shadcn; untuk tampilan dan gerak LDS yang persis, pakai kelas CSS LDS.',
     shadcn1: 'Tambahkan tema ke proyek yang ada', shadcn2: 'Atau salin manual', shadcn3: 'Mulai proyek baru dengan preset LDS',
     fwLede: (n) => `Menyiapkan Lampung Design System di proyek ${n}.`,
     files: { css: 'stylesheet global: impor <code class="code">lampung-design-system/css</code>', root: 'elemen <code class="code">&lt;html&gt;</code>: kelas <code class="code">lds</code>, <code class="code">lang="id"</code>, <code class="code">data-theme</code>', provider: 'perilaku interaktif: <code class="code">init()</code> dan tema tersimpan', json: 'konfigurasi CLI untuk perintah <code class="code">add</code>' },
@@ -137,7 +137,7 @@ const T = {
     m1: 'Install the package', m2: 'Import the CSS', m3: 'Mark the root element', m4: 'Turn on the interactive behaviors',
     first: 'First component', firstP: 'Add components to your project. The CLI copies tested markup into your components folder, ready to edit.',
     firstFlutter: 'First widget', flutterAdd: 'Add the package', flutterUse: 'Use the theme and widgets', flutterMore: 'More widgets',
-    shadcnLede: 'Already on shadcn/ui? Install the LDS theme (light and dark colors, Plus Jakarta Sans, type scale, spacing, radius, elevation and motion curves) from the registry. Component shapes stay shadcn\'s; for the exact LDS look and motion, use the LDS CSS classes.',
+    shadcnLede: 'Already on shadcn/ui? Install the LDS theme (light and dark colors, Geist, type scale, spacing, radius, elevation and motion curves) from the registry. Component shapes stay shadcn\'s; for the exact LDS look and motion, use the LDS CSS classes.',
     shadcn1: 'Add the theme to an existing project', shadcn2: 'Or copy it by hand', shadcn3: 'Start a new project with the LDS preset',
     fwLede: (n) => `Set up Lampung Design System in a ${n} project.`,
     files: { css: 'global stylesheet: imports <code class="code">lampung-design-system/css</code>', root: 'the <code class="code">&lt;html&gt;</code> element: <code class="code">lds</code> class, <code class="code">lang</code>, <code class="code">data-theme</code>', provider: 'interactive behaviors: <code class="code">init()</code> and the saved theme', json: 'CLI settings for the <code class="code">add</code> command' },
@@ -163,7 +163,7 @@ const frameworkPage = (f, lang) => {
   if (f.key === 'flutter') {
     return `<h2>${s.flutterAdd}</h2>${code(f.manual.css)}<p class="cdoc__p">${lang === 'id' ? 'Atau biarkan CLI yang menambahkan paket dan memasang tema di <code class="code">lib/main.dart</code>:' : 'Or let the CLI add the package and wire the theme in <code class="code">lib/main.dart</code>:'}</p>${code('npx lampung-ds@latest init -t flutter')}
 <h2>${s.flutterUse}</h2>${code(f.manual.root)}
-<h2>${s.flutterMore}</h2>${code(f.manual.behaviors)}<p class="cdoc__p">${lang === 'id' ? 'Paket membawa font Plus Jakarta Sans, JetBrains Mono, dan ikon LDS sendiri, jadi aplikasi tetap tampil benar tanpa koneksi.' : 'The package bundles Plus Jakarta Sans, JetBrains Mono and the LDS icon fonts, so apps render correctly offline.'}</p>
+<h2>${s.flutterMore}</h2>${code(f.manual.behaviors)}<p class="cdoc__p">${lang === 'id' ? 'Paket membawa font Geist, Geist Mono, dan ikon LDS sendiri, jadi aplikasi tetap tampil benar tanpa koneksi.' : 'The package bundles Geist, Geist Mono and the LDS icon fonts, so apps render correctly offline.'}</p>
 <h2>${s.next}</h2><ul class="cdoc__list">${s.nextItems.map((i) => `<li>${i}</li>`).join('')}</ul>`;
   }
   const changed = [['css', f.files.css], ['root', f.files.root], ['provider', f.files.provider], ['json', 'lds.json']].filter(([, p]) => p);

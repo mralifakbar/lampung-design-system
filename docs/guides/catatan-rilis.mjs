@@ -1,7 +1,7 @@
 // Release notes, kept in step with CHANGELOG.md (the source of truth for each version).
 const items = {
   id: [
-    'Token dalam satu berkas untuk CSS, JS/TS, shadcn/ui, dan Flutter: aksen hijau Lampung, emas siger untuk identitas, Plus Jakarta Sans dan JetBrains Mono, tema terang dan gelap dengan kontras WCAG 2.2 AA.',
+    'Token dalam satu berkas untuk CSS, JS/TS, shadcn/ui, dan Flutter: aksen hijau Lampung, emas siger untuk identitas, Geist dan Geist Mono, tema terang dan gelap dengan kontras WCAG 2.2 AA.',
     'Preset aksen Biru Teluk dan Cokelat Kopi lewat <code class="code">data-accent</code>.',
     '179 komponen dan resep, masing-masing dengan dokumentasi bahasa Indonesia dan Inggris.',
     'Aksara Lampung: glyph orisinal, transliterasi Latin, <code class="code">[data-lds-aksara]</code>, dan <code class="code">.aksara-band</code>.',
@@ -12,7 +12,7 @@ const items = {
     'Contoh: dasbor operasional kota, aplikasi warga, dan portal layanan publik.',
   ],
   en: [
-    'Tokens in one file for CSS, JS/TS, shadcn/ui and Flutter: Lampung green accent, siger gold for identity, Plus Jakarta Sans and JetBrains Mono, light and dark themes with WCAG 2.2 AA contrast.',
+    'Tokens in one file for CSS, JS/TS, shadcn/ui and Flutter: Lampung green accent, siger gold for identity, Geist and Geist Mono, light and dark themes with WCAG 2.2 AA contrast.',
     'Bay blue and coffee brown accent presets through <code class="code">data-accent</code>.',
     '179 components and recipes, each documented in Indonesian and English.',
     'Aksara Lampung: original glyphs, Latin transliteration, <code class="code">[data-lds-aksara]</code> and <code class="code">.aksara-band</code>.',
