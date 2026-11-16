@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="id">
 <head>
 <meta charset="utf-8">
-<title>Lampung Design System · Selection</title>
+<title>Lampung Design System · Pilihan</title>
 <script src="./support.js"></script>
 <link rel="stylesheet" href="lds.css">
 </head>
 <body>
 <x-dc>
 <helmet>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus Jakarta Sans:wght@400;500;600;700&amp;family=Plus Jakarta Sans+Mono:wght@400;500&amp;display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=block">
 <style>
 body{margin:0}
 a{color:#0A6246}a:hover{color:#1E40AF}
@@ -27,24 +27,24 @@ a{color:#0A6246}a:hover{color:#1E40AF}
 
   <header class="page-head">
     <div>
-      <div class="page-head__crumb"><span class="page-head__mark">L</span>Components · Selection</div>
-      <h1>Selection</h1>
-      <p class="page-head__lede">Every control here is a native input underneath, so keyboard, forms and screen readers work for free. The skin adds the motion: ticks draw themselves, dots spring in, thumbs stretch while held.</p>
+      <div class="page-head__crumb"><span class="page-head__mark">L</span>Komponen · Pilihan</div>
+      <h1>Pilihan</h1>
+      <p class="page-head__lede">Setiap kontrol di sini adalah input bawaan browser di baliknya, jadi keyboard, formulir, dan pembaca layar langsung berfungsi. Lapisan tampilannya menambah gerak: centang tergambar sendiri, titik masuk dengan spring, thumb melebar saat ditahan. Data di halaman ini hanya contoh.</p>
     </div>
-    <div class="appearance" role="group" aria-label="Appearance">
+    <div class="appearance" role="group" aria-label="Tampilan">
       <span class="appearance__thumb" style="transform: translateX({{thumbX}});"></span>
-      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Light</button>
-      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Dark</button>
+      <button class="appearance__btn" aria-pressed="{{isLight}}" onClick="{{setLight}}"><span class="ic" aria-hidden="true">light_mode</span>Terang</button>
+      <button class="appearance__btn" aria-pressed="{{isDark}}" onClick="{{setDark}}"><span class="ic" aria-hidden="true">dark_mode</span>Gelap</button>
     </div>
   </header>
 
   <section class="sec">
     <div class="sec__aside">
       <h2 class="sec__title">Checkbox</h2>
-      <p class="sec__desc">For independent choices. A parent shows a dash when only some children are on; clicking it selects all, clicking again clears.</p>
+      <p class="sec__desc">Untuk pilihan yang saling lepas. Induk menampilkan garis datar saat hanya sebagian anaknya aktif. Klik sekali memilih semua, klik lagi mengosongkan.</p>
       <ul class="spec">
-        <li><b>Tick</b><span>Stroke draws in 260 ms on the enter curve.</span></li>
-        <li><b>Press</b><span>Box sinks to 0.88.</span></li>
+        <li><b>Centang</b><span>Garisnya tergambar dalam 260 ms dengan kurva masuk.</span></li>
+        <li><b>Tekan</b><span>Kotak mengecil ke 0,88.</span></li>
       </ul>
     </div>
     <div class="stage" style="flex-direction: row; gap: 48px; align-items: flex-start;">
@@ -52,7 +52,7 @@ a{color:#0A6246}a:hover{color:#1E40AF}
         <label class="check {{allMixed}}">
           <input type="checkbox" checked="{{allOn}}" onChange="{{toggleAll}}" aria-checked="{{allAria}}">
           <span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span>
-          <span class="check__text" style="font-weight: 500;">Email me about</span>
+          <span class="check__text" style="font-weight: 500;">Kirimi saya email tentang</span>
         </label>
         <div class="col" style="gap: 12px; padding-left: 34px;">
           <sc-for list="{{prefs}}" as="p" hint-placeholder-count="3">
@@ -65,23 +65,23 @@ a{color:#0A6246}a:hover{color:#1E40AF}
         </div>
       </div>
       <div class="col" style="gap: 14px;">
-        <span class="stage__label">States</span>
-        <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">Off</span></label>
-        <label class="check"><input type="checkbox" defaultChecked="{{yes}}"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">On</span></label>
-        <label class="check"><input type="checkbox" disabled="{{yes}}"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text" style="color: var(--text-muted);">Disabled</span></label>
-        <label class="check"><input type="checkbox" disabled="{{yes}}" defaultChecked="{{yes}}"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text" style="color: var(--text-muted);">Disabled on</span></label>
+        <span class="stage__label">Keadaan</span>
+        <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">Tidak dicentang</span></label>
+        <label class="check"><input type="checkbox" defaultChecked="{{yes}}"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">Dicentang</span></label>
+        <label class="check"><input type="checkbox" disabled="{{yes}}"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text" style="color: var(--text-muted);">Nonaktif</span></label>
+        <label class="check"><input type="checkbox" disabled="{{yes}}" defaultChecked="{{yes}}"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text" style="color: var(--text-muted);">Nonaktif, dicentang</span></label>
       </div>
     </div>
   </section>
 
   <section class="sec">
     <div class="sec__aside">
-      <h2 class="sec__title">Radio and radio cards</h2>
-      <p class="sec__desc">One choice from a short list. When each option needs a sentence or a price, use cards: the whole card is the target, and arrow keys move between them.</p>
+      <h2 class="sec__title">Radio dan kartu radio</h2>
+      <p class="sec__desc">Satu pilihan dari daftar pendek. Jika setiap opsi butuh kalimat atau harga, pakai kartu: seluruh kartu menjadi target, dan tuts panah berpindah di antaranya.</p>
     </div>
     <div class="stage" style="flex-direction: row; gap: 48px; align-items: flex-start;">
       <fieldset style="border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px;">
-        <legend class="stage__label" style="margin-bottom: 14px;">Delivery</legend>
+        <legend class="stage__label" style="margin-bottom: 14px;">Cara pemberitahuan</legend>
         <sc-for list="{{deliveries}}" as="d" hint-placeholder-count="3">
           <label class="check">
             <input type="radio" name="delivery" checked="{{d.on}}" onChange="{{d.pick}}">
@@ -90,8 +90,8 @@ a{color:#0A6246}a:hover{color:#1E40AF}
           </label>
         </sc-for>
       </fieldset>
-      <div class="col" style="flex: 1; gap: 10px;" role="radiogroup" aria-label="Plan" onKeyDown="{{planKey}}">
-        <span class="stage__label">Plan</span>
+      <div class="col" style="flex: 1; gap: 10px;" role="radiogroup" aria-label="Jenis kartu bus kota" onKeyDown="{{planKey}}">
+        <span class="stage__label">Jenis kartu bus kota</span>
         <sc-for list="{{plans}}" as="p" hint-placeholder-count="3">
           <button class="rcard" role="radio" aria-checked="{{p.on}}" tabindex="{{p.tab}}" onClick="{{p.pick}}">
             <span class="radio__dot" style="{{p.dotStyle}}" aria-hidden="true"></span>
@@ -106,10 +106,10 @@ a{color:#0A6246}a:hover{color:#1E40AF}
   <section class="sec">
     <div class="sec__aside">
       <h2 class="sec__title">Switch</h2>
-      <p class="sec__desc">For settings that apply immediately. Press and hold: the thumb widens toward where it will go, then travels on the smooth spring when you let go.</p>
+      <p class="sec__desc">Untuk pengaturan yang langsung berlaku. Tekan dan tahan: thumb melebar ke arah tujuannya, lalu berpindah dengan spring smooth saat dilepas.</p>
       <ul class="spec">
-        <li><b>Size</b><span>51 × 31 default, 38 × 23 compact.</span></li>
-        <li><b>Track</b><span>Cross-fades to the accent, 240 ms.</span></li>
+        <li><b>Ukuran</b><span>51 × 31 bawaan, 38 × 23 ringkas.</span></li>
+        <li><b>Lintasan</b><span>Berganti ke warna aksen dengan cross-fade, 240 ms.</span></li>
       </ul>
     </div>
     <div class="grid2" style="align-items: start;">
@@ -123,9 +123,9 @@ a{color:#0A6246}a:hover{color:#1E40AF}
         </sc-for>
       </div>
       <div class="stage" style="gap: 18px; padding: 24px;">
-        <label class="switch switch--sm"><input type="checkbox" role="switch" defaultChecked="{{yes}}"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span>Compact</label>
-        <label class="switch"><input type="checkbox" role="switch" disabled="{{yes}}"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span style="color: var(--text-muted);">Disabled</span></label>
-        <label class="switch"><input type="checkbox" role="switch" disabled="{{yes}}" defaultChecked="{{yes}}"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span style="color: var(--text-muted);">Disabled on</span></label>
+        <label class="switch switch--sm"><input type="checkbox" role="switch" defaultChecked="{{yes}}"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span>Ringkas</label>
+        <label class="switch"><input type="checkbox" role="switch" disabled="{{yes}}"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span style="color: var(--text-muted);">Nonaktif</span></label>
+        <label class="switch"><input type="checkbox" role="switch" disabled="{{yes}}" defaultChecked="{{yes}}"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span style="color: var(--text-muted);">Nonaktif, menyala</span></label>
       </div>
     </div>
   </section>
@@ -133,25 +133,25 @@ a{color:#0A6246}a:hover{color:#1E40AF}
   <section class="sec">
     <div class="sec__aside">
       <h2 class="sec__title">Segmented control</h2>
-      <p class="sec__desc">Two to five mutually exclusive views of the same content. One thumb slides under the labels instead of each segment lighting up on its own.</p>
+      <p class="sec__desc">Dua sampai lima tampilan yang saling meniadakan untuk isi yang sama. Satu thumb bergeser di bawah label, bukan setiap segmen menyala sendiri-sendiri.</p>
     </div>
     <div class="stage" style="gap: 22px;">
-      <div class="seg" role="group" aria-label="Range" style="max-width: 360px;">
+      <div class="seg" role="group" aria-label="Rentang waktu" style="max-width: 360px;">
         <span class="seg__thumb" style="width: calc((100% - 4px) / 3); transform: translateX({{segAX}});"></span>
         <sc-for list="{{segA}}" as="o" hint-placeholder-count="3"><button class="seg__btn" aria-pressed="{{o.on}}" onClick="{{o.pick}}">{{o.label}}</button></sc-for>
       </div>
-      <div class="seg seg--lg" role="group" aria-label="Schedule view" style="max-width: 520px;">
+      <div class="seg seg--lg" role="group" aria-label="Tampilan jadwal" style="max-width: 520px;">
         <span class="seg__thumb" style="width: calc((100% - 4px) / 4); transform: translateX({{segBX}});"></span>
         <sc-for list="{{segB}}" as="o" hint-placeholder-count="4"><button class="seg__btn" aria-pressed="{{o.on}}" onClick="{{o.pick}}">{{o.label}}</button></sc-for>
       </div>
-      <p class="tab-panel" key="{{segBKey}}" style="padding-top: 0; color: var(--text-subtle);">Showing the schedule by {{segBLabel}}.</p>
+      <p class="tab-panel" key="{{segBKey}}" style="padding-top: 0; color: var(--text-subtle);">Menampilkan jadwal per {{segBLabel}}.</p>
     </div>
   </section>
 
   <section class="sec">
     <div class="sec__aside">
-      <h2 class="sec__title">Slider and range</h2>
-      <p class="sec__desc">Native range inputs, so arrow keys and Page Up work. The thumb grows slightly while dragged; values use tabular figures so the readout stays still.</p>
+      <h2 class="sec__title">Slider dan rentang</h2>
+      <p class="sec__desc">Input range bawaan browser, jadi tuts panah dan Page Up berfungsi. Thumb sedikit membesar saat diseret, dan nilainya memakai angka tabular agar tampilannya tetap diam.</p>
     </div>
     <div class="stage" style="gap: 26px;">
       <div class="slider-row">
@@ -161,11 +161,11 @@ a{color:#0A6246}a:hover{color:#1E40AF}
         <span class="slider-value">{{vol}}%</span>
       </div>
       <div class="col" style="gap: 10px;">
-        <div class="progress-meta"><span>Credits per semester</span><b>{{lo}} to {{hi}}</b></div>
+        <div class="progress-meta"><span>Jam keberangkatan bus kota</span><b>pukul {{lo}}.00 sampai {{hi}}.00</b></div>
         <div class="range">
           <div class="range__track"><div class="range__fill" style="left: {{loPct}}; right: {{hiRight}};"></div></div>
-          <input type="range" min="12" max="24" value="{{lo}}" onChange="{{onLo}}" aria-label="Minimum credits">
-          <input type="range" min="12" max="24" value="{{hi}}" onChange="{{onHi}}" aria-label="Maximum credits">
+          <input type="range" min="12" max="24" value="{{lo}}" onChange="{{onLo}}" aria-label="Jam paling awal">
+          <input type="range" min="12" max="24" value="{{hi}}" onChange="{{onHi}}" aria-label="Jam paling akhir">
         </div>
       </div>
     </div>
@@ -173,17 +173,17 @@ a{color:#0A6246}a:hover{color:#1E40AF}
 
   <section class="sec">
     <div class="sec__aside">
-      <h2 class="sec__title">Chips and rating</h2>
-      <p class="sec__desc">Filter chips toggle independently; the check slides in and pushes the label instead of appearing beside it. Ratings preview on hover and pop when set.</p>
+      <h2 class="sec__title">Chip dan penilaian</h2>
+      <p class="sec__desc">Chip filter aktif dan nonaktif secara terpisah. Tanda centang masuk dengan bergeser dan mendorong label, tidak sekadar muncul di sampingnya. Penilaian menampilkan pratinjau saat hover dan memantul saat dipilih.</p>
     </div>
     <div class="stage" style="gap: 24px;">
-      <div class="chip-row" role="group" aria-label="Filter by day">
+      <div class="chip-row" role="group" aria-label="Saring menurut hari">
         <sc-for list="{{chips}}" as="c" hint-placeholder-count="6">
           <button class="chip" aria-pressed="{{c.on}}" onClick="{{c.toggle}}"><span class="ic chip__check" aria-hidden="true">check</span>{{c.label}}</button>
         </sc-for>
       </div>
       <div class="row" style="gap: 16px;">
-        <div class="stars" role="radiogroup" aria-label="Rate this course" onMouseLeave="{{clearHover}}">
+        <div class="stars" role="radiogroup" aria-label="Nilai layanan ini" onMouseLeave="{{clearHover}}">
           <sc-for list="{{stars}}" as="st" hint-placeholder-count="5">
             <button class="star {{st.cls}}" role="radio" aria-checked="{{st.checked}}" aria-label="{{st.label}}" onClick="{{st.pick}}" onMouseEnter="{{st.hover}}"><span class="ic" aria-hidden="true">star</span></button>
           </sc-for>
@@ -204,51 +204,51 @@ class Component extends DCLogic {
     const dark = theme === 'dark';
 
     const prefsBase = [
-      { id: 'grades', label: 'New grades', sub: 'As soon as a lecturer posts them' },
-      { id: 'schedule', label: 'Schedule changes', sub: 'Room moves and cancellations' },
-      { id: 'billing', label: 'Billing', sub: 'Invoices and payment reminders' }
+      { id: 'grades', label: 'Status permohonan', sub: 'Segera setelah petugas memperbaruinya' },
+      { id: 'schedule', label: 'Perubahan jadwal', sub: 'Loket pindah atau layanan libur' },
+      { id: 'billing', label: 'Tagihan pajak daerah', sub: 'Tagihan dan pengingat jatuh tempo' }
     ];
     const on = s.prefs || { grades: true, schedule: false, billing: true };
     const count = prefsBase.filter(p => on[p.id]).length;
     const prefs = prefsBase.map(p => ({ ...p, on: !!on[p.id], toggle: () => this.setState({ prefs: { ...on, [p.id]: !on[p.id] } }) }));
 
-    const deliveries = [['email', 'Email', 'Arrives within a minute'], ['push', 'Push notification', 'On this device only'], ['digest', 'Daily digest', 'One email at 07:00']]
+    const deliveries = [['email', 'Email', 'Tiba dalam satu menit'], ['push', 'Notifikasi push', 'Hanya di perangkat ini'], ['digest', 'Ringkasan harian', 'Satu email pukul 07.00']]
       .map(([id, label, sub]) => ({ label, sub, on: (s.delivery || 'email') === id, pick: () => this.setState({ delivery: id }) }));
 
     const planIds = ['basic', 'plus', 'team'];
     const plan = s.plan || 'plus';
     const plans = [
-      { id: 'basic', title: 'Basic', sub: 'One workspace, community support', price: 'Free' },
-      { id: 'plus', title: 'Plus', sub: 'Unlimited workspaces, email support', price: '$8 / mo' },
-      { id: 'team', title: 'Team', sub: 'Shared billing and roles', price: '$6 / seat' }
+      { id: 'basic', title: 'Harian', sub: 'Berlaku sampai pukul 22.00', price: 'Rp5.000' },
+      { id: 'plus', title: 'Bulanan', sub: 'Perjalanan tanpa batas selama 30 hari', price: 'Rp120.000' },
+      { id: 'team', title: 'Pelajar', sub: 'Untuk siswa dengan kartu pelajar', price: 'Rp60.000 / bulan' }
     ].map(p => ({ ...p, on: String(plan === p.id), tab: plan === p.id ? '0' : '-1', pick: () => this.setState({ plan: p.id }),
       dotStyle: plan === p.id ? 'background: var(--accent); box-shadow: inset 0 0 0 1.5px var(--accent);' : '' }));
 
     const sw = s.sw || { wifi: true, focus: false, sounds: true, location: false };
     const switches = [
-      { id: 'wifi', label: 'Sync over Wi-Fi only', icon: 'wifi', c: 'var(--accent)' },
-      { id: 'focus', label: 'Focus mode', icon: 'do_not_disturb_on', c: 'var(--tile-orange)' },
-      { id: 'sounds', label: 'Sounds', icon: 'volume_up', c: 'var(--tile-red)' },
-      { id: 'location', label: 'Use location for attendance', icon: 'near_me', c: 'var(--tile-blue)' }
+      { id: 'wifi', label: 'Sinkronkan hanya lewat Wi-Fi', icon: 'wifi', c: 'var(--accent)' },
+      { id: 'focus', label: 'Mode fokus', icon: 'do_not_disturb_on', c: 'var(--tile-orange)' },
+      { id: 'sounds', label: 'Suara', icon: 'volume_up', c: 'var(--tile-red)' },
+      { id: 'location', label: 'Pakai lokasi untuk laporan warga', icon: 'near_me', c: 'var(--tile-blue)' }
     ].map(w => ({ ...w, on: !!sw[w.id], toggle: () => this.setState({ sw: { ...sw, [w.id]: !sw[w.id] } }) }));
 
-    const aOpts = ['Day', 'Week', 'Month'];
+    const aOpts = ['Hari', 'Minggu', 'Bulan'];
     const aI = s.segA == null ? 1 : s.segA;
-    const bOpts = ['Day', 'Week', 'Course', 'Lecturer'];
+    const bOpts = ['Hari', 'Minggu', 'Layanan', 'Petugas'];
     const bI = s.segB == null ? 0 : s.segB;
 
     const vol = s.vol == null ? 64 : s.vol;
     const lo = s.lo == null ? 16 : s.lo;
     const hi = s.hi == null ? 21 : s.hi;
 
-    const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-    const chipOn = s.chips || { Mon: true, Wed: true };
+    const days = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
+    const chipOn = s.chips || { Sen: true, Rab: true };
     const rating = s.rating || 0;
     const hover = s.hoverStar || 0;
-    const words = ['', 'Not useful', 'Below average', 'Fine', 'Good', 'Excellent'];
+    const words = ['', 'Tidak membantu', 'Kurang', 'Cukup', 'Baik', 'Sangat baik'];
     const stars = [1, 2, 3, 4, 5].map(n => ({
       cls: (n <= rating ? 'on ' : (n <= hover ? 'preview ' : '')) + (n === rating && s.popKey ? 'pop' : ''),
-      checked: String(n === rating), label: n + (n === 1 ? ' star' : ' stars'),
+      checked: String(n === rating), label: n + (n === 1 ? ' bintang' : ' bintang'),
       pick: () => this.setState({ rating: n, popKey: (s.popKey || 0) + 1 }),
       hover: () => this.setState({ hoverStar: n })
     }));
@@ -291,7 +291,7 @@ class Component extends DCLogic {
       chips: days.map(d => ({ label: d, on: String(!!chipOn[d]), toggle: () => this.setState({ chips: { ...chipOn, [d]: !chipOn[d] } }) })),
       stars,
       clearHover: () => this.setState({ hoverStar: 0 }),
-      rateText: words[hover || rating] || 'Tap a star to rate'
+      rateText: words[hover || rating] || 'Ketuk bintang untuk menilai'
     };
   }
 }
