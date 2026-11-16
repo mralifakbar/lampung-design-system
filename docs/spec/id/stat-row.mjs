@@ -1,0 +1,81 @@
+export default {
+  summary: 'Sebaris angka kunci tanpa kartu: angka tabular besar dengan labelnya di bawah, dipisah garis tipis. Kolomnya mengikuti lebar kolom isi, bukan layar.',
+  when: [
+    'Dua sampai empat angka yang merangkum halaman atau bagian: permohonan masuk, rata-rata waktu proses, tugas jatuh tempo.',
+    'Bagian atas laporan atau bagian dasbor, sebelum detailnya.',
+    'Hasil setelah ujian: nilai, peringkat, waktu terpakai.',
+  ],
+  whenNot: [
+    ['Angka yang masing-masing butuh kartu, ikon, atau perubahan sendiri', 'kpi-card'],
+    ['Angka dengan trennya dari waktu ke waktu', 'sparkline-stat'],
+    ['Satu nilai yang butuh penilaian lulus atau tidak', 'progress-ring'],
+    ['Banyak pasangan label dan nilai tentang satu hal', 'key-value'],
+    ['Angka yang dibandingkan di banyak butir', 'table'],
+  ],
+  where: 'Di atas bagian halaman, selebar kolom isi, tepat di bawah judul [bagian](sections). Di kolom sempit (ponsel, panel samping) otomatis menjadi dua kolom, dan angka terakhir yang ganjil membentang di keduanya. Mulai 600 px lebar wadah, menampilkan sampai `--n` angka dalam satu baris.',
+  anatomy: [
+    ['.stat-row-wrap', 'Wajib. Wadah ukuran; stat row membaca lebarnya.'],
+    ['dl.stat-row', 'Wajib. Grid dengan garis tipis di atas. Pasang `style="--n: 3"` untuk jumlah angka per baris (maks. 4).'],
+    ['.stat-row--four', 'Tambahkan untuk empat angka atau lebih: angka lebih kecil dan pemisah yang tepat.'],
+    ['.stat-row__item', 'Wajib. Satu angka: `div` berisi `dt` dan `dd`.'],
+    ['dt.stat-row__label', 'Wajib. Labelnya. Pertama di DOM, tampil di bawah angka.'],
+    ['dd.stat-row__value', 'Wajib. Angkanya: 30 px di lebar sempit, 34 sampai 40 px di lebar luas, tabular.'],
+    ['dd.stat-row__sub', 'Konteks opsional di bawah label ("Dari kuota 24").'],
+  ],
+  examples: [
+    {
+      title: 'Tiga angka',
+      desc: 'Ubah ukuran jendela: di bawah 600 px lebar, berubah menjadi dua kolom, dengan angka ketiga membentang di keduanya.',
+      html: `<div class="stat-row-wrap"><dl class="stat-row" style="--n: 3">
+  <div class="stat-row__item"><dt class="stat-row__label">Permohonan diproses</dt><dd class="stat-row__value">21</dd><dd class="stat-row__sub">Dari kuota 24 per hari</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Rata-rata waktu proses</dt><dd class="stat-row__value">3,6 hari</dd><dd class="stat-row__sub">Lebih cepat 0,4 hari dari bulan lalu</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Jatuh tempo minggu ini</dt><dd class="stat-row__value">4</dd></div>
+</dl></div>`,
+    },
+    {
+      title: 'Empat angka',
+      desc: '`stat-row--four` dengan `--n: 4` menjaga angka lebih kecil agar muat dalam satu baris.',
+      html: `<div class="stat-row-wrap"><dl class="stat-row stat-row--four" style="--n: 4">
+  <div class="stat-row__item"><dt class="stat-row__label">Nilai</dt><dd class="stat-row__value">412</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Peringkat</dt><dd class="stat-row__value">38</dd><dd class="stat-row__sub">Dari 1.204</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Benar</dt><dd class="stat-row__value">86%</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Waktu terpakai</dt><dd class="stat-row__value">1:42</dd><dd class="stat-row__sub">Dari 2:00</dd></div>
+</dl></div>`,
+    },
+    {
+      title: 'Di kolom sempit',
+      desc: 'Markup yang sama di kolom 340 px: dua per baris.',
+      html: `<div class="stat-row-wrap" style="max-width: 340px;"><dl class="stat-row" style="--n: 3">
+  <div class="stat-row__item"><dt class="stat-row__label">Siswa</dt><dd class="stat-row__value">128</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Sudah mengumpulkan</dt><dd class="stat-row__value">97</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Nilai rata-rata</dt><dd class="stat-row__value">74,5</dd></div>
+</dl></div>`,
+    },
+  ],
+  variants: [
+    ['--n: 2 | 3 | 4', 'Angka per baris mulai 600 px lebar wadah.'],
+    ['stat-row--four', 'Empat angka atau lebih: angka lebih kecil, pemisah per baris berisi empat.'],
+  ],
+  states: [
+    ['loading', 'Bilah [skeleton](skeleton) di setiap nilai; label sudah tampil.'],
+    ['no data', 'Tulis "Belum ada" atau "Tidak tersedia" tanpa tanda pisah di nilai; pertahankan labelnya.'],
+  ],
+  motion: [
+    'Tidak ada saat diam. Saat pertama terlihat, angka boleh muncul naik sekali dengan [reveal on scroll](reveal-on-scroll) (`data-lds-reveal` dengan `--i` per butir) atau menghitung naik dengan [number count](number-count); jangan keduanya.',
+    'Angka yang berubah selagi terlihat bergulir dengan [rolling number](rolling-number) memakai `--spring-smooth`.',
+  ],
+  a11y: [
+    'Ini `<dl>`: setiap label adalah istilahnya, angka dan baris sub adalah nilainya. Label berada pertama di DOM, sehingga pembaca layar membaca "Permohonan diproses, 21, dari kuota 24 per hari" walaupun angkanya ditampilkan lebih dulu.',
+    'Satuan masuk ke nilai atau baris sub, bukan hanya lewat warna atau ikon.',
+  ],
+  do: [
+    'Batasi pada dua sampai empat angka yang paling penting.',
+    'Tulis konteks di baris sub ("Dari kuota 24", "Naik 0,1").',
+    'Atur `--n` sesuai jumlah angka.',
+  ],
+  dont: [
+    'Membungkus setiap angka dengan kartu atau menambahkan ikon dan warna.',
+    'Memakainya untuk lebih dari empat angka; pecah ke beberapa bagian atau pakai [tabel](table).',
+    'Menampilkan panah tren tanpa kata.',
+  ],
+};
