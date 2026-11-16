@@ -9,7 +9,7 @@ The promotional page for Lampung Design System (LDS), an unofficial, open source
 | `landing.css` | Page layout only (frame, grids, swatches). Reads tokens, works in light and dark |
 | `landing.js` | ES module that imports `/js/lds.js`: theme toggle, token sample switcher, the preview form, copy fallback |
 | `favicon.svg` | Browser icon |
-| `og.svg`, `og.png` | Open Graph image, 1200 by 630. `og.png` is a raster of `og.svg` drawn in Plus Jakarta Sans; redraw it whenever `og.svg` changes |
+| `og.svg`, `og.png` | Open Graph image, 1200 by 630. `og.png` is a raster of `og.svg` drawn in Geist; redraw it whenever `og.svg` changes |
 
 ## Run it locally
 
