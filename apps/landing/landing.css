@@ -1,0 +1,62 @@
+/* Landing page: placement only. Every look comes from /css/lds.css and its tokens. */
+
+html { scroll-behavior: smooth; scroll-padding-top: 72px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; overflow-x: clip; background: var(--bg-canvas); }
+main { display: block; }
+
+/* Shared horizontal frame: matches the gutter and max width of .hero, .msec and .site-footer */
+.lp-frame { --m-gutter: clamp(20px, 5vw, 48px); width: min(1200px, 100% - 2 * var(--m-gutter)); margin-inline: auto; }
+
+/* Masthead (system component): its bar and panel line up with the page content */
+.masthead__bar, .masthead__body { padding-inline: clamp(20px, 5vw, 48px); max-width: calc(1200px + 2 * clamp(20px, 5vw, 48px)); }
+
+/* Header: edges line up with the page content; the brand shortens on phones */
+.topnav { padding-inline: max(clamp(20px, 5vw, 48px), calc((100% - 1200px) / 2)); }
+.lp-mark { flex: none; width: 28px; height: 28px; display: block; }
+.lp-brand-short { display: none; }
+@media (max-width: 480px) {
+  .lp-brand-full { display: none; }
+  .lp-brand-short { display: inline; }
+}
+.lp-lang { display: flex; align-items: center; gap: var(--s-2); }
+
+/* Hero: the decorative aksara strip sits under the copy */
+.lp-hero-band { margin-top: var(--s-8); }
+
+/* Short text facts in a grid, no cards */
+.lp-facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 248px), 1fr)); gap: var(--s-40) var(--s-32); }
+.lp-facts--wide { grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); margin-top: clamp(var(--s-48), 7vw, 96px); }
+.lp-fact { display: grid; gap: var(--s-8); align-content: start; }
+.lp-fact > .ic { margin-bottom: var(--s-4); color: var(--text-strong); }
+
+/* Token code sample inside the feature stage */
+.lp-code-seg { width: min(100%, 300px); }
+.lp-code pre { min-height: 200px; }
+
+/* Install: framework tabs over one command panel */
+.lp-install { display: grid; gap: var(--s-8); max-width: 860px; }
+.lp-install .tab-panel { display: grid; gap: var(--s-12); }
+.lp-install .tab-panel[hidden] { display: none; }
+.lp-install .tab-panel p { margin: 0; color: var(--text-subtle); }
+.lp-install .codeblock pre { white-space: pre; }
+
+/* Live preview form inside the stage */
+.lp-demo { display: grid; gap: var(--s-20); padding: var(--s-20); border-radius: var(--r-lg); background: var(--bg-base); }
+.lp-demo__head { display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: space-between; gap: var(--s-8) var(--s-12); }
+.lp-demo__head > div { min-width: 0; }
+.lp-demo__head .card__title, .lp-demo__head .card__sub { margin: 0; }
+.lp-demo .form__actions { justify-content: flex-end; }
+
+/* Color story: two swatches with their names and roles */
+.lp-colors { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); gap: var(--s-32); }
+.lp-color { display: grid; gap: var(--s-12); align-content: start; }
+.lp-color__swatch { height: clamp(120px, 16vw, 180px); border-radius: var(--r-xl); }
+.lp-color__swatch--green { background: var(--accent); }
+.lp-color__swatch--gold { background: var(--gold); }
+.lp-color__name { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--s-8); }
+.lp-aksara-note { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-12); margin-top: var(--s-40); }
+.lp-aksara-note .aksara { color: var(--gold-text); }
+
+/* Closing band: the address stays readable at any width */
+.cta-band .codeblock pre { overflow-wrap: anywhere; white-space: pre-wrap; }
