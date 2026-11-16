@@ -96,4 +96,4 @@ Want to use LDS for an agency, a city program or your product, or to work togeth
 
 ## License
 
-[MIT](LICENSE). Solar icons (CC BY 4.0), Plus Jakarta Sans and JetBrains Mono (SIL OFL 1.1). Details in [NOTICE.md](NOTICE.md).
+[MIT](LICENSE). Solar icons (CC BY 4.0), Geist and Geist Mono (SIL OFL 1.1). Details in [NOTICE.md](NOTICE.md).

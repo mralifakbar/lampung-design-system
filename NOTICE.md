@@ -5,8 +5,8 @@ Lampung Design System is released under the MIT License (see `LICENSE`). It incl
 | Work | Where | License |
 |---|---|---|
 | Solar icon set by 480 Design (solar-icons.dev) | `fonts/lds-icons.woff2`, `fonts/lds-icons-fill.woff2` and the Flutter package's icon fonts are built from it | CC BY 4.0 |
-| Plus Jakarta Sans by Tokotype | Loaded from Google Fonts by `css/fonts.css`; bundled in `packages/flutter/fonts/` | SIL Open Font License 1.1 |
-| JetBrains Mono by JetBrains | Loaded from Google Fonts by `css/fonts.css`; bundled in `packages/flutter/fonts/` | SIL Open Font License 1.1 |
+| Geist by Vercel | Loaded from Google Fonts by `css/fonts.css`; bundled in `packages/flutter/fonts/` | SIL Open Font License 1.1 |
+| Geist Mono by Vercel | Loaded from Google Fonts by `css/fonts.css`; bundled in `packages/flutter/fonts/` | SIL Open Font License 1.1 |
 | OpenStreetMap map tiles and data | Shown by the map component at runtime | Data © OpenStreetMap contributors, ODbL; attribution is displayed on the map |
 
 ## Aksara Lampung

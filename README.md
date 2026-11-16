@@ -96,4 +96,4 @@ Ingin memakai LDS untuk instansi, program kota, atau produk Anda, atau ingin bek
 
 ## Lisensi
 
-[MIT](LICENSE). Ikon Solar (CC BY 4.0), Plus Jakarta Sans dan JetBrains Mono (SIL OFL 1.1). Rincian di [NOTICE.md](NOTICE.md).
+[MIT](LICENSE). Ikon Solar (CC BY 4.0), Geist dan Geist Mono (SIL OFL 1.1). Rincian di [NOTICE.md](NOTICE.md).

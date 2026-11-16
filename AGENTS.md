@@ -8,7 +8,7 @@ Lampung Design System: an **unofficial**, open source design system that helps l
 
 One token file feeds CSS, JS/TS, shadcn/ui and Flutter. Components are plain CSS classes; behaviors are one optional ES module driven by `data-lds-*` attributes. A CLI (`lampung-ds`) wires it into Next.js, Vite, TanStack Start, React Router, Astro, Laravel, plain HTML and Flutter.
 
-Its identity in one line: a white canvas, one Lampung green (`#0B6E4F`) for action and selection, siger gold (`#C9952B`) kept for identity and ornament, type that tightens as it grows (Plus Jakarta Sans), grouping by a quiet fill instead of shadows, aksara Lampung as a quiet cultural accent, and calm spring motion that can be interrupted at any moment.
+Its identity in one line: a white canvas, one Lampung green (`#0B6E4F`) for action and selection, siger gold (`#C9952B`) kept for identity and ornament, type that tightens as it grows (Geist), grouping by a quiet fill instead of shadows, aksara Lampung as a quiet cultural accent, and calm spring motion that can be interrupted at any moment.
 
 ## Languages
 

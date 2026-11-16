@@ -10,7 +10,7 @@ First public release.
 
 ### Added
 
-- Tokens in one file for CSS, JS/TS, shadcn/ui and Flutter: Lampung green accent, siger gold identity colors, Plus Jakarta Sans and JetBrains Mono, light and dark themes with WCAG 2.2 AA contrast.
+- Tokens in one file for CSS, JS/TS, shadcn/ui and Flutter: Lampung green accent, siger gold identity colors, Geist and Geist Mono, light and dark themes with WCAG 2.2 AA contrast.
 - 179 components and recipes, each with Indonesian and English documentation.
 - Aksara Lampung: original glyph drawings, Latin transliteration, `[data-lds-aksara]` and the decorative `.aksara-band`.
 - Masthead component for stating whether a public-service site is official.
