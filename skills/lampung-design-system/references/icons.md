@@ -24,6 +24,8 @@ add, add_circle, arrow_back_ios_new, arrow_downward, arrow_forward, arrow_upward
 
 Added for admin dashboards: dashboard, view_kanban, dns, shopping_bag, shopping_cart, local_shipping, monitor_heart, currency_bitcoin, stethoscope, credit_card, id_card, restaurant, hotel, fingerprint, shield_person, checklist, drag_indicator, view_column, left_panel_close, left_panel_open, desktop_windows, help, bolt, rocket_launch, bug_report, speed, emoji_events, database, cloud, memory, inbox, archive, flag, label, sell, payments, savings, account_balance, folder_zip, movie, audio_file, create_new_folder, login, verified, attach_money, view_agenda, calendar_view_week, reply, forward, smartphone, laptop, outbox, mark_email_unread, drafts, flight, directions_boat, print, device_thermostat, water_drop, air, ecg_heart, notifications_off, route, bed
 
+Added for public services and smart city screens: accessible, apartment, article, badge, campaign, confirmation_number, directions_bus, directions_car, directions_walk, eco, emergency, factory, flood, groups, handshake, landscape, language, layers, lightbulb, local_fire_department, local_gas_station, local_hospital, local_library, local_police, location_city, map, medical_services, medication, monitoring, my_location, palette, park, partly_cloudy_day, passport, pedal_bike, photo_camera, power, qr_code, rainy, request_quote, shield, signpost, storefront, sunny, thumb_up, traffic, tram, verified_user, videocam, volunteer_activism, widgets, work
+
 ## Adding an icon
 
 1. Find the Solar base name on solar-icons.dev (for example `wallet-money`); it must exist in both `-outline` and `-bold`.
