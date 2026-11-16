@@ -1,6 +1,6 @@
 # Ranked bars
 
-Group: Charts (new). Docs page: `docs/components/ranked-bars.html`.
+Group: Charts. Docs page: `docs/components/ranked-bars.html`.
 
 Rows of a label, a horizontal bar and its value, sorted longest first: top sources, top pages, best scores. Long labels stay readable because they sit beside (or inside) the bar instead of under it, and every row shares one grid so bars and values line up.
 

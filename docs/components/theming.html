@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Theming · Lampung Design System</title>
-<meta name="description" content="Light and dark come from one attribute: data-theme=&quot;light|dark|system&quot; on &lt;html&gt; or any subtree. Components read only tokens, so they switch by themselves; you never write dark-mode CSS for a component.">
+<meta name="description" content="Terang dan gelap berasal dari satu atribut: data-theme=&quot;light|dark|system&quot; pada &lt;html&gt; atau subtree mana pun. Komponen hanya membaca token, jadi mereka berganti sendiri; Anda tidak pernah menulis CSS dark mode untuk sebuah komponen.">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
 <link rel="stylesheet" href="../../css/lds.css">
 <link rel="stylesheet" href="../docs.css">
@@ -12,20 +12,36 @@
 </head>
 <body class="lds">
 <a class="skip" href="#main">Langsung ke konten</a>
+<div class="masthead" role="region" aria-label="Status situs">
+  <div class="masthead__bar">
+    <span class="masthead__mark" aria-hidden="true"><span class="ic">info</span></span>
+    <span class="masthead__text">Proyek komunitas. Ini bukan situs resmi pemerintah.</span>
+    <button class="masthead__toggle" data-lds-masthead aria-expanded="false" aria-controls="lds-masthead">Cara memastikan<span class="ic" aria-hidden="true">expand_more</span></button>
+  </div>
+  <div class="collapse is-closed" id="lds-masthead" inert><div><div class="masthead__body">
+    <p class="masthead__item"><span class="ic" aria-hidden="true">groups</span><span><b>Dikelola sukarelawan.</b> Lampung Design System dibangun oleh komunitas open source. Tidak ada instansi pemerintah yang mengelola atau mendukungnya secara resmi.</span></p>
+    <p class="masthead__item"><span class="ic" aria-hidden="true">verified_user</span><span><b>Layanan resmi memakai go.id.</b> Situs pemerintah Indonesia berakhiran .go.id. Jangan masukkan NIK di situs yang Anda ragukan.</span></p>
+  </div></div></div>
+</div>
 <div class="shell" data-lds-shell>
   <aside class="shell__side" id="side" aria-label="Dokumentasi">
-    <a class="shell__brand" href="../index.html"><span class="page-head__mark">L</span>Lampung Design System</a>
+    <a class="shell__brand" href="../index.html"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>Lampung Design System</a>
     <nav class="shell__nav" aria-label="Komponen">
       <span class="shell__hl" aria-hidden="true"></span>
-      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Memulai</span></a>
+      <p class="shell__group">Memulai</p>
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Pengenalan</span></a>
+      <a class="shell__link" href="../guide/instalasi.html"><span class="ic" aria-hidden="true">download</span><span class="shell__label">Instalasi</span></a>
+      <a class="shell__link" href="../guide/penulisan.html"><span class="ic" aria-hidden="true">edit_square</span><span class="shell__label">Penulisan</span></a>
+      <a class="shell__link" href="../guide/aksesibilitas.html"><span class="ic" aria-hidden="true">accessible</span><span class="shell__label">Aksesibilitas</span></a>
+      <a class="shell__link" href="../guide/desainer.html"><span class="ic" aria-hidden="true">palette</span><span class="shell__label">Untuk desainer</span></a>
+      <p class="shell__group">Komponen</p>
       <a class="shell__link" href="index.html"><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">Semua komponen</span></a>
       <a class="shell__link" href="../examples/index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Contoh</span></a>
-      <p class="shell__group">Komponen</p>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="true" aria-controls="nav-g0"><span class="shell__section-label">Landasan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel is-open" id="nav-g0"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span></a>
+          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span></a>
           <a class="shell__link shell__link--child" href="data-states.html"><span class="shell__num">3</span><span class="shell__label">Data states</span></a>
           <a class="shell__link shell__link--child" href="theming.html" aria-current="page"><span class="shell__num">4</span><span class="shell__label">Theming</span></a>
           <a class="shell__link shell__link--child" href="icon.html"><span class="shell__num">5</span><span class="shell__label">Icon</span></a>
@@ -60,9 +76,9 @@
           <a class="shell__link shell__link--child" href="select.html"><span class="shell__num">8</span><span class="shell__label">Select</span></a>
           <a class="shell__link shell__link--child" href="combobox.html"><span class="shell__num">9</span><span class="shell__label">Combobox</span></a>
           <a class="shell__link shell__link--child" href="tag-input.html"><span class="shell__num">10</span><span class="shell__label">Tag input</span></a>
-          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span></a>
+          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span></a>
+          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -80,21 +96,22 @@
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">13</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">14</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g4"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">1</span><span class="shell__label">App shell</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">2</span><span class="shell__label">Top nav</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">3</span><span class="shell__label">Tabs</span></a>
-          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">4</span><span class="shell__label">Breadcrumbs</span></a>
-          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">5</span><span class="shell__label">Page header</span></a>
-          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">6</span><span class="shell__label">Pagination</span></a>
-          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">7</span><span class="shell__label">Steps</span></a>
-          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">8</span><span class="shell__label">Sidebar</span></a>
-          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">9</span><span class="shell__label">Outline</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">10</span><span class="shell__label">Menubar</span></a>
-          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">11</span><span class="shell__label">Nav progress</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">12</span><span class="shell__label">Phone bars</span></a>
-          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">13</span><span class="shell__label">Navigation stack</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="masthead.html"><span class="shell__num">1</span><span class="shell__label">Masthead</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">2</span><span class="shell__label">App shell</span></a>
+          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">3</span><span class="shell__label">Top nav</span></a>
+          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">4</span><span class="shell__label">Tabs</span></a>
+          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">5</span><span class="shell__label">Breadcrumbs</span></a>
+          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">6</span><span class="shell__label">Page header</span></a>
+          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">7</span><span class="shell__label">Pagination</span></a>
+          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">8</span><span class="shell__label">Steps</span></a>
+          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">9</span><span class="shell__label">Sidebar</span></a>
+          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">10</span><span class="shell__label">Outline</span></a>
+          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">11</span><span class="shell__label">Menubar</span></a>
+          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">12</span><span class="shell__label">Nav progress</span></a>
+          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">13</span><span class="shell__label">Phone bars</span></a>
+          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">14</span><span class="shell__label">Navigation stack</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -102,7 +119,7 @@
         <div class="shell__panel" id="nav-g5"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="dialog.html"><span class="shell__num">1</span><span class="shell__label">Dialog</span></a>
           <a class="shell__link shell__link--child" href="alert-dialog.html"><span class="shell__num">2</span><span class="shell__label">Alert dialog</span></a>
-          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span></a>
           <a class="shell__link shell__link--child" href="sheet.html"><span class="shell__num">4</span><span class="shell__label">Sheet</span></a>
           <a class="shell__link shell__link--child" href="drawer.html"><span class="shell__num">5</span><span class="shell__label">Drawer</span></a>
           <a class="shell__link shell__link--child" href="dropdown-menu.html"><span class="shell__num">6</span><span class="shell__label">Dropdown menu</span></a>
@@ -112,8 +129,8 @@
           <a class="shell__link shell__link--child" href="hover-card.html"><span class="shell__num">10</span><span class="shell__label">Hover card</span></a>
           <a class="shell__link shell__link--child" href="toast.html"><span class="shell__num">11</span><span class="shell__label">Toast</span></a>
           <a class="shell__link shell__link--child" href="command-palette.html"><span class="shell__num">12</span><span class="shell__label">Command palette</span></a>
-          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span></a>
+          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -132,7 +149,7 @@
           <a class="shell__link shell__link--child" href="empty-state.html"><span class="shell__num">11</span><span class="shell__label">Empty state</span></a>
           <a class="shell__link shell__link--child" href="coachmark.html"><span class="shell__num">12</span><span class="shell__label">Coachmark</span></a>
           <a class="shell__link shell__link--child" href="thinking.html"><span class="shell__num">13</span><span class="shell__label">Thinking</span></a>
-          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -140,8 +157,8 @@
         <div class="shell__panel" id="nav-g7"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="list.html"><span class="shell__num">1</span><span class="shell__label">List</span></a>
           <a class="shell__link shell__link--child" href="key-value.html"><span class="shell__num">2</span><span class="shell__label">Key-value</span></a>
-          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span></a>
+          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span></a>
           <a class="shell__link shell__link--child" href="card.html"><span class="shell__num">5</span><span class="shell__label">Card</span></a>
           <a class="shell__link shell__link--child" href="avatar.html"><span class="shell__num">6</span><span class="shell__label">Avatar</span></a>
           <a class="shell__link shell__link--child" href="table.html"><span class="shell__num">7</span><span class="shell__label">Table</span></a>
@@ -149,70 +166,71 @@
           <a class="shell__link shell__link--child" href="tree.html"><span class="shell__num">9</span><span class="shell__label">Tree</span></a>
           <a class="shell__link shell__link--child" href="calendar.html"><span class="shell__num">10</span><span class="shell__label">Calendar</span></a>
           <a class="shell__link shell__link--child" href="timeline.html"><span class="shell__num">11</span><span class="shell__label">Timeline</span></a>
-          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span></a>
+          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span></a>
+          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span></a>
           <a class="shell__link shell__link--child" href="rolling-number.html"><span class="shell__num">15</span><span class="shell__label">Rolling number</span></a>
           <a class="shell__link shell__link--child" href="code-block.html"><span class="shell__num">16</span><span class="shell__label">Code block</span></a>
           <a class="shell__link shell__link--child" href="carousel.html"><span class="shell__num">17</span><span class="shell__label">Carousel</span></a>
           <a class="shell__link shell__link--child" href="separator.html"><span class="shell__num">18</span><span class="shell__label">Separator</span></a>
-          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span></a>
+          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span></a>
+          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span></a>
+          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span></a>
+          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span></a>
+          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span></a>
+          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span></a>
+          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span></a>
+          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span></a>
+          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span></a>
+          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span></a>
+          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">7</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g8"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span></a>
+          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span></a>
+          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span></a>
+          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span></a>
+          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span></a>
+          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span></a>
+          <a class="shell__link shell__link--child" href="aksara.html"><span class="shell__num">7</span><span class="shell__label">Aksara Lampung</span><span class="badge badge--accent shell__badge">Baru</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g9"><span class="shell__section-label">Obrolan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g9"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span></a>
+          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span></a>
+          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span></a>
+          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span></a>
+          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g10"><span class="shell__section-label">Pola halaman</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g10"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span></a>
+          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span></a>
+          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span></a>
+          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span></a>
           <a class="shell__link shell__link--child" href="phone-screen.html"><span class="shell__num">5</span><span class="shell__label">Phone screen</span></a>
-          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g11"><span class="shell__section-label">Promosi</span><span class="shell__section-count">8</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g11"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span></a>
+          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span></a>
+          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span></a>
+          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span></a>
+          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span></a>
+          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span></a>
+          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span></a>
+          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -225,10 +243,10 @@
           <a class="shell__link shell__link--child" href="height-expand.html"><span class="shell__num">5</span><span class="shell__label">Height expand</span></a>
           <a class="shell__link shell__link--child" href="list-stagger.html"><span class="shell__num">6</span><span class="shell__label">List stagger</span></a>
           <a class="shell__link shell__link--child" href="view-swap.html"><span class="shell__num">7</span><span class="shell__label">View swap</span></a>
-          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span></a>
           <a class="shell__link shell__link--child" href="number-count.html"><span class="shell__num">9</span><span class="shell__label">Number count</span></a>
           <a class="shell__link shell__link--child" href="drag-and-momentum.html"><span class="shell__num">10</span><span class="shell__label">Drag and momentum</span></a>
-          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span></a>
           <a class="shell__link shell__link--child" href="reduced-motion.html"><span class="shell__num">12</span><span class="shell__label">Reduced motion</span></a>
         </div></div></div>
       </div>
@@ -249,27 +267,27 @@
           <a class="shell__link shell__link--child" href="scroll-fades.html"><span class="shell__num">12</span><span class="shell__label">Scroll fades</span></a>
           <a class="shell__link shell__link--child" href="hints.html"><span class="shell__num">13</span><span class="shell__label">Hints</span></a>
           <a class="shell__link shell__link--child" href="haptics.html"><span class="shell__num">14</span><span class="shell__label">Haptics</span></a>
-          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g14"><span class="shell__section-label">Grafik</span><span class="shell__section-count">16</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g14"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="chart-principles.html"><span class="shell__num">1</span><span class="shell__label">Chart principles</span></a>
-          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span></a>
           <a class="shell__link shell__link--child" href="sparkline-stat.html"><span class="shell__num">3</span><span class="shell__label">Sparkline stat</span></a>
           <a class="shell__link shell__link--child" href="bar-chart.html"><span class="shell__num">4</span><span class="shell__label">Bar chart</span></a>
-          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span></a>
           <a class="shell__link shell__link--child" href="line-chart.html"><span class="shell__num">6</span><span class="shell__label">Line chart</span></a>
-          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span></a>
+          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span></a>
           <a class="shell__link shell__link--child" href="donut.html"><span class="shell__num">9</span><span class="shell__label">Donut</span></a>
-          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span></a>
           <a class="shell__link shell__link--child" href="percentage-bar.html"><span class="shell__num">11</span><span class="shell__label">Percentage bar</span></a>
-          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span></a>
+          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span></a>
           <a class="shell__link shell__link--child" href="heatmap.html"><span class="shell__num">14</span><span class="shell__label">Heatmap</span></a>
-          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span></a>
           <a class="shell__link shell__link--child" href="chart-states.html"><span class="shell__num">16</span><span class="shell__label">Chart states</span></a>
         </div></div></div>
       </div>
@@ -296,50 +314,50 @@
         <header class="cdoc__head">
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Foundations">Landasan</a></li></ol></nav>
           <h1>Theming</h1>
-          <p class="cdoc__lede">Light and dark come from one attribute: <code class="code">data-theme=&quot;light|dark|system&quot;</code> on <code class="code">&lt;html&gt;</code> or any subtree. Components read only tokens, so they switch by themselves; you never write dark-mode CSS for a component.</p>
+          <p class="cdoc__lede">Terang dan gelap berasal dari satu atribut: <code class="code">data-theme=&quot;light|dark|system&quot;</code> pada <code class="code">&lt;html&gt;</code> atau subtree mana pun. Komponen hanya membaca token, jadi mereka berganti sendiri; Anda tidak pernah menulis CSS dark mode untuk sebuah komponen.</p>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Setting up a page: put <code class="code">class=&quot;lds&quot;</code> and <code class="code">data-theme</code> on <code class="code">&lt;html&gt;</code>, and call <code class="code">restoreTheme()</code> before first paint so the saved choice is used without a flash.</li><li>Offering an appearance switch (Light, Dark, System) in settings or a sidebar footer.</li><li>A region must stay dark (or light) regardless of the page: a code preview, a media player, a marketing band. Put <code class="code">data-theme</code> on that element only.</li><li>Writing project CSS on top of the system: use the tokens (<code class="code">--bg-fill</code>, <code class="code">--text-subtle</code>, <code class="code">--line</code>, <code class="code">--accent</code>) so your additions switch with the theme.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Showing a status (approved, overdue) with color: pakai <a class="link" href="badge.html">Badge</a>. Status colors come with words and an icon; never theme a region to signal state.</li><li>Picking a view of the same content (not appearance): pakai <a class="link" href="segmented-control.html">Segmented control</a>.</li><li>A setting that turns a feature on or off: pakai <a class="link" href="switch.html">Switch</a>. Appearance has three values, so it is a segmented control, not a switch.</li><li>Colors for data series: pakai <a class="link" href="chart-principles.html">Chart principles</a>. <code class="code">--series-1..4</code> are already tuned per theme and fixed in order.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> <code class="code">data-theme</code> belongs on <code class="code">&lt;html&gt;</code> for the page. The switch lives in settings, the account menu or the sidebar footer, never in the main toolbar. Scoped themes go on the outermost element of the region that should differ.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Menyiapkan halaman: pasang <code class="code">class=&quot;lds&quot;</code> dan <code class="code">data-theme</code> pada <code class="code">&lt;html&gt;</code>, lalu panggil <code class="code">restoreTheme()</code> sebelum tampilan pertama agar pilihan yang tersimpan langsung dipakai tanpa kedipan.</li><li>Menyediakan pengalih tampilan (Terang, Gelap, Sistem) di pengaturan atau footer sidebar.</li><li>Sebuah area harus tetap gelap (atau terang) apa pun tema halamannya: pratinjau kode, pemutar media, pita promosi. Pasang <code class="code">data-theme</code> hanya pada elemen itu.</li><li>Menulis CSS proyek di atas sistem: pakai token (<code class="code">--bg-fill</code>, <code class="code">--text-subtle</code>, <code class="code">--line</code>, <code class="code">--accent</code>) agar tambahan Anda ikut berganti dengan tema.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Menunjukkan status (disetujui, terlambat) dengan warna: pakai <a class="link" href="badge.html">Badge</a>. Warna status datang bersama kata dan ikon; jangan pernah memberi tema pada area untuk menandai status.</li><li>Memilih tampilan dari konten yang sama (bukan penampilan): pakai <a class="link" href="segmented-control.html">Segmented control</a>.</li><li>Pengaturan yang menyalakan atau mematikan fitur: pakai <a class="link" href="switch.html">Switch</a>. Penampilan punya tiga nilai, jadi ia segmented control, bukan switch.</li><li>Warna untuk seri data: pakai <a class="link" href="chart-principles.html">Chart principles</a>. <code class="code">--series-1..4</code> sudah disesuaikan per tema dan urutannya tetap.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> <code class="code">data-theme</code> dipasang pada <code class="code">&lt;html&gt;</code> untuk halaman. Pengalihnya ada di pengaturan, menu akun, atau footer sidebar, tidak pernah di toolbar utama. Tema terbatas dipasang pada elemen terluar dari area yang harus berbeda.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Appearance switch</span><span class="cdoc__ex-d">A segmented control whose buttons carry <code class="code">data-lds-theme</code>. It switches this whole page and remembers the choice in <code class="code">localStorage</code>.</span></figcaption>
-          <div class="cdoc__stage" id="ex-1-stage"><div class="seg" role="group" aria-label="Appearance" data-lds-segmented style="width: 300px;">
+          <figcaption><span class="cdoc__ex-t">Pengalih tampilan</span><span class="cdoc__ex-d">Segmented control yang tombolnya membawa <code class="code">data-lds-theme</code>. Ia mengganti seluruh halaman ini dan mengingat pilihannya di <code class="code">localStorage</code>.</span></figcaption>
+          <div class="cdoc__stage" id="ex-1-stage"><div class="seg" role="group" aria-label="Tampilan" data-lds-segmented style="width: 300px;">
   <span class="seg__thumb"></span>
-  <button class="seg__btn" aria-pressed="true" data-lds-theme="light"><span class="ic ic--sm" aria-hidden="true">light_mode</span>&nbsp;Light</button>
-  <button class="seg__btn" aria-pressed="false" data-lds-theme="dark"><span class="ic ic--sm" aria-hidden="true">dark_mode</span>&nbsp;Dark</button>
-  <button class="seg__btn" aria-pressed="false" data-lds-theme="system"><span class="ic ic--sm" aria-hidden="true">contrast</span>&nbsp;System</button>
+  <button class="seg__btn" aria-pressed="true" data-lds-theme="light"><span class="ic ic--sm" aria-hidden="true">light_mode</span>&nbsp;Terang</button>
+  <button class="seg__btn" aria-pressed="false" data-lds-theme="dark"><span class="ic ic--sm" aria-hidden="true">dark_mode</span>&nbsp;Gelap</button>
+  <button class="seg__btn" aria-pressed="false" data-lds-theme="system"><span class="ic ic--sm" aria-hidden="true">contrast</span>&nbsp;Sistem</button>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;seg&quot; role=&quot;group&quot; aria-label=&quot;Appearance&quot; data-lds-segmented style=&quot;width: 300px;&quot;&gt;
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;seg&quot; role=&quot;group&quot; aria-label=&quot;Tampilan&quot; data-lds-segmented style=&quot;width: 300px;&quot;&gt;
   &lt;span class=&quot;seg__thumb&quot;&gt;&lt;/span&gt;
-  &lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;true&quot; data-lds-theme=&quot;light&quot;&gt;&lt;span class=&quot;ic ic--sm&quot; aria-hidden=&quot;true&quot;&gt;light_mode&lt;/span&gt;&amp;nbsp;Light&lt;/button&gt;
-  &lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;false&quot; data-lds-theme=&quot;dark&quot;&gt;&lt;span class=&quot;ic ic--sm&quot; aria-hidden=&quot;true&quot;&gt;dark_mode&lt;/span&gt;&amp;nbsp;Dark&lt;/button&gt;
-  &lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;false&quot; data-lds-theme=&quot;system&quot;&gt;&lt;span class=&quot;ic ic--sm&quot; aria-hidden=&quot;true&quot;&gt;contrast&lt;/span&gt;&amp;nbsp;System&lt;/button&gt;
+  &lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;true&quot; data-lds-theme=&quot;light&quot;&gt;&lt;span class=&quot;ic ic--sm&quot; aria-hidden=&quot;true&quot;&gt;light_mode&lt;/span&gt;&amp;nbsp;Terang&lt;/button&gt;
+  &lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;false&quot; data-lds-theme=&quot;dark&quot;&gt;&lt;span class=&quot;ic ic--sm&quot; aria-hidden=&quot;true&quot;&gt;dark_mode&lt;/span&gt;&amp;nbsp;Gelap&lt;/button&gt;
+  &lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;false&quot; data-lds-theme=&quot;system&quot;&gt;&lt;span class=&quot;ic ic--sm&quot; aria-hidden=&quot;true&quot;&gt;contrast&lt;/span&gt;&amp;nbsp;Sistem&lt;/button&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;seg&quot; role=&quot;group&quot; aria-label=&quot;Appearance&quot; data-lds-segmented style=&quot;width: 300px;&quot;&gt;
+          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;seg&quot; role=&quot;group&quot; aria-label=&quot;Tampilan&quot; data-lds-segmented style=&quot;width: 300px;&quot;&gt;
   &lt;span class=&quot;seg__thumb&quot;&gt;&lt;/span&gt;
-  &lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;true&quot; data-lds-theme=&quot;light&quot;&gt;&lt;span class=&quot;ic ic--sm&quot; aria-hidden=&quot;true&quot;&gt;light_mode&lt;/span&gt;&amp;nbsp;Light&lt;/button&gt;
-  &lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;false&quot; data-lds-theme=&quot;dark&quot;&gt;&lt;span class=&quot;ic ic--sm&quot; aria-hidden=&quot;true&quot;&gt;dark_mode&lt;/span&gt;&amp;nbsp;Dark&lt;/button&gt;
-  &lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;false&quot; data-lds-theme=&quot;system&quot;&gt;&lt;span class=&quot;ic ic--sm&quot; aria-hidden=&quot;true&quot;&gt;contrast&lt;/span&gt;&amp;nbsp;System&lt;/button&gt;
+  &lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;true&quot; data-lds-theme=&quot;light&quot;&gt;&lt;span class=&quot;ic ic--sm&quot; aria-hidden=&quot;true&quot;&gt;light_mode&lt;/span&gt;&amp;nbsp;Terang&lt;/button&gt;
+  &lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;false&quot; data-lds-theme=&quot;dark&quot;&gt;&lt;span class=&quot;ic ic--sm&quot; aria-hidden=&quot;true&quot;&gt;dark_mode&lt;/span&gt;&amp;nbsp;Gelap&lt;/button&gt;
+  &lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;false&quot; data-lds-theme=&quot;system&quot;&gt;&lt;span class=&quot;ic ic--sm&quot; aria-hidden=&quot;true&quot;&gt;contrast&lt;/span&gt;&amp;nbsp;Sistem&lt;/button&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
-          <figcaption><span class="cdoc__ex-t">Scoped theme</span><span class="cdoc__ex-d">The same card in a light and a dark subtree, side by side on one page. Nothing in the card knows which theme it is in.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Tema terbatas</span><span class="cdoc__ex-d">Kartu yang sama di subtree terang dan gelap, berdampingan di satu halaman. Tidak ada bagian kartu yang tahu sedang di tema apa.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="auto-grid" style="--min: 260px;">
   <div class="lds" data-theme="light" style="padding: 20px; border-radius: var(--r-lg);">
   <div class="card stack" style="--gap: 12px;">
-    <div class="cluster" style="justify-content: space-between;"><span class="card__title">Database Systems</span><span class="badge badge--success">Open</span></div>
+    <div class="cluster" style="justify-content: space-between;"><span class="card__title">Izin usaha mikro</span><span class="badge badge--success">Buka</span></div>
     <div class="progress"><span class="progress__fill" style="transform: scaleX(0.72);"></span></div>
-    <div class="cluster"><button class="btn btn--primary btn--md">Continue</button><button class="btn btn--secondary btn--md">Syllabus</button></div>
+    <div class="cluster"><button class="btn btn--primary btn--md">Lanjutkan</button><button class="btn btn--secondary btn--md">Persyaratan</button></div>
   </div>
   </div>
   <div class="lds" data-theme="dark" style="padding: 20px; border-radius: var(--r-lg);">
   <div class="card stack" style="--gap: 12px;">
-    <div class="cluster" style="justify-content: space-between;"><span class="card__title">Database Systems</span><span class="badge badge--success">Open</span></div>
+    <div class="cluster" style="justify-content: space-between;"><span class="card__title">Izin usaha mikro</span><span class="badge badge--success">Buka</span></div>
     <div class="progress"><span class="progress__fill" style="transform: scaleX(0.72);"></span></div>
-    <div class="cluster"><button class="btn btn--primary btn--md">Continue</button><button class="btn btn--secondary btn--md">Syllabus</button></div>
+    <div class="cluster"><button class="btn btn--primary btn--md">Lanjutkan</button><button class="btn btn--secondary btn--md">Persyaratan</button></div>
   </div>
   </div>
 </div></div>
@@ -350,16 +368,16 @@
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;auto-grid&quot; style=&quot;--min: 260px;&quot;&gt;
   &lt;div class=&quot;lds&quot; data-theme=&quot;light&quot; style=&quot;padding: 20px; border-radius: var(--r-lg);&quot;&gt;
   &lt;div class=&quot;card stack&quot; style=&quot;--gap: 12px;&quot;&gt;
-    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between;&quot;&gt;&lt;span class=&quot;card__title&quot;&gt;Database Systems&lt;/span&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between;&quot;&gt;&lt;span class=&quot;card__title&quot;&gt;Izin usaha mikro&lt;/span&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Buka&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;progress&quot;&gt;&lt;span class=&quot;progress__fill&quot; style=&quot;transform: scaleX(0.72);&quot;&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;cluster&quot;&gt;&lt;button class=&quot;btn btn--primary btn--md&quot;&gt;Continue&lt;/button&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;Syllabus&lt;/button&gt;&lt;/div&gt;
+    &lt;div class=&quot;cluster&quot;&gt;&lt;button class=&quot;btn btn--primary btn--md&quot;&gt;Lanjutkan&lt;/button&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;Persyaratan&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;lds&quot; data-theme=&quot;dark&quot; style=&quot;padding: 20px; border-radius: var(--r-lg);&quot;&gt;
   &lt;div class=&quot;card stack&quot; style=&quot;--gap: 12px;&quot;&gt;
-    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between;&quot;&gt;&lt;span class=&quot;card__title&quot;&gt;Database Systems&lt;/span&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between;&quot;&gt;&lt;span class=&quot;card__title&quot;&gt;Izin usaha mikro&lt;/span&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Buka&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;progress&quot;&gt;&lt;span class=&quot;progress__fill&quot; style=&quot;transform: scaleX(0.72);&quot;&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;cluster&quot;&gt;&lt;button class=&quot;btn btn--primary btn--md&quot;&gt;Continue&lt;/button&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;Syllabus&lt;/button&gt;&lt;/div&gt;
+    &lt;div class=&quot;cluster&quot;&gt;&lt;button class=&quot;btn btn--primary btn--md&quot;&gt;Lanjutkan&lt;/button&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;Persyaratan&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
@@ -367,22 +385,22 @@
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;auto-grid&quot; style=&quot;--min: 260px;&quot;&gt;
   &lt;div class=&quot;lds&quot; data-theme=&quot;light&quot; style=&quot;padding: 20px; border-radius: var(--r-lg);&quot;&gt;
   &lt;div class=&quot;card stack&quot; style=&quot;--gap: 12px;&quot;&gt;
-    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between;&quot;&gt;&lt;span class=&quot;card__title&quot;&gt;Database Systems&lt;/span&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between;&quot;&gt;&lt;span class=&quot;card__title&quot;&gt;Izin usaha mikro&lt;/span&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Buka&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;progress&quot;&gt;&lt;span class=&quot;progress__fill&quot; style=&quot;transform: scaleX(0.72);&quot;&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;cluster&quot;&gt;&lt;button class=&quot;btn btn--primary btn--md&quot;&gt;Continue&lt;/button&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;Syllabus&lt;/button&gt;&lt;/div&gt;
+    &lt;div class=&quot;cluster&quot;&gt;&lt;button class=&quot;btn btn--primary btn--md&quot;&gt;Lanjutkan&lt;/button&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;Persyaratan&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;lds&quot; data-theme=&quot;dark&quot; style=&quot;padding: 20px; border-radius: var(--r-lg);&quot;&gt;
   &lt;div class=&quot;card stack&quot; style=&quot;--gap: 12px;&quot;&gt;
-    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between;&quot;&gt;&lt;span class=&quot;card__title&quot;&gt;Database Systems&lt;/span&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between;&quot;&gt;&lt;span class=&quot;card__title&quot;&gt;Izin usaha mikro&lt;/span&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Buka&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;progress&quot;&gt;&lt;span class=&quot;progress__fill&quot; style=&quot;transform: scaleX(0.72);&quot;&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;cluster&quot;&gt;&lt;button class=&quot;btn btn--primary btn--md&quot;&gt;Continue&lt;/button&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;Syllabus&lt;/button&gt;&lt;/div&gt;
+    &lt;div class=&quot;cluster&quot;&gt;&lt;button class=&quot;btn btn--primary btn--md&quot;&gt;Lanjutkan&lt;/button&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;Persyaratan&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-3">
-          <figcaption><span class="cdoc__ex-t">Page setup without a flash</span><span class="cdoc__ex-d">Read the saved choice before the body paints. <code class="code">restoreTheme()</code> sets the attribute and returns the mode, so you can sync the switch.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Penyiapan halaman tanpa kedipan</span><span class="cdoc__ex-d">Baca pilihan yang tersimpan sebelum body digambar. <code class="code">restoreTheme()</code> menyetel atribut dan mengembalikan mode, sehingga Anda bisa menyelaraskan pengalihnya.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-3-stage"><div class="codeblock" style="max-width: 640px;"><pre>&lt;html lang="en" class="lds" data-theme="light"&gt;
 &lt;head&gt;
   &lt;link rel="stylesheet" href="css/lds.css"&gt;
@@ -418,13 +436,13 @@
   &lt;/script&gt;
 &lt;/head&gt;</pre></div></div></div>
         </figure></section>
-        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">[data-theme=&quot;light&quot;]</code></td><td>The default (also what <code class="code">:root</code> gets with no attribute).</td></tr><tr><td><code class="code">[data-theme=&quot;dark&quot;]</code></td><td>Dark tokens for this element and everything inside it.</td></tr><tr><td><code class="code">[data-theme=&quot;system&quot;]</code></td><td>Follows the operating system through <code class="code">prefers-color-scheme</code>, live.</td></tr><tr><td><code class="code">.lds</code></td><td>Required on the root (or subtree): base font, text color, canvas background, resets. A scoped theme needs <code class="code">.lds</code> too, so it paints its own background.</td></tr><tr><td><code class="code">[data-lds-theme]</code></td><td>Optional. A button with <code class="code">data-lds-theme=&quot;dark&quot;</code> calls <code class="code">setTheme(&quot;dark&quot;)</code> on click after <code class="code">init()</code>.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">light</code></td><td>Default. White canvas, groups on <code class="code">--bg-fill</code>.</td></tr><tr><td><code class="code">dark</code></td><td>Near-black canvas (#0B0B0D). Same accent, lifted series colors, softer skeleton shine.</td></tr><tr><td><code class="code">system</code></td><td>Follows the OS and updates live when it changes. A good default for the switch once the person has seen both.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>A theme change is instant on purpose. <code class="code">setTheme()</code> (through <code class="code">swapTheme()</code>) adds <code class="code">.lds-theme-swap</code> to <code class="code">&lt;html&gt;</code> for 120 ms, which sets <code class="code">transition: none</code> on everything, so colors do not fade in patches at different speeds.</li><li>The one exception is the segmented thumb, which still slides on <code class="code">--spring-smooth</code> over <code class="code">--d-smooth</code> so the switch itself feels physical.</li><li>Reduced motion changes nothing here; the swap is already instant.</li></ul></section>
-        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Both themes meet the same contrast: <code class="code">--text-subtle</code> is 6.6:1 in light and 7.7:1 in dark; <code class="code">--accent-text</code> 6.7:1 and 9.4:1. Project colors must be checked in both.</li><li>The switch is a group of buttons with <code class="code">aria-pressed</code> (the segmented control), labelled &quot;Appearance&quot;, with icon and text in each button.</li><li><code class="code">setTheme</code> dispatches <code class="code">lds:theme</code> with <code class="code">{ mode }</code> on the root; use it to update <code class="code">aria-pressed</code> on switches that <code class="code">init()</code> did not create.</li><li>Do not convey anything by theme alone; a scoped dark band still needs its own heading and text.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Use tokens for every color in project CSS so it follows the theme.</li><li>Check every new screen in both light and dark before shipping.</li><li>Set the theme before first paint with <code class="code">restoreTheme()</code> in the head.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Write <code class="code">@media (prefers-color-scheme: dark)</code> rules for components; set <code class="code">data-theme=&quot;system&quot;</code> instead.</li><li>Hard-code hex values or <code class="code">#fff</code> backgrounds in project styles.</li><li>Animate the theme change with a long cross-fade.</li></ul></div></div></section>
-        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> <code class="code">setTheme(mode, root = document.documentElement)</code> sets <code class="code">data-theme</code>, saves it under <code class="code">localStorage</code> key <code class="code">lds-theme</code> and dispatches <code class="code">lds:theme</code>. <code class="code">restoreTheme(root, fallback = &quot;light&quot;)</code> reads it back and returns the mode. <code class="code">swapTheme(fn)</code> runs any DOM change with transitions held off for 120 ms. Buttons with <code class="code">data-lds-theme=&quot;light|dark|system&quot;</code> call <code class="code">setTheme</code> after <code class="code">init()</code>.</p></section>
-        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="segmented-control.html"><span class="link-card__eyebrow">Pilihan</span><span class="link-card__title">Segmented control</span><span class="link-card__body">Two to five equal segments with one thumb that slides to the chosen one. For switching the view or mode of what is on screen right now; the change applies at once.</span></a><a class="link-card" href="icon.html"><span class="link-card__eyebrow">Landasan</span><span class="link-card__title">Icon</span><span class="link-card__body">Icons are text: `&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;search&lt;/span&gt;`, drawn by a ligature font from the Solar set. Only names in `icons/icons.json` exist; any other name renders nothing, silently.</span></a><a class="link-card" href="chart-principles.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Chart principles</span><span class="link-card__body">The rules every chart in the system follows: one question per chart, written as its title; thin marks on receding grids; four series colors in a fixed order; direct labels over legends; and a text alternative for every chart.</span></a><a class="link-card" href="layout-primitives.html"><span class="link-card__eyebrow">Landasan</span><span class="link-card__title">Layout primitives</span><span class="link-card__body">Seven small classes that lay out everything between components: `stack`, `cluster`, `auto-grid`, `split-2`, `center`, `measure` and `sr-only`. Reach for them before writing `display: flex` or `grid` by hand.</span></a></div></section>
+        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">[data-theme=&quot;light&quot;]</code></td><td>Bawaan (juga yang didapat <code class="code">:root</code> tanpa atribut).</td></tr><tr><td><code class="code">[data-theme=&quot;dark&quot;]</code></td><td>Token gelap untuk elemen ini dan semua isinya.</td></tr><tr><td><code class="code">[data-theme=&quot;system&quot;]</code></td><td>Mengikuti sistem operasi lewat <code class="code">prefers-color-scheme</code>, secara langsung.</td></tr><tr><td><code class="code">.lds</code></td><td>Wajib pada root (atau subtree): font dasar, warna teks, latar kanvas, reset. Tema terbatas juga butuh <code class="code">.lds</code>, agar ia menggambar latarnya sendiri.</td></tr><tr><td><code class="code">[data-lds-theme]</code></td><td>Opsional. Tombol dengan <code class="code">data-lds-theme=&quot;dark&quot;</code> memanggil <code class="code">setTheme(&quot;dark&quot;)</code> saat diklik setelah <code class="code">init()</code>.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">light</code></td><td>Bawaan. Kanvas putih, kelompok di atas <code class="code">--bg-fill</code>.</td></tr><tr><td><code class="code">dark</code></td><td>Kanvas nyaris hitam (#0B0B0D). Aksen sama, warna seri lebih terang, kilau skeleton lebih lembut.</td></tr><tr><td><code class="code">system</code></td><td>Mengikuti OS dan langsung diperbarui saat berubah. Bawaan yang baik untuk pengalih setelah orang melihat keduanya.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Pergantian tema sengaja instan. <code class="code">setTheme()</code> (lewat <code class="code">swapTheme()</code>) menambahkan <code class="code">.lds-theme-swap</code> ke <code class="code">&lt;html&gt;</code> selama 120 ms, yang menyetel <code class="code">transition: none</code> pada semuanya, agar warna tidak memudar sepotong-sepotong dengan kecepatan berbeda.</li><li>Satu-satunya pengecualian adalah thumb segmented control, yang tetap bergeser dengan <code class="code">--spring-smooth</code> selama <code class="code">--d-smooth</code> agar pengalihnya terasa fisik.</li><li>Reduced motion tidak mengubah apa pun di sini; pergantiannya sudah instan.</li></ul></section>
+        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Kedua tema memenuhi kontras yang sama: <code class="code">--text-subtle</code> 6.6:1 di terang dan 7.7:1 di gelap; <code class="code">--accent-text</code> 6.7:1 dan 9.4:1. Warna proyek harus diperiksa di keduanya.</li><li>Pengalihnya adalah kelompok tombol dengan <code class="code">aria-pressed</code> (segmented control), berlabel &quot;Tampilan&quot;, dengan ikon dan teks di setiap tombol.</li><li><code class="code">setTheme</code> memicu <code class="code">lds:theme</code> dengan <code class="code">{ mode }</code> pada root; pakai untuk memperbarui <code class="code">aria-pressed</code> pada pengalih yang tidak dibuat oleh <code class="code">init()</code>.</li><li>Jangan menyampaikan apa pun hanya lewat tema; pita gelap terbatas tetap butuh heading dan teksnya sendiri.</li></ul></section>
+        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Pakai token untuk setiap warna di CSS proyek agar mengikuti tema.</li><li>Periksa setiap layar baru dalam terang dan gelap sebelum dirilis.</li><li>Setel tema sebelum tampilan pertama dengan <code class="code">restoreTheme()</code> di head.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Menulis aturan <code class="code">@media (prefers-color-scheme: dark)</code> untuk komponen; setel <code class="code">data-theme=&quot;system&quot;</code> sebagai gantinya.</li><li>Menulis langsung nilai hex atau latar <code class="code">#fff</code> di gaya proyek.</li><li>Menganimasikan pergantian tema dengan cross-fade panjang.</li></ul></div></div></section>
+        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> <code class="code">setTheme(mode, root = document.documentElement)</code> menyetel <code class="code">data-theme</code>, menyimpannya di <code class="code">localStorage</code> dengan kunci <code class="code">lds-theme</code>, dan memicu <code class="code">lds:theme</code>. <code class="code">restoreTheme(root, fallback = &quot;light&quot;)</code> membacanya kembali dan mengembalikan mode. <code class="code">swapTheme(fn)</code> menjalankan perubahan DOM apa pun dengan transisi ditahan selama 120 ms. Tombol dengan <code class="code">data-lds-theme=&quot;light|dark|system&quot;</code> memanggil <code class="code">setTheme</code> setelah <code class="code">init()</code>.</p></section>
+        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="segmented-control.html"><span class="link-card__eyebrow">Pilihan</span><span class="link-card__title">Segmented control</span><span class="link-card__body">Dua sampai lima segmen sama lebar dengan satu thumb yang bergeser ke segmen terpilih. Untuk mengganti tampilan atau mode dari yang ada di layar saat itu; perubahannya langsung berlaku.</span></a><a class="link-card" href="icon.html"><span class="link-card__eyebrow">Landasan</span><span class="link-card__title">Icon</span><span class="link-card__body">Ikon adalah teks: `&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;search&lt;/span&gt;`, digambar oleh font ligatur dari set Solar. Hanya nama di `icons/icons.json` yang ada; nama lain tidak menampilkan apa pun, tanpa pesan.</span></a><a class="link-card" href="chart-principles.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Chart principles</span><span class="link-card__body">Aturan yang diikuti setiap grafik di sistem ini: satu pertanyaan per grafik, ditulis sebagai judulnya; tanda tipis di atas grid yang samar; empat warna seri dengan urutan tetap; label langsung, bukan legenda; dan alternatif teks untuk setiap grafik.</span></a><a class="link-card" href="layout-primitives.html"><span class="link-card__eyebrow">Landasan</span><span class="link-card__title">Layout primitives</span><span class="link-card__body">Tujuh kelas kecil yang menata semua hal di antara komponen: `stack`, `cluster`, `auto-grid`, `split-2`, `center`, `measure`, dan `sr-only`. Pakai ini sebelum menulis `display: flex` atau `grid` sendiri.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
           <a class="link-card cdoc__prev" href="data-states.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Sebelumnya</span><span class="link-card__title">Data states</span></a>
           <a class="link-card cdoc__next" href="icon.html"><span class="link-card__eyebrow">Berikutnya<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Icon</span></a>

@@ -1,6 +1,6 @@
 # Stat row
 
-Group: Data display (new). Docs page: `docs/components/stat-row.html`.
+Group: Data display. Docs page: `docs/components/stat-row.html`.
 
 A row of key figures without cards: big tabular numbers with their labels underneath, divided by hairlines. Its columns follow the width of the content column, not the screen.
 

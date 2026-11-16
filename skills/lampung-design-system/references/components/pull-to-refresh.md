@@ -1,6 +1,6 @@
 # Pull to refresh
 
-Group: Microinteractions (new). Docs page: `docs/components/pull-to-refresh.html`.
+Group: Microinteractions. Docs page: `docs/components/pull-to-refresh.html`.
 
 Drag a phone list down from the top: the content follows with resistance, a spinner turns as it comes in, and past 56 px a release refreshes. The spinner holds until the work is done, at least 700 ms so it never flickers.
 

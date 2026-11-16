@@ -1,6 +1,6 @@
 # Inline code
 
-Group: Content (new). Docs page: `docs/components/inline-code.html`.
+Group: Content. Docs page: `docs/components/inline-code.html`.
 
 A short piece of code, a file name, a key or a value inside a sentence: `<code class="code">student_id</code>`, monospace at 0.88 em on `--bg-recessed`.
 

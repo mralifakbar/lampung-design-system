@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Inbox list · Lampung Design System</title>
-<meta name="description" content="Rows of messages or conversations: who, when, a subject and a preview, with unread, current and flagged states. The row is the button that opens the message; the newest sit on top.">
+<meta name="description" content="Baris pesan atau percakapan: siapa, kapan, subjek, dan cuplikan, dengan state belum dibaca, sedang dibuka, dan ditandai. Barisnya adalah tombol yang membuka pesan; yang terbaru ada di atas.">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
 <link rel="stylesheet" href="../../css/lds.css">
 <link rel="stylesheet" href="../docs.css">
@@ -12,20 +12,36 @@
 </head>
 <body class="lds">
 <a class="skip" href="#main">Langsung ke konten</a>
+<div class="masthead" role="region" aria-label="Status situs">
+  <div class="masthead__bar">
+    <span class="masthead__mark" aria-hidden="true"><span class="ic">info</span></span>
+    <span class="masthead__text">Proyek komunitas. Ini bukan situs resmi pemerintah.</span>
+    <button class="masthead__toggle" data-lds-masthead aria-expanded="false" aria-controls="lds-masthead">Cara memastikan<span class="ic" aria-hidden="true">expand_more</span></button>
+  </div>
+  <div class="collapse is-closed" id="lds-masthead" inert><div><div class="masthead__body">
+    <p class="masthead__item"><span class="ic" aria-hidden="true">groups</span><span><b>Dikelola sukarelawan.</b> Lampung Design System dibangun oleh komunitas open source. Tidak ada instansi pemerintah yang mengelola atau mendukungnya secara resmi.</span></p>
+    <p class="masthead__item"><span class="ic" aria-hidden="true">verified_user</span><span><b>Layanan resmi memakai go.id.</b> Situs pemerintah Indonesia berakhiran .go.id. Jangan masukkan NIK di situs yang Anda ragukan.</span></p>
+  </div></div></div>
+</div>
 <div class="shell" data-lds-shell>
   <aside class="shell__side" id="side" aria-label="Dokumentasi">
-    <a class="shell__brand" href="../index.html"><span class="page-head__mark">L</span>Lampung Design System</a>
+    <a class="shell__brand" href="../index.html"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>Lampung Design System</a>
     <nav class="shell__nav" aria-label="Komponen">
       <span class="shell__hl" aria-hidden="true"></span>
-      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Memulai</span></a>
+      <p class="shell__group">Memulai</p>
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Pengenalan</span></a>
+      <a class="shell__link" href="../guide/instalasi.html"><span class="ic" aria-hidden="true">download</span><span class="shell__label">Instalasi</span></a>
+      <a class="shell__link" href="../guide/penulisan.html"><span class="ic" aria-hidden="true">edit_square</span><span class="shell__label">Penulisan</span></a>
+      <a class="shell__link" href="../guide/aksesibilitas.html"><span class="ic" aria-hidden="true">accessible</span><span class="shell__label">Aksesibilitas</span></a>
+      <a class="shell__link" href="../guide/desainer.html"><span class="ic" aria-hidden="true">palette</span><span class="shell__label">Untuk desainer</span></a>
+      <p class="shell__group">Komponen</p>
       <a class="shell__link" href="index.html"><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">Semua komponen</span></a>
       <a class="shell__link" href="../examples/index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Contoh</span></a>
-      <p class="shell__group">Komponen</p>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g0"><span class="shell__section-label">Landasan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g0"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span></a>
+          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span></a>
           <a class="shell__link shell__link--child" href="data-states.html"><span class="shell__num">3</span><span class="shell__label">Data states</span></a>
           <a class="shell__link shell__link--child" href="theming.html"><span class="shell__num">4</span><span class="shell__label">Theming</span></a>
           <a class="shell__link shell__link--child" href="icon.html"><span class="shell__num">5</span><span class="shell__label">Icon</span></a>
@@ -60,9 +76,9 @@
           <a class="shell__link shell__link--child" href="select.html"><span class="shell__num">8</span><span class="shell__label">Select</span></a>
           <a class="shell__link shell__link--child" href="combobox.html"><span class="shell__num">9</span><span class="shell__label">Combobox</span></a>
           <a class="shell__link shell__link--child" href="tag-input.html"><span class="shell__num">10</span><span class="shell__label">Tag input</span></a>
-          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span></a>
+          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span></a>
+          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -80,21 +96,22 @@
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">13</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">14</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g4"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">1</span><span class="shell__label">App shell</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">2</span><span class="shell__label">Top nav</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">3</span><span class="shell__label">Tabs</span></a>
-          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">4</span><span class="shell__label">Breadcrumbs</span></a>
-          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">5</span><span class="shell__label">Page header</span></a>
-          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">6</span><span class="shell__label">Pagination</span></a>
-          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">7</span><span class="shell__label">Steps</span></a>
-          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">8</span><span class="shell__label">Sidebar</span></a>
-          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">9</span><span class="shell__label">Outline</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">10</span><span class="shell__label">Menubar</span></a>
-          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">11</span><span class="shell__label">Nav progress</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">12</span><span class="shell__label">Phone bars</span></a>
-          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">13</span><span class="shell__label">Navigation stack</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="masthead.html"><span class="shell__num">1</span><span class="shell__label">Masthead</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">2</span><span class="shell__label">App shell</span></a>
+          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">3</span><span class="shell__label">Top nav</span></a>
+          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">4</span><span class="shell__label">Tabs</span></a>
+          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">5</span><span class="shell__label">Breadcrumbs</span></a>
+          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">6</span><span class="shell__label">Page header</span></a>
+          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">7</span><span class="shell__label">Pagination</span></a>
+          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">8</span><span class="shell__label">Steps</span></a>
+          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">9</span><span class="shell__label">Sidebar</span></a>
+          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">10</span><span class="shell__label">Outline</span></a>
+          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">11</span><span class="shell__label">Menubar</span></a>
+          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">12</span><span class="shell__label">Nav progress</span></a>
+          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">13</span><span class="shell__label">Phone bars</span></a>
+          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">14</span><span class="shell__label">Navigation stack</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -102,7 +119,7 @@
         <div class="shell__panel" id="nav-g5"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="dialog.html"><span class="shell__num">1</span><span class="shell__label">Dialog</span></a>
           <a class="shell__link shell__link--child" href="alert-dialog.html"><span class="shell__num">2</span><span class="shell__label">Alert dialog</span></a>
-          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span></a>
           <a class="shell__link shell__link--child" href="sheet.html"><span class="shell__num">4</span><span class="shell__label">Sheet</span></a>
           <a class="shell__link shell__link--child" href="drawer.html"><span class="shell__num">5</span><span class="shell__label">Drawer</span></a>
           <a class="shell__link shell__link--child" href="dropdown-menu.html"><span class="shell__num">6</span><span class="shell__label">Dropdown menu</span></a>
@@ -112,8 +129,8 @@
           <a class="shell__link shell__link--child" href="hover-card.html"><span class="shell__num">10</span><span class="shell__label">Hover card</span></a>
           <a class="shell__link shell__link--child" href="toast.html"><span class="shell__num">11</span><span class="shell__label">Toast</span></a>
           <a class="shell__link shell__link--child" href="command-palette.html"><span class="shell__num">12</span><span class="shell__label">Command palette</span></a>
-          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span></a>
+          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -132,7 +149,7 @@
           <a class="shell__link shell__link--child" href="empty-state.html"><span class="shell__num">11</span><span class="shell__label">Empty state</span></a>
           <a class="shell__link shell__link--child" href="coachmark.html"><span class="shell__num">12</span><span class="shell__label">Coachmark</span></a>
           <a class="shell__link shell__link--child" href="thinking.html"><span class="shell__num">13</span><span class="shell__label">Thinking</span></a>
-          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -140,8 +157,8 @@
         <div class="shell__panel is-open" id="nav-g7"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="list.html"><span class="shell__num">1</span><span class="shell__label">List</span></a>
           <a class="shell__link shell__link--child" href="key-value.html"><span class="shell__num">2</span><span class="shell__label">Key-value</span></a>
-          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span></a>
+          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span></a>
           <a class="shell__link shell__link--child" href="card.html"><span class="shell__num">5</span><span class="shell__label">Card</span></a>
           <a class="shell__link shell__link--child" href="avatar.html"><span class="shell__num">6</span><span class="shell__label">Avatar</span></a>
           <a class="shell__link shell__link--child" href="table.html"><span class="shell__num">7</span><span class="shell__label">Table</span></a>
@@ -149,70 +166,71 @@
           <a class="shell__link shell__link--child" href="tree.html"><span class="shell__num">9</span><span class="shell__label">Tree</span></a>
           <a class="shell__link shell__link--child" href="calendar.html"><span class="shell__num">10</span><span class="shell__label">Calendar</span></a>
           <a class="shell__link shell__link--child" href="timeline.html"><span class="shell__num">11</span><span class="shell__label">Timeline</span></a>
-          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span></a>
+          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span></a>
+          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span></a>
           <a class="shell__link shell__link--child" href="rolling-number.html"><span class="shell__num">15</span><span class="shell__label">Rolling number</span></a>
           <a class="shell__link shell__link--child" href="code-block.html"><span class="shell__num">16</span><span class="shell__label">Code block</span></a>
           <a class="shell__link shell__link--child" href="carousel.html"><span class="shell__num">17</span><span class="shell__label">Carousel</span></a>
           <a class="shell__link shell__link--child" href="separator.html"><span class="shell__num">18</span><span class="shell__label">Separator</span></a>
-          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inbox-list.html" aria-current="page"><span class="shell__num">26</span><span class="shell__label">Inbox list</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span></a>
+          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span></a>
+          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span></a>
+          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span></a>
+          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span></a>
+          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span></a>
+          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span></a>
+          <a class="shell__link shell__link--child" href="inbox-list.html" aria-current="page"><span class="shell__num">26</span><span class="shell__label">Inbox list</span></a>
+          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span></a>
+          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span></a>
+          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span></a>
+          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">7</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g8"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span></a>
+          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span></a>
+          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span></a>
+          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span></a>
+          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span></a>
+          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span></a>
+          <a class="shell__link shell__link--child" href="aksara.html"><span class="shell__num">7</span><span class="shell__label">Aksara Lampung</span><span class="badge badge--accent shell__badge">Baru</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g9"><span class="shell__section-label">Obrolan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g9"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span></a>
+          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span></a>
+          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span></a>
+          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span></a>
+          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g10"><span class="shell__section-label">Pola halaman</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g10"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span></a>
+          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span></a>
+          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span></a>
+          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span></a>
           <a class="shell__link shell__link--child" href="phone-screen.html"><span class="shell__num">5</span><span class="shell__label">Phone screen</span></a>
-          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g11"><span class="shell__section-label">Promosi</span><span class="shell__section-count">8</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g11"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span></a>
+          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span></a>
+          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span></a>
+          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span></a>
+          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span></a>
+          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span></a>
+          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span></a>
+          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -225,10 +243,10 @@
           <a class="shell__link shell__link--child" href="height-expand.html"><span class="shell__num">5</span><span class="shell__label">Height expand</span></a>
           <a class="shell__link shell__link--child" href="list-stagger.html"><span class="shell__num">6</span><span class="shell__label">List stagger</span></a>
           <a class="shell__link shell__link--child" href="view-swap.html"><span class="shell__num">7</span><span class="shell__label">View swap</span></a>
-          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span></a>
           <a class="shell__link shell__link--child" href="number-count.html"><span class="shell__num">9</span><span class="shell__label">Number count</span></a>
           <a class="shell__link shell__link--child" href="drag-and-momentum.html"><span class="shell__num">10</span><span class="shell__label">Drag and momentum</span></a>
-          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span></a>
           <a class="shell__link shell__link--child" href="reduced-motion.html"><span class="shell__num">12</span><span class="shell__label">Reduced motion</span></a>
         </div></div></div>
       </div>
@@ -249,27 +267,27 @@
           <a class="shell__link shell__link--child" href="scroll-fades.html"><span class="shell__num">12</span><span class="shell__label">Scroll fades</span></a>
           <a class="shell__link shell__link--child" href="hints.html"><span class="shell__num">13</span><span class="shell__label">Hints</span></a>
           <a class="shell__link shell__link--child" href="haptics.html"><span class="shell__num">14</span><span class="shell__label">Haptics</span></a>
-          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g14"><span class="shell__section-label">Grafik</span><span class="shell__section-count">16</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g14"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="chart-principles.html"><span class="shell__num">1</span><span class="shell__label">Chart principles</span></a>
-          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span></a>
           <a class="shell__link shell__link--child" href="sparkline-stat.html"><span class="shell__num">3</span><span class="shell__label">Sparkline stat</span></a>
           <a class="shell__link shell__link--child" href="bar-chart.html"><span class="shell__num">4</span><span class="shell__label">Bar chart</span></a>
-          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span></a>
           <a class="shell__link shell__link--child" href="line-chart.html"><span class="shell__num">6</span><span class="shell__label">Line chart</span></a>
-          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span></a>
+          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span></a>
           <a class="shell__link shell__link--child" href="donut.html"><span class="shell__num">9</span><span class="shell__label">Donut</span></a>
-          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span></a>
           <a class="shell__link shell__link--child" href="percentage-bar.html"><span class="shell__num">11</span><span class="shell__label">Percentage bar</span></a>
-          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span></a>
+          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span></a>
           <a class="shell__link shell__link--child" href="heatmap.html"><span class="shell__num">14</span><span class="shell__label">Heatmap</span></a>
-          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span></a>
           <a class="shell__link shell__link--child" href="chart-states.html"><span class="shell__num">16</span><span class="shell__label">Chart states</span></a>
         </div></div></div>
       </div>
@@ -295,35 +313,35 @@
       <main class="cdoc__main" id="main" tabindex="-1">
         <header class="cdoc__head">
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Data%20display">Tampilan data</a></li></ol></nav>
-          <h1>Inbox list <span class="badge badge--accent">Baru</span></h1>
-          <p class="cdoc__lede">Rows of messages or conversations: who, when, a subject and a preview, with unread, current and flagged states. The row is the button that opens the message; the newest sit on top.</p>
+          <h1>Inbox list</h1>
+          <p class="cdoc__lede">Baris pesan atau percakapan: siapa, kapan, subjek, dan cuplikan, dengan state belum dibaca, sedang dibuka, dan ditandai. Barisnya adalah tombol yang membuka pesan; yang terbaru ada di atas.</p>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>A mail inbox, a list of chat conversations or a support queue, where each row opens one message or thread.</li><li>Notifications or announcements people process one by one, where unread matters.</li><li>The left pane of a <a class="link" href="resizable-split.html">resizable split</a> with the open message on the right.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Settings, links or records that are not messages: pakai <a class="link" href="list.html">List</a>. A plain list row with a title and a value.</li><li>Records compared by the same columns: pakai <a class="link" href="data-table.html">Data table</a>.</li><li>The messages inside one conversation: pakai <a class="link" href="chat-message.html">Chat message</a>.</li><li>A history of what happened to one record: pakai <a class="link" href="timeline.html">Timeline</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> In its own scrolling pane, full width of that pane: beside the reading pane on wide screens, the whole screen on phones (rows push the message with a <a class="link" href="nav-stack.html">navigation stack</a>). Put search and a filter above it, outside the scroller. Wrap each row in a <a class="link" href="swipe-actions.html">swipe</a> for archive and delete on phones.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Kotak masuk email, daftar percakapan chat, atau antrean pengaduan, ketika setiap baris membuka satu pesan atau utas.</li><li>Notifikasi atau pengumuman yang ditangani satu per satu, ketika status belum dibaca penting.</li><li>Panel kiri <a class="link" href="resizable-split.html">resizable split</a> dengan pesan yang terbuka di kanan.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Pengaturan, tautan, atau catatan yang bukan pesan: pakai <a class="link" href="list.html">List</a>. Baris daftar biasa dengan judul dan nilai.</li><li>Catatan yang dibandingkan dengan kolom yang sama: pakai <a class="link" href="data-table.html">Data table</a>.</li><li>Pesan-pesan di dalam satu percakapan: pakai <a class="link" href="chat-message.html">Chat message</a>.</li><li>Riwayat apa yang terjadi pada satu catatan: pakai <a class="link" href="timeline.html">Timeline</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di panel gulir sendiri, selebar panel itu: di samping panel baca pada layar lebar, seluruh layar di ponsel (baris mendorong pesan dengan <a class="link" href="nav-stack.html">navigation stack</a>). Taruh pencarian dan filter di atasnya, di luar area gulir. Bungkus setiap baris dengan <a class="link" href="swipe-actions.html">swipe</a> untuk arsip dan hapus di ponsel.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">An inbox</span><span class="cdoc__ex-d">Unread rows carry a dot and full weight; the open message sits on the accent tint. Focus a row and use the Up and Down arrows (or j and k) to move.</span></figcaption>
-          <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="inbox inbox--avatars card" data-lds-inbox style="padding: 0; overflow: hidden; max-width: 460px;" aria-label="Inbox">
+          <figcaption><span class="cdoc__ex-t">Kotak masuk</span><span class="cdoc__ex-d">Baris belum dibaca punya titik dan huruf tebal; pesan yang terbuka berada di tint aksen. Fokuskan satu baris dan pakai panah Atas dan Bawah (atau j dan k) untuk berpindah.</span></figcaption>
+          <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="inbox inbox--avatars card" data-lds-inbox style="padding: 0; overflow: hidden; max-width: 460px;" aria-label="Kotak masuk">
   <button class="inbox__row is-unread" type="button">
     <span class="avatar" style="--size: 40px;" aria-hidden="true">NP</span>
     <span class="inbox__body">
-      <span class="inbox__line"><span class="inbox__from">Nadia Putri</span><span class="ic inbox__flag" aria-label="Flagged">flag</span><time class="inbox__time">09:12</time></span>
-      <span class="inbox__subject">Q4 budget: two lines need your sign-off</span>
-      <span class="inbox__preview">I moved the design tools into opex as we agreed. The travel line is still 8% over, can you look before Friday?</span>
+      <span class="inbox__line"><span class="inbox__from">Nadia Putri</span><span class="ic inbox__flag" aria-label="Ditandai">flag</span><time class="inbox__time">09.12</time></span>
+      <span class="inbox__subject">Anggaran TW4: dua pos perlu persetujuan Anda</span>
+      <span class="inbox__preview">Biaya perangkat lunak sudah saya pindah ke belanja operasional sesuai kesepakatan. Pos perjalanan dinas masih lebih 8%, bisa dicek sebelum Jumat?</span>
     </span>
   </button>
   <button class="inbox__row" type="button" aria-current="true">
     <span class="avatar avatar--gray" style="--size: 40px;" aria-hidden="true">GR</span>
     <span class="inbox__body">
-      <span class="inbox__line"><span class="inbox__from">Galih Ramadhan</span><span class="ic" aria-label="Has attachments">attach_file</span><time class="inbox__time">08:40</time></span>
-      <span class="inbox__subject">Payment page is ready for review</span>
-      <span class="inbox__preview">Virtual account and card both work in staging. Receipts go out by email within a minute.</span>
+      <span class="inbox__line"><span class="inbox__from">Galih Ramadhan</span><span class="ic" aria-label="Ada lampiran">attach_file</span><time class="inbox__time">08.40</time></span>
+      <span class="inbox__subject">Halaman pembayaran retribusi siap ditinjau</span>
+      <span class="inbox__preview">Virtual account dan kartu sudah berfungsi di staging. Bukti bayar terkirim lewat email dalam satu menit.</span>
     </span>
   </button>
   <button class="inbox__row" type="button">
     <span class="avatar avatar--gray" style="--size: 40px;" aria-hidden="true">SH</span>
     <span class="inbox__body">
-      <span class="inbox__line"><span class="inbox__from">Sari Handayani</span><time class="inbox__time">Yesterday</time></span>
-      <span class="inbox__subject">Invoice reminders schedule</span>
-      <span class="inbox__preview">Three days before and on the due date, as discussed. I left the copy in the doc.</span>
+      <span class="inbox__line"><span class="inbox__from">Sari Handayani</span><time class="inbox__time">Kemarin</time></span>
+      <span class="inbox__subject">Jadwal pengingat tagihan pajak</span>
+      <span class="inbox__preview">Tiga hari sebelum dan pada tanggal jatuh tempo, sesuai pembahasan. Teksnya sudah saya taruh di dokumen.</span>
     </span>
   </button>
 </div></div>
@@ -331,114 +349,114 @@
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;inbox inbox--avatars card&quot; data-lds-inbox style=&quot;padding: 0; overflow: hidden; max-width: 460px;&quot; aria-label=&quot;Inbox&quot;&gt;
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;inbox inbox--avatars card&quot; data-lds-inbox style=&quot;padding: 0; overflow: hidden; max-width: 460px;&quot; aria-label=&quot;Kotak masuk&quot;&gt;
   &lt;button class=&quot;inbox__row is-unread&quot; type=&quot;button&quot;&gt;
     &lt;span class=&quot;avatar&quot; style=&quot;--size: 40px;&quot; aria-hidden=&quot;true&quot;&gt;NP&lt;/span&gt;
     &lt;span class=&quot;inbox__body&quot;&gt;
-      &lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Nadia Putri&lt;/span&gt;&lt;span class=&quot;ic inbox__flag&quot; aria-label=&quot;Flagged&quot;&gt;flag&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;09:12&lt;/time&gt;&lt;/span&gt;
-      &lt;span class=&quot;inbox__subject&quot;&gt;Q4 budget: two lines need your sign-off&lt;/span&gt;
-      &lt;span class=&quot;inbox__preview&quot;&gt;I moved the design tools into opex as we agreed. The travel line is still 8% over, can you look before Friday?&lt;/span&gt;
+      &lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Nadia Putri&lt;/span&gt;&lt;span class=&quot;ic inbox__flag&quot; aria-label=&quot;Ditandai&quot;&gt;flag&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;09.12&lt;/time&gt;&lt;/span&gt;
+      &lt;span class=&quot;inbox__subject&quot;&gt;Anggaran TW4: dua pos perlu persetujuan Anda&lt;/span&gt;
+      &lt;span class=&quot;inbox__preview&quot;&gt;Biaya perangkat lunak sudah saya pindah ke belanja operasional sesuai kesepakatan. Pos perjalanan dinas masih lebih 8%, bisa dicek sebelum Jumat?&lt;/span&gt;
     &lt;/span&gt;
   &lt;/button&gt;
   &lt;button class=&quot;inbox__row&quot; type=&quot;button&quot; aria-current=&quot;true&quot;&gt;
     &lt;span class=&quot;avatar avatar--gray&quot; style=&quot;--size: 40px;&quot; aria-hidden=&quot;true&quot;&gt;GR&lt;/span&gt;
     &lt;span class=&quot;inbox__body&quot;&gt;
-      &lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Galih Ramadhan&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-label=&quot;Has attachments&quot;&gt;attach_file&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;08:40&lt;/time&gt;&lt;/span&gt;
-      &lt;span class=&quot;inbox__subject&quot;&gt;Payment page is ready for review&lt;/span&gt;
-      &lt;span class=&quot;inbox__preview&quot;&gt;Virtual account and card both work in staging. Receipts go out by email within a minute.&lt;/span&gt;
+      &lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Galih Ramadhan&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-label=&quot;Ada lampiran&quot;&gt;attach_file&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;08.40&lt;/time&gt;&lt;/span&gt;
+      &lt;span class=&quot;inbox__subject&quot;&gt;Halaman pembayaran retribusi siap ditinjau&lt;/span&gt;
+      &lt;span class=&quot;inbox__preview&quot;&gt;Virtual account dan kartu sudah berfungsi di staging. Bukti bayar terkirim lewat email dalam satu menit.&lt;/span&gt;
     &lt;/span&gt;
   &lt;/button&gt;
   &lt;button class=&quot;inbox__row&quot; type=&quot;button&quot;&gt;
     &lt;span class=&quot;avatar avatar--gray&quot; style=&quot;--size: 40px;&quot; aria-hidden=&quot;true&quot;&gt;SH&lt;/span&gt;
     &lt;span class=&quot;inbox__body&quot;&gt;
-      &lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Sari Handayani&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;Yesterday&lt;/time&gt;&lt;/span&gt;
-      &lt;span class=&quot;inbox__subject&quot;&gt;Invoice reminders schedule&lt;/span&gt;
-      &lt;span class=&quot;inbox__preview&quot;&gt;Three days before and on the due date, as discussed. I left the copy in the doc.&lt;/span&gt;
+      &lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Sari Handayani&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;Kemarin&lt;/time&gt;&lt;/span&gt;
+      &lt;span class=&quot;inbox__subject&quot;&gt;Jadwal pengingat tagihan pajak&lt;/span&gt;
+      &lt;span class=&quot;inbox__preview&quot;&gt;Tiga hari sebelum dan pada tanggal jatuh tempo, sesuai pembahasan. Teksnya sudah saya taruh di dokumen.&lt;/span&gt;
     &lt;/span&gt;
   &lt;/button&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;inbox inbox--avatars card&quot; data-lds-inbox style=&quot;padding: 0; overflow: hidden; max-width: 460px;&quot; aria-label=&quot;Inbox&quot;&gt;
+          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;inbox inbox--avatars card&quot; data-lds-inbox style=&quot;padding: 0; overflow: hidden; max-width: 460px;&quot; aria-label=&quot;Kotak masuk&quot;&gt;
   &lt;button class=&quot;inbox__row is-unread&quot; type=&quot;button&quot;&gt;
     &lt;span class=&quot;avatar&quot; style=&quot;--size: 40px;&quot; aria-hidden=&quot;true&quot;&gt;NP&lt;/span&gt;
     &lt;span class=&quot;inbox__body&quot;&gt;
-      &lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Nadia Putri&lt;/span&gt;&lt;span class=&quot;ic inbox__flag&quot; aria-label=&quot;Flagged&quot;&gt;flag&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;09:12&lt;/time&gt;&lt;/span&gt;
-      &lt;span class=&quot;inbox__subject&quot;&gt;Q4 budget: two lines need your sign-off&lt;/span&gt;
-      &lt;span class=&quot;inbox__preview&quot;&gt;I moved the design tools into opex as we agreed. The travel line is still 8% over, can you look before Friday?&lt;/span&gt;
+      &lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Nadia Putri&lt;/span&gt;&lt;span class=&quot;ic inbox__flag&quot; aria-label=&quot;Ditandai&quot;&gt;flag&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;09.12&lt;/time&gt;&lt;/span&gt;
+      &lt;span class=&quot;inbox__subject&quot;&gt;Anggaran TW4: dua pos perlu persetujuan Anda&lt;/span&gt;
+      &lt;span class=&quot;inbox__preview&quot;&gt;Biaya perangkat lunak sudah saya pindah ke belanja operasional sesuai kesepakatan. Pos perjalanan dinas masih lebih 8%, bisa dicek sebelum Jumat?&lt;/span&gt;
     &lt;/span&gt;
   &lt;/button&gt;
   &lt;button class=&quot;inbox__row&quot; type=&quot;button&quot; aria-current=&quot;true&quot;&gt;
     &lt;span class=&quot;avatar avatar--gray&quot; style=&quot;--size: 40px;&quot; aria-hidden=&quot;true&quot;&gt;GR&lt;/span&gt;
     &lt;span class=&quot;inbox__body&quot;&gt;
-      &lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Galih Ramadhan&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-label=&quot;Has attachments&quot;&gt;attach_file&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;08:40&lt;/time&gt;&lt;/span&gt;
-      &lt;span class=&quot;inbox__subject&quot;&gt;Payment page is ready for review&lt;/span&gt;
-      &lt;span class=&quot;inbox__preview&quot;&gt;Virtual account and card both work in staging. Receipts go out by email within a minute.&lt;/span&gt;
+      &lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Galih Ramadhan&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-label=&quot;Ada lampiran&quot;&gt;attach_file&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;08.40&lt;/time&gt;&lt;/span&gt;
+      &lt;span class=&quot;inbox__subject&quot;&gt;Halaman pembayaran retribusi siap ditinjau&lt;/span&gt;
+      &lt;span class=&quot;inbox__preview&quot;&gt;Virtual account dan kartu sudah berfungsi di staging. Bukti bayar terkirim lewat email dalam satu menit.&lt;/span&gt;
     &lt;/span&gt;
   &lt;/button&gt;
   &lt;button class=&quot;inbox__row&quot; type=&quot;button&quot;&gt;
     &lt;span class=&quot;avatar avatar--gray&quot; style=&quot;--size: 40px;&quot; aria-hidden=&quot;true&quot;&gt;SH&lt;/span&gt;
     &lt;span class=&quot;inbox__body&quot;&gt;
-      &lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Sari Handayani&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;Yesterday&lt;/time&gt;&lt;/span&gt;
-      &lt;span class=&quot;inbox__subject&quot;&gt;Invoice reminders schedule&lt;/span&gt;
-      &lt;span class=&quot;inbox__preview&quot;&gt;Three days before and on the due date, as discussed. I left the copy in the doc.&lt;/span&gt;
+      &lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Sari Handayani&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;Kemarin&lt;/time&gt;&lt;/span&gt;
+      &lt;span class=&quot;inbox__subject&quot;&gt;Jadwal pengingat tagihan pajak&lt;/span&gt;
+      &lt;span class=&quot;inbox__preview&quot;&gt;Tiga hari sebelum dan pada tanggal jatuh tempo, sesuai pembahasan. Teksnya sudah saya taruh di dokumen.&lt;/span&gt;
     &lt;/span&gt;
   &lt;/button&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
-          <figcaption><span class="cdoc__ex-t">Conversations</span><span class="cdoc__ex-d">A chat list: name and time on the first line, the last message and an unread <a class="link" href="count.html">count</a> on the second. The current conversation is on the tint.</span></figcaption>
-          <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="inbox inbox--avatars card" data-lds-inbox style="padding: 0; overflow: hidden; max-width: 380px;" aria-label="Conversations">
-  <button class="inbox__row is-unread" type="button"><span class="avatar" style="--size: 40px;" aria-hidden="true">LT</span><span class="inbox__body"><span class="inbox__line"><span class="inbox__from">Launch team</span><time class="inbox__time">10:02</time></span><span class="inbox__line"><span class="inbox__preview">Bima: the release notes are in the doc</span><span class="count">3<span class="sr-only"> unread</span></span></span></span></button>
-  <button class="inbox__row" type="button" aria-current="true"><span class="avatar avatar--gray" style="--size: 40px;" aria-hidden="true">DL</span><span class="inbox__body"><span class="inbox__line"><span class="inbox__from">Dewi Lestari</span><time class="inbox__time">09:47</time></span><span class="inbox__line"><span class="inbox__preview">Sounds good, see you at 14:00</span></span></span></button>
+          <figcaption><span class="cdoc__ex-t">Percakapan</span><span class="cdoc__ex-d">Daftar chat: nama dan jam di baris pertama, pesan terakhir dan <a class="link" href="count.html">count</a> belum dibaca di baris kedua. Percakapan yang sedang dibuka berada di tint.</span></figcaption>
+          <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="inbox inbox--avatars card" data-lds-inbox style="padding: 0; overflow: hidden; max-width: 380px;" aria-label="Percakapan">
+  <button class="inbox__row is-unread" type="button"><span class="avatar" style="--size: 40px;" aria-hidden="true">TP</span><span class="inbox__body"><span class="inbox__line"><span class="inbox__from">Tim peluncuran</span><time class="inbox__time">10.02</time></span><span class="inbox__line"><span class="inbox__preview">Bima: catatan rilis sudah ada di dokumen</span><span class="count">3<span class="sr-only"> belum dibaca</span></span></span></span></button>
+  <button class="inbox__row" type="button" aria-current="true"><span class="avatar avatar--gray" style="--size: 40px;" aria-hidden="true">DL</span><span class="inbox__body"><span class="inbox__line"><span class="inbox__from">Dewi Lestari</span><time class="inbox__time">09.47</time></span><span class="inbox__line"><span class="inbox__preview">Baik, sampai ketemu pukul 14.00</span></span></span></button>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;inbox inbox--avatars card&quot; data-lds-inbox style=&quot;padding: 0; overflow: hidden; max-width: 380px;&quot; aria-label=&quot;Conversations&quot;&gt;
-  &lt;button class=&quot;inbox__row is-unread&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;avatar&quot; style=&quot;--size: 40px;&quot; aria-hidden=&quot;true&quot;&gt;LT&lt;/span&gt;&lt;span class=&quot;inbox__body&quot;&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Launch team&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;10:02&lt;/time&gt;&lt;/span&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__preview&quot;&gt;Bima: the release notes are in the doc&lt;/span&gt;&lt;span class=&quot;count&quot;&gt;3&lt;span class=&quot;sr-only&quot;&gt; unread&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
-  &lt;button class=&quot;inbox__row&quot; type=&quot;button&quot; aria-current=&quot;true&quot;&gt;&lt;span class=&quot;avatar avatar--gray&quot; style=&quot;--size: 40px;&quot; aria-hidden=&quot;true&quot;&gt;DL&lt;/span&gt;&lt;span class=&quot;inbox__body&quot;&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Dewi Lestari&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;09:47&lt;/time&gt;&lt;/span&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__preview&quot;&gt;Sounds good, see you at 14:00&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;inbox inbox--avatars card&quot; data-lds-inbox style=&quot;padding: 0; overflow: hidden; max-width: 380px;&quot; aria-label=&quot;Percakapan&quot;&gt;
+  &lt;button class=&quot;inbox__row is-unread&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;avatar&quot; style=&quot;--size: 40px;&quot; aria-hidden=&quot;true&quot;&gt;TP&lt;/span&gt;&lt;span class=&quot;inbox__body&quot;&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Tim peluncuran&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;10.02&lt;/time&gt;&lt;/span&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__preview&quot;&gt;Bima: catatan rilis sudah ada di dokumen&lt;/span&gt;&lt;span class=&quot;count&quot;&gt;3&lt;span class=&quot;sr-only&quot;&gt; belum dibaca&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+  &lt;button class=&quot;inbox__row&quot; type=&quot;button&quot; aria-current=&quot;true&quot;&gt;&lt;span class=&quot;avatar avatar--gray&quot; style=&quot;--size: 40px;&quot; aria-hidden=&quot;true&quot;&gt;DL&lt;/span&gt;&lt;span class=&quot;inbox__body&quot;&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Dewi Lestari&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;09.47&lt;/time&gt;&lt;/span&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__preview&quot;&gt;Baik, sampai ketemu pukul 14.00&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;inbox inbox--avatars card&quot; data-lds-inbox style=&quot;padding: 0; overflow: hidden; max-width: 380px;&quot; aria-label=&quot;Conversations&quot;&gt;
-  &lt;button class=&quot;inbox__row is-unread&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;avatar&quot; style=&quot;--size: 40px;&quot; aria-hidden=&quot;true&quot;&gt;LT&lt;/span&gt;&lt;span class=&quot;inbox__body&quot;&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Launch team&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;10:02&lt;/time&gt;&lt;/span&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__preview&quot;&gt;Bima: the release notes are in the doc&lt;/span&gt;&lt;span class=&quot;count&quot;&gt;3&lt;span class=&quot;sr-only&quot;&gt; unread&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
-  &lt;button class=&quot;inbox__row&quot; type=&quot;button&quot; aria-current=&quot;true&quot;&gt;&lt;span class=&quot;avatar avatar--gray&quot; style=&quot;--size: 40px;&quot; aria-hidden=&quot;true&quot;&gt;DL&lt;/span&gt;&lt;span class=&quot;inbox__body&quot;&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Dewi Lestari&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;09:47&lt;/time&gt;&lt;/span&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__preview&quot;&gt;Sounds good, see you at 14:00&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+          <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;inbox inbox--avatars card&quot; data-lds-inbox style=&quot;padding: 0; overflow: hidden; max-width: 380px;&quot; aria-label=&quot;Percakapan&quot;&gt;
+  &lt;button class=&quot;inbox__row is-unread&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;avatar&quot; style=&quot;--size: 40px;&quot; aria-hidden=&quot;true&quot;&gt;TP&lt;/span&gt;&lt;span class=&quot;inbox__body&quot;&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Tim peluncuran&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;10.02&lt;/time&gt;&lt;/span&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__preview&quot;&gt;Bima: catatan rilis sudah ada di dokumen&lt;/span&gt;&lt;span class=&quot;count&quot;&gt;3&lt;span class=&quot;sr-only&quot;&gt; belum dibaca&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
+  &lt;button class=&quot;inbox__row&quot; type=&quot;button&quot; aria-current=&quot;true&quot;&gt;&lt;span class=&quot;avatar avatar--gray&quot; style=&quot;--size: 40px;&quot; aria-hidden=&quot;true&quot;&gt;DL&lt;/span&gt;&lt;span class=&quot;inbox__body&quot;&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Dewi Lestari&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;09.47&lt;/time&gt;&lt;/span&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__preview&quot;&gt;Baik, sampai ketemu pukul 14.00&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-3">
-          <figcaption><span class="cdoc__ex-t">With swipe actions</span><span class="cdoc__ex-d">On phones each row sits in a <a class="link" href="swipe-actions.html">swipe</a>: swipe left for archive and delete. Keep the same actions in the reading pane for people who do not swipe.</span></figcaption>
-          <div class="cdoc__stage cdoc__stage--block" id="ex-3-stage"><div class="inbox card" data-lds-inbox style="padding: 0; overflow: hidden; max-width: 420px;" aria-label="Inbox">
-  <div class="swipe" data-lds-swipe><div class="swipe__actions"><button class="swipe__act swipe__act--accent" type="button" data-swipe="archive"><span class="ic" aria-hidden="true">archive</span>Archive</button><button class="swipe__act swipe__act--danger" type="button" data-swipe="delete" data-swipe-commit><span class="ic" aria-hidden="true">delete</span>Delete</button></div>
-    <button class="inbox__row swipe__row is-unread" type="button"><span class="inbox__body"><span class="inbox__line"><span class="inbox__from">Arif Santoso</span><time class="inbox__time">07:55</time></span><span class="inbox__subject">Bulk invites are live</span><span class="inbox__preview">Paste up to 50 emails, pick a role, send.</span></span></button></div>
-  <div class="swipe" data-lds-swipe><div class="swipe__actions"><button class="swipe__act swipe__act--accent" type="button" data-swipe="archive"><span class="ic" aria-hidden="true">archive</span>Archive</button><button class="swipe__act swipe__act--danger" type="button" data-swipe="delete" data-swipe-commit><span class="ic" aria-hidden="true">delete</span>Delete</button></div>
-    <button class="inbox__row swipe__row" type="button"><span class="inbox__body"><span class="inbox__line"><span class="inbox__from">Dewi Lestari</span><time class="inbox__time">Mon</time></span><span class="inbox__subject">Dark mode for charts</span><span class="inbox__preview">Series colors pass in both themes now.</span></span></button></div>
+          <figcaption><span class="cdoc__ex-t">Dengan aksi geser</span><span class="cdoc__ex-d">Di ponsel setiap baris berada di dalam <a class="link" href="swipe-actions.html">swipe</a>: geser ke kiri untuk arsip dan hapus. Sediakan aksi yang sama di panel baca untuk yang tidak menggeser.</span></figcaption>
+          <div class="cdoc__stage cdoc__stage--block" id="ex-3-stage"><div class="inbox card" data-lds-inbox style="padding: 0; overflow: hidden; max-width: 420px;" aria-label="Kotak masuk">
+  <div class="swipe" data-lds-swipe><div class="swipe__actions"><button class="swipe__act swipe__act--accent" type="button" data-swipe="archive"><span class="ic" aria-hidden="true">archive</span>Arsipkan</button><button class="swipe__act swipe__act--danger" type="button" data-swipe="delete" data-swipe-commit><span class="ic" aria-hidden="true">delete</span>Hapus</button></div>
+    <button class="inbox__row swipe__row is-unread" type="button"><span class="inbox__body"><span class="inbox__line"><span class="inbox__from">Arif Santoso</span><time class="inbox__time">07.55</time></span><span class="inbox__subject">Undangan massal sudah aktif</span><span class="inbox__preview">Tempel hingga 50 email, pilih peran, lalu kirim.</span></span></button></div>
+  <div class="swipe" data-lds-swipe><div class="swipe__actions"><button class="swipe__act swipe__act--accent" type="button" data-swipe="archive"><span class="ic" aria-hidden="true">archive</span>Arsipkan</button><button class="swipe__act swipe__act--danger" type="button" data-swipe="delete" data-swipe-commit><span class="ic" aria-hidden="true">delete</span>Hapus</button></div>
+    <button class="inbox__row swipe__row" type="button"><span class="inbox__body"><span class="inbox__line"><span class="inbox__from">Dewi Lestari</span><time class="inbox__time">Sen</time></span><span class="inbox__subject">Dark mode untuk grafik</span><span class="inbox__preview">Warna seri sekarang lolos di kedua tema.</span></span></button></div>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-3-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;inbox card&quot; data-lds-inbox style=&quot;padding: 0; overflow: hidden; max-width: 420px;&quot; aria-label=&quot;Inbox&quot;&gt;
-  &lt;div class=&quot;swipe&quot; data-lds-swipe&gt;&lt;div class=&quot;swipe__actions&quot;&gt;&lt;button class=&quot;swipe__act swipe__act--accent&quot; type=&quot;button&quot; data-swipe=&quot;archive&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;archive&lt;/span&gt;Archive&lt;/button&gt;&lt;button class=&quot;swipe__act swipe__act--danger&quot; type=&quot;button&quot; data-swipe=&quot;delete&quot; data-swipe-commit&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete&lt;/button&gt;&lt;/div&gt;
-    &lt;button class=&quot;inbox__row swipe__row is-unread&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;inbox__body&quot;&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Arif Santoso&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;07:55&lt;/time&gt;&lt;/span&gt;&lt;span class=&quot;inbox__subject&quot;&gt;Bulk invites are live&lt;/span&gt;&lt;span class=&quot;inbox__preview&quot;&gt;Paste up to 50 emails, pick a role, send.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
-  &lt;div class=&quot;swipe&quot; data-lds-swipe&gt;&lt;div class=&quot;swipe__actions&quot;&gt;&lt;button class=&quot;swipe__act swipe__act--accent&quot; type=&quot;button&quot; data-swipe=&quot;archive&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;archive&lt;/span&gt;Archive&lt;/button&gt;&lt;button class=&quot;swipe__act swipe__act--danger&quot; type=&quot;button&quot; data-swipe=&quot;delete&quot; data-swipe-commit&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete&lt;/button&gt;&lt;/div&gt;
-    &lt;button class=&quot;inbox__row swipe__row&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;inbox__body&quot;&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Dewi Lestari&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;Mon&lt;/time&gt;&lt;/span&gt;&lt;span class=&quot;inbox__subject&quot;&gt;Dark mode for charts&lt;/span&gt;&lt;span class=&quot;inbox__preview&quot;&gt;Series colors pass in both themes now.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;inbox card&quot; data-lds-inbox style=&quot;padding: 0; overflow: hidden; max-width: 420px;&quot; aria-label=&quot;Kotak masuk&quot;&gt;
+  &lt;div class=&quot;swipe&quot; data-lds-swipe&gt;&lt;div class=&quot;swipe__actions&quot;&gt;&lt;button class=&quot;swipe__act swipe__act--accent&quot; type=&quot;button&quot; data-swipe=&quot;archive&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;archive&lt;/span&gt;Arsipkan&lt;/button&gt;&lt;button class=&quot;swipe__act swipe__act--danger&quot; type=&quot;button&quot; data-swipe=&quot;delete&quot; data-swipe-commit&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Hapus&lt;/button&gt;&lt;/div&gt;
+    &lt;button class=&quot;inbox__row swipe__row is-unread&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;inbox__body&quot;&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Arif Santoso&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;07.55&lt;/time&gt;&lt;/span&gt;&lt;span class=&quot;inbox__subject&quot;&gt;Undangan massal sudah aktif&lt;/span&gt;&lt;span class=&quot;inbox__preview&quot;&gt;Tempel hingga 50 email, pilih peran, lalu kirim.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+  &lt;div class=&quot;swipe&quot; data-lds-swipe&gt;&lt;div class=&quot;swipe__actions&quot;&gt;&lt;button class=&quot;swipe__act swipe__act--accent&quot; type=&quot;button&quot; data-swipe=&quot;archive&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;archive&lt;/span&gt;Arsipkan&lt;/button&gt;&lt;button class=&quot;swipe__act swipe__act--danger&quot; type=&quot;button&quot; data-swipe=&quot;delete&quot; data-swipe-commit&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Hapus&lt;/button&gt;&lt;/div&gt;
+    &lt;button class=&quot;inbox__row swipe__row&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;inbox__body&quot;&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Dewi Lestari&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;Sen&lt;/time&gt;&lt;/span&gt;&lt;span class=&quot;inbox__subject&quot;&gt;Dark mode untuk grafik&lt;/span&gt;&lt;span class=&quot;inbox__preview&quot;&gt;Warna seri sekarang lolos di kedua tema.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;inbox card&quot; data-lds-inbox style=&quot;padding: 0; overflow: hidden; max-width: 420px;&quot; aria-label=&quot;Inbox&quot;&gt;
-  &lt;div class=&quot;swipe&quot; data-lds-swipe&gt;&lt;div class=&quot;swipe__actions&quot;&gt;&lt;button class=&quot;swipe__act swipe__act--accent&quot; type=&quot;button&quot; data-swipe=&quot;archive&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;archive&lt;/span&gt;Archive&lt;/button&gt;&lt;button class=&quot;swipe__act swipe__act--danger&quot; type=&quot;button&quot; data-swipe=&quot;delete&quot; data-swipe-commit&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete&lt;/button&gt;&lt;/div&gt;
-    &lt;button class=&quot;inbox__row swipe__row is-unread&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;inbox__body&quot;&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Arif Santoso&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;07:55&lt;/time&gt;&lt;/span&gt;&lt;span class=&quot;inbox__subject&quot;&gt;Bulk invites are live&lt;/span&gt;&lt;span class=&quot;inbox__preview&quot;&gt;Paste up to 50 emails, pick a role, send.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
-  &lt;div class=&quot;swipe&quot; data-lds-swipe&gt;&lt;div class=&quot;swipe__actions&quot;&gt;&lt;button class=&quot;swipe__act swipe__act--accent&quot; type=&quot;button&quot; data-swipe=&quot;archive&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;archive&lt;/span&gt;Archive&lt;/button&gt;&lt;button class=&quot;swipe__act swipe__act--danger&quot; type=&quot;button&quot; data-swipe=&quot;delete&quot; data-swipe-commit&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete&lt;/button&gt;&lt;/div&gt;
-    &lt;button class=&quot;inbox__row swipe__row&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;inbox__body&quot;&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Dewi Lestari&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;Mon&lt;/time&gt;&lt;/span&gt;&lt;span class=&quot;inbox__subject&quot;&gt;Dark mode for charts&lt;/span&gt;&lt;span class=&quot;inbox__preview&quot;&gt;Series colors pass in both themes now.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+          <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;inbox card&quot; data-lds-inbox style=&quot;padding: 0; overflow: hidden; max-width: 420px;&quot; aria-label=&quot;Kotak masuk&quot;&gt;
+  &lt;div class=&quot;swipe&quot; data-lds-swipe&gt;&lt;div class=&quot;swipe__actions&quot;&gt;&lt;button class=&quot;swipe__act swipe__act--accent&quot; type=&quot;button&quot; data-swipe=&quot;archive&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;archive&lt;/span&gt;Arsipkan&lt;/button&gt;&lt;button class=&quot;swipe__act swipe__act--danger&quot; type=&quot;button&quot; data-swipe=&quot;delete&quot; data-swipe-commit&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Hapus&lt;/button&gt;&lt;/div&gt;
+    &lt;button class=&quot;inbox__row swipe__row is-unread&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;inbox__body&quot;&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Arif Santoso&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;07.55&lt;/time&gt;&lt;/span&gt;&lt;span class=&quot;inbox__subject&quot;&gt;Undangan massal sudah aktif&lt;/span&gt;&lt;span class=&quot;inbox__preview&quot;&gt;Tempel hingga 50 email, pilih peran, lalu kirim.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+  &lt;div class=&quot;swipe&quot; data-lds-swipe&gt;&lt;div class=&quot;swipe__actions&quot;&gt;&lt;button class=&quot;swipe__act swipe__act--accent&quot; type=&quot;button&quot; data-swipe=&quot;archive&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;archive&lt;/span&gt;Arsipkan&lt;/button&gt;&lt;button class=&quot;swipe__act swipe__act--danger&quot; type=&quot;button&quot; data-swipe=&quot;delete&quot; data-swipe-commit&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Hapus&lt;/button&gt;&lt;/div&gt;
+    &lt;button class=&quot;inbox__row swipe__row&quot; type=&quot;button&quot;&gt;&lt;span class=&quot;inbox__body&quot;&gt;&lt;span class=&quot;inbox__line&quot;&gt;&lt;span class=&quot;inbox__from&quot;&gt;Dewi Lestari&lt;/span&gt;&lt;time class=&quot;inbox__time&quot;&gt;Sen&lt;/time&gt;&lt;/span&gt;&lt;span class=&quot;inbox__subject&quot;&gt;Dark mode untuk grafik&lt;/span&gt;&lt;span class=&quot;inbox__preview&quot;&gt;Warna seri sekarang lolos di kedua tema.&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
-        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">.inbox[data-lds-inbox]</code></td><td>Required. The column of rows. <code class="code">inbox--avatars</code> starts the hairlines after a 40 px avatar.</td></tr><tr><td><code class="code">button.inbox__row</code></td><td>Required. One message: a real button (or a link) that opens it. 64 px minimum, 20 px left gutter for the unread dot.</td></tr><tr><td><code class="code">.avatar</code></td><td>Optional. Who sent it, 40 px.</td></tr><tr><td><code class="code">.inbox__body</code></td><td>Required. The text column.</td></tr><tr><td><code class="code">.inbox__line</code></td><td>A row inside the body: <code class="code">.inbox__from</code> (ellipsis) and <code class="code">.inbox__time</code> on the first; in a chat list, <code class="code">.inbox__preview</code> and a <a class="link" href="count.html">count</a> on the second.</td></tr><tr><td><code class="code">.inbox__subject</code></td><td>Optional. The subject, one line with ellipsis.</td></tr><tr><td><code class="code">.inbox__preview</code></td><td>Optional. The first words of the message, two lines (<code class="code">--lines</code> changes it), one line inside an <code class="code">.inbox__line</code>.</td></tr><tr><td><code class="code">.inbox__flag</code></td><td>A filled flag in the warning color, in the first line, with <code class="code">aria-label</code>. Other signals (attachment) are muted icons.</td></tr><tr><td><code class="code">.inbox__meta</code></td><td>Optional row of <a class="link" href="badge.html">badges</a> under the preview: labels.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">.inbox</code></td><td>Rows without avatars (mail you scan by subject).</td></tr><tr><td><code class="code">.inbox--avatars</code></td><td>Rows that start with a 40 px avatar; hairlines start after it.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">unread</code></td><td><code class="code">.is-unread</code> on the row: an 8 px accent dot in the gutter, sender and subject at 600, the time in the accent text color. Say it in words too (<code class="code">sr-only</code> &quot;Unread&quot;).</td></tr><tr><td><code class="code">current</code></td><td><code class="code">aria-current=&quot;true&quot;</code> on the row whose message is open: the accent tint; the hairlines next to it hide.</td></tr><tr><td><code class="code">flagged</code></td><td>A filled <code class="code">flag</code> icon with <code class="code">.inbox__flag</code> and <code class="code">aria-label=&quot;Flagged&quot;</code>; it pops in when set.</td></tr><tr><td><code class="code">hover / pressed</code></td><td>A quiet tint on hover (pointer devices only), a stronger tint while pressed.</td></tr><tr><td><code class="code">empty</code></td><td>An <a class="link" href="empty-state.html">empty state</a> in the pane: why it is empty and the one action (Clear search, Compose).</td></tr><tr><td><code class="code">loading</code></td><td><a class="link" href="skeleton.html">Skeleton</a> rows with the same height: avatar circle, two lines.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Background tints change over <code class="code">--d-fast</code> (160 ms) on <code class="code">--ease-standard</code>; nothing moves on hover.</li><li>A flag pops in on <code class="code">--spring-snappy</code> (<code class="code">lds-pop</code>); removing it is instant.</li><li>Archiving or deleting from a <a class="link" href="swipe-actions.html">swipe</a> slides the row out and closes its height on <code class="code">--spring-smooth</code>; <code class="code">restore()</code> brings it back for Undo.</li><li>Reduced motion: no pop; tints still change.</li></ul></section>
-        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Each row is a real <code class="code">button</code> (or <code class="code">a</code>) whose text reads in order: sender, time, subject, preview. Add <code class="code">sr-only</code> &quot;Unread&quot; to unread rows; icons carry <code class="code">aria-label</code> or are hidden.</li><li>Mark the open message with <code class="code">aria-current=&quot;true&quot;</code>, not only with the tint.</li><li>Up and Down (and j / k) move focus between rows, Home and End to the ends; Tab leaves the list.</li><li>Give the list an <code class="code">aria-label</code> (&quot;Inbox, 4 unread&quot;) and keep it current.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Put the newest message on top and say times as plain text (&quot;09:12&quot;, &quot;Yesterday&quot;).</li><li>Keep previews to two lines and subjects to one.</li><li>Offer the same actions in the reading pane that swipe offers on the row.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Color the whole row for unread; the dot and the weight are enough.</li><li>Put buttons inside a row; open the message and act there, or use swipe.</li><li>Use it for records with columns; use a <a class="link" href="data-table.html">data table</a>.</li></ul></div></div></section>
-        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> <code class="code">data-lds-inbox</code> on <code class="code">.inbox</code>: Up and Down (and j / k) move focus between visible rows, Home and End jump to the ends. Opening a message, unread and flags are yours: set <code class="code">aria-current</code>, <code class="code">.is-unread</code> and the flag icon from your state.</p></section>
-        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="list.html"><span class="link-card__eyebrow">Tampilan data</span><span class="link-card__title">List</span><span class="link-card__body">The inset grouped list: rows on one surface, separated by hairlines that start where the text starts. The default for any list of things, instead of a stack of cards.</span></a><a class="link-card" href="swipe-actions.html"><span class="link-card__eyebrow">Mikrointeraksi</span><span class="link-card__title">Swipe actions</span><span class="link-card__body">Swipe a list row left to reveal its actions; swipe far or flick to run the last one, and the row slides out and closes its space. The row follows the finger exactly, and the same actions open with the Left arrow key.</span></a><a class="link-card" href="resizable-split.html"><span class="link-card__eyebrow">Pola halaman</span><span class="link-card__title">Resizable split</span><span class="link-card__body">Two panes with a handle between them that people drag, or move with the arrow keys, to share the space. For tools where both panes are worked in at once.</span></a><a class="link-card" href="chat-layout.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Chat layout</span><span class="link-card__body">The conversation column: messages stacked 20 px apart in `.chat`, the history scrolling above a composer that never scrolls away, and a Latest button that appears only when the reader has scrolled up. Newest at the bottom, always.</span></a></div></section>
+        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">.inbox[data-lds-inbox]</code></td><td>Wajib. Kolom baris. <code class="code">inbox--avatars</code> memulai garis tipis setelah avatar 40 px.</td></tr><tr><td><code class="code">button.inbox__row</code></td><td>Wajib. Satu pesan: tombol asli (atau tautan) yang membukanya. Minimal 64 px, gutter kiri 20 px untuk titik belum dibaca.</td></tr><tr><td><code class="code">.avatar</code></td><td>Opsional. Pengirimnya, 40 px.</td></tr><tr><td><code class="code">.inbox__body</code></td><td>Wajib. Kolom teks.</td></tr><tr><td><code class="code">.inbox__line</code></td><td>Baris di dalam body: <code class="code">.inbox__from</code> (elipsis) dan <code class="code">.inbox__time</code> di baris pertama; di daftar chat, <code class="code">.inbox__preview</code> dan <a class="link" href="count.html">count</a> di baris kedua.</td></tr><tr><td><code class="code">.inbox__subject</code></td><td>Opsional. Subjek, satu baris dengan elipsis.</td></tr><tr><td><code class="code">.inbox__preview</code></td><td>Opsional. Kata-kata pertama pesan, dua baris (<code class="code">--lines</code> mengubahnya), satu baris bila di dalam <code class="code">.inbox__line</code>.</td></tr><tr><td><code class="code">.inbox__flag</code></td><td>Bendera terisi berwarna warning di baris pertama, dengan <code class="code">aria-label</code>. Penanda lain (lampiran) berupa ikon redup.</td></tr><tr><td><code class="code">.inbox__meta</code></td><td>Baris <a class="link" href="badge.html">badge</a> opsional di bawah cuplikan: label.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">.inbox</code></td><td>Baris tanpa avatar (email yang dipindai dari subjeknya).</td></tr><tr><td><code class="code">.inbox--avatars</code></td><td>Baris yang diawali avatar 40 px; garis tipis mulai setelahnya.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">unread</code></td><td><code class="code">.is-unread</code> pada baris: titik aksen 8 px di gutter, pengirim dan subjek dengan ketebalan 600, jam dengan warna teks aksen. Sebutkan juga dalam kata (<code class="code">sr-only</code> &quot;Belum dibaca&quot;).</td></tr><tr><td><code class="code">current</code></td><td><code class="code">aria-current=&quot;true&quot;</code> pada baris yang pesannya terbuka: tint aksen; garis tipis di sebelahnya disembunyikan.</td></tr><tr><td><code class="code">flagged</code></td><td>Ikon <code class="code">flag</code> terisi dengan <code class="code">.inbox__flag</code> dan <code class="code">aria-label=&quot;Ditandai&quot;</code>; ikon muncul dengan efek pop saat dipasang.</td></tr><tr><td><code class="code">hover / pressed</code></td><td>Tint tenang saat hover (hanya perangkat pointer), tint lebih kuat saat ditekan.</td></tr><tr><td><code class="code">empty</code></td><td><a class="link" href="empty-state.html">Empty state</a> di panel: mengapa kosong dan satu aksinya (Hapus pencarian, Tulis pesan).</td></tr><tr><td><code class="code">loading</code></td><td>Baris <a class="link" href="skeleton.html">skeleton</a> dengan tinggi yang sama: lingkaran avatar, dua baris.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Tint latar berubah selama <code class="code">--d-fast</code> (160 ms) dengan <code class="code">--ease-standard</code>; tidak ada yang bergerak saat hover.</li><li>Bendera muncul dengan pop memakai <code class="code">--spring-snappy</code> (<code class="code">lds-pop</code>); melepasnya terjadi seketika.</li><li>Mengarsipkan atau menghapus lewat <a class="link" href="swipe-actions.html">swipe</a> menggeser baris keluar dan menutup tingginya dengan <code class="code">--spring-smooth</code>; <code class="code">restore()</code> mengembalikannya untuk Urungkan.</li><li>Reduced motion: tanpa pop; tint tetap berubah.</li></ul></section>
+        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Setiap baris adalah <code class="code">button</code> (atau <code class="code">a</code>) asli yang teksnya terbaca berurutan: pengirim, jam, subjek, cuplikan. Tambahkan <code class="code">sr-only</code> &quot;Belum dibaca&quot; pada baris yang belum dibaca; ikon membawa <code class="code">aria-label</code> atau disembunyikan.</li><li>Tandai pesan yang terbuka dengan <code class="code">aria-current=&quot;true&quot;</code>, bukan hanya dengan tint.</li><li>Atas dan Bawah (serta j / k) memindahkan fokus antar baris, Home dan End ke ujung; Tab keluar dari daftar.</li><li>Beri daftar <code class="code">aria-label</code> (&quot;Kotak masuk, 4 belum dibaca&quot;) dan jaga agar tetap terbaru.</li></ul></section>
+        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Taruh pesan terbaru di atas dan tulis waktu sebagai teks biasa (&quot;09.12&quot;, &quot;Kemarin&quot;).</li><li>Batasi cuplikan dua baris dan subjek satu baris.</li><li>Sediakan di panel baca aksi yang sama dengan yang ditawarkan swipe di baris.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Mewarnai seluruh baris untuk pesan belum dibaca; titik dan ketebalan huruf sudah cukup.</li><li>Menaruh tombol di dalam baris; buka pesannya dan bertindak di sana, atau pakai swipe.</li><li>Memakainya untuk catatan berkolom; pakai <a class="link" href="data-table.html">data table</a>.</li></ul></div></div></section>
+        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> <code class="code">data-lds-inbox</code> pada <code class="code">.inbox</code>: Atas dan Bawah (serta j / k) memindahkan fokus antar baris yang terlihat, Home dan End melompat ke ujung. Membuka pesan, status belum dibaca, dan bendera diatur aplikasi Anda: pasang <code class="code">aria-current</code>, <code class="code">.is-unread</code>, dan ikon bendera dari state Anda.</p></section>
+        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="list.html"><span class="link-card__eyebrow">Tampilan data</span><span class="link-card__title">List</span><span class="link-card__body">Daftar berkelompok yang menjorok: baris di satu permukaan, dipisah garis tipis yang dimulai di awal teks. Default untuk daftar apa pun, sebagai ganti tumpukan kartu.</span></a><a class="link-card" href="swipe-actions.html"><span class="link-card__eyebrow">Mikrointeraksi</span><span class="link-card__title">Swipe actions</span><span class="link-card__body">Swipe baris daftar ke kiri untuk menampilkan aksinya; swipe jauh atau sentil cepat untuk menjalankan aksi terakhir, lalu baris meluncur keluar dan ruangnya menutup. Baris mengikuti jari dengan tepat, dan aksi yang sama terbuka dengan tombol panah kiri.</span></a><a class="link-card" href="resizable-split.html"><span class="link-card__eyebrow">Pola halaman</span><span class="link-card__title">Resizable split</span><span class="link-card__body">Dua panel dengan pegangan di antaranya yang bisa diseret, atau digeser dengan tombol panah, untuk membagi ruang. Untuk alat kerja yang kedua panelnya dipakai bersamaan.</span></a><a class="link-card" href="chat-layout.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Chat layout</span><span class="link-card__body">Kolom percakapan: pesan bertumpuk dengan jarak 20 px di `.chat`, riwayat bergulir di atas composer yang tidak ikut tergulir, dan tombol Terbaru yang muncul hanya saat pembaca menggulir ke atas. Pesan terbaru selalu di bawah.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
           <a class="link-card cdoc__prev" href="lanes.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Sebelumnya</span><span class="link-card__title">Lanes</span></a>
           <a class="link-card cdoc__next" href="check-matrix.html"><span class="link-card__eyebrow">Berikutnya<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Check matrix</span></a>

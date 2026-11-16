@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Navigation stack · Lampung Design System</title>
-<meta name="description" content="Push a detail screen in from the right over the one you came from, and go back with the back button or by dragging the screen away from the left edge. The screen underneath slides at 30 % and dims, so people always know where back leads.">
+<meta name="description" content="Dorong layar detail masuk dari kanan di atas layar asal, lalu kembali dengan tombol kembali atau dengan menyeret layar dari tepi kiri. Layar di bawahnya bergeser 30 % dan meredup, sehingga orang selalu tahu ke mana tombol kembali mengarah.">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
 <link rel="stylesheet" href="../../css/lds.css">
 <link rel="stylesheet" href="../docs.css">
@@ -12,20 +12,36 @@
 </head>
 <body class="lds">
 <a class="skip" href="#main">Langsung ke konten</a>
+<div class="masthead" role="region" aria-label="Status situs">
+  <div class="masthead__bar">
+    <span class="masthead__mark" aria-hidden="true"><span class="ic">info</span></span>
+    <span class="masthead__text">Proyek komunitas. Ini bukan situs resmi pemerintah.</span>
+    <button class="masthead__toggle" data-lds-masthead aria-expanded="false" aria-controls="lds-masthead">Cara memastikan<span class="ic" aria-hidden="true">expand_more</span></button>
+  </div>
+  <div class="collapse is-closed" id="lds-masthead" inert><div><div class="masthead__body">
+    <p class="masthead__item"><span class="ic" aria-hidden="true">groups</span><span><b>Dikelola sukarelawan.</b> Lampung Design System dibangun oleh komunitas open source. Tidak ada instansi pemerintah yang mengelola atau mendukungnya secara resmi.</span></p>
+    <p class="masthead__item"><span class="ic" aria-hidden="true">verified_user</span><span><b>Layanan resmi memakai go.id.</b> Situs pemerintah Indonesia berakhiran .go.id. Jangan masukkan NIK di situs yang Anda ragukan.</span></p>
+  </div></div></div>
+</div>
 <div class="shell" data-lds-shell>
   <aside class="shell__side" id="side" aria-label="Dokumentasi">
-    <a class="shell__brand" href="../index.html"><span class="page-head__mark">L</span>Lampung Design System</a>
+    <a class="shell__brand" href="../index.html"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>Lampung Design System</a>
     <nav class="shell__nav" aria-label="Komponen">
       <span class="shell__hl" aria-hidden="true"></span>
-      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Memulai</span></a>
+      <p class="shell__group">Memulai</p>
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Pengenalan</span></a>
+      <a class="shell__link" href="../guide/instalasi.html"><span class="ic" aria-hidden="true">download</span><span class="shell__label">Instalasi</span></a>
+      <a class="shell__link" href="../guide/penulisan.html"><span class="ic" aria-hidden="true">edit_square</span><span class="shell__label">Penulisan</span></a>
+      <a class="shell__link" href="../guide/aksesibilitas.html"><span class="ic" aria-hidden="true">accessible</span><span class="shell__label">Aksesibilitas</span></a>
+      <a class="shell__link" href="../guide/desainer.html"><span class="ic" aria-hidden="true">palette</span><span class="shell__label">Untuk desainer</span></a>
+      <p class="shell__group">Komponen</p>
       <a class="shell__link" href="index.html"><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">Semua komponen</span></a>
       <a class="shell__link" href="../examples/index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Contoh</span></a>
-      <p class="shell__group">Komponen</p>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g0"><span class="shell__section-label">Landasan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g0"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span></a>
+          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span></a>
           <a class="shell__link shell__link--child" href="data-states.html"><span class="shell__num">3</span><span class="shell__label">Data states</span></a>
           <a class="shell__link shell__link--child" href="theming.html"><span class="shell__num">4</span><span class="shell__label">Theming</span></a>
           <a class="shell__link shell__link--child" href="icon.html"><span class="shell__num">5</span><span class="shell__label">Icon</span></a>
@@ -60,9 +76,9 @@
           <a class="shell__link shell__link--child" href="select.html"><span class="shell__num">8</span><span class="shell__label">Select</span></a>
           <a class="shell__link shell__link--child" href="combobox.html"><span class="shell__num">9</span><span class="shell__label">Combobox</span></a>
           <a class="shell__link shell__link--child" href="tag-input.html"><span class="shell__num">10</span><span class="shell__label">Tag input</span></a>
-          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span></a>
+          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span></a>
+          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -80,21 +96,22 @@
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="true" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">13</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="true" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">14</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel is-open" id="nav-g4"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">1</span><span class="shell__label">App shell</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">2</span><span class="shell__label">Top nav</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">3</span><span class="shell__label">Tabs</span></a>
-          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">4</span><span class="shell__label">Breadcrumbs</span></a>
-          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">5</span><span class="shell__label">Page header</span></a>
-          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">6</span><span class="shell__label">Pagination</span></a>
-          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">7</span><span class="shell__label">Steps</span></a>
-          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">8</span><span class="shell__label">Sidebar</span></a>
-          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">9</span><span class="shell__label">Outline</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">10</span><span class="shell__label">Menubar</span></a>
-          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">11</span><span class="shell__label">Nav progress</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">12</span><span class="shell__label">Phone bars</span></a>
-          <a class="shell__link shell__link--child" href="nav-stack.html" aria-current="page"><span class="shell__num">13</span><span class="shell__label">Navigation stack</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="masthead.html"><span class="shell__num">1</span><span class="shell__label">Masthead</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">2</span><span class="shell__label">App shell</span></a>
+          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">3</span><span class="shell__label">Top nav</span></a>
+          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">4</span><span class="shell__label">Tabs</span></a>
+          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">5</span><span class="shell__label">Breadcrumbs</span></a>
+          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">6</span><span class="shell__label">Page header</span></a>
+          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">7</span><span class="shell__label">Pagination</span></a>
+          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">8</span><span class="shell__label">Steps</span></a>
+          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">9</span><span class="shell__label">Sidebar</span></a>
+          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">10</span><span class="shell__label">Outline</span></a>
+          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">11</span><span class="shell__label">Menubar</span></a>
+          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">12</span><span class="shell__label">Nav progress</span></a>
+          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">13</span><span class="shell__label">Phone bars</span></a>
+          <a class="shell__link shell__link--child" href="nav-stack.html" aria-current="page"><span class="shell__num">14</span><span class="shell__label">Navigation stack</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -102,7 +119,7 @@
         <div class="shell__panel" id="nav-g5"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="dialog.html"><span class="shell__num">1</span><span class="shell__label">Dialog</span></a>
           <a class="shell__link shell__link--child" href="alert-dialog.html"><span class="shell__num">2</span><span class="shell__label">Alert dialog</span></a>
-          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span></a>
           <a class="shell__link shell__link--child" href="sheet.html"><span class="shell__num">4</span><span class="shell__label">Sheet</span></a>
           <a class="shell__link shell__link--child" href="drawer.html"><span class="shell__num">5</span><span class="shell__label">Drawer</span></a>
           <a class="shell__link shell__link--child" href="dropdown-menu.html"><span class="shell__num">6</span><span class="shell__label">Dropdown menu</span></a>
@@ -112,8 +129,8 @@
           <a class="shell__link shell__link--child" href="hover-card.html"><span class="shell__num">10</span><span class="shell__label">Hover card</span></a>
           <a class="shell__link shell__link--child" href="toast.html"><span class="shell__num">11</span><span class="shell__label">Toast</span></a>
           <a class="shell__link shell__link--child" href="command-palette.html"><span class="shell__num">12</span><span class="shell__label">Command palette</span></a>
-          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span></a>
+          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -132,7 +149,7 @@
           <a class="shell__link shell__link--child" href="empty-state.html"><span class="shell__num">11</span><span class="shell__label">Empty state</span></a>
           <a class="shell__link shell__link--child" href="coachmark.html"><span class="shell__num">12</span><span class="shell__label">Coachmark</span></a>
           <a class="shell__link shell__link--child" href="thinking.html"><span class="shell__num">13</span><span class="shell__label">Thinking</span></a>
-          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -140,8 +157,8 @@
         <div class="shell__panel" id="nav-g7"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="list.html"><span class="shell__num">1</span><span class="shell__label">List</span></a>
           <a class="shell__link shell__link--child" href="key-value.html"><span class="shell__num">2</span><span class="shell__label">Key-value</span></a>
-          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span></a>
+          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span></a>
           <a class="shell__link shell__link--child" href="card.html"><span class="shell__num">5</span><span class="shell__label">Card</span></a>
           <a class="shell__link shell__link--child" href="avatar.html"><span class="shell__num">6</span><span class="shell__label">Avatar</span></a>
           <a class="shell__link shell__link--child" href="table.html"><span class="shell__num">7</span><span class="shell__label">Table</span></a>
@@ -149,70 +166,71 @@
           <a class="shell__link shell__link--child" href="tree.html"><span class="shell__num">9</span><span class="shell__label">Tree</span></a>
           <a class="shell__link shell__link--child" href="calendar.html"><span class="shell__num">10</span><span class="shell__label">Calendar</span></a>
           <a class="shell__link shell__link--child" href="timeline.html"><span class="shell__num">11</span><span class="shell__label">Timeline</span></a>
-          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span></a>
+          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span></a>
+          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span></a>
           <a class="shell__link shell__link--child" href="rolling-number.html"><span class="shell__num">15</span><span class="shell__label">Rolling number</span></a>
           <a class="shell__link shell__link--child" href="code-block.html"><span class="shell__num">16</span><span class="shell__label">Code block</span></a>
           <a class="shell__link shell__link--child" href="carousel.html"><span class="shell__num">17</span><span class="shell__label">Carousel</span></a>
           <a class="shell__link shell__link--child" href="separator.html"><span class="shell__num">18</span><span class="shell__label">Separator</span></a>
-          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span></a>
+          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span></a>
+          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span></a>
+          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span></a>
+          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span></a>
+          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span></a>
+          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span></a>
+          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span></a>
+          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span></a>
+          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span></a>
+          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span></a>
+          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">7</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g8"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span></a>
+          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span></a>
+          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span></a>
+          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span></a>
+          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span></a>
+          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span></a>
+          <a class="shell__link shell__link--child" href="aksara.html"><span class="shell__num">7</span><span class="shell__label">Aksara Lampung</span><span class="badge badge--accent shell__badge">Baru</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g9"><span class="shell__section-label">Obrolan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g9"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span></a>
+          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span></a>
+          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span></a>
+          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span></a>
+          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g10"><span class="shell__section-label">Pola halaman</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g10"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span></a>
+          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span></a>
+          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span></a>
+          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span></a>
           <a class="shell__link shell__link--child" href="phone-screen.html"><span class="shell__num">5</span><span class="shell__label">Phone screen</span></a>
-          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g11"><span class="shell__section-label">Promosi</span><span class="shell__section-count">8</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g11"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span></a>
+          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span></a>
+          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span></a>
+          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span></a>
+          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span></a>
+          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span></a>
+          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span></a>
+          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -225,10 +243,10 @@
           <a class="shell__link shell__link--child" href="height-expand.html"><span class="shell__num">5</span><span class="shell__label">Height expand</span></a>
           <a class="shell__link shell__link--child" href="list-stagger.html"><span class="shell__num">6</span><span class="shell__label">List stagger</span></a>
           <a class="shell__link shell__link--child" href="view-swap.html"><span class="shell__num">7</span><span class="shell__label">View swap</span></a>
-          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span></a>
           <a class="shell__link shell__link--child" href="number-count.html"><span class="shell__num">9</span><span class="shell__label">Number count</span></a>
           <a class="shell__link shell__link--child" href="drag-and-momentum.html"><span class="shell__num">10</span><span class="shell__label">Drag and momentum</span></a>
-          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span></a>
           <a class="shell__link shell__link--child" href="reduced-motion.html"><span class="shell__num">12</span><span class="shell__label">Reduced motion</span></a>
         </div></div></div>
       </div>
@@ -249,27 +267,27 @@
           <a class="shell__link shell__link--child" href="scroll-fades.html"><span class="shell__num">12</span><span class="shell__label">Scroll fades</span></a>
           <a class="shell__link shell__link--child" href="hints.html"><span class="shell__num">13</span><span class="shell__label">Hints</span></a>
           <a class="shell__link shell__link--child" href="haptics.html"><span class="shell__num">14</span><span class="shell__label">Haptics</span></a>
-          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g14"><span class="shell__section-label">Grafik</span><span class="shell__section-count">16</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g14"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="chart-principles.html"><span class="shell__num">1</span><span class="shell__label">Chart principles</span></a>
-          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span></a>
           <a class="shell__link shell__link--child" href="sparkline-stat.html"><span class="shell__num">3</span><span class="shell__label">Sparkline stat</span></a>
           <a class="shell__link shell__link--child" href="bar-chart.html"><span class="shell__num">4</span><span class="shell__label">Bar chart</span></a>
-          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span></a>
           <a class="shell__link shell__link--child" href="line-chart.html"><span class="shell__num">6</span><span class="shell__label">Line chart</span></a>
-          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span></a>
+          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span></a>
           <a class="shell__link shell__link--child" href="donut.html"><span class="shell__num">9</span><span class="shell__label">Donut</span></a>
-          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span></a>
           <a class="shell__link shell__link--child" href="percentage-bar.html"><span class="shell__num">11</span><span class="shell__label">Percentage bar</span></a>
-          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span></a>
+          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span></a>
           <a class="shell__link shell__link--child" href="heatmap.html"><span class="shell__num">14</span><span class="shell__label">Heatmap</span></a>
-          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span></a>
           <a class="shell__link shell__link--child" href="chart-states.html"><span class="shell__num">16</span><span class="shell__label">Chart states</span></a>
         </div></div></div>
       </div>
@@ -295,33 +313,33 @@
       <main class="cdoc__main" id="main" tabindex="-1">
         <header class="cdoc__head">
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Navigation">Navigasi</a></li></ol></nav>
-          <h1>Navigation stack <span class="badge badge--accent">Baru</span></h1>
-          <p class="cdoc__lede">Push a detail screen in from the right over the one you came from, and go back with the back button or by dragging the screen away from the left edge. The screen underneath slides at 30 % and dims, so people always know where back leads.</p>
+          <h1>Navigation stack</h1>
+          <p class="cdoc__lede">Dorong layar detail masuk dari kanan di atas layar asal, lalu kembali dengan tombol kembali atau dengan menyeret layar dari tepi kiri. Layar di bawahnya bergeser 30 % dan meredup, sehingga orang selalu tahu ke mana tombol kembali mengarah.</p>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>A phone app where a row opens its detail: a course from a list, a payment from activity, a project from projects.</li><li>Drilling two or three levels into one area of an app while the tab bar stays put.</li><li>A settings area on a phone where each row opens its own screen.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Switching between top-level areas: pakai <a class="link" href="phone-bars.html">Phone bars</a>. Tabs swap without sliding; each tab keeps its own stack.</li><li>A focused task that should keep the screen in view: pakai <a class="link" href="sheet.html">Sheet</a>.</li><li>Steps of a form going forward and back: pakai <a class="link" href="view-swap.html">View swap</a>.</li><li>A wide screen with a list beside its detail: pakai <a class="link" href="resizable-split.html">Resizable split</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Fills a tab of a <a class="link" href="phone-screen.html">phone screen</a>: <code class="code">.navstack</code> absolute over the whole screen, under the tab bar. Each <code class="code">.navstack__view</code> is a full screen with its own <code class="code">.navbar</code> and <code class="code">.phone__scroll</code>. The first view has a large title; pushed views use <code class="code">.navbar--inline</code> with a back button.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Aplikasi ponsel yang barisnya membuka detail: layanan dari daftar, pembayaran dari aktivitas, laporan dari daftar laporan.</li><li>Menelusuri dua atau tiga tingkat ke dalam satu area aplikasi sementara tab bar tetap di tempat.</li><li>Area pengaturan di ponsel yang setiap barisnya membuka layar sendiri.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Berpindah antar-area tingkat atas: pakai <a class="link" href="phone-bars.html">Phone bars</a>. Tab berganti tanpa bergeser; setiap tab menyimpan stack-nya sendiri.</li><li>Tugas terfokus yang sebaiknya tetap memperlihatkan layar: pakai <a class="link" href="sheet.html">Sheet</a>.</li><li>Langkah-langkah formulir yang maju dan mundur: pakai <a class="link" href="view-swap.html">View swap</a>.</li><li>Layar lebar dengan daftar di samping detailnya: pakai <a class="link" href="resizable-split.html">Resizable split</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Mengisi satu tab dari <a class="link" href="phone-screen.html">phone screen</a>: <code class="code">.navstack</code> absolut menutupi seluruh layar, di bawah tab bar. Setiap <code class="code">.navstack__view</code> adalah layar penuh dengan <code class="code">.navbar</code> dan <code class="code">.phone__scroll</code> sendiri. Tampilan pertama punya judul besar; tampilan yang didorong memakai <code class="code">.navbar--inline</code> dengan tombol kembali.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Courses to a course</span><span class="cdoc__ex-d">Open a course: it slides in over the list. Press back, or drag the screen from its left edge and let go past halfway (a quick flick counts its speed).</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Dari daftar layanan ke satu layanan</span><span class="cdoc__ex-d">Buka sebuah layanan: layar bergeser masuk di atas daftar. Tekan kembali, atau seret layar dari tepi kirinya dan lepaskan setelah melewati separuh (sentilan cepat ikut dihitung kecepatannya).</span></figcaption>
           <div class="cdoc__stage cdoc__stage--phone" id="ex-1-stage"><div class="phone phone--inline" style="height: 560px;">
   <div class="navstack" data-lds-navstack>
-    <section class="navstack__view" aria-label="Courses">
-      <div class="navbar" id="ns-root-bar" style="height: 64px; padding-top: 14px;"><span></span><span class="navbar__title" aria-hidden="true">Courses</span><span></span></div>
+    <section class="navstack__view" aria-label="Layanan">
+      <div class="navbar" id="ns-root-bar" style="height: 64px; padding-top: 14px;"><span></span><span class="navbar__title" aria-hidden="true">Layanan</span><span></span></div>
       <div class="phone__scroll" data-lds-navbar="ns-root-bar">
         <div style="height: 64px;"></div>
-        <h3 class="large-title">Courses</h3>
+        <h3 class="large-title">Layanan</h3>
         <div style="padding: 12px 16px 40px;"><div class="list list--fill">
-          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Database Systems</span><span class="lrow__sub">IF 3104 · Mon and Thu, 08:00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
-          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Computer Networks</span><span class="lrow__sub">IF 3112 · Mon, 13:00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
+          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Izin usaha mikro</span><span class="lrow__sub">IUM 3104 · Senin dan Kamis, 08.00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
+          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Surat keterangan domisili</span><span class="lrow__sub">SKD 3112 · Senin, 13.00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
         </div></div>
       </div>
     </section>
-    <section class="navstack__view" id="ns-course" aria-label="Database Systems" hidden>
+    <section class="navstack__view" id="ns-course" aria-label="Izin usaha mikro" hidden>
       <div class="navbar navbar--inline" id="ns-course-bar" style="height: 64px; padding-top: 14px;">
-        <span><button type="button" class="navbar__back" data-lds-back aria-label="Back to Courses"><span class="ic" aria-hidden="true">arrow_back_ios_new</span><span>Courses</span></button></span>
-        <h3 class="navbar__title">Database Systems</h3><span></span>
+        <span><button type="button" class="navbar__back" data-lds-back aria-label="Kembali ke Layanan"><span class="ic" aria-hidden="true">arrow_back_ios_new</span><span>Layanan</span></button></span>
+        <h3 class="navbar__title">Izin usaha mikro</h3><span></span>
       </div>
       <div class="phone__scroll" data-lds-navbar="ns-course-bar">
         <div style="height: 64px;"></div>
-        <div style="padding: 12px 16px 40px;"><dl class="kv-list"><div class="kv"><dt>Lecturer</dt><dd>Dr. Ayu Rahmawati</dd></div><div class="kv"><dt>Room</dt><dd>H 2.14</dd></div><div class="kv"><dt>Credits</dt><dd>3</dd></div></dl></div>
+        <div style="padding: 12px 16px 40px;"><dl class="kv-list"><div class="kv"><dt>Petugas</dt><dd>Ayu Rahmawati</dd></div><div class="kv"><dt>Loket</dt><dd>Loket 2</dd></div><div class="kv"><dt>Lama proses</dt><dd>3 hari kerja</dd></div></dl></div>
       </div>
     </section>
   </div>
@@ -331,18 +349,18 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;navstack&quot; data-lds-navstack&gt;
-  &lt;section class=&quot;navstack__view&quot; aria-label=&quot;Courses&quot;&gt;
+  &lt;section class=&quot;navstack__view&quot; aria-label=&quot;Layanan&quot;&gt;
     &lt;div class=&quot;navbar&quot; id=&quot;courses-bar&quot;&gt;…&lt;/div&gt;
     &lt;div class=&quot;phone__scroll&quot; data-lds-navbar=&quot;courses-bar&quot;&gt;
       &lt;div class=&quot;navbar-gap&quot;&gt;&lt;/div&gt;
-      &lt;h1 class=&quot;large-title&quot;&gt;Courses&lt;/h1&gt;
-      &lt;button class=&quot;lrow&quot; data-lds-nav=&quot;course&quot;&gt;…Database Systems…&lt;/button&gt;
+      &lt;h1 class=&quot;large-title&quot;&gt;Layanan&lt;/h1&gt;
+      &lt;button class=&quot;lrow&quot; data-lds-nav=&quot;course&quot;&gt;…Izin usaha mikro…&lt;/button&gt;
     &lt;/div&gt;
   &lt;/section&gt;
-  &lt;section class=&quot;navstack__view&quot; id=&quot;course&quot; aria-label=&quot;Database Systems&quot; hidden&gt;
+  &lt;section class=&quot;navstack__view&quot; id=&quot;course&quot; aria-label=&quot;Izin usaha mikro&quot; hidden&gt;
     &lt;div class=&quot;navbar navbar--inline&quot; id=&quot;course-bar&quot;&gt;
-      &lt;span&gt;&lt;button class=&quot;navbar__back&quot; data-lds-back aria-label=&quot;Back to Courses&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_back_ios_new&lt;/span&gt;&lt;span&gt;Courses&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;
-      &lt;h1 class=&quot;navbar__title&quot;&gt;Database Systems&lt;/h1&gt;
+      &lt;span&gt;&lt;button class=&quot;navbar__back&quot; data-lds-back aria-label=&quot;Kembali ke Layanan&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_back_ios_new&lt;/span&gt;&lt;span&gt;Layanan&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;
+      &lt;h1 class=&quot;navbar__title&quot;&gt;Izin usaha mikro&lt;/h1&gt;
       &lt;span&gt;&lt;/span&gt;
     &lt;/div&gt;
     &lt;div class=&quot;phone__scroll&quot; data-lds-navbar=&quot;course-bar&quot;&gt;…&lt;/div&gt;
@@ -350,31 +368,31 @@
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;navstack&quot; data-lds-navstack&gt;
-  &lt;section class=&quot;navstack__view&quot; aria-label=&quot;Courses&quot;&gt;
+  &lt;section class=&quot;navstack__view&quot; aria-label=&quot;Layanan&quot;&gt;
     &lt;div class=&quot;navbar&quot; id=&quot;courses-bar&quot;&gt;…&lt;/div&gt;
     &lt;div class=&quot;phone__scroll&quot; data-lds-navbar=&quot;courses-bar&quot;&gt;
       &lt;div class=&quot;navbar-gap&quot;&gt;&lt;/div&gt;
-      &lt;h1 class=&quot;large-title&quot;&gt;Courses&lt;/h1&gt;
-      &lt;button class=&quot;lrow&quot; data-lds-nav=&quot;course&quot;&gt;…Database Systems…&lt;/button&gt;
+      &lt;h1 class=&quot;large-title&quot;&gt;Layanan&lt;/h1&gt;
+      &lt;button class=&quot;lrow&quot; data-lds-nav=&quot;course&quot;&gt;…Izin usaha mikro…&lt;/button&gt;
     &lt;/div&gt;
   &lt;/section&gt;
-  &lt;section class=&quot;navstack__view&quot; id=&quot;course&quot; aria-label=&quot;Database Systems&quot; hidden&gt;
+  &lt;section class=&quot;navstack__view&quot; id=&quot;course&quot; aria-label=&quot;Izin usaha mikro&quot; hidden&gt;
     &lt;div class=&quot;navbar navbar--inline&quot; id=&quot;course-bar&quot;&gt;
-      &lt;span&gt;&lt;button class=&quot;navbar__back&quot; data-lds-back aria-label=&quot;Back to Courses&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_back_ios_new&lt;/span&gt;&lt;span&gt;Courses&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;
-      &lt;h1 class=&quot;navbar__title&quot;&gt;Database Systems&lt;/h1&gt;
+      &lt;span&gt;&lt;button class=&quot;navbar__back&quot; data-lds-back aria-label=&quot;Kembali ke Layanan&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_back_ios_new&lt;/span&gt;&lt;span&gt;Layanan&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;
+      &lt;h1 class=&quot;navbar__title&quot;&gt;Izin usaha mikro&lt;/h1&gt;
       &lt;span&gt;&lt;/span&gt;
     &lt;/div&gt;
     &lt;div class=&quot;phone__scroll&quot; data-lds-navbar=&quot;course-bar&quot;&gt;…&lt;/div&gt;
   &lt;/section&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
-        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">.navstack[data-lds-navstack]</code></td><td>Required. The positioned container. The first visible view is the root.</td></tr><tr><td><code class="code">.navstack__view</code></td><td>Required. One screen. Views that are not in the stack are <code class="code">hidden</code>.</td></tr><tr><td><code class="code">[data-lds-nav=&quot;viewId&quot;]</code></td><td>On a row or button: pushes that view. Fill the view first (listen to the click in the capture phase).</td></tr><tr><td><code class="code">.navbar.navbar--inline</code></td><td>The bar of a pushed screen: the small title is always shown, the material appears on scroll.</td></tr><tr><td><code class="code">.navbar__back[data-lds-back]</code></td><td>The back button: chevron plus the previous screen's title, in the accent text color.</td></tr><tr><td><code class="code">h1.navbar__title</code></td><td>On pushed screens the bar title is the screen's heading; focus moves to it on push.</td></tr><tr><td><code class="code">.navbar-gap</code></td><td>Spacer at the top of the scroller with the height of the bar.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">.navstack__view.is-under</code></td><td>Covered by a pushed screen: at −30 %, dimmed by the scrim color at half strength, and <code class="code">inert</code>.</td></tr><tr><td><code class="code">.navstack__view.is-off</code></td><td>Off to the right: before it enters and after it leaves.</td></tr><tr><td><code class="code">.navstack__view.is-dragging</code></td><td>Following the finger during an edge drag; no transition.</td></tr><tr><td><code class="code">.navstack.is-moving</code></td><td>A screen is moving: the top one casts the large shadow, because it floats over the other.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Push: the new screen enters from <code class="code">translateX(100%)</code> on <code class="code">--spring-smooth</code> over <code class="code">--d-smooth</code> (560 ms); the one under it moves to −30 % and dims on the same spring.</li><li>Back button: the top screen leaves in 280 ms on <code class="code">--ease-exit</code>, the one under it returns on <code class="code">--spring-smooth</code>.</li><li>Edge drag (from the first 28 px): 8 px of slop decides between a horizontal drag and a scroll; the screen follows 1:1 and the one under it moves at 30 % of the distance. On release the end point is projected with the velocity (rate 0.99); past half the width it pops on <code class="code">--spring-momentum</code>, otherwise both spring back. Any push or pop can be interrupted by the next one.</li><li>Reduced motion: screens cross-fade in 120 ms with no sliding.</li></ul></section>
-        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>On push, focus moves to the pushed screen's heading (or <code class="code">[data-lds-autofocus]</code>); on pop, it returns to the row that opened the screen.</li><li>Covered screens are <code class="code">inert</code>, so neither Tab nor a screen reader reaches them.</li><li>The back button is a real button with <code class="code">aria-label=&quot;Back to Courses&quot;</code>; the drag is only a shortcut.</li><li>Give each view an <code class="code">aria-label</code> with its title.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Show the previous title on the back button when it fits; the chevron alone when it does not.</li><li>Keep the tab bar outside the stack so it stays still while screens move.</li><li>Tapping the current tab again pops to the root (<code class="code">popToRoot</code>).</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Slide between tabs; tabs swap in place.</li><li>Push a screen for a short task; use a <a class="link" href="sheet.html">sheet</a>.</li><li>Put horizontal swipes near the left edge of a pushed screen; the edge belongs to back.</li></ul></div></div></section>
-        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> <code class="code">data-lds-navstack</code> on the container, <code class="code">data-lds-nav=&quot;viewId&quot;</code> on triggers, <code class="code">data-lds-back</code> on back buttons. Functions: <code class="code">pushView(idOrEl, from)</code>, <code class="code">popView(stackOrChild)</code>, <code class="code">popToRoot(stackOrChild)</code>. Events on the view: <code class="code">lds:push</code> <code class="code">{ view, from }</code> and <code class="code">lds:pop</code> <code class="code">{ view, to }</code>, both bubbling. The stack is in <code class="code">stack._views</code>, root first.</p></section>
-        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="phone-bars.html"><span class="link-card__eyebrow">Navigasi</span><span class="link-card__title">Phone bars</span><span class="link-card__body">The chrome of a phone screen: a nav bar at the top whose large title collapses into it on scroll, and a tab bar of three to five destinations at the bottom. Both are translucent so content scrolls visibly under them.</span></a><a class="link-card" href="phone-screen.html"><span class="link-card__eyebrow">Pola halaman</span><span class="link-card__title">Phone screen</span><span class="link-card__body">The standard phone layout: a large title that collapses into a translucent nav bar as content scrolls under it, grouped lists in the middle, and a translucent tab bar at the bottom. The bars are the only blurred surfaces.</span></a><a class="link-card" href="device-frame.html"><span class="link-card__eyebrow">Pola halaman</span><span class="link-card__title">Device frame</span><span class="link-card__body">A phone body around a `.phone` screen: rounded bezel, side buttons, the camera island and a status bar, scaled to fit the page. On a real phone the same screen drops the body and fills the display with `.device--bleed`.</span></a><a class="link-card" href="sheet.html"><span class="link-card__eyebrow">Lapisan</span><span class="link-card__title">Sheet</span><span class="link-card__body">A panel that rises from the bottom for a task that keeps its context: the page behind recedes but stays visible. Drag the grabber to dismiss with momentum. The phone answer to most dialogs.</span></a></div></section>
+        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">.navstack[data-lds-navstack]</code></td><td>Wajib. Kontainer yang diposisikan. Tampilan pertama yang terlihat adalah root.</td></tr><tr><td><code class="code">.navstack__view</code></td><td>Wajib. Satu layar. Tampilan yang tidak berada di stack diberi <code class="code">hidden</code>.</td></tr><tr><td><code class="code">[data-lds-nav=&quot;viewId&quot;]</code></td><td>Pada baris atau tombol: mendorong tampilan itu. Isi tampilannya lebih dulu (dengarkan klik pada fase capture).</td></tr><tr><td><code class="code">.navbar.navbar--inline</code></td><td>Bar layar yang didorong: judul kecil selalu tampil, material muncul saat digulir.</td></tr><tr><td><code class="code">.navbar__back[data-lds-back]</code></td><td>Tombol kembali: chevron ditambah judul layar sebelumnya, dengan warna teks aksen.</td></tr><tr><td><code class="code">h1.navbar__title</code></td><td>Pada layar yang didorong, judul bar adalah heading layar; fokus pindah ke sana saat didorong.</td></tr><tr><td><code class="code">.navbar-gap</code></td><td>Pengisi ruang di atas area gulir setinggi bar.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">.navstack__view.is-under</code></td><td>Tertutup layar yang didorong: di −30 %, diredupkan warna scrim setengah kekuatan, dan <code class="code">inert</code>.</td></tr><tr><td><code class="code">.navstack__view.is-off</code></td><td>Di luar kanan: sebelum masuk dan setelah keluar.</td></tr><tr><td><code class="code">.navstack__view.is-dragging</code></td><td>Mengikuti jari selama seretan tepi; tanpa transisi.</td></tr><tr><td><code class="code">.navstack.is-moving</code></td><td>Ada layar yang bergerak: layar teratas memberi bayangan besar, karena melayang di atas yang lain.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Dorong: layar baru masuk dari <code class="code">translateX(100%)</code> dengan <code class="code">--spring-smooth</code> selama <code class="code">--d-smooth</code> (560 ms); layar di bawahnya bergeser ke −30 % dan meredup dengan spring yang sama.</li><li>Tombol kembali: layar teratas keluar dalam 280 ms dengan <code class="code">--ease-exit</code>, layar di bawahnya kembali dengan <code class="code">--spring-smooth</code>.</li><li>Seretan tepi (dari 28 px pertama): kelonggaran 8 px menentukan antara seretan horizontal dan gulir; layar mengikuti 1:1 dan layar di bawahnya bergerak 30 % dari jaraknya. Saat dilepas, titik akhir diproyeksikan dengan kecepatan (laju 0,99); melewati separuh lebar akan pop dengan <code class="code">--spring-momentum</code>, jika tidak keduanya memantul kembali. Setiap push atau pop bisa disela oleh yang berikutnya.</li><li>Reduced motion: layar berganti dengan cross-fade 120 ms tanpa bergeser.</li></ul></section>
+        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Saat push, fokus pindah ke heading layar yang didorong (atau <code class="code">[data-lds-autofocus]</code>); saat pop, kembali ke baris yang membuka layar itu.</li><li>Layar yang tertutup <code class="code">inert</code>, sehingga Tab maupun pembaca layar tidak mencapainya.</li><li>Tombol kembali adalah tombol sungguhan dengan <code class="code">aria-label=&quot;Kembali ke Layanan&quot;</code>; seretan hanya pintasan.</li><li>Beri setiap tampilan <code class="code">aria-label</code> berisi judulnya.</li></ul></section>
+        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Tampilkan judul sebelumnya di tombol kembali jika muat; chevron saja jika tidak.</li><li>Taruh tab bar di luar stack agar tetap diam saat layar bergerak.</li><li>Mengetuk tab aktif sekali lagi kembali ke root (<code class="code">popToRoot</code>).</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Menggeser di antara tab; tab berganti di tempat.</li><li>Mendorong layar untuk tugas singkat; pakai <a class="link" href="sheet.html">sheet</a>.</li><li>Menaruh gesekan horizontal di dekat tepi kiri layar yang didorong; tepi itu milik tombol kembali.</li></ul></div></div></section>
+        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> <code class="code">data-lds-navstack</code> pada kontainer, <code class="code">data-lds-nav=&quot;viewId&quot;</code> pada pemicu, <code class="code">data-lds-back</code> pada tombol kembali. Fungsi: <code class="code">pushView(idOrEl, from)</code>, <code class="code">popView(stackOrChild)</code>, <code class="code">popToRoot(stackOrChild)</code>. Event pada tampilan: <code class="code">lds:push</code> <code class="code">{ view, from }</code> dan <code class="code">lds:pop</code> <code class="code">{ view, to }</code>, keduanya bubbling. Stack tersimpan di <code class="code">stack._views</code>, root lebih dulu.</p></section>
+        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="phone-bars.html"><span class="link-card__eyebrow">Navigasi</span><span class="link-card__title">Phone bars</span><span class="link-card__body">Bingkai layar ponsel: nav bar di atas yang judul besarnya menyatu ke dalamnya saat digulir, dan tab bar berisi tiga sampai lima tujuan di bawah. Keduanya tembus pandang sehingga konten terlihat bergulir di bawahnya.</span></a><a class="link-card" href="phone-screen.html"><span class="link-card__eyebrow">Pola halaman</span><span class="link-card__title">Phone screen</span><span class="link-card__body">Tata letak ponsel standar: judul besar yang menyatu ke nav bar tembus pandang saat konten bergulir di bawahnya, list berkelompok di tengah, dan tab bar tembus pandang di bawah. Kedua bar adalah satu-satunya permukaan yang di-blur.</span></a><a class="link-card" href="device-frame.html"><span class="link-card__eyebrow">Pola halaman</span><span class="link-card__title">Device frame</span><span class="link-card__body">Badan ponsel di sekitar layar `.phone`: bezel membulat, tombol samping, pulau kamera, dan status bar, diskalakan agar muat di halaman. Di ponsel sungguhan, layar yang sama melepas badannya dan mengisi tampilan dengan `.device--bleed`.</span></a><a class="link-card" href="sheet.html"><span class="link-card__eyebrow">Lapisan</span><span class="link-card__title">Sheet</span><span class="link-card__body">Panel yang naik dari bawah untuk tugas yang tetap menjaga konteks: halaman di belakang mundur tetapi tetap terlihat. Seret grabber untuk menutup dengan momentum. Jawaban versi ponsel untuk sebagian besar dialog.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
           <a class="link-card cdoc__prev" href="phone-bars.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Sebelumnya</span><span class="link-card__title">Phone bars</span></a>
           <a class="link-card cdoc__next" href="dialog.html"><span class="link-card__eyebrow">Berikutnya<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Dialog</span></a>

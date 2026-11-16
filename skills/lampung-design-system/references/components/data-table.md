@@ -1,6 +1,6 @@
 # Data table
 
-Group: Data display (new). Docs page: `docs/components/data-table.html`.
+Group: Data display. Docs page: `docs/components/data-table.html`.
 
 A table people work in: search, filter chips and menus, sortable headers, a column menu, row density, row selection with a selection bar, and pagination with a page size, all on a plain `.table` and wired by one hook. Every control changes the rows at once and says what it did.
 

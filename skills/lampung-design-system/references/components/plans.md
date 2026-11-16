@@ -1,6 +1,6 @@
 # Plans
 
-Group: Marketing (new). Docs page: `docs/components/plans.html`.
+Group: Marketing. Docs page: `docs/components/plans.html`.
 
 Pricing plans as cards, with a billing period control above them. Prices roll when the period or the seat count changes; the saving is said in words next to the control.
 

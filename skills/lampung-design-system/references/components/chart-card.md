@@ -1,6 +1,6 @@
 # Chart card
 
-Group: Charts (new). Docs page: `docs/components/chart-card.html`.
+Group: Charts. Docs page: `docs/components/chart-card.html`.
 
 The frame every dashboard chart sits in: the question as its title, what is measured under it, then optional actions (a range control, a menu), the headline figure with its change, the chart, and a footer with the source time or a link to the full report.
 

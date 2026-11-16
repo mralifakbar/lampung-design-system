@@ -1,6 +1,6 @@
 # File tile
 
-Group: Data display (new). Docs page: `docs/components/file-tile.html`.
+Group: Data display. Docs page: `docs/components/file-tile.html`.
 
 Files and folders as tiles in a grid: a tinted thumbnail by type (or the picture itself), a two-line name, size and date, a checkbox that appears on hover, focus or while selecting, and a more menu. The tile opens the file; ticking selects it for a bulk action.
 

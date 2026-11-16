@@ -1,6 +1,6 @@
 # Hero
 
-Group: Marketing (new). Docs page: `docs/components/hero.html`.
+Group: Marketing. Docs page: `docs/components/hero.html`.
 
 The top of a product or landing page: one headline, one line under it, at most two actions, and the product itself beside or below. The product is shown working, not as a picture of a screen.
 

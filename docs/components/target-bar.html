@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Target bar · Lampung Design System</title>
-<meta name="description" content="A horizontal bar for progress toward a goal: the fill is where you are, a marker shows where you should be (the goal, or today's pace), and an optional tint ahead of the fill shows the forecast. Words above say the value against the goal.">
+<meta name="description" content="Batang horizontal untuk kemajuan menuju target: isian menunjukkan posisi sekarang, penanda menunjukkan posisi yang seharusnya (target, atau laju hari ini), dan tint opsional di depan isian menunjukkan prakiraan. Kata-kata di atasnya menyebut nilai terhadap target.">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
 <link rel="stylesheet" href="../../css/lds.css">
 <link rel="stylesheet" href="../docs.css">
@@ -12,20 +12,36 @@
 </head>
 <body class="lds">
 <a class="skip" href="#main">Langsung ke konten</a>
+<div class="masthead" role="region" aria-label="Status situs">
+  <div class="masthead__bar">
+    <span class="masthead__mark" aria-hidden="true"><span class="ic">info</span></span>
+    <span class="masthead__text">Proyek komunitas. Ini bukan situs resmi pemerintah.</span>
+    <button class="masthead__toggle" data-lds-masthead aria-expanded="false" aria-controls="lds-masthead">Cara memastikan<span class="ic" aria-hidden="true">expand_more</span></button>
+  </div>
+  <div class="collapse is-closed" id="lds-masthead" inert><div><div class="masthead__body">
+    <p class="masthead__item"><span class="ic" aria-hidden="true">groups</span><span><b>Dikelola sukarelawan.</b> Lampung Design System dibangun oleh komunitas open source. Tidak ada instansi pemerintah yang mengelola atau mendukungnya secara resmi.</span></p>
+    <p class="masthead__item"><span class="ic" aria-hidden="true">verified_user</span><span><b>Layanan resmi memakai go.id.</b> Situs pemerintah Indonesia berakhiran .go.id. Jangan masukkan NIK di situs yang Anda ragukan.</span></p>
+  </div></div></div>
+</div>
 <div class="shell" data-lds-shell>
   <aside class="shell__side" id="side" aria-label="Dokumentasi">
-    <a class="shell__brand" href="../index.html"><span class="page-head__mark">L</span>Lampung Design System</a>
+    <a class="shell__brand" href="../index.html"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>Lampung Design System</a>
     <nav class="shell__nav" aria-label="Komponen">
       <span class="shell__hl" aria-hidden="true"></span>
-      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Memulai</span></a>
+      <p class="shell__group">Memulai</p>
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Pengenalan</span></a>
+      <a class="shell__link" href="../guide/instalasi.html"><span class="ic" aria-hidden="true">download</span><span class="shell__label">Instalasi</span></a>
+      <a class="shell__link" href="../guide/penulisan.html"><span class="ic" aria-hidden="true">edit_square</span><span class="shell__label">Penulisan</span></a>
+      <a class="shell__link" href="../guide/aksesibilitas.html"><span class="ic" aria-hidden="true">accessible</span><span class="shell__label">Aksesibilitas</span></a>
+      <a class="shell__link" href="../guide/desainer.html"><span class="ic" aria-hidden="true">palette</span><span class="shell__label">Untuk desainer</span></a>
+      <p class="shell__group">Komponen</p>
       <a class="shell__link" href="index.html"><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">Semua komponen</span></a>
       <a class="shell__link" href="../examples/index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Contoh</span></a>
-      <p class="shell__group">Komponen</p>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g0"><span class="shell__section-label">Landasan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g0"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span></a>
+          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span></a>
           <a class="shell__link shell__link--child" href="data-states.html"><span class="shell__num">3</span><span class="shell__label">Data states</span></a>
           <a class="shell__link shell__link--child" href="theming.html"><span class="shell__num">4</span><span class="shell__label">Theming</span></a>
           <a class="shell__link shell__link--child" href="icon.html"><span class="shell__num">5</span><span class="shell__label">Icon</span></a>
@@ -60,9 +76,9 @@
           <a class="shell__link shell__link--child" href="select.html"><span class="shell__num">8</span><span class="shell__label">Select</span></a>
           <a class="shell__link shell__link--child" href="combobox.html"><span class="shell__num">9</span><span class="shell__label">Combobox</span></a>
           <a class="shell__link shell__link--child" href="tag-input.html"><span class="shell__num">10</span><span class="shell__label">Tag input</span></a>
-          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span></a>
+          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span></a>
+          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -80,21 +96,22 @@
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">13</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">14</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g4"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">1</span><span class="shell__label">App shell</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">2</span><span class="shell__label">Top nav</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">3</span><span class="shell__label">Tabs</span></a>
-          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">4</span><span class="shell__label">Breadcrumbs</span></a>
-          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">5</span><span class="shell__label">Page header</span></a>
-          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">6</span><span class="shell__label">Pagination</span></a>
-          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">7</span><span class="shell__label">Steps</span></a>
-          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">8</span><span class="shell__label">Sidebar</span></a>
-          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">9</span><span class="shell__label">Outline</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">10</span><span class="shell__label">Menubar</span></a>
-          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">11</span><span class="shell__label">Nav progress</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">12</span><span class="shell__label">Phone bars</span></a>
-          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">13</span><span class="shell__label">Navigation stack</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="masthead.html"><span class="shell__num">1</span><span class="shell__label">Masthead</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">2</span><span class="shell__label">App shell</span></a>
+          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">3</span><span class="shell__label">Top nav</span></a>
+          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">4</span><span class="shell__label">Tabs</span></a>
+          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">5</span><span class="shell__label">Breadcrumbs</span></a>
+          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">6</span><span class="shell__label">Page header</span></a>
+          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">7</span><span class="shell__label">Pagination</span></a>
+          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">8</span><span class="shell__label">Steps</span></a>
+          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">9</span><span class="shell__label">Sidebar</span></a>
+          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">10</span><span class="shell__label">Outline</span></a>
+          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">11</span><span class="shell__label">Menubar</span></a>
+          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">12</span><span class="shell__label">Nav progress</span></a>
+          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">13</span><span class="shell__label">Phone bars</span></a>
+          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">14</span><span class="shell__label">Navigation stack</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -102,7 +119,7 @@
         <div class="shell__panel" id="nav-g5"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="dialog.html"><span class="shell__num">1</span><span class="shell__label">Dialog</span></a>
           <a class="shell__link shell__link--child" href="alert-dialog.html"><span class="shell__num">2</span><span class="shell__label">Alert dialog</span></a>
-          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span></a>
           <a class="shell__link shell__link--child" href="sheet.html"><span class="shell__num">4</span><span class="shell__label">Sheet</span></a>
           <a class="shell__link shell__link--child" href="drawer.html"><span class="shell__num">5</span><span class="shell__label">Drawer</span></a>
           <a class="shell__link shell__link--child" href="dropdown-menu.html"><span class="shell__num">6</span><span class="shell__label">Dropdown menu</span></a>
@@ -112,8 +129,8 @@
           <a class="shell__link shell__link--child" href="hover-card.html"><span class="shell__num">10</span><span class="shell__label">Hover card</span></a>
           <a class="shell__link shell__link--child" href="toast.html"><span class="shell__num">11</span><span class="shell__label">Toast</span></a>
           <a class="shell__link shell__link--child" href="command-palette.html"><span class="shell__num">12</span><span class="shell__label">Command palette</span></a>
-          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span></a>
+          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -132,7 +149,7 @@
           <a class="shell__link shell__link--child" href="empty-state.html"><span class="shell__num">11</span><span class="shell__label">Empty state</span></a>
           <a class="shell__link shell__link--child" href="coachmark.html"><span class="shell__num">12</span><span class="shell__label">Coachmark</span></a>
           <a class="shell__link shell__link--child" href="thinking.html"><span class="shell__num">13</span><span class="shell__label">Thinking</span></a>
-          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -140,8 +157,8 @@
         <div class="shell__panel" id="nav-g7"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="list.html"><span class="shell__num">1</span><span class="shell__label">List</span></a>
           <a class="shell__link shell__link--child" href="key-value.html"><span class="shell__num">2</span><span class="shell__label">Key-value</span></a>
-          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span></a>
+          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span></a>
           <a class="shell__link shell__link--child" href="card.html"><span class="shell__num">5</span><span class="shell__label">Card</span></a>
           <a class="shell__link shell__link--child" href="avatar.html"><span class="shell__num">6</span><span class="shell__label">Avatar</span></a>
           <a class="shell__link shell__link--child" href="table.html"><span class="shell__num">7</span><span class="shell__label">Table</span></a>
@@ -149,70 +166,71 @@
           <a class="shell__link shell__link--child" href="tree.html"><span class="shell__num">9</span><span class="shell__label">Tree</span></a>
           <a class="shell__link shell__link--child" href="calendar.html"><span class="shell__num">10</span><span class="shell__label">Calendar</span></a>
           <a class="shell__link shell__link--child" href="timeline.html"><span class="shell__num">11</span><span class="shell__label">Timeline</span></a>
-          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span></a>
+          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span></a>
+          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span></a>
           <a class="shell__link shell__link--child" href="rolling-number.html"><span class="shell__num">15</span><span class="shell__label">Rolling number</span></a>
           <a class="shell__link shell__link--child" href="code-block.html"><span class="shell__num">16</span><span class="shell__label">Code block</span></a>
           <a class="shell__link shell__link--child" href="carousel.html"><span class="shell__num">17</span><span class="shell__label">Carousel</span></a>
           <a class="shell__link shell__link--child" href="separator.html"><span class="shell__num">18</span><span class="shell__label">Separator</span></a>
-          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span></a>
+          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span></a>
+          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span></a>
+          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span></a>
+          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span></a>
+          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span></a>
+          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span></a>
+          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span></a>
+          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span></a>
+          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span></a>
+          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span></a>
+          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">7</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g8"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span></a>
+          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span></a>
+          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span></a>
+          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span></a>
+          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span></a>
+          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span></a>
+          <a class="shell__link shell__link--child" href="aksara.html"><span class="shell__num">7</span><span class="shell__label">Aksara Lampung</span><span class="badge badge--accent shell__badge">Baru</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g9"><span class="shell__section-label">Obrolan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g9"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span></a>
+          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span></a>
+          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span></a>
+          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span></a>
+          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g10"><span class="shell__section-label">Pola halaman</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g10"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span></a>
+          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span></a>
+          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span></a>
+          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span></a>
           <a class="shell__link shell__link--child" href="phone-screen.html"><span class="shell__num">5</span><span class="shell__label">Phone screen</span></a>
-          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g11"><span class="shell__section-label">Promosi</span><span class="shell__section-count">8</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g11"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span></a>
+          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span></a>
+          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span></a>
+          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span></a>
+          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span></a>
+          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span></a>
+          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span></a>
+          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -225,10 +243,10 @@
           <a class="shell__link shell__link--child" href="height-expand.html"><span class="shell__num">5</span><span class="shell__label">Height expand</span></a>
           <a class="shell__link shell__link--child" href="list-stagger.html"><span class="shell__num">6</span><span class="shell__label">List stagger</span></a>
           <a class="shell__link shell__link--child" href="view-swap.html"><span class="shell__num">7</span><span class="shell__label">View swap</span></a>
-          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span></a>
           <a class="shell__link shell__link--child" href="number-count.html"><span class="shell__num">9</span><span class="shell__label">Number count</span></a>
           <a class="shell__link shell__link--child" href="drag-and-momentum.html"><span class="shell__num">10</span><span class="shell__label">Drag and momentum</span></a>
-          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span></a>
           <a class="shell__link shell__link--child" href="reduced-motion.html"><span class="shell__num">12</span><span class="shell__label">Reduced motion</span></a>
         </div></div></div>
       </div>
@@ -249,27 +267,27 @@
           <a class="shell__link shell__link--child" href="scroll-fades.html"><span class="shell__num">12</span><span class="shell__label">Scroll fades</span></a>
           <a class="shell__link shell__link--child" href="hints.html"><span class="shell__num">13</span><span class="shell__label">Hints</span></a>
           <a class="shell__link shell__link--child" href="haptics.html"><span class="shell__num">14</span><span class="shell__label">Haptics</span></a>
-          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="true" aria-controls="nav-g14"><span class="shell__section-label">Grafik</span><span class="shell__section-count">16</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel is-open" id="nav-g14"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="chart-principles.html"><span class="shell__num">1</span><span class="shell__label">Chart principles</span></a>
-          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span></a>
           <a class="shell__link shell__link--child" href="sparkline-stat.html"><span class="shell__num">3</span><span class="shell__label">Sparkline stat</span></a>
           <a class="shell__link shell__link--child" href="bar-chart.html"><span class="shell__num">4</span><span class="shell__label">Bar chart</span></a>
-          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span></a>
           <a class="shell__link shell__link--child" href="line-chart.html"><span class="shell__num">6</span><span class="shell__label">Line chart</span></a>
-          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span></a>
+          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span></a>
           <a class="shell__link shell__link--child" href="donut.html"><span class="shell__num">9</span><span class="shell__label">Donut</span></a>
-          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span></a>
           <a class="shell__link shell__link--child" href="percentage-bar.html"><span class="shell__num">11</span><span class="shell__label">Percentage bar</span></a>
-          <a class="shell__link shell__link--child" href="target-bar.html" aria-current="page"><span class="shell__num">12</span><span class="shell__label">Target bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="target-bar.html" aria-current="page"><span class="shell__num">12</span><span class="shell__label">Target bar</span></a>
+          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span></a>
           <a class="shell__link shell__link--child" href="heatmap.html"><span class="shell__num">14</span><span class="shell__label">Heatmap</span></a>
-          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span></a>
           <a class="shell__link shell__link--child" href="chart-states.html"><span class="shell__num">16</span><span class="shell__label">Chart states</span></a>
         </div></div></div>
       </div>
@@ -295,88 +313,88 @@
       <main class="cdoc__main" id="main" tabindex="-1">
         <header class="cdoc__head">
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Charts">Grafik</a></li></ol></nav>
-          <h1>Target bar <span class="badge badge--accent">Baru</span></h1>
-          <p class="cdoc__lede">A horizontal bar for progress toward a goal: the fill is where you are, a marker shows where you should be (the goal, or today's pace), and an optional tint ahead of the fill shows the forecast. Words above say the value against the goal.</p>
+          <h1>Target bar</h1>
+          <p class="cdoc__lede">Batang horizontal untuk kemajuan menuju target: isian menunjukkan posisi sekarang, penanda menunjukkan posisi yang seharusnya (target, atau laju hari ini), dan tint opsional di depan isian menunjukkan prakiraan. Kata-kata di atasnya menyebut nilai terhadap target.</p>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>A figure measured against a target: revenue against the quarter goal, enrolments against capacity planned, hours studied against the weekly plan.</li><li>Comparing actual and expected pace: the marker sits where you should be by today, so falling behind is visible before the deadline.</li><li>A short list of goals side by side (one per course, per team, per month).</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>A task running toward done (upload, import): pakai <a class="link" href="progress-bar.html">Progress bar</a>.</li><li>A quantity against a hard limit (storage, seats): pakai <a class="link" href="meter.html">Meter</a>.</li><li>A score in a square space: pakai <a class="link" href="progress-ring.html">Progress ring</a>.</li><li>Comparing many categories with each other: pakai <a class="link" href="ranked-bars.html">Ranked bars</a>.</li><li>Parts of one whole: pakai <a class="link" href="percentage-bar.html">Percentage bar</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> In a <a class="link" href="chart-card.html">chart card</a> or a <a class="link" href="kpi-card.html">KPI card</a> under the figure; several in a <code class="code">.target-list</code>, 20 px apart. Full width of its container; the words wrap above the bar on phones.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Angka yang diukur terhadap target: penerimaan pajak terhadap target triwulan, peserta terhadap kuota yang direncanakan, dosis vaksin terhadap rencana mingguan.</li><li>Membandingkan laju nyata dan laju yang diharapkan: penanda berada di posisi yang seharusnya hari ini, jadi ketertinggalan terlihat sebelum tenggat.</li><li>Daftar pendek target yang berdampingan (satu per puskesmas, per tim, per bulan).</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Tugas yang berjalan menuju selesai (unggah, impor): pakai <a class="link" href="progress-bar.html">Progress bar</a>.</li><li>Jumlah terhadap batas mutlak (penyimpanan, kursi): pakai <a class="link" href="meter.html">Meter</a>.</li><li>Skor di ruang persegi: pakai <a class="link" href="progress-ring.html">Progress ring</a>.</li><li>Membandingkan banyak kategori satu sama lain: pakai <a class="link" href="ranked-bars.html">Ranked bars</a>.</li><li>Bagian dari satu keseluruhan: pakai <a class="link" href="percentage-bar.html">Percentage bar</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di <a class="link" href="chart-card.html">kartu grafik</a> atau <a class="link" href="kpi-card.html">KPI card</a> di bawah angkanya; beberapa sekaligus di <code class="code">.target-list</code>, berjarak 20 px. Selebar wadahnya; kata-kata turun ke atas batang di ponsel.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Quarter goal with a forecast</span><span class="cdoc__ex-d">The fill is the revenue so far, the tint is where the trend ends the quarter, the marker is the goal. Fills grow in on first view.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Target triwulan dengan prakiraan</span><span class="cdoc__ex-d">Isian adalah penerimaan sejauh ini, tint adalah posisi akhir triwulan menurut tren, penanda adalah targetnya. Isian tumbuh saat pertama terlihat.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><section class="chart-card" style="max-width: 520px;" data-lds-grow aria-labelledby="tb-q">
-  <div><div class="chart-card__q" id="tb-q">Will we reach the Q4 goal?</div><div class="chart-card__sub">Course sales since 1 October</div></div>
+  <div><div class="chart-card__q" id="tb-q">Apakah target triwulan IV tercapai?</div><div class="chart-card__sub">Penerimaan pajak daerah sejak 1 Oktober</div></div>
   <div class="target" style="--v: 84.3%; --t: 100%; --f: 97%;">
-    <div class="target__meta"><span class="target__label">Sales</span><span class="target__val"><b>$84,300</b> of $100,000</span></div>
-    <div class="target__track" role="img" aria-label="Sales: $84,300 of $100,000, goal marked at 100 percent, forecast 97 percent"><span class="target__forecast"></span><span class="target__fill"></span><span class="target__mark is-end"><span class="target__mark-label">Goal</span></span></div>
-    <div class="target__foot"><span>Forecast $97,000 by 31 Dec</span><span>45 days left</span></div>
+    <div class="target__meta"><span class="target__label">Pajak daerah</span><span class="target__val"><b>Rp 84,3 M</b> dari Rp 100 M</span></div>
+    <div class="target__track" role="img" aria-label="Pajak daerah: Rp 84,3 M dari Rp 100 M, target ditandai di 100 persen, prakiraan 97 persen"><span class="target__forecast"></span><span class="target__fill"></span><span class="target__mark is-end"><span class="target__mark-label">Target</span></span></div>
+    <div class="target__foot"><span>Prakiraan Rp 97 M pada 31 Des</span><span>45 hari lagi</span></div>
   </div>
 </section></div>
           <template id="ex-1-stage-tpl"><section class="chart-card" style="max-width: 520px;" data-lds-grow aria-labelledby="tb-q">
-  <div><div class="chart-card__q" id="tb-q">Will we reach the Q4 goal?</div><div class="chart-card__sub">Course sales since 1 October</div></div>
+  <div><div class="chart-card__q" id="tb-q">Apakah target triwulan IV tercapai?</div><div class="chart-card__sub">Penerimaan pajak daerah sejak 1 Oktober</div></div>
   <div class="target" style="--v: 84.3%; --t: 100%; --f: 97%;">
-    <div class="target__meta"><span class="target__label">Sales</span><span class="target__val"><b>$84,300</b> of $100,000</span></div>
-    <div class="target__track" role="img" aria-label="Sales: $84,300 of $100,000, goal marked at 100 percent, forecast 97 percent"><span class="target__forecast"></span><span class="target__fill"></span><span class="target__mark is-end"><span class="target__mark-label">Goal</span></span></div>
-    <div class="target__foot"><span>Forecast $97,000 by 31 Dec</span><span>45 days left</span></div>
+    <div class="target__meta"><span class="target__label">Pajak daerah</span><span class="target__val"><b>Rp 84,3 M</b> dari Rp 100 M</span></div>
+    <div class="target__track" role="img" aria-label="Pajak daerah: Rp 84,3 M dari Rp 100 M, target ditandai di 100 persen, prakiraan 97 persen"><span class="target__forecast"></span><span class="target__fill"></span><span class="target__mark is-end"><span class="target__mark-label">Target</span></span></div>
+    <div class="target__foot"><span>Prakiraan Rp 97 M pada 31 Des</span><span>45 hari lagi</span></div>
   </div>
 </section></template>
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             <button class="btn btn--plain btn--sm" data-replay="ex-1-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>Putar ulang</button>
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;section class=&quot;chart-card&quot; style=&quot;max-width: 520px;&quot; data-lds-grow aria-labelledby=&quot;tb-q&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;tb-q&quot;&gt;Will we reach the Q4 goal?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Course sales since 1 October&lt;/div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;tb-q&quot;&gt;Apakah target triwulan IV tercapai?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Penerimaan pajak daerah sejak 1 Oktober&lt;/div&gt;&lt;/div&gt;
   &lt;div class=&quot;target&quot; style=&quot;--v: 84.3%; --t: 100%; --f: 97%;&quot;&gt;
-    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Sales&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;$84,300&lt;/b&gt; of $100,000&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Sales: $84,300 of $100,000, goal marked at 100 percent, forecast 97 percent&quot;&gt;&lt;span class=&quot;target__forecast&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark is-end&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Goal&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;Forecast $97,000 by 31 Dec&lt;/span&gt;&lt;span&gt;45 days left&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Pajak daerah&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;Rp 84,3 M&lt;/b&gt; dari Rp 100 M&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Pajak daerah: Rp 84,3 M dari Rp 100 M, target ditandai di 100 persen, prakiraan 97 persen&quot;&gt;&lt;span class=&quot;target__forecast&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark is-end&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Target&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;Prakiraan Rp 97 M pada 31 Des&lt;/span&gt;&lt;span&gt;45 hari lagi&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;section class=&quot;chart-card&quot; style=&quot;max-width: 520px;&quot; data-lds-grow aria-labelledby=&quot;tb-q&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;tb-q&quot;&gt;Will we reach the Q4 goal?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Course sales since 1 October&lt;/div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;tb-q&quot;&gt;Apakah target triwulan IV tercapai?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Penerimaan pajak daerah sejak 1 Oktober&lt;/div&gt;&lt;/div&gt;
   &lt;div class=&quot;target&quot; style=&quot;--v: 84.3%; --t: 100%; --f: 97%;&quot;&gt;
-    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Sales&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;$84,300&lt;/b&gt; of $100,000&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Sales: $84,300 of $100,000, goal marked at 100 percent, forecast 97 percent&quot;&gt;&lt;span class=&quot;target__forecast&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark is-end&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Goal&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;Forecast $97,000 by 31 Dec&lt;/span&gt;&lt;span&gt;45 days left&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Pajak daerah&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;Rp 84,3 M&lt;/b&gt; dari Rp 100 M&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Pajak daerah: Rp 84,3 M dari Rp 100 M, target ditandai di 100 persen, prakiraan 97 persen&quot;&gt;&lt;span class=&quot;target__forecast&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark is-end&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Target&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;Prakiraan Rp 97 M pada 31 Des&lt;/span&gt;&lt;span&gt;45 hari lagi&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
-          <figcaption><span class="cdoc__ex-t">Marker at today's pace</span><span class="cdoc__ex-d">Each goal's marker sits where the team should be today. Behind pace turns the fill to warning, and the words say so.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Penanda di laju hari ini</span><span class="cdoc__ex-d">Penanda setiap target berada di posisi yang seharusnya dicapai tim hari ini. Jika tertinggal, isian berubah menjadi peringatan, dan kata-katanya menyebutkannya.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><section class="chart-card" style="max-width: 520px;" aria-labelledby="tb-pace">
-  <div><div class="chart-card__q" id="tb-pace">Which study plans are on track?</div><div class="chart-card__sub">Hours studied this week against each plan</div></div>
+  <div><div class="chart-card__q" id="tb-pace">Puskesmas mana yang sesuai rencana?</div><div class="chart-card__sub">Dosis vaksin yang diberikan minggu ini terhadap rencana tiap puskesmas</div></div>
   <div class="target-list" data-lds-grow>
   <div class="target target--success" style="--v: 87.5%; --t: 62%;">
-    <div class="target__meta"><span class="target__label">Database Systems</span><span class="target__val"><b>7 h</b> of 8 h</span></div>
-    <div class="target__track" role="img" aria-label="Database Systems: 7 h of 8 h, goal marked at 62 percent"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Today</span></span></div>
-    <div class="target__foot"><span>Ahead of plan</span></div>
+    <div class="target__meta"><span class="target__label">Puskesmas Kota</span><span class="target__val"><b>175</b> dari 200 dosis</span></div>
+    <div class="target__track" role="img" aria-label="Puskesmas Kota: 175 dari 200 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
+    <div class="target__foot"><span>Di depan rencana</span></div>
   </div>
   <div class="target target--warning" style="--v: 33%; --t: 62%;">
-    <div class="target__meta"><span class="target__label">Statistics</span><span class="target__val"><b>2 h</b> of 6 h</span></div>
-    <div class="target__track" role="img" aria-label="Statistics: 2 h of 6 h, goal marked at 62 percent"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Today</span></span></div>
-    <div class="target__foot"><span>1.7 h behind plan</span></div>
+    <div class="target__meta"><span class="target__label">Puskesmas Pesisir</span><span class="target__val"><b>60</b> dari 180 dosis</span></div>
+    <div class="target__track" role="img" aria-label="Puskesmas Pesisir: 60 dari 180 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
+    <div class="target__foot"><span>52 dosis di belakang rencana</span></div>
   </div>
   <div class="target" style="--v: 60%; --t: 62%;">
-    <div class="target__meta"><span class="target__label">Academic writing</span><span class="target__val"><b>3 h</b> of 5 h</span></div>
-    <div class="target__track" role="img" aria-label="Academic writing: 3 h of 5 h, goal marked at 62 percent"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Today</span></span></div>
-    <div class="target__foot"><span>On plan</span></div>
+    <div class="target__meta"><span class="target__label">Puskesmas Bukit</span><span class="target__val"><b>90</b> dari 150 dosis</span></div>
+    <div class="target__track" role="img" aria-label="Puskesmas Bukit: 90 dari 150 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
+    <div class="target__foot"><span>Sesuai rencana</span></div>
   </div>
   </div>
 </section></div>
           <template id="ex-2-stage-tpl"><section class="chart-card" style="max-width: 520px;" aria-labelledby="tb-pace">
-  <div><div class="chart-card__q" id="tb-pace">Which study plans are on track?</div><div class="chart-card__sub">Hours studied this week against each plan</div></div>
+  <div><div class="chart-card__q" id="tb-pace">Puskesmas mana yang sesuai rencana?</div><div class="chart-card__sub">Dosis vaksin yang diberikan minggu ini terhadap rencana tiap puskesmas</div></div>
   <div class="target-list" data-lds-grow>
   <div class="target target--success" style="--v: 87.5%; --t: 62%;">
-    <div class="target__meta"><span class="target__label">Database Systems</span><span class="target__val"><b>7 h</b> of 8 h</span></div>
-    <div class="target__track" role="img" aria-label="Database Systems: 7 h of 8 h, goal marked at 62 percent"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Today</span></span></div>
-    <div class="target__foot"><span>Ahead of plan</span></div>
+    <div class="target__meta"><span class="target__label">Puskesmas Kota</span><span class="target__val"><b>175</b> dari 200 dosis</span></div>
+    <div class="target__track" role="img" aria-label="Puskesmas Kota: 175 dari 200 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
+    <div class="target__foot"><span>Di depan rencana</span></div>
   </div>
   <div class="target target--warning" style="--v: 33%; --t: 62%;">
-    <div class="target__meta"><span class="target__label">Statistics</span><span class="target__val"><b>2 h</b> of 6 h</span></div>
-    <div class="target__track" role="img" aria-label="Statistics: 2 h of 6 h, goal marked at 62 percent"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Today</span></span></div>
-    <div class="target__foot"><span>1.7 h behind plan</span></div>
+    <div class="target__meta"><span class="target__label">Puskesmas Pesisir</span><span class="target__val"><b>60</b> dari 180 dosis</span></div>
+    <div class="target__track" role="img" aria-label="Puskesmas Pesisir: 60 dari 180 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
+    <div class="target__foot"><span>52 dosis di belakang rencana</span></div>
   </div>
   <div class="target" style="--v: 60%; --t: 62%;">
-    <div class="target__meta"><span class="target__label">Academic writing</span><span class="target__val"><b>3 h</b> of 5 h</span></div>
-    <div class="target__track" role="img" aria-label="Academic writing: 3 h of 5 h, goal marked at 62 percent"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Today</span></span></div>
-    <div class="target__foot"><span>On plan</span></div>
+    <div class="target__meta"><span class="target__label">Puskesmas Bukit</span><span class="target__val"><b>90</b> dari 150 dosis</span></div>
+    <div class="target__track" role="img" aria-label="Puskesmas Bukit: 90 dari 150 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
+    <div class="target__foot"><span>Sesuai rencana</span></div>
   </div>
   </div>
 </section></template>
@@ -384,55 +402,55 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             <button class="btn btn--plain btn--sm" data-replay="ex-2-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>Putar ulang</button>
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;section class=&quot;chart-card&quot; style=&quot;max-width: 520px;&quot; aria-labelledby=&quot;tb-pace&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;tb-pace&quot;&gt;Which study plans are on track?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Hours studied this week against each plan&lt;/div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;tb-pace&quot;&gt;Puskesmas mana yang sesuai rencana?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Dosis vaksin yang diberikan minggu ini terhadap rencana tiap puskesmas&lt;/div&gt;&lt;/div&gt;
   &lt;div class=&quot;target-list&quot; data-lds-grow&gt;
   &lt;div class=&quot;target target--success&quot; style=&quot;--v: 87.5%; --t: 62%;&quot;&gt;
-    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Database Systems&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;7 h&lt;/b&gt; of 8 h&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Database Systems: 7 h of 8 h, goal marked at 62 percent&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Today&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;Ahead of plan&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Kota&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;175&lt;/b&gt; dari 200 dosis&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Kota: 175 dari 200 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;Di depan rencana&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;target target--warning&quot; style=&quot;--v: 33%; --t: 62%;&quot;&gt;
-    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Statistics&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;2 h&lt;/b&gt; of 6 h&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Statistics: 2 h of 6 h, goal marked at 62 percent&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Today&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;1.7 h behind plan&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Pesisir&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;60&lt;/b&gt; dari 180 dosis&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Pesisir: 60 dari 180 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;52 dosis di belakang rencana&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;target&quot; style=&quot;--v: 60%; --t: 62%;&quot;&gt;
-    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Academic writing&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;3 h&lt;/b&gt; of 5 h&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Academic writing: 3 h of 5 h, goal marked at 62 percent&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Today&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;On plan&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Bukit&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;90&lt;/b&gt; dari 150 dosis&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Bukit: 90 dari 150 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;Sesuai rencana&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;section class=&quot;chart-card&quot; style=&quot;max-width: 520px;&quot; aria-labelledby=&quot;tb-pace&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;tb-pace&quot;&gt;Which study plans are on track?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Hours studied this week against each plan&lt;/div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;tb-pace&quot;&gt;Puskesmas mana yang sesuai rencana?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Dosis vaksin yang diberikan minggu ini terhadap rencana tiap puskesmas&lt;/div&gt;&lt;/div&gt;
   &lt;div class=&quot;target-list&quot; data-lds-grow&gt;
   &lt;div class=&quot;target target--success&quot; style=&quot;--v: 87.5%; --t: 62%;&quot;&gt;
-    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Database Systems&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;7 h&lt;/b&gt; of 8 h&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Database Systems: 7 h of 8 h, goal marked at 62 percent&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Today&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;Ahead of plan&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Kota&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;175&lt;/b&gt; dari 200 dosis&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Kota: 175 dari 200 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;Di depan rencana&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;target target--warning&quot; style=&quot;--v: 33%; --t: 62%;&quot;&gt;
-    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Statistics&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;2 h&lt;/b&gt; of 6 h&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Statistics: 2 h of 6 h, goal marked at 62 percent&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Today&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;1.7 h behind plan&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Pesisir&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;60&lt;/b&gt; dari 180 dosis&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Pesisir: 60 dari 180 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;52 dosis di belakang rencana&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;target&quot; style=&quot;--v: 60%; --t: 62%;&quot;&gt;
-    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Academic writing&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;3 h&lt;/b&gt; of 5 h&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Academic writing: 3 h of 5 h, goal marked at 62 percent&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Today&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;On plan&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Bukit&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;90&lt;/b&gt; dari 150 dosis&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Bukit: 90 dari 150 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;Sesuai rencana&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;/div&gt;
 &lt;/section&gt;</pre></div></div></div>
         </figure></section>
-        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">.target</code></td><td>Required. Sets <code class="code">--v</code> (fill, percent of the track), <code class="code">--t</code> (marker) and optional <code class="code">--f</code> (forecast).</td></tr><tr><td><code class="code">.target__meta</code></td><td>Required. <code class="code">.target__label</code> and <code class="code">.target__val</code> (&quot;<strong>$84,300</strong> of $100,000&quot;).</td></tr><tr><td><code class="code">.target__track</code></td><td>Required. 12 px track, <code class="code">role=&quot;img&quot;</code> with the values in words.</td></tr><tr><td><code class="code">.target__fill</code></td><td>Required. The actual value, in the accent; <code class="code">.target--success</code> once the goal is met, <code class="code">.target--warning</code> when behind pace.</td></tr><tr><td><code class="code">.target__forecast</code></td><td>Optional. The projected end value as a tint behind the fill.</td></tr><tr><td><code class="code">.target__mark</code></td><td>Required. A 2 px marker crossing the track, with <code class="code">.target__mark-label</code> above it. <code class="code">.is-end</code> aligns the label to the right when the marker is near the end.</td></tr><tr><td><code class="code">.target__foot</code></td><td>Optional. Days left, pace in words.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">--v, --t, --f</code></td><td>Fill, marker and forecast positions as percentages of the track.</td></tr><tr><td><code class="code">.target--success</code></td><td>Goal met or ahead of pace.</td></tr><tr><td><code class="code">.target--warning</code></td><td>Behind pace; say by how much in the foot.</td></tr><tr><td><code class="code">.target__mark.is-end</code></td><td>Marker label aligned to its right edge (goal at 90 % or more).</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">over the goal</code></td><td>Cap <code class="code">--v</code> at 100 %, switch to <code class="code">.target--success</code> and say the overshoot in words (&quot;$4,200 over&quot;).</td></tr><tr><td><code class="code">no forecast yet</code></td><td>Leave out <code class="code">.target__forecast</code> and say why in the foot (&quot;Forecast after week 2&quot;).</td></tr><tr><td><code class="code">loading</code></td><td>A <code class="code">.skel</code> line for the words and a 12 px <code class="code">.skel</code> strip for the track.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Fill, forecast and marker move on <code class="code">--d-considered</code> (480 ms) on <code class="code">--ease-inout</code> when values change, from where they are.</li><li>First view (<code class="code">data-lds-grow</code>): fills grow from zero on the same transition; the marker stays put.</li><li>Reduced motion: values switch in 120 ms.</li></ul></section>
-        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>The track is <code class="code">role=&quot;img&quot;</code> with value, goal and forecast in words; the meta line repeats the value as text.</li><li>Ahead or behind is said in the foot, never only by the fill color.</li><li>The marker label is real text, 12 px, with tabular figures.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Say the goal in the meta (&quot;of $100,000&quot;) and what the marker means (&quot;Goal&quot;, &quot;Today&quot;).</li><li>Use the pace marker for goals with a deadline.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Use a target bar for something without a goal; that is a <a class="link" href="ranked-bars.html">ranked bar</a> or a <a class="link" href="meter.html">meter</a>.</li><li>Stack more than one fill and one forecast in a track.</li><li>Color a fill red for being behind; warning is enough, words carry the rest.</li></ul></div></div></section>
-        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> Optional: <code class="code">data-lds-grow</code> on the bar or its list plays the first-view entrance.</p></section>
-        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="progress-bar.html"><span class="link-card__eyebrow">Umpan balik</span><span class="link-card__title">Progress bar</span><span class="link-card__body">A 6 px track that fills as a task with a known size advances. Show the number next to it; use the indeterminate bar only when you truly cannot measure.</span></a><a class="link-card" href="meter.html"><span class="link-card__eyebrow">Umpan balik</span><span class="link-card__title">Meter</span><span class="link-card__body">A segmented gauge for a level within a known range: storage used, seats taken, password strength. It shows how full, not how far along.</span></a><a class="link-card" href="kpi-card.html"><span class="link-card__eyebrow">Tampilan data</span><span class="link-card__title">KPI card</span><span class="link-card__body">One metric on a dashboard: what it is, its value, how it changed against a stated baseline, and optionally its recent shape as a sparkline or mini bars. The value is the point; the change always says what it is compared with.</span></a><a class="link-card" href="ranked-bars.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Ranked bars</span><span class="link-card__body">Rows of a label, a horizontal bar and its value, sorted longest first: top sources, top pages, best scores. Long labels stay readable because they sit beside (or inside) the bar instead of under it, and every row shares one grid so bars and values line up.</span></a></div></section>
+        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">.target</code></td><td>Wajib. Mengatur <code class="code">--v</code> (isian, persen dari track), <code class="code">--t</code> (penanda), dan <code class="code">--f</code> opsional (prakiraan).</td></tr><tr><td><code class="code">.target__meta</code></td><td>Wajib. <code class="code">.target__label</code> dan <code class="code">.target__val</code> (&quot;<strong>Rp 84,3 M</strong> dari Rp 100 M&quot;).</td></tr><tr><td><code class="code">.target__track</code></td><td>Wajib. Track 12 px, <code class="code">role=&quot;img&quot;</code> dengan nilai-nilainya dalam kata.</td></tr><tr><td><code class="code">.target__fill</code></td><td>Wajib. Nilai nyata, dengan warna aksen; <code class="code">.target--success</code> setelah target tercapai, <code class="code">.target--warning</code> saat tertinggal dari laju.</td></tr><tr><td><code class="code">.target__forecast</code></td><td>Opsional. Nilai akhir yang diproyeksikan sebagai tint di belakang isian.</td></tr><tr><td><code class="code">.target__mark</code></td><td>Wajib. Penanda 2 px yang melintasi track, dengan <code class="code">.target__mark-label</code> di atasnya. <code class="code">.is-end</code> meratakan label ke kanan saat penanda dekat ujung.</td></tr><tr><td><code class="code">.target__foot</code></td><td>Opsional. Sisa hari, laju dalam kata.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">--v, --t, --f</code></td><td>Posisi isian, penanda, dan prakiraan sebagai persen dari track.</td></tr><tr><td><code class="code">.target--success</code></td><td>Target tercapai atau di depan laju.</td></tr><tr><td><code class="code">.target--warning</code></td><td>Tertinggal dari laju; sebutkan seberapa jauh di footer.</td></tr><tr><td><code class="code">.target__mark.is-end</code></td><td>Label penanda rata ke tepi kanannya (target di 90 % atau lebih).</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">over the goal</code></td><td>Batasi <code class="code">--v</code> di 100 %, ganti ke <code class="code">.target--success</code>, dan sebutkan kelebihannya dengan kata (&quot;lebih Rp 4,2 M&quot;).</td></tr><tr><td><code class="code">no forecast yet</code></td><td>Hilangkan <code class="code">.target__forecast</code> dan sebutkan alasannya di footer (&quot;Prakiraan setelah minggu ke-2&quot;).</td></tr><tr><td><code class="code">loading</code></td><td>Satu baris <code class="code">.skel</code> untuk teks dan strip <code class="code">.skel</code> 12 px untuk track.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Isian, prakiraan, dan penanda bergerak selama <code class="code">--d-considered</code> (480 ms) dengan <code class="code">--ease-inout</code> saat nilai berubah, dari posisinya.</li><li>Saat pertama terlihat (<code class="code">data-lds-grow</code>): isian tumbuh dari nol dengan transisi yang sama; penanda tetap di tempatnya.</li><li>Reduced motion: nilai berganti dalam 120 ms.</li></ul></section>
+        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Track memakai <code class="code">role=&quot;img&quot;</code> dengan nilai, target, dan prakiraan dalam kata; baris meta mengulang nilainya sebagai teks.</li><li>Di depan atau tertinggal disebut di footer, tidak pernah hanya lewat warna isian.</li><li>Label penanda adalah teks asli, 12 px, dengan digit tabular.</li></ul></section>
+        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Sebutkan targetnya di meta (&quot;dari Rp 100 M&quot;) dan arti penandanya (&quot;Target&quot;, &quot;Hari ini&quot;).</li><li>Pakai penanda laju untuk target yang punya tenggat.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Memakai target bar untuk sesuatu tanpa target; itu <a class="link" href="ranked-bars.html">ranked bar</a> atau <a class="link" href="meter.html">meter</a>.</li><li>Menumpuk lebih dari satu isian dan satu prakiraan dalam satu track.</li><li>Mewarnai isian merah karena tertinggal; peringatan sudah cukup, kata-kata membawa sisanya.</li></ul></div></div></section>
+        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> Opsional: <code class="code">data-lds-grow</code> pada batang atau daftarnya memutar animasi masuk saat pertama terlihat.</p></section>
+        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="progress-bar.html"><span class="link-card__eyebrow">Umpan balik</span><span class="link-card__title">Progress bar</span><span class="link-card__body">Track 6 px yang terisi seiring tugas dengan ukuran yang diketahui berjalan. Tampilkan angkanya di samping; pakai bar indeterminate hanya jika benar-benar tidak bisa diukur.</span></a><a class="link-card" href="meter.html"><span class="link-card__eyebrow">Umpan balik</span><span class="link-card__title">Meter</span><span class="link-card__body">Pengukur bersegmen untuk tingkat dalam rentang yang diketahui: penyimpanan terpakai, kuota terisi, kekuatan kata sandi. Menunjukkan seberapa penuh, bukan seberapa jauh kemajuannya.</span></a><a class="link-card" href="kpi-card.html"><span class="link-card__eyebrow">Tampilan data</span><span class="link-card__title">KPI card</span><span class="link-card__body">Satu metrik di dasbor: apa yang diukur, nilainya, bagaimana perubahannya terhadap pembanding yang disebutkan, dan bila perlu bentuk terbarunya sebagai sparkline atau mini bar. Nilainya yang utama; perubahan selalu menyebut pembandingnya.</span></a><a class="link-card" href="ranked-bars.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Ranked bars</span><span class="link-card__body">Baris berisi label, batang horizontal, dan nilainya, diurutkan dari yang terpanjang: sumber teratas, halaman teratas, skor terbaik. Label panjang tetap terbaca karena berada di samping (atau di dalam) batang, bukan di bawahnya, dan setiap baris berbagi satu grid sehingga batang dan nilai sejajar.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
           <a class="link-card cdoc__prev" href="percentage-bar.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Sebelumnya</span><span class="link-card__title">Percentage bar</span></a>
           <a class="link-card cdoc__next" href="funnel.html"><span class="link-card__eyebrow">Berikutnya<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Funnel</span></a>

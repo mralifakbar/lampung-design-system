@@ -1,6 +1,6 @@
 # Product tile
 
-Group: Data display (new). Docs page: `docs/components/product-tile.html`.
+Group: Data display. Docs page: `docs/components/product-tile.html`.
 
 A product people tap to add to a sale or an order: picture, name, one meta line and the price, with a badge in the corner that counts how many are already in the sale. The whole tile is one button.
 

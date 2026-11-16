@@ -1,6 +1,6 @@
 # Lightbox
 
-Group: Overlays (new). Docs page: `docs/components/lightbox.html`.
+Group: Overlays. Docs page: `docs/components/lightbox.html`.
 
 Shows one picture large over a dim page: it grows out of its thumbnail and shrinks back into it. A link around a thumbnail, so without the script it still opens the full image.
 

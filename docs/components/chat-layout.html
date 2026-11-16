@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Chat layout · Lampung Design System</title>
-<meta name="description" content="The conversation column: messages stacked 20 px apart in .chat, the history scrolling above a composer that never scrolls away, and a Latest button that appears only when the reader has scrolled up. Newest at the bottom, always.">
+<meta name="description" content="Kolom percakapan: pesan bertumpuk dengan jarak 20 px di .chat, riwayat bergulir di atas composer yang tidak ikut tergulir, dan tombol Terbaru yang muncul hanya saat pembaca menggulir ke atas. Pesan terbaru selalu di bawah.">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
 <link rel="stylesheet" href="../../css/lds.css">
 <link rel="stylesheet" href="../docs.css">
@@ -12,20 +12,36 @@
 </head>
 <body class="lds">
 <a class="skip" href="#main">Langsung ke konten</a>
+<div class="masthead" role="region" aria-label="Status situs">
+  <div class="masthead__bar">
+    <span class="masthead__mark" aria-hidden="true"><span class="ic">info</span></span>
+    <span class="masthead__text">Proyek komunitas. Ini bukan situs resmi pemerintah.</span>
+    <button class="masthead__toggle" data-lds-masthead aria-expanded="false" aria-controls="lds-masthead">Cara memastikan<span class="ic" aria-hidden="true">expand_more</span></button>
+  </div>
+  <div class="collapse is-closed" id="lds-masthead" inert><div><div class="masthead__body">
+    <p class="masthead__item"><span class="ic" aria-hidden="true">groups</span><span><b>Dikelola sukarelawan.</b> Lampung Design System dibangun oleh komunitas open source. Tidak ada instansi pemerintah yang mengelola atau mendukungnya secara resmi.</span></p>
+    <p class="masthead__item"><span class="ic" aria-hidden="true">verified_user</span><span><b>Layanan resmi memakai go.id.</b> Situs pemerintah Indonesia berakhiran .go.id. Jangan masukkan NIK di situs yang Anda ragukan.</span></p>
+  </div></div></div>
+</div>
 <div class="shell" data-lds-shell>
   <aside class="shell__side" id="side" aria-label="Dokumentasi">
-    <a class="shell__brand" href="../index.html"><span class="page-head__mark">L</span>Lampung Design System</a>
+    <a class="shell__brand" href="../index.html"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>Lampung Design System</a>
     <nav class="shell__nav" aria-label="Komponen">
       <span class="shell__hl" aria-hidden="true"></span>
-      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Memulai</span></a>
+      <p class="shell__group">Memulai</p>
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Pengenalan</span></a>
+      <a class="shell__link" href="../guide/instalasi.html"><span class="ic" aria-hidden="true">download</span><span class="shell__label">Instalasi</span></a>
+      <a class="shell__link" href="../guide/penulisan.html"><span class="ic" aria-hidden="true">edit_square</span><span class="shell__label">Penulisan</span></a>
+      <a class="shell__link" href="../guide/aksesibilitas.html"><span class="ic" aria-hidden="true">accessible</span><span class="shell__label">Aksesibilitas</span></a>
+      <a class="shell__link" href="../guide/desainer.html"><span class="ic" aria-hidden="true">palette</span><span class="shell__label">Untuk desainer</span></a>
+      <p class="shell__group">Komponen</p>
       <a class="shell__link" href="index.html"><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">Semua komponen</span></a>
       <a class="shell__link" href="../examples/index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Contoh</span></a>
-      <p class="shell__group">Komponen</p>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g0"><span class="shell__section-label">Landasan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g0"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span></a>
+          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span></a>
           <a class="shell__link shell__link--child" href="data-states.html"><span class="shell__num">3</span><span class="shell__label">Data states</span></a>
           <a class="shell__link shell__link--child" href="theming.html"><span class="shell__num">4</span><span class="shell__label">Theming</span></a>
           <a class="shell__link shell__link--child" href="icon.html"><span class="shell__num">5</span><span class="shell__label">Icon</span></a>
@@ -60,9 +76,9 @@
           <a class="shell__link shell__link--child" href="select.html"><span class="shell__num">8</span><span class="shell__label">Select</span></a>
           <a class="shell__link shell__link--child" href="combobox.html"><span class="shell__num">9</span><span class="shell__label">Combobox</span></a>
           <a class="shell__link shell__link--child" href="tag-input.html"><span class="shell__num">10</span><span class="shell__label">Tag input</span></a>
-          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span></a>
+          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span></a>
+          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -80,21 +96,22 @@
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">13</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">14</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g4"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">1</span><span class="shell__label">App shell</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">2</span><span class="shell__label">Top nav</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">3</span><span class="shell__label">Tabs</span></a>
-          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">4</span><span class="shell__label">Breadcrumbs</span></a>
-          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">5</span><span class="shell__label">Page header</span></a>
-          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">6</span><span class="shell__label">Pagination</span></a>
-          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">7</span><span class="shell__label">Steps</span></a>
-          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">8</span><span class="shell__label">Sidebar</span></a>
-          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">9</span><span class="shell__label">Outline</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">10</span><span class="shell__label">Menubar</span></a>
-          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">11</span><span class="shell__label">Nav progress</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">12</span><span class="shell__label">Phone bars</span></a>
-          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">13</span><span class="shell__label">Navigation stack</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="masthead.html"><span class="shell__num">1</span><span class="shell__label">Masthead</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">2</span><span class="shell__label">App shell</span></a>
+          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">3</span><span class="shell__label">Top nav</span></a>
+          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">4</span><span class="shell__label">Tabs</span></a>
+          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">5</span><span class="shell__label">Breadcrumbs</span></a>
+          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">6</span><span class="shell__label">Page header</span></a>
+          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">7</span><span class="shell__label">Pagination</span></a>
+          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">8</span><span class="shell__label">Steps</span></a>
+          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">9</span><span class="shell__label">Sidebar</span></a>
+          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">10</span><span class="shell__label">Outline</span></a>
+          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">11</span><span class="shell__label">Menubar</span></a>
+          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">12</span><span class="shell__label">Nav progress</span></a>
+          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">13</span><span class="shell__label">Phone bars</span></a>
+          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">14</span><span class="shell__label">Navigation stack</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -102,7 +119,7 @@
         <div class="shell__panel" id="nav-g5"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="dialog.html"><span class="shell__num">1</span><span class="shell__label">Dialog</span></a>
           <a class="shell__link shell__link--child" href="alert-dialog.html"><span class="shell__num">2</span><span class="shell__label">Alert dialog</span></a>
-          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span></a>
           <a class="shell__link shell__link--child" href="sheet.html"><span class="shell__num">4</span><span class="shell__label">Sheet</span></a>
           <a class="shell__link shell__link--child" href="drawer.html"><span class="shell__num">5</span><span class="shell__label">Drawer</span></a>
           <a class="shell__link shell__link--child" href="dropdown-menu.html"><span class="shell__num">6</span><span class="shell__label">Dropdown menu</span></a>
@@ -112,8 +129,8 @@
           <a class="shell__link shell__link--child" href="hover-card.html"><span class="shell__num">10</span><span class="shell__label">Hover card</span></a>
           <a class="shell__link shell__link--child" href="toast.html"><span class="shell__num">11</span><span class="shell__label">Toast</span></a>
           <a class="shell__link shell__link--child" href="command-palette.html"><span class="shell__num">12</span><span class="shell__label">Command palette</span></a>
-          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span></a>
+          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -132,7 +149,7 @@
           <a class="shell__link shell__link--child" href="empty-state.html"><span class="shell__num">11</span><span class="shell__label">Empty state</span></a>
           <a class="shell__link shell__link--child" href="coachmark.html"><span class="shell__num">12</span><span class="shell__label">Coachmark</span></a>
           <a class="shell__link shell__link--child" href="thinking.html"><span class="shell__num">13</span><span class="shell__label">Thinking</span></a>
-          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -140,8 +157,8 @@
         <div class="shell__panel" id="nav-g7"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="list.html"><span class="shell__num">1</span><span class="shell__label">List</span></a>
           <a class="shell__link shell__link--child" href="key-value.html"><span class="shell__num">2</span><span class="shell__label">Key-value</span></a>
-          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span></a>
+          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span></a>
           <a class="shell__link shell__link--child" href="card.html"><span class="shell__num">5</span><span class="shell__label">Card</span></a>
           <a class="shell__link shell__link--child" href="avatar.html"><span class="shell__num">6</span><span class="shell__label">Avatar</span></a>
           <a class="shell__link shell__link--child" href="table.html"><span class="shell__num">7</span><span class="shell__label">Table</span></a>
@@ -149,70 +166,71 @@
           <a class="shell__link shell__link--child" href="tree.html"><span class="shell__num">9</span><span class="shell__label">Tree</span></a>
           <a class="shell__link shell__link--child" href="calendar.html"><span class="shell__num">10</span><span class="shell__label">Calendar</span></a>
           <a class="shell__link shell__link--child" href="timeline.html"><span class="shell__num">11</span><span class="shell__label">Timeline</span></a>
-          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span></a>
+          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span></a>
+          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span></a>
           <a class="shell__link shell__link--child" href="rolling-number.html"><span class="shell__num">15</span><span class="shell__label">Rolling number</span></a>
           <a class="shell__link shell__link--child" href="code-block.html"><span class="shell__num">16</span><span class="shell__label">Code block</span></a>
           <a class="shell__link shell__link--child" href="carousel.html"><span class="shell__num">17</span><span class="shell__label">Carousel</span></a>
           <a class="shell__link shell__link--child" href="separator.html"><span class="shell__num">18</span><span class="shell__label">Separator</span></a>
-          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span></a>
+          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span></a>
+          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span></a>
+          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span></a>
+          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span></a>
+          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span></a>
+          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span></a>
+          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span></a>
+          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span></a>
+          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span></a>
+          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span></a>
+          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">7</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g8"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span></a>
+          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span></a>
+          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span></a>
+          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span></a>
+          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span></a>
+          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span></a>
+          <a class="shell__link shell__link--child" href="aksara.html"><span class="shell__num">7</span><span class="shell__label">Aksara Lampung</span><span class="badge badge--accent shell__badge">Baru</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="true" aria-controls="nav-g9"><span class="shell__section-label">Obrolan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel is-open" id="nav-g9"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="chat-layout.html" aria-current="page"><span class="shell__num">1</span><span class="shell__label">Chat layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chat-layout.html" aria-current="page"><span class="shell__num">1</span><span class="shell__label">Chat layout</span></a>
+          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span></a>
+          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span></a>
+          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span></a>
+          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g10"><span class="shell__section-label">Pola halaman</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g10"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span></a>
+          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span></a>
+          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span></a>
+          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span></a>
           <a class="shell__link shell__link--child" href="phone-screen.html"><span class="shell__num">5</span><span class="shell__label">Phone screen</span></a>
-          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g11"><span class="shell__section-label">Promosi</span><span class="shell__section-count">8</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g11"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span></a>
+          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span></a>
+          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span></a>
+          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span></a>
+          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span></a>
+          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span></a>
+          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span></a>
+          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -225,10 +243,10 @@
           <a class="shell__link shell__link--child" href="height-expand.html"><span class="shell__num">5</span><span class="shell__label">Height expand</span></a>
           <a class="shell__link shell__link--child" href="list-stagger.html"><span class="shell__num">6</span><span class="shell__label">List stagger</span></a>
           <a class="shell__link shell__link--child" href="view-swap.html"><span class="shell__num">7</span><span class="shell__label">View swap</span></a>
-          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span></a>
           <a class="shell__link shell__link--child" href="number-count.html"><span class="shell__num">9</span><span class="shell__label">Number count</span></a>
           <a class="shell__link shell__link--child" href="drag-and-momentum.html"><span class="shell__num">10</span><span class="shell__label">Drag and momentum</span></a>
-          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span></a>
           <a class="shell__link shell__link--child" href="reduced-motion.html"><span class="shell__num">12</span><span class="shell__label">Reduced motion</span></a>
         </div></div></div>
       </div>
@@ -249,27 +267,27 @@
           <a class="shell__link shell__link--child" href="scroll-fades.html"><span class="shell__num">12</span><span class="shell__label">Scroll fades</span></a>
           <a class="shell__link shell__link--child" href="hints.html"><span class="shell__num">13</span><span class="shell__label">Hints</span></a>
           <a class="shell__link shell__link--child" href="haptics.html"><span class="shell__num">14</span><span class="shell__label">Haptics</span></a>
-          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g14"><span class="shell__section-label">Grafik</span><span class="shell__section-count">16</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g14"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="chart-principles.html"><span class="shell__num">1</span><span class="shell__label">Chart principles</span></a>
-          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span></a>
           <a class="shell__link shell__link--child" href="sparkline-stat.html"><span class="shell__num">3</span><span class="shell__label">Sparkline stat</span></a>
           <a class="shell__link shell__link--child" href="bar-chart.html"><span class="shell__num">4</span><span class="shell__label">Bar chart</span></a>
-          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span></a>
           <a class="shell__link shell__link--child" href="line-chart.html"><span class="shell__num">6</span><span class="shell__label">Line chart</span></a>
-          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span></a>
+          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span></a>
           <a class="shell__link shell__link--child" href="donut.html"><span class="shell__num">9</span><span class="shell__label">Donut</span></a>
-          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span></a>
           <a class="shell__link shell__link--child" href="percentage-bar.html"><span class="shell__num">11</span><span class="shell__label">Percentage bar</span></a>
-          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span></a>
+          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span></a>
           <a class="shell__link shell__link--child" href="heatmap.html"><span class="shell__num">14</span><span class="shell__label">Heatmap</span></a>
-          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span></a>
           <a class="shell__link shell__link--child" href="chart-states.html"><span class="shell__num">16</span><span class="shell__label">Chart states</span></a>
         </div></div></div>
       </div>
@@ -295,44 +313,44 @@
       <main class="cdoc__main" id="main" tabindex="-1">
         <header class="cdoc__head">
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Chat">Obrolan</a></li></ol></nav>
-          <h1>Chat layout <span class="badge badge--accent">Baru</span></h1>
-          <p class="cdoc__lede">The conversation column: messages stacked 20 px apart in <code class="code">.chat</code>, the history scrolling above a composer that never scrolls away, and a Latest button that appears only when the reader has scrolled up. Newest at the bottom, always.</p>
+          <h1>Chat layout</h1>
+          <p class="cdoc__lede">Kolom percakapan: pesan bertumpuk dengan jarak 20 px di <code class="code">.chat</code>, riwayat bergulir di atas composer yang tidak ikut tergulir, dan tombol Terbaru yang muncul hanya saat pembaca menggulir ke atas. Pesan terbaru selalu di bawah.</p>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>A conversation with an assistant or a tutor: the person asks on the right, answers fill the reading column, newest at the bottom.</li><li>A support or feedback thread where order and time matter and the person replies from the same screen.</li><li>A history long enough to scroll, where people read back and need a way to return to the latest message.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>A history of events with no reply box (grade changes, status updates): pakai <a class="link" href="timeline.html">Timeline</a>.</li><li>Comments that each belong to a place in a document or submission: pakai <a class="link" href="list.html">List</a>. Put them next to what they discuss, not in one column.</li><li>One generated answer placed inside a page with no back and forth: pakai <a class="link" href="prose.html">Prose</a>. Show <a class="link" href="thinking.html">thinking</a> while it works and <a class="link" href="streaming-text.html">streaming text</a> as it arrives.</li><li>A feed of notifications: pakai <a class="link" href="list.html">List</a>.</li><li>A quick explanation of one question, in place: pakai <a class="link" href="popover.html">Popover</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> The main column of a page or a full-height panel beside the work it discusses (a <a class="link" href="resizable-split.html">resizable split</a> on wide screens). The history is the scroller; the <a class="link" href="composer.html">composer</a> sits under it, outside the scroller, full width of the column. On phones the column is the whole screen and the composer sits above the keyboard with the safe-area inset (<code class="code">safe-bottom</code>). Keep the column at most 640 px wide on wide screens so answers stay readable.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Percakapan dengan asisten atau tutor: orang bertanya di kanan, jawaban mengisi kolom baca, pesan terbaru di bawah.</li><li>Utas layanan pengaduan atau umpan balik yang urutan dan waktunya penting, dan orang membalas dari layar yang sama.</li><li>Riwayat yang cukup panjang untuk digulir, saat orang membaca ke belakang dan butuh cara kembali ke pesan terbaru.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Riwayat kejadian tanpa kotak balasan (perubahan nilai, pembaruan status): pakai <a class="link" href="timeline.html">Timeline</a>.</li><li>Komentar yang masing-masing melekat pada bagian dokumen atau berkas permohonan: pakai <a class="link" href="list.html">List</a>. Letakkan di samping hal yang dibahas, bukan dalam satu kolom.</li><li>Satu jawaban yang dibuat di dalam halaman tanpa tanya jawab: pakai <a class="link" href="prose.html">Prose</a>. Tampilkan <a class="link" href="thinking.html">thinking</a> selama proses dan <a class="link" href="streaming-text.html">streaming text</a> saat jawaban datang.</li><li>Daftar notifikasi: pakai <a class="link" href="list.html">List</a>.</li><li>Penjelasan singkat untuk satu pertanyaan, di tempat: pakai <a class="link" href="popover.html">Popover</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Kolom utama halaman atau panel setinggi layar di samping pekerjaan yang dibahas (<a class="link" href="resizable-split.html">resizable split</a> di layar lebar). Riwayat adalah area gulir; <a class="link" href="composer.html">composer</a> ada di bawahnya, di luar area gulir, selebar kolom. Di ponsel kolom memenuhi layar dan composer duduk di atas keyboard dengan inset safe-area (<code class="code">safe-bottom</code>). Batasi lebar kolom paling lebar 640 px di layar lebar agar jawaban tetap mudah dibaca.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">A tutoring conversation</span><span class="cdoc__ex-d">Scroll the history up and the Latest button rises in; press it to glide back. Type a question and press Enter: your message joins the column.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Percakapan bimbingan belajar</span><span class="cdoc__ex-d">Gulir riwayat ke atas dan tombol Terbaru muncul; tekan untuk meluncur kembali. Ketik pertanyaan lalu tekan Enter: pesan Anda masuk ke kolom.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="docs-col" style="max-width: 560px;">
   <div class="docs-scroll" id="cl-scroll" style="height: 320px;">
-    <div class="chat" id="cl-chat" role="log" aria-label="Conversation with your tutor">
-      <p class="msg msg--system">Today, 09:12</p>
-      <div class="msg msg--me"><div class="bubble">Why was my answer to question 4 marked wrong?</div><span class="msg__meta">09:12</span></div>
-      <div class="msg msg--ai"><div class="bubble">Question 4 asks for the net force, not the applied force. You added the 20 N push but left out friction, which acts against it with 6 N. The net force is 14 N, so the acceleration is 14 N divided by 7 kg, which is 2 m/s².</div><div class="msg__actions"><button class="icon-btn" aria-label="Copy answer" data-lds-copy="The net force is 14 N, so the acceleration is 2 m/s²."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Try again"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Share answer"><span class="ic" aria-hidden="true">share</span></button></div></div>
-      <div class="msg msg--me"><div class="bubble">So friction always points against the motion?</div><span class="msg__meta">09:14</span></div>
-      <div class="msg msg--ai"><div class="bubble">Against the motion, or against the direction it would move if nothing held it. A book resting on a tilted table has friction pointing up the slope even though it is not moving yet.</div><div class="msg__actions"><button class="icon-btn" aria-label="Copy answer" data-lds-copy="Friction points against the motion or the motion it would have."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Try again"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Share answer"><span class="ic" aria-hidden="true">share</span></button></div></div>
-      <div class="msg msg--me"><div class="bubble">Can I try a similar question?</div><span class="msg__meta">09:15</span></div>
-      <div class="msg msg--ai"><div class="bubble">Here is one. A 5 kg crate is pushed with 30 N across a floor that resists with 10 N of friction. What is its acceleration?</div><div class="msg__actions"><button class="icon-btn" aria-label="Copy answer" data-lds-copy="A 5 kg crate is pushed with 30 N against 10 N of friction. What is its acceleration?"><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Try again"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Share answer"><span class="ic" aria-hidden="true">share</span></button></div></div>
-      <button class="btn btn--secondary btn--sm chat__jump" data-lds-jump="cl-scroll"><span class="ic" aria-hidden="true">arrow_downward</span>Latest</button>
+    <div class="chat" id="cl-chat" role="log" aria-label="Percakapan dengan tutor Anda">
+      <p class="msg msg--system">Hari ini, 09.12</p>
+      <div class="msg msg--me"><div class="bubble">Kenapa jawaban saya untuk soal nomor 4 disalahkan?</div><span class="msg__meta">09.12</span></div>
+      <div class="msg msg--ai"><div class="bubble">Soal nomor 4 menanyakan gaya total, bukan gaya dorong. Anda menghitung dorongan 20 N tetapi tidak memasukkan gesekan yang melawannya sebesar 6 N. Gaya totalnya 14 N, jadi percepatannya 14 N dibagi 7 kg, yaitu 2 m/s².</div><div class="msg__actions"><button class="icon-btn" aria-label="Salin jawaban" data-lds-copy="Gaya totalnya 14 N, jadi percepatannya 2 m/s²."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Coba lagi"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Bagikan jawaban"><span class="ic" aria-hidden="true">share</span></button></div></div>
+      <div class="msg msg--me"><div class="bubble">Jadi gesekan selalu berlawanan dengan arah gerak?</div><span class="msg__meta">09.14</span></div>
+      <div class="msg msg--ai"><div class="bubble">Berlawanan dengan arah gerak, atau dengan arah benda akan bergerak jika tidak ada yang menahan. Buku yang diam di atas meja miring mendapat gesekan ke arah atas lereng walaupun belum bergerak.</div><div class="msg__actions"><button class="icon-btn" aria-label="Salin jawaban" data-lds-copy="Gesekan berlawanan dengan arah gerak atau arah gerak yang akan terjadi."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Coba lagi"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Bagikan jawaban"><span class="ic" aria-hidden="true">share</span></button></div></div>
+      <div class="msg msg--me"><div class="bubble">Boleh saya coba soal yang mirip?</div><span class="msg__meta">09.15</span></div>
+      <div class="msg msg--ai"><div class="bubble">Ini soalnya. Peti 5 kg didorong dengan gaya 30 N di lantai yang memberi gesekan 10 N. Berapa percepatannya?</div><div class="msg__actions"><button class="icon-btn" aria-label="Salin jawaban" data-lds-copy="Peti 5 kg didorong 30 N melawan gesekan 10 N. Berapa percepatannya?"><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Coba lagi"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Bagikan jawaban"><span class="ic" aria-hidden="true">share</span></button></div></div>
+      <button class="btn btn--secondary btn--sm chat__jump" data-lds-jump="cl-scroll"><span class="ic" aria-hidden="true">arrow_downward</span>Terbaru</button>
     </div>
   </div>
-  <form class="composer" data-lds-composer onsubmit="event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); const c = document.getElementById('cl-chat'); c.insertBefore(m, c.querySelector('.chat__jump')); const s = document.getElementById('cl-scroll'); s.scrollTo({ top: s.scrollHeight, behavior: 'smooth' });"><textarea rows="1" aria-label="Message your tutor" placeholder="Ask about this lesson"></textarea><button class="composer__send" type="submit" aria-label="Send"><span class="ic" aria-hidden="true">arrow_upward</span></button></form>
+  <form class="composer" data-lds-composer onsubmit="event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); const c = document.getElementById('cl-chat'); c.insertBefore(m, c.querySelector('.chat__jump')); const s = document.getElementById('cl-scroll'); s.scrollTo({ top: s.scrollHeight, behavior: 'smooth' });"><textarea rows="1" aria-label="Kirim pesan ke tutor" placeholder="Tanyakan tentang materi ini"></textarea><button class="composer__send" type="submit" aria-label="Kirim"><span class="ic" aria-hidden="true">arrow_upward</span></button></form>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;chat-scroll&quot; id=&quot;chat-scroll&quot;&gt;&lt;!-- your scroller: overflow-y: auto, flex: 1 --&gt;
-  &lt;div class=&quot;chat&quot; role=&quot;log&quot; aria-label=&quot;Conversation with your tutor&quot;&gt;
-    &lt;p class=&quot;msg msg--system&quot;&gt;Today, 09:12&lt;/p&gt;
-    &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Why was my answer to question 4 marked wrong?&lt;/div&gt;&lt;span class=&quot;msg__meta&quot;&gt;09:12&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;msg msg--ai&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Question 4 asks for the net force…&lt;/div&gt;
+  &lt;div class=&quot;chat&quot; role=&quot;log&quot; aria-label=&quot;Percakapan dengan tutor Anda&quot;&gt;
+    &lt;p class=&quot;msg msg--system&quot;&gt;Hari ini, 09.12&lt;/p&gt;
+    &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Kenapa jawaban saya untuk soal nomor 4 disalahkan?&lt;/div&gt;&lt;span class=&quot;msg__meta&quot;&gt;09.12&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;msg msg--ai&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Soal nomor 4 menanyakan gaya total…&lt;/div&gt;
       &lt;div class=&quot;msg__actions&quot;&gt;…&lt;/div&gt;
     &lt;/div&gt;
-    &lt;button class=&quot;btn btn--secondary btn--sm chat__jump&quot; data-lds-jump=&quot;chat-scroll&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_downward&lt;/span&gt;Latest&lt;/button&gt;
+    &lt;button class=&quot;btn btn--secondary btn--sm chat__jump&quot; data-lds-jump=&quot;chat-scroll&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_downward&lt;/span&gt;Terbaru&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;form class=&quot;composer&quot; data-lds-composer&gt;
-  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Message your tutor&quot; placeholder=&quot;Ask about this lesson&quot;&gt;&lt;/textarea&gt;
-  &lt;button class=&quot;composer__send&quot; type=&quot;submit&quot; aria-label=&quot;Send&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;
+  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Kirim pesan ke tutor&quot; placeholder=&quot;Tanyakan tentang materi ini&quot;&gt;&lt;/textarea&gt;
+  &lt;button class=&quot;composer__send&quot; type=&quot;submit&quot; aria-label=&quot;Kirim&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;
 &lt;/form&gt;
 &lt;script type=&quot;module&quot;&gt;
   import { init } from 'lampung-design-system/js';
@@ -341,18 +359,18 @@
 &lt;/script&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;chat-scroll&quot; id=&quot;chat-scroll&quot;&gt;&lt;!-- your scroller: overflow-y: auto, flex: 1 --&gt;
-  &lt;div class=&quot;chat&quot; role=&quot;log&quot; aria-label=&quot;Conversation with your tutor&quot;&gt;
-    &lt;p class=&quot;msg msg--system&quot;&gt;Today, 09:12&lt;/p&gt;
-    &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Why was my answer to question 4 marked wrong?&lt;/div&gt;&lt;span class=&quot;msg__meta&quot;&gt;09:12&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;msg msg--ai&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Question 4 asks for the net force…&lt;/div&gt;
+  &lt;div class=&quot;chat&quot; role=&quot;log&quot; aria-label=&quot;Percakapan dengan tutor Anda&quot;&gt;
+    &lt;p class=&quot;msg msg--system&quot;&gt;Hari ini, 09.12&lt;/p&gt;
+    &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Kenapa jawaban saya untuk soal nomor 4 disalahkan?&lt;/div&gt;&lt;span class=&quot;msg__meta&quot;&gt;09.12&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;msg msg--ai&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Soal nomor 4 menanyakan gaya total…&lt;/div&gt;
       &lt;div class=&quot;msg__actions&quot;&gt;…&lt;/div&gt;
     &lt;/div&gt;
-    &lt;button class=&quot;btn btn--secondary btn--sm chat__jump&quot; data-lds-jump=&quot;chat-scroll&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_downward&lt;/span&gt;Latest&lt;/button&gt;
+    &lt;button class=&quot;btn btn--secondary btn--sm chat__jump&quot; data-lds-jump=&quot;chat-scroll&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_downward&lt;/span&gt;Terbaru&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;form class=&quot;composer&quot; data-lds-composer&gt;
-  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Message your tutor&quot; placeholder=&quot;Ask about this lesson&quot;&gt;&lt;/textarea&gt;
-  &lt;button class=&quot;composer__send&quot; type=&quot;submit&quot; aria-label=&quot;Send&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;
+  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Kirim pesan ke tutor&quot; placeholder=&quot;Tanyakan tentang materi ini&quot;&gt;&lt;/textarea&gt;
+  &lt;button class=&quot;composer__send&quot; type=&quot;submit&quot; aria-label=&quot;Kirim&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;
 &lt;/form&gt;
 &lt;script type=&quot;module&quot;&gt;
   import { init } from 'lampung-design-system/js';
@@ -361,54 +379,54 @@
 &lt;/script&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
-          <figcaption><span class="cdoc__ex-t">System lines mark what changed</span><span class="cdoc__ex-d">Day breaks, a mode switching on, a file joining the conversation: centered footnote lines, no bubble, no actions. They are part of the history, so they scroll with it.</span></figcaption>
-          <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="chat" role="log" aria-label="Exam practice" style="max-width: 560px;">
-  <p class="msg msg--system">Yesterday</p>
-  <div class="msg msg--me"><div class="bubble">Quiz me on chapter 3, ten questions.</div></div>
-  <div class="msg msg--ai"><div class="bubble">Ready when you are. Each question has four choices; answer with the letter.</div></div>
-  <p class="msg msg--system">Exam mode is on. Hints stay hidden until you submit.</p>
-  <p class="msg msg--system">You attached lab-report-draft.pdf</p>
-  <p class="msg msg--system">Today</p>
-  <div class="msg msg--me"><div class="bubble">Submit my answers.</div></div>
+          <figcaption><span class="cdoc__ex-t">Baris sistem menandai perubahan</span><span class="cdoc__ex-d">Pergantian hari, mode yang dinyalakan, berkas yang ditambahkan ke percakapan: baris footnote di tengah, tanpa bubble, tanpa aksi. Baris ini bagian dari riwayat, jadi ikut tergulir.</span></figcaption>
+          <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="chat" role="log" aria-label="Latihan ujian" style="max-width: 560px;">
+  <p class="msg msg--system">Kemarin</p>
+  <div class="msg msg--me"><div class="bubble">Uji saya tentang bab 3, sepuluh soal.</div></div>
+  <div class="msg msg--ai"><div class="bubble">Silakan mulai kapan saja. Setiap soal punya empat pilihan; jawab dengan hurufnya.</div></div>
+  <p class="msg msg--system">Mode ujian aktif. Petunjuk disembunyikan sampai Anda mengumpulkan jawaban.</p>
+  <p class="msg msg--system">Anda melampirkan draf-laporan-praktikum.pdf</p>
+  <p class="msg msg--system">Hari ini</p>
+  <div class="msg msg--me"><div class="bubble">Kumpulkan jawaban saya.</div></div>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;chat&quot; role=&quot;log&quot; aria-label=&quot;Exam practice&quot; style=&quot;max-width: 560px;&quot;&gt;
-  &lt;p class=&quot;msg msg--system&quot;&gt;Yesterday&lt;/p&gt;
-  &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Quiz me on chapter 3, ten questions.&lt;/div&gt;&lt;/div&gt;
-  &lt;div class=&quot;msg msg--ai&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Ready when you are. Each question has four choices; answer with the letter.&lt;/div&gt;&lt;/div&gt;
-  &lt;p class=&quot;msg msg--system&quot;&gt;Exam mode is on. Hints stay hidden until you submit.&lt;/p&gt;
-  &lt;p class=&quot;msg msg--system&quot;&gt;You attached lab-report-draft.pdf&lt;/p&gt;
-  &lt;p class=&quot;msg msg--system&quot;&gt;Today&lt;/p&gt;
-  &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Submit my answers.&lt;/div&gt;&lt;/div&gt;
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;chat&quot; role=&quot;log&quot; aria-label=&quot;Latihan ujian&quot; style=&quot;max-width: 560px;&quot;&gt;
+  &lt;p class=&quot;msg msg--system&quot;&gt;Kemarin&lt;/p&gt;
+  &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Uji saya tentang bab 3, sepuluh soal.&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;msg msg--ai&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Silakan mulai kapan saja. Setiap soal punya empat pilihan; jawab dengan hurufnya.&lt;/div&gt;&lt;/div&gt;
+  &lt;p class=&quot;msg msg--system&quot;&gt;Mode ujian aktif. Petunjuk disembunyikan sampai Anda mengumpulkan jawaban.&lt;/p&gt;
+  &lt;p class=&quot;msg msg--system&quot;&gt;Anda melampirkan draf-laporan-praktikum.pdf&lt;/p&gt;
+  &lt;p class=&quot;msg msg--system&quot;&gt;Hari ini&lt;/p&gt;
+  &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Kumpulkan jawaban saya.&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;chat&quot; role=&quot;log&quot; aria-label=&quot;Exam practice&quot; style=&quot;max-width: 560px;&quot;&gt;
-  &lt;p class=&quot;msg msg--system&quot;&gt;Yesterday&lt;/p&gt;
-  &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Quiz me on chapter 3, ten questions.&lt;/div&gt;&lt;/div&gt;
-  &lt;div class=&quot;msg msg--ai&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Ready when you are. Each question has four choices; answer with the letter.&lt;/div&gt;&lt;/div&gt;
-  &lt;p class=&quot;msg msg--system&quot;&gt;Exam mode is on. Hints stay hidden until you submit.&lt;/p&gt;
-  &lt;p class=&quot;msg msg--system&quot;&gt;You attached lab-report-draft.pdf&lt;/p&gt;
-  &lt;p class=&quot;msg msg--system&quot;&gt;Today&lt;/p&gt;
-  &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Submit my answers.&lt;/div&gt;&lt;/div&gt;
+          <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;chat&quot; role=&quot;log&quot; aria-label=&quot;Latihan ujian&quot; style=&quot;max-width: 560px;&quot;&gt;
+  &lt;p class=&quot;msg msg--system&quot;&gt;Kemarin&lt;/p&gt;
+  &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Uji saya tentang bab 3, sepuluh soal.&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;msg msg--ai&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Silakan mulai kapan saja. Setiap soal punya empat pilihan; jawab dengan hurufnya.&lt;/div&gt;&lt;/div&gt;
+  &lt;p class=&quot;msg msg--system&quot;&gt;Mode ujian aktif. Petunjuk disembunyikan sampai Anda mengumpulkan jawaban.&lt;/p&gt;
+  &lt;p class=&quot;msg msg--system&quot;&gt;Anda melampirkan draf-laporan-praktikum.pdf&lt;/p&gt;
+  &lt;p class=&quot;msg msg--system&quot;&gt;Hari ini&lt;/p&gt;
+  &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Kumpulkan jawaban saya.&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-3">
-          <figcaption><span class="cdoc__ex-t">Before the first message</span><span class="cdoc__ex-d">An empty conversation says what the assistant can do and offers two or three starting questions as chips. A chip fills the composer; the person still presses send.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Sebelum pesan pertama</span><span class="cdoc__ex-d">Percakapan kosong menjelaskan apa yang bisa dilakukan asisten dan menawarkan dua atau tiga pertanyaan pembuka sebagai chip. Chip mengisi composer; orang tetap menekan kirim.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-3-stage"><div class="docs-col" style="max-width: 560px;">
   <div class="empty">
     <div class="empty__icon"><span class="ic" aria-hidden="true">school</span></div>
-    <p class="empty__title">Ask about Biology 101</p>
-    <p class="empty__body">Answers use your course notes and say which page they come from.</p>
+    <p class="empty__title">Tanya tentang Biologi kelas X</p>
+    <p class="empty__body">Jawaban memakai catatan pelajaran Anda dan menyebut halaman sumbernya.</p>
   </div>
   <div class="chip-row" style="justify-content: center;">
-    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Explain osmosis simply</button>
-    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Quiz me on cell parts</button>
-    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Summarize chapter 2</button>
+    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Jelaskan osmosis dengan sederhana</button>
+    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Uji saya tentang bagian sel</button>
+    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Ringkas bab 2</button>
   </div>
-  <form class="composer" data-lds-composer><textarea rows="1" aria-label="Message" placeholder="Ask a question"></textarea><button class="composer__send" type="submit" aria-label="Send"><span class="ic" aria-hidden="true">arrow_upward</span></button></form>
+  <form class="composer" data-lds-composer><textarea rows="1" aria-label="Pesan" placeholder="Ajukan pertanyaan"></textarea><button class="composer__send" type="submit" aria-label="Kirim"><span class="ic" aria-hidden="true">arrow_upward</span></button></form>
 </div></div>
           
           <div class="cdoc__bar">
@@ -416,37 +434,37 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;empty&quot;&gt;
   &lt;div class=&quot;empty__icon&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;school&lt;/span&gt;&lt;/div&gt;
-  &lt;p class=&quot;empty__title&quot;&gt;Ask about Biology 101&lt;/p&gt;
-  &lt;p class=&quot;empty__body&quot;&gt;Answers use your course notes and say which page they come from.&lt;/p&gt;
+  &lt;p class=&quot;empty__title&quot;&gt;Tanya tentang Biologi kelas X&lt;/p&gt;
+  &lt;p class=&quot;empty__body&quot;&gt;Jawaban memakai catatan pelajaran Anda dan menyebut halaman sumbernya.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;chip-row&quot;&gt;
-  &lt;button class=&quot;chip&quot;&gt;Explain osmosis simply&lt;/button&gt;
-  &lt;button class=&quot;chip&quot;&gt;Quiz me on cell parts&lt;/button&gt;
+  &lt;button class=&quot;chip&quot;&gt;Jelaskan osmosis dengan sederhana&lt;/button&gt;
+  &lt;button class=&quot;chip&quot;&gt;Uji saya tentang bagian sel&lt;/button&gt;
 &lt;/div&gt;
 &lt;form class=&quot;composer&quot; data-lds-composer&gt;…&lt;/form&gt;
 &lt;!-- On a chip click: put its text in the textarea, dispatch 'input' (enables send), focus it. --&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;empty&quot;&gt;
   &lt;div class=&quot;empty__icon&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;school&lt;/span&gt;&lt;/div&gt;
-  &lt;p class=&quot;empty__title&quot;&gt;Ask about Biology 101&lt;/p&gt;
-  &lt;p class=&quot;empty__body&quot;&gt;Answers use your course notes and say which page they come from.&lt;/p&gt;
+  &lt;p class=&quot;empty__title&quot;&gt;Tanya tentang Biologi kelas X&lt;/p&gt;
+  &lt;p class=&quot;empty__body&quot;&gt;Jawaban memakai catatan pelajaran Anda dan menyebut halaman sumbernya.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;chip-row&quot;&gt;
-  &lt;button class=&quot;chip&quot;&gt;Explain osmosis simply&lt;/button&gt;
-  &lt;button class=&quot;chip&quot;&gt;Quiz me on cell parts&lt;/button&gt;
+  &lt;button class=&quot;chip&quot;&gt;Jelaskan osmosis dengan sederhana&lt;/button&gt;
+  &lt;button class=&quot;chip&quot;&gt;Uji saya tentang bagian sel&lt;/button&gt;
 &lt;/div&gt;
 &lt;form class=&quot;composer&quot; data-lds-composer&gt;…&lt;/form&gt;
 &lt;!-- On a chip click: put its text in the textarea, dispatch 'input' (enables send), focus it. --&gt;</pre></div></div></div>
         </figure></section>
-        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">.chat</code></td><td>Required. The column of messages (flex, 20 px gap). Give it <code class="code">role=&quot;log&quot;</code> and a label.</td></tr><tr><td><code class="code">.msg</code></td><td>Required. One message; see <a class="link" href="chat-message.html">chat message</a> for <code class="code">--me</code>, <code class="code">--ai</code> and the parts inside.</td></tr><tr><td><code class="code">.msg--system</code></td><td>A centered line in footnote type for what changed in the conversation: a day break, someone joining, a mode switching on.</td></tr><tr><td><code class="code">.chat__jump</code></td><td>A small secondary button, last child of <code class="code">.chat</code>, with <code class="code">data-lds-jump=&quot;&lt;scroller id&gt;&quot;</code>. Sticks 88 px above the scroller bottom and shows only while the reader is more than 160 px from the end.</td></tr><tr><td><code class="code">.composer</code></td><td>The reply box under the scroller; see <a class="link" href="composer.html">composer</a>.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">empty</code></td><td>No messages yet: an <a class="link" href="empty-state.html">empty state</a> with two or three starter <a class="link" href="chips.html">chips</a> above the composer.</td></tr><tr><td><code class="code">scrolled up</code></td><td><code class="code">.chat__jump.is-visible</code> once the scroller is more than 160 px from its end; it hides again at the bottom.</td></tr><tr><td><code class="code">assistant working</code></td><td>The last message is a <a class="link" href="thinking.html">thinking</a> row, then the reply streams in (<a class="link" href="streaming-text.html">streaming text</a>).</td></tr><tr><td><code class="code">new message</code></td><td>A <code class="code">.msg.is-new</code> rises 8 px and fades in once on insertion; history without <code class="code">is-new</code> appears at once.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Every <code class="code">.msg.is-new</code> enters once with <code class="code">lds-msg-in</code> (give <code class="code">is-new</code> only to messages that arrive while the chat is open): from 8 px below and transparent, over <code class="code">--d-smooth</code> (560 ms) on <code class="code">--spring-smooth</code>. Nothing in the column moves when a message arrives except the new message itself.</li><li>The Latest button fades over <code class="code">--d-fast</code> and rises 8 px on <code class="code">--spring-smooth</code>; it is a transition, so scrolling back and forth reverses it from where it is.</li><li>Jumping scrolls with <code class="code">behavior: smooth</code>; under reduced motion it jumps at once.</li><li>Messages rendered in bulk (opening an old conversation) also play their entrance at the same moment. Render history before inserting it, or accept one shared fade; never stagger a whole history.</li><li>Reduced motion: the entrance becomes a 1 ms fade (effectively instant) and the jump button cross-fades in 120 ms.</li></ul></section>
-        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Give <code class="code">.chat</code> <code class="code">role=&quot;log&quot;</code> and an <code class="code">aria-label</code>; new messages are then announced politely. While a reply streams, set <code class="code">aria-busy=&quot;true&quot;</code> on that message and remove it when done so the reply is read once, whole.</li><li>System lines are plain text (<code class="code">&lt;p&gt;</code>), not live regions of their own; the log announces them.</li><li>The composer textarea needs a label (<code class="code">aria-label</code> or a visible label); see <a class="link" href="composer.html">composer</a>.</li><li>The Latest button is a real button with a visible label. While hidden it is transparent but still focusable: render it only when needed if keyboard users report it.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Keep the composer outside the scroller so it never scrolls away.</li><li>Stop auto-scrolling when the reader has scrolled up; show Latest instead.</li><li>Use a system line for anything the conversation did on its own (mode, file, day).</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Animate the whole history in, or stagger old messages.</li><li>Put a timestamp on every message; group by day with system lines and show times on hover or in <a class="link" href="chat-message.html">message meta</a>.</li><li>Build a chat out of cards or list rows.</li></ul></div></div></section>
-        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> Behavior comes from <code class="code">init()</code>: <code class="code">[data-lds-jump=&quot;&lt;scroller id&gt;&quot;]</code> on the Latest button shows it while the scroller is more than 160 px from its end and scrolls to the end on click; <code class="code">[data-lds-composer]</code> wires the <a class="link" href="composer.html">composer</a> (Enter sends, <code class="code">lds:send</code> carries <code class="code">{ text }</code>). In React, render the same markup and call <code class="code">init(ref.current)</code> in an effect after messages render.</p></section>
-        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="chat-message.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Chat message</span><span class="link-card__body">One turn in a conversation. Your words sit in an accent bubble on the right; the assistant answers as plain reading text in the column, with a quiet actions row under it. System lines are centered footnotes.</span></a><a class="link-card" href="composer.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Composer</span><span class="link-card__body">The reply box under a conversation: a rounded field that grows with the text, Enter to send, Shift+Enter for a new line, and one round send button that stays disabled until there is something to send.</span></a><a class="link-card" href="streaming-text.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Streaming text</span><span class="link-card__body">An answer that arrives word by word, each word fading in from a 3 px blur, with a round caret at the end while more is coming. It shows real progress; never fake it for text you already have.</span></a><a class="link-card" href="tool-call.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Tool call</span><span class="link-card__body">One step the assistant took on the way to its answer (searched the notes, read a file, checked the calendar), shown as a quiet one-line `&lt;details&gt;` that opens to what it found. The answer stays the main thing.</span></a></div></section>
+        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">.chat</code></td><td>Wajib. Kolom pesan (flex, jarak 20 px). Beri <code class="code">role=&quot;log&quot;</code> dan label.</td></tr><tr><td><code class="code">.msg</code></td><td>Wajib. Satu pesan; lihat <a class="link" href="chat-message.html">chat message</a> untuk <code class="code">--me</code>, <code class="code">--ai</code> dan bagian di dalamnya.</td></tr><tr><td><code class="code">.msg--system</code></td><td>Baris di tengah dengan huruf footnote untuk hal yang berubah dalam percakapan: pergantian hari, seseorang bergabung, mode yang dinyalakan.</td></tr><tr><td><code class="code">.chat__jump</code></td><td>Tombol sekunder kecil, anak terakhir <code class="code">.chat</code>, dengan <code class="code">data-lds-jump=&quot;&lt;scroller id&gt;&quot;</code>. Menempel 88 px di atas dasar area gulir dan hanya tampil saat pembaca berjarak lebih dari 160 px dari ujung.</td></tr><tr><td><code class="code">.composer</code></td><td>Kotak balasan di bawah area gulir; lihat <a class="link" href="composer.html">composer</a>.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">empty</code></td><td>Belum ada pesan: <a class="link" href="empty-state.html">empty state</a> dengan dua atau tiga <a class="link" href="chips.html">chip</a> pembuka di atas composer.</td></tr><tr><td><code class="code">scrolled up</code></td><td><code class="code">.chat__jump.is-visible</code> begitu area gulir berjarak lebih dari 160 px dari ujung; tombol hilang lagi di bawah.</td></tr><tr><td><code class="code">assistant working</code></td><td>Pesan terakhir berupa baris <a class="link" href="thinking.html">thinking</a>, lalu balasan mengalir masuk (<a class="link" href="streaming-text.html">streaming text</a>).</td></tr><tr><td><code class="code">new message</code></td><td><code class="code">.msg.is-new</code> naik 8 px dan memudar masuk sekali saat disisipkan; riwayat tanpa <code class="code">is-new</code> langsung tampil.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Setiap <code class="code">.msg.is-new</code> masuk sekali dengan <code class="code">lds-msg-in</code> (beri <code class="code">is-new</code> hanya untuk pesan yang datang saat chat terbuka): dari 8 px di bawah dan transparan, selama <code class="code">--d-smooth</code> (560 ms) dengan <code class="code">--spring-smooth</code>. Saat pesan datang, tidak ada yang bergerak di kolom selain pesan baru itu.</li><li>Tombol Terbaru memudar selama <code class="code">--d-fast</code> dan naik 8 px dengan <code class="code">--spring-smooth</code>; ini transition, jadi menggulir bolak-balik membaliknya dari posisi saat itu.</li><li>Lompatan menggulir dengan <code class="code">behavior: smooth</code>; dengan reduced motion langsung melompat.</li><li>Pesan yang dirender sekaligus (membuka percakapan lama) juga memainkan animasi masuk pada saat yang sama. Render riwayat sebelum menyisipkannya, atau terima satu fade bersama; jangan pernah memberi stagger pada seluruh riwayat.</li><li>Reduced motion: animasi masuk menjadi fade 1 ms (praktis instan) dan tombol lompat cross-fade dalam 120 ms.</li></ul></section>
+        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Beri <code class="code">.chat</code> <code class="code">role=&quot;log&quot;</code> dan <code class="code">aria-label</code>; pesan baru lalu diumumkan secara sopan (polite). Selama balasan mengalir, pasang <code class="code">aria-busy=&quot;true&quot;</code> pada pesan itu dan hapus setelah selesai agar balasan dibacakan sekali, utuh.</li><li>Baris sistem berupa teks biasa (<code class="code">&lt;p&gt;</code>), bukan live region tersendiri; log yang mengumumkannya.</li><li>Textarea composer perlu label (<code class="code">aria-label</code> atau label yang terlihat); lihat <a class="link" href="composer.html">composer</a>.</li><li>Tombol Terbaru adalah tombol sungguhan dengan label yang terlihat. Saat tersembunyi ia transparan tetapi masih bisa difokus: render hanya saat dibutuhkan jika pengguna keyboard melaporkannya.</li></ul></section>
+        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Letakkan composer di luar area gulir agar tidak ikut tergulir.</li><li>Hentikan gulir otomatis saat pembaca menggulir ke atas; tampilkan tombol Terbaru.</li><li>Pakai baris sistem untuk hal yang dilakukan percakapan dengan sendirinya (mode, berkas, hari).</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Menganimasikan seluruh riwayat masuk, atau memberi stagger pada pesan lama.</li><li>Memasang stempel waktu di setiap pesan; kelompokkan per hari dengan baris sistem dan tampilkan jam saat hover atau di <a class="link" href="chat-message.html">meta pesan</a>.</li><li>Membangun chat dari card atau baris list.</li></ul></div></div></section>
+        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> Perilaku berasal dari <code class="code">init()</code>: <code class="code">[data-lds-jump=&quot;&lt;scroller id&gt;&quot;]</code> pada tombol Terbaru menampilkannya saat area gulir berjarak lebih dari 160 px dari ujung dan menggulir ke ujung saat diklik; <code class="code">[data-lds-composer]</code> memasang perilaku <a class="link" href="composer.html">composer</a> (Enter mengirim, <code class="code">lds:send</code> membawa <code class="code">{ text }</code>). Di React, render markup yang sama dan panggil <code class="code">init(ref.current)</code> di effect setelah pesan dirender.</p></section>
+        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="chat-message.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Chat message</span><span class="link-card__body">Satu giliran dalam percakapan. Kata-kata Anda ada di bubble aksen di kanan; asisten menjawab dengan teks baca biasa di kolom, dengan baris aksi yang tenang di bawahnya. Baris sistem berupa footnote di tengah.</span></a><a class="link-card" href="composer.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Composer</span><span class="link-card__body">Kotak balasan di bawah percakapan: kolom membulat yang tumbuh mengikuti teks, Enter untuk mengirim, Shift+Enter untuk baris baru, dan satu tombol kirim bulat yang nonaktif sampai ada yang bisa dikirim.</span></a><a class="link-card" href="streaming-text.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Streaming text</span><span class="link-card__body">Jawaban yang datang kata demi kata, setiap kata memudar masuk dari blur 3 px, dengan caret bulat di ujung selama masih ada yang datang. Ini menunjukkan kemajuan nyata; jangan pernah memalsukannya untuk teks yang sudah Anda miliki.</span></a><a class="link-card" href="tool-call.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Tool call</span><span class="link-card__body">Satu langkah yang diambil asisten untuk sampai pada jawabannya (mencari di catatan, membaca berkas, memeriksa kalender), ditampilkan sebagai `&lt;details&gt;` satu baris yang tenang dan bisa dibuka untuk melihat temuannya. Jawaban tetap yang utama.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
-          <a class="link-card cdoc__prev" href="paper.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Sebelumnya</span><span class="link-card__title">Paper</span></a>
+          <a class="link-card cdoc__prev" href="aksara.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Sebelumnya</span><span class="link-card__title">Aksara Lampung</span></a>
           <a class="link-card cdoc__next" href="chat-message.html"><span class="link-card__eyebrow">Berikutnya<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Chat message</span></a>
         </nav>
       </main>

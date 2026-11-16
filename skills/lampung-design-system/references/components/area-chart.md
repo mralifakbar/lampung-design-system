@@ -1,6 +1,6 @@
 # Area chart
 
-Group: Charts (new). Docs page: `docs/components/area-chart.html`.
+Group: Charts. Docs page: `docs/components/area-chart.html`.
 
 A filled line over time, drawn from data: one series against a dashed comparison, up to four series stacked into a total, or steps for a value that changes in jumps. Legend items switch series on and off; the crosshair reads every series at once.
 

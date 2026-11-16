@@ -1,6 +1,6 @@
 # Combo chart
 
-Group: Charts (new). Docs page: `docs/components/combo-chart.html`.
+Group: Charts. Docs page: `docs/components/combo-chart.html`.
 
 Bars for what happened in each period and a line for what was expected (a plan, a forecast, last year), on one shared scale, with optional dashed reference lines for fixed thresholds. Drawn from data like the area chart.
 

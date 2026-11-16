@@ -1,6 +1,6 @@
 # KPI card
 
-Group: Data display (new). Docs page: `docs/components/kpi-card.html`.
+Group: Data display. Docs page: `docs/components/kpi-card.html`.
 
 One metric on a dashboard: what it is, its value, how it changed against a stated baseline, and optionally its recent shape as a sparkline or mini bars. The value is the point; the change always says what it is compared with.
 

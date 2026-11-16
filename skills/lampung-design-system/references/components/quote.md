@@ -1,6 +1,6 @@
 # Quote
 
-Group: Content (new). Docs page: `docs/components/quote.html`.
+Group: Content. Docs page: `docs/components/quote.html`.
 
 Words someone else said or wrote, set off by a 3 px accent bar on the left, 17/28 in `--text-strong`, with the source in a footer below. Only for real quotations.
 

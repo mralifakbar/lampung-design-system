@@ -1,6 +1,6 @@
 # Chat message
 
-Group: Chat (new). Docs page: `docs/components/chat-message.html`.
+Group: Chat. Docs page: `docs/components/chat-message.html`.
 
 One turn in a conversation. Your words sit in an accent bubble on the right; the assistant answers as plain reading text in the column, with a quiet actions row under it. System lines are centered footnotes.
 

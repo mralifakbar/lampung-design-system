@@ -1,6 +1,6 @@
 # Show more
 
-Group: Data display (new). Docs page: `docs/components/show-more.html`.
+Group: Data display. Docs page: `docs/components/show-more.html`.
 
 The first few items of a list, then a plain button that reveals the rest in place on the collapse spring, and folds it back.
 

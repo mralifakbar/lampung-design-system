@@ -1,6 +1,6 @@
 # Map
 
-Group: Data display (new). Docs page: `docs/components/map.html`.
+Group: Data display. Docs page: `docs/components/map.html`.
 
 A small slippy map over OpenStreetMap tiles: routes with the travelled part in the accent, the vehicle where it is, and pins for the places that matter. It draws only the tiles in view and always credits the map data in the corner.
 

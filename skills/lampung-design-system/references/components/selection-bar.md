@@ -1,6 +1,6 @@
 # Selection bar
 
-Group: Overlays (new). Docs page: `docs/components/selection-bar.html`.
+Group: Overlays. Docs page: `docs/components/selection-bar.html`.
 
 A dark bar that floats up from the bottom while items in a list are selected, holding the count and the actions for all of them. It leaves when the selection is empty.
 

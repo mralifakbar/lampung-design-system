@@ -1,6 +1,6 @@
 # Target bar
 
-Group: Charts (new). Docs page: `docs/components/target-bar.html`.
+Group: Charts. Docs page: `docs/components/target-bar.html`.
 
 A horizontal bar for progress toward a goal: the fill is where you are, a marker shows where you should be (the goal, or today's pace), and an optional tint ahead of the fill shows the forecast. Words above say the value against the goal.
 

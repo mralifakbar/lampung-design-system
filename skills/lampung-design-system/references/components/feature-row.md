@@ -1,6 +1,6 @@
 # Feature row
 
-Group: Marketing (new). Docs page: `docs/components/feature-row.html`.
+Group: Marketing. Docs page: `docs/components/feature-row.html`.
 
 One feature told beside its proof: a short title, a paragraph and a few points on one side, a live stage with the feature working on the other. Rows alternate sides with `feature--reverse`.
 

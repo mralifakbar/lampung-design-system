@@ -1,6 +1,6 @@
 # Modal
 
-Group: Overlays (new). Docs page: `docs/components/modal.html`.
+Group: Overlays. Docs page: `docs/components/modal.html`.
 
 A page-level dialog over the whole window: a native `<dialog class="modal">` in the top layer, or `.overlay` rendered in place by a framework. Below 600 px the native modal becomes a bottom sheet. Close it with `closeModal()` so it plays its exit.
 

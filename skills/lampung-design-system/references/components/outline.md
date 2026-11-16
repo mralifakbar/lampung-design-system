@@ -1,6 +1,6 @@
 # Outline
 
-Group: Navigation (new). Docs page: `docs/components/outline.html`.
+Group: Navigation. Docs page: `docs/components/outline.html`.
 
 An "On this page" list of the headings of one long page, with an ink line that follows the section in view. The list on the right of this page is one.
 

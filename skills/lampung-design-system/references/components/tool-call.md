@@ -1,6 +1,6 @@
 # Tool call
 
-Group: Chat (new). Docs page: `docs/components/tool-call.html`.
+Group: Chat. Docs page: `docs/components/tool-call.html`.
 
 One step the assistant took on the way to its answer (searched the notes, read a file, checked the calendar), shown as a quiet one-line `<details>` that opens to what it found. The answer stays the main thing.
 

@@ -1,6 +1,6 @@
 # Navigation stack
 
-Group: Navigation (new). Docs page: `docs/components/nav-stack.html`.
+Group: Navigation. Docs page: `docs/components/nav-stack.html`.
 
 Push a detail screen in from the right over the one you came from, and go back with the back button or by dragging the screen away from the left edge. The screen underneath slides at 30 % and dims, so people always know where back leads.
 

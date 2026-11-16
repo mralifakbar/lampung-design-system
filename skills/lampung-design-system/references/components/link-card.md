@@ -1,6 +1,6 @@
 # Link card
 
-Group: Page patterns (new). Docs page: `docs/components/link-card.html`.
+Group: Page patterns. Docs page: `docs/components/link-card.html`.
 
 A grid of destinations on the quiet fill: each card is one link with an eyebrow, a title, a line of detail and a foot whose chevron leans toward where it goes.
 

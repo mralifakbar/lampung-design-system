@@ -1,6 +1,6 @@
 # Floor plan
 
-Group: Data display (new). Docs page: `docs/components/floor-plan.html`.
+Group: Data display. Docs page: `docs/components/floor-plan.html`.
 
 Bookable things drawn where they are: tables in a dining room, rooms on a floor, desks in a study centre. Each one is a button colored by its state, and the state is always in words too, so people find a free one by place and by name.
 

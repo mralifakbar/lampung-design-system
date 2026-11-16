@@ -1,6 +1,6 @@
 # Composer
 
-Group: Chat (new). Docs page: `docs/components/composer.html`.
+Group: Chat. Docs page: `docs/components/composer.html`.
 
 The reply box under a conversation: a rounded field that grows with the text, Enter to send, Shift+Enter for a new line, and one round send button that stays disabled until there is something to send.
 

@@ -1,6 +1,6 @@
 # Device frame
 
-Group: Page patterns (new). Docs page: `docs/components/device-frame.html`.
+Group: Page patterns. Docs page: `docs/components/device-frame.html`.
 
 A phone body around a `.phone` screen: rounded bezel, side buttons, the camera island and a status bar, scaled to fit the page. On a real phone the same screen drops the body and fills the display with `.device--bleed`.
 

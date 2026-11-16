@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Data table · Lampung Design System</title>
-<meta name="description" content="A table people work in: search, filter chips and menus, sortable headers, a column menu, row density, row selection with a selection bar, and pagination with a page size, all on a plain .table and wired by one hook. Every control changes the rows at once and says what it did.">
+<meta name="description" content="Tabel tempat orang bekerja: pencarian, chip dan menu filter, header yang bisa diurutkan, menu kolom, kerapatan baris, pemilihan baris dengan selection bar, dan pagination dengan ukuran halaman, semuanya di atas .table biasa dan dipasang oleh satu hook. Setiap kontrol langsung mengubah baris dan menyebutkan apa yang dilakukannya.">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
 <link rel="stylesheet" href="../../css/lds.css">
 <link rel="stylesheet" href="../docs.css">
@@ -12,20 +12,36 @@
 </head>
 <body class="lds">
 <a class="skip" href="#main">Langsung ke konten</a>
+<div class="masthead" role="region" aria-label="Status situs">
+  <div class="masthead__bar">
+    <span class="masthead__mark" aria-hidden="true"><span class="ic">info</span></span>
+    <span class="masthead__text">Proyek komunitas. Ini bukan situs resmi pemerintah.</span>
+    <button class="masthead__toggle" data-lds-masthead aria-expanded="false" aria-controls="lds-masthead">Cara memastikan<span class="ic" aria-hidden="true">expand_more</span></button>
+  </div>
+  <div class="collapse is-closed" id="lds-masthead" inert><div><div class="masthead__body">
+    <p class="masthead__item"><span class="ic" aria-hidden="true">groups</span><span><b>Dikelola sukarelawan.</b> Lampung Design System dibangun oleh komunitas open source. Tidak ada instansi pemerintah yang mengelola atau mendukungnya secara resmi.</span></p>
+    <p class="masthead__item"><span class="ic" aria-hidden="true">verified_user</span><span><b>Layanan resmi memakai go.id.</b> Situs pemerintah Indonesia berakhiran .go.id. Jangan masukkan NIK di situs yang Anda ragukan.</span></p>
+  </div></div></div>
+</div>
 <div class="shell" data-lds-shell>
   <aside class="shell__side" id="side" aria-label="Dokumentasi">
-    <a class="shell__brand" href="../index.html"><span class="page-head__mark">L</span>Lampung Design System</a>
+    <a class="shell__brand" href="../index.html"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>Lampung Design System</a>
     <nav class="shell__nav" aria-label="Komponen">
       <span class="shell__hl" aria-hidden="true"></span>
-      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Memulai</span></a>
+      <p class="shell__group">Memulai</p>
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Pengenalan</span></a>
+      <a class="shell__link" href="../guide/instalasi.html"><span class="ic" aria-hidden="true">download</span><span class="shell__label">Instalasi</span></a>
+      <a class="shell__link" href="../guide/penulisan.html"><span class="ic" aria-hidden="true">edit_square</span><span class="shell__label">Penulisan</span></a>
+      <a class="shell__link" href="../guide/aksesibilitas.html"><span class="ic" aria-hidden="true">accessible</span><span class="shell__label">Aksesibilitas</span></a>
+      <a class="shell__link" href="../guide/desainer.html"><span class="ic" aria-hidden="true">palette</span><span class="shell__label">Untuk desainer</span></a>
+      <p class="shell__group">Komponen</p>
       <a class="shell__link" href="index.html"><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">Semua komponen</span></a>
       <a class="shell__link" href="../examples/index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Contoh</span></a>
-      <p class="shell__group">Komponen</p>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g0"><span class="shell__section-label">Landasan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g0"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span></a>
+          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span></a>
           <a class="shell__link shell__link--child" href="data-states.html"><span class="shell__num">3</span><span class="shell__label">Data states</span></a>
           <a class="shell__link shell__link--child" href="theming.html"><span class="shell__num">4</span><span class="shell__label">Theming</span></a>
           <a class="shell__link shell__link--child" href="icon.html"><span class="shell__num">5</span><span class="shell__label">Icon</span></a>
@@ -60,9 +76,9 @@
           <a class="shell__link shell__link--child" href="select.html"><span class="shell__num">8</span><span class="shell__label">Select</span></a>
           <a class="shell__link shell__link--child" href="combobox.html"><span class="shell__num">9</span><span class="shell__label">Combobox</span></a>
           <a class="shell__link shell__link--child" href="tag-input.html"><span class="shell__num">10</span><span class="shell__label">Tag input</span></a>
-          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span></a>
+          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span></a>
+          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -80,21 +96,22 @@
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">13</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">14</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g4"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">1</span><span class="shell__label">App shell</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">2</span><span class="shell__label">Top nav</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">3</span><span class="shell__label">Tabs</span></a>
-          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">4</span><span class="shell__label">Breadcrumbs</span></a>
-          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">5</span><span class="shell__label">Page header</span></a>
-          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">6</span><span class="shell__label">Pagination</span></a>
-          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">7</span><span class="shell__label">Steps</span></a>
-          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">8</span><span class="shell__label">Sidebar</span></a>
-          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">9</span><span class="shell__label">Outline</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">10</span><span class="shell__label">Menubar</span></a>
-          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">11</span><span class="shell__label">Nav progress</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">12</span><span class="shell__label">Phone bars</span></a>
-          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">13</span><span class="shell__label">Navigation stack</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="masthead.html"><span class="shell__num">1</span><span class="shell__label">Masthead</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">2</span><span class="shell__label">App shell</span></a>
+          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">3</span><span class="shell__label">Top nav</span></a>
+          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">4</span><span class="shell__label">Tabs</span></a>
+          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">5</span><span class="shell__label">Breadcrumbs</span></a>
+          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">6</span><span class="shell__label">Page header</span></a>
+          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">7</span><span class="shell__label">Pagination</span></a>
+          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">8</span><span class="shell__label">Steps</span></a>
+          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">9</span><span class="shell__label">Sidebar</span></a>
+          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">10</span><span class="shell__label">Outline</span></a>
+          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">11</span><span class="shell__label">Menubar</span></a>
+          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">12</span><span class="shell__label">Nav progress</span></a>
+          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">13</span><span class="shell__label">Phone bars</span></a>
+          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">14</span><span class="shell__label">Navigation stack</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -102,7 +119,7 @@
         <div class="shell__panel" id="nav-g5"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="dialog.html"><span class="shell__num">1</span><span class="shell__label">Dialog</span></a>
           <a class="shell__link shell__link--child" href="alert-dialog.html"><span class="shell__num">2</span><span class="shell__label">Alert dialog</span></a>
-          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span></a>
           <a class="shell__link shell__link--child" href="sheet.html"><span class="shell__num">4</span><span class="shell__label">Sheet</span></a>
           <a class="shell__link shell__link--child" href="drawer.html"><span class="shell__num">5</span><span class="shell__label">Drawer</span></a>
           <a class="shell__link shell__link--child" href="dropdown-menu.html"><span class="shell__num">6</span><span class="shell__label">Dropdown menu</span></a>
@@ -112,8 +129,8 @@
           <a class="shell__link shell__link--child" href="hover-card.html"><span class="shell__num">10</span><span class="shell__label">Hover card</span></a>
           <a class="shell__link shell__link--child" href="toast.html"><span class="shell__num">11</span><span class="shell__label">Toast</span></a>
           <a class="shell__link shell__link--child" href="command-palette.html"><span class="shell__num">12</span><span class="shell__label">Command palette</span></a>
-          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span></a>
+          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -132,7 +149,7 @@
           <a class="shell__link shell__link--child" href="empty-state.html"><span class="shell__num">11</span><span class="shell__label">Empty state</span></a>
           <a class="shell__link shell__link--child" href="coachmark.html"><span class="shell__num">12</span><span class="shell__label">Coachmark</span></a>
           <a class="shell__link shell__link--child" href="thinking.html"><span class="shell__num">13</span><span class="shell__label">Thinking</span></a>
-          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -140,8 +157,8 @@
         <div class="shell__panel is-open" id="nav-g7"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="list.html"><span class="shell__num">1</span><span class="shell__label">List</span></a>
           <a class="shell__link shell__link--child" href="key-value.html"><span class="shell__num">2</span><span class="shell__label">Key-value</span></a>
-          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span></a>
+          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span></a>
           <a class="shell__link shell__link--child" href="card.html"><span class="shell__num">5</span><span class="shell__label">Card</span></a>
           <a class="shell__link shell__link--child" href="avatar.html"><span class="shell__num">6</span><span class="shell__label">Avatar</span></a>
           <a class="shell__link shell__link--child" href="table.html"><span class="shell__num">7</span><span class="shell__label">Table</span></a>
@@ -149,70 +166,71 @@
           <a class="shell__link shell__link--child" href="tree.html"><span class="shell__num">9</span><span class="shell__label">Tree</span></a>
           <a class="shell__link shell__link--child" href="calendar.html"><span class="shell__num">10</span><span class="shell__label">Calendar</span></a>
           <a class="shell__link shell__link--child" href="timeline.html"><span class="shell__num">11</span><span class="shell__label">Timeline</span></a>
-          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span></a>
+          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span></a>
+          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span></a>
           <a class="shell__link shell__link--child" href="rolling-number.html"><span class="shell__num">15</span><span class="shell__label">Rolling number</span></a>
           <a class="shell__link shell__link--child" href="code-block.html"><span class="shell__num">16</span><span class="shell__label">Code block</span></a>
           <a class="shell__link shell__link--child" href="carousel.html"><span class="shell__num">17</span><span class="shell__label">Carousel</span></a>
           <a class="shell__link shell__link--child" href="separator.html"><span class="shell__num">18</span><span class="shell__label">Separator</span></a>
-          <a class="shell__link shell__link--child" href="data-table.html" aria-current="page"><span class="shell__num">19</span><span class="shell__label">Data table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="data-table.html" aria-current="page"><span class="shell__num">19</span><span class="shell__label">Data table</span></a>
+          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span></a>
+          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span></a>
+          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span></a>
+          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span></a>
+          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span></a>
+          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span></a>
+          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span></a>
+          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span></a>
+          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span></a>
+          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span></a>
+          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">7</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g8"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span></a>
+          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span></a>
+          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span></a>
+          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span></a>
+          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span></a>
+          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span></a>
+          <a class="shell__link shell__link--child" href="aksara.html"><span class="shell__num">7</span><span class="shell__label">Aksara Lampung</span><span class="badge badge--accent shell__badge">Baru</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g9"><span class="shell__section-label">Obrolan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g9"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span></a>
+          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span></a>
+          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span></a>
+          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span></a>
+          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g10"><span class="shell__section-label">Pola halaman</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g10"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span></a>
+          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span></a>
+          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span></a>
+          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span></a>
           <a class="shell__link shell__link--child" href="phone-screen.html"><span class="shell__num">5</span><span class="shell__label">Phone screen</span></a>
-          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g11"><span class="shell__section-label">Promosi</span><span class="shell__section-count">8</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g11"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span></a>
+          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span></a>
+          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span></a>
+          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span></a>
+          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span></a>
+          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span></a>
+          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span></a>
+          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -225,10 +243,10 @@
           <a class="shell__link shell__link--child" href="height-expand.html"><span class="shell__num">5</span><span class="shell__label">Height expand</span></a>
           <a class="shell__link shell__link--child" href="list-stagger.html"><span class="shell__num">6</span><span class="shell__label">List stagger</span></a>
           <a class="shell__link shell__link--child" href="view-swap.html"><span class="shell__num">7</span><span class="shell__label">View swap</span></a>
-          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span></a>
           <a class="shell__link shell__link--child" href="number-count.html"><span class="shell__num">9</span><span class="shell__label">Number count</span></a>
           <a class="shell__link shell__link--child" href="drag-and-momentum.html"><span class="shell__num">10</span><span class="shell__label">Drag and momentum</span></a>
-          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span></a>
           <a class="shell__link shell__link--child" href="reduced-motion.html"><span class="shell__num">12</span><span class="shell__label">Reduced motion</span></a>
         </div></div></div>
       </div>
@@ -249,27 +267,27 @@
           <a class="shell__link shell__link--child" href="scroll-fades.html"><span class="shell__num">12</span><span class="shell__label">Scroll fades</span></a>
           <a class="shell__link shell__link--child" href="hints.html"><span class="shell__num">13</span><span class="shell__label">Hints</span></a>
           <a class="shell__link shell__link--child" href="haptics.html"><span class="shell__num">14</span><span class="shell__label">Haptics</span></a>
-          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g14"><span class="shell__section-label">Grafik</span><span class="shell__section-count">16</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g14"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="chart-principles.html"><span class="shell__num">1</span><span class="shell__label">Chart principles</span></a>
-          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span></a>
           <a class="shell__link shell__link--child" href="sparkline-stat.html"><span class="shell__num">3</span><span class="shell__label">Sparkline stat</span></a>
           <a class="shell__link shell__link--child" href="bar-chart.html"><span class="shell__num">4</span><span class="shell__label">Bar chart</span></a>
-          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span></a>
           <a class="shell__link shell__link--child" href="line-chart.html"><span class="shell__num">6</span><span class="shell__label">Line chart</span></a>
-          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span></a>
+          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span></a>
           <a class="shell__link shell__link--child" href="donut.html"><span class="shell__num">9</span><span class="shell__label">Donut</span></a>
-          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span></a>
           <a class="shell__link shell__link--child" href="percentage-bar.html"><span class="shell__num">11</span><span class="shell__label">Percentage bar</span></a>
-          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span></a>
+          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span></a>
           <a class="shell__link shell__link--child" href="heatmap.html"><span class="shell__num">14</span><span class="shell__label">Heatmap</span></a>
-          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span></a>
           <a class="shell__link shell__link--child" href="chart-states.html"><span class="shell__num">16</span><span class="shell__label">Chart states</span></a>
         </div></div></div>
       </div>
@@ -295,121 +313,121 @@
       <main class="cdoc__main" id="main" tabindex="-1">
         <header class="cdoc__head">
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Data%20display">Tampilan data</a></li></ol></nav>
-          <h1>Data table <span class="badge badge--accent">Baru</span></h1>
-          <p class="cdoc__lede">A table people work in: search, filter chips and menus, sortable headers, a column menu, row density, row selection with a selection bar, and pagination with a page size, all on a plain <code class="code">.table</code> and wired by one hook. Every control changes the rows at once and says what it did.</p>
+          <h1>Data table</h1>
+          <p class="cdoc__lede">Tabel tempat orang bekerja: pencarian, chip dan menu filter, header yang bisa diurutkan, menu kolom, kerapatan baris, pemilihan baris dengan selection bar, dan pagination dengan ukuran halaman, semuanya di atas <code class="code">.table</code> biasa dan dipasang oleh satu hook. Setiap kontrol langsung mengubah baris dan menyebutkan apa yang dilakukannya.</p>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>A list of records people search, narrow, sort and act on in bulk: members of a workspace, customers, orders, invoices.</li><li>More than about 20 rows, so paging and a page size help, and enough columns that some people want fewer.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>A short, fixed table people only read: pakai <a class="link" href="table.html">Table</a>. Plain <code class="code">.table</code>, maybe with <code class="code">data-lds-sort</code>.</li><li>One or two facts per item, mostly on phones: pakai <a class="link" href="list.html">List</a>.</li><li>Thousands of rows from a server: pakai <a class="link" href="table.html">Table</a>. Render the page the server returns into a <code class="code">.table</code> and keep the same bar and footer markup; this hook works on the rows in the page.</li><li>Files people recognize by type or picture: pakai <a class="link" href="file-tile.html">File tile</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Full width of the content column. The bar sits above the table (search first, filters next, tools at the end), the footer below it (the count on the left, page size and pager on the right). The selection bar floats at the bottom of the window while rows are ticked. On phones the search takes its own row, the tools wrap, the table scrolls sideways in its box and the pager keeps only previous, current and next.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Daftar catatan yang dicari, dipersempit, diurutkan, dan ditindaklanjuti sekaligus: anggota ruang kerja, pemohon, permohonan izin, tagihan.</li><li>Lebih dari sekitar 20 baris, sehingga halaman dan ukuran halaman membantu, dan kolomnya cukup banyak sehingga sebagian orang ingin lebih sedikit.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Tabel pendek dan tetap yang hanya dibaca: pakai <a class="link" href="table.html">Table</a>. <code class="code">.table</code> biasa, mungkin dengan <code class="code">data-lds-sort</code>.</li><li>Satu atau dua fakta per butir, kebanyakan di ponsel: pakai <a class="link" href="list.html">List</a>.</li><li>Ribuan baris dari server: pakai <a class="link" href="table.html">Table</a>. Tampilkan halaman yang dikirim server ke dalam <code class="code">.table</code> dan pertahankan markup bilah dan footer yang sama; hook ini bekerja pada baris di halaman itu.</li><li>Berkas yang dikenali dari jenis atau gambarnya: pakai <a class="link" href="file-tile.html">File tile</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Selebar kolom isi. Bilah berada di atas tabel (pencarian dulu, lalu filter, alat di ujung), footer di bawahnya (jumlah di kiri, ukuran halaman dan pager di kanan). Selection bar mengambang di bawah jendela selama ada baris yang dicentang. Di ponsel pencarian mendapat baris sendiri, alat-alat turun ke baris berikutnya, tabel bergulir ke samping di dalam kotaknya, dan pager hanya menyisakan sebelumnya, halaman aktif, dan berikutnya.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Members of a workspace</span><span class="cdoc__ex-d">Search &quot;fin&quot;, tick a status chip, filter by role from the menu (it stays open while you tick), sort by any header, hide a column, switch to compact rows, tick rows (Shift-click for a run) and page through. Every change filters at once; the count and the pager follow.</span></figcaption>
-          <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="viewport docs-box" style="height: 620px; width: 100%;"><div class="viewport__content" style="overflow: auto; align-items: stretch;"><div class="dtable" data-lds-table="demo-members" data-lds-selection="dt-bar" data-page-size="5" data-noun="members">
+          <figcaption><span class="cdoc__ex-t">Anggota ruang kerja</span><span class="cdoc__ex-d">Cari &quot;keu&quot;, centang chip status, filter peran dari menu (menu tetap terbuka selama Anda mencentang), urutkan dari header mana pun, sembunyikan kolom, pindah ke baris rapat, centang baris (Shift-klik untuk satu rentang), dan pindah halaman. Setiap perubahan langsung memfilter; hitungan dan pager mengikuti.</span></figcaption>
+          <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="viewport docs-box" style="height: 620px; width: 100%;"><div class="viewport__content" style="overflow: auto; align-items: stretch;"><div class="dtable" data-lds-table="demo-members" data-lds-selection="dt-bar" data-page-size="5" data-noun="anggota">
   <div class="dtable__bar">
-    <div class="control search dtable__search"><span class="ic" aria-hidden="true">search</span><input type="search" data-lds-table-search placeholder="Search name or email" aria-label="Search members"></div>
+    <div class="control search dtable__search"><span class="ic" aria-hidden="true">search</span><input type="search" data-lds-table-search placeholder="Cari nama atau email" aria-label="Cari anggota"></div>
     <div class="chip-row" data-lds-chips data-lds-table-filter="status" role="group" aria-label="Status">
-      <button class="chip" value="active"><span class="ic chip__check" aria-hidden="true">check</span>Active</button>
-      <button class="chip" value="invited"><span class="ic chip__check" aria-hidden="true">check</span>Invited</button>
-      <button class="chip" value="suspended"><span class="ic chip__check" aria-hidden="true">check</span>Suspended</button>
+      <button class="chip" value="active"><span class="ic chip__check" aria-hidden="true">check</span>Aktif</button>
+      <button class="chip" value="invited"><span class="ic chip__check" aria-hidden="true">check</span>Diundang</button>
+      <button class="chip" value="suspended"><span class="ic chip__check" aria-hidden="true">check</span>Ditangguhkan</button>
     </div>
     <div class="dtable__tools">
       <div style="position: relative;">
-        <button class="btn btn--secondary btn--md" data-lds-menu="dt-role" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">filter_list</span>Role<span class="dtable__filter-count" data-lds-table-filter-count="role" hidden>0</span></button>
-        <div class="menu" id="dt-role" role="menu" aria-label="Role" style="top: calc(100% + 6px); left: 0;">
+        <button class="btn btn--secondary btn--md" data-lds-menu="dt-role" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">filter_list</span>Peran<span class="dtable__filter-count" data-lds-table-filter-count="role" hidden>0</span></button>
+        <div class="menu" id="dt-role" role="menu" aria-label="Peran" style="top: calc(100% + 6px); left: 0;">
           <button class="menu__item" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="role" data-value="admin">Admin<span class="ic menu__check" aria-hidden="true">check</span></button>
-          <button class="menu__item" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="role" data-value="editor">Editor<span class="ic menu__check" aria-hidden="true">check</span></button>
-          <button class="menu__item" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="role" data-value="viewer">Viewer<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="role" data-value="editor">Penyunting<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="role" data-value="viewer">Pembaca<span class="ic menu__check" aria-hidden="true">check</span></button>
         </div>
       </div>
       <div style="position: relative;">
-        <button class="btn btn--secondary btn--md" data-lds-menu="dt-cols" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">view_column</span>Columns</button>
-        <div class="menu menu--right" id="dt-cols" role="menu" aria-label="Columns" style="top: calc(100% + 6px); right: 0;">
-          <p class="menu__label">Show columns</p>
-          <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="role">Role<span class="ic menu__check" aria-hidden="true">check</span></button>
+        <button class="btn btn--secondary btn--md" data-lds-menu="dt-cols" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">view_column</span>Kolom</button>
+        <div class="menu menu--right" id="dt-cols" role="menu" aria-label="Kolom" style="top: calc(100% + 6px); right: 0;">
+          <p class="menu__label">Tampilkan kolom</p>
+          <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="role">Peran<span class="ic menu__check" aria-hidden="true">check</span></button>
           <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="status">Status<span class="ic menu__check" aria-hidden="true">check</span></button>
-          <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="team">Team<span class="ic menu__check" aria-hidden="true">check</span></button>
-          <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="joined">Joined<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="team">Bidang<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="joined">Bergabung<span class="ic menu__check" aria-hidden="true">check</span></button>
         </div>
       </div>
-      <div class="toggle-group" role="group" aria-label="Row density">
-        <button class="toggle" data-lds-table-density="regular" aria-pressed="true">Regular</button>
-        <button class="toggle" data-lds-table-density="compact" aria-pressed="false">Compact</button>
+      <div class="toggle-group" role="group" aria-label="Kerapatan baris">
+        <button class="toggle" data-lds-table-density="regular" aria-pressed="true">Biasa</button>
+        <button class="toggle" data-lds-table-density="compact" aria-pressed="false">Rapat</button>
       </div>
     </div>
   </div>
-  <div class="table-box" tabindex="0" aria-label="Members, scrolls sideways">
+  <div class="table-box" tabindex="0" aria-label="Anggota, bisa digulir ke samping">
     <table class="table">
       <thead><tr>
-        <th class="dtable__select"><label class="check"><input type="checkbox" data-lds-select-all aria-label="Select all members on this page"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></th>
-        <th data-col="name"><button>Name<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
-        <th data-col="role"><button>Role<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+        <th class="dtable__select"><label class="check"><input type="checkbox" data-lds-select-all aria-label="Pilih semua anggota di halaman ini"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></th>
+        <th data-col="name"><button>Nama<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+        <th data-col="role"><button>Peran<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
         <th data-col="status">Status</th>
-        <th data-col="team"><button>Team<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
-        <th data-col="joined" aria-sort="descending"><button>Joined<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+        <th data-col="team"><button>Bidang<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+        <th data-col="joined" aria-sort="descending"><button>Bergabung<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
       </tr></thead>
       <tbody>
       <tr data-status="active" data-role="admin">
-        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Rina Wijaya"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih Rina Wijaya"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
         <td data-sort="Rina Wijaya"><span class="dtable__user"><span class="avatar">RW</span><span><b>Rina Wijaya</b><small>rina@kelola.id</small></span></span></td>
         <td>Admin</td>
-        <td><span class="badge badge--success">Active</span></td>
-        <td>Platform</td>
+        <td><span class="badge badge--success">Aktif</span></td>
+        <td>Perizinan</td>
         <td data-sort="2024-06-24">24 Jun 2024</td>
       </tr>
       <tr data-status="active" data-role="editor">
-        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Arif Santoso"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih Arif Santoso"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
         <td data-sort="Arif Santoso"><span class="dtable__user"><span class="avatar">AS</span><span><b>Arif Santoso</b><small>arif@kelola.id</small></span></span></td>
-        <td>Editor</td>
-        <td><span class="badge badge--success">Active</span></td>
-        <td>Growth</td>
+        <td>Penyunting</td>
+        <td><span class="badge badge--success">Aktif</span></td>
+        <td>Pengaduan</td>
         <td data-sort="2023-03-15">15 Mar 2023</td>
       </tr>
       <tr data-status="invited" data-role="viewer">
-        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Dewi Lestari"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih Dewi Lestari"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
         <td data-sort="Dewi Lestari"><span class="dtable__user"><span class="avatar">DL</span><span><b>Dewi Lestari</b><small>dewi@kelola.id</small></span></span></td>
-        <td>Viewer</td>
-        <td><span class="badge badge--accent">Invited</span></td>
-        <td>Finance</td>
+        <td>Pembaca</td>
+        <td><span class="badge badge--accent">Diundang</span></td>
+        <td>Keuangan</td>
         <td data-sort="2026-11-12">12 Nov 2026</td>
       </tr>
       <tr data-status="suspended" data-role="editor">
-        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Bima Prasetyo"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih Bima Prasetyo"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
         <td data-sort="Bima Prasetyo"><span class="dtable__user"><span class="avatar">BP</span><span><b>Bima Prasetyo</b><small>bima@kelola.id</small></span></span></td>
-        <td>Editor</td>
-        <td><span class="badge badge--danger">Suspended</span></td>
-        <td>Support</td>
+        <td>Penyunting</td>
+        <td><span class="badge badge--danger">Ditangguhkan</span></td>
+        <td>Layanan</td>
         <td data-sort="2022-04-10">10 Apr 2022</td>
       </tr>
       <tr data-status="active" data-role="admin">
-        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Sari Handayani"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih Sari Handayani"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
         <td data-sort="Sari Handayani"><span class="dtable__user"><span class="avatar">SH</span><span><b>Sari Handayani</b><small>sari@kelola.id</small></span></span></td>
         <td>Admin</td>
-        <td><span class="badge badge--success">Active</span></td>
-        <td>Finance</td>
-        <td data-sort="2021-09-02">2 Sept 2021</td>
+        <td><span class="badge badge--success">Aktif</span></td>
+        <td>Keuangan</td>
+        <td data-sort="2021-09-02">2 Sep 2021</td>
       </tr>
       <tr data-status="active" data-role="viewer">
-        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Yusuf Hakim"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih Yusuf Hakim"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
         <td data-sort="Yusuf Hakim"><span class="dtable__user"><span class="avatar">YH</span><span><b>Yusuf Hakim</b><small>yusuf@kelola.id</small></span></span></td>
-        <td>Viewer</td>
-        <td><span class="badge badge--success">Active</span></td>
-        <td>Support</td>
+        <td>Pembaca</td>
+        <td><span class="badge badge--success">Aktif</span></td>
+        <td>Layanan</td>
         <td data-sort="2025-01-20">20 Jan 2025</td>
       </tr>
       <tr data-status="invited" data-role="editor">
-        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Nadia Putri"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih Nadia Putri"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
         <td data-sort="Nadia Putri"><span class="dtable__user"><span class="avatar">NP</span><span><b>Nadia Putri</b><small>nadia@kelola.id</small></span></span></td>
-        <td>Editor</td>
-        <td><span class="badge badge--accent">Invited</span></td>
-        <td>Growth</td>
+        <td>Penyunting</td>
+        <td><span class="badge badge--accent">Diundang</span></td>
+        <td>Pengaduan</td>
         <td data-sort="2026-11-14">14 Nov 2026</td>
       </tr>
       <tr data-status="active" data-role="viewer">
-        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Galih Ramadhan"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih Galih Ramadhan"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
         <td data-sort="Galih Ramadhan"><span class="dtable__user"><span class="avatar">GR</span><span><b>Galih Ramadhan</b><small>galih@kelola.id</small></span></span></td>
-        <td>Viewer</td>
-        <td><span class="badge badge--success">Active</span></td>
-        <td>Platform</td>
-        <td data-sort="2024-12-01">1 Dec 2024</td>
+        <td>Pembaca</td>
+        <td><span class="badge badge--success">Aktif</span></td>
+        <td>Perizinan</td>
+        <td data-sort="2024-12-01">1 Des 2024</td>
       </tr>
-      <tr class="dtable__empty" hidden><td colspan="6"><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">filter_list</span></div><div class="empty__title">No members match</div><div class="empty__body">Try another name, or clear the search and filters.</div><button class="btn btn--secondary btn--md" data-lds-table-reset>Clear filters</button></div></td></tr>
+      <tr class="dtable__empty" hidden><td colspan="6"><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">filter_list</span></div><div class="empty__title">Tidak ada anggota yang cocok</div><div class="empty__body">Coba nama lain, atau hapus pencarian dan filter.</div><button class="btn btn--secondary btn--md" data-lds-table-reset>Hapus filter</button></div></td></tr>
       </tbody>
     </table>
   </div>
@@ -417,130 +435,130 @@
     <span class="dtable__info" data-lds-table-info aria-live="polite"></span>
     <div class="dtable__pages">
       <div style="position: relative;">
-        <button class="btn btn--plain btn--sm" data-lds-menu="dt-size" aria-haspopup="menu" aria-expanded="false"><span data-lds-table-size-label>5</span> per page<span class="ic" aria-hidden="true">expand_more</span></button>
-        <div class="menu menu--up" id="dt-size" role="menu" aria-label="Rows per page" style="bottom: calc(100% + 6px); left: 0; min-width: 160px;">
-          <button class="menu__item" role="menuitemradio" data-lds-table-size="5">5 per page<span class="ic menu__check" aria-hidden="true">check</span></button>
-          <button class="menu__item" role="menuitemradio" data-lds-table-size="10">10 per page<span class="ic menu__check" aria-hidden="true">check</span></button>
+        <button class="btn btn--plain btn--sm" data-lds-menu="dt-size" aria-haspopup="menu" aria-expanded="false"><span data-lds-table-size-label>5</span> per halaman<span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="menu menu--up" id="dt-size" role="menu" aria-label="Baris per halaman" style="bottom: calc(100% + 6px); left: 0; min-width: 160px;">
+          <button class="menu__item" role="menuitemradio" data-lds-table-size="5">5 per halaman<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" role="menuitemradio" data-lds-table-size="10">10 per halaman<span class="ic menu__check" aria-hidden="true">check</span></button>
         </div>
       </div>
       <nav aria-label="Pagination"><div class="pager" data-lds-table-pager></div></nav>
     </div>
   </div>
 </div>
-<div class="selbar" id="dt-bar" role="toolbar" aria-label="Selected members"><span class="selbar__count" aria-live="polite"><span class="roll" data-lds-roll="0"></span> selected</span><button class="btn btn--md"><span class="ic" aria-hidden="true">mail</span>Email</button><button class="btn btn--md btn--danger"><span class="ic" aria-hidden="true">delete</span>Remove</button><button class="icon-btn" data-lds-select-clear aria-label="Clear selection"><span class="ic" aria-hidden="true">close</span></button></div></div></div></div>
+<div class="selbar" id="dt-bar" role="toolbar" aria-label="Anggota terpilih"><span class="selbar__count" aria-live="polite"><span class="roll" data-lds-roll="0"></span> dipilih</span><button class="btn btn--md"><span class="ic" aria-hidden="true">mail</span>Kirim email</button><button class="btn btn--md btn--danger"><span class="ic" aria-hidden="true">delete</span>Keluarkan</button><button class="icon-btn" data-lds-select-clear aria-label="Hapus pilihan"><span class="ic" aria-hidden="true">close</span></button></div></div></div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;dtable&quot; data-lds-table=&quot;demo-members&quot; data-lds-selection=&quot;dt-bar&quot; data-page-size=&quot;5&quot; data-noun=&quot;members&quot;&gt;
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;dtable&quot; data-lds-table=&quot;demo-members&quot; data-lds-selection=&quot;dt-bar&quot; data-page-size=&quot;5&quot; data-noun=&quot;anggota&quot;&gt;
   &lt;div class=&quot;dtable__bar&quot;&gt;
-    &lt;div class=&quot;control search dtable__search&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;search&lt;/span&gt;&lt;input type=&quot;search&quot; data-lds-table-search placeholder=&quot;Search name or email&quot; aria-label=&quot;Search members&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;control search dtable__search&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;search&lt;/span&gt;&lt;input type=&quot;search&quot; data-lds-table-search placeholder=&quot;Cari nama atau email&quot; aria-label=&quot;Cari anggota&quot;&gt;&lt;/div&gt;
     &lt;div class=&quot;chip-row&quot; data-lds-chips data-lds-table-filter=&quot;status&quot; role=&quot;group&quot; aria-label=&quot;Status&quot;&gt;
-      &lt;button class=&quot;chip&quot; value=&quot;active&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Active&lt;/button&gt;
-      &lt;button class=&quot;chip&quot; value=&quot;invited&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Invited&lt;/button&gt;
-      &lt;button class=&quot;chip&quot; value=&quot;suspended&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Suspended&lt;/button&gt;
+      &lt;button class=&quot;chip&quot; value=&quot;active&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Aktif&lt;/button&gt;
+      &lt;button class=&quot;chip&quot; value=&quot;invited&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Diundang&lt;/button&gt;
+      &lt;button class=&quot;chip&quot; value=&quot;suspended&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Ditangguhkan&lt;/button&gt;
     &lt;/div&gt;
     &lt;div class=&quot;dtable__tools&quot;&gt;
       &lt;div style=&quot;position: relative;&quot;&gt;
-        &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-menu=&quot;dt-role&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;filter_list&lt;/span&gt;Role&lt;span class=&quot;dtable__filter-count&quot; data-lds-table-filter-count=&quot;role&quot; hidden&gt;0&lt;/span&gt;&lt;/button&gt;
-        &lt;div class=&quot;menu&quot; id=&quot;dt-role&quot; role=&quot;menu&quot; aria-label=&quot;Role&quot; style=&quot;top: calc(100% + 6px); left: 0;&quot;&gt;
+        &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-menu=&quot;dt-role&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;filter_list&lt;/span&gt;Peran&lt;span class=&quot;dtable__filter-count&quot; data-lds-table-filter-count=&quot;role&quot; hidden&gt;0&lt;/span&gt;&lt;/button&gt;
+        &lt;div class=&quot;menu&quot; id=&quot;dt-role&quot; role=&quot;menu&quot; aria-label=&quot;Peran&quot; style=&quot;top: calc(100% + 6px); left: 0;&quot;&gt;
           &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; aria-checked=&quot;false&quot; data-lds-keep-open data-lds-table-filter=&quot;role&quot; data-value=&quot;admin&quot;&gt;Admin&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
-          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; aria-checked=&quot;false&quot; data-lds-keep-open data-lds-table-filter=&quot;role&quot; data-value=&quot;editor&quot;&gt;Editor&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
-          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; aria-checked=&quot;false&quot; data-lds-keep-open data-lds-table-filter=&quot;role&quot; data-value=&quot;viewer&quot;&gt;Viewer&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
+          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; aria-checked=&quot;false&quot; data-lds-keep-open data-lds-table-filter=&quot;role&quot; data-value=&quot;editor&quot;&gt;Penyunting&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
+          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; aria-checked=&quot;false&quot; data-lds-keep-open data-lds-table-filter=&quot;role&quot; data-value=&quot;viewer&quot;&gt;Pembaca&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div style=&quot;position: relative;&quot;&gt;
-        &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-menu=&quot;dt-cols&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;view_column&lt;/span&gt;Columns&lt;/button&gt;
-        &lt;div class=&quot;menu menu--right&quot; id=&quot;dt-cols&quot; role=&quot;menu&quot; aria-label=&quot;Columns&quot; style=&quot;top: calc(100% + 6px); right: 0;&quot;&gt;
-          &lt;p class=&quot;menu__label&quot;&gt;Show columns&lt;/p&gt;
-          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;role&quot;&gt;Role&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
+        &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-menu=&quot;dt-cols&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;view_column&lt;/span&gt;Kolom&lt;/button&gt;
+        &lt;div class=&quot;menu menu--right&quot; id=&quot;dt-cols&quot; role=&quot;menu&quot; aria-label=&quot;Kolom&quot; style=&quot;top: calc(100% + 6px); right: 0;&quot;&gt;
+          &lt;p class=&quot;menu__label&quot;&gt;Tampilkan kolom&lt;/p&gt;
+          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;role&quot;&gt;Peran&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
           &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;status&quot;&gt;Status&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
-          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;team&quot;&gt;Team&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
-          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;joined&quot;&gt;Joined&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
+          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;team&quot;&gt;Bidang&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
+          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;joined&quot;&gt;Bergabung&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;toggle-group&quot; role=&quot;group&quot; aria-label=&quot;Row density&quot;&gt;
-        &lt;button class=&quot;toggle&quot; data-lds-table-density=&quot;regular&quot; aria-pressed=&quot;true&quot;&gt;Regular&lt;/button&gt;
-        &lt;button class=&quot;toggle&quot; data-lds-table-density=&quot;compact&quot; aria-pressed=&quot;false&quot;&gt;Compact&lt;/button&gt;
+      &lt;div class=&quot;toggle-group&quot; role=&quot;group&quot; aria-label=&quot;Kerapatan baris&quot;&gt;
+        &lt;button class=&quot;toggle&quot; data-lds-table-density=&quot;regular&quot; aria-pressed=&quot;true&quot;&gt;Biasa&lt;/button&gt;
+        &lt;button class=&quot;toggle&quot; data-lds-table-density=&quot;compact&quot; aria-pressed=&quot;false&quot;&gt;Rapat&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;table-box&quot; tabindex=&quot;0&quot; aria-label=&quot;Members, scrolls sideways&quot;&gt;
+  &lt;div class=&quot;table-box&quot; tabindex=&quot;0&quot; aria-label=&quot;Anggota, bisa digulir ke samping&quot;&gt;
     &lt;table class=&quot;table&quot;&gt;
       &lt;thead&gt;&lt;tr&gt;
-        &lt;th class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select-all aria-label=&quot;Select all members on this page&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/th&gt;
-        &lt;th data-col=&quot;name&quot;&gt;&lt;button&gt;Name&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
-        &lt;th data-col=&quot;role&quot;&gt;&lt;button&gt;Role&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
+        &lt;th class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select-all aria-label=&quot;Pilih semua anggota di halaman ini&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/th&gt;
+        &lt;th data-col=&quot;name&quot;&gt;&lt;button&gt;Nama&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
+        &lt;th data-col=&quot;role&quot;&gt;&lt;button&gt;Peran&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
         &lt;th data-col=&quot;status&quot;&gt;Status&lt;/th&gt;
-        &lt;th data-col=&quot;team&quot;&gt;&lt;button&gt;Team&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
-        &lt;th data-col=&quot;joined&quot; aria-sort=&quot;descending&quot;&gt;&lt;button&gt;Joined&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
+        &lt;th data-col=&quot;team&quot;&gt;&lt;button&gt;Bidang&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
+        &lt;th data-col=&quot;joined&quot; aria-sort=&quot;descending&quot;&gt;&lt;button&gt;Bergabung&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
       &lt;/tr&gt;&lt;/thead&gt;
       &lt;tbody&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;admin&quot;&gt;
-        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Rina Wijaya&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Rina Wijaya&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
         &lt;td data-sort=&quot;Rina Wijaya&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;RW&lt;/span&gt;&lt;span&gt;&lt;b&gt;Rina Wijaya&lt;/b&gt;&lt;small&gt;rina@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Admin&lt;/td&gt;
-        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Platform&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Aktif&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Perizinan&lt;/td&gt;
         &lt;td data-sort=&quot;2024-06-24&quot;&gt;24 Jun 2024&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;editor&quot;&gt;
-        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Arif Santoso&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Arif Santoso&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
         &lt;td data-sort=&quot;Arif Santoso&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;AS&lt;/span&gt;&lt;span&gt;&lt;b&gt;Arif Santoso&lt;/b&gt;&lt;small&gt;arif@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Editor&lt;/td&gt;
-        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Growth&lt;/td&gt;
+        &lt;td&gt;Penyunting&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Aktif&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Pengaduan&lt;/td&gt;
         &lt;td data-sort=&quot;2023-03-15&quot;&gt;15 Mar 2023&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;invited&quot; data-role=&quot;viewer&quot;&gt;
-        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Dewi Lestari&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Dewi Lestari&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
         &lt;td data-sort=&quot;Dewi Lestari&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;DL&lt;/span&gt;&lt;span&gt;&lt;b&gt;Dewi Lestari&lt;/b&gt;&lt;small&gt;dewi@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Viewer&lt;/td&gt;
-        &lt;td&gt;&lt;span class=&quot;badge badge--accent&quot;&gt;Invited&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Finance&lt;/td&gt;
+        &lt;td&gt;Pembaca&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;badge badge--accent&quot;&gt;Diundang&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Keuangan&lt;/td&gt;
         &lt;td data-sort=&quot;2026-11-12&quot;&gt;12 Nov 2026&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;suspended&quot; data-role=&quot;editor&quot;&gt;
-        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Bima Prasetyo&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Bima Prasetyo&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
         &lt;td data-sort=&quot;Bima Prasetyo&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;BP&lt;/span&gt;&lt;span&gt;&lt;b&gt;Bima Prasetyo&lt;/b&gt;&lt;small&gt;bima@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Editor&lt;/td&gt;
-        &lt;td&gt;&lt;span class=&quot;badge badge--danger&quot;&gt;Suspended&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Support&lt;/td&gt;
+        &lt;td&gt;Penyunting&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;badge badge--danger&quot;&gt;Ditangguhkan&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Layanan&lt;/td&gt;
         &lt;td data-sort=&quot;2022-04-10&quot;&gt;10 Apr 2022&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;admin&quot;&gt;
-        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Sari Handayani&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Sari Handayani&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
         &lt;td data-sort=&quot;Sari Handayani&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;SH&lt;/span&gt;&lt;span&gt;&lt;b&gt;Sari Handayani&lt;/b&gt;&lt;small&gt;sari@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Admin&lt;/td&gt;
-        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Finance&lt;/td&gt;
-        &lt;td data-sort=&quot;2021-09-02&quot;&gt;2 Sept 2021&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Aktif&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Keuangan&lt;/td&gt;
+        &lt;td data-sort=&quot;2021-09-02&quot;&gt;2 Sep 2021&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;viewer&quot;&gt;
-        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Yusuf Hakim&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Yusuf Hakim&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
         &lt;td data-sort=&quot;Yusuf Hakim&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;YH&lt;/span&gt;&lt;span&gt;&lt;b&gt;Yusuf Hakim&lt;/b&gt;&lt;small&gt;yusuf@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Viewer&lt;/td&gt;
-        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Support&lt;/td&gt;
+        &lt;td&gt;Pembaca&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Aktif&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Layanan&lt;/td&gt;
         &lt;td data-sort=&quot;2025-01-20&quot;&gt;20 Jan 2025&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;invited&quot; data-role=&quot;editor&quot;&gt;
-        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Nadia Putri&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Nadia Putri&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
         &lt;td data-sort=&quot;Nadia Putri&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;NP&lt;/span&gt;&lt;span&gt;&lt;b&gt;Nadia Putri&lt;/b&gt;&lt;small&gt;nadia@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Editor&lt;/td&gt;
-        &lt;td&gt;&lt;span class=&quot;badge badge--accent&quot;&gt;Invited&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Growth&lt;/td&gt;
+        &lt;td&gt;Penyunting&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;badge badge--accent&quot;&gt;Diundang&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Pengaduan&lt;/td&gt;
         &lt;td data-sort=&quot;2026-11-14&quot;&gt;14 Nov 2026&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;viewer&quot;&gt;
-        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Galih Ramadhan&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Galih Ramadhan&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
         &lt;td data-sort=&quot;Galih Ramadhan&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;GR&lt;/span&gt;&lt;span&gt;&lt;b&gt;Galih Ramadhan&lt;/b&gt;&lt;small&gt;galih@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Viewer&lt;/td&gt;
-        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Platform&lt;/td&gt;
-        &lt;td data-sort=&quot;2024-12-01&quot;&gt;1 Dec 2024&lt;/td&gt;
+        &lt;td&gt;Pembaca&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Aktif&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Perizinan&lt;/td&gt;
+        &lt;td data-sort=&quot;2024-12-01&quot;&gt;1 Des 2024&lt;/td&gt;
       &lt;/tr&gt;
-      &lt;tr class=&quot;dtable__empty&quot; hidden&gt;&lt;td colspan=&quot;6&quot;&gt;&lt;div class=&quot;empty&quot;&gt;&lt;div class=&quot;empty__icon&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;filter_list&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;empty__title&quot;&gt;No members match&lt;/div&gt;&lt;div class=&quot;empty__body&quot;&gt;Try another name, or clear the search and filters.&lt;/div&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-table-reset&gt;Clear filters&lt;/button&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr class=&quot;dtable__empty&quot; hidden&gt;&lt;td colspan=&quot;6&quot;&gt;&lt;div class=&quot;empty&quot;&gt;&lt;div class=&quot;empty__icon&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;filter_list&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;empty__title&quot;&gt;Tidak ada anggota yang cocok&lt;/div&gt;&lt;div class=&quot;empty__body&quot;&gt;Coba nama lain, atau hapus pencarian dan filter.&lt;/div&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-table-reset&gt;Hapus filter&lt;/button&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;
       &lt;/tbody&gt;
     &lt;/table&gt;
   &lt;/div&gt;
@@ -548,127 +566,127 @@
     &lt;span class=&quot;dtable__info&quot; data-lds-table-info aria-live=&quot;polite&quot;&gt;&lt;/span&gt;
     &lt;div class=&quot;dtable__pages&quot;&gt;
       &lt;div style=&quot;position: relative;&quot;&gt;
-        &lt;button class=&quot;btn btn--plain btn--sm&quot; data-lds-menu=&quot;dt-size&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot;&gt;&lt;span data-lds-table-size-label&gt;5&lt;/span&gt; per page&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
-        &lt;div class=&quot;menu menu--up&quot; id=&quot;dt-size&quot; role=&quot;menu&quot; aria-label=&quot;Rows per page&quot; style=&quot;bottom: calc(100% + 6px); left: 0; min-width: 160px;&quot;&gt;
-          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemradio&quot; data-lds-table-size=&quot;5&quot;&gt;5 per page&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
-          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemradio&quot; data-lds-table-size=&quot;10&quot;&gt;10 per page&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
+        &lt;button class=&quot;btn btn--plain btn--sm&quot; data-lds-menu=&quot;dt-size&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot;&gt;&lt;span data-lds-table-size-label&gt;5&lt;/span&gt; per halaman&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
+        &lt;div class=&quot;menu menu--up&quot; id=&quot;dt-size&quot; role=&quot;menu&quot; aria-label=&quot;Baris per halaman&quot; style=&quot;bottom: calc(100% + 6px); left: 0; min-width: 160px;&quot;&gt;
+          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemradio&quot; data-lds-table-size=&quot;5&quot;&gt;5 per halaman&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
+          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemradio&quot; data-lds-table-size=&quot;10&quot;&gt;10 per halaman&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;nav aria-label=&quot;Pagination&quot;&gt;&lt;div class=&quot;pager&quot; data-lds-table-pager&gt;&lt;/div&gt;&lt;/nav&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&quot;selbar&quot; id=&quot;dt-bar&quot; role=&quot;toolbar&quot; aria-label=&quot;Selected members&quot;&gt;&lt;span class=&quot;selbar__count&quot; aria-live=&quot;polite&quot;&gt;&lt;span class=&quot;roll&quot; data-lds-roll=&quot;0&quot;&gt;&lt;/span&gt; selected&lt;/span&gt;&lt;button class=&quot;btn btn--md&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;mail&lt;/span&gt;Email&lt;/button&gt;&lt;button class=&quot;btn btn--md btn--danger&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Remove&lt;/button&gt;&lt;button class=&quot;icon-btn&quot; data-lds-select-clear aria-label=&quot;Clear selection&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;close&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
+&lt;div class=&quot;selbar&quot; id=&quot;dt-bar&quot; role=&quot;toolbar&quot; aria-label=&quot;Anggota terpilih&quot;&gt;&lt;span class=&quot;selbar__count&quot; aria-live=&quot;polite&quot;&gt;&lt;span class=&quot;roll&quot; data-lds-roll=&quot;0&quot;&gt;&lt;/span&gt; dipilih&lt;/span&gt;&lt;button class=&quot;btn btn--md&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;mail&lt;/span&gt;Kirim email&lt;/button&gt;&lt;button class=&quot;btn btn--md btn--danger&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Keluarkan&lt;/button&gt;&lt;button class=&quot;icon-btn&quot; data-lds-select-clear aria-label=&quot;Hapus pilihan&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;close&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;dtable&quot; data-lds-table=&quot;demo-members&quot; data-lds-selection=&quot;dt-bar&quot; data-page-size=&quot;5&quot; data-noun=&quot;members&quot;&gt;
+          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;dtable&quot; data-lds-table=&quot;demo-members&quot; data-lds-selection=&quot;dt-bar&quot; data-page-size=&quot;5&quot; data-noun=&quot;anggota&quot;&gt;
   &lt;div class=&quot;dtable__bar&quot;&gt;
-    &lt;div class=&quot;control search dtable__search&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;search&lt;/span&gt;&lt;input type=&quot;search&quot; data-lds-table-search placeholder=&quot;Search name or email&quot; aria-label=&quot;Search members&quot;&gt;&lt;/div&gt;
+    &lt;div class=&quot;control search dtable__search&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;search&lt;/span&gt;&lt;input type=&quot;search&quot; data-lds-table-search placeholder=&quot;Cari nama atau email&quot; aria-label=&quot;Cari anggota&quot;&gt;&lt;/div&gt;
     &lt;div class=&quot;chip-row&quot; data-lds-chips data-lds-table-filter=&quot;status&quot; role=&quot;group&quot; aria-label=&quot;Status&quot;&gt;
-      &lt;button class=&quot;chip&quot; value=&quot;active&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Active&lt;/button&gt;
-      &lt;button class=&quot;chip&quot; value=&quot;invited&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Invited&lt;/button&gt;
-      &lt;button class=&quot;chip&quot; value=&quot;suspended&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Suspended&lt;/button&gt;
+      &lt;button class=&quot;chip&quot; value=&quot;active&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Aktif&lt;/button&gt;
+      &lt;button class=&quot;chip&quot; value=&quot;invited&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Diundang&lt;/button&gt;
+      &lt;button class=&quot;chip&quot; value=&quot;suspended&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Ditangguhkan&lt;/button&gt;
     &lt;/div&gt;
     &lt;div class=&quot;dtable__tools&quot;&gt;
       &lt;div style=&quot;position: relative;&quot;&gt;
-        &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-menu=&quot;dt-role&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;filter_list&lt;/span&gt;Role&lt;span class=&quot;dtable__filter-count&quot; data-lds-table-filter-count=&quot;role&quot; hidden&gt;0&lt;/span&gt;&lt;/button&gt;
-        &lt;div class=&quot;menu&quot; id=&quot;dt-role&quot; role=&quot;menu&quot; aria-label=&quot;Role&quot; style=&quot;top: calc(100% + 6px); left: 0;&quot;&gt;
+        &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-menu=&quot;dt-role&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;filter_list&lt;/span&gt;Peran&lt;span class=&quot;dtable__filter-count&quot; data-lds-table-filter-count=&quot;role&quot; hidden&gt;0&lt;/span&gt;&lt;/button&gt;
+        &lt;div class=&quot;menu&quot; id=&quot;dt-role&quot; role=&quot;menu&quot; aria-label=&quot;Peran&quot; style=&quot;top: calc(100% + 6px); left: 0;&quot;&gt;
           &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; aria-checked=&quot;false&quot; data-lds-keep-open data-lds-table-filter=&quot;role&quot; data-value=&quot;admin&quot;&gt;Admin&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
-          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; aria-checked=&quot;false&quot; data-lds-keep-open data-lds-table-filter=&quot;role&quot; data-value=&quot;editor&quot;&gt;Editor&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
-          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; aria-checked=&quot;false&quot; data-lds-keep-open data-lds-table-filter=&quot;role&quot; data-value=&quot;viewer&quot;&gt;Viewer&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
+          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; aria-checked=&quot;false&quot; data-lds-keep-open data-lds-table-filter=&quot;role&quot; data-value=&quot;editor&quot;&gt;Penyunting&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
+          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; aria-checked=&quot;false&quot; data-lds-keep-open data-lds-table-filter=&quot;role&quot; data-value=&quot;viewer&quot;&gt;Pembaca&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;div style=&quot;position: relative;&quot;&gt;
-        &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-menu=&quot;dt-cols&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;view_column&lt;/span&gt;Columns&lt;/button&gt;
-        &lt;div class=&quot;menu menu--right&quot; id=&quot;dt-cols&quot; role=&quot;menu&quot; aria-label=&quot;Columns&quot; style=&quot;top: calc(100% + 6px); right: 0;&quot;&gt;
-          &lt;p class=&quot;menu__label&quot;&gt;Show columns&lt;/p&gt;
-          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;role&quot;&gt;Role&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
+        &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-menu=&quot;dt-cols&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;view_column&lt;/span&gt;Kolom&lt;/button&gt;
+        &lt;div class=&quot;menu menu--right&quot; id=&quot;dt-cols&quot; role=&quot;menu&quot; aria-label=&quot;Kolom&quot; style=&quot;top: calc(100% + 6px); right: 0;&quot;&gt;
+          &lt;p class=&quot;menu__label&quot;&gt;Tampilkan kolom&lt;/p&gt;
+          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;role&quot;&gt;Peran&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
           &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;status&quot;&gt;Status&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
-          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;team&quot;&gt;Team&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
-          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;joined&quot;&gt;Joined&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
+          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;team&quot;&gt;Bidang&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
+          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;joined&quot;&gt;Bergabung&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-      &lt;div class=&quot;toggle-group&quot; role=&quot;group&quot; aria-label=&quot;Row density&quot;&gt;
-        &lt;button class=&quot;toggle&quot; data-lds-table-density=&quot;regular&quot; aria-pressed=&quot;true&quot;&gt;Regular&lt;/button&gt;
-        &lt;button class=&quot;toggle&quot; data-lds-table-density=&quot;compact&quot; aria-pressed=&quot;false&quot;&gt;Compact&lt;/button&gt;
+      &lt;div class=&quot;toggle-group&quot; role=&quot;group&quot; aria-label=&quot;Kerapatan baris&quot;&gt;
+        &lt;button class=&quot;toggle&quot; data-lds-table-density=&quot;regular&quot; aria-pressed=&quot;true&quot;&gt;Biasa&lt;/button&gt;
+        &lt;button class=&quot;toggle&quot; data-lds-table-density=&quot;compact&quot; aria-pressed=&quot;false&quot;&gt;Rapat&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;table-box&quot; tabindex=&quot;0&quot; aria-label=&quot;Members, scrolls sideways&quot;&gt;
+  &lt;div class=&quot;table-box&quot; tabindex=&quot;0&quot; aria-label=&quot;Anggota, bisa digulir ke samping&quot;&gt;
     &lt;table class=&quot;table&quot;&gt;
       &lt;thead&gt;&lt;tr&gt;
-        &lt;th class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select-all aria-label=&quot;Select all members on this page&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/th&gt;
-        &lt;th data-col=&quot;name&quot;&gt;&lt;button&gt;Name&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
-        &lt;th data-col=&quot;role&quot;&gt;&lt;button&gt;Role&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
+        &lt;th class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select-all aria-label=&quot;Pilih semua anggota di halaman ini&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/th&gt;
+        &lt;th data-col=&quot;name&quot;&gt;&lt;button&gt;Nama&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
+        &lt;th data-col=&quot;role&quot;&gt;&lt;button&gt;Peran&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
         &lt;th data-col=&quot;status&quot;&gt;Status&lt;/th&gt;
-        &lt;th data-col=&quot;team&quot;&gt;&lt;button&gt;Team&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
-        &lt;th data-col=&quot;joined&quot; aria-sort=&quot;descending&quot;&gt;&lt;button&gt;Joined&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
+        &lt;th data-col=&quot;team&quot;&gt;&lt;button&gt;Bidang&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
+        &lt;th data-col=&quot;joined&quot; aria-sort=&quot;descending&quot;&gt;&lt;button&gt;Bergabung&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
       &lt;/tr&gt;&lt;/thead&gt;
       &lt;tbody&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;admin&quot;&gt;
-        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Rina Wijaya&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Rina Wijaya&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
         &lt;td data-sort=&quot;Rina Wijaya&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;RW&lt;/span&gt;&lt;span&gt;&lt;b&gt;Rina Wijaya&lt;/b&gt;&lt;small&gt;rina@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Admin&lt;/td&gt;
-        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Platform&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Aktif&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Perizinan&lt;/td&gt;
         &lt;td data-sort=&quot;2024-06-24&quot;&gt;24 Jun 2024&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;editor&quot;&gt;
-        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Arif Santoso&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Arif Santoso&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
         &lt;td data-sort=&quot;Arif Santoso&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;AS&lt;/span&gt;&lt;span&gt;&lt;b&gt;Arif Santoso&lt;/b&gt;&lt;small&gt;arif@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Editor&lt;/td&gt;
-        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Growth&lt;/td&gt;
+        &lt;td&gt;Penyunting&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Aktif&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Pengaduan&lt;/td&gt;
         &lt;td data-sort=&quot;2023-03-15&quot;&gt;15 Mar 2023&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;invited&quot; data-role=&quot;viewer&quot;&gt;
-        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Dewi Lestari&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Dewi Lestari&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
         &lt;td data-sort=&quot;Dewi Lestari&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;DL&lt;/span&gt;&lt;span&gt;&lt;b&gt;Dewi Lestari&lt;/b&gt;&lt;small&gt;dewi@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Viewer&lt;/td&gt;
-        &lt;td&gt;&lt;span class=&quot;badge badge--accent&quot;&gt;Invited&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Finance&lt;/td&gt;
+        &lt;td&gt;Pembaca&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;badge badge--accent&quot;&gt;Diundang&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Keuangan&lt;/td&gt;
         &lt;td data-sort=&quot;2026-11-12&quot;&gt;12 Nov 2026&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;suspended&quot; data-role=&quot;editor&quot;&gt;
-        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Bima Prasetyo&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Bima Prasetyo&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
         &lt;td data-sort=&quot;Bima Prasetyo&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;BP&lt;/span&gt;&lt;span&gt;&lt;b&gt;Bima Prasetyo&lt;/b&gt;&lt;small&gt;bima@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Editor&lt;/td&gt;
-        &lt;td&gt;&lt;span class=&quot;badge badge--danger&quot;&gt;Suspended&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Support&lt;/td&gt;
+        &lt;td&gt;Penyunting&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;badge badge--danger&quot;&gt;Ditangguhkan&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Layanan&lt;/td&gt;
         &lt;td data-sort=&quot;2022-04-10&quot;&gt;10 Apr 2022&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;admin&quot;&gt;
-        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Sari Handayani&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Sari Handayani&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
         &lt;td data-sort=&quot;Sari Handayani&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;SH&lt;/span&gt;&lt;span&gt;&lt;b&gt;Sari Handayani&lt;/b&gt;&lt;small&gt;sari@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Admin&lt;/td&gt;
-        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Finance&lt;/td&gt;
-        &lt;td data-sort=&quot;2021-09-02&quot;&gt;2 Sept 2021&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Aktif&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Keuangan&lt;/td&gt;
+        &lt;td data-sort=&quot;2021-09-02&quot;&gt;2 Sep 2021&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;viewer&quot;&gt;
-        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Yusuf Hakim&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Yusuf Hakim&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
         &lt;td data-sort=&quot;Yusuf Hakim&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;YH&lt;/span&gt;&lt;span&gt;&lt;b&gt;Yusuf Hakim&lt;/b&gt;&lt;small&gt;yusuf@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Viewer&lt;/td&gt;
-        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Support&lt;/td&gt;
+        &lt;td&gt;Pembaca&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Aktif&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Layanan&lt;/td&gt;
         &lt;td data-sort=&quot;2025-01-20&quot;&gt;20 Jan 2025&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;invited&quot; data-role=&quot;editor&quot;&gt;
-        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Nadia Putri&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Nadia Putri&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
         &lt;td data-sort=&quot;Nadia Putri&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;NP&lt;/span&gt;&lt;span&gt;&lt;b&gt;Nadia Putri&lt;/b&gt;&lt;small&gt;nadia@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Editor&lt;/td&gt;
-        &lt;td&gt;&lt;span class=&quot;badge badge--accent&quot;&gt;Invited&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Growth&lt;/td&gt;
+        &lt;td&gt;Penyunting&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;badge badge--accent&quot;&gt;Diundang&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Pengaduan&lt;/td&gt;
         &lt;td data-sort=&quot;2026-11-14&quot;&gt;14 Nov 2026&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;viewer&quot;&gt;
-        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Galih Ramadhan&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
+        &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Galih Ramadhan&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
         &lt;td data-sort=&quot;Galih Ramadhan&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;GR&lt;/span&gt;&lt;span&gt;&lt;b&gt;Galih Ramadhan&lt;/b&gt;&lt;small&gt;galih@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Viewer&lt;/td&gt;
-        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Platform&lt;/td&gt;
-        &lt;td data-sort=&quot;2024-12-01&quot;&gt;1 Dec 2024&lt;/td&gt;
+        &lt;td&gt;Pembaca&lt;/td&gt;
+        &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Aktif&lt;/span&gt;&lt;/td&gt;
+        &lt;td&gt;Perizinan&lt;/td&gt;
+        &lt;td data-sort=&quot;2024-12-01&quot;&gt;1 Des 2024&lt;/td&gt;
       &lt;/tr&gt;
-      &lt;tr class=&quot;dtable__empty&quot; hidden&gt;&lt;td colspan=&quot;6&quot;&gt;&lt;div class=&quot;empty&quot;&gt;&lt;div class=&quot;empty__icon&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;filter_list&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;empty__title&quot;&gt;No members match&lt;/div&gt;&lt;div class=&quot;empty__body&quot;&gt;Try another name, or clear the search and filters.&lt;/div&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-table-reset&gt;Clear filters&lt;/button&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr class=&quot;dtable__empty&quot; hidden&gt;&lt;td colspan=&quot;6&quot;&gt;&lt;div class=&quot;empty&quot;&gt;&lt;div class=&quot;empty__icon&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;filter_list&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;empty__title&quot;&gt;Tidak ada anggota yang cocok&lt;/div&gt;&lt;div class=&quot;empty__body&quot;&gt;Coba nama lain, atau hapus pencarian dan filter.&lt;/div&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-table-reset&gt;Hapus filter&lt;/button&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;
       &lt;/tbody&gt;
     &lt;/table&gt;
   &lt;/div&gt;
@@ -676,26 +694,26 @@
     &lt;span class=&quot;dtable__info&quot; data-lds-table-info aria-live=&quot;polite&quot;&gt;&lt;/span&gt;
     &lt;div class=&quot;dtable__pages&quot;&gt;
       &lt;div style=&quot;position: relative;&quot;&gt;
-        &lt;button class=&quot;btn btn--plain btn--sm&quot; data-lds-menu=&quot;dt-size&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot;&gt;&lt;span data-lds-table-size-label&gt;5&lt;/span&gt; per page&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
-        &lt;div class=&quot;menu menu--up&quot; id=&quot;dt-size&quot; role=&quot;menu&quot; aria-label=&quot;Rows per page&quot; style=&quot;bottom: calc(100% + 6px); left: 0; min-width: 160px;&quot;&gt;
-          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemradio&quot; data-lds-table-size=&quot;5&quot;&gt;5 per page&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
-          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemradio&quot; data-lds-table-size=&quot;10&quot;&gt;10 per page&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
+        &lt;button class=&quot;btn btn--plain btn--sm&quot; data-lds-menu=&quot;dt-size&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot;&gt;&lt;span data-lds-table-size-label&gt;5&lt;/span&gt; per halaman&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
+        &lt;div class=&quot;menu menu--up&quot; id=&quot;dt-size&quot; role=&quot;menu&quot; aria-label=&quot;Baris per halaman&quot; style=&quot;bottom: calc(100% + 6px); left: 0; min-width: 160px;&quot;&gt;
+          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemradio&quot; data-lds-table-size=&quot;5&quot;&gt;5 per halaman&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
+          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemradio&quot; data-lds-table-size=&quot;10&quot;&gt;10 per halaman&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
         &lt;/div&gt;
       &lt;/div&gt;
       &lt;nav aria-label=&quot;Pagination&quot;&gt;&lt;div class=&quot;pager&quot; data-lds-table-pager&gt;&lt;/div&gt;&lt;/nav&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&quot;selbar&quot; id=&quot;dt-bar&quot; role=&quot;toolbar&quot; aria-label=&quot;Selected members&quot;&gt;&lt;span class=&quot;selbar__count&quot; aria-live=&quot;polite&quot;&gt;&lt;span class=&quot;roll&quot; data-lds-roll=&quot;0&quot;&gt;&lt;/span&gt; selected&lt;/span&gt;&lt;button class=&quot;btn btn--md&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;mail&lt;/span&gt;Email&lt;/button&gt;&lt;button class=&quot;btn btn--md btn--danger&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Remove&lt;/button&gt;&lt;button class=&quot;icon-btn&quot; data-lds-select-clear aria-label=&quot;Clear selection&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;close&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;</pre></div></div></div>
+&lt;div class=&quot;selbar&quot; id=&quot;dt-bar&quot; role=&quot;toolbar&quot; aria-label=&quot;Anggota terpilih&quot;&gt;&lt;span class=&quot;selbar__count&quot; aria-live=&quot;polite&quot;&gt;&lt;span class=&quot;roll&quot; data-lds-roll=&quot;0&quot;&gt;&lt;/span&gt; dipilih&lt;/span&gt;&lt;button class=&quot;btn btn--md&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;mail&lt;/span&gt;Kirim email&lt;/button&gt;&lt;button class=&quot;btn btn--md btn--danger&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Keluarkan&lt;/button&gt;&lt;button class=&quot;icon-btn&quot; data-lds-select-clear aria-label=&quot;Hapus pilihan&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;close&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;</pre></div></div></div>
         </figure></section>
-        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">.dtable[data-lds-table]</code></td><td>Required. The wrapper and its container query. The attribute value names the table so density, page size and hidden columns are remembered; <code class="code">data-page-size</code> (default 10) and <code class="code">data-noun</code> (&quot;members&quot;) set the defaults and the words of the count.</td></tr><tr><td><code class="code">.dtable__bar</code></td><td>The toolbar: <code class="code">.control.search.dtable__search</code> with <code class="code">input[data-lds-table-search]</code>, filters, then <code class="code">.dtable__tools</code>.</td></tr><tr><td><code class="code">[data-lds-table-filter=&quot;key&quot;]</code></td><td>A filter on <code class="code">data-key</code> of each row. On a <code class="code">.chip-row[data-lds-chips]</code> the chip <code class="code">value</code>s are the choices; on <code class="code">menuitemcheckbox</code> items (with <code class="code">data-lds-keep-open</code>) <code class="code">data-value</code> is. Several values of one key match any; different keys must all match.</td></tr><tr><td><code class="code">.dtable__filter-count</code></td><td>Optional <code class="code">[data-lds-table-filter-count=&quot;key&quot;]</code> badge on a filter button: how many values are on.</td></tr><tr><td><code class="code">[data-lds-table-col=&quot;key&quot;]</code></td><td><code class="code">menuitemcheckbox</code> items that show or hide the column whose <code class="code">th</code> has <code class="code">data-col=&quot;key&quot;</code>. The last visible column cannot be hidden.</td></tr><tr><td><code class="code">[data-lds-table-density]</code></td><td><code class="code">.toggle</code> buttons with <code class="code">regular</code> and <code class="code">compact</code> (40 px rows) in a <code class="code">.toggle-group</code>.</td></tr><tr><td><code class="code">th[data-col] &gt; button</code></td><td>A sortable header: ascending, then descending, then unsorted. <code class="code">aria-sort</code> on a <code class="code">th</code> sets the first sort. A cell's <code class="code">data-sort</code> overrides its text (dates, names with titles).</td></tr><tr><td><code class="code">.dtable__select</code></td><td>The checkbox column: <code class="code">input[data-lds-select-all]</code> in the header (visible rows), <code class="code">input[data-lds-select]</code> per row, each with an <code class="code">aria-label</code>. Needs <code class="code">data-lds-selection=&quot;selbarId&quot;</code> on the wrapper.</td></tr><tr><td><code class="code">tr.dtable__empty</code></td><td>Required. One row spanning all columns with an <a class="link" href="empty-state.html">empty state</a> and a <code class="code">[data-lds-table-reset]</code> button; shown when nothing matches.</td></tr><tr><td><code class="code">tr.dtable__state[data-state]</code></td><td>Optional <code class="code">loading</code> (skeleton cells) and <code class="code">error</code> (alert with retry) rows, shown by <code class="code">tableState()</code>.</td></tr><tr><td><code class="code">.dtable__foot</code></td><td><code class="code">[data-lds-table-info]</code> count, <code class="code">[data-lds-table-size]</code> menu items with a <code class="code">[data-lds-table-size-label]</code>, and <code class="code">.pager[data-lds-table-pager]</code> that the hook fills.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">.dtable</code></td><td>Regular 52 px rows.</td></tr><tr><td><code class="code">.dtable--compact</code></td><td>40 px rows and smaller avatars, for people who scan many rows; set by the density toggle and remembered.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">filtered</code></td><td>Rows that do not match are hidden; the count says &quot;Showing 1 to 10 of 23 members&quot;; filter buttons show how many values are on; every <code class="code">[data-lds-table-reset]</code> outside the empty row appears.</td></tr><tr><td><code class="code">empty</code></td><td><code class="code">tr.dtable__empty</code> with &quot;No members match&quot; and Clear filters. The header, bar and filters stay.</td></tr><tr><td><code class="code">loading</code></td><td><code class="code">tableState(el, &quot;loading&quot;)</code>: data rows hide, <code class="code">tr.dtable__state[data-state=&quot;loading&quot;]</code> rows with <a class="link" href="skeleton.html">skeleton</a> cells show, <code class="code">aria-busy=&quot;true&quot;</code>.</td></tr><tr><td><code class="code">error</code></td><td><code class="code">tableState(el, &quot;error&quot;)</code>: the error row with an <a class="link" href="alert.html">alert</a> and Try again.</td></tr><tr><td><code class="code">sorted</code></td><td><code class="code">aria-sort</code> on the <code class="code">th</code>, <code class="code">.is-sorted</code> and <code class="code">.is-desc</code> on its button, as in <a class="link" href="table.html">table</a>.</td></tr><tr><td><code class="code">selected</code></td><td><code class="code">tr.is-selected</code> on the accent tint, the header checkbox ticked or mixed, the selection bar open.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Results arriving after a search, filter or page change blur in 25 ms apart (capped at the tenth row) on <code class="code">--ease-enter</code> over <code class="code">--d-standard</code>, the <a class="link" href="list-stagger.html">list stagger</a> recipe. Sorting reorders at once, as the table spec asks.</li><li>The sort arrow turns on <code class="code">--spring-smooth</code>; filter counts pop in on <code class="code">--spring-snappy</code>; menu checks scale in on <code class="code">--spring-snappy</code>.</li><li>The selection bar rises on <code class="code">--spring-smooth</code> and its count rolls; the header checkbox draws its tick or dash.</li><li>A refused action (hiding the last column) shakes the item.</li><li>Reduced motion: rows fade in 120 ms with no blur or travel.</li></ul></section>
-        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>It is a real <code class="code">&lt;table&gt;</code>: headers are <code class="code">th</code>, sort buttons are real buttons and only the sorted <code class="code">th</code> has a non-<code class="code">none</code> <code class="code">aria-sort</code>.</li><li>The search has an <code class="code">aria-label</code>; chips are toggle buttons with <code class="code">aria-pressed</code>; menu filters and columns are <code class="code">menuitemcheckbox</code> with <code class="code">aria-checked</code>, page sizes <code class="code">menuitemradio</code>.</li><li>Sorting, paging and clearing a selection are announced through the shared live region; the count is <code class="code">aria-live=&quot;polite&quot;</code>.</li><li>After a page change focus stays on the pager (on the current page if the button you pressed went away) and the table scrolls into view.</li><li>Every row checkbox names its row (&quot;Select Rina Wijaya&quot;); the header one says &quot;Select all members on this page&quot;. Escape inside the table clears the selection.</li><li>The <code class="code">.table-box</code> gets <code class="code">tabindex=&quot;0&quot;</code> and an <code class="code">aria-label</code> so keyboard users can scroll it sideways.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Put the most used filter on chips and the rest in menus.</li><li>Give rows <code class="code">data-*</code> values in lowercase for filters, and <code class="code">data-sort</code> for dates.</li><li>Say what the count counts with <code class="code">data-noun</code>.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Add a Filter button that opens a dialog for two or three filters; chips and menus are faster.</li><li>Animate re-sorting or let the table change height on every keystroke; the footer keeps its place.</li><li>Hide the name column behind the column menu.</li></ul></div></div></section>
-        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> <code class="code">data-lds-table</code> wires everything named above and fires <code class="code">lds:table</code> with <code class="code">{ total, page, pages, shown }</code> after each change. <code class="code">data-lds-selection=&quot;selbarId&quot;</code> on the same element wires the checkboxes and the bar (<code class="code">lds:select</code> with <code class="code">{ count, items }</code>). After adding or removing rows call <code class="code">tableRefresh(el)</code>; to show loading or error rows call <code class="code">tableState(el, &quot;loading&quot; | &quot;error&quot; | &quot;ready&quot;)</code>.</p></section>
-        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="table.html"><span class="link-card__eyebrow">Tampilan data</span><span class="link-card__title">Table</span><span class="link-card__body">Rows of records compared by the same columns, in a `.table-box` that scrolls sideways when it must. A real `&lt;table&gt;` by default, `.table--wrap` for text, and the `.dt` grid when a template repeats rows.</span></a><a class="link-card" href="selection-bar.html"><span class="link-card__eyebrow">Lapisan</span><span class="link-card__title">Selection bar</span><span class="link-card__body">A dark bar that floats up from the bottom while items in a list are selected, holding the count and the actions for all of them. It leaves when the selection is empty.</span></a><a class="link-card" href="pagination.html"><span class="link-card__eyebrow">Navigasi</span><span class="link-card__title">Pagination</span><span class="link-card__body">Numbered page buttons under a long list or table. Show the first page, the last page and the neighbors of the current one; gaps become an ellipsis.</span></a><a class="link-card" href="chips.html"><span class="link-card__eyebrow">Pilihan</span><span class="link-card__title">Chips</span><span class="link-card__body">Pill-shaped toggle buttons in a wrapping row, for filters and quick picks that apply as they are tapped. A pressed chip turns accent and a check slides in.</span></a></div></section>
+        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">.dtable[data-lds-table]</code></td><td>Wajib. Pembungkus dan container query-nya. Nilai atributnya menamai tabel agar kerapatan, ukuran halaman, dan kolom tersembunyi diingat; <code class="code">data-page-size</code> (default 10) dan <code class="code">data-noun</code> (&quot;anggota&quot;) mengatur default dan kata pada hitungan.</td></tr><tr><td><code class="code">.dtable__bar</code></td><td>Toolbar: <code class="code">.control.search.dtable__search</code> dengan <code class="code">input[data-lds-table-search]</code>, filter, lalu <code class="code">.dtable__tools</code>.</td></tr><tr><td><code class="code">[data-lds-table-filter=&quot;key&quot;]</code></td><td>Filter pada <code class="code">data-key</code> setiap baris. Pada <code class="code">.chip-row[data-lds-chips]</code>, <code class="code">value</code> chip menjadi pilihannya; pada butir <code class="code">menuitemcheckbox</code> (dengan <code class="code">data-lds-keep-open</code>), <code class="code">data-value</code> yang menjadi pilihan. Beberapa nilai dari satu kunci cocok bila salah satunya cocok; kunci yang berbeda harus cocok semua.</td></tr><tr><td><code class="code">.dtable__filter-count</code></td><td>Badge <code class="code">[data-lds-table-filter-count=&quot;key&quot;]</code> opsional pada tombol filter: berapa nilai yang aktif.</td></tr><tr><td><code class="code">[data-lds-table-col=&quot;key&quot;]</code></td><td>Butir <code class="code">menuitemcheckbox</code> yang menampilkan atau menyembunyikan kolom yang <code class="code">th</code>-nya punya <code class="code">data-col=&quot;key&quot;</code>. Kolom terakhir yang terlihat tidak bisa disembunyikan.</td></tr><tr><td><code class="code">[data-lds-table-density]</code></td><td>Tombol <code class="code">.toggle</code> dengan <code class="code">regular</code> dan <code class="code">compact</code> (baris 40 px) di dalam <code class="code">.toggle-group</code>.</td></tr><tr><td><code class="code">th[data-col] &gt; button</code></td><td>Header yang bisa diurutkan: naik, lalu turun, lalu tanpa urutan. <code class="code">aria-sort</code> pada <code class="code">th</code> mengatur urutan awal. <code class="code">data-sort</code> pada sel menggantikan teksnya (tanggal, nama bergelar).</td></tr><tr><td><code class="code">.dtable__select</code></td><td>Kolom kotak centang: <code class="code">input[data-lds-select-all]</code> di header (baris yang terlihat), <code class="code">input[data-lds-select]</code> per baris, masing-masing dengan <code class="code">aria-label</code>. Butuh <code class="code">data-lds-selection=&quot;selbarId&quot;</code> pada pembungkus.</td></tr><tr><td><code class="code">tr.dtable__empty</code></td><td>Wajib. Satu baris selebar semua kolom berisi <a class="link" href="empty-state.html">empty state</a> dan tombol <code class="code">[data-lds-table-reset]</code>; tampil bila tidak ada yang cocok.</td></tr><tr><td><code class="code">tr.dtable__state[data-state]</code></td><td>Baris <code class="code">loading</code> (sel skeleton) dan <code class="code">error</code> (alert dengan coba lagi) opsional, ditampilkan oleh <code class="code">tableState()</code>.</td></tr><tr><td><code class="code">.dtable__foot</code></td><td>Hitungan <code class="code">[data-lds-table-info]</code>, butir menu <code class="code">[data-lds-table-size]</code> dengan <code class="code">[data-lds-table-size-label]</code>, dan <code class="code">.pager[data-lds-table-pager]</code> yang diisi hook.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">.dtable</code></td><td>Baris biasa 52 px.</td></tr><tr><td><code class="code">.dtable--compact</code></td><td>Baris 40 px dan avatar lebih kecil, untuk yang memindai banyak baris; diatur oleh toggle kerapatan dan diingat.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">filtered</code></td><td>Baris yang tidak cocok disembunyikan; hitungan berbunyi &quot;Menampilkan 1 sampai 10 dari 23 anggota&quot;; tombol filter menunjukkan berapa nilai yang aktif; setiap <code class="code">[data-lds-table-reset]</code> di luar baris kosong muncul.</td></tr><tr><td><code class="code">empty</code></td><td><code class="code">tr.dtable__empty</code> dengan &quot;Tidak ada anggota yang cocok&quot; dan Hapus filter. Header, bilah, dan filter tetap ada.</td></tr><tr><td><code class="code">loading</code></td><td><code class="code">tableState(el, &quot;loading&quot;)</code>: baris data disembunyikan, baris <code class="code">tr.dtable__state[data-state=&quot;loading&quot;]</code> dengan sel <a class="link" href="skeleton.html">skeleton</a> tampil, <code class="code">aria-busy=&quot;true&quot;</code>.</td></tr><tr><td><code class="code">error</code></td><td><code class="code">tableState(el, &quot;error&quot;)</code>: baris galat dengan <a class="link" href="alert.html">alert</a> dan Coba lagi.</td></tr><tr><td><code class="code">sorted</code></td><td><code class="code">aria-sort</code> pada <code class="code">th</code>, <code class="code">.is-sorted</code> dan <code class="code">.is-desc</code> pada tombolnya, seperti di <a class="link" href="table.html">table</a>.</td></tr><tr><td><code class="code">selected</code></td><td><code class="code">tr.is-selected</code> dengan tint aksen, kotak centang header tercentang atau campuran, selection bar terbuka.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Hasil yang muncul setelah pencarian, filter, atau pindah halaman masuk dengan blur berjarak 25 ms (dibatasi sampai baris kesepuluh) dengan <code class="code">--ease-enter</code> selama <code class="code">--d-standard</code>, resep <a class="link" href="list-stagger.html">list stagger</a>. Pengurutan menyusun ulang seketika, sesuai spec tabel.</li><li>Panah urutan berputar dengan <code class="code">--spring-smooth</code>; hitungan filter muncul dengan <code class="code">--spring-snappy</code>; centang menu membesar dengan <code class="code">--spring-snappy</code>.</li><li>Selection bar naik dengan <code class="code">--spring-smooth</code> dan hitungannya bergulir; kotak centang header menggambar centang atau garisnya.</li><li>Aksi yang ditolak (menyembunyikan kolom terakhir) menggoyang butirnya.</li><li>Reduced motion: baris muncul memudar 120 ms tanpa blur atau perpindahan.</li></ul></section>
+        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Ini <code class="code">&lt;table&gt;</code> asli: header adalah <code class="code">th</code>, tombol urut adalah tombol asli, dan hanya <code class="code">th</code> yang sedang diurutkan yang punya <code class="code">aria-sort</code> selain <code class="code">none</code>.</li><li>Pencarian punya <code class="code">aria-label</code>; chip adalah tombol toggle dengan <code class="code">aria-pressed</code>; filter dan kolom di menu adalah <code class="code">menuitemcheckbox</code> dengan <code class="code">aria-checked</code>, ukuran halaman <code class="code">menuitemradio</code>.</li><li>Pengurutan, perpindahan halaman, dan penghapusan pilihan diumumkan lewat live region bersama; hitungannya <code class="code">aria-live=&quot;polite&quot;</code>.</li><li>Setelah pindah halaman, fokus tetap di pager (di halaman aktif bila tombol yang Anda tekan hilang) dan tabel digulir ke tampilan.</li><li>Setiap kotak centang baris menyebut barisnya (&quot;Pilih Rina Wijaya&quot;); yang di header berbunyi &quot;Pilih semua anggota di halaman ini&quot;. Escape di dalam tabel menghapus pilihan.</li><li><code class="code">.table-box</code> mendapat <code class="code">tabindex=&quot;0&quot;</code> dan <code class="code">aria-label</code> agar pengguna keyboard bisa menggulirnya ke samping.</li></ul></section>
+        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Taruh filter yang paling sering dipakai di chip dan sisanya di menu.</li><li>Beri baris nilai <code class="code">data-*</code> dalam huruf kecil untuk filter, dan <code class="code">data-sort</code> untuk tanggal.</li><li>Sebut apa yang dihitung dengan <code class="code">data-noun</code>.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Menambahkan tombol Filter yang membuka dialog untuk dua atau tiga filter; chip dan menu lebih cepat.</li><li>Menganimasikan pengurutan ulang atau membiarkan tinggi tabel berubah setiap ketukan tombol; footer tetap di tempatnya.</li><li>Menyembunyikan kolom nama di balik menu kolom.</li></ul></div></div></section>
+        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> <code class="code">data-lds-table</code> memasang semua yang disebut di atas dan memicu <code class="code">lds:table</code> dengan <code class="code">{ total, page, pages, shown }</code> setelah setiap perubahan. <code class="code">data-lds-selection=&quot;selbarId&quot;</code> pada elemen yang sama memasang kotak centang dan bilahnya (<code class="code">lds:select</code> dengan <code class="code">{ count, items }</code>). Setelah menambah atau menghapus baris, panggil <code class="code">tableRefresh(el)</code>; untuk menampilkan baris loading atau galat, panggil <code class="code">tableState(el, &quot;loading&quot; | &quot;error&quot; | &quot;ready&quot;)</code>.</p></section>
+        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="table.html"><span class="link-card__eyebrow">Tampilan data</span><span class="link-card__title">Table</span><span class="link-card__body">Baris catatan yang dibandingkan dengan kolom yang sama, di dalam `.table-box` yang bergulir ke samping bila perlu. `&lt;table&gt;` asli secara default, `.table--wrap` untuk teks, dan grid `.dt` bila sebuah template mengulang baris.</span></a><a class="link-card" href="selection-bar.html"><span class="link-card__eyebrow">Lapisan</span><span class="link-card__title">Selection bar</span><span class="link-card__body">Bilah gelap yang mengambang naik dari bawah selama item dalam daftar dipilih, berisi jumlahnya dan aksi untuk semuanya. Bilah pergi saat pilihan kosong.</span></a><a class="link-card" href="pagination.html"><span class="link-card__eyebrow">Navigasi</span><span class="link-card__title">Pagination</span><span class="link-card__body">Tombol nomor halaman di bawah daftar atau tabel yang panjang. Tampilkan halaman pertama, halaman terakhir, dan tetangga halaman saat ini; celah di antaranya menjadi elipsis.</span></a><a class="link-card" href="chips.html"><span class="link-card__eyebrow">Pilihan</span><span class="link-card__title">Chips</span><span class="link-card__body">Tombol toggle berbentuk pil dalam baris yang bisa turun baris, untuk filter dan pilihan cepat yang langsung berlaku saat diketuk. Chip yang tertekan menjadi warna aksen dan tanda centang bergeser masuk.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
           <a class="link-card cdoc__prev" href="separator.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Sebelumnya</span><span class="link-card__title">Separator</span></a>
           <a class="link-card cdoc__next" href="trend-delta.html"><span class="link-card__eyebrow">Berikutnya<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Trend delta</span></a>

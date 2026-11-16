@@ -1,6 +1,6 @@
 # Nav progress
 
-Group: Navigation (new). Docs page: `docs/components/nav-progress.html`.
+Group: Navigation. Docs page: `docs/components/nav-progress.html`.
 
 A 3 px accent bar along the top edge of the window that runs while the next page loads. Add `.is-running` when navigation starts, remove it when the page is in.
 

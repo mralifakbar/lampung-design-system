@@ -1,6 +1,6 @@
 # Inbox list
 
-Group: Data display (new). Docs page: `docs/components/inbox-list.html`.
+Group: Data display. Docs page: `docs/components/inbox-list.html`.
 
 Rows of messages or conversations: who, when, a subject and a preview, with unread, current and flagged states. The row is the button that opens the message; the newest sit on top.
 

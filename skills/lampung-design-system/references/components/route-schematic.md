@@ -1,6 +1,6 @@
 # Route schematic
 
-Group: Data display (new). Docs page: `docs/components/route-schematic.html`.
+Group: Data display. Docs page: `docs/components/route-schematic.html`.
 
 The stops of one trip on a line: the part already travelled in the accent, the vehicle where it is now, and the place and time under each stop. A diagram, not a map, so it stays honest and readable at any width.
 

@@ -1,6 +1,6 @@
 # Sections
 
-Group: Page patterns (new). Docs page: `docs/components/sections.html`.
+Group: Page patterns. Docs page: `docs/components/sections.html`.
 
 A page as a column of titled sections: 48 px apart, a hairline above every section after the first, a larger heading on wide screens. Structure comes from space and headings, not from a card around each part.
 

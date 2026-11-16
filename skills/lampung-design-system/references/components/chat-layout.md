@@ -1,6 +1,6 @@
 # Chat layout
 
-Group: Chat (new). Docs page: `docs/components/chat-layout.html`.
+Group: Chat. Docs page: `docs/components/chat-layout.html`.
 
 The conversation column: messages stacked 20 px apart in `.chat`, the history scrolling above a composer that never scrolls away, and a Latest button that appears only when the reader has scrolled up. Newest at the bottom, always.
 

@@ -1,6 +1,6 @@
 # Spotlight
 
-Group: Page patterns (new). Docs page: `docs/components/spotlight.html`.
+Group: Page patterns. Docs page: `docs/components/spotlight.html`.
 
 The one thing on the page worth doing next, on the accent tint: an eyebrow, a title, a sentence and one or two actions. At most one per page.
 

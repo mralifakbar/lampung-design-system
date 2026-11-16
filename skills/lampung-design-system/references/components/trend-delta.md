@@ -1,6 +1,6 @@
 # Trend delta
 
-Group: Data display (new). Docs page: `docs/components/trend-delta.html`.
+Group: Data display. Docs page: `docs/components/trend-delta.html`.
 
 The change next to a figure: an arrow for the direction, a color for what it means, the amount in tabular figures and a sentence for screen readers. Direction and meaning are separate, because a falling number can be good news.
 

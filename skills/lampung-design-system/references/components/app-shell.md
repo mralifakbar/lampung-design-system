@@ -1,6 +1,6 @@
 # App shell
 
-Group: Navigation (new). Docs page: `docs/components/app-shell.html`.
+Group: Navigation. Docs page: `docs/components/app-shell.html`.
 
 The frame of an app: a sticky sidebar beside the content on wide screens, a top bar with a drawer below 960 px. One per app, at the root; one highlight glides to the current page.
 

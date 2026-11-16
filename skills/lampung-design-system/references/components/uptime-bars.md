@@ -1,6 +1,6 @@
 # Uptime bars
 
-Group: Charts (new). Docs page: `docs/components/uptime-bars.html`.
+Group: Charts. Docs page: `docs/components/uptime-bars.html`.
 
 One thin bar per day (or hour) in a row, colored by how that period went: no issues, degraded, or down. The pattern of incidents over 90 days reads at a glance; pointing at a bar, or using the arrow keys, says what happened that day.
 

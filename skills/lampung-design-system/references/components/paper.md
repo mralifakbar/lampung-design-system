@@ -1,6 +1,6 @@
 # Paper
 
-Group: Content (new). Docs page: `docs/components/paper.html`.
+Group: Content. Docs page: `docs/components/paper.html`.
 
 A printable page shown as a sheet inside the app: an invoice, a receipt, a letter, a certificate. The text reflows with the width, so the preview stays readable on a phone, and it can be the only thing that prints.
 

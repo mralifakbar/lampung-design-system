@@ -1,6 +1,6 @@
 # Date field
 
-Group: Inputs (new). Docs page: `docs/components/date-field.html`.
+Group: Inputs. Docs page: `docs/components/date-field.html`.
 
 A text field for a date with a calendar button that opens a calendar in a popover. Typing the date always works; the calendar is the helper. Built from existing parts: `.control`, `.control__btn`, `.popover` and `.cal`.
 

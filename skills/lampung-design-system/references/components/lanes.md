@@ -1,6 +1,6 @@
 # Lanes
 
-Group: Data display (new). Docs page: `docs/components/lanes.html`.
+Group: Data display. Docs page: `docs/components/lanes.html`.
 
 Who is busy when: one row per person, room or resource, time running across, and blocks placed by their start and length. The question it answers is "who is free, and when", so gaps matter as much as blocks.
 

@@ -1,6 +1,6 @@
 # Testimonial
 
-Group: Marketing (new). Docs page: `docs/components/testimonial.html`.
+Group: Marketing. Docs page: `docs/components/testimonial.html`.
 
 What one real person said about the product, with their name and role. Quiet on purpose: the words carry it. Only publish real quotes; while designing, label placeholders as example content where readers see it.
 

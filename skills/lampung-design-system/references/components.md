@@ -33,8 +33,8 @@ Rules every component follows: layout, motion, states.
 
 | Component | Use it when | File |
 |---|---|---|
-| Layout primitives (new) | You need to place components next to or under each other: a column of cards (`stack`), a row of buttons or badges that may wrap (`cluster`), a grid of tiles that reflows by width (`auto-grid`). | [components/layout-primitives.md](components/layout-primitives.md) |
-| Form layout (new) | Any form with more than one field: sign up, profile, checkout, a course settings page, the body of a dialog or sheet. | [components/form-layout.md](components/form-layout.md) |
+| Layout primitives | You need to place components next to or under each other: a column of cards (`stack`), a row of buttons or badges that may wrap (`cluster`), a grid of tiles that reflows by width (`auto-grid`). | [components/layout-primitives.md](components/layout-primitives.md) |
+| Form layout | Any form with more than one field: sign up, profile, checkout, a course settings page, the body of a dialog or sheet. | [components/form-layout.md](components/form-layout.md) |
 | Data states | Any list, table, chart, card grid or detail panel whose content comes from a request: design all four states before shipping. | [components/data-states.md](components/data-states.md) |
 | Theming | Setting up a page: put `class="lds"` and `data-theme` on `<html>`, and call `restoreTheme()` before first paint so the saved choice is used without a flash. | [components/theming.md](components/theming.md) |
 | Icon | A label gains speed from a glyph people already know: search, add, download, calendar, settings. | [components/icon.md](components/icon.md) |
@@ -71,9 +71,9 @@ Fields people type or choose into.
 | Select | One value from a fixed list of about 6 to 30 options: education level, semester, exam category, province when the list is short. | [components/select.md](components/select.md) |
 | Combobox | One value from a long list people know by name: province, city, school, university, major. | [components/combobox.md](components/combobox.md) |
 | Tag input | People enter several short values that are not from a fixed list: topics of interest, keywords for a question, emails to invite. | [components/tag-input.md](components/tag-input.md) |
-| File input (new) | People attach files to a form: an answer sheet, a transcript, a profile photo, assignment files. | [components/file-input.md](components/file-input.md) |
-| Date field (new) | People enter one date in a form: a date of birth, an exam date, a deadline, a payment date. | [components/date-field.md](components/date-field.md) |
-| Date range (new) | The period of a dashboard, a report or an export: last 30 days, this month, a custom span. | [components/date-range.md](components/date-range.md) |
+| File input | People attach files to a form: an answer sheet, a transcript, a profile photo, assignment files. | [components/file-input.md](components/file-input.md) |
+| Date field | People enter one date in a form: a date of birth, an exam date, a deadline, a payment date. | [components/date-field.md](components/date-field.md) |
+| Date range | The period of a dashboard, a report or an export: last 30 days, this month, a custom span. | [components/date-range.md](components/date-range.md) |
 
 ### Selection
 Choosing between options and toggling settings.
@@ -95,19 +95,20 @@ Moving between pages, sections and steps.
 
 | Component | Use it when | File |
 |---|---|---|
-| App shell (new) | An app or documentation site with more than five destinations that people move between all day: a course hub, an admin panel, a docs site. | [components/app-shell.md](components/app-shell.md) |
-| Top nav (new) | A marketing, landing or content site with five or fewer top-level pages and no need for a sidebar. | [components/top-nav.md](components/top-nav.md) |
+| Masthead (new) | Every page of a public-service site or app, as the first element in `<body>`, before the skip link target and the header. | [components/masthead.md](components/masthead.md) |
+| App shell | An app or documentation site with more than five destinations that people move between all day: a course hub, an admin panel, a docs site. | [components/app-shell.md](components/app-shell.md) |
+| Top nav | A marketing, landing or content site with five or fewer top-level pages and no need for a sidebar. | [components/top-nav.md](components/top-nav.md) |
 | Tabs | One record or page has sibling sections people visit one at a time: Overview, Assignments, Materials, Discussion. | [components/tabs.md](components/tabs.md) |
 | Breadcrumbs | A page sits three or more levels deep in a hierarchy people need to climb back up: Academics, Courses, Database Systems. | [components/breadcrumbs.md](components/breadcrumbs.md) |
 | Page header | Every content page inside an app: a course, a student record, a report. | [components/page-header.md](components/page-header.md) |
 | Pagination | A table or list of records that is too long for one page and people need to reach a specific page or come back to one: students, invoices, submissions. | [components/pagination.md](components/pagination.md) |
 | Steps | A flow with three to five fixed steps done in order: registration (details, courses, payment, review), exam setup, onboarding a school. | [components/steps.md](components/steps.md) |
 | Sidebar | A page has its own secondary sections listed beside the content: Settings (Profile, Notifications, Billing), a help center category, inbox folders. | [components/sidebar.md](components/sidebar.md) |
-| Outline (new) | A long page with four or more sections people jump between: documentation, a syllabus, course rules, a long report. | [components/outline.md](components/outline.md) |
+| Outline | A long page with four or more sections people jump between: documentation, a syllabus, course rules, a long report. | [components/outline.md](components/outline.md) |
 | Menubar | A document or content editor on wide screens with many commands people learn by shortcut: a lesson editor, a question bank, a report builder. | [components/menubar.md](components/menubar.md) |
-| Nav progress (new) | Client-side navigation (a single-page app or a framework router) where the next page can take more than about 300 ms to arrive. | [components/nav-progress.md](components/nav-progress.md) |
+| Nav progress | Client-side navigation (a single-page app or a framework router) where the next page can take more than about 300 ms to arrive. | [components/nav-progress.md](components/nav-progress.md) |
 | Phone bars | A phone-first app or installed web app with three to five top-level destinations people switch between all day: Today, Schedule, Courses, Profile. | [components/phone-bars.md](components/phone-bars.md) |
-| Navigation stack (new) | A phone app where a row opens its detail: a course from a list, a payment from activity, a project from projects. | [components/nav-stack.md](components/nav-stack.md) |
+| Navigation stack | A phone app where a row opens its detail: a course from a list, a payment from activity, a project from projects. | [components/nav-stack.md](components/nav-stack.md) |
 
 ### Overlays
 Layers that float above the page.
@@ -116,7 +117,7 @@ Layers that float above the page.
 |---|---|---|
 | Dialog | One short input that must happen before going on: rename a course, set a due date, name a new folder. | [components/dialog.md](components/dialog.md) |
 | Alert dialog | Before something that cannot be undone: delete a course, remove a member, discard a graded exam. | [components/alert-dialog.md](components/alert-dialog.md) |
-| Modal (new) | A form or confirm that belongs to the whole page rather than to a region: report a mistake, invite a student, edit profile details. | [components/modal.md](components/modal.md) |
+| Modal | A form or confirm that belongs to the whole page rather than to a region: report a mistake, invite a student, edit profile details. | [components/modal.md](components/modal.md) |
 | Sheet | On phones, a focused task related to the current screen: mark attendance, choose a class, set filters, share. | [components/sheet.md](components/sheet.md) |
 | Drawer | On wide screens, filters for a list or table: status, course, date range. | [components/drawer.md](components/drawer.md) |
 | Dropdown menu | Three to seven commands on one object that do not deserve their own buttons: Duplicate, Move, Export, Delete. | [components/dropdown-menu.md](components/dropdown-menu.md) |
@@ -126,8 +127,8 @@ Layers that float above the page.
 | Hover card | A mention or link to a person, course or document where a quick look saves opening it: @lecturer, a course code in a table. | [components/hover-card.md](components/hover-card.md) |
 | Toast | Confirming an action that finished: "Draft saved", "Invite sent", "Thread archived". | [components/toast.md](components/toast.md) |
 | Command palette | An app with many destinations and commands where frequent users want keyboard speed: jump to a course, create an assignment, switch theme. | [components/command-palette.md](components/command-palette.md) |
-| Lightbox (new) | A thumbnail of a photo, diagram or scanned page people need to see in full: a lab setup, a whiteboard photo, an answer sheet. | [components/lightbox.md](components/lightbox.md) |
-| Selection bar (new) | Bulk actions on a list or table people select from: archive 12 messages, grade 5 submissions, export 30 students. | [components/selection-bar.md](components/selection-bar.md) |
+| Lightbox | A thumbnail of a photo, diagram or scanned page people need to see in full: a lab setup, a whiteboard photo, an answer sheet. | [components/lightbox.md](components/lightbox.md) |
+| Selection bar | Bulk actions on a list or table people select from: archive 12 messages, grade 5 submissions, export 30 students. | [components/selection-bar.md](components/selection-bar.md) |
 
 ### Feedback
 Status, progress, messages and empty states.
@@ -147,7 +148,7 @@ Status, progress, messages and empty states.
 | Empty state | A list, table or dashboard section loaded and has no items: no courses yet, nothing due this week. | [components/empty-state.md](components/empty-state.md) |
 | Coachmark | A new feature lives somewhere the person would not look, and one sentence pointing at it saves a support question. | [components/coachmark.md](components/coachmark.md) |
 | Thinking | An assistant or a background job is working and you cannot measure progress: checking a schedule, grading an essay, building a study plan. | [components/thinking.md](components/thinking.md) |
-| Timer (new) | A timed exam or tryout: time left for the whole test or for one section. | [components/timer.md](components/timer.md) |
+| Timer | A timed exam or tryout: time left for the whole test or for one section. | [components/timer.md](components/timer.md) |
 
 ### Data display
 Lists, tables, figures and records.
@@ -156,8 +157,8 @@ Lists, tables, figures and records.
 |---|---|---|
 | List | Any collection of similar items the person scans or opens: courses, messages, settings, payments, files. | [components/list.md](components/list.md) |
 | Key-value | The details of one record: fee, due date and status of a payment; seat, room and time of an exam. | [components/key-value.md](components/key-value.md) |
-| Stat row (new) | Two to four figures that summarize a page or a section: credits taken, average grade, tasks due. | [components/stat-row.md](components/stat-row.md) |
-| KPI card (new) | The first row of a dashboard: three to six metrics people check every visit (sales, sign-ups, refunds, reply time). | [components/kpi-card.md](components/kpi-card.md) |
+| Stat row | Two to four figures that summarize a page or a section: credits taken, average grade, tasks due. | [components/stat-row.md](components/stat-row.md) |
+| KPI card | The first row of a dashboard: three to six metrics people check every visit (sales, sign-ups, refunds, reply time). | [components/kpi-card.md](components/kpi-card.md) |
 | Card | A self-contained subject with several parts (title, meta, a figure, an action) that sits beside other subjects in a grid. | [components/card.md](components/card.md) |
 | Avatar | Showing who: an author in a comment, a member in a list, the signed-in person in the top bar. | [components/avatar.md](components/avatar.md) |
 | Table | Comparing many records by the same attributes: courses by code, credits and seats; payments by date, amount and status. | [components/table.md](components/table.md) |
@@ -165,74 +166,75 @@ Lists, tables, figures and records.
 | Tree | A hierarchy people browse: course files in folders, units with lessons, a syllabus with chapters and sections. | [components/tree.md](components/tree.md) |
 | Calendar | Choosing a day or a range where seeing the week matters: booking a consultation slot, picking exam days, setting leave dates. | [components/calendar.md](components/calendar.md) |
 | Timeline | The history of one record: a thesis from proposal to defense, an application from submitted to decided. | [components/timeline.md](components/timeline.md) |
-| Show more (new) | A list where the first few items answer most visits: the latest five announcements, the top topics, recent payments. | [components/show-more.md](components/show-more.md) |
-| Timestamp (new) | When something happened, where recency matters more than the exact time: a message, a comment, a change in a log. | [components/timestamp.md](components/timestamp.md) |
-| Date tile (new) | A list of upcoming events or deadlines where the day is how people scan: exams, webinars, invoices due. | [components/date-tile.md](components/date-tile.md) |
+| Show more | A list where the first few items answer most visits: the latest five announcements, the top topics, recent payments. | [components/show-more.md](components/show-more.md) |
+| Timestamp | When something happened, where recency matters more than the exact time: a message, a comment, a change in a log. | [components/timestamp.md](components/timestamp.md) |
+| Date tile | A list of upcoming events or deadlines where the day is how people scan: exams, webinars, invoices due. | [components/date-tile.md](components/date-tile.md) |
 | Rolling number | A count that changes in front of the person: likes, seats taken, a stepper value, items in a cart. | [components/rolling-number.md](components/rolling-number.md) |
 | Code block | Code, commands or configuration the reader copies: an install line, an API call, a snippet in documentation. | [components/code-block.md](components/code-block.md) |
 | Carousel | A row of optional, similar items to browse: featured courses, new practice sets, upcoming events. | [components/carousel.md](components/carousel.md) |
 | Separator | Two different groups inside one surface (a card, a panel, a menu-like area) that are not rows of a list. | [components/separator.md](components/separator.md) |
-| Data table (new) | A list of records people search, narrow, sort and act on in bulk: members of a workspace, customers, orders, invoices. | [components/data-table.md](components/data-table.md) |
-| Trend delta (new) | A key figure on a dashboard compared with the previous period: revenue up 12.5 %, refunds down 3 %, sign-ups flat. | [components/trend-delta.md](components/trend-delta.md) |
-| File tile (new) | A file manager or a library where people recognize files by type or picture: course materials, shared drive, uploaded receipts. | [components/file-tile.md](components/file-tile.md) |
-| Product tile (new) | A point of sale or a counter where the cashier adds products by tapping them: a shop, a cafe, a ticket desk. | [components/product-tile.md](components/product-tile.md) |
-| Kanban (new) | Work that moves through a few stages and people rearrange it often: tasks of a launch, applications in review, support tickets, content in production. | [components/kanban.md](components/kanban.md) |
-| Event calendar (new) | People plan around dates and times: a team calendar, class schedules, bookings, deadlines across projects. | [components/event-calendar.md](components/event-calendar.md) |
-| Lanes (new) | A roster where people book or plan around each other's time: doctors' hours today, tutors, shifts. | [components/lanes.md](components/lanes.md) |
-| Inbox list (new) | A mail inbox, a list of chat conversations or a support queue, where each row opens one message or thread. | [components/inbox-list.md](components/inbox-list.md) |
-| Check matrix (new) | Permissions by role: which roles can invite people, see billing, export reports. | [components/check-matrix.md](components/check-matrix.md) |
-| Floor plan (new) | Where something is matters as much as its state: tables in a restaurant, desks or study rooms people book, beds on a ward. | [components/floor-plan.md](components/floor-plan.md) |
-| Route schematic (new) | Tracking one shipment, delivery or trip through a few known stops: warehouse, hub, port, customer. | [components/route-schematic.md](components/route-schematic.md) |
-| Map (new) | Showing where a shipment, a driver or a flight is right now, on real geography, beside its details. | [components/map.md](components/map.md) |
+| Data table | A list of records people search, narrow, sort and act on in bulk: members of a workspace, customers, orders, invoices. | [components/data-table.md](components/data-table.md) |
+| Trend delta | A key figure on a dashboard compared with the previous period: revenue up 12.5 %, refunds down 3 %, sign-ups flat. | [components/trend-delta.md](components/trend-delta.md) |
+| File tile | A file manager or a library where people recognize files by type or picture: course materials, shared drive, uploaded receipts. | [components/file-tile.md](components/file-tile.md) |
+| Product tile | A point of sale or a counter where the cashier adds products by tapping them: a shop, a cafe, a ticket desk. | [components/product-tile.md](components/product-tile.md) |
+| Kanban | Work that moves through a few stages and people rearrange it often: tasks of a launch, applications in review, support tickets, content in production. | [components/kanban.md](components/kanban.md) |
+| Event calendar | People plan around dates and times: a team calendar, class schedules, bookings, deadlines across projects. | [components/event-calendar.md](components/event-calendar.md) |
+| Lanes | A roster where people book or plan around each other's time: doctors' hours today, tutors, shifts. | [components/lanes.md](components/lanes.md) |
+| Inbox list | A mail inbox, a list of chat conversations or a support queue, where each row opens one message or thread. | [components/inbox-list.md](components/inbox-list.md) |
+| Check matrix | Permissions by role: which roles can invite people, see billing, export reports. | [components/check-matrix.md](components/check-matrix.md) |
+| Floor plan | Where something is matters as much as its state: tables in a restaurant, desks or study rooms people book, beds on a ward. | [components/floor-plan.md](components/floor-plan.md) |
+| Route schematic | Tracking one shipment, delivery or trip through a few known stops: warehouse, hub, port, customer. | [components/route-schematic.md](components/route-schematic.md) |
+| Map | Showing where a shipment, a driver or a flight is right now, on real geography, beside its details. | [components/map.md](components/map.md) |
 
 ### Content
 Long text, quotes, code and media.
 
 | Component | Use it when | File |
 |---|---|---|
-| Prose (new) | Rendering Markdown or rich text from a CMS, an editor or an assistant answer, where the HTML has no classes. | [components/prose.md](components/prose.md) |
-| Quote (new) | Quoting a person, a rule or a source inside an article, lesson or report: a lecturer's remark, a clause from exam regulations. | [components/quote.md](components/quote.md) |
-| Citation (new) | An assistant answer or summary states facts drawn from documents: each claim gets a numbered citation to the document it came from. | [components/citation.md](components/citation.md) |
-| Inline code (new) | Naming code, commands, file names, field names or exact values someone will type: `student_id`, `npm run build`, `grades.csv`. | [components/inline-code.md](components/inline-code.md) |
-| Thumbnail (new) | Photos and screenshots inside content: attachments on an assignment, photos of a venue, figures in a lesson. | [components/thumbnail.md](components/thumbnail.md) |
-| Paper (new) | A live preview of a document people are editing in a form beside it: an invoice, a quote, an offer letter. | [components/paper.md](components/paper.md) |
+| Prose | Rendering Markdown or rich text from a CMS, an editor or an assistant answer, where the HTML has no classes. | [components/prose.md](components/prose.md) |
+| Quote | Quoting a person, a rule or a source inside an article, lesson or report: a lecturer's remark, a clause from exam regulations. | [components/quote.md](components/quote.md) |
+| Citation | An assistant answer or summary states facts drawn from documents: each claim gets a numbered citation to the document it came from. | [components/citation.md](components/citation.md) |
+| Inline code | Naming code, commands, file names, field names or exact values someone will type: `student_id`, `npm run build`, `grades.csv`. | [components/inline-code.md](components/inline-code.md) |
+| Thumbnail | Photos and screenshots inside content: attachments on an assignment, photos of a venue, figures in a lesson. | [components/thumbnail.md](components/thumbnail.md) |
+| Paper | A live preview of a document people are editing in a form beside it: an invoice, a quote, an offer letter. | [components/paper.md](components/paper.md) |
+| Aksara Lampung (new) | A place, service or brand name gets its aksara form next to the Latin one (`data-lds-aksara="Lampung"`). | [components/aksara.md](components/aksara.md) |
 
 ### Chat
 Conversations with people or an assistant.
 
 | Component | Use it when | File |
 |---|---|---|
-| Chat layout (new) | A conversation with an assistant or a tutor: the person asks on the right, answers fill the reading column, newest at the bottom. | [components/chat-layout.md](components/chat-layout.md) |
-| Chat message (new) | Showing what the person sent (`msg--me`) and what the assistant answered (`msg--ai`) inside a chat layout. | [components/chat-message.md](components/chat-message.md) |
-| Composer (new) | The person writes the next message in a chat layout: to a tutor, an assistant, a support thread. | [components/composer.md](components/composer.md) |
-| Streaming text (new) | An assistant reply that is generated while the person waits: show words as they arrive from the server. | [components/streaming-text.md](components/streaming-text.md) |
-| Tool call (new) | An assistant answer depends on something it looked up or ran, and people may want to check it: a search, a file it read, a calculation, a calendar lookup. | [components/tool-call.md](components/tool-call.md) |
+| Chat layout | A conversation with an assistant or a tutor: the person asks on the right, answers fill the reading column, newest at the bottom. | [components/chat-layout.md](components/chat-layout.md) |
+| Chat message | Showing what the person sent (`msg--me`) and what the assistant answered (`msg--ai`) inside a chat layout. | [components/chat-message.md](components/chat-message.md) |
+| Composer | The person writes the next message in a chat layout: to a tutor, an assistant, a support thread. | [components/composer.md](components/composer.md) |
+| Streaming text | An assistant reply that is generated while the person waits: show words as they arrive from the server. | [components/streaming-text.md](components/streaming-text.md) |
+| Tool call | An assistant answer depends on something it looked up or ran, and people may want to check it: a search, a file it read, a calculation, a calendar lookup. | [components/tool-call.md](components/tool-call.md) |
 
 ### Page patterns
 How components combine into a page.
 
 | Component | Use it when | File |
 |---|---|---|
-| Sections (new) | Any page with more than one part: a course page (overview, schedule, materials), a dashboard, a settings page, a profile. | [components/sections.md](components/sections.md) |
-| Spotlight (new) | There is a clear next step for this person: register before a deadline, finish an unfinished tryout, complete the profile. | [components/spotlight.md](components/spotlight.md) |
-| Link card (new) | A hub page that sends people to a few places of equal weight: my courses, the question bank, transcripts, settings. | [components/link-card.md](components/link-card.md) |
-| Resizable split (new) | Two panes used side by side and the right balance depends on the person: a question list and its editor, a reading passage and its questions, a student list and their submission. | [components/resizable-split.md](components/resizable-split.md) |
+| Sections | Any page with more than one part: a course page (overview, schedule, materials), a dashboard, a settings page, a profile. | [components/sections.md](components/sections.md) |
+| Spotlight | There is a clear next step for this person: register before a deadline, finish an unfinished tryout, complete the profile. | [components/spotlight.md](components/spotlight.md) |
+| Link card | A hub page that sends people to a few places of equal weight: my courses, the question bank, transcripts, settings. | [components/link-card.md](components/link-card.md) |
+| Resizable split | Two panes used side by side and the right balance depends on the person: a question list and its editor, a reading passage and its questions, a student list and their submission. | [components/resizable-split.md](components/resizable-split.md) |
 | Phone screen | Designing or prototyping a phone app screen in the system: a home "Today" screen, a settings screen, a course list. | [components/phone-screen.md](components/phone-screen.md) |
-| Device frame (new) | Showing a phone app inside a wide page: a product tour, an examples page, a design review, onboarding for a mobile app. | [components/device-frame.md](components/device-frame.md) |
+| Device frame | Showing a phone app inside a wide page: a product tour, an examples page, a design review, onboarding for a mobile app. | [components/device-frame.md](components/device-frame.md) |
 
 ### Marketing
 Product, pricing and landing pages in front of an app.
 
 | Component | Use it when | File |
 |---|---|---|
-| Hero (new) | The first screen of a landing, product or pricing page that sits in front of an app. | [components/hero.md](components/hero.md) |
-| Marketing section (new) | Each part of a landing, product or pricing page after the hero: features, examples, pricing, questions. | [components/marketing-section.md](components/marketing-section.md) |
-| Feature row (new) | Explaining one feature of a product on a landing page, next to the feature running. | [components/feature-row.md](components/feature-row.md) |
-| Plans (new) | A pricing page or section with two to four plans. | [components/plans.md](components/plans.md) |
-| Compare table (new) | Under the plan cards on a pricing page, for people who want every difference before they buy. | [components/compare-table.md](components/compare-table.md) |
-| Testimonial (new) | A landing or pricing page with quotes from real customers who agreed to be named. | [components/testimonial.md](components/testimonial.md) |
-| CTA band (new) | The end of a landing or product page, before the footer. | [components/cta-band.md](components/cta-band.md) |
-| Site footer (new) | Every page of a marketing, landing or documentation site that uses a top nav. | [components/site-footer.md](components/site-footer.md) |
+| Hero | The first screen of a landing, product or pricing page that sits in front of an app. | [components/hero.md](components/hero.md) |
+| Marketing section | Each part of a landing, product or pricing page after the hero: features, examples, pricing, questions. | [components/marketing-section.md](components/marketing-section.md) |
+| Feature row | Explaining one feature of a product on a landing page, next to the feature running. | [components/feature-row.md](components/feature-row.md) |
+| Plans | A pricing page or section with two to four plans. | [components/plans.md](components/plans.md) |
+| Compare table | Under the plan cards on a pricing page, for people who want every difference before they buy. | [components/compare-table.md](components/compare-table.md) |
+| Testimonial | A landing or pricing page with quotes from real customers who agreed to be named. | [components/testimonial.md](components/testimonial.md) |
+| CTA band | The end of a landing or product page, before the footer. | [components/cta-band.md](components/cta-band.md) |
+| Site footer | Every page of a marketing, landing or documentation site that uses a top nav. | [components/site-footer.md](components/site-footer.md) |
 
 ### Motion
 Recipes for things that move.
@@ -246,10 +248,10 @@ Recipes for things that move.
 | Height expand | A section opens in place and pushes what is below: accordion answers, tree folders, show more, nested navigation in the app shell. | [components/height-expand.md](components/height-expand.md) |
 | List stagger | Search results or filter results arriving after the person asked for them. | [components/list-stagger.md](components/list-stagger.md) |
 | View swap | A step-by-step form moves forward or back: the step content swaps under a fixed steps header and fixed buttons. | [components/view-swap.md](components/view-swap.md) |
-| Shared element (new) | Opening a photo, diagram or scan from a grid or an article into a lightbox. | [components/shared-element.md](components/shared-element.md) |
+| Shared element | Opening a photo, diagram or scan from a grid or an article into a lightbox. | [components/shared-element.md](components/shared-element.md) |
 | Number count | A count the person just changed: a stepper, a like count, items in a cart, seats reserved. | [components/number-count.md](components/number-count.md) |
 | Drag and momentum | Dragging a sheet down to dismiss it, or flicking it. | [components/drag-and-momentum.md](components/drag-and-momentum.md) |
-| Reveal on scroll (new) | Key numbers on a results or landing page (stat row) that come into view as people scroll. | [components/reveal-on-scroll.md](components/reveal-on-scroll.md) |
+| Reveal on scroll | Key numbers on a results or landing page (stat row) that come into view as people scroll. | [components/reveal-on-scroll.md](components/reveal-on-scroll.md) |
 | Reduced motion | Always: it is built into the CSS and JS. Check it whenever you add motion to the system. | [components/reduced-motion.md](components/reduced-motion.md) |
 
 ### Microinteractions
@@ -271,7 +273,7 @@ Small responses that make controls feel alive.
 | Scroll fades | A fixed-height area inside a page that scrolls on its own: course rules in a card, a long list in a panel, terms in a dialog. | [components/scroll-fades.md](components/scroll-fades.md) |
 | Hints | A gesture or shortcut that is not visible: swipe a row, press / to search, long press for more. | [components/hints.md](components/hints.md) |
 | Haptics | Adding feel to a moment that already has visible feedback: a like, a switch landing, a swipe that commits, a long press that opens a menu. | [components/haptics.md](components/haptics.md) |
-| Pull to refresh (new) | A phone list whose content changes on the server while people look at it: a schedule, activity, an inbox. | [components/pull-to-refresh.md](components/pull-to-refresh.md) |
+| Pull to refresh | A phone list whose content changes on the server while people look at it: a schedule, activity, an inbox. | [components/pull-to-refresh.md](components/pull-to-refresh.md) |
 
 ### Charts
 Showing numbers as pictures.
@@ -279,18 +281,18 @@ Showing numbers as pictures.
 | Component | Use it when | File |
 |---|---|---|
 | Chart principles | Before building any chart: pick the chart type from the question, then follow these rules for title, color, labels and states. | [components/chart-principles.md](components/chart-principles.md) |
-| Chart card (new) | Any chart on a dashboard or report page: the card gives it a question, a period and a place for the one number people came for. | [components/chart-card.md](components/chart-card.md) |
+| Chart card | Any chart on a dashboard or report page: the card gives it a question, a period and a place for the one number people came for. | [components/chart-card.md](components/chart-card.md) |
 | Sparkline stat | A dashboard tile for one metric people check often, where the trend matters as much as the value: attendance rate, study hours, average score. | [components/sparkline-stat.md](components/sparkline-stat.md) |
 | Bar chart | Comparing a count or amount across 3 to 12 categories: submissions per weekday, students per grade, hours per course. | [components/bar-chart.md](components/bar-chart.md) |
-| Ranked bars (new) | Ranking 3 to 10 named things by one value: traffic sources, pages, products, students, regions. | [components/ranked-bars.md](components/ranked-bars.md) |
+| Ranked bars | Ranking 3 to 10 named things by one value: traffic sources, pages, products, students, regions. | [components/ranked-bars.md](components/ranked-bars.md) |
 | Line chart | Showing how a value changes over time and comparing up to four series: your score against the class average, enrolments per month this year and last. | [components/line-chart.md](components/line-chart.md) |
-| Area chart (new) | Volume over time where the amount under the line matters: visits, orders, sessions, minutes studied. | [components/area-chart.md](components/area-chart.md) |
-| Combo chart (new) | Actual against plan per month or week: sales against plan, hours against a goal, sign-ups against forecast. | [components/combo-chart.md](components/combo-chart.md) |
+| Area chart | Volume over time where the amount under the line matters: visits, orders, sessions, minutes studied. | [components/area-chart.md](components/area-chart.md) |
+| Combo chart | Actual against plan per month or week: sales against plan, hours against a goal, sign-ups against forecast. | [components/combo-chart.md](components/combo-chart.md) |
 | Donut | Two to four parts of one whole where the reader cares about the rough split: students per grade, time per activity. | [components/donut.md](components/donut.md) |
-| Gauge (new) | One value against a fixed range where "how full" is the question: capacity booked, quota used, a health score, a server's load. | [components/gauge.md](components/gauge.md) |
+| Gauge | One value against a fixed range where "how full" is the question: capacity booked, quota used, a health score, a server's load. | [components/gauge.md](components/gauge.md) |
 | Percentage bar | Showing how one whole splits into parts: credits by course type, time spent by activity, answers right, wrong and skipped. | [components/percentage-bar.md](components/percentage-bar.md) |
-| Target bar (new) | A figure measured against a target: revenue against the quarter goal, enrolments against capacity planned, hours studied against the weekly plan. | [components/target-bar.md](components/target-bar.md) |
-| Funnel (new) | A sequence where each step is a subset of the one before: visit, try, sign up, pay; apply, screen, interview, offer. | [components/funnel.md](components/funnel.md) |
+| Target bar | A figure measured against a target: revenue against the quarter goal, enrolments against capacity planned, hours studied against the weekly plan. | [components/target-bar.md](components/target-bar.md) |
+| Funnel | A sequence where each step is a subset of the one before: visit, try, sign up, pay; apply, screen, interview, offer. | [components/funnel.md](components/funnel.md) |
 | Heatmap | Activity per day over weeks or months: study hours, submissions, logins. | [components/heatmap.md](components/heatmap.md) |
-| Uptime bars (new) | The history of a running service on a status or infrastructure page: 90 days of a website, an API, sign-in, payments. | [components/uptime-bars.md](components/uptime-bars.md) |
+| Uptime bars | The history of a running service on a status or infrastructure page: 90 days of a website, an API, sign-in, payments. | [components/uptime-bars.md](components/uptime-bars.md) |
 | Chart states | Any chart whose data comes from a request: build these three states before the chart ships. | [components/chart-states.md](components/chart-states.md) |

@@ -1,6 +1,6 @@
 # Shared element
 
-Group: Motion (new). Docs page: `docs/components/shared-element.html`.
+Group: Motion. Docs page: `docs/components/shared-element.html`.
 
 The picture you tap grows out of its own thumbnail into the full view and shrinks back into the same spot when closed (a FLIP transition). Because the object never disappears, people keep their place: the large view is visibly the same thing, not a new page.
 

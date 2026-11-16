@@ -1,6 +1,6 @@
 # Compare table
 
-Group: Marketing (new). Docs page: `docs/components/compare-table.html`.
+Group: Marketing. Docs page: `docs/components/compare-table.html`.
 
 Plans as columns and features as rows, grouped by topic, with a check, a dash icon or a short value in each cell. It scrolls sideways in its own box while the feature names stay put.
 

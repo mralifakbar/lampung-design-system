@@ -1,6 +1,6 @@
 # Date tile
 
-Group: Data display (new). Docs page: `docs/components/date-tile.html`.
+Group: Data display. Docs page: `docs/components/date-tile.html`.
 
 A small month-and-day block at the start of a row, for lists of things that happen on a date: classes, exams, payments due, events. People find the date before the title, so it leads.
 

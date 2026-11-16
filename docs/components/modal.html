@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Modal · Lampung Design System</title>
-<meta name="description" content="A page-level dialog over the whole window: a native &lt;dialog class=&quot;modal&quot;&gt; in the top layer, or .overlay rendered in place by a framework. Below 600 px the native modal becomes a bottom sheet. Close it with closeModal() so it plays its exit.">
+<meta name="description" content="Dialog tingkat halaman di atas seluruh jendela: &lt;dialog class=&quot;modal&quot;&gt; native di top layer, atau .overlay yang dirender di tempat oleh framework. Di bawah 600 px modal native menjadi bottom sheet. Tutup dengan closeModal() agar animasi keluarnya diputar.">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
 <link rel="stylesheet" href="../../css/lds.css">
 <link rel="stylesheet" href="../docs.css">
@@ -12,20 +12,36 @@
 </head>
 <body class="lds">
 <a class="skip" href="#main">Langsung ke konten</a>
+<div class="masthead" role="region" aria-label="Status situs">
+  <div class="masthead__bar">
+    <span class="masthead__mark" aria-hidden="true"><span class="ic">info</span></span>
+    <span class="masthead__text">Proyek komunitas. Ini bukan situs resmi pemerintah.</span>
+    <button class="masthead__toggle" data-lds-masthead aria-expanded="false" aria-controls="lds-masthead">Cara memastikan<span class="ic" aria-hidden="true">expand_more</span></button>
+  </div>
+  <div class="collapse is-closed" id="lds-masthead" inert><div><div class="masthead__body">
+    <p class="masthead__item"><span class="ic" aria-hidden="true">groups</span><span><b>Dikelola sukarelawan.</b> Lampung Design System dibangun oleh komunitas open source. Tidak ada instansi pemerintah yang mengelola atau mendukungnya secara resmi.</span></p>
+    <p class="masthead__item"><span class="ic" aria-hidden="true">verified_user</span><span><b>Layanan resmi memakai go.id.</b> Situs pemerintah Indonesia berakhiran .go.id. Jangan masukkan NIK di situs yang Anda ragukan.</span></p>
+  </div></div></div>
+</div>
 <div class="shell" data-lds-shell>
   <aside class="shell__side" id="side" aria-label="Dokumentasi">
-    <a class="shell__brand" href="../index.html"><span class="page-head__mark">L</span>Lampung Design System</a>
+    <a class="shell__brand" href="../index.html"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>Lampung Design System</a>
     <nav class="shell__nav" aria-label="Komponen">
       <span class="shell__hl" aria-hidden="true"></span>
-      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Memulai</span></a>
+      <p class="shell__group">Memulai</p>
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Pengenalan</span></a>
+      <a class="shell__link" href="../guide/instalasi.html"><span class="ic" aria-hidden="true">download</span><span class="shell__label">Instalasi</span></a>
+      <a class="shell__link" href="../guide/penulisan.html"><span class="ic" aria-hidden="true">edit_square</span><span class="shell__label">Penulisan</span></a>
+      <a class="shell__link" href="../guide/aksesibilitas.html"><span class="ic" aria-hidden="true">accessible</span><span class="shell__label">Aksesibilitas</span></a>
+      <a class="shell__link" href="../guide/desainer.html"><span class="ic" aria-hidden="true">palette</span><span class="shell__label">Untuk desainer</span></a>
+      <p class="shell__group">Komponen</p>
       <a class="shell__link" href="index.html"><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">Semua komponen</span></a>
       <a class="shell__link" href="../examples/index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Contoh</span></a>
-      <p class="shell__group">Komponen</p>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g0"><span class="shell__section-label">Landasan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g0"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span></a>
+          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span></a>
           <a class="shell__link shell__link--child" href="data-states.html"><span class="shell__num">3</span><span class="shell__label">Data states</span></a>
           <a class="shell__link shell__link--child" href="theming.html"><span class="shell__num">4</span><span class="shell__label">Theming</span></a>
           <a class="shell__link shell__link--child" href="icon.html"><span class="shell__num">5</span><span class="shell__label">Icon</span></a>
@@ -60,9 +76,9 @@
           <a class="shell__link shell__link--child" href="select.html"><span class="shell__num">8</span><span class="shell__label">Select</span></a>
           <a class="shell__link shell__link--child" href="combobox.html"><span class="shell__num">9</span><span class="shell__label">Combobox</span></a>
           <a class="shell__link shell__link--child" href="tag-input.html"><span class="shell__num">10</span><span class="shell__label">Tag input</span></a>
-          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span></a>
+          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span></a>
+          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -80,21 +96,22 @@
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">13</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">14</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g4"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">1</span><span class="shell__label">App shell</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">2</span><span class="shell__label">Top nav</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">3</span><span class="shell__label">Tabs</span></a>
-          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">4</span><span class="shell__label">Breadcrumbs</span></a>
-          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">5</span><span class="shell__label">Page header</span></a>
-          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">6</span><span class="shell__label">Pagination</span></a>
-          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">7</span><span class="shell__label">Steps</span></a>
-          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">8</span><span class="shell__label">Sidebar</span></a>
-          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">9</span><span class="shell__label">Outline</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">10</span><span class="shell__label">Menubar</span></a>
-          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">11</span><span class="shell__label">Nav progress</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">12</span><span class="shell__label">Phone bars</span></a>
-          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">13</span><span class="shell__label">Navigation stack</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="masthead.html"><span class="shell__num">1</span><span class="shell__label">Masthead</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">2</span><span class="shell__label">App shell</span></a>
+          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">3</span><span class="shell__label">Top nav</span></a>
+          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">4</span><span class="shell__label">Tabs</span></a>
+          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">5</span><span class="shell__label">Breadcrumbs</span></a>
+          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">6</span><span class="shell__label">Page header</span></a>
+          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">7</span><span class="shell__label">Pagination</span></a>
+          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">8</span><span class="shell__label">Steps</span></a>
+          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">9</span><span class="shell__label">Sidebar</span></a>
+          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">10</span><span class="shell__label">Outline</span></a>
+          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">11</span><span class="shell__label">Menubar</span></a>
+          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">12</span><span class="shell__label">Nav progress</span></a>
+          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">13</span><span class="shell__label">Phone bars</span></a>
+          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">14</span><span class="shell__label">Navigation stack</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -102,7 +119,7 @@
         <div class="shell__panel is-open" id="nav-g5"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="dialog.html"><span class="shell__num">1</span><span class="shell__label">Dialog</span></a>
           <a class="shell__link shell__link--child" href="alert-dialog.html"><span class="shell__num">2</span><span class="shell__label">Alert dialog</span></a>
-          <a class="shell__link shell__link--child" href="modal.html" aria-current="page"><span class="shell__num">3</span><span class="shell__label">Modal</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="modal.html" aria-current="page"><span class="shell__num">3</span><span class="shell__label">Modal</span></a>
           <a class="shell__link shell__link--child" href="sheet.html"><span class="shell__num">4</span><span class="shell__label">Sheet</span></a>
           <a class="shell__link shell__link--child" href="drawer.html"><span class="shell__num">5</span><span class="shell__label">Drawer</span></a>
           <a class="shell__link shell__link--child" href="dropdown-menu.html"><span class="shell__num">6</span><span class="shell__label">Dropdown menu</span></a>
@@ -112,8 +129,8 @@
           <a class="shell__link shell__link--child" href="hover-card.html"><span class="shell__num">10</span><span class="shell__label">Hover card</span></a>
           <a class="shell__link shell__link--child" href="toast.html"><span class="shell__num">11</span><span class="shell__label">Toast</span></a>
           <a class="shell__link shell__link--child" href="command-palette.html"><span class="shell__num">12</span><span class="shell__label">Command palette</span></a>
-          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span></a>
+          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -132,7 +149,7 @@
           <a class="shell__link shell__link--child" href="empty-state.html"><span class="shell__num">11</span><span class="shell__label">Empty state</span></a>
           <a class="shell__link shell__link--child" href="coachmark.html"><span class="shell__num">12</span><span class="shell__label">Coachmark</span></a>
           <a class="shell__link shell__link--child" href="thinking.html"><span class="shell__num">13</span><span class="shell__label">Thinking</span></a>
-          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -140,8 +157,8 @@
         <div class="shell__panel" id="nav-g7"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="list.html"><span class="shell__num">1</span><span class="shell__label">List</span></a>
           <a class="shell__link shell__link--child" href="key-value.html"><span class="shell__num">2</span><span class="shell__label">Key-value</span></a>
-          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span></a>
+          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span></a>
           <a class="shell__link shell__link--child" href="card.html"><span class="shell__num">5</span><span class="shell__label">Card</span></a>
           <a class="shell__link shell__link--child" href="avatar.html"><span class="shell__num">6</span><span class="shell__label">Avatar</span></a>
           <a class="shell__link shell__link--child" href="table.html"><span class="shell__num">7</span><span class="shell__label">Table</span></a>
@@ -149,70 +166,71 @@
           <a class="shell__link shell__link--child" href="tree.html"><span class="shell__num">9</span><span class="shell__label">Tree</span></a>
           <a class="shell__link shell__link--child" href="calendar.html"><span class="shell__num">10</span><span class="shell__label">Calendar</span></a>
           <a class="shell__link shell__link--child" href="timeline.html"><span class="shell__num">11</span><span class="shell__label">Timeline</span></a>
-          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span></a>
+          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span></a>
+          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span></a>
           <a class="shell__link shell__link--child" href="rolling-number.html"><span class="shell__num">15</span><span class="shell__label">Rolling number</span></a>
           <a class="shell__link shell__link--child" href="code-block.html"><span class="shell__num">16</span><span class="shell__label">Code block</span></a>
           <a class="shell__link shell__link--child" href="carousel.html"><span class="shell__num">17</span><span class="shell__label">Carousel</span></a>
           <a class="shell__link shell__link--child" href="separator.html"><span class="shell__num">18</span><span class="shell__label">Separator</span></a>
-          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span></a>
+          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span></a>
+          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span></a>
+          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span></a>
+          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span></a>
+          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span></a>
+          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span></a>
+          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span></a>
+          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span></a>
+          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span></a>
+          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span></a>
+          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">7</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g8"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span></a>
+          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span></a>
+          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span></a>
+          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span></a>
+          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span></a>
+          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span></a>
+          <a class="shell__link shell__link--child" href="aksara.html"><span class="shell__num">7</span><span class="shell__label">Aksara Lampung</span><span class="badge badge--accent shell__badge">Baru</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g9"><span class="shell__section-label">Obrolan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g9"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span></a>
+          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span></a>
+          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span></a>
+          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span></a>
+          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g10"><span class="shell__section-label">Pola halaman</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g10"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span></a>
+          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span></a>
+          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span></a>
+          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span></a>
           <a class="shell__link shell__link--child" href="phone-screen.html"><span class="shell__num">5</span><span class="shell__label">Phone screen</span></a>
-          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g11"><span class="shell__section-label">Promosi</span><span class="shell__section-count">8</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g11"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span></a>
+          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span></a>
+          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span></a>
+          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span></a>
+          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span></a>
+          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span></a>
+          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span></a>
+          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -225,10 +243,10 @@
           <a class="shell__link shell__link--child" href="height-expand.html"><span class="shell__num">5</span><span class="shell__label">Height expand</span></a>
           <a class="shell__link shell__link--child" href="list-stagger.html"><span class="shell__num">6</span><span class="shell__label">List stagger</span></a>
           <a class="shell__link shell__link--child" href="view-swap.html"><span class="shell__num">7</span><span class="shell__label">View swap</span></a>
-          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span></a>
           <a class="shell__link shell__link--child" href="number-count.html"><span class="shell__num">9</span><span class="shell__label">Number count</span></a>
           <a class="shell__link shell__link--child" href="drag-and-momentum.html"><span class="shell__num">10</span><span class="shell__label">Drag and momentum</span></a>
-          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span></a>
           <a class="shell__link shell__link--child" href="reduced-motion.html"><span class="shell__num">12</span><span class="shell__label">Reduced motion</span></a>
         </div></div></div>
       </div>
@@ -249,27 +267,27 @@
           <a class="shell__link shell__link--child" href="scroll-fades.html"><span class="shell__num">12</span><span class="shell__label">Scroll fades</span></a>
           <a class="shell__link shell__link--child" href="hints.html"><span class="shell__num">13</span><span class="shell__label">Hints</span></a>
           <a class="shell__link shell__link--child" href="haptics.html"><span class="shell__num">14</span><span class="shell__label">Haptics</span></a>
-          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g14"><span class="shell__section-label">Grafik</span><span class="shell__section-count">16</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g14"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="chart-principles.html"><span class="shell__num">1</span><span class="shell__label">Chart principles</span></a>
-          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span></a>
           <a class="shell__link shell__link--child" href="sparkline-stat.html"><span class="shell__num">3</span><span class="shell__label">Sparkline stat</span></a>
           <a class="shell__link shell__link--child" href="bar-chart.html"><span class="shell__num">4</span><span class="shell__label">Bar chart</span></a>
-          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span></a>
           <a class="shell__link shell__link--child" href="line-chart.html"><span class="shell__num">6</span><span class="shell__label">Line chart</span></a>
-          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span></a>
+          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span></a>
           <a class="shell__link shell__link--child" href="donut.html"><span class="shell__num">9</span><span class="shell__label">Donut</span></a>
-          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span></a>
           <a class="shell__link shell__link--child" href="percentage-bar.html"><span class="shell__num">11</span><span class="shell__label">Percentage bar</span></a>
-          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span></a>
+          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span></a>
           <a class="shell__link shell__link--child" href="heatmap.html"><span class="shell__num">14</span><span class="shell__label">Heatmap</span></a>
-          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span></a>
           <a class="shell__link shell__link--child" href="chart-states.html"><span class="shell__num">16</span><span class="shell__label">Chart states</span></a>
         </div></div></div>
       </div>
@@ -295,52 +313,52 @@
       <main class="cdoc__main" id="main" tabindex="-1">
         <header class="cdoc__head">
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Overlays">Lapisan</a></li></ol></nav>
-          <h1>Modal <span class="badge badge--accent">Baru</span></h1>
-          <p class="cdoc__lede">A page-level dialog over the whole window: a native <code class="code">&lt;dialog class=&quot;modal&quot;&gt;</code> in the top layer, or <code class="code">.overlay</code> rendered in place by a framework. Below 600 px the native modal becomes a bottom sheet. Close it with <code class="code">closeModal()</code> so it plays its exit.</p>
+          <h1>Modal</h1>
+          <p class="cdoc__lede">Dialog tingkat halaman di atas seluruh jendela: <code class="code">&lt;dialog class=&quot;modal&quot;&gt;</code> native di top layer, atau <code class="code">.overlay</code> yang dirender di tempat oleh framework. Di bawah 600 px modal native menjadi bottom sheet. Tutup dengan <code class="code">closeModal()</code> agar animasi keluarnya diputar.</p>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>A form or confirm that belongs to the whole page rather than to a region: report a mistake, invite a student, edit profile details.</li><li>The layer must sit above everything, including sticky headers and the app shell, without managing z-index.</li><li>A React or other framework app that mounts and unmounts the layer itself (<code class="code">.overlay</code>).</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>A short question inside a positioned region (a canvas, a preview, a phone frame): pakai <a class="link" href="dialog.html">Dialog</a>.</li><li>Confirming a destructive action: pakai <a class="link" href="alert-dialog.html">Alert dialog</a>. Use the alert dialog anatomy (icon, title, danger button) inside the modal if it must be page-level.</li><li>A phone task that should be draggable and keep the page visible behind it: pakai <a class="link" href="sheet.html">Sheet</a>.</li><li>Filters or details beside a list on wide screens: pakai <a class="link" href="drawer.html">Drawer</a>.</li><li>Showing a picture larger: pakai <a class="link" href="lightbox.html">Lightbox</a>.</li><li>A long multi-step flow: pakai <a class="link" href="steps.html">Steps</a>. Give it its own page with steps.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Centered in the window, up to 520 px wide (<code class="code">.overlay__panel</code> 440 px), with 16 px to the edges and its own scroll when tall. Below 600 px the native modal docks to the bottom as a sheet with rounded top corners and safe-area padding. Place the <code class="code">&lt;dialog&gt;</code> anywhere in the page; the top layer lifts it out.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Formulir atau konfirmasi milik seluruh halaman, bukan satu area: laporkan kesalahan data, undang petugas, ubah data profil.</li><li>Lapisan harus berada di atas segalanya, termasuk header sticky dan app shell, tanpa mengatur z-index.</li><li>Aplikasi React atau framework lain yang memasang dan melepas lapisan sendiri (<code class="code">.overlay</code>).</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Pertanyaan singkat di dalam area yang diposisikan (kanvas, pratinjau, bingkai ponsel): pakai <a class="link" href="dialog.html">Dialog</a>.</li><li>Mengonfirmasi aksi destruktif: pakai <a class="link" href="alert-dialog.html">Alert dialog</a>. Pakai anatomi alert dialog (ikon, judul, tombol danger) di dalam modal jika harus tingkat halaman.</li><li>Tugas di ponsel yang sebaiknya bisa diseret dan tetap memperlihatkan halaman di belakang: pakai <a class="link" href="sheet.html">Sheet</a>.</li><li>Filter atau detail di samping daftar pada layar lebar: pakai <a class="link" href="drawer.html">Drawer</a>.</li><li>Menampilkan gambar lebih besar: pakai <a class="link" href="lightbox.html">Lightbox</a>.</li><li>Alur panjang dengan banyak langkah: pakai <a class="link" href="steps.html">Steps</a>. Beri halaman sendiri dengan steps.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di tengah jendela, paling lebar 520 px (<code class="code">.overlay__panel</code> 440 px), berjarak 16 px dari tepi dan bergulir sendiri jika tinggi. Di bawah 600 px modal native menempel di bawah sebagai sheet dengan sudut atas membulat dan padding safe-area. Taruh <code class="code">&lt;dialog&gt;</code> di mana saja di halaman; top layer yang mengangkatnya.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Native page modal</span><span class="cdoc__ex-d">Opens above the whole page in the top layer. Escape, a click on the backdrop and Cancel all play the exit before it closes. Narrow the window below 600 px to see it as a bottom sheet.</span></figcaption>
-          <div class="cdoc__stage" id="ex-1-stage"><button class="btn btn--secondary" data-lds-modal="md-report"><span class="ic" aria-hidden="true">error</span>Report a mistake</button>
+          <figcaption><span class="cdoc__ex-t">Modal halaman native</span><span class="cdoc__ex-d">Terbuka di atas seluruh halaman di top layer. Escape, klik pada backdrop, dan Batal semuanya memutar animasi keluar sebelum menutup. Persempit jendela di bawah 600 px untuk melihatnya sebagai bottom sheet.</span></figcaption>
+          <div class="cdoc__stage" id="ex-1-stage"><button class="btn btn--secondary" data-lds-modal="md-report"><span class="ic" aria-hidden="true">error</span>Laporkan kesalahan data</button>
 <dialog class="modal" id="md-report" aria-labelledby="md-report-t">
-  <button class="icon-btn dialog__close" data-lds-modal-close aria-label="Close"><span class="ic" aria-hidden="true">close</span></button>
-  <h2 class="dialog__title" id="md-report-t">Report a mistake</h2>
-  <p class="dialog__body">Tell us what is wrong in question 14 and what it should say.</p>
-  <div class="field" style="margin-top: 16px;"><div class="control control--area"><textarea aria-label="What is wrong" placeholder="The answer key says B, the explanation says C."></textarea></div></div>
-  <div class="dialog__actions"><button class="btn btn--secondary" data-lds-modal-close>Cancel</button><button class="btn btn--primary" data-lds-modal-close>Send report</button></div>
+  <button class="icon-btn dialog__close" data-lds-modal-close aria-label="Tutup"><span class="ic" aria-hidden="true">close</span></button>
+  <h2 class="dialog__title" id="md-report-t">Laporkan kesalahan data</h2>
+  <p class="dialog__body">Beri tahu kami apa yang salah pada data jadwal puskesmas dan seharusnya seperti apa.</p>
+  <div class="field" style="margin-top: 16px;"><div class="control control--area"><textarea aria-label="Apa yang salah" placeholder="Jadwal menulis buka pukul 07.00, papan di lokasi menulis 08.00."></textarea></div></div>
+  <div class="dialog__actions"><button class="btn btn--secondary" data-lds-modal-close>Batal</button><button class="btn btn--primary" data-lds-modal-close>Kirim laporan</button></div>
 </dialog></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;button class=&quot;btn btn--secondary&quot; data-lds-modal=&quot;md-report&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;error&lt;/span&gt;Report a mistake&lt;/button&gt;
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;button class=&quot;btn btn--secondary&quot; data-lds-modal=&quot;md-report&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;error&lt;/span&gt;Laporkan kesalahan data&lt;/button&gt;
 &lt;dialog class=&quot;modal&quot; id=&quot;md-report&quot; aria-labelledby=&quot;md-report-t&quot;&gt;
-  &lt;button class=&quot;icon-btn dialog__close&quot; data-lds-modal-close aria-label=&quot;Close&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;close&lt;/span&gt;&lt;/button&gt;
-  &lt;h2 class=&quot;dialog__title&quot; id=&quot;md-report-t&quot;&gt;Report a mistake&lt;/h2&gt;
-  &lt;p class=&quot;dialog__body&quot;&gt;Tell us what is wrong in question 14 and what it should say.&lt;/p&gt;
-  &lt;div class=&quot;field&quot; style=&quot;margin-top: 16px;&quot;&gt;&lt;div class=&quot;control control--area&quot;&gt;&lt;textarea aria-label=&quot;What is wrong&quot; placeholder=&quot;The answer key says B, the explanation says C.&quot;&gt;&lt;/textarea&gt;&lt;/div&gt;&lt;/div&gt;
-  &lt;div class=&quot;dialog__actions&quot;&gt;&lt;button class=&quot;btn btn--secondary&quot; data-lds-modal-close&gt;Cancel&lt;/button&gt;&lt;button class=&quot;btn btn--primary&quot; data-lds-modal-close&gt;Send report&lt;/button&gt;&lt;/div&gt;
+  &lt;button class=&quot;icon-btn dialog__close&quot; data-lds-modal-close aria-label=&quot;Tutup&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;close&lt;/span&gt;&lt;/button&gt;
+  &lt;h2 class=&quot;dialog__title&quot; id=&quot;md-report-t&quot;&gt;Laporkan kesalahan data&lt;/h2&gt;
+  &lt;p class=&quot;dialog__body&quot;&gt;Beri tahu kami apa yang salah pada data jadwal puskesmas dan seharusnya seperti apa.&lt;/p&gt;
+  &lt;div class=&quot;field&quot; style=&quot;margin-top: 16px;&quot;&gt;&lt;div class=&quot;control control--area&quot;&gt;&lt;textarea aria-label=&quot;Apa yang salah&quot; placeholder=&quot;Jadwal menulis buka pukul 07.00, papan di lokasi menulis 08.00.&quot;&gt;&lt;/textarea&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;dialog__actions&quot;&gt;&lt;button class=&quot;btn btn--secondary&quot; data-lds-modal-close&gt;Batal&lt;/button&gt;&lt;button class=&quot;btn btn--primary&quot; data-lds-modal-close&gt;Kirim laporan&lt;/button&gt;&lt;/div&gt;
 &lt;/dialog&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;button class=&quot;btn btn--secondary&quot; data-lds-modal=&quot;md-report&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;error&lt;/span&gt;Report a mistake&lt;/button&gt;
+          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;button class=&quot;btn btn--secondary&quot; data-lds-modal=&quot;md-report&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;error&lt;/span&gt;Laporkan kesalahan data&lt;/button&gt;
 &lt;dialog class=&quot;modal&quot; id=&quot;md-report&quot; aria-labelledby=&quot;md-report-t&quot;&gt;
-  &lt;button class=&quot;icon-btn dialog__close&quot; data-lds-modal-close aria-label=&quot;Close&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;close&lt;/span&gt;&lt;/button&gt;
-  &lt;h2 class=&quot;dialog__title&quot; id=&quot;md-report-t&quot;&gt;Report a mistake&lt;/h2&gt;
-  &lt;p class=&quot;dialog__body&quot;&gt;Tell us what is wrong in question 14 and what it should say.&lt;/p&gt;
-  &lt;div class=&quot;field&quot; style=&quot;margin-top: 16px;&quot;&gt;&lt;div class=&quot;control control--area&quot;&gt;&lt;textarea aria-label=&quot;What is wrong&quot; placeholder=&quot;The answer key says B, the explanation says C.&quot;&gt;&lt;/textarea&gt;&lt;/div&gt;&lt;/div&gt;
-  &lt;div class=&quot;dialog__actions&quot;&gt;&lt;button class=&quot;btn btn--secondary&quot; data-lds-modal-close&gt;Cancel&lt;/button&gt;&lt;button class=&quot;btn btn--primary&quot; data-lds-modal-close&gt;Send report&lt;/button&gt;&lt;/div&gt;
+  &lt;button class=&quot;icon-btn dialog__close&quot; data-lds-modal-close aria-label=&quot;Tutup&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;close&lt;/span&gt;&lt;/button&gt;
+  &lt;h2 class=&quot;dialog__title&quot; id=&quot;md-report-t&quot;&gt;Laporkan kesalahan data&lt;/h2&gt;
+  &lt;p class=&quot;dialog__body&quot;&gt;Beri tahu kami apa yang salah pada data jadwal puskesmas dan seharusnya seperti apa.&lt;/p&gt;
+  &lt;div class=&quot;field&quot; style=&quot;margin-top: 16px;&quot;&gt;&lt;div class=&quot;control control--area&quot;&gt;&lt;textarea aria-label=&quot;Apa yang salah&quot; placeholder=&quot;Jadwal menulis buka pukul 07.00, papan di lokasi menulis 08.00.&quot;&gt;&lt;/textarea&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;dialog__actions&quot;&gt;&lt;button class=&quot;btn btn--secondary&quot; data-lds-modal-close&gt;Batal&lt;/button&gt;&lt;button class=&quot;btn btn--primary&quot; data-lds-modal-close&gt;Kirim laporan&lt;/button&gt;&lt;/div&gt;
 &lt;/dialog&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
-          <figcaption><span class="cdoc__ex-t">In-place overlay</span><span class="cdoc__ex-d">The same layer rendered by a framework: mount <code class="code">.overlay</code> to open, call <code class="code">closeModal(el, unmount)</code> to play the exit and then unmount. Shown here inside this box.</span></figcaption>
-          <div class="cdoc__stage" id="ex-2-stage" style="min-height: 360px;"><button class="btn btn--secondary" id="md-ov-open" onclick="const o = document.getElementById('md-ov'); o.hidden = false; o.querySelector('input').focus();"><span class="ic" aria-hidden="true">person_add</span>Invite a student</button>
+          <figcaption><span class="cdoc__ex-t">Overlay di tempat</span><span class="cdoc__ex-d">Lapisan yang sama dirender oleh framework: pasang <code class="code">.overlay</code> untuk membuka, panggil <code class="code">closeModal(el, unmount)</code> untuk memutar animasi keluar lalu melepasnya. Di sini ditampilkan di dalam kotak ini.</span></figcaption>
+          <div class="cdoc__stage" id="ex-2-stage" style="min-height: 360px;"><button class="btn btn--secondary" id="md-ov-open" onclick="const o = document.getElementById('md-ov'); o.hidden = false; o.querySelector('input').focus();"><span class="ic" aria-hidden="true">person_add</span>Undang petugas</button>
 <div class="overlay" id="md-ov" hidden>
   <div class="overlay__panel" role="dialog" aria-modal="true" aria-labelledby="md-ov-t">
-    <button class="icon-btn dialog__close" aria-label="Close" onclick="const o = this.closest('.overlay'); o.classList.add('is-closing'); setTimeout(() => { o.hidden = true; o.classList.remove('is-closing'); document.getElementById('md-ov-open').focus(); }, 180);"><span class="ic" aria-hidden="true">close</span></button>
-    <h2 class="dialog__title" id="md-ov-t">Invite a student</h2>
-    <p class="dialog__body">They get an email with a link to join Database Systems.</p>
-    <div class="control"><input type="email" aria-label="Email address" placeholder="name@school.edu"></div>
-    <div class="dialog__actions"><button class="btn btn--secondary" onclick="const o = this.closest('.overlay'); o.classList.add('is-closing'); setTimeout(() => { o.hidden = true; o.classList.remove('is-closing'); document.getElementById('md-ov-open').focus(); }, 180);">Cancel</button><button class="btn btn--primary" onclick="const o = this.closest('.overlay'); o.classList.add('is-closing'); setTimeout(() => { o.hidden = true; o.classList.remove('is-closing'); document.getElementById('md-ov-open').focus(); }, 180);">Send invite</button></div>
+    <button class="icon-btn dialog__close" aria-label="Tutup" onclick="const o = this.closest('.overlay'); o.classList.add('is-closing'); setTimeout(() => { o.hidden = true; o.classList.remove('is-closing'); document.getElementById('md-ov-open').focus(); }, 180);"><span class="ic" aria-hidden="true">close</span></button>
+    <h2 class="dialog__title" id="md-ov-t">Undang petugas</h2>
+    <p class="dialog__body">Petugas menerima email berisi tautan untuk bergabung dengan tim verifikasi izin.</p>
+    <div class="control"><input type="email" aria-label="Alamat email" placeholder="nama@contoh.id"></div>
+    <div class="dialog__actions"><button class="btn btn--secondary" onclick="const o = this.closest('.overlay'); o.classList.add('is-closing'); setTimeout(() => { o.hidden = true; o.classList.remove('is-closing'); document.getElementById('md-ov-open').focus(); }, 180);">Batal</button><button class="btn btn--primary" onclick="const o = this.closest('.overlay'); o.classList.add('is-closing'); setTimeout(() => { o.hidden = true; o.classList.remove('is-closing'); document.getElementById('md-ov-open').focus(); }, 180);">Kirim undangan</button></div>
   </div>
 </div></div>
           
@@ -350,11 +368,11 @@
             <button class="btn btn--plain btn--sm" data-lds-copy="{open &amp;&amp; (
   &lt;div className=&quot;overlay&quot; ref={ref} onKeyDown={(e) =&gt; e.key === 'Escape' &amp;&amp; closeModal(ref.current, () =&gt; setOpen(false))}&gt;
     &lt;div className=&quot;overlay__panel&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;invite-t&quot;&gt;
-      &lt;h2 className=&quot;dialog__title&quot; id=&quot;invite-t&quot;&gt;Invite a student&lt;/h2&gt;
-      &lt;p className=&quot;dialog__body&quot;&gt;They get an email with a link to join Database Systems.&lt;/p&gt;
+      &lt;h2 className=&quot;dialog__title&quot; id=&quot;invite-t&quot;&gt;Undang petugas&lt;/h2&gt;
+      &lt;p className=&quot;dialog__body&quot;&gt;Petugas menerima email berisi tautan untuk bergabung dengan tim verifikasi izin.&lt;/p&gt;
       &lt;div className=&quot;dialog__actions&quot;&gt;
-        &lt;button className=&quot;btn btn--secondary&quot; onClick={() =&gt; closeModal(ref.current, () =&gt; setOpen(false))}&gt;Cancel&lt;/button&gt;
-        &lt;button className=&quot;btn btn--primary&quot; onClick={send}&gt;Send invite&lt;/button&gt;
+        &lt;button className=&quot;btn btn--secondary&quot; onClick={() =&gt; closeModal(ref.current, () =&gt; setOpen(false))}&gt;Batal&lt;/button&gt;
+        &lt;button className=&quot;btn btn--primary&quot; onClick={send}&gt;Kirim undangan&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -363,33 +381,33 @@
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>{open &amp;&amp; (
   &lt;div className=&quot;overlay&quot; ref={ref} onKeyDown={(e) =&gt; e.key === 'Escape' &amp;&amp; closeModal(ref.current, () =&gt; setOpen(false))}&gt;
     &lt;div className=&quot;overlay__panel&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;invite-t&quot;&gt;
-      &lt;h2 className=&quot;dialog__title&quot; id=&quot;invite-t&quot;&gt;Invite a student&lt;/h2&gt;
-      &lt;p className=&quot;dialog__body&quot;&gt;They get an email with a link to join Database Systems.&lt;/p&gt;
+      &lt;h2 className=&quot;dialog__title&quot; id=&quot;invite-t&quot;&gt;Undang petugas&lt;/h2&gt;
+      &lt;p className=&quot;dialog__body&quot;&gt;Petugas menerima email berisi tautan untuk bergabung dengan tim verifikasi izin.&lt;/p&gt;
       &lt;div className=&quot;dialog__actions&quot;&gt;
-        &lt;button className=&quot;btn btn--secondary&quot; onClick={() =&gt; closeModal(ref.current, () =&gt; setOpen(false))}&gt;Cancel&lt;/button&gt;
-        &lt;button className=&quot;btn btn--primary&quot; onClick={send}&gt;Send invite&lt;/button&gt;
+        &lt;button className=&quot;btn btn--secondary&quot; onClick={() =&gt; closeModal(ref.current, () =&gt; setOpen(false))}&gt;Batal&lt;/button&gt;
+        &lt;button className=&quot;btn btn--primary&quot; onClick={send}&gt;Kirim undangan&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 )}</pre></div></div></div>
         </figure></section>
-        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">dialog.modal</code></td><td>Required for the native version. <code class="code">id</code>, <code class="code">aria-labelledby</code> the title. Opened with <code class="code">showModal()</code>.</td></tr><tr><td><code class="code">.overlay</code></td><td>Required for the in-place version: a fixed full-window scrim that centers the panel; rendered only while open.</td></tr><tr><td><code class="code">.overlay__panel[role=dialog][aria-modal=true]</code></td><td>The panel inside <code class="code">.overlay</code>; a column with 8 px gaps.</td></tr><tr><td><code class="code">.dialog__close</code></td><td>Close <a class="link" href="icon-button.html">icon button</a>, top right; <code class="code">data-lds-modal-close</code> in the native version.</td></tr><tr><td><code class="code">.dialog__title / .dialog__body</code></td><td>Required title and the context line, the same parts as the <a class="link" href="dialog.html">dialog</a>.</td></tr><tr><td><code class="code">.dialog__actions</code></td><td>Required. Secondary then primary, sharing the width.</td></tr><tr><td><code class="code">[data-lds-modal=&quot;id&quot;]</code></td><td>The trigger for a native modal.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">dialog.modal</code></td><td>Native: top layer, <code class="code">::backdrop</code>, focus handled by the browser, a bottom sheet below 600 px. The default.</td></tr><tr><td><code class="code">.overlay &gt; .overlay__panel</code></td><td>In place: for frameworks that render the layer conditionally. Stays centered on phones. You handle Escape, focus and the backdrop click.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">[open]</code></td><td>Native modal shown; enters on a spring and its backdrop fades in.</td></tr><tr><td><code class="code">.is-closing</code></td><td>Plays the exit (<code class="code">lds-modal-out</code>, or <code class="code">lds-sheet-down</code> on phones). Added by <code class="code">closeModal()</code>, removed once closed.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Enter: <code class="code">lds-modal-in</code> from <code class="code">translateY(8px) scale(0.96)</code> and transparent, on <code class="code">--spring-smooth</code> over <code class="code">--d-smooth</code> (560 ms). The backdrop fades in over <code class="code">--d-standard</code> (240 ms); <code class="code">.overlay</code> fades in over <code class="code">--d-fast</code>.</li><li>Exit: <code class="code">lds-modal-out</code> to <code class="code">scale(0.97)</code> and transparent over <code class="code">--d-exit</code> (180 ms) on <code class="code">--ease-exit</code>, the backdrop fading with it. <code class="code">closeModal()</code> waits for it, then calls <code class="code">close()</code> or your <code class="code">done</code>.</li><li>Phones (600 px and under): the native modal rises with <code class="code">lds-sheet-up</code> on <code class="code">--spring-smooth</code> and drops with <code class="code">lds-sheet-down</code> in 260 ms on <code class="code">--ease-exit</code>.</li><li>Reduced motion: no animations; <code class="code">closeModal()</code> closes at once.</li></ul></section>
-        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Native: <code class="code">showModal()</code> makes the rest of the page inert, traps focus and moves it to the first focusable element (or <code class="code">[autofocus]</code>); on close the browser returns focus to the trigger.</li><li>Native: <code class="code">aria-labelledby</code> the title. Escape is intercepted (<code class="code">cancel</code>) so the exit animation plays before closing.</li><li>Overlay: put <code class="code">role=&quot;dialog&quot;</code>, <code class="code">aria-modal=&quot;true&quot;</code> and <code class="code">aria-labelledby</code> on <code class="code">.overlay__panel</code>; move focus into it on mount, trap Tab, close on Escape, and return focus to the trigger after unmount. The system does not do these for <code class="code">.overlay</code>.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Close with <code class="code">closeModal()</code> (or <code class="code">[data-lds-modal-close]</code>) so the exit plays; never call <code class="code">dialog.close()</code> directly.</li><li>Keep it to one task with one primary action.</li><li>Let long content scroll inside the modal, not the page behind.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Wrap <code class="code">dialog.modal</code> in your own fixed wrapper or give it a z-index; the top layer does that.</li><li>Open a modal on page load.</li><li>Stack a modal on a modal.</li></ul></div></div></section>
-        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> <code class="code">[data-lds-modal=&quot;id&quot;]</code> opens <code class="code">dialog#id.modal</code> with <code class="code">openModal(el)</code> (<code class="code">showModal()</code>). Inside, <code class="code">[data-lds-modal-close]</code>, Escape and a click on the backdrop call <code class="code">closeModal(el)</code>, which adds <code class="code">.is-closing</code>, waits for the exit (180 ms; 260 ms as a phone sheet) and closes. <code class="code">closeModal(overlayEl, done)</code> does the same for <code class="code">.overlay</code> and then calls <code class="code">done</code> to unmount.</p><p class="cdoc__p"><strong>React.</strong> Dari <code class="code">lampung-design-system/react</code>.</p><div class="codeblock"><pre>import { closeModal } from 'lampung-design-system/react';
+        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">dialog.modal</code></td><td>Wajib untuk versi native. <code class="code">id</code>, <code class="code">aria-labelledby</code> ke judul. Dibuka dengan <code class="code">showModal()</code>.</td></tr><tr><td><code class="code">.overlay</code></td><td>Wajib untuk versi di tempat: scrim fixed selebar jendela yang menengahkan panel; dirender hanya saat terbuka.</td></tr><tr><td><code class="code">.overlay__panel[role=dialog][aria-modal=true]</code></td><td>Panel di dalam <code class="code">.overlay</code>; kolom dengan jarak 8 px.</td></tr><tr><td><code class="code">.dialog__close</code></td><td><a class="link" href="icon-button.html">Icon button</a> tutup, kanan atas; <code class="code">data-lds-modal-close</code> di versi native.</td></tr><tr><td><code class="code">.dialog__title / .dialog__body</code></td><td>Judul wajib dan baris konteks, bagian yang sama dengan <a class="link" href="dialog.html">dialog</a>.</td></tr><tr><td><code class="code">.dialog__actions</code></td><td>Wajib. Sekunder lalu utama, berbagi lebar.</td></tr><tr><td><code class="code">[data-lds-modal=&quot;id&quot;]</code></td><td>Pemicu untuk modal native.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">dialog.modal</code></td><td>Native: top layer, <code class="code">::backdrop</code>, fokus diurus browser, bottom sheet di bawah 600 px. Bawaan.</td></tr><tr><td><code class="code">.overlay &gt; .overlay__panel</code></td><td>Di tempat: untuk framework yang merender lapisan secara kondisional. Tetap di tengah di ponsel. Anda yang menangani Escape, fokus, dan klik backdrop.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">[open]</code></td><td>Modal native tampil; masuk dengan spring dan backdrop-nya muncul perlahan.</td></tr><tr><td><code class="code">.is-closing</code></td><td>Memutar animasi keluar (<code class="code">lds-modal-out</code>, atau <code class="code">lds-sheet-down</code> di ponsel). Ditambahkan oleh <code class="code">closeModal()</code>, dihapus setelah tertutup.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Masuk: <code class="code">lds-modal-in</code> dari <code class="code">translateY(8px) scale(0.96)</code> dan transparan, dengan <code class="code">--spring-smooth</code> selama <code class="code">--d-smooth</code> (560 ms). Backdrop muncul selama <code class="code">--d-standard</code> (240 ms); <code class="code">.overlay</code> muncul selama <code class="code">--d-fast</code>.</li><li>Keluar: <code class="code">lds-modal-out</code> ke <code class="code">scale(0.97)</code> dan transparan selama <code class="code">--d-exit</code> (180 ms) dengan <code class="code">--ease-exit</code>, backdrop memudar bersamanya. <code class="code">closeModal()</code> menunggunya, lalu memanggil <code class="code">close()</code> atau <code class="code">done</code> Anda.</li><li>Ponsel (600 px ke bawah): modal native naik dengan <code class="code">lds-sheet-up</code> pada <code class="code">--spring-smooth</code> dan turun dengan <code class="code">lds-sheet-down</code> dalam 260 ms dengan <code class="code">--ease-exit</code>.</li><li>Reduced motion: tanpa animasi; <code class="code">closeModal()</code> langsung menutup.</li></ul></section>
+        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Native: <code class="code">showModal()</code> membuat sisa halaman inert, mengunci fokus, dan memindahkannya ke elemen pertama yang bisa difokus (atau <code class="code">[autofocus]</code>); saat ditutup browser mengembalikan fokus ke pemicu.</li><li>Native: <code class="code">aria-labelledby</code> ke judul. Escape dicegat (<code class="code">cancel</code>) agar animasi keluar diputar sebelum menutup.</li><li>Overlay: taruh <code class="code">role=&quot;dialog&quot;</code>, <code class="code">aria-modal=&quot;true&quot;</code>, dan <code class="code">aria-labelledby</code> pada <code class="code">.overlay__panel</code>; pindahkan fokus ke dalamnya saat dipasang, kunci Tab, tutup dengan Escape, dan kembalikan fokus ke pemicu setelah dilepas. Sistem tidak melakukan ini untuk <code class="code">.overlay</code>.</li></ul></section>
+        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Tutup dengan <code class="code">closeModal()</code> (atau <code class="code">[data-lds-modal-close]</code>) agar animasi keluar diputar; jangan pernah memanggil <code class="code">dialog.close()</code> langsung.</li><li>Batasi pada satu tugas dengan satu aksi utama.</li><li>Biarkan konten panjang bergulir di dalam modal, bukan halaman di belakangnya.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Membungkus <code class="code">dialog.modal</code> dengan pembungkus fixed sendiri atau memberinya z-index; top layer sudah melakukannya.</li><li>Membuka modal saat halaman dimuat.</li><li>Menumpuk modal di atas modal.</li></ul></div></div></section>
+        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> <code class="code">[data-lds-modal=&quot;id&quot;]</code> membuka <code class="code">dialog#id.modal</code> dengan <code class="code">openModal(el)</code> (<code class="code">showModal()</code>). Di dalamnya, <code class="code">[data-lds-modal-close]</code>, Escape, dan klik pada backdrop memanggil <code class="code">closeModal(el)</code>, yang menambahkan <code class="code">.is-closing</code>, menunggu animasi keluar (180 ms; 260 ms sebagai sheet ponsel), lalu menutup. <code class="code">closeModal(overlayEl, done)</code> melakukan hal yang sama untuk <code class="code">.overlay</code> lalu memanggil <code class="code">done</code> untuk melepasnya.</p><p class="cdoc__p"><strong>React.</strong> Dari <code class="code">lampung-design-system/react</code>.</p><div class="codeblock"><pre>import { closeModal } from 'lampung-design-system/react';
 
 const ref = useRef&lt;HTMLDivElement&gt;(null);
 {open &amp;&amp; (
   &lt;div className=&quot;overlay&quot; ref={ref}&gt;
     &lt;div className=&quot;overlay__panel&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;t&quot;&gt;…
-      &lt;button className=&quot;btn btn--secondary&quot; onClick={() =&gt; closeModal(ref.current, () =&gt; setOpen(false))}&gt;Cancel&lt;/button&gt;
+      &lt;button className=&quot;btn btn--secondary&quot; onClick={() =&gt; closeModal(ref.current, () =&gt; setOpen(false))}&gt;Batal&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 )}</pre></div></section>
-        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="dialog.html"><span class="link-card__eyebrow">Lapisan</span><span class="link-card__title">Dialog</span><span class="link-card__body">A small centered layer that interrupts to ask for one short input or decision, then gets out of the way. Use rarely: most tasks belong on the page, in a sheet or in a drawer.</span></a><a class="link-card" href="alert-dialog.html"><span class="link-card__eyebrow">Lapisan</span><span class="link-card__title">Alert dialog</span><span class="link-card__body">A dialog that confirms a destructive or irreversible action. The title names the object and the consequence; the safe button gets focus; the destructive button is the only place `btn--danger` belongs.</span></a><a class="link-card" href="sheet.html"><span class="link-card__eyebrow">Lapisan</span><span class="link-card__title">Sheet</span><span class="link-card__body">A panel that rises from the bottom for a task that keeps its context: the page behind recedes but stays visible. Drag the grabber to dismiss with momentum. The phone answer to most dialogs.</span></a><a class="link-card" href="lightbox.html"><span class="link-card__eyebrow">Lapisan</span><span class="link-card__title">Lightbox</span><span class="link-card__body">Shows one picture large over a dim page: it grows out of its thumbnail and shrinks back into it. A link around a thumbnail, so without the script it still opens the full image.</span></a></div></section>
+        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="dialog.html"><span class="link-card__eyebrow">Lapisan</span><span class="link-card__title">Dialog</span><span class="link-card__body">Lapisan kecil di tengah yang menyela untuk meminta satu isian singkat atau satu keputusan, lalu menyingkir. Pakai seperlunya: sebagian besar tugas tempatnya di halaman, sheet, atau drawer.</span></a><a class="link-card" href="alert-dialog.html"><span class="link-card__eyebrow">Lapisan</span><span class="link-card__title">Alert dialog</span><span class="link-card__body">Dialog yang meminta konfirmasi untuk aksi yang destruktif atau tidak bisa dibatalkan. Judulnya menyebut objek dan akibatnya; tombol aman mendapat fokus; tombol destruktif adalah satu-satunya tempat `btn--danger`.</span></a><a class="link-card" href="sheet.html"><span class="link-card__eyebrow">Lapisan</span><span class="link-card__title">Sheet</span><span class="link-card__body">Panel yang naik dari bawah untuk tugas yang tetap menjaga konteks: halaman di belakang mundur tetapi tetap terlihat. Seret grabber untuk menutup dengan momentum. Jawaban versi ponsel untuk sebagian besar dialog.</span></a><a class="link-card" href="lightbox.html"><span class="link-card__eyebrow">Lapisan</span><span class="link-card__title">Lightbox</span><span class="link-card__body">Menampilkan satu gambar berukuran besar di atas halaman yang diredupkan: gambar tumbuh dari thumbnail-nya dan menyusut kembali ke sana. Berupa tautan di sekitar thumbnail, sehingga tanpa skrip pun tetap membuka gambar penuh.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
           <a class="link-card cdoc__prev" href="alert-dialog.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Sebelumnya</span><span class="link-card__title">Alert dialog</span></a>
           <a class="link-card cdoc__next" href="sheet.html"><span class="link-card__eyebrow">Berikutnya<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Sheet</span></a>

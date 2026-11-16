@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Funnel · Lampung Design System</title>
-<meta name="description" content="The steps of a flow, each with how many reached it and what share of the step before moved on. Centered bars narrow with the count, so the biggest drop is visible at a glance; the words carry the exact numbers.">
+<meta name="description" content="Tahap-tahap sebuah alur, masing-masing dengan berapa orang yang mencapainya dan berapa persen dari tahap sebelumnya yang lanjut. Batang di tengah menyempit mengikuti jumlahnya, jadi penurunan terbesar terlihat sekilas; kata-katanya membawa angka pastinya.">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
 <link rel="stylesheet" href="../../css/lds.css">
 <link rel="stylesheet" href="../docs.css">
@@ -12,20 +12,36 @@
 </head>
 <body class="lds">
 <a class="skip" href="#main">Langsung ke konten</a>
+<div class="masthead" role="region" aria-label="Status situs">
+  <div class="masthead__bar">
+    <span class="masthead__mark" aria-hidden="true"><span class="ic">info</span></span>
+    <span class="masthead__text">Proyek komunitas. Ini bukan situs resmi pemerintah.</span>
+    <button class="masthead__toggle" data-lds-masthead aria-expanded="false" aria-controls="lds-masthead">Cara memastikan<span class="ic" aria-hidden="true">expand_more</span></button>
+  </div>
+  <div class="collapse is-closed" id="lds-masthead" inert><div><div class="masthead__body">
+    <p class="masthead__item"><span class="ic" aria-hidden="true">groups</span><span><b>Dikelola sukarelawan.</b> Lampung Design System dibangun oleh komunitas open source. Tidak ada instansi pemerintah yang mengelola atau mendukungnya secara resmi.</span></p>
+    <p class="masthead__item"><span class="ic" aria-hidden="true">verified_user</span><span><b>Layanan resmi memakai go.id.</b> Situs pemerintah Indonesia berakhiran .go.id. Jangan masukkan NIK di situs yang Anda ragukan.</span></p>
+  </div></div></div>
+</div>
 <div class="shell" data-lds-shell>
   <aside class="shell__side" id="side" aria-label="Dokumentasi">
-    <a class="shell__brand" href="../index.html"><span class="page-head__mark">L</span>Lampung Design System</a>
+    <a class="shell__brand" href="../index.html"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>Lampung Design System</a>
     <nav class="shell__nav" aria-label="Komponen">
       <span class="shell__hl" aria-hidden="true"></span>
-      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Memulai</span></a>
+      <p class="shell__group">Memulai</p>
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Pengenalan</span></a>
+      <a class="shell__link" href="../guide/instalasi.html"><span class="ic" aria-hidden="true">download</span><span class="shell__label">Instalasi</span></a>
+      <a class="shell__link" href="../guide/penulisan.html"><span class="ic" aria-hidden="true">edit_square</span><span class="shell__label">Penulisan</span></a>
+      <a class="shell__link" href="../guide/aksesibilitas.html"><span class="ic" aria-hidden="true">accessible</span><span class="shell__label">Aksesibilitas</span></a>
+      <a class="shell__link" href="../guide/desainer.html"><span class="ic" aria-hidden="true">palette</span><span class="shell__label">Untuk desainer</span></a>
+      <p class="shell__group">Komponen</p>
       <a class="shell__link" href="index.html"><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">Semua komponen</span></a>
       <a class="shell__link" href="../examples/index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Contoh</span></a>
-      <p class="shell__group">Komponen</p>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g0"><span class="shell__section-label">Landasan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g0"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span></a>
+          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span></a>
           <a class="shell__link shell__link--child" href="data-states.html"><span class="shell__num">3</span><span class="shell__label">Data states</span></a>
           <a class="shell__link shell__link--child" href="theming.html"><span class="shell__num">4</span><span class="shell__label">Theming</span></a>
           <a class="shell__link shell__link--child" href="icon.html"><span class="shell__num">5</span><span class="shell__label">Icon</span></a>
@@ -60,9 +76,9 @@
           <a class="shell__link shell__link--child" href="select.html"><span class="shell__num">8</span><span class="shell__label">Select</span></a>
           <a class="shell__link shell__link--child" href="combobox.html"><span class="shell__num">9</span><span class="shell__label">Combobox</span></a>
           <a class="shell__link shell__link--child" href="tag-input.html"><span class="shell__num">10</span><span class="shell__label">Tag input</span></a>
-          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span></a>
+          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span></a>
+          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -80,21 +96,22 @@
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">13</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">14</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g4"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">1</span><span class="shell__label">App shell</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">2</span><span class="shell__label">Top nav</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">3</span><span class="shell__label">Tabs</span></a>
-          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">4</span><span class="shell__label">Breadcrumbs</span></a>
-          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">5</span><span class="shell__label">Page header</span></a>
-          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">6</span><span class="shell__label">Pagination</span></a>
-          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">7</span><span class="shell__label">Steps</span></a>
-          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">8</span><span class="shell__label">Sidebar</span></a>
-          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">9</span><span class="shell__label">Outline</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">10</span><span class="shell__label">Menubar</span></a>
-          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">11</span><span class="shell__label">Nav progress</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">12</span><span class="shell__label">Phone bars</span></a>
-          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">13</span><span class="shell__label">Navigation stack</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="masthead.html"><span class="shell__num">1</span><span class="shell__label">Masthead</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">2</span><span class="shell__label">App shell</span></a>
+          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">3</span><span class="shell__label">Top nav</span></a>
+          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">4</span><span class="shell__label">Tabs</span></a>
+          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">5</span><span class="shell__label">Breadcrumbs</span></a>
+          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">6</span><span class="shell__label">Page header</span></a>
+          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">7</span><span class="shell__label">Pagination</span></a>
+          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">8</span><span class="shell__label">Steps</span></a>
+          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">9</span><span class="shell__label">Sidebar</span></a>
+          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">10</span><span class="shell__label">Outline</span></a>
+          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">11</span><span class="shell__label">Menubar</span></a>
+          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">12</span><span class="shell__label">Nav progress</span></a>
+          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">13</span><span class="shell__label">Phone bars</span></a>
+          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">14</span><span class="shell__label">Navigation stack</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -102,7 +119,7 @@
         <div class="shell__panel" id="nav-g5"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="dialog.html"><span class="shell__num">1</span><span class="shell__label">Dialog</span></a>
           <a class="shell__link shell__link--child" href="alert-dialog.html"><span class="shell__num">2</span><span class="shell__label">Alert dialog</span></a>
-          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span></a>
           <a class="shell__link shell__link--child" href="sheet.html"><span class="shell__num">4</span><span class="shell__label">Sheet</span></a>
           <a class="shell__link shell__link--child" href="drawer.html"><span class="shell__num">5</span><span class="shell__label">Drawer</span></a>
           <a class="shell__link shell__link--child" href="dropdown-menu.html"><span class="shell__num">6</span><span class="shell__label">Dropdown menu</span></a>
@@ -112,8 +129,8 @@
           <a class="shell__link shell__link--child" href="hover-card.html"><span class="shell__num">10</span><span class="shell__label">Hover card</span></a>
           <a class="shell__link shell__link--child" href="toast.html"><span class="shell__num">11</span><span class="shell__label">Toast</span></a>
           <a class="shell__link shell__link--child" href="command-palette.html"><span class="shell__num">12</span><span class="shell__label">Command palette</span></a>
-          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span></a>
+          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -132,7 +149,7 @@
           <a class="shell__link shell__link--child" href="empty-state.html"><span class="shell__num">11</span><span class="shell__label">Empty state</span></a>
           <a class="shell__link shell__link--child" href="coachmark.html"><span class="shell__num">12</span><span class="shell__label">Coachmark</span></a>
           <a class="shell__link shell__link--child" href="thinking.html"><span class="shell__num">13</span><span class="shell__label">Thinking</span></a>
-          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -140,8 +157,8 @@
         <div class="shell__panel" id="nav-g7"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="list.html"><span class="shell__num">1</span><span class="shell__label">List</span></a>
           <a class="shell__link shell__link--child" href="key-value.html"><span class="shell__num">2</span><span class="shell__label">Key-value</span></a>
-          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span></a>
+          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span></a>
           <a class="shell__link shell__link--child" href="card.html"><span class="shell__num">5</span><span class="shell__label">Card</span></a>
           <a class="shell__link shell__link--child" href="avatar.html"><span class="shell__num">6</span><span class="shell__label">Avatar</span></a>
           <a class="shell__link shell__link--child" href="table.html"><span class="shell__num">7</span><span class="shell__label">Table</span></a>
@@ -149,70 +166,71 @@
           <a class="shell__link shell__link--child" href="tree.html"><span class="shell__num">9</span><span class="shell__label">Tree</span></a>
           <a class="shell__link shell__link--child" href="calendar.html"><span class="shell__num">10</span><span class="shell__label">Calendar</span></a>
           <a class="shell__link shell__link--child" href="timeline.html"><span class="shell__num">11</span><span class="shell__label">Timeline</span></a>
-          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span></a>
+          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span></a>
+          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span></a>
           <a class="shell__link shell__link--child" href="rolling-number.html"><span class="shell__num">15</span><span class="shell__label">Rolling number</span></a>
           <a class="shell__link shell__link--child" href="code-block.html"><span class="shell__num">16</span><span class="shell__label">Code block</span></a>
           <a class="shell__link shell__link--child" href="carousel.html"><span class="shell__num">17</span><span class="shell__label">Carousel</span></a>
           <a class="shell__link shell__link--child" href="separator.html"><span class="shell__num">18</span><span class="shell__label">Separator</span></a>
-          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span></a>
+          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span></a>
+          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span></a>
+          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span></a>
+          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span></a>
+          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span></a>
+          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span></a>
+          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span></a>
+          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span></a>
+          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span></a>
+          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span></a>
+          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">7</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g8"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span></a>
+          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span></a>
+          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span></a>
+          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span></a>
+          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span></a>
+          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span></a>
+          <a class="shell__link shell__link--child" href="aksara.html"><span class="shell__num">7</span><span class="shell__label">Aksara Lampung</span><span class="badge badge--accent shell__badge">Baru</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g9"><span class="shell__section-label">Obrolan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g9"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span></a>
+          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span></a>
+          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span></a>
+          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span></a>
+          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g10"><span class="shell__section-label">Pola halaman</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g10"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span></a>
+          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span></a>
+          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span></a>
+          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span></a>
           <a class="shell__link shell__link--child" href="phone-screen.html"><span class="shell__num">5</span><span class="shell__label">Phone screen</span></a>
-          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g11"><span class="shell__section-label">Promosi</span><span class="shell__section-count">8</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g11"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span></a>
+          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span></a>
+          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span></a>
+          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span></a>
+          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span></a>
+          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span></a>
+          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span></a>
+          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -225,10 +243,10 @@
           <a class="shell__link shell__link--child" href="height-expand.html"><span class="shell__num">5</span><span class="shell__label">Height expand</span></a>
           <a class="shell__link shell__link--child" href="list-stagger.html"><span class="shell__num">6</span><span class="shell__label">List stagger</span></a>
           <a class="shell__link shell__link--child" href="view-swap.html"><span class="shell__num">7</span><span class="shell__label">View swap</span></a>
-          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span></a>
           <a class="shell__link shell__link--child" href="number-count.html"><span class="shell__num">9</span><span class="shell__label">Number count</span></a>
           <a class="shell__link shell__link--child" href="drag-and-momentum.html"><span class="shell__num">10</span><span class="shell__label">Drag and momentum</span></a>
-          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span></a>
           <a class="shell__link shell__link--child" href="reduced-motion.html"><span class="shell__num">12</span><span class="shell__label">Reduced motion</span></a>
         </div></div></div>
       </div>
@@ -249,27 +267,27 @@
           <a class="shell__link shell__link--child" href="scroll-fades.html"><span class="shell__num">12</span><span class="shell__label">Scroll fades</span></a>
           <a class="shell__link shell__link--child" href="hints.html"><span class="shell__num">13</span><span class="shell__label">Hints</span></a>
           <a class="shell__link shell__link--child" href="haptics.html"><span class="shell__num">14</span><span class="shell__label">Haptics</span></a>
-          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="true" aria-controls="nav-g14"><span class="shell__section-label">Grafik</span><span class="shell__section-count">16</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel is-open" id="nav-g14"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="chart-principles.html"><span class="shell__num">1</span><span class="shell__label">Chart principles</span></a>
-          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span></a>
           <a class="shell__link shell__link--child" href="sparkline-stat.html"><span class="shell__num">3</span><span class="shell__label">Sparkline stat</span></a>
           <a class="shell__link shell__link--child" href="bar-chart.html"><span class="shell__num">4</span><span class="shell__label">Bar chart</span></a>
-          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span></a>
           <a class="shell__link shell__link--child" href="line-chart.html"><span class="shell__num">6</span><span class="shell__label">Line chart</span></a>
-          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span></a>
+          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span></a>
           <a class="shell__link shell__link--child" href="donut.html"><span class="shell__num">9</span><span class="shell__label">Donut</span></a>
-          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span></a>
           <a class="shell__link shell__link--child" href="percentage-bar.html"><span class="shell__num">11</span><span class="shell__label">Percentage bar</span></a>
-          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="funnel.html" aria-current="page"><span class="shell__num">13</span><span class="shell__label">Funnel</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span></a>
+          <a class="shell__link shell__link--child" href="funnel.html" aria-current="page"><span class="shell__num">13</span><span class="shell__label">Funnel</span></a>
           <a class="shell__link shell__link--child" href="heatmap.html"><span class="shell__num">14</span><span class="shell__label">Heatmap</span></a>
-          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span></a>
           <a class="shell__link shell__link--child" href="chart-states.html"><span class="shell__num">16</span><span class="shell__label">Chart states</span></a>
         </div></div></div>
       </div>
@@ -295,161 +313,161 @@
       <main class="cdoc__main" id="main" tabindex="-1">
         <header class="cdoc__head">
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Charts">Grafik</a></li></ol></nav>
-          <h1>Funnel <span class="badge badge--accent">Baru</span></h1>
-          <p class="cdoc__lede">The steps of a flow, each with how many reached it and what share of the step before moved on. Centered bars narrow with the count, so the biggest drop is visible at a glance; the words carry the exact numbers.</p>
+          <h1>Funnel</h1>
+          <p class="cdoc__lede">Tahap-tahap sebuah alur, masing-masing dengan berapa orang yang mencapainya dan berapa persen dari tahap sebelumnya yang lanjut. Batang di tengah menyempit mengikuti jumlahnya, jadi penurunan terbesar terlihat sekilas; kata-katanya membawa angka pastinya.</p>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>A sequence where each step is a subset of the one before: visit, try, sign up, pay; apply, screen, interview, offer.</li><li>Finding the step that loses the most people, to decide what to fix first.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Categories that are not nested steps: pakai <a class="link" href="ranked-bars.html">Ranked bars</a>.</li><li>Change of one count over time: pakai <a class="link" href="area-chart.html">Area chart</a>.</li><li>Parts of one whole: pakai <a class="link" href="percentage-bar.html">Percentage bar</a>.</li><li>The status of one record moving through steps: pakai <a class="link" href="steps.html">Steps</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> In a <a class="link" href="chart-card.html">chart card</a>, half or full width. Three to six steps. Words sit above each bar, so it works at 320 px without change.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Urutan ketika setiap tahap adalah bagian dari tahap sebelumnya: membuka, mengisi, mengirim, terbit; mendaftar, seleksi, wawancara, diterima.</li><li>Mencari tahap yang paling banyak kehilangan orang, untuk memutuskan apa yang diperbaiki lebih dulu.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Kategori yang bukan tahap berjenjang: pakai <a class="link" href="ranked-bars.html">Ranked bars</a>.</li><li>Perubahan satu jumlah dari waktu ke waktu: pakai <a class="link" href="area-chart.html">Area chart</a>.</li><li>Bagian dari satu keseluruhan: pakai <a class="link" href="percentage-bar.html">Percentage bar</a>.</li><li>Status satu berkas yang bergerak melewati tahap: pakai <a class="link" href="steps.html">Steps</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di <a class="link" href="chart-card.html">kartu grafik</a>, setengah atau selebar halaman. Tiga sampai enam tahap. Kata-kata berada di atas setiap batang, jadi tetap berfungsi di 320 px tanpa perubahan.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">From visit to payment</span><span class="cdoc__ex-d">Under 40 % moving on marks the step red in words. Bars grow from the center on first view, one after another.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Dari membuka halaman sampai izin terbit</span><span class="cdoc__ex-d">Jika kurang dari 40 % yang lanjut, tahap itu ditandai merah lewat teksnya. Batang tumbuh dari tengah saat pertama terlihat, satu per satu.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><section class="chart-card" style="max-width: 560px;" aria-labelledby="fn-q">
-  <div><div class="chart-card__q" id="fn-q">Where do learners drop off?</div><div class="chart-card__sub">People at each step, 1 to 16 November</div></div>
-  <ol class="funnel" data-lds-grow aria-label="Sign-up funnel, 1 to 16 November">
+  <div><div class="chart-card__q" id="fn-q">Di tahap mana pemohon berhenti?</div><div class="chart-card__sub">Jumlah orang di setiap tahap, 1 sampai 16 November</div></div>
+  <ol class="funnel" data-lds-grow aria-label="Alur permohonan izin usaha, 1 sampai 16 November">
   <li class="funnel__row" style="--v: 100.0%;">
-    <div class="funnel__meta"><span class="funnel__label">Visited the course page</span><span><span class="funnel__val">12,480</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Membuka halaman izin usaha</span><span><span class="funnel__val">12.480</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 42.0%;">
-    <div class="funnel__meta"><span class="funnel__label">Started the free lesson</span><span><span class="funnel__val">5,240</span><span class="funnel__conv">42% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Mulai mengisi formulir</span><span><span class="funnel__val">5.240</span><span class="funnel__conv">42% dari tahap sebelumnya</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 24.9%;">
-    <div class="funnel__meta"><span class="funnel__label">Finished the free lesson</span><span><span class="funnel__val">3,110</span><span class="funnel__conv">59% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Mengunggah berkas</span><span><span class="funnel__val">3.110</span><span class="funnel__conv">59% dari tahap sebelumnya</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 18.3%;">
-    <div class="funnel__meta"><span class="funnel__label">Created an account</span><span><span class="funnel__val">2,290</span><span class="funnel__conv">74% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Mengirim permohonan</span><span><span class="funnel__val">2.290</span><span class="funnel__conv">74% dari tahap sebelumnya</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row is-drop" style="--v: 4.9%;">
-    <div class="funnel__meta"><span class="funnel__label">Paid for the course</span><span><span class="funnel__val">610</span><span class="funnel__conv">27% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Izin terbit</span><span><span class="funnel__val">610</span><span class="funnel__conv">27% dari tahap sebelumnya</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
 </ol>
-  <div class="chart-card__foot"><span>Biggest loss: account to payment, 27% move on</span></div>
+  <div class="chart-card__foot"><span>Kehilangan terbesar: dari permohonan ke izin terbit, 27% lanjut</span></div>
 </section></div>
           <template id="ex-1-stage-tpl"><section class="chart-card" style="max-width: 560px;" aria-labelledby="fn-q">
-  <div><div class="chart-card__q" id="fn-q">Where do learners drop off?</div><div class="chart-card__sub">People at each step, 1 to 16 November</div></div>
-  <ol class="funnel" data-lds-grow aria-label="Sign-up funnel, 1 to 16 November">
+  <div><div class="chart-card__q" id="fn-q">Di tahap mana pemohon berhenti?</div><div class="chart-card__sub">Jumlah orang di setiap tahap, 1 sampai 16 November</div></div>
+  <ol class="funnel" data-lds-grow aria-label="Alur permohonan izin usaha, 1 sampai 16 November">
   <li class="funnel__row" style="--v: 100.0%;">
-    <div class="funnel__meta"><span class="funnel__label">Visited the course page</span><span><span class="funnel__val">12,480</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Membuka halaman izin usaha</span><span><span class="funnel__val">12.480</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 42.0%;">
-    <div class="funnel__meta"><span class="funnel__label">Started the free lesson</span><span><span class="funnel__val">5,240</span><span class="funnel__conv">42% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Mulai mengisi formulir</span><span><span class="funnel__val">5.240</span><span class="funnel__conv">42% dari tahap sebelumnya</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 24.9%;">
-    <div class="funnel__meta"><span class="funnel__label">Finished the free lesson</span><span><span class="funnel__val">3,110</span><span class="funnel__conv">59% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Mengunggah berkas</span><span><span class="funnel__val">3.110</span><span class="funnel__conv">59% dari tahap sebelumnya</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 18.3%;">
-    <div class="funnel__meta"><span class="funnel__label">Created an account</span><span><span class="funnel__val">2,290</span><span class="funnel__conv">74% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Mengirim permohonan</span><span><span class="funnel__val">2.290</span><span class="funnel__conv">74% dari tahap sebelumnya</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row is-drop" style="--v: 4.9%;">
-    <div class="funnel__meta"><span class="funnel__label">Paid for the course</span><span><span class="funnel__val">610</span><span class="funnel__conv">27% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Izin terbit</span><span><span class="funnel__val">610</span><span class="funnel__conv">27% dari tahap sebelumnya</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
 </ol>
-  <div class="chart-card__foot"><span>Biggest loss: account to payment, 27% move on</span></div>
+  <div class="chart-card__foot"><span>Kehilangan terbesar: dari permohonan ke izin terbit, 27% lanjut</span></div>
 </section></template>
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             <button class="btn btn--plain btn--sm" data-replay="ex-1-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>Putar ulang</button>
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;section class=&quot;chart-card&quot; style=&quot;max-width: 560px;&quot; aria-labelledby=&quot;fn-q&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;fn-q&quot;&gt;Where do learners drop off?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;People at each step, 1 to 16 November&lt;/div&gt;&lt;/div&gt;
-  &lt;ol class=&quot;funnel&quot; data-lds-grow aria-label=&quot;Sign-up funnel, 1 to 16 November&quot;&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;fn-q&quot;&gt;Di tahap mana pemohon berhenti?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Jumlah orang di setiap tahap, 1 sampai 16 November&lt;/div&gt;&lt;/div&gt;
+  &lt;ol class=&quot;funnel&quot; data-lds-grow aria-label=&quot;Alur permohonan izin usaha, 1 sampai 16 November&quot;&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 100.0%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Visited the course page&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;12,480&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Membuka halaman izin usaha&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;12.480&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 42.0%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Started the free lesson&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;5,240&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;42% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Mulai mengisi formulir&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;5.240&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;42% dari tahap sebelumnya&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 24.9%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Finished the free lesson&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;3,110&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;59% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Mengunggah berkas&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;3.110&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;59% dari tahap sebelumnya&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 18.3%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Created an account&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;2,290&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;74% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Mengirim permohonan&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;2.290&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;74% dari tahap sebelumnya&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row is-drop&quot; style=&quot;--v: 4.9%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Paid for the course&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;610&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;27% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Izin terbit&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;610&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;27% dari tahap sebelumnya&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
-  &lt;div class=&quot;chart-card__foot&quot;&gt;&lt;span&gt;Biggest loss: account to payment, 27% move on&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;chart-card__foot&quot;&gt;&lt;span&gt;Kehilangan terbesar: dari permohonan ke izin terbit, 27% lanjut&lt;/span&gt;&lt;/div&gt;
 &lt;/section&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;section class=&quot;chart-card&quot; style=&quot;max-width: 560px;&quot; aria-labelledby=&quot;fn-q&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;fn-q&quot;&gt;Where do learners drop off?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;People at each step, 1 to 16 November&lt;/div&gt;&lt;/div&gt;
-  &lt;ol class=&quot;funnel&quot; data-lds-grow aria-label=&quot;Sign-up funnel, 1 to 16 November&quot;&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;fn-q&quot;&gt;Di tahap mana pemohon berhenti?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Jumlah orang di setiap tahap, 1 sampai 16 November&lt;/div&gt;&lt;/div&gt;
+  &lt;ol class=&quot;funnel&quot; data-lds-grow aria-label=&quot;Alur permohonan izin usaha, 1 sampai 16 November&quot;&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 100.0%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Visited the course page&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;12,480&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Membuka halaman izin usaha&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;12.480&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 42.0%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Started the free lesson&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;5,240&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;42% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Mulai mengisi formulir&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;5.240&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;42% dari tahap sebelumnya&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 24.9%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Finished the free lesson&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;3,110&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;59% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Mengunggah berkas&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;3.110&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;59% dari tahap sebelumnya&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 18.3%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Created an account&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;2,290&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;74% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Mengirim permohonan&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;2.290&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;74% dari tahap sebelumnya&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row is-drop&quot; style=&quot;--v: 4.9%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Paid for the course&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;610&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;27% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Izin terbit&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;610&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;27% dari tahap sebelumnya&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
-  &lt;div class=&quot;chart-card__foot&quot;&gt;&lt;span&gt;Biggest loss: account to payment, 27% move on&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;chart-card__foot&quot;&gt;&lt;span&gt;Kehilangan terbesar: dari permohonan ke izin terbit, 27% lanjut&lt;/span&gt;&lt;/div&gt;
 &lt;/section&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
-          <figcaption><span class="cdoc__ex-t">A short funnel</span><span class="cdoc__ex-d">Four steps of a hiring round.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Funnel pendek</span><span class="cdoc__ex-d">Empat tahap rekrutmen kader posyandu.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><section class="chart-card" style="max-width: 420px;" aria-labelledby="fn-h">
-  <div><div class="chart-card__q" id="fn-h">How many tutors make it through?</div><div class="chart-card__sub">Tutor applications, autumn round</div></div>
-  <ol class="funnel" data-lds-grow aria-label="Tutor hiring funnel, autumn round">
+  <div><div class="chart-card__q" id="fn-h">Berapa calon kader yang lolos sampai akhir?</div><div class="chart-card__sub">Pendaftaran kader posyandu, gelombang kedua</div></div>
+  <ol class="funnel" data-lds-grow aria-label="Alur rekrutmen kader posyandu, gelombang kedua">
   <li class="funnel__row" style="--v: 100.0%;">
-    <div class="funnel__meta"><span class="funnel__label">Applied</span><span><span class="funnel__val">214</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Mendaftar</span><span><span class="funnel__val">214</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 44.9%;">
-    <div class="funnel__meta"><span class="funnel__label">Passed screening</span><span><span class="funnel__val">96</span><span class="funnel__conv">45% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Lolos seleksi berkas</span><span><span class="funnel__val">96</span><span class="funnel__conv">45% dari tahap sebelumnya</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row is-drop" style="--v: 14.5%;">
-    <div class="funnel__meta"><span class="funnel__label">Interviewed</span><span><span class="funnel__val">31</span><span class="funnel__conv">32% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Diwawancarai</span><span><span class="funnel__val">31</span><span class="funnel__conv">32% dari tahap sebelumnya</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row is-drop" style="--v: 2.8%;">
-    <div class="funnel__meta"><span class="funnel__label">Offered</span><span><span class="funnel__val">6</span><span class="funnel__conv">19% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Diterima</span><span><span class="funnel__val">6</span><span class="funnel__conv">19% dari tahap sebelumnya</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
 </ol>
 </section></div>
           <template id="ex-2-stage-tpl"><section class="chart-card" style="max-width: 420px;" aria-labelledby="fn-h">
-  <div><div class="chart-card__q" id="fn-h">How many tutors make it through?</div><div class="chart-card__sub">Tutor applications, autumn round</div></div>
-  <ol class="funnel" data-lds-grow aria-label="Tutor hiring funnel, autumn round">
+  <div><div class="chart-card__q" id="fn-h">Berapa calon kader yang lolos sampai akhir?</div><div class="chart-card__sub">Pendaftaran kader posyandu, gelombang kedua</div></div>
+  <ol class="funnel" data-lds-grow aria-label="Alur rekrutmen kader posyandu, gelombang kedua">
   <li class="funnel__row" style="--v: 100.0%;">
-    <div class="funnel__meta"><span class="funnel__label">Applied</span><span><span class="funnel__val">214</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Mendaftar</span><span><span class="funnel__val">214</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 44.9%;">
-    <div class="funnel__meta"><span class="funnel__label">Passed screening</span><span><span class="funnel__val">96</span><span class="funnel__conv">45% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Lolos seleksi berkas</span><span><span class="funnel__val">96</span><span class="funnel__conv">45% dari tahap sebelumnya</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row is-drop" style="--v: 14.5%;">
-    <div class="funnel__meta"><span class="funnel__label">Interviewed</span><span><span class="funnel__val">31</span><span class="funnel__conv">32% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Diwawancarai</span><span><span class="funnel__val">31</span><span class="funnel__conv">32% dari tahap sebelumnya</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row is-drop" style="--v: 2.8%;">
-    <div class="funnel__meta"><span class="funnel__label">Offered</span><span><span class="funnel__val">6</span><span class="funnel__conv">19% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Diterima</span><span><span class="funnel__val">6</span><span class="funnel__conv">19% dari tahap sebelumnya</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
 </ol>
@@ -458,57 +476,57 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             <button class="btn btn--plain btn--sm" data-replay="ex-2-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>Putar ulang</button>
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;section class=&quot;chart-card&quot; style=&quot;max-width: 420px;&quot; aria-labelledby=&quot;fn-h&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;fn-h&quot;&gt;How many tutors make it through?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Tutor applications, autumn round&lt;/div&gt;&lt;/div&gt;
-  &lt;ol class=&quot;funnel&quot; data-lds-grow aria-label=&quot;Tutor hiring funnel, autumn round&quot;&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;fn-h&quot;&gt;Berapa calon kader yang lolos sampai akhir?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Pendaftaran kader posyandu, gelombang kedua&lt;/div&gt;&lt;/div&gt;
+  &lt;ol class=&quot;funnel&quot; data-lds-grow aria-label=&quot;Alur rekrutmen kader posyandu, gelombang kedua&quot;&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 100.0%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Applied&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;214&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Mendaftar&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;214&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 44.9%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Passed screening&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;96&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;45% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Lolos seleksi berkas&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;96&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;45% dari tahap sebelumnya&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row is-drop&quot; style=&quot;--v: 14.5%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Interviewed&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;32% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Diwawancarai&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;32% dari tahap sebelumnya&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row is-drop&quot; style=&quot;--v: 2.8%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Offered&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;19% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Diterima&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;19% dari tahap sebelumnya&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;section class=&quot;chart-card&quot; style=&quot;max-width: 420px;&quot; aria-labelledby=&quot;fn-h&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;fn-h&quot;&gt;How many tutors make it through?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Tutor applications, autumn round&lt;/div&gt;&lt;/div&gt;
-  &lt;ol class=&quot;funnel&quot; data-lds-grow aria-label=&quot;Tutor hiring funnel, autumn round&quot;&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;fn-h&quot;&gt;Berapa calon kader yang lolos sampai akhir?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Pendaftaran kader posyandu, gelombang kedua&lt;/div&gt;&lt;/div&gt;
+  &lt;ol class=&quot;funnel&quot; data-lds-grow aria-label=&quot;Alur rekrutmen kader posyandu, gelombang kedua&quot;&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 100.0%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Applied&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;214&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Mendaftar&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;214&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 44.9%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Passed screening&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;96&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;45% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Lolos seleksi berkas&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;96&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;45% dari tahap sebelumnya&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row is-drop&quot; style=&quot;--v: 14.5%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Interviewed&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;32% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Diwawancarai&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;31&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;32% dari tahap sebelumnya&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row is-drop&quot; style=&quot;--v: 2.8%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Offered&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;19% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Diterima&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;19% dari tahap sebelumnya&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;</pre></div></div></div>
         </figure></section>
-        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">ol.funnel</code></td><td>Required. An ordered list with an <code class="code">aria-label</code>; the order is the meaning.</td></tr><tr><td><code class="code">li.funnel__row</code></td><td>Required. One step. <code class="code">--v</code> is its count as a percent of the first step.</td></tr><tr><td><code class="code">.funnel__meta</code></td><td>Required. <code class="code">.funnel__label</code> (the step), <code class="code">.funnel__val</code> (the count) and <code class="code">.funnel__conv</code> (share of the step before).</td></tr><tr><td><code class="code">.funnel__track &gt; .funnel__bar</code></td><td>Required. A 28 px fill track with the bar centered in it; decorative (<code class="code">aria-hidden</code>).</td></tr><tr><td><code class="code">.is-drop</code></td><td>Optional on a row: the step that loses most (or under your threshold); its share turns to danger text.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">.is-drop</code></td><td>Flags the step with the weakest share; say it in the footer too.</td></tr><tr><td><code class="code">--v</code></td><td>Bar width: count divided by the first step's count.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">data change</code></td><td>Set new <code class="code">--v</code> and words: bars move over 480 ms on <code class="code">--ease-inout</code>.</td></tr><tr><td><code class="code">empty</code></td><td>Keep the step names; counts at 0 and one line: &quot;No visits in this period&quot;.</td></tr><tr><td><code class="code">loading</code></td><td>A <code class="code">.skel</code> line and a 28 px <code class="code">.skel</code> strip per step.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>First view (<code class="code">data-lds-grow</code>): bars grow outward from the center on <code class="code">--spring-smooth</code>, 35 ms apart top to bottom.</li><li>Later changes: width over <code class="code">--d-considered</code> on <code class="code">--ease-inout</code>. Hover fades other bars over <code class="code">--d-fast</code>.</li><li>Reduced motion: drawn at once.</li></ul></section>
-        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>An <code class="code">ol</code> with <code class="code">aria-label</code>, so the steps are announced in order with their counts and shares as text.</li><li>The bars are <code class="code">aria-hidden</code>; they repeat the numbers.</li><li>The weakest step is named in words in the footer, not only by color.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Name steps as what people did (&quot;Created an account&quot;).</li><li>Show the share of the step before, not of the first step; that is where the decision is.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Draw trapezoids or 3D cones; centered bars are exact.</li><li>Use a funnel for steps people can skip or repeat.</li></ul></div></div></section>
-        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> Optional: <code class="code">data-lds-grow</code> on the list plays the first-view entrance.</p></section>
-        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="ranked-bars.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Ranked bars</span><span class="link-card__body">Rows of a label, a horizontal bar and its value, sorted longest first: top sources, top pages, best scores. Long labels stay readable because they sit beside (or inside) the bar instead of under it, and every row shares one grid so bars and values line up.</span></a><a class="link-card" href="percentage-bar.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Percentage bar</span><span class="link-card__body">One horizontal bar split into up to four colored parts that add up to 100 %, with a legend that names each part and its share. The compact way to show composition.</span></a><a class="link-card" href="chart-card.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Chart card</span><span class="link-card__body">The frame every dashboard chart sits in: the question as its title, what is measured under it, then optional actions (a range control, a menu), the headline figure with its change, the chart, and a footer with the source time or a link to the full report.</span></a><a class="link-card" href="steps.html"><span class="link-card__eyebrow">Navigasi</span><span class="link-card__title">Steps</span><span class="link-card__body">Numbered steps of a fixed sequence with a bar that fills as each one completes. Shows where people are in a flow and how much is left.</span></a></div></section>
+        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">ol.funnel</code></td><td>Wajib. Daftar berurutan dengan <code class="code">aria-label</code>; urutannya adalah maknanya.</td></tr><tr><td><code class="code">li.funnel__row</code></td><td>Wajib. Satu tahap. <code class="code">--v</code> adalah jumlahnya sebagai persen dari tahap pertama.</td></tr><tr><td><code class="code">.funnel__meta</code></td><td>Wajib. <code class="code">.funnel__label</code> (tahapnya), <code class="code">.funnel__val</code> (jumlahnya), dan <code class="code">.funnel__conv</code> (porsi dari tahap sebelumnya).</td></tr><tr><td><code class="code">.funnel__track &gt; .funnel__bar</code></td><td>Wajib. Track isian 28 px dengan batang di tengahnya; dekoratif (<code class="code">aria-hidden</code>).</td></tr><tr><td><code class="code">.is-drop</code></td><td>Opsional pada baris: tahap yang paling banyak kehilangan (atau di bawah ambang Anda); porsinya berubah menjadi teks bahaya.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">.is-drop</code></td><td>Menandai tahap dengan porsi terlemah; sebutkan juga di footer.</td></tr><tr><td><code class="code">--v</code></td><td>Lebar batang: jumlah dibagi jumlah tahap pertama.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">data change</code></td><td>Atur <code class="code">--v</code> dan teks baru: batang bergerak selama 480 ms dengan <code class="code">--ease-inout</code>.</td></tr><tr><td><code class="code">empty</code></td><td>Pertahankan nama tahap; jumlah di 0 dan satu baris: &quot;Tidak ada kunjungan pada periode ini&quot;.</td></tr><tr><td><code class="code">loading</code></td><td>Satu baris <code class="code">.skel</code> dan strip <code class="code">.skel</code> 28 px per tahap.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Saat pertama terlihat (<code class="code">data-lds-grow</code>): batang tumbuh ke luar dari tengah dengan <code class="code">--spring-smooth</code>, berjarak 35 ms dari atas ke bawah.</li><li>Perubahan berikutnya: lebar selama <code class="code">--d-considered</code> dengan <code class="code">--ease-inout</code>. Hover memudarkan batang lain selama <code class="code">--d-fast</code>.</li><li>Reduced motion: langsung digambar.</li></ul></section>
+        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li><code class="code">ol</code> dengan <code class="code">aria-label</code>, jadi tahap diumumkan berurutan dengan jumlah dan porsinya sebagai teks.</li><li>Batang memakai <code class="code">aria-hidden</code>; isinya mengulang angka.</li><li>Tahap terlemah disebut dengan kata di footer, bukan hanya lewat warna.</li></ul></section>
+        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Namai tahap sesuai yang dilakukan orang (&quot;Mengirim permohonan&quot;).</li><li>Tampilkan porsi dari tahap sebelumnya, bukan dari tahap pertama; di situlah keputusannya.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Menggambar trapesium atau kerucut 3D; batang di tengah lebih tepat.</li><li>Memakai funnel untuk tahap yang bisa dilewati atau diulang.</li></ul></div></div></section>
+        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> Opsional: <code class="code">data-lds-grow</code> pada daftar memutar animasi masuk saat pertama terlihat.</p></section>
+        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="ranked-bars.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Ranked bars</span><span class="link-card__body">Baris berisi label, batang horizontal, dan nilainya, diurutkan dari yang terpanjang: sumber teratas, halaman teratas, skor terbaik. Label panjang tetap terbaca karena berada di samping (atau di dalam) batang, bukan di bawahnya, dan setiap baris berbagi satu grid sehingga batang dan nilai sejajar.</span></a><a class="link-card" href="percentage-bar.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Percentage bar</span><span class="link-card__body">Satu batang horizontal yang dibagi menjadi paling banyak empat bagian berwarna yang berjumlah 100 %, dengan legenda yang menyebut nama dan porsi setiap bagian. Cara ringkas untuk menunjukkan komposisi.</span></a><a class="link-card" href="chart-card.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Chart card</span><span class="link-card__body">Bingkai untuk setiap grafik di dasbor: pertanyaan sebagai judul, apa yang diukur di bawahnya, lalu aksi opsional (kontrol periode, menu), angka utama beserta perubahannya, grafik, dan footer berisi waktu data atau tautan ke laporan lengkap.</span></a><a class="link-card" href="steps.html"><span class="link-card__eyebrow">Navigasi</span><span class="link-card__title">Steps</span><span class="link-card__body">Langkah bernomor dari urutan tetap dengan bilah yang terisi saat setiap langkah selesai. Menunjukkan posisi orang dalam sebuah alur dan berapa yang tersisa.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
           <a class="link-card cdoc__prev" href="target-bar.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Sebelumnya</span><span class="link-card__title">Target bar</span></a>
           <a class="link-card cdoc__next" href="heatmap.html"><span class="link-card__eyebrow">Berikutnya<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Heatmap</span></a>

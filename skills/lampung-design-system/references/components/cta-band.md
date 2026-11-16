@@ -1,6 +1,6 @@
 # CTA band
 
-Group: Marketing (new). Docs page: `docs/components/cta-band.html`.
+Group: Marketing. Docs page: `docs/components/cta-band.html`.
 
 The last ask on a landing page: a short title, one line, and the same primary action as the hero, on the quiet fill. It may hold the one line people copy to start.
 

@@ -1,6 +1,6 @@
 # Thumbnail
 
-Group: Content (new). Docs page: `docs/components/thumbnail.html`.
+Group: Content. Docs page: `docs/components/thumbnail.html`.
 
 A cropped preview of a picture at a fixed ratio (4:3 by default) on a recessed placeholder. As a link with `data-lds-lightbox`, it opens the full picture in a [lightbox](lightbox.md) that grows out of the thumbnail.
 

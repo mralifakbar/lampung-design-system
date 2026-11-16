@@ -1,6 +1,6 @@
 # Streaming text
 
-Group: Chat (new). Docs page: `docs/components/streaming-text.html`.
+Group: Chat. Docs page: `docs/components/streaming-text.html`.
 
 An answer that arrives word by word, each word fading in from a 3 px blur, with a round caret at the end while more is coming. It shows real progress; never fake it for text you already have.
 

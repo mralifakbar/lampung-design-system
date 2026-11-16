@@ -1,6 +1,6 @@
 # Layout primitives
 
-Group: Foundations (new). Docs page: `docs/components/layout-primitives.html`.
+Group: Foundations. Docs page: `docs/components/layout-primitives.html`.
 
 Seven small classes that lay out everything between components: `stack`, `cluster`, `auto-grid`, `split-2`, `center`, `measure` and `sr-only`. Reach for them before writing `display: flex` or `grid` by hand.
 

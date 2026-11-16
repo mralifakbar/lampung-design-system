@@ -1,6 +1,6 @@
 # Timestamp
 
-Group: Data display (new). Docs page: `docs/components/timestamp.html`.
+Group: Data display. Docs page: `docs/components/timestamp.html`.
 
 A `<time>` that shows when something happened or is due in relative words ("5 minutes ago", "in 3 days"), in the page language, and keeps itself current. The exact date goes in its title.
 

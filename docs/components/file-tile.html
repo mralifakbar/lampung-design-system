@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>File tile · Lampung Design System</title>
-<meta name="description" content="Files and folders as tiles in a grid: a tinted thumbnail by type (or the picture itself), a two-line name, size and date, a checkbox that appears on hover, focus or while selecting, and a more menu. The tile opens the file; ticking selects it for a bulk action.">
+<meta name="description" content="Berkas dan folder sebagai tile dalam grid: thumbnail bertint menurut jenis (atau gambarnya sendiri), nama dua baris, ukuran dan tanggal, kotak centang yang muncul saat hover, fokus, atau selama memilih, dan menu lainnya. Tile membuka berkas; mencentangnya memilih berkas untuk aksi massal.">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
 <link rel="stylesheet" href="../../css/lds.css">
 <link rel="stylesheet" href="../docs.css">
@@ -12,20 +12,36 @@
 </head>
 <body class="lds">
 <a class="skip" href="#main">Langsung ke konten</a>
+<div class="masthead" role="region" aria-label="Status situs">
+  <div class="masthead__bar">
+    <span class="masthead__mark" aria-hidden="true"><span class="ic">info</span></span>
+    <span class="masthead__text">Proyek komunitas. Ini bukan situs resmi pemerintah.</span>
+    <button class="masthead__toggle" data-lds-masthead aria-expanded="false" aria-controls="lds-masthead">Cara memastikan<span class="ic" aria-hidden="true">expand_more</span></button>
+  </div>
+  <div class="collapse is-closed" id="lds-masthead" inert><div><div class="masthead__body">
+    <p class="masthead__item"><span class="ic" aria-hidden="true">groups</span><span><b>Dikelola sukarelawan.</b> Lampung Design System dibangun oleh komunitas open source. Tidak ada instansi pemerintah yang mengelola atau mendukungnya secara resmi.</span></p>
+    <p class="masthead__item"><span class="ic" aria-hidden="true">verified_user</span><span><b>Layanan resmi memakai go.id.</b> Situs pemerintah Indonesia berakhiran .go.id. Jangan masukkan NIK di situs yang Anda ragukan.</span></p>
+  </div></div></div>
+</div>
 <div class="shell" data-lds-shell>
   <aside class="shell__side" id="side" aria-label="Dokumentasi">
-    <a class="shell__brand" href="../index.html"><span class="page-head__mark">L</span>Lampung Design System</a>
+    <a class="shell__brand" href="../index.html"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>Lampung Design System</a>
     <nav class="shell__nav" aria-label="Komponen">
       <span class="shell__hl" aria-hidden="true"></span>
-      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Memulai</span></a>
+      <p class="shell__group">Memulai</p>
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Pengenalan</span></a>
+      <a class="shell__link" href="../guide/instalasi.html"><span class="ic" aria-hidden="true">download</span><span class="shell__label">Instalasi</span></a>
+      <a class="shell__link" href="../guide/penulisan.html"><span class="ic" aria-hidden="true">edit_square</span><span class="shell__label">Penulisan</span></a>
+      <a class="shell__link" href="../guide/aksesibilitas.html"><span class="ic" aria-hidden="true">accessible</span><span class="shell__label">Aksesibilitas</span></a>
+      <a class="shell__link" href="../guide/desainer.html"><span class="ic" aria-hidden="true">palette</span><span class="shell__label">Untuk desainer</span></a>
+      <p class="shell__group">Komponen</p>
       <a class="shell__link" href="index.html"><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">Semua komponen</span></a>
       <a class="shell__link" href="../examples/index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Contoh</span></a>
-      <p class="shell__group">Komponen</p>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g0"><span class="shell__section-label">Landasan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g0"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span></a>
+          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span></a>
           <a class="shell__link shell__link--child" href="data-states.html"><span class="shell__num">3</span><span class="shell__label">Data states</span></a>
           <a class="shell__link shell__link--child" href="theming.html"><span class="shell__num">4</span><span class="shell__label">Theming</span></a>
           <a class="shell__link shell__link--child" href="icon.html"><span class="shell__num">5</span><span class="shell__label">Icon</span></a>
@@ -60,9 +76,9 @@
           <a class="shell__link shell__link--child" href="select.html"><span class="shell__num">8</span><span class="shell__label">Select</span></a>
           <a class="shell__link shell__link--child" href="combobox.html"><span class="shell__num">9</span><span class="shell__label">Combobox</span></a>
           <a class="shell__link shell__link--child" href="tag-input.html"><span class="shell__num">10</span><span class="shell__label">Tag input</span></a>
-          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span></a>
+          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span></a>
+          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -80,21 +96,22 @@
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">13</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">14</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g4"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">1</span><span class="shell__label">App shell</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">2</span><span class="shell__label">Top nav</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">3</span><span class="shell__label">Tabs</span></a>
-          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">4</span><span class="shell__label">Breadcrumbs</span></a>
-          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">5</span><span class="shell__label">Page header</span></a>
-          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">6</span><span class="shell__label">Pagination</span></a>
-          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">7</span><span class="shell__label">Steps</span></a>
-          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">8</span><span class="shell__label">Sidebar</span></a>
-          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">9</span><span class="shell__label">Outline</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">10</span><span class="shell__label">Menubar</span></a>
-          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">11</span><span class="shell__label">Nav progress</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">12</span><span class="shell__label">Phone bars</span></a>
-          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">13</span><span class="shell__label">Navigation stack</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="masthead.html"><span class="shell__num">1</span><span class="shell__label">Masthead</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">2</span><span class="shell__label">App shell</span></a>
+          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">3</span><span class="shell__label">Top nav</span></a>
+          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">4</span><span class="shell__label">Tabs</span></a>
+          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">5</span><span class="shell__label">Breadcrumbs</span></a>
+          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">6</span><span class="shell__label">Page header</span></a>
+          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">7</span><span class="shell__label">Pagination</span></a>
+          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">8</span><span class="shell__label">Steps</span></a>
+          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">9</span><span class="shell__label">Sidebar</span></a>
+          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">10</span><span class="shell__label">Outline</span></a>
+          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">11</span><span class="shell__label">Menubar</span></a>
+          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">12</span><span class="shell__label">Nav progress</span></a>
+          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">13</span><span class="shell__label">Phone bars</span></a>
+          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">14</span><span class="shell__label">Navigation stack</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -102,7 +119,7 @@
         <div class="shell__panel" id="nav-g5"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="dialog.html"><span class="shell__num">1</span><span class="shell__label">Dialog</span></a>
           <a class="shell__link shell__link--child" href="alert-dialog.html"><span class="shell__num">2</span><span class="shell__label">Alert dialog</span></a>
-          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span></a>
           <a class="shell__link shell__link--child" href="sheet.html"><span class="shell__num">4</span><span class="shell__label">Sheet</span></a>
           <a class="shell__link shell__link--child" href="drawer.html"><span class="shell__num">5</span><span class="shell__label">Drawer</span></a>
           <a class="shell__link shell__link--child" href="dropdown-menu.html"><span class="shell__num">6</span><span class="shell__label">Dropdown menu</span></a>
@@ -112,8 +129,8 @@
           <a class="shell__link shell__link--child" href="hover-card.html"><span class="shell__num">10</span><span class="shell__label">Hover card</span></a>
           <a class="shell__link shell__link--child" href="toast.html"><span class="shell__num">11</span><span class="shell__label">Toast</span></a>
           <a class="shell__link shell__link--child" href="command-palette.html"><span class="shell__num">12</span><span class="shell__label">Command palette</span></a>
-          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span></a>
+          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -132,7 +149,7 @@
           <a class="shell__link shell__link--child" href="empty-state.html"><span class="shell__num">11</span><span class="shell__label">Empty state</span></a>
           <a class="shell__link shell__link--child" href="coachmark.html"><span class="shell__num">12</span><span class="shell__label">Coachmark</span></a>
           <a class="shell__link shell__link--child" href="thinking.html"><span class="shell__num">13</span><span class="shell__label">Thinking</span></a>
-          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -140,8 +157,8 @@
         <div class="shell__panel is-open" id="nav-g7"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="list.html"><span class="shell__num">1</span><span class="shell__label">List</span></a>
           <a class="shell__link shell__link--child" href="key-value.html"><span class="shell__num">2</span><span class="shell__label">Key-value</span></a>
-          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span></a>
+          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span></a>
           <a class="shell__link shell__link--child" href="card.html"><span class="shell__num">5</span><span class="shell__label">Card</span></a>
           <a class="shell__link shell__link--child" href="avatar.html"><span class="shell__num">6</span><span class="shell__label">Avatar</span></a>
           <a class="shell__link shell__link--child" href="table.html"><span class="shell__num">7</span><span class="shell__label">Table</span></a>
@@ -149,70 +166,71 @@
           <a class="shell__link shell__link--child" href="tree.html"><span class="shell__num">9</span><span class="shell__label">Tree</span></a>
           <a class="shell__link shell__link--child" href="calendar.html"><span class="shell__num">10</span><span class="shell__label">Calendar</span></a>
           <a class="shell__link shell__link--child" href="timeline.html"><span class="shell__num">11</span><span class="shell__label">Timeline</span></a>
-          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span></a>
+          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span></a>
+          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span></a>
           <a class="shell__link shell__link--child" href="rolling-number.html"><span class="shell__num">15</span><span class="shell__label">Rolling number</span></a>
           <a class="shell__link shell__link--child" href="code-block.html"><span class="shell__num">16</span><span class="shell__label">Code block</span></a>
           <a class="shell__link shell__link--child" href="carousel.html"><span class="shell__num">17</span><span class="shell__label">Carousel</span></a>
           <a class="shell__link shell__link--child" href="separator.html"><span class="shell__num">18</span><span class="shell__label">Separator</span></a>
-          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="file-tile.html" aria-current="page"><span class="shell__num">21</span><span class="shell__label">File tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span></a>
+          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span></a>
+          <a class="shell__link shell__link--child" href="file-tile.html" aria-current="page"><span class="shell__num">21</span><span class="shell__label">File tile</span></a>
+          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span></a>
+          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span></a>
+          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span></a>
+          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span></a>
+          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span></a>
+          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span></a>
+          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span></a>
+          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span></a>
+          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">7</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g8"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span></a>
+          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span></a>
+          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span></a>
+          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span></a>
+          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span></a>
+          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span></a>
+          <a class="shell__link shell__link--child" href="aksara.html"><span class="shell__num">7</span><span class="shell__label">Aksara Lampung</span><span class="badge badge--accent shell__badge">Baru</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g9"><span class="shell__section-label">Obrolan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g9"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span></a>
+          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span></a>
+          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span></a>
+          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span></a>
+          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g10"><span class="shell__section-label">Pola halaman</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g10"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span></a>
+          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span></a>
+          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span></a>
+          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span></a>
           <a class="shell__link shell__link--child" href="phone-screen.html"><span class="shell__num">5</span><span class="shell__label">Phone screen</span></a>
-          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g11"><span class="shell__section-label">Promosi</span><span class="shell__section-count">8</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g11"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span></a>
+          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span></a>
+          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span></a>
+          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span></a>
+          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span></a>
+          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span></a>
+          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span></a>
+          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -225,10 +243,10 @@
           <a class="shell__link shell__link--child" href="height-expand.html"><span class="shell__num">5</span><span class="shell__label">Height expand</span></a>
           <a class="shell__link shell__link--child" href="list-stagger.html"><span class="shell__num">6</span><span class="shell__label">List stagger</span></a>
           <a class="shell__link shell__link--child" href="view-swap.html"><span class="shell__num">7</span><span class="shell__label">View swap</span></a>
-          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span></a>
           <a class="shell__link shell__link--child" href="number-count.html"><span class="shell__num">9</span><span class="shell__label">Number count</span></a>
           <a class="shell__link shell__link--child" href="drag-and-momentum.html"><span class="shell__num">10</span><span class="shell__label">Drag and momentum</span></a>
-          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span></a>
           <a class="shell__link shell__link--child" href="reduced-motion.html"><span class="shell__num">12</span><span class="shell__label">Reduced motion</span></a>
         </div></div></div>
       </div>
@@ -249,27 +267,27 @@
           <a class="shell__link shell__link--child" href="scroll-fades.html"><span class="shell__num">12</span><span class="shell__label">Scroll fades</span></a>
           <a class="shell__link shell__link--child" href="hints.html"><span class="shell__num">13</span><span class="shell__label">Hints</span></a>
           <a class="shell__link shell__link--child" href="haptics.html"><span class="shell__num">14</span><span class="shell__label">Haptics</span></a>
-          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g14"><span class="shell__section-label">Grafik</span><span class="shell__section-count">16</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g14"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="chart-principles.html"><span class="shell__num">1</span><span class="shell__label">Chart principles</span></a>
-          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span></a>
           <a class="shell__link shell__link--child" href="sparkline-stat.html"><span class="shell__num">3</span><span class="shell__label">Sparkline stat</span></a>
           <a class="shell__link shell__link--child" href="bar-chart.html"><span class="shell__num">4</span><span class="shell__label">Bar chart</span></a>
-          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span></a>
           <a class="shell__link shell__link--child" href="line-chart.html"><span class="shell__num">6</span><span class="shell__label">Line chart</span></a>
-          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span></a>
+          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span></a>
           <a class="shell__link shell__link--child" href="donut.html"><span class="shell__num">9</span><span class="shell__label">Donut</span></a>
-          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span></a>
           <a class="shell__link shell__link--child" href="percentage-bar.html"><span class="shell__num">11</span><span class="shell__label">Percentage bar</span></a>
-          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span></a>
+          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span></a>
           <a class="shell__link shell__link--child" href="heatmap.html"><span class="shell__num">14</span><span class="shell__label">Heatmap</span></a>
-          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span></a>
           <a class="shell__link shell__link--child" href="chart-states.html"><span class="shell__num">16</span><span class="shell__label">Chart states</span></a>
         </div></div></div>
       </div>
@@ -295,171 +313,171 @@
       <main class="cdoc__main" id="main" tabindex="-1">
         <header class="cdoc__head">
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Data%20display">Tampilan data</a></li></ol></nav>
-          <h1>File tile <span class="badge badge--accent">Baru</span></h1>
-          <p class="cdoc__lede">Files and folders as tiles in a grid: a tinted thumbnail by type (or the picture itself), a two-line name, size and date, a checkbox that appears on hover, focus or while selecting, and a more menu. The tile opens the file; ticking selects it for a bulk action.</p>
+          <h1>File tile</h1>
+          <p class="cdoc__lede">Berkas dan folder sebagai tile dalam grid: thumbnail bertint menurut jenis (atau gambarnya sendiri), nama dua baris, ukuran dan tanggal, kotak centang yang muncul saat hover, fokus, atau selama memilih, dan menu lainnya. Tile membuka berkas; mencentangnya memilih berkas untuk aksi massal.</p>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>A file manager or a library where people recognize files by type or picture: course materials, shared drive, uploaded receipts.</li><li>Picking several files for one action: download 4 files, move 12 photos, delete 2 drafts.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Files attached to a form while they upload: pakai <a class="link" href="file-input.html">File input</a>. Use the file rows of the file input.</li><li>Files compared by size, owner and date: pakai <a class="link" href="table.html">Table</a>. A table scans better than tiles when people sort.</li><li>A folder hierarchy people browse: pakai <a class="link" href="tree.html">Tree</a>.</li><li>Photos inside an article or a message: pakai <a class="link" href="thumbnail.html">Thumbnail</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> In <code class="code">.file-grid</code>, which fits as many tiles of at least <code class="code">--min</code> (168 px) as the column allows: six to eight on a wide screen, two on a phone. Folders first with <code class="code">.file-tile--folder</code> (a shorter thumbnail), then files. Pair with a <a class="link" href="selection-bar.html">selection bar</a> for bulk actions.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Pengelola berkas atau pustaka tempat orang mengenali berkas dari jenis atau gambarnya: materi pelatihan, drive bersama, bukti pembayaran yang diunggah.</li><li>Memilih beberapa berkas untuk satu aksi: unduh 4 berkas, pindahkan 12 foto, hapus 2 draf.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Berkas yang dilampirkan ke formulir selama diunggah: pakai <a class="link" href="file-input.html">File input</a>. Pakai baris berkas dari file input.</li><li>Berkas yang dibandingkan menurut ukuran, pemilik, dan tanggal: pakai <a class="link" href="table.html">Table</a>. Tabel lebih mudah dipindai daripada tile saat orang mengurutkan.</li><li>Hierarki folder yang dijelajahi: pakai <a class="link" href="tree.html">Tree</a>.</li><li>Foto di dalam artikel atau pesan: pakai <a class="link" href="thumbnail.html">Thumbnail</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di dalam <code class="code">.file-grid</code>, yang memuat tile selebar minimal <code class="code">--min</code> (168 px) sebanyak yang muat di kolom: enam sampai delapan di layar lebar, dua di ponsel. Folder dulu dengan <code class="code">.file-tile--folder</code> (thumbnail lebih pendek), lalu berkas. Pasangkan dengan <a class="link" href="selection-bar.html">selection bar</a> untuk aksi massal.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">A shared folder</span><span class="cdoc__ex-d">Hover a tile for its checkbox and menu. Tick one: every checkbox stays visible and the selection bar rises with a rolling count. Shift-click ticks a run; Escape clears.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Folder bersama</span><span class="cdoc__ex-d">Arahkan kursor ke tile untuk melihat kotak centang dan menunya. Centang satu: semua kotak centang tetap terlihat dan selection bar naik dengan hitungan yang bergulir. Shift-klik mencentang satu rentang; Escape menghapus pilihan.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="viewport docs-box" style="height: 470px; width: 100%;"><div class="viewport__content" style="overflow: auto; align-items: stretch;">
-<div class="file-grid" role="list" aria-label="Q4 planning" data-lds-selection="ft-bar" style="width: 100%;">
+<div class="file-grid" role="list" aria-label="Perencanaan triwulan 4" data-lds-selection="ft-bar" style="width: 100%;">
   <div class="file-tile file-tile--folder" role="listitem">
-    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Receipts"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
-    <a class="file-tile__open" href="#ft-1"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">folder</span></span><span class="file-tile__name">Receipts</span><span class="file-tile__meta">48 files</span></a>
-    <button class="icon-btn file-tile__more" aria-label="More actions for Receipts" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-1"><span class="ic" aria-hidden="true">more_horiz</span></button>
-    <div class="menu menu--right" id="ft-m-1" role="menu" aria-label="Receipts" style="top: 44px; right: 4px;">
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download</button>
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
+    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Kuitansi"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+    <a class="file-tile__open" href="#ft-1"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">folder</span></span><span class="file-tile__name">Kuitansi</span><span class="file-tile__meta">48 berkas</span></a>
+    <button class="icon-btn file-tile__more" aria-label="Aksi lain untuk Kuitansi" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-1"><span class="ic" aria-hidden="true">more_horiz</span></button>
+    <div class="menu menu--right" id="ft-m-1" role="menu" aria-label="Kuitansi" style="top: 44px; right: 4px;">
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Unduh</button>
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Ganti nama</button>
       <div class="menu__sep"></div>
-      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete</button>
+      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Hapus</button>
     </div>
   </div>
   <div class="file-tile file-tile--folder" role="listitem">
-    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Contracts"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
-    <a class="file-tile__open" href="#ft-2"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">folder</span></span><span class="file-tile__name">Contracts</span><span class="file-tile__meta">12 files</span></a>
-    <button class="icon-btn file-tile__more" aria-label="More actions for Contracts" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-2"><span class="ic" aria-hidden="true">more_horiz</span></button>
-    <div class="menu menu--right" id="ft-m-2" role="menu" aria-label="Contracts" style="top: 44px; right: 4px;">
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download</button>
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
+    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Kontrak"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+    <a class="file-tile__open" href="#ft-2"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">folder</span></span><span class="file-tile__name">Kontrak</span><span class="file-tile__meta">12 berkas</span></a>
+    <button class="icon-btn file-tile__more" aria-label="Aksi lain untuk Kontrak" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-2"><span class="ic" aria-hidden="true">more_horiz</span></button>
+    <div class="menu menu--right" id="ft-m-2" role="menu" aria-label="Kontrak" style="top: 44px; right: 4px;">
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Unduh</button>
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Ganti nama</button>
       <div class="menu__sep"></div>
-      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete</button>
+      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Hapus</button>
     </div>
   </div>
   <div class="file-tile file-tile--sheet" role="listitem">
-    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Budget Q4 2026.xlsx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
-    <a class="file-tile__open" href="#ft-3"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Budget Q4 2026.xlsx</span><span class="file-tile__meta">214 KB · Edited 2 h ago</span></a>
-    <button class="icon-btn file-tile__more" aria-label="More actions for Budget Q4 2026.xlsx" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-3"><span class="ic" aria-hidden="true">more_horiz</span></button>
-    <div class="menu menu--right" id="ft-m-3" role="menu" aria-label="Budget Q4 2026.xlsx" style="top: 44px; right: 4px;">
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download</button>
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
+    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Anggaran TW4 2026.xlsx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+    <a class="file-tile__open" href="#ft-3"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Anggaran TW4 2026.xlsx</span><span class="file-tile__meta">214 KB · Diubah 2 jam lalu</span></a>
+    <button class="icon-btn file-tile__more" aria-label="Aksi lain untuk Anggaran TW4 2026.xlsx" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-3"><span class="ic" aria-hidden="true">more_horiz</span></button>
+    <div class="menu menu--right" id="ft-m-3" role="menu" aria-label="Anggaran TW4 2026.xlsx" style="top: 44px; right: 4px;">
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Unduh</button>
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Ganti nama</button>
       <div class="menu__sep"></div>
-      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete</button>
+      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Hapus</button>
     </div>
   </div>
   <div class="file-tile file-tile--doc" role="listitem">
-    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Launch plan for the November cohort.docx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
-    <a class="file-tile__open" href="#ft-4"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Launch plan for the November cohort.docx</span><span class="file-tile__meta">1.2 MB · 14 Nov</span></a>
-    <button class="icon-btn file-tile__more" aria-label="More actions for Launch plan for the November cohort.docx" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-4"><span class="ic" aria-hidden="true">more_horiz</span></button>
-    <div class="menu menu--right" id="ft-m-4" role="menu" aria-label="Launch plan for the November cohort.docx" style="top: 44px; right: 4px;">
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download</button>
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
+    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Rencana pembukaan pelatihan UMKM November.docx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+    <a class="file-tile__open" href="#ft-4"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Rencana pembukaan pelatihan UMKM November.docx</span><span class="file-tile__meta">1,2 MB · 14 Nov</span></a>
+    <button class="icon-btn file-tile__more" aria-label="Aksi lain untuk Rencana pembukaan pelatihan UMKM November.docx" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-4"><span class="ic" aria-hidden="true">more_horiz</span></button>
+    <div class="menu menu--right" id="ft-m-4" role="menu" aria-label="Rencana pembukaan pelatihan UMKM November.docx" style="top: 44px; right: 4px;">
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Unduh</button>
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Ganti nama</button>
       <div class="menu__sep"></div>
-      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete</button>
+      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Hapus</button>
     </div>
   </div>
   <div class="file-tile file-tile--image" role="listitem">
-    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Venue floor plan.png"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
-    <a class="file-tile__open" href="#ft-5"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">image</span></span><span class="file-tile__name">Venue floor plan.png</span><span class="file-tile__meta">3.4 MB · 12 Nov</span></a>
-    <button class="icon-btn file-tile__more" aria-label="More actions for Venue floor plan.png" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-5"><span class="ic" aria-hidden="true">more_horiz</span></button>
-    <div class="menu menu--right" id="ft-m-5" role="menu" aria-label="Venue floor plan.png" style="top: 44px; right: 4px;">
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download</button>
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
+    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Denah ruang layanan.png"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+    <a class="file-tile__open" href="#ft-5"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">image</span></span><span class="file-tile__name">Denah ruang layanan.png</span><span class="file-tile__meta">3,4 MB · 12 Nov</span></a>
+    <button class="icon-btn file-tile__more" aria-label="Aksi lain untuk Denah ruang layanan.png" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-5"><span class="ic" aria-hidden="true">more_horiz</span></button>
+    <div class="menu menu--right" id="ft-m-5" role="menu" aria-label="Denah ruang layanan.png" style="top: 44px; right: 4px;">
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Unduh</button>
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Ganti nama</button>
       <div class="menu__sep"></div>
-      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete</button>
+      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Hapus</button>
     </div>
   </div>
   <div class="file-tile file-tile--video" role="listitem">
-    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Onboarding walkthrough.mp4"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
-    <a class="file-tile__open" href="#ft-6"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">movie</span></span><span class="file-tile__name">Onboarding walkthrough.mp4</span><span class="file-tile__meta">86 MB · 9 Nov</span></a>
-    <button class="icon-btn file-tile__more" aria-label="More actions for Onboarding walkthrough.mp4" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-6"><span class="ic" aria-hidden="true">more_horiz</span></button>
-    <div class="menu menu--right" id="ft-m-6" role="menu" aria-label="Onboarding walkthrough.mp4" style="top: 44px; right: 4px;">
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download</button>
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
+    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Panduan pendaftaran daring.mp4"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+    <a class="file-tile__open" href="#ft-6"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">movie</span></span><span class="file-tile__name">Panduan pendaftaran daring.mp4</span><span class="file-tile__meta">86 MB · 9 Nov</span></a>
+    <button class="icon-btn file-tile__more" aria-label="Aksi lain untuk Panduan pendaftaran daring.mp4" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-6"><span class="ic" aria-hidden="true">more_horiz</span></button>
+    <div class="menu menu--right" id="ft-m-6" role="menu" aria-label="Panduan pendaftaran daring.mp4" style="top: 44px; right: 4px;">
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Unduh</button>
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Ganti nama</button>
       <div class="menu__sep"></div>
-      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete</button>
+      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Hapus</button>
     </div>
   </div>
   <div class="file-tile file-tile--archive" role="listitem">
-    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Brand assets.zip"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
-    <a class="file-tile__open" href="#ft-7"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">folder_zip</span></span><span class="file-tile__name">Brand assets.zip</span><span class="file-tile__meta">24 MB · 2 Nov</span></a>
-    <button class="icon-btn file-tile__more" aria-label="More actions for Brand assets.zip" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-7"><span class="ic" aria-hidden="true">more_horiz</span></button>
-    <div class="menu menu--right" id="ft-m-7" role="menu" aria-label="Brand assets.zip" style="top: 44px; right: 4px;">
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download</button>
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
+    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Aset identitas visual.zip"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+    <a class="file-tile__open" href="#ft-7"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">folder_zip</span></span><span class="file-tile__name">Aset identitas visual.zip</span><span class="file-tile__meta">24 MB · 2 Nov</span></a>
+    <button class="icon-btn file-tile__more" aria-label="Aksi lain untuk Aset identitas visual.zip" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-7"><span class="ic" aria-hidden="true">more_horiz</span></button>
+    <div class="menu menu--right" id="ft-m-7" role="menu" aria-label="Aset identitas visual.zip" style="top: 44px; right: 4px;">
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Unduh</button>
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Ganti nama</button>
       <div class="menu__sep"></div>
-      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete</button>
+      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Hapus</button>
     </div>
   </div>
 </div>
-<div class="selbar" id="ft-bar" role="toolbar" aria-label="Selected files"><span class="selbar__count" aria-live="polite"><span class="roll" data-lds-roll="0"></span> selected</span><button class="btn btn--md"><span class="ic" aria-hidden="true">download</span>Download</button><button class="btn btn--md btn--danger"><span class="ic" aria-hidden="true">delete</span>Delete</button><button class="icon-btn" data-lds-select-clear aria-label="Clear selection"><span class="ic" aria-hidden="true">close</span></button></div>
+<div class="selbar" id="ft-bar" role="toolbar" aria-label="Berkas terpilih"><span class="selbar__count" aria-live="polite"><span class="roll" data-lds-roll="0"></span> dipilih</span><button class="btn btn--md"><span class="ic" aria-hidden="true">download</span>Unduh</button><button class="btn btn--md btn--danger"><span class="ic" aria-hidden="true">delete</span>Hapus</button><button class="icon-btn" data-lds-select-clear aria-label="Hapus pilihan"><span class="ic" aria-hidden="true">close</span></button></div>
 </div></div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;file-grid&quot; role=&quot;list&quot; aria-label=&quot;Q4 planning&quot; data-lds-selection=&quot;files-bar&quot;&gt;
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;file-grid&quot; role=&quot;list&quot; aria-label=&quot;Perencanaan triwulan 4&quot; data-lds-selection=&quot;files-bar&quot;&gt;
   &lt;div class=&quot;file-tile file-tile--sheet&quot; role=&quot;listitem&quot;&gt;
-    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Budget Q4 2026.xlsx&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;…&lt;/span&gt;&lt;/label&gt;
-    &lt;a class=&quot;file-tile__open&quot; href=&quot;/files/budget-q4&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Budget Q4 2026.xlsx&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;214 KB · Edited 2 h ago&lt;/span&gt;&lt;/a&gt;
-    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;More actions for Budget Q4 2026.xlsx&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;m-budget&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
+    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Anggaran TW4 2026.xlsx&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;…&lt;/span&gt;&lt;/label&gt;
+    &lt;a class=&quot;file-tile__open&quot; href=&quot;/files/budget-q4&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Anggaran TW4 2026.xlsx&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;214 KB · Diubah 2 jam lalu&lt;/span&gt;&lt;/a&gt;
+    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;Aksi lain untuk Anggaran TW4 2026.xlsx&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;m-budget&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
     &lt;div class=&quot;menu menu--right&quot; id=&quot;m-budget&quot; role=&quot;menu&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;…&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&quot;selbar&quot; id=&quot;files-bar&quot; role=&quot;toolbar&quot; aria-label=&quot;Selected files&quot;&gt;
-  &lt;span class=&quot;selbar__count&quot; aria-live=&quot;polite&quot;&gt;&lt;span class=&quot;roll&quot; data-lds-roll=&quot;0&quot;&gt;&lt;/span&gt; selected&lt;/span&gt;
-  &lt;button class=&quot;btn btn--md&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Download&lt;/button&gt;
-  &lt;button class=&quot;icon-btn&quot; data-lds-select-clear aria-label=&quot;Clear selection&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;close&lt;/span&gt;&lt;/button&gt;
+&lt;div class=&quot;selbar&quot; id=&quot;files-bar&quot; role=&quot;toolbar&quot; aria-label=&quot;Berkas terpilih&quot;&gt;
+  &lt;span class=&quot;selbar__count&quot; aria-live=&quot;polite&quot;&gt;&lt;span class=&quot;roll&quot; data-lds-roll=&quot;0&quot;&gt;&lt;/span&gt; dipilih&lt;/span&gt;
+  &lt;button class=&quot;btn btn--md&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Unduh&lt;/button&gt;
+  &lt;button class=&quot;icon-btn&quot; data-lds-select-clear aria-label=&quot;Hapus pilihan&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;close&lt;/span&gt;&lt;/button&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;file-grid&quot; role=&quot;list&quot; aria-label=&quot;Q4 planning&quot; data-lds-selection=&quot;files-bar&quot;&gt;
+          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;file-grid&quot; role=&quot;list&quot; aria-label=&quot;Perencanaan triwulan 4&quot; data-lds-selection=&quot;files-bar&quot;&gt;
   &lt;div class=&quot;file-tile file-tile--sheet&quot; role=&quot;listitem&quot;&gt;
-    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Budget Q4 2026.xlsx&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;…&lt;/span&gt;&lt;/label&gt;
-    &lt;a class=&quot;file-tile__open&quot; href=&quot;/files/budget-q4&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Budget Q4 2026.xlsx&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;214 KB · Edited 2 h ago&lt;/span&gt;&lt;/a&gt;
-    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;More actions for Budget Q4 2026.xlsx&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;m-budget&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
+    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Anggaran TW4 2026.xlsx&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;…&lt;/span&gt;&lt;/label&gt;
+    &lt;a class=&quot;file-tile__open&quot; href=&quot;/files/budget-q4&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Anggaran TW4 2026.xlsx&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;214 KB · Diubah 2 jam lalu&lt;/span&gt;&lt;/a&gt;
+    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;Aksi lain untuk Anggaran TW4 2026.xlsx&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;m-budget&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
     &lt;div class=&quot;menu menu--right&quot; id=&quot;m-budget&quot; role=&quot;menu&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;…&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
-&lt;div class=&quot;selbar&quot; id=&quot;files-bar&quot; role=&quot;toolbar&quot; aria-label=&quot;Selected files&quot;&gt;
-  &lt;span class=&quot;selbar__count&quot; aria-live=&quot;polite&quot;&gt;&lt;span class=&quot;roll&quot; data-lds-roll=&quot;0&quot;&gt;&lt;/span&gt; selected&lt;/span&gt;
-  &lt;button class=&quot;btn btn--md&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Download&lt;/button&gt;
-  &lt;button class=&quot;icon-btn&quot; data-lds-select-clear aria-label=&quot;Clear selection&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;close&lt;/span&gt;&lt;/button&gt;
+&lt;div class=&quot;selbar&quot; id=&quot;files-bar&quot; role=&quot;toolbar&quot; aria-label=&quot;Berkas terpilih&quot;&gt;
+  &lt;span class=&quot;selbar__count&quot; aria-live=&quot;polite&quot;&gt;&lt;span class=&quot;roll&quot; data-lds-roll=&quot;0&quot;&gt;&lt;/span&gt; dipilih&lt;/span&gt;
+  &lt;button class=&quot;btn btn--md&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Unduh&lt;/button&gt;
+  &lt;button class=&quot;icon-btn&quot; data-lds-select-clear aria-label=&quot;Hapus pilihan&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;close&lt;/span&gt;&lt;/button&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
-          <figcaption><span class="cdoc__ex-t">Compact grid</span><span class="cdoc__ex-d"><code class="code">file-grid--compact</code> for a side panel or a picker: 140 px tiles with shorter thumbnails.</span></figcaption>
-          <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="file-grid file-grid--compact" role="list" aria-label="Recent" style="max-width: 640px;">
+          <figcaption><span class="cdoc__ex-t">Grid ringkas</span><span class="cdoc__ex-d"><code class="code">file-grid--compact</code> untuk panel samping atau pemilih: tile 140 px dengan thumbnail lebih pendek.</span></figcaption>
+          <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="file-grid file-grid--compact" role="list" aria-label="Terbaru" style="max-width: 640px;">
   <div class="file-tile file-tile--doc" role="listitem">
-    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Minutes 12 Nov.docx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
-    <a class="file-tile__open" href="#ft-11"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Minutes 12 Nov.docx</span><span class="file-tile__meta">48 KB</span></a>
-    <button class="icon-btn file-tile__more" aria-label="More actions for Minutes 12 Nov.docx" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-11"><span class="ic" aria-hidden="true">more_horiz</span></button>
-    <div class="menu menu--right" id="ft-m-11" role="menu" aria-label="Minutes 12 Nov.docx" style="top: 44px; right: 4px;">
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download</button>
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
+    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Notulen 12 Nov.docx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+    <a class="file-tile__open" href="#ft-11"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Notulen 12 Nov.docx</span><span class="file-tile__meta">48 KB</span></a>
+    <button class="icon-btn file-tile__more" aria-label="Aksi lain untuk Notulen 12 Nov.docx" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-11"><span class="ic" aria-hidden="true">more_horiz</span></button>
+    <div class="menu menu--right" id="ft-m-11" role="menu" aria-label="Notulen 12 Nov.docx" style="top: 44px; right: 4px;">
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Unduh</button>
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Ganti nama</button>
       <div class="menu__sep"></div>
-      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete</button>
+      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Hapus</button>
     </div>
   </div>
   <div class="file-tile file-tile--audio" role="listitem">
-    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Interview with Dewi.m4a"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
-    <a class="file-tile__open" href="#ft-12"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">audio_file</span></span><span class="file-tile__name">Interview with Dewi.m4a</span><span class="file-tile__meta">18 MB</span></a>
-    <button class="icon-btn file-tile__more" aria-label="More actions for Interview with Dewi.m4a" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-12"><span class="ic" aria-hidden="true">more_horiz</span></button>
-    <div class="menu menu--right" id="ft-m-12" role="menu" aria-label="Interview with Dewi.m4a" style="top: 44px; right: 4px;">
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download</button>
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
+    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Wawancara dengan Dewi.m4a"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+    <a class="file-tile__open" href="#ft-12"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">audio_file</span></span><span class="file-tile__name">Wawancara dengan Dewi.m4a</span><span class="file-tile__meta">18 MB</span></a>
+    <button class="icon-btn file-tile__more" aria-label="Aksi lain untuk Wawancara dengan Dewi.m4a" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-12"><span class="ic" aria-hidden="true">more_horiz</span></button>
+    <div class="menu menu--right" id="ft-m-12" role="menu" aria-label="Wawancara dengan Dewi.m4a" style="top: 44px; right: 4px;">
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Unduh</button>
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Ganti nama</button>
       <div class="menu__sep"></div>
-      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete</button>
+      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Hapus</button>
     </div>
   </div>
   <div class="file-tile file-tile--image" role="listitem">
-    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Receipt 0412.jpg"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
-    <a class="file-tile__open" href="#ft-13"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">image</span></span><span class="file-tile__name">Receipt 0412.jpg</span><span class="file-tile__meta">820 KB</span></a>
-    <button class="icon-btn file-tile__more" aria-label="More actions for Receipt 0412.jpg" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-13"><span class="ic" aria-hidden="true">more_horiz</span></button>
-    <div class="menu menu--right" id="ft-m-13" role="menu" aria-label="Receipt 0412.jpg" style="top: 44px; right: 4px;">
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download</button>
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
+    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Kuitansi 0412.jpg"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+    <a class="file-tile__open" href="#ft-13"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">image</span></span><span class="file-tile__name">Kuitansi 0412.jpg</span><span class="file-tile__meta">820 KB</span></a>
+    <button class="icon-btn file-tile__more" aria-label="Aksi lain untuk Kuitansi 0412.jpg" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-13"><span class="ic" aria-hidden="true">more_horiz</span></button>
+    <div class="menu menu--right" id="ft-m-13" role="menu" aria-label="Kuitansi 0412.jpg" style="top: 44px; right: 4px;">
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Unduh</button>
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Ganti nama</button>
       <div class="menu__sep"></div>
-      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete</button>
+      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Hapus</button>
     </div>
   </div>
   <div class="file-tile file-tile--sheet" role="listitem">
-    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Payroll November.xlsx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
-    <a class="file-tile__open" href="#ft-14"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Payroll November.xlsx</span><span class="file-tile__meta">96 KB</span></a>
-    <button class="icon-btn file-tile__more" aria-label="More actions for Payroll November.xlsx" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-14"><span class="ic" aria-hidden="true">more_horiz</span></button>
-    <div class="menu menu--right" id="ft-m-14" role="menu" aria-label="Payroll November.xlsx" style="top: 44px; right: 4px;">
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download</button>
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
+    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Pilih Honor petugas November.xlsx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+    <a class="file-tile__open" href="#ft-14"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Honor petugas November.xlsx</span><span class="file-tile__meta">96 KB</span></a>
+    <button class="icon-btn file-tile__more" aria-label="Aksi lain untuk Honor petugas November.xlsx" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-14"><span class="ic" aria-hidden="true">more_horiz</span></button>
+    <div class="menu menu--right" id="ft-m-14" role="menu" aria-label="Honor petugas November.xlsx" style="top: 44px; right: 4px;">
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Unduh</button>
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Ganti nama</button>
       <div class="menu__sep"></div>
-      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete</button>
+      <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Hapus</button>
     </div>
   </div>
 </div></div>
@@ -467,108 +485,108 @@
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;file-grid file-grid--compact&quot; role=&quot;list&quot; aria-label=&quot;Recent&quot; style=&quot;max-width: 640px;&quot;&gt;
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;file-grid file-grid--compact&quot; role=&quot;list&quot; aria-label=&quot;Terbaru&quot; style=&quot;max-width: 640px;&quot;&gt;
   &lt;div class=&quot;file-tile file-tile--doc&quot; role=&quot;listitem&quot;&gt;
-    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Minutes 12 Nov.docx&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;
-    &lt;a class=&quot;file-tile__open&quot; href=&quot;#ft-11&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Minutes 12 Nov.docx&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;48 KB&lt;/span&gt;&lt;/a&gt;
-    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;More actions for Minutes 12 Nov.docx&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;ft-m-11&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
-    &lt;div class=&quot;menu menu--right&quot; id=&quot;ft-m-11&quot; role=&quot;menu&quot; aria-label=&quot;Minutes 12 Nov.docx&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;
-      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Download&lt;/button&gt;
-      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Rename&lt;/button&gt;
+    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Notulen 12 Nov.docx&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;a class=&quot;file-tile__open&quot; href=&quot;#ft-11&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Notulen 12 Nov.docx&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;48 KB&lt;/span&gt;&lt;/a&gt;
+    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;Aksi lain untuk Notulen 12 Nov.docx&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;ft-m-11&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
+    &lt;div class=&quot;menu menu--right&quot; id=&quot;ft-m-11&quot; role=&quot;menu&quot; aria-label=&quot;Notulen 12 Nov.docx&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;
+      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Unduh&lt;/button&gt;
+      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Ganti nama&lt;/button&gt;
       &lt;div class=&quot;menu__sep&quot;&gt;&lt;/div&gt;
-      &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete&lt;/button&gt;
+      &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Hapus&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;file-tile file-tile--audio&quot; role=&quot;listitem&quot;&gt;
-    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Interview with Dewi.m4a&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;
-    &lt;a class=&quot;file-tile__open&quot; href=&quot;#ft-12&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;audio_file&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Interview with Dewi.m4a&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;18 MB&lt;/span&gt;&lt;/a&gt;
-    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;More actions for Interview with Dewi.m4a&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;ft-m-12&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
-    &lt;div class=&quot;menu menu--right&quot; id=&quot;ft-m-12&quot; role=&quot;menu&quot; aria-label=&quot;Interview with Dewi.m4a&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;
-      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Download&lt;/button&gt;
-      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Rename&lt;/button&gt;
+    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Wawancara dengan Dewi.m4a&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;a class=&quot;file-tile__open&quot; href=&quot;#ft-12&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;audio_file&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Wawancara dengan Dewi.m4a&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;18 MB&lt;/span&gt;&lt;/a&gt;
+    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;Aksi lain untuk Wawancara dengan Dewi.m4a&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;ft-m-12&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
+    &lt;div class=&quot;menu menu--right&quot; id=&quot;ft-m-12&quot; role=&quot;menu&quot; aria-label=&quot;Wawancara dengan Dewi.m4a&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;
+      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Unduh&lt;/button&gt;
+      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Ganti nama&lt;/button&gt;
       &lt;div class=&quot;menu__sep&quot;&gt;&lt;/div&gt;
-      &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete&lt;/button&gt;
+      &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Hapus&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;file-tile file-tile--image&quot; role=&quot;listitem&quot;&gt;
-    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Receipt 0412.jpg&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;
-    &lt;a class=&quot;file-tile__open&quot; href=&quot;#ft-13&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;image&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Receipt 0412.jpg&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;820 KB&lt;/span&gt;&lt;/a&gt;
-    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;More actions for Receipt 0412.jpg&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;ft-m-13&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
-    &lt;div class=&quot;menu menu--right&quot; id=&quot;ft-m-13&quot; role=&quot;menu&quot; aria-label=&quot;Receipt 0412.jpg&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;
-      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Download&lt;/button&gt;
-      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Rename&lt;/button&gt;
+    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Kuitansi 0412.jpg&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;a class=&quot;file-tile__open&quot; href=&quot;#ft-13&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;image&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Kuitansi 0412.jpg&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;820 KB&lt;/span&gt;&lt;/a&gt;
+    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;Aksi lain untuk Kuitansi 0412.jpg&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;ft-m-13&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
+    &lt;div class=&quot;menu menu--right&quot; id=&quot;ft-m-13&quot; role=&quot;menu&quot; aria-label=&quot;Kuitansi 0412.jpg&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;
+      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Unduh&lt;/button&gt;
+      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Ganti nama&lt;/button&gt;
       &lt;div class=&quot;menu__sep&quot;&gt;&lt;/div&gt;
-      &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete&lt;/button&gt;
+      &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Hapus&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;file-tile file-tile--sheet&quot; role=&quot;listitem&quot;&gt;
-    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Payroll November.xlsx&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;
-    &lt;a class=&quot;file-tile__open&quot; href=&quot;#ft-14&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Payroll November.xlsx&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;96 KB&lt;/span&gt;&lt;/a&gt;
-    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;More actions for Payroll November.xlsx&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;ft-m-14&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
-    &lt;div class=&quot;menu menu--right&quot; id=&quot;ft-m-14&quot; role=&quot;menu&quot; aria-label=&quot;Payroll November.xlsx&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;
-      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Download&lt;/button&gt;
-      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Rename&lt;/button&gt;
+    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Honor petugas November.xlsx&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;a class=&quot;file-tile__open&quot; href=&quot;#ft-14&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Honor petugas November.xlsx&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;96 KB&lt;/span&gt;&lt;/a&gt;
+    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;Aksi lain untuk Honor petugas November.xlsx&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;ft-m-14&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
+    &lt;div class=&quot;menu menu--right&quot; id=&quot;ft-m-14&quot; role=&quot;menu&quot; aria-label=&quot;Honor petugas November.xlsx&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;
+      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Unduh&lt;/button&gt;
+      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Ganti nama&lt;/button&gt;
       &lt;div class=&quot;menu__sep&quot;&gt;&lt;/div&gt;
-      &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete&lt;/button&gt;
+      &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Hapus&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;file-grid file-grid--compact&quot; role=&quot;list&quot; aria-label=&quot;Recent&quot; style=&quot;max-width: 640px;&quot;&gt;
+          <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;file-grid file-grid--compact&quot; role=&quot;list&quot; aria-label=&quot;Terbaru&quot; style=&quot;max-width: 640px;&quot;&gt;
   &lt;div class=&quot;file-tile file-tile--doc&quot; role=&quot;listitem&quot;&gt;
-    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Minutes 12 Nov.docx&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;
-    &lt;a class=&quot;file-tile__open&quot; href=&quot;#ft-11&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Minutes 12 Nov.docx&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;48 KB&lt;/span&gt;&lt;/a&gt;
-    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;More actions for Minutes 12 Nov.docx&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;ft-m-11&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
-    &lt;div class=&quot;menu menu--right&quot; id=&quot;ft-m-11&quot; role=&quot;menu&quot; aria-label=&quot;Minutes 12 Nov.docx&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;
-      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Download&lt;/button&gt;
-      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Rename&lt;/button&gt;
+    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Notulen 12 Nov.docx&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;a class=&quot;file-tile__open&quot; href=&quot;#ft-11&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Notulen 12 Nov.docx&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;48 KB&lt;/span&gt;&lt;/a&gt;
+    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;Aksi lain untuk Notulen 12 Nov.docx&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;ft-m-11&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
+    &lt;div class=&quot;menu menu--right&quot; id=&quot;ft-m-11&quot; role=&quot;menu&quot; aria-label=&quot;Notulen 12 Nov.docx&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;
+      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Unduh&lt;/button&gt;
+      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Ganti nama&lt;/button&gt;
       &lt;div class=&quot;menu__sep&quot;&gt;&lt;/div&gt;
-      &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete&lt;/button&gt;
+      &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Hapus&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;file-tile file-tile--audio&quot; role=&quot;listitem&quot;&gt;
-    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Interview with Dewi.m4a&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;
-    &lt;a class=&quot;file-tile__open&quot; href=&quot;#ft-12&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;audio_file&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Interview with Dewi.m4a&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;18 MB&lt;/span&gt;&lt;/a&gt;
-    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;More actions for Interview with Dewi.m4a&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;ft-m-12&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
-    &lt;div class=&quot;menu menu--right&quot; id=&quot;ft-m-12&quot; role=&quot;menu&quot; aria-label=&quot;Interview with Dewi.m4a&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;
-      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Download&lt;/button&gt;
-      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Rename&lt;/button&gt;
+    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Wawancara dengan Dewi.m4a&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;a class=&quot;file-tile__open&quot; href=&quot;#ft-12&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;audio_file&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Wawancara dengan Dewi.m4a&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;18 MB&lt;/span&gt;&lt;/a&gt;
+    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;Aksi lain untuk Wawancara dengan Dewi.m4a&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;ft-m-12&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
+    &lt;div class=&quot;menu menu--right&quot; id=&quot;ft-m-12&quot; role=&quot;menu&quot; aria-label=&quot;Wawancara dengan Dewi.m4a&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;
+      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Unduh&lt;/button&gt;
+      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Ganti nama&lt;/button&gt;
       &lt;div class=&quot;menu__sep&quot;&gt;&lt;/div&gt;
-      &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete&lt;/button&gt;
+      &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Hapus&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;file-tile file-tile--image&quot; role=&quot;listitem&quot;&gt;
-    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Receipt 0412.jpg&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;
-    &lt;a class=&quot;file-tile__open&quot; href=&quot;#ft-13&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;image&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Receipt 0412.jpg&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;820 KB&lt;/span&gt;&lt;/a&gt;
-    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;More actions for Receipt 0412.jpg&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;ft-m-13&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
-    &lt;div class=&quot;menu menu--right&quot; id=&quot;ft-m-13&quot; role=&quot;menu&quot; aria-label=&quot;Receipt 0412.jpg&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;
-      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Download&lt;/button&gt;
-      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Rename&lt;/button&gt;
+    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Kuitansi 0412.jpg&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;a class=&quot;file-tile__open&quot; href=&quot;#ft-13&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;image&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Kuitansi 0412.jpg&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;820 KB&lt;/span&gt;&lt;/a&gt;
+    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;Aksi lain untuk Kuitansi 0412.jpg&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;ft-m-13&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
+    &lt;div class=&quot;menu menu--right&quot; id=&quot;ft-m-13&quot; role=&quot;menu&quot; aria-label=&quot;Kuitansi 0412.jpg&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;
+      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Unduh&lt;/button&gt;
+      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Ganti nama&lt;/button&gt;
       &lt;div class=&quot;menu__sep&quot;&gt;&lt;/div&gt;
-      &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete&lt;/button&gt;
+      &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Hapus&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;file-tile file-tile--sheet&quot; role=&quot;listitem&quot;&gt;
-    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Payroll November.xlsx&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;
-    &lt;a class=&quot;file-tile__open&quot; href=&quot;#ft-14&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Payroll November.xlsx&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;96 KB&lt;/span&gt;&lt;/a&gt;
-    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;More actions for Payroll November.xlsx&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;ft-m-14&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
-    &lt;div class=&quot;menu menu--right&quot; id=&quot;ft-m-14&quot; role=&quot;menu&quot; aria-label=&quot;Payroll November.xlsx&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;
-      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Download&lt;/button&gt;
-      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Rename&lt;/button&gt;
+    &lt;label class=&quot;check file-tile__check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Pilih Honor petugas November.xlsx&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;
+    &lt;a class=&quot;file-tile__open&quot; href=&quot;#ft-14&quot;&gt;&lt;span class=&quot;file-tile__thumb&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;file-tile__name&quot;&gt;Honor petugas November.xlsx&lt;/span&gt;&lt;span class=&quot;file-tile__meta&quot;&gt;96 KB&lt;/span&gt;&lt;/a&gt;
+    &lt;button class=&quot;icon-btn file-tile__more&quot; aria-label=&quot;Aksi lain untuk Honor petugas November.xlsx&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;ft-m-14&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
+    &lt;div class=&quot;menu menu--right&quot; id=&quot;ft-m-14&quot; role=&quot;menu&quot; aria-label=&quot;Honor petugas November.xlsx&quot; style=&quot;top: 44px; right: 4px;&quot;&gt;
+      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Unduh&lt;/button&gt;
+      &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Ganti nama&lt;/button&gt;
       &lt;div class=&quot;menu__sep&quot;&gt;&lt;/div&gt;
-      &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete&lt;/button&gt;
+      &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Hapus&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
-        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">.file-grid</code></td><td>Required. The grid (<code class="code">role=&quot;list&quot;</code>). Put <code class="code">data-lds-selection=&quot;selbarId&quot;</code> on it to wire selection; it gets <code class="code">.is-selecting</code> while anything is ticked, which keeps every checkbox visible.</td></tr><tr><td><code class="code">.file-tile</code></td><td>Required. One file (<code class="code">role=&quot;listitem&quot;</code>). Type modifier sets the tone: <code class="code">--folder</code>, <code class="code">--doc</code>, <code class="code">--sheet</code>, <code class="code">--image</code>, <code class="code">--video</code>, <code class="code">--audio</code>, <code class="code">--archive</code>.</td></tr><tr><td><code class="code">.file-tile__open</code></td><td>Required. The <code class="code">&lt;a&gt;</code> (or button) that opens the file: thumbnail, name and meta.</td></tr><tr><td><code class="code">.file-tile__thumb</code></td><td>Required. 104 px tinted area with the type icon (fill style), or an <code class="code">&lt;img&gt;</code> that covers it.</td></tr><tr><td><code class="code">.file-tile__name</code></td><td>Required. The file name, two lines at most, breaking anywhere so long names never overflow.</td></tr><tr><td><code class="code">.file-tile__meta</code></td><td>Size and date, one line, tabular figures.</td></tr><tr><td><code class="code">.check.file-tile__check</code></td><td>The checkbox top left (<code class="code">input[data-lds-select]</code> with an <code class="code">aria-label</code>).</td></tr><tr><td><code class="code">.icon-btn.file-tile__more</code></td><td>The more menu top right, with its <code class="code">.menu</code>.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">.file-tile--folder</code></td><td>Folder: accent tone, 64 px thumbnail.</td></tr><tr><td><code class="code">.file-tile--doc | --sheet | --image | --video | --audio | --archive</code></td><td>File types, each on its own tone from the <code class="code">--tile-*</code> and series palettes.</td></tr><tr><td><code class="code">.file-grid--compact</code></td><td>140 px minimum, 72 px thumbnails.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">hover, focus-within</code></td><td>Ring turns <code class="code">--line-strong</code>; checkbox and more button fade in.</td></tr><tr><td><code class="code">selected</code></td><td>The checkbox is ticked: accent tint and a 1.5 px accent ring on the tile.</td></tr><tr><td><code class="code">.file-grid.is-selecting</code></td><td>Set by the selection hook while anything is ticked: all checkboxes show.</td></tr><tr><td><code class="code">touch screens</code></td><td>Checkbox and more button always show (no hover to reveal them).</td></tr><tr><td><code class="code">loading</code></td><td><a class="link" href="skeleton.html">Skeleton</a> tiles: a 104 px block and two text bars per tile.</td></tr><tr><td><code class="code">empty</code></td><td>An <a class="link" href="empty-state.html">empty state</a> in place of the grid, with the upload action.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Press on the tile sinks it to 0.985 in 90 ms and springs back on <code class="code">--spring-snappy</code>.</li><li>Checkbox and more button fade in over <code class="code">--d-fast</code> and settle from 0.9 on <code class="code">--spring-snappy</code>; the tick draws in as in <a class="link" href="checkbox.html">checkbox</a>.</li><li>The selection bar rises on <code class="code">--spring-smooth</code> and its count rolls (<a class="link" href="rolling-number.html">rolling number</a>).</li></ul></section>
-        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>The grid is a <code class="code">role=&quot;list&quot;</code> with an <code class="code">aria-label</code>; each tile a <code class="code">listitem</code>.</li><li>The open link and the checkbox are separate controls: the checkbox has its own <code class="code">aria-label</code> (&quot;Select Budget Q4 2026.xlsx&quot;), the more button names the file too.</li><li>Checkboxes stay in the tab order even while invisible, and show on focus.</li><li>Type is in the name (extension) and in the icon, never in color alone.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Sort folders before files, and keep the extension in the name.</li><li>Use the real picture as the thumbnail for images when you have one.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Truncate names to one line; two lines that break anywhere keep them readable.</li><li>Make the whole tile a checkbox; opening is the main action.</li></ul></div></div></section>
-        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> <code class="code">data-lds-selection=&quot;selbarId&quot;</code> on the <code class="code">.file-grid</code> wires the <code class="code">input[data-lds-select]</code> checkboxes: <code class="code">.is-selected</code> on each tile, <code class="code">.is-selecting</code> on the grid, the selection bar opens with a rolling count, Shift-click ticks a run, Escape and <code class="code">[data-lds-select-clear]</code> clear. Fires <code class="code">lds:select</code> with <code class="code">{ count, items }</code>. Call <code class="code">selectionRefresh(grid)</code> after adding or removing tiles. The more buttons use the menu hook (<code class="code">data-lds-menu</code>).</p></section>
-        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="selection-bar.html"><span class="link-card__eyebrow">Lapisan</span><span class="link-card__title">Selection bar</span><span class="link-card__body">A dark bar that floats up from the bottom while items in a list are selected, holding the count and the actions for all of them. It leaves when the selection is empty.</span></a><a class="link-card" href="thumbnail.html"><span class="link-card__eyebrow">Konten</span><span class="link-card__title">Thumbnail</span><span class="link-card__body">A cropped preview of a picture at a fixed ratio (4:3 by default) on a recessed placeholder. As a link with `data-lds-lightbox`, it opens the full picture in a [lightbox](lightbox) that grows out of the thumbnail.</span></a><a class="link-card" href="file-input.html"><span class="link-card__eyebrow">Input</span><span class="link-card__title">File input</span><span class="link-card__body">A drop zone with a real Choose button, and one row per chosen file that shows its size, upload progress, errors and a way to remove it. The button is the main path; dropping is a shortcut.</span></a><a class="link-card" href="table.html"><span class="link-card__eyebrow">Tampilan data</span><span class="link-card__title">Table</span><span class="link-card__body">Rows of records compared by the same columns, in a `.table-box` that scrolls sideways when it must. A real `&lt;table&gt;` by default, `.table--wrap` for text, and the `.dt` grid when a template repeats rows.</span></a></div></section>
+        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">.file-grid</code></td><td>Wajib. Grid-nya (<code class="code">role=&quot;list&quot;</code>). Pasang <code class="code">data-lds-selection=&quot;selbarId&quot;</code> untuk memasang pemilihan; grid mendapat <code class="code">.is-selecting</code> selama ada yang dicentang, sehingga semua kotak centang tetap terlihat.</td></tr><tr><td><code class="code">.file-tile</code></td><td>Wajib. Satu berkas (<code class="code">role=&quot;listitem&quot;</code>). Modifier jenis mengatur tone: <code class="code">--folder</code>, <code class="code">--doc</code>, <code class="code">--sheet</code>, <code class="code">--image</code>, <code class="code">--video</code>, <code class="code">--audio</code>, <code class="code">--archive</code>.</td></tr><tr><td><code class="code">.file-tile__open</code></td><td>Wajib. <code class="code">&lt;a&gt;</code> (atau tombol) yang membuka berkas: thumbnail, nama, dan meta.</td></tr><tr><td><code class="code">.file-tile__thumb</code></td><td>Wajib. Area bertint 104 px dengan ikon jenis (gaya fill), atau <code class="code">&lt;img&gt;</code> yang menutupinya.</td></tr><tr><td><code class="code">.file-tile__name</code></td><td>Wajib. Nama berkas, paling banyak dua baris, dipenggal di mana saja agar nama panjang tidak pernah meluap.</td></tr><tr><td><code class="code">.file-tile__meta</code></td><td>Ukuran dan tanggal, satu baris, angka tabular.</td></tr><tr><td><code class="code">.check.file-tile__check</code></td><td>Kotak centang di kiri atas (<code class="code">input[data-lds-select]</code> dengan <code class="code">aria-label</code>).</td></tr><tr><td><code class="code">.icon-btn.file-tile__more</code></td><td>Menu lainnya di kanan atas, dengan <code class="code">.menu</code>-nya.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">.file-tile--folder</code></td><td>Folder: tone aksen, thumbnail 64 px.</td></tr><tr><td><code class="code">.file-tile--doc | --sheet | --image | --video | --audio | --archive</code></td><td>Jenis berkas, masing-masing dengan tone sendiri dari palet <code class="code">--tile-*</code> dan seri.</td></tr><tr><td><code class="code">.file-grid--compact</code></td><td>Minimal 140 px, thumbnail 72 px.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">hover, focus-within</code></td><td>Ring berubah menjadi <code class="code">--line-strong</code>; kotak centang dan tombol lainnya muncul memudar.</td></tr><tr><td><code class="code">selected</code></td><td>Kotak centang tercentang: tint aksen dan ring aksen 1,5 px pada tile.</td></tr><tr><td><code class="code">.file-grid.is-selecting</code></td><td>Dipasang oleh hook pemilihan selama ada yang dicentang: semua kotak centang tampil.</td></tr><tr><td><code class="code">touch screens</code></td><td>Kotak centang dan tombol lainnya selalu tampil (tidak ada hover untuk memunculkannya).</td></tr><tr><td><code class="code">loading</code></td><td>Tile <a class="link" href="skeleton.html">skeleton</a>: blok 104 px dan dua bilah teks per tile.</td></tr><tr><td><code class="code">empty</code></td><td><a class="link" href="empty-state.html">Empty state</a> menggantikan grid, dengan aksi unggah.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Menekan tile mengecilkannya ke 0,985 dalam 90 ms lalu memantul kembali dengan <code class="code">--spring-snappy</code>.</li><li>Kotak centang dan tombol lainnya muncul memudar selama <code class="code">--d-fast</code> dan mengendap dari 0,9 dengan <code class="code">--spring-snappy</code>; centang tergambar seperti di <a class="link" href="checkbox.html">checkbox</a>.</li><li>Selection bar naik dengan <code class="code">--spring-smooth</code> dan hitungannya bergulir (<a class="link" href="rolling-number.html">rolling number</a>).</li></ul></section>
+        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Grid adalah <code class="code">role=&quot;list&quot;</code> dengan <code class="code">aria-label</code>; setiap tile adalah <code class="code">listitem</code>.</li><li>Tautan buka dan kotak centang adalah kontrol terpisah: kotak centang punya <code class="code">aria-label</code> sendiri (&quot;Pilih Anggaran TW4 2026.xlsx&quot;), tombol lainnya juga menyebut nama berkas.</li><li>Kotak centang tetap ada di urutan tab meski tidak terlihat, dan tampil saat difokus.</li><li>Jenis berkas ada di nama (ekstensi) dan ikon, tidak pernah hanya lewat warna.</li></ul></section>
+        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Urutkan folder sebelum berkas, dan pertahankan ekstensi di nama.</li><li>Pakai gambar asli sebagai thumbnail untuk berkas gambar bila ada.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Memotong nama menjadi satu baris; dua baris yang bisa dipenggal di mana saja menjaga nama tetap terbaca.</li><li>Menjadikan seluruh tile kotak centang; membuka berkas adalah aksi utama.</li></ul></div></div></section>
+        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> <code class="code">data-lds-selection=&quot;selbarId&quot;</code> pada <code class="code">.file-grid</code> memasang kotak centang <code class="code">input[data-lds-select]</code>: <code class="code">.is-selected</code> pada setiap tile, <code class="code">.is-selecting</code> pada grid, selection bar terbuka dengan hitungan yang bergulir, Shift-klik mencentang satu rentang, Escape dan <code class="code">[data-lds-select-clear]</code> menghapus pilihan. Memicu <code class="code">lds:select</code> dengan <code class="code">{ count, items }</code>. Panggil <code class="code">selectionRefresh(grid)</code> setelah menambah atau menghapus tile. Tombol lainnya memakai hook menu (<code class="code">data-lds-menu</code>).</p></section>
+        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="selection-bar.html"><span class="link-card__eyebrow">Lapisan</span><span class="link-card__title">Selection bar</span><span class="link-card__body">Bilah gelap yang mengambang naik dari bawah selama item dalam daftar dipilih, berisi jumlahnya dan aksi untuk semuanya. Bilah pergi saat pilihan kosong.</span></a><a class="link-card" href="thumbnail.html"><span class="link-card__eyebrow">Konten</span><span class="link-card__title">Thumbnail</span><span class="link-card__body">Pratinjau gambar yang dipotong dengan rasio tetap (bawaan 4:3) di atas placeholder cekung. Sebagai tautan dengan `data-lds-lightbox`, ia membuka gambar penuh di [lightbox](lightbox) yang tumbuh dari thumbnail.</span></a><a class="link-card" href="file-input.html"><span class="link-card__eyebrow">Input</span><span class="link-card__title">File input</span><span class="link-card__body">Zona lepas dengan tombol Pilih sungguhan, dan satu baris per berkas terpilih yang menampilkan ukuran, progres unggah, galat, dan cara menghapusnya. Tombol adalah jalur utama; menjatuhkan berkas hanya jalan pintas.</span></a><a class="link-card" href="table.html"><span class="link-card__eyebrow">Tampilan data</span><span class="link-card__title">Table</span><span class="link-card__body">Baris catatan yang dibandingkan dengan kolom yang sama, di dalam `.table-box` yang bergulir ke samping bila perlu. `&lt;table&gt;` asli secara default, `.table--wrap` untuk teks, dan grid `.dt` bila sebuah template mengulang baris.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
           <a class="link-card cdoc__prev" href="trend-delta.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Sebelumnya</span><span class="link-card__title">Trend delta</span></a>
           <a class="link-card cdoc__next" href="product-tile.html"><span class="link-card__eyebrow">Berikutnya<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Product tile</span></a>

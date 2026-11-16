@@ -1,6 +1,6 @@
 # File input
 
-Group: Inputs (new). Docs page: `docs/components/file-input.html`.
+Group: Inputs. Docs page: `docs/components/file-input.html`.
 
 A drop zone with a real Choose button, and one row per chosen file that shows its size, upload progress, errors and a way to remove it. The button is the main path; dropping is a shortcut.
 

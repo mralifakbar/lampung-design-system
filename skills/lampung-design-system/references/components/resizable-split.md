@@ -1,6 +1,6 @@
 # Resizable split
 
-Group: Page patterns (new). Docs page: `docs/components/resizable-split.html`.
+Group: Page patterns. Docs page: `docs/components/resizable-split.html`.
 
 Two panes with a handle between them that people drag, or move with the arrow keys, to share the space. For tools where both panes are worked in at once.
 

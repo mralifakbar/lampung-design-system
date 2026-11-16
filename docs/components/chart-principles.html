@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Chart principles · Lampung Design System</title>
-<meta name="description" content="The rules every chart in the system follows: one question per chart, written as its title; thin marks on receding grids; four series colors in a fixed order; direct labels over legends; and a text alternative for every chart.">
+<meta name="description" content="Aturan yang diikuti setiap grafik di sistem ini: satu pertanyaan per grafik, ditulis sebagai judulnya; tanda tipis di atas grid yang samar; empat warna seri dengan urutan tetap; label langsung, bukan legenda; dan alternatif teks untuk setiap grafik.">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
 <link rel="stylesheet" href="../../css/lds.css">
 <link rel="stylesheet" href="../docs.css">
@@ -12,20 +12,36 @@
 </head>
 <body class="lds">
 <a class="skip" href="#main">Langsung ke konten</a>
+<div class="masthead" role="region" aria-label="Status situs">
+  <div class="masthead__bar">
+    <span class="masthead__mark" aria-hidden="true"><span class="ic">info</span></span>
+    <span class="masthead__text">Proyek komunitas. Ini bukan situs resmi pemerintah.</span>
+    <button class="masthead__toggle" data-lds-masthead aria-expanded="false" aria-controls="lds-masthead">Cara memastikan<span class="ic" aria-hidden="true">expand_more</span></button>
+  </div>
+  <div class="collapse is-closed" id="lds-masthead" inert><div><div class="masthead__body">
+    <p class="masthead__item"><span class="ic" aria-hidden="true">groups</span><span><b>Dikelola sukarelawan.</b> Lampung Design System dibangun oleh komunitas open source. Tidak ada instansi pemerintah yang mengelola atau mendukungnya secara resmi.</span></p>
+    <p class="masthead__item"><span class="ic" aria-hidden="true">verified_user</span><span><b>Layanan resmi memakai go.id.</b> Situs pemerintah Indonesia berakhiran .go.id. Jangan masukkan NIK di situs yang Anda ragukan.</span></p>
+  </div></div></div>
+</div>
 <div class="shell" data-lds-shell>
   <aside class="shell__side" id="side" aria-label="Dokumentasi">
-    <a class="shell__brand" href="../index.html"><span class="page-head__mark">L</span>Lampung Design System</a>
+    <a class="shell__brand" href="../index.html"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>Lampung Design System</a>
     <nav class="shell__nav" aria-label="Komponen">
       <span class="shell__hl" aria-hidden="true"></span>
-      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Memulai</span></a>
+      <p class="shell__group">Memulai</p>
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Pengenalan</span></a>
+      <a class="shell__link" href="../guide/instalasi.html"><span class="ic" aria-hidden="true">download</span><span class="shell__label">Instalasi</span></a>
+      <a class="shell__link" href="../guide/penulisan.html"><span class="ic" aria-hidden="true">edit_square</span><span class="shell__label">Penulisan</span></a>
+      <a class="shell__link" href="../guide/aksesibilitas.html"><span class="ic" aria-hidden="true">accessible</span><span class="shell__label">Aksesibilitas</span></a>
+      <a class="shell__link" href="../guide/desainer.html"><span class="ic" aria-hidden="true">palette</span><span class="shell__label">Untuk desainer</span></a>
+      <p class="shell__group">Komponen</p>
       <a class="shell__link" href="index.html"><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">Semua komponen</span></a>
       <a class="shell__link" href="../examples/index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Contoh</span></a>
-      <p class="shell__group">Komponen</p>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g0"><span class="shell__section-label">Landasan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g0"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span></a>
+          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span></a>
           <a class="shell__link shell__link--child" href="data-states.html"><span class="shell__num">3</span><span class="shell__label">Data states</span></a>
           <a class="shell__link shell__link--child" href="theming.html"><span class="shell__num">4</span><span class="shell__label">Theming</span></a>
           <a class="shell__link shell__link--child" href="icon.html"><span class="shell__num">5</span><span class="shell__label">Icon</span></a>
@@ -60,9 +76,9 @@
           <a class="shell__link shell__link--child" href="select.html"><span class="shell__num">8</span><span class="shell__label">Select</span></a>
           <a class="shell__link shell__link--child" href="combobox.html"><span class="shell__num">9</span><span class="shell__label">Combobox</span></a>
           <a class="shell__link shell__link--child" href="tag-input.html"><span class="shell__num">10</span><span class="shell__label">Tag input</span></a>
-          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span></a>
+          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span></a>
+          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -80,21 +96,22 @@
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">13</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">14</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g4"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">1</span><span class="shell__label">App shell</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">2</span><span class="shell__label">Top nav</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">3</span><span class="shell__label">Tabs</span></a>
-          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">4</span><span class="shell__label">Breadcrumbs</span></a>
-          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">5</span><span class="shell__label">Page header</span></a>
-          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">6</span><span class="shell__label">Pagination</span></a>
-          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">7</span><span class="shell__label">Steps</span></a>
-          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">8</span><span class="shell__label">Sidebar</span></a>
-          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">9</span><span class="shell__label">Outline</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">10</span><span class="shell__label">Menubar</span></a>
-          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">11</span><span class="shell__label">Nav progress</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">12</span><span class="shell__label">Phone bars</span></a>
-          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">13</span><span class="shell__label">Navigation stack</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="masthead.html"><span class="shell__num">1</span><span class="shell__label">Masthead</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">2</span><span class="shell__label">App shell</span></a>
+          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">3</span><span class="shell__label">Top nav</span></a>
+          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">4</span><span class="shell__label">Tabs</span></a>
+          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">5</span><span class="shell__label">Breadcrumbs</span></a>
+          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">6</span><span class="shell__label">Page header</span></a>
+          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">7</span><span class="shell__label">Pagination</span></a>
+          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">8</span><span class="shell__label">Steps</span></a>
+          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">9</span><span class="shell__label">Sidebar</span></a>
+          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">10</span><span class="shell__label">Outline</span></a>
+          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">11</span><span class="shell__label">Menubar</span></a>
+          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">12</span><span class="shell__label">Nav progress</span></a>
+          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">13</span><span class="shell__label">Phone bars</span></a>
+          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">14</span><span class="shell__label">Navigation stack</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -102,7 +119,7 @@
         <div class="shell__panel" id="nav-g5"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="dialog.html"><span class="shell__num">1</span><span class="shell__label">Dialog</span></a>
           <a class="shell__link shell__link--child" href="alert-dialog.html"><span class="shell__num">2</span><span class="shell__label">Alert dialog</span></a>
-          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span></a>
           <a class="shell__link shell__link--child" href="sheet.html"><span class="shell__num">4</span><span class="shell__label">Sheet</span></a>
           <a class="shell__link shell__link--child" href="drawer.html"><span class="shell__num">5</span><span class="shell__label">Drawer</span></a>
           <a class="shell__link shell__link--child" href="dropdown-menu.html"><span class="shell__num">6</span><span class="shell__label">Dropdown menu</span></a>
@@ -112,8 +129,8 @@
           <a class="shell__link shell__link--child" href="hover-card.html"><span class="shell__num">10</span><span class="shell__label">Hover card</span></a>
           <a class="shell__link shell__link--child" href="toast.html"><span class="shell__num">11</span><span class="shell__label">Toast</span></a>
           <a class="shell__link shell__link--child" href="command-palette.html"><span class="shell__num">12</span><span class="shell__label">Command palette</span></a>
-          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span></a>
+          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -132,7 +149,7 @@
           <a class="shell__link shell__link--child" href="empty-state.html"><span class="shell__num">11</span><span class="shell__label">Empty state</span></a>
           <a class="shell__link shell__link--child" href="coachmark.html"><span class="shell__num">12</span><span class="shell__label">Coachmark</span></a>
           <a class="shell__link shell__link--child" href="thinking.html"><span class="shell__num">13</span><span class="shell__label">Thinking</span></a>
-          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -140,8 +157,8 @@
         <div class="shell__panel" id="nav-g7"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="list.html"><span class="shell__num">1</span><span class="shell__label">List</span></a>
           <a class="shell__link shell__link--child" href="key-value.html"><span class="shell__num">2</span><span class="shell__label">Key-value</span></a>
-          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span></a>
+          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span></a>
           <a class="shell__link shell__link--child" href="card.html"><span class="shell__num">5</span><span class="shell__label">Card</span></a>
           <a class="shell__link shell__link--child" href="avatar.html"><span class="shell__num">6</span><span class="shell__label">Avatar</span></a>
           <a class="shell__link shell__link--child" href="table.html"><span class="shell__num">7</span><span class="shell__label">Table</span></a>
@@ -149,70 +166,71 @@
           <a class="shell__link shell__link--child" href="tree.html"><span class="shell__num">9</span><span class="shell__label">Tree</span></a>
           <a class="shell__link shell__link--child" href="calendar.html"><span class="shell__num">10</span><span class="shell__label">Calendar</span></a>
           <a class="shell__link shell__link--child" href="timeline.html"><span class="shell__num">11</span><span class="shell__label">Timeline</span></a>
-          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span></a>
+          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span></a>
+          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span></a>
           <a class="shell__link shell__link--child" href="rolling-number.html"><span class="shell__num">15</span><span class="shell__label">Rolling number</span></a>
           <a class="shell__link shell__link--child" href="code-block.html"><span class="shell__num">16</span><span class="shell__label">Code block</span></a>
           <a class="shell__link shell__link--child" href="carousel.html"><span class="shell__num">17</span><span class="shell__label">Carousel</span></a>
           <a class="shell__link shell__link--child" href="separator.html"><span class="shell__num">18</span><span class="shell__label">Separator</span></a>
-          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span></a>
+          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span></a>
+          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span></a>
+          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span></a>
+          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span></a>
+          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span></a>
+          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span></a>
+          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span></a>
+          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span></a>
+          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span></a>
+          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span></a>
+          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">7</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g8"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span></a>
+          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span></a>
+          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span></a>
+          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span></a>
+          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span></a>
+          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span></a>
+          <a class="shell__link shell__link--child" href="aksara.html"><span class="shell__num">7</span><span class="shell__label">Aksara Lampung</span><span class="badge badge--accent shell__badge">Baru</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g9"><span class="shell__section-label">Obrolan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g9"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span></a>
+          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span></a>
+          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span></a>
+          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span></a>
+          <a class="shell__link shell__link--child" href="tool-call.html"><span class="shell__num">5</span><span class="shell__label">Tool call</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g10"><span class="shell__section-label">Pola halaman</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g10"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span></a>
+          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span></a>
+          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span></a>
+          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span></a>
           <a class="shell__link shell__link--child" href="phone-screen.html"><span class="shell__num">5</span><span class="shell__label">Phone screen</span></a>
-          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g11"><span class="shell__section-label">Promosi</span><span class="shell__section-count">8</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g11"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span></a>
+          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span></a>
+          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span></a>
+          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span></a>
+          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span></a>
+          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span></a>
+          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span></a>
+          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -225,10 +243,10 @@
           <a class="shell__link shell__link--child" href="height-expand.html"><span class="shell__num">5</span><span class="shell__label">Height expand</span></a>
           <a class="shell__link shell__link--child" href="list-stagger.html"><span class="shell__num">6</span><span class="shell__label">List stagger</span></a>
           <a class="shell__link shell__link--child" href="view-swap.html"><span class="shell__num">7</span><span class="shell__label">View swap</span></a>
-          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span></a>
           <a class="shell__link shell__link--child" href="number-count.html"><span class="shell__num">9</span><span class="shell__label">Number count</span></a>
           <a class="shell__link shell__link--child" href="drag-and-momentum.html"><span class="shell__num">10</span><span class="shell__label">Drag and momentum</span></a>
-          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span></a>
           <a class="shell__link shell__link--child" href="reduced-motion.html"><span class="shell__num">12</span><span class="shell__label">Reduced motion</span></a>
         </div></div></div>
       </div>
@@ -249,27 +267,27 @@
           <a class="shell__link shell__link--child" href="scroll-fades.html"><span class="shell__num">12</span><span class="shell__label">Scroll fades</span></a>
           <a class="shell__link shell__link--child" href="hints.html"><span class="shell__num">13</span><span class="shell__label">Hints</span></a>
           <a class="shell__link shell__link--child" href="haptics.html"><span class="shell__num">14</span><span class="shell__label">Haptics</span></a>
-          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="true" aria-controls="nav-g14"><span class="shell__section-label">Grafik</span><span class="shell__section-count">16</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel is-open" id="nav-g14"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="chart-principles.html" aria-current="page"><span class="shell__num">1</span><span class="shell__label">Chart principles</span></a>
-          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span></a>
           <a class="shell__link shell__link--child" href="sparkline-stat.html"><span class="shell__num">3</span><span class="shell__label">Sparkline stat</span></a>
           <a class="shell__link shell__link--child" href="bar-chart.html"><span class="shell__num">4</span><span class="shell__label">Bar chart</span></a>
-          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span></a>
           <a class="shell__link shell__link--child" href="line-chart.html"><span class="shell__num">6</span><span class="shell__label">Line chart</span></a>
-          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span></a>
+          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span></a>
           <a class="shell__link shell__link--child" href="donut.html"><span class="shell__num">9</span><span class="shell__label">Donut</span></a>
-          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span></a>
           <a class="shell__link shell__link--child" href="percentage-bar.html"><span class="shell__num">11</span><span class="shell__label">Percentage bar</span></a>
-          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span></a>
+          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span></a>
           <a class="shell__link shell__link--child" href="heatmap.html"><span class="shell__num">14</span><span class="shell__label">Heatmap</span></a>
-          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span></a>
           <a class="shell__link shell__link--child" href="chart-states.html"><span class="shell__num">16</span><span class="shell__label">Chart states</span></a>
         </div></div></div>
       </div>
@@ -296,21 +314,21 @@
         <header class="cdoc__head">
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Charts">Grafik</a></li></ol></nav>
           <h1>Chart principles</h1>
-          <p class="cdoc__lede">The rules every chart in the system follows: one question per chart, written as its title; thin marks on receding grids; four series colors in a fixed order; direct labels over legends; and a text alternative for every chart.</p>
+          <p class="cdoc__lede">Aturan yang diikuti setiap grafik di sistem ini: satu pertanyaan per grafik, ditulis sebagai judulnya; tanda tipis di atas grid yang samar; empat warna seri dengan urutan tetap; label langsung, bukan legenda; dan alternatif teks untuk setiap grafik.</p>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Before building any chart: pick the chart type from the question, then follow these rules for title, color, labels and states.</li><li>Reviewing a dashboard or report page for consistency.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>One headline number with its trend: pakai <a class="link" href="sparkline-stat.html">Sparkline stat</a>.</li><li>A few key figures without a chart: pakai <a class="link" href="stat-row.html">Stat row</a>.</li><li>Progress of one task toward done: pakai <a class="link" href="progress-bar.html">Progress bar</a>.</li><li>A capacity or quota that fills up: pakai <a class="link" href="meter.html">Meter</a>.</li><li>Comparing values across categories: pakai <a class="link" href="bar-chart.html">Bar chart</a>.</li><li>Change over time: pakai <a class="link" href="line-chart.html">Line chart</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Charts live in a <code class="code">.chart-card</code>, alone or in an <code class="code">auto-grid</code> (<code class="code">--min: 320px</code>) on a dashboard. A chart card is never nested in another card. On phones every chart is full width and keeps its title and text alternative; dense charts (heatmaps, long time series) show fewer periods rather than shrinking marks.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Sebelum membuat grafik apa pun: pilih jenis grafik dari pertanyaannya, lalu ikuti aturan ini untuk judul, warna, label, dan state.</li><li>Meninjau konsistensi halaman dasbor atau laporan.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Satu angka utama dengan trennya: pakai <a class="link" href="sparkline-stat.html">Sparkline stat</a>.</li><li>Beberapa angka kunci tanpa grafik: pakai <a class="link" href="stat-row.html">Stat row</a>.</li><li>Kemajuan satu tugas menuju selesai: pakai <a class="link" href="progress-bar.html">Progress bar</a>.</li><li>Kapasitas atau kuota yang terisi: pakai <a class="link" href="meter.html">Meter</a>.</li><li>Membandingkan nilai antar kategori: pakai <a class="link" href="bar-chart.html">Bar chart</a>.</li><li>Perubahan dari waktu ke waktu: pakai <a class="link" href="line-chart.html">Line chart</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Grafik ditempatkan di <code class="code">.chart-card</code>, sendiri atau dalam <code class="code">auto-grid</code> (<code class="code">--min: 320px</code>) di dasbor. Kartu grafik tidak pernah diletakkan di dalam kartu lain. Di ponsel setiap grafik selebar layar dan tetap punya judul serta alternatif teks; grafik yang padat (heatmap, deret waktu panjang) menampilkan lebih sedikit periode, bukan mengecilkan tandanya.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">One question, one highlight</span><span class="cdoc__ex-d">The title asks the question, the highlighted bar answers it, the other bars recede. Hover a bar for its value.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Satu pertanyaan, satu sorotan</span><span class="cdoc__ex-d">Judul mengajukan pertanyaan, batang yang disorot menjawabnya, batang lain memudar. Arahkan kursor ke batang untuk melihat nilainya.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="chart-card" style="max-width: 520px;">
-  <div><div class="chart-card__q">Which days are busiest?</div><div class="chart-card__sub">Assignments submitted per weekday, this week</div></div>
-  <div class="bars" role="img" aria-label="Submissions per weekday. Friday is busiest with 31, Sunday quietest with 4.">
-      <div class="bars__col"><span class="bars__bar bars__bar--muted" style="height: 38%;"><span class="bars__tip">12 submitted</span></span><span class="bars__x">Mon</span></div>
-      <div class="bars__col"><span class="bars__bar bars__bar--muted" style="height: 56%;"><span class="bars__tip">18 submitted</span></span><span class="bars__x">Tue</span></div>
-      <div class="bars__col"><span class="bars__bar bars__bar--muted" style="height: 81%;"><span class="bars__tip">26 submitted</span></span><span class="bars__x">Wed</span></div>
-      <div class="bars__col"><span class="bars__bar bars__bar--muted" style="height: 69%;"><span class="bars__tip">22 submitted</span></span><span class="bars__x">Thu</span></div>
-      <div class="bars__col"><span class="bars__bar" style="height: 97%;"><span class="bars__tip">31 submitted</span></span><span class="bars__x">Fri</span></div>
-      <div class="bars__col"><span class="bars__bar bars__bar--muted" style="height: 28%;"><span class="bars__tip">9 submitted</span></span><span class="bars__x">Sat</span></div>
-      <div class="bars__col"><span class="bars__bar bars__bar--muted" style="height: 13%;"><span class="bars__tip">4 submitted</span></span><span class="bars__x">Sun</span></div>
+  <div><div class="chart-card__q">Hari apa yang paling sibuk?</div><div class="chart-card__sub">Laporan warga yang masuk per hari, minggu ini</div></div>
+  <div class="bars" role="img" aria-label="Laporan warga per hari. Jumat paling sibuk dengan 31 laporan, Minggu paling sepi dengan 4.">
+      <div class="bars__col"><span class="bars__bar bars__bar--muted" style="height: 38%;"><span class="bars__tip">12 laporan</span></span><span class="bars__x">Sen</span></div>
+      <div class="bars__col"><span class="bars__bar bars__bar--muted" style="height: 56%;"><span class="bars__tip">18 laporan</span></span><span class="bars__x">Sel</span></div>
+      <div class="bars__col"><span class="bars__bar bars__bar--muted" style="height: 81%;"><span class="bars__tip">26 laporan</span></span><span class="bars__x">Rab</span></div>
+      <div class="bars__col"><span class="bars__bar bars__bar--muted" style="height: 69%;"><span class="bars__tip">22 laporan</span></span><span class="bars__x">Kam</span></div>
+      <div class="bars__col"><span class="bars__bar" style="height: 97%;"><span class="bars__tip">31 laporan</span></span><span class="bars__x">Jum</span></div>
+      <div class="bars__col"><span class="bars__bar bars__bar--muted" style="height: 28%;"><span class="bars__tip">9 laporan</span></span><span class="bars__x">Sab</span></div>
+      <div class="bars__col"><span class="bars__bar bars__bar--muted" style="height: 13%;"><span class="bars__tip">4 laporan</span></span><span class="bars__x">Min</span></div>
   </div>
 </div></div>
           
@@ -318,72 +336,72 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;chart-card&quot; style=&quot;max-width: 520px;&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot;&gt;Which days are busiest?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Assignments submitted per weekday, this week&lt;/div&gt;&lt;/div&gt;
-  &lt;div class=&quot;bars&quot; role=&quot;img&quot; aria-label=&quot;Submissions per weekday. Friday is busiest with 31, Sunday quietest with 4.&quot;&gt;
-      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 38%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;12 submitted&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Mon&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 56%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;18 submitted&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Tue&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 81%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;26 submitted&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Wed&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 69%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;22 submitted&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Thu&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar&quot; style=&quot;height: 97%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;31 submitted&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Fri&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 28%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;9 submitted&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Sat&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 13%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;4 submitted&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Sun&lt;/span&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot;&gt;Hari apa yang paling sibuk?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Laporan warga yang masuk per hari, minggu ini&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;bars&quot; role=&quot;img&quot; aria-label=&quot;Laporan warga per hari. Jumat paling sibuk dengan 31 laporan, Minggu paling sepi dengan 4.&quot;&gt;
+      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 38%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;12 laporan&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Sen&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 56%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;18 laporan&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Sel&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 81%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;26 laporan&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Rab&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 69%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;22 laporan&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Kam&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar&quot; style=&quot;height: 97%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;31 laporan&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Jum&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 28%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;9 laporan&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Sab&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 13%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;4 laporan&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Min&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;chart-card&quot; style=&quot;max-width: 520px;&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot;&gt;Which days are busiest?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Assignments submitted per weekday, this week&lt;/div&gt;&lt;/div&gt;
-  &lt;div class=&quot;bars&quot; role=&quot;img&quot; aria-label=&quot;Submissions per weekday. Friday is busiest with 31, Sunday quietest with 4.&quot;&gt;
-      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 38%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;12 submitted&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Mon&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 56%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;18 submitted&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Tue&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 81%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;26 submitted&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Wed&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 69%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;22 submitted&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Thu&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar&quot; style=&quot;height: 97%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;31 submitted&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Fri&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 28%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;9 submitted&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Sat&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 13%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;4 submitted&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Sun&lt;/span&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot;&gt;Hari apa yang paling sibuk?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Laporan warga yang masuk per hari, minggu ini&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;bars&quot; role=&quot;img&quot; aria-label=&quot;Laporan warga per hari. Jumat paling sibuk dengan 31 laporan, Minggu paling sepi dengan 4.&quot;&gt;
+      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 38%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;12 laporan&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Sen&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 56%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;18 laporan&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Sel&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 81%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;26 laporan&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Rab&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 69%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;22 laporan&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Kam&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar&quot; style=&quot;height: 97%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;31 laporan&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Jum&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 28%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;9 laporan&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Sab&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;bars__col&quot;&gt;&lt;span class=&quot;bars__bar bars__bar--muted&quot; style=&quot;height: 13%;&quot;&gt;&lt;span class=&quot;bars__tip&quot;&gt;4 laporan&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bars__x&quot;&gt;Min&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
-          <figcaption><span class="cdoc__ex-t">Series colors in fixed order</span><span class="cdoc__ex-d">Always <code class="code">--series-1</code> to <code class="code">--series-4</code>, in this order, never cycled. A fifth series folds into Other in <code class="code">--neutral</code>. Series 2 is under 3:1 on white, so it is always labelled.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Warna seri dengan urutan tetap</span><span class="cdoc__ex-d">Selalu <code class="code">--series-1</code> sampai <code class="code">--series-4</code>, dalam urutan ini, tidak pernah diputar ulang. Seri kelima digabung ke Lainnya dengan <code class="code">--neutral</code>. Kontras seri 2 di bawah 3:1 di atas putih, jadi selalu diberi label.</span></figcaption>
           <div class="cdoc__stage" id="ex-2-stage"><div class="legend">
-  <span><i style="background: var(--series-1);"></i>Series 1</span>
-  <span><i style="background: var(--series-2);"></i>Series 2</span>
-  <span><i style="background: var(--series-3);"></i>Series 3</span>
-  <span><i style="background: var(--series-4);"></i>Series 4</span>
-  <span><i style="background: var(--neutral);"></i>Other</span>
+  <span><i style="background: var(--series-1);"></i>Seri 1</span>
+  <span><i style="background: var(--series-2);"></i>Seri 2</span>
+  <span><i style="background: var(--series-3);"></i>Seri 3</span>
+  <span><i style="background: var(--series-4);"></i>Seri 4</span>
+  <span><i style="background: var(--neutral);"></i>Lainnya</span>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;legend&quot;&gt;
-  &lt;span&gt;&lt;i style=&quot;background: var(--series-1);&quot;&gt;&lt;/i&gt;Series 1&lt;/span&gt;
-  &lt;span&gt;&lt;i style=&quot;background: var(--series-2);&quot;&gt;&lt;/i&gt;Series 2&lt;/span&gt;
-  &lt;span&gt;&lt;i style=&quot;background: var(--series-3);&quot;&gt;&lt;/i&gt;Series 3&lt;/span&gt;
-  &lt;span&gt;&lt;i style=&quot;background: var(--series-4);&quot;&gt;&lt;/i&gt;Series 4&lt;/span&gt;
-  &lt;span&gt;&lt;i style=&quot;background: var(--neutral);&quot;&gt;&lt;/i&gt;Other&lt;/span&gt;
+  &lt;span&gt;&lt;i style=&quot;background: var(--series-1);&quot;&gt;&lt;/i&gt;Seri 1&lt;/span&gt;
+  &lt;span&gt;&lt;i style=&quot;background: var(--series-2);&quot;&gt;&lt;/i&gt;Seri 2&lt;/span&gt;
+  &lt;span&gt;&lt;i style=&quot;background: var(--series-3);&quot;&gt;&lt;/i&gt;Seri 3&lt;/span&gt;
+  &lt;span&gt;&lt;i style=&quot;background: var(--series-4);&quot;&gt;&lt;/i&gt;Seri 4&lt;/span&gt;
+  &lt;span&gt;&lt;i style=&quot;background: var(--neutral);&quot;&gt;&lt;/i&gt;Lainnya&lt;/span&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;legend&quot;&gt;
-  &lt;span&gt;&lt;i style=&quot;background: var(--series-1);&quot;&gt;&lt;/i&gt;Series 1&lt;/span&gt;
-  &lt;span&gt;&lt;i style=&quot;background: var(--series-2);&quot;&gt;&lt;/i&gt;Series 2&lt;/span&gt;
-  &lt;span&gt;&lt;i style=&quot;background: var(--series-3);&quot;&gt;&lt;/i&gt;Series 3&lt;/span&gt;
-  &lt;span&gt;&lt;i style=&quot;background: var(--series-4);&quot;&gt;&lt;/i&gt;Series 4&lt;/span&gt;
-  &lt;span&gt;&lt;i style=&quot;background: var(--neutral);&quot;&gt;&lt;/i&gt;Other&lt;/span&gt;
+  &lt;span&gt;&lt;i style=&quot;background: var(--series-1);&quot;&gt;&lt;/i&gt;Seri 1&lt;/span&gt;
+  &lt;span&gt;&lt;i style=&quot;background: var(--series-2);&quot;&gt;&lt;/i&gt;Seri 2&lt;/span&gt;
+  &lt;span&gt;&lt;i style=&quot;background: var(--series-3);&quot;&gt;&lt;/i&gt;Seri 3&lt;/span&gt;
+  &lt;span&gt;&lt;i style=&quot;background: var(--series-4);&quot;&gt;&lt;/i&gt;Seri 4&lt;/span&gt;
+  &lt;span&gt;&lt;i style=&quot;background: var(--neutral);&quot;&gt;&lt;/i&gt;Lainnya&lt;/span&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-3">
-          <figcaption><span class="cdoc__ex-t">A text alternative</span><span class="cdoc__ex-d">The chart is one image with a summary; the exact values sit in a visually hidden table for screen readers.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Alternatif teks</span><span class="cdoc__ex-d">Grafik menjadi satu gambar dengan ringkasan; nilai pastinya ada di tabel tersembunyi untuk pembaca layar.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-3-stage"><div class="chart-card" style="max-width: 420px;">
-  <div><div class="chart-card__q">Where do my credits go?</div><div class="chart-card__sub">Share of 120 credits by course type</div></div>
-  <div class="pbar" role="img" aria-label="Core courses take half of all credits.">
+  <div><div class="chart-card__q">Dari mana pajak daerah berasal?</div><div class="chart-card__sub">Porsi penerimaan pajak daerah menurut jenis, triwulan III</div></div>
+  <div class="pbar" role="img" aria-label="Pajak kendaraan menyumbang separuh penerimaan pajak daerah.">
     <span style="flex-grow: 50; background: var(--series-1);"></span><span style="flex-grow: 25; background: var(--series-2);"></span><span style="flex-grow: 15; background: var(--series-3);"></span><span style="flex-grow: 10; background: var(--series-4);"></span>
   </div>
-  <div class="legend"><span><i style="background: var(--series-1);"></i>Core 50%</span><span><i style="background: var(--series-2);"></i>Electives 25%</span><span><i style="background: var(--series-3);"></i>Labs 15%</span><span><i style="background: var(--series-4);"></i>General 10%</span></div>
+  <div class="legend"><span><i style="background: var(--series-1);"></i>Kendaraan 50%</span><span><i style="background: var(--series-2);"></i>PBB 25%</span><span><i style="background: var(--series-3);"></i>Restoran 15%</span><span><i style="background: var(--series-4);"></i>Lainnya 10%</span></div>
   <table class="sr-only">
-    <caption>Share of credits by course type</caption>
-    <thead><tr><th>Type</th><th>Share</th></tr></thead>
-    <tbody><tr><td>Core</td><td>50%</td></tr><tr><td>Electives</td><td>25%</td></tr><tr><td>Labs</td><td>15%</td></tr><tr><td>General</td><td>10%</td></tr></tbody>
+    <caption>Porsi penerimaan pajak daerah menurut jenis</caption>
+    <thead><tr><th>Jenis</th><th>Porsi</th></tr></thead>
+    <tbody><tr><td>Kendaraan</td><td>50%</td></tr><tr><td>PBB</td><td>25%</td></tr><tr><td>Restoran</td><td>15%</td></tr><tr><td>Lainnya</td><td>10%</td></tr></tbody>
   </table>
 </div></div>
           
@@ -391,38 +409,38 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-3-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;chart-card&quot; style=&quot;max-width: 420px;&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot;&gt;Where do my credits go?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Share of 120 credits by course type&lt;/div&gt;&lt;/div&gt;
-  &lt;div class=&quot;pbar&quot; role=&quot;img&quot; aria-label=&quot;Core courses take half of all credits.&quot;&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot;&gt;Dari mana pajak daerah berasal?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Porsi penerimaan pajak daerah menurut jenis, triwulan III&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;pbar&quot; role=&quot;img&quot; aria-label=&quot;Pajak kendaraan menyumbang separuh penerimaan pajak daerah.&quot;&gt;
     &lt;span style=&quot;flex-grow: 50; background: var(--series-1);&quot;&gt;&lt;/span&gt;&lt;span style=&quot;flex-grow: 25; background: var(--series-2);&quot;&gt;&lt;/span&gt;&lt;span style=&quot;flex-grow: 15; background: var(--series-3);&quot;&gt;&lt;/span&gt;&lt;span style=&quot;flex-grow: 10; background: var(--series-4);&quot;&gt;&lt;/span&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;legend&quot;&gt;&lt;span&gt;&lt;i style=&quot;background: var(--series-1);&quot;&gt;&lt;/i&gt;Core 50%&lt;/span&gt;&lt;span&gt;&lt;i style=&quot;background: var(--series-2);&quot;&gt;&lt;/i&gt;Electives 25%&lt;/span&gt;&lt;span&gt;&lt;i style=&quot;background: var(--series-3);&quot;&gt;&lt;/i&gt;Labs 15%&lt;/span&gt;&lt;span&gt;&lt;i style=&quot;background: var(--series-4);&quot;&gt;&lt;/i&gt;General 10%&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;legend&quot;&gt;&lt;span&gt;&lt;i style=&quot;background: var(--series-1);&quot;&gt;&lt;/i&gt;Kendaraan 50%&lt;/span&gt;&lt;span&gt;&lt;i style=&quot;background: var(--series-2);&quot;&gt;&lt;/i&gt;PBB 25%&lt;/span&gt;&lt;span&gt;&lt;i style=&quot;background: var(--series-3);&quot;&gt;&lt;/i&gt;Restoran 15%&lt;/span&gt;&lt;span&gt;&lt;i style=&quot;background: var(--series-4);&quot;&gt;&lt;/i&gt;Lainnya 10%&lt;/span&gt;&lt;/div&gt;
   &lt;table class=&quot;sr-only&quot;&gt;
-    &lt;caption&gt;Share of credits by course type&lt;/caption&gt;
-    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Type&lt;/th&gt;&lt;th&gt;Share&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-    &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Core&lt;/td&gt;&lt;td&gt;50%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Electives&lt;/td&gt;&lt;td&gt;25%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Labs&lt;/td&gt;&lt;td&gt;15%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;General&lt;/td&gt;&lt;td&gt;10%&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+    &lt;caption&gt;Porsi penerimaan pajak daerah menurut jenis&lt;/caption&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Jenis&lt;/th&gt;&lt;th&gt;Porsi&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Kendaraan&lt;/td&gt;&lt;td&gt;50%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PBB&lt;/td&gt;&lt;td&gt;25%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Restoran&lt;/td&gt;&lt;td&gt;15%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Lainnya&lt;/td&gt;&lt;td&gt;10%&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
   &lt;/table&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;chart-card&quot; style=&quot;max-width: 420px;&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot;&gt;Where do my credits go?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Share of 120 credits by course type&lt;/div&gt;&lt;/div&gt;
-  &lt;div class=&quot;pbar&quot; role=&quot;img&quot; aria-label=&quot;Core courses take half of all credits.&quot;&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot;&gt;Dari mana pajak daerah berasal?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Porsi penerimaan pajak daerah menurut jenis, triwulan III&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;pbar&quot; role=&quot;img&quot; aria-label=&quot;Pajak kendaraan menyumbang separuh penerimaan pajak daerah.&quot;&gt;
     &lt;span style=&quot;flex-grow: 50; background: var(--series-1);&quot;&gt;&lt;/span&gt;&lt;span style=&quot;flex-grow: 25; background: var(--series-2);&quot;&gt;&lt;/span&gt;&lt;span style=&quot;flex-grow: 15; background: var(--series-3);&quot;&gt;&lt;/span&gt;&lt;span style=&quot;flex-grow: 10; background: var(--series-4);&quot;&gt;&lt;/span&gt;
   &lt;/div&gt;
-  &lt;div class=&quot;legend&quot;&gt;&lt;span&gt;&lt;i style=&quot;background: var(--series-1);&quot;&gt;&lt;/i&gt;Core 50%&lt;/span&gt;&lt;span&gt;&lt;i style=&quot;background: var(--series-2);&quot;&gt;&lt;/i&gt;Electives 25%&lt;/span&gt;&lt;span&gt;&lt;i style=&quot;background: var(--series-3);&quot;&gt;&lt;/i&gt;Labs 15%&lt;/span&gt;&lt;span&gt;&lt;i style=&quot;background: var(--series-4);&quot;&gt;&lt;/i&gt;General 10%&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;legend&quot;&gt;&lt;span&gt;&lt;i style=&quot;background: var(--series-1);&quot;&gt;&lt;/i&gt;Kendaraan 50%&lt;/span&gt;&lt;span&gt;&lt;i style=&quot;background: var(--series-2);&quot;&gt;&lt;/i&gt;PBB 25%&lt;/span&gt;&lt;span&gt;&lt;i style=&quot;background: var(--series-3);&quot;&gt;&lt;/i&gt;Restoran 15%&lt;/span&gt;&lt;span&gt;&lt;i style=&quot;background: var(--series-4);&quot;&gt;&lt;/i&gt;Lainnya 10%&lt;/span&gt;&lt;/div&gt;
   &lt;table class=&quot;sr-only&quot;&gt;
-    &lt;caption&gt;Share of credits by course type&lt;/caption&gt;
-    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Type&lt;/th&gt;&lt;th&gt;Share&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-    &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Core&lt;/td&gt;&lt;td&gt;50%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Electives&lt;/td&gt;&lt;td&gt;25%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Labs&lt;/td&gt;&lt;td&gt;15%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;General&lt;/td&gt;&lt;td&gt;10%&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+    &lt;caption&gt;Porsi penerimaan pajak daerah menurut jenis&lt;/caption&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Jenis&lt;/th&gt;&lt;th&gt;Porsi&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Kendaraan&lt;/td&gt;&lt;td&gt;50%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;PBB&lt;/td&gt;&lt;td&gt;25%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Restoran&lt;/td&gt;&lt;td&gt;15%&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Lainnya&lt;/td&gt;&lt;td&gt;10%&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
   &lt;/table&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
-        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">.chart-card</code></td><td>Required. 20 px padding, 18 px radius, <code class="code">--line</code> ring, 14 px between parts.</td></tr><tr><td><code class="code">.chart-card__q</code></td><td>Required. The question the chart answers, as a sentence: &quot;Which days are busiest?&quot;</td></tr><tr><td><code class="code">.chart-card__sub</code></td><td>Recommended. What is measured and over which period: &quot;Assignments submitted per weekday&quot;.</td></tr><tr><td><code class="code">.chart-card__big</code></td><td>Optional. The one number the reader came for, 32 px tabular.</td></tr><tr><td><code class="code">.legend</code></td><td>Only when direct labels do not fit. <code class="code">span</code> items with an <code class="code">i</code> swatch colored inline.</td></tr><tr><td><code class="code">text alternative</code></td><td>Required. <code class="code">role=&quot;img&quot;</code> + <code class="code">aria-label</code> with the takeaway, plus a <code class="code">.sr-only</code> table when the values matter.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">--series-1..4</code></td><td>Categorical colors, fixed order, tuned per theme and checked for color-blind separation. Color follows the entity, so filtering never repaints the survivors.</td></tr><tr><td><code class="code">--neutral</code></td><td>The Other series, and anything not in focus.</td></tr><tr><td><code class="code">.bars__bar--muted</code></td><td>Recede the bars that are not the answer (<code class="code">--accent-tint-strong</code>).</td></tr><tr><td><code class="code">--series-1 light to dark</code></td><td>Magnitude in one hue, as in the <a class="link" href="heatmap.html">heatmap</a>: never a rainbow.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">loading, empty, error</code></td><td>Every chart has all three; see <a class="link" href="chart-states.html">chart states</a>.</td></tr><tr><td><code class="code">hover</code></td><td>Hovering a mark dims the others to 45 % and shows its value; never the only way to read it.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Data changes animate what is already on screen: bar heights and donut segments over <code class="code">--d-considered</code> (480 ms) on <code class="code">--ease-inout</code>; percentage segments the same.</li><li>Lines draw in once on first view with <code class="code">.draw</code> (1.2 s on <code class="code">--ease-inout</code>); later updates do not redraw.</li><li>Hover feedback: opacity over <code class="code">--d-fast</code>, tooltips on <code class="code">--spring-snappy</code>.</li><li>Under reduced motion values jump to their end state; hover fades remain as 120 ms changes.</li></ul></section>
-        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Every chart is <code class="code">role=&quot;img&quot;</code> with an <code class="code">aria-label</code> that states the takeaway, not &quot;Bar chart&quot;.</li><li>When the reader needs the values, add a <code class="code">.sr-only</code> table (with a <code class="code">&lt;caption&gt;</code>) or a visible table toggle.</li><li>Never encode meaning in color alone: label series directly, and use position or a pattern (a dashed line) for the second series.</li><li>Text beside marks stays in text tokens (<code class="code">--text-strong</code>, <code class="code">--text-subtle</code>), not series colors. Numbers use tabular figures.</li><li>Hover-only values must also be available in the label or the table; keyboard users cannot hover.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Write the title as the question the chart answers.</li><li>Label lines and bars directly; use a legend only when labels would collide.</li><li>Start bar axes at zero; say the period in the subtitle.</li><li>State once per page that example numbers are examples.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Use pie charts with more than four slices, 3D effects, gradients or shadows on marks.</li><li>Assign series colors by rank or cycle them when a filter changes.</li><li>Put a chart in a card inside another card.</li><li>Show a chart with no loading, empty and error state.</li></ul></div></div></section>
-        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="bar-chart.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Bar chart</span><span class="link-card__body">Vertical bars that compare one value across a few categories or periods (weekdays, grades, courses). Bars start at zero, the answer is highlighted, the rest recede.</span></a><a class="link-card" href="line-chart.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Line chart</span><span class="link-card__body">A line per series over time, on an SVG with receding gridlines and labels at the line ends. For trends across many points; at most four series, the second one dashed.</span></a><a class="link-card" href="chart-states.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Chart states</span><span class="link-card__body">Every chart is designed in loading, empty and error states inside the same `.chart-card`, at the same size as the loaded chart: a skeleton of its own shape, an empty message with the reason, and an error with a retry.</span></a><a class="link-card" href="stat-row.html"><span class="link-card__eyebrow">Tampilan data</span><span class="link-card__title">Stat row</span><span class="link-card__body">A row of key figures without cards: big tabular numbers with their labels underneath, divided by hairlines. Its columns follow the width of the content column, not the screen.</span></a></div></section>
+        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">.chart-card</code></td><td>Wajib. Padding 20 px, radius 18 px, ring <code class="code">--line</code>, jarak 14 px antarbagian.</td></tr><tr><td><code class="code">.chart-card__q</code></td><td>Wajib. Pertanyaan yang dijawab grafik, sebagai kalimat: &quot;Hari apa yang paling sibuk?&quot;</td></tr><tr><td><code class="code">.chart-card__sub</code></td><td>Disarankan. Apa yang diukur dan pada periode apa: &quot;Laporan warga yang masuk per hari&quot;.</td></tr><tr><td><code class="code">.chart-card__big</code></td><td>Opsional. Satu angka yang dicari pembaca, 32 px tabular.</td></tr><tr><td><code class="code">.legend</code></td><td>Hanya jika label langsung tidak muat. Item <code class="code">span</code> dengan swatch <code class="code">i</code> yang diwarnai inline.</td></tr><tr><td><code class="code">alternatif teks</code></td><td>Wajib. <code class="code">role=&quot;img&quot;</code> + <code class="code">aria-label</code> berisi kesimpulannya, ditambah tabel <code class="code">.sr-only</code> jika nilainya penting.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">--series-1..4</code></td><td>Warna kategori, urutan tetap, disetel per tema dan diuji agar tetap terbedakan bagi buta warna. Warna mengikuti entitasnya, jadi filter tidak pernah mewarnai ulang data yang tersisa.</td></tr><tr><td><code class="code">--neutral</code></td><td>Seri Lainnya, dan apa pun yang sedang tidak difokuskan.</td></tr><tr><td><code class="code">.bars__bar--muted</code></td><td>Memudarkan batang yang bukan jawaban (<code class="code">--accent-tint-strong</code>).</td></tr><tr><td><code class="code">--series-1 light to dark</code></td><td>Besaran dalam satu warna, seperti pada <a class="link" href="heatmap.html">heatmap</a>: jangan pelangi.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">loading, empty, error</code></td><td>Setiap grafik punya ketiganya; lihat <a class="link" href="chart-states.html">state grafik</a>.</td></tr><tr><td><code class="code">hover</code></td><td>Hover pada satu tanda meredupkan tanda lain ke 45 % dan menampilkan nilainya; jangan jadikan satu-satunya cara membacanya.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Perubahan data menganimasikan apa yang sudah tampil: tinggi batang dan segmen donut selama <code class="code">--d-considered</code> (480 ms) dengan <code class="code">--ease-inout</code>; segmen persentase juga begitu.</li><li>Garis tergambar sekali saat pertama terlihat dengan <code class="code">.draw</code> (1,2 s dengan <code class="code">--ease-inout</code>); pembaruan berikutnya tidak menggambar ulang.</li><li>Umpan balik hover: opasitas selama <code class="code">--d-fast</code>, tooltip dengan <code class="code">--spring-snappy</code>.</li><li>Dengan reduced motion nilai langsung melompat ke akhirnya; efek pudar hover tetap ada sebagai perubahan 120 ms.</li></ul></section>
+        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Setiap grafik memakai <code class="code">role=&quot;img&quot;</code> dengan <code class="code">aria-label</code> yang menyatakan kesimpulannya, bukan &quot;Grafik batang&quot;.</li><li>Jika pembaca butuh nilainya, tambahkan tabel <code class="code">.sr-only</code> (dengan <code class="code">&lt;caption&gt;</code>) atau tombol untuk menampilkan tabel.</li><li>Jangan menyampaikan makna hanya lewat warna: beri label seri secara langsung, dan pakai posisi atau pola (garis putus-putus) untuk seri kedua.</li><li>Teks di samping tanda memakai token teks (<code class="code">--text-strong</code>, <code class="code">--text-subtle</code>), bukan warna seri. Angka memakai digit tabular.</li><li>Nilai yang hanya muncul saat hover harus tersedia juga di label atau tabel; pengguna keyboard tidak bisa hover.</li></ul></section>
+        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Tulis judul sebagai pertanyaan yang dijawab grafik.</li><li>Beri label langsung pada garis dan batang; pakai legenda hanya jika label akan bertumpuk.</li><li>Mulai sumbu batang dari nol; sebutkan periodenya di subjudul.</li><li>Sebutkan sekali per halaman bahwa angka contoh hanyalah contoh.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Memakai diagram pai dengan lebih dari empat irisan, efek 3D, gradien, atau bayangan pada tanda.</li><li>Menentukan warna seri berdasarkan peringkat atau memutarnya saat filter berubah.</li><li>Menaruh grafik di kartu yang berada di dalam kartu lain.</li><li>Menampilkan grafik tanpa state loading, kosong, dan error.</li></ul></div></div></section>
+        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="bar-chart.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Bar chart</span><span class="link-card__body">Batang vertikal yang membandingkan satu nilai di beberapa kategori atau periode (hari, kecamatan, jenis layanan). Batang dimulai dari nol, jawabannya disorot, sisanya memudar.</span></a><a class="link-card" href="line-chart.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Line chart</span><span class="link-card__body">Satu garis per seri sepanjang waktu, pada SVG dengan garis grid yang samar dan label di ujung garis. Untuk tren dengan banyak titik; paling banyak empat seri, seri kedua putus-putus.</span></a><a class="link-card" href="chart-states.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Chart states</span><span class="link-card__body">Setiap grafik dirancang dalam state loading, kosong, dan error di dalam `.chart-card` yang sama, dengan ukuran yang sama seperti grafik yang sudah dimuat: skeleton berbentuk grafiknya sendiri, pesan kosong beserta alasannya, dan error dengan tombol coba lagi.</span></a><a class="link-card" href="stat-row.html"><span class="link-card__eyebrow">Tampilan data</span><span class="link-card__title">Stat row</span><span class="link-card__body">Sebaris angka kunci tanpa kartu: angka tabular besar dengan labelnya di bawah, dipisah garis tipis. Kolomnya mengikuti lebar kolom isi, bukan layar.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
           <a class="link-card cdoc__prev" href="pull-to-refresh.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Sebelumnya</span><span class="link-card__title">Pull to refresh</span></a>
           <a class="link-card cdoc__next" href="chart-card.html"><span class="link-card__eyebrow">Berikutnya<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Chart card</span></a>

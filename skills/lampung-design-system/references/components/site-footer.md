@@ -1,6 +1,6 @@
 # Site footer
 
-Group: Marketing (new). Docs page: `docs/components/site-footer.html`.
+Group: Marketing. Docs page: `docs/components/site-footer.html`.
 
 The bottom of a marketing or content site: the product name and one line about it, link groups that exist, and a bottom row for the small print and the appearance control.
 

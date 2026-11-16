@@ -1,6 +1,6 @@
 # Top nav
 
-Group: Navigation (new). Docs page: `docs/components/top-nav.html`.
+Group: Navigation. Docs page: `docs/components/top-nav.html`.
 
 A translucent bar across the top of a site without a sidebar: brand, up to five links, actions. Below 760 px the links fold into a panel under the bar.
 

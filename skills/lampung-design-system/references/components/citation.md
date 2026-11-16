@@ -1,6 +1,6 @@
 # Citation
 
-Group: Content (new). Docs page: `docs/components/citation.html`.
+Group: Content. Docs page: `docs/components/citation.html`.
 
 A small numbered pill after a claim that links to its source: `<a class="cite" href="#src-1">1</a>`. Used in articles and assistant answers so every fact can be checked.
 

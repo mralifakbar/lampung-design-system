@@ -1,6 +1,6 @@
 # Reveal on scroll
 
-Group: Motion (new). Docs page: `docs/components/reveal-on-scroll.html`.
+Group: Motion. Docs page: `docs/components/reveal-on-scroll.html`.
 
 Figures, key numbers and illustrations fade up 4 px the first time they scroll into view, once, and never again. Body text, lists and tables are never revealed: people should be able to read and search everything at once.
 

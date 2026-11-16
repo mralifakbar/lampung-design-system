@@ -1,6 +1,6 @@
 # Kanban
 
-Group: Data display (new). Docs page: `docs/components/kanban.html`.
+Group: Data display. Docs page: `docs/components/kanban.html`.
 
 Columns of cards that people move between stages by dragging or by keyboard. The picked card lifts and follows the pointer, the others make room on a spring, and it settles into its slot; the counts roll.
 

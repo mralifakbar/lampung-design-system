@@ -1,6 +1,6 @@
 # Marketing section
 
-Group: Marketing (new). Docs page: `docs/components/marketing-section.html`.
+Group: Marketing. Docs page: `docs/components/marketing-section.html`.
 
 One part of a landing or product page: a head with an eyebrow, a large title and a lede, over any content. Every marketing section shares the same width and gutter, so edges line up down the page.
 

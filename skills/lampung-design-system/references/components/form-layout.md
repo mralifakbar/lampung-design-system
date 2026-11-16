@@ -1,6 +1,6 @@
 # Form layout
 
-Group: Foundations (new). Docs page: `docs/components/form-layout.html`.
+Group: Foundations. Docs page: `docs/components/form-layout.html`.
 
 The frame every form uses: `form` stacks fields 20 px apart, `form__row` puts short fields side by side when there is room, and `form__actions` ends the form with its buttons. Fields inside are always `.field`.
 

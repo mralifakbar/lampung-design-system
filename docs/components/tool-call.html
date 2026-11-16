@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Tool call · Lampung Design System</title>
-<meta name="description" content="One step the assistant took on the way to its answer (searched the notes, read a file, checked the calendar), shown as a quiet one-line &lt;details&gt; that opens to what it found. The answer stays the main thing.">
+<meta name="description" content="Satu langkah yang diambil asisten untuk sampai pada jawabannya (mencari di catatan, membaca berkas, memeriksa kalender), ditampilkan sebagai &lt;details&gt; satu baris yang tenang dan bisa dibuka untuk melihat temuannya. Jawaban tetap yang utama.">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
 <link rel="stylesheet" href="../../css/lds.css">
 <link rel="stylesheet" href="../docs.css">
@@ -12,20 +12,36 @@
 </head>
 <body class="lds">
 <a class="skip" href="#main">Langsung ke konten</a>
+<div class="masthead" role="region" aria-label="Status situs">
+  <div class="masthead__bar">
+    <span class="masthead__mark" aria-hidden="true"><span class="ic">info</span></span>
+    <span class="masthead__text">Proyek komunitas. Ini bukan situs resmi pemerintah.</span>
+    <button class="masthead__toggle" data-lds-masthead aria-expanded="false" aria-controls="lds-masthead">Cara memastikan<span class="ic" aria-hidden="true">expand_more</span></button>
+  </div>
+  <div class="collapse is-closed" id="lds-masthead" inert><div><div class="masthead__body">
+    <p class="masthead__item"><span class="ic" aria-hidden="true">groups</span><span><b>Dikelola sukarelawan.</b> Lampung Design System dibangun oleh komunitas open source. Tidak ada instansi pemerintah yang mengelola atau mendukungnya secara resmi.</span></p>
+    <p class="masthead__item"><span class="ic" aria-hidden="true">verified_user</span><span><b>Layanan resmi memakai go.id.</b> Situs pemerintah Indonesia berakhiran .go.id. Jangan masukkan NIK di situs yang Anda ragukan.</span></p>
+  </div></div></div>
+</div>
 <div class="shell" data-lds-shell>
   <aside class="shell__side" id="side" aria-label="Dokumentasi">
-    <a class="shell__brand" href="../index.html"><span class="page-head__mark">L</span>Lampung Design System</a>
+    <a class="shell__brand" href="../index.html"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>Lampung Design System</a>
     <nav class="shell__nav" aria-label="Komponen">
       <span class="shell__hl" aria-hidden="true"></span>
-      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Memulai</span></a>
+      <p class="shell__group">Memulai</p>
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Pengenalan</span></a>
+      <a class="shell__link" href="../guide/instalasi.html"><span class="ic" aria-hidden="true">download</span><span class="shell__label">Instalasi</span></a>
+      <a class="shell__link" href="../guide/penulisan.html"><span class="ic" aria-hidden="true">edit_square</span><span class="shell__label">Penulisan</span></a>
+      <a class="shell__link" href="../guide/aksesibilitas.html"><span class="ic" aria-hidden="true">accessible</span><span class="shell__label">Aksesibilitas</span></a>
+      <a class="shell__link" href="../guide/desainer.html"><span class="ic" aria-hidden="true">palette</span><span class="shell__label">Untuk desainer</span></a>
+      <p class="shell__group">Komponen</p>
       <a class="shell__link" href="index.html"><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">Semua komponen</span></a>
       <a class="shell__link" href="../examples/index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Contoh</span></a>
-      <p class="shell__group">Komponen</p>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g0"><span class="shell__section-label">Landasan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g0"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="layout-primitives.html"><span class="shell__num">1</span><span class="shell__label">Layout primitives</span></a>
+          <a class="shell__link shell__link--child" href="form-layout.html"><span class="shell__num">2</span><span class="shell__label">Form layout</span></a>
           <a class="shell__link shell__link--child" href="data-states.html"><span class="shell__num">3</span><span class="shell__label">Data states</span></a>
           <a class="shell__link shell__link--child" href="theming.html"><span class="shell__num">4</span><span class="shell__label">Theming</span></a>
           <a class="shell__link shell__link--child" href="icon.html"><span class="shell__num">5</span><span class="shell__label">Icon</span></a>
@@ -60,9 +76,9 @@
           <a class="shell__link shell__link--child" href="select.html"><span class="shell__num">8</span><span class="shell__label">Select</span></a>
           <a class="shell__link shell__link--child" href="combobox.html"><span class="shell__num">9</span><span class="shell__label">Combobox</span></a>
           <a class="shell__link shell__link--child" href="tag-input.html"><span class="shell__num">10</span><span class="shell__label">Tag input</span></a>
-          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="file-input.html"><span class="shell__num">11</span><span class="shell__label">File input</span></a>
+          <a class="shell__link shell__link--child" href="date-field.html"><span class="shell__num">12</span><span class="shell__label">Date field</span></a>
+          <a class="shell__link shell__link--child" href="date-range.html"><span class="shell__num">13</span><span class="shell__label">Date range</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -80,21 +96,22 @@
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">13</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g4"><span class="shell__section-label">Navigasi</span><span class="shell__section-count">14</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g4"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">1</span><span class="shell__label">App shell</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">2</span><span class="shell__label">Top nav</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">3</span><span class="shell__label">Tabs</span></a>
-          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">4</span><span class="shell__label">Breadcrumbs</span></a>
-          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">5</span><span class="shell__label">Page header</span></a>
-          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">6</span><span class="shell__label">Pagination</span></a>
-          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">7</span><span class="shell__label">Steps</span></a>
-          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">8</span><span class="shell__label">Sidebar</span></a>
-          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">9</span><span class="shell__label">Outline</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">10</span><span class="shell__label">Menubar</span></a>
-          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">11</span><span class="shell__label">Nav progress</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">12</span><span class="shell__label">Phone bars</span></a>
-          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">13</span><span class="shell__label">Navigation stack</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="masthead.html"><span class="shell__num">1</span><span class="shell__label">Masthead</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="app-shell.html"><span class="shell__num">2</span><span class="shell__label">App shell</span></a>
+          <a class="shell__link shell__link--child" href="top-nav.html"><span class="shell__num">3</span><span class="shell__label">Top nav</span></a>
+          <a class="shell__link shell__link--child" href="tabs.html"><span class="shell__num">4</span><span class="shell__label">Tabs</span></a>
+          <a class="shell__link shell__link--child" href="breadcrumbs.html"><span class="shell__num">5</span><span class="shell__label">Breadcrumbs</span></a>
+          <a class="shell__link shell__link--child" href="page-header.html"><span class="shell__num">6</span><span class="shell__label">Page header</span></a>
+          <a class="shell__link shell__link--child" href="pagination.html"><span class="shell__num">7</span><span class="shell__label">Pagination</span></a>
+          <a class="shell__link shell__link--child" href="steps.html"><span class="shell__num">8</span><span class="shell__label">Steps</span></a>
+          <a class="shell__link shell__link--child" href="sidebar.html"><span class="shell__num">9</span><span class="shell__label">Sidebar</span></a>
+          <a class="shell__link shell__link--child" href="outline.html"><span class="shell__num">10</span><span class="shell__label">Outline</span></a>
+          <a class="shell__link shell__link--child" href="menubar.html"><span class="shell__num">11</span><span class="shell__label">Menubar</span></a>
+          <a class="shell__link shell__link--child" href="nav-progress.html"><span class="shell__num">12</span><span class="shell__label">Nav progress</span></a>
+          <a class="shell__link shell__link--child" href="phone-bars.html"><span class="shell__num">13</span><span class="shell__label">Phone bars</span></a>
+          <a class="shell__link shell__link--child" href="nav-stack.html"><span class="shell__num">14</span><span class="shell__label">Navigation stack</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -102,7 +119,7 @@
         <div class="shell__panel" id="nav-g5"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="dialog.html"><span class="shell__num">1</span><span class="shell__label">Dialog</span></a>
           <a class="shell__link shell__link--child" href="alert-dialog.html"><span class="shell__num">2</span><span class="shell__label">Alert dialog</span></a>
-          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="modal.html"><span class="shell__num">3</span><span class="shell__label">Modal</span></a>
           <a class="shell__link shell__link--child" href="sheet.html"><span class="shell__num">4</span><span class="shell__label">Sheet</span></a>
           <a class="shell__link shell__link--child" href="drawer.html"><span class="shell__num">5</span><span class="shell__label">Drawer</span></a>
           <a class="shell__link shell__link--child" href="dropdown-menu.html"><span class="shell__num">6</span><span class="shell__label">Dropdown menu</span></a>
@@ -112,8 +129,8 @@
           <a class="shell__link shell__link--child" href="hover-card.html"><span class="shell__num">10</span><span class="shell__label">Hover card</span></a>
           <a class="shell__link shell__link--child" href="toast.html"><span class="shell__num">11</span><span class="shell__label">Toast</span></a>
           <a class="shell__link shell__link--child" href="command-palette.html"><span class="shell__num">12</span><span class="shell__label">Command palette</span></a>
-          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="lightbox.html"><span class="shell__num">13</span><span class="shell__label">Lightbox</span></a>
+          <a class="shell__link shell__link--child" href="selection-bar.html"><span class="shell__num">14</span><span class="shell__label">Selection bar</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -132,7 +149,7 @@
           <a class="shell__link shell__link--child" href="empty-state.html"><span class="shell__num">11</span><span class="shell__label">Empty state</span></a>
           <a class="shell__link shell__link--child" href="coachmark.html"><span class="shell__num">12</span><span class="shell__label">Coachmark</span></a>
           <a class="shell__link shell__link--child" href="thinking.html"><span class="shell__num">13</span><span class="shell__label">Thinking</span></a>
-          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="timer.html"><span class="shell__num">14</span><span class="shell__label">Timer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -140,8 +157,8 @@
         <div class="shell__panel" id="nav-g7"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="list.html"><span class="shell__num">1</span><span class="shell__label">List</span></a>
           <a class="shell__link shell__link--child" href="key-value.html"><span class="shell__num">2</span><span class="shell__label">Key-value</span></a>
-          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="stat-row.html"><span class="shell__num">3</span><span class="shell__label">Stat row</span></a>
+          <a class="shell__link shell__link--child" href="kpi-card.html"><span class="shell__num">4</span><span class="shell__label">KPI card</span></a>
           <a class="shell__link shell__link--child" href="card.html"><span class="shell__num">5</span><span class="shell__label">Card</span></a>
           <a class="shell__link shell__link--child" href="avatar.html"><span class="shell__num">6</span><span class="shell__label">Avatar</span></a>
           <a class="shell__link shell__link--child" href="table.html"><span class="shell__num">7</span><span class="shell__label">Table</span></a>
@@ -149,70 +166,71 @@
           <a class="shell__link shell__link--child" href="tree.html"><span class="shell__num">9</span><span class="shell__label">Tree</span></a>
           <a class="shell__link shell__link--child" href="calendar.html"><span class="shell__num">10</span><span class="shell__label">Calendar</span></a>
           <a class="shell__link shell__link--child" href="timeline.html"><span class="shell__num">11</span><span class="shell__label">Timeline</span></a>
-          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="show-more.html"><span class="shell__num">12</span><span class="shell__label">Show more</span></a>
+          <a class="shell__link shell__link--child" href="timestamp.html"><span class="shell__num">13</span><span class="shell__label">Timestamp</span></a>
+          <a class="shell__link shell__link--child" href="date-tile.html"><span class="shell__num">14</span><span class="shell__label">Date tile</span></a>
           <a class="shell__link shell__link--child" href="rolling-number.html"><span class="shell__num">15</span><span class="shell__label">Rolling number</span></a>
           <a class="shell__link shell__link--child" href="code-block.html"><span class="shell__num">16</span><span class="shell__label">Code block</span></a>
           <a class="shell__link shell__link--child" href="carousel.html"><span class="shell__num">17</span><span class="shell__label">Carousel</span></a>
           <a class="shell__link shell__link--child" href="separator.html"><span class="shell__num">18</span><span class="shell__label">Separator</span></a>
-          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="data-table.html"><span class="shell__num">19</span><span class="shell__label">Data table</span></a>
+          <a class="shell__link shell__link--child" href="trend-delta.html"><span class="shell__num">20</span><span class="shell__label">Trend delta</span></a>
+          <a class="shell__link shell__link--child" href="file-tile.html"><span class="shell__num">21</span><span class="shell__label">File tile</span></a>
+          <a class="shell__link shell__link--child" href="product-tile.html"><span class="shell__num">22</span><span class="shell__label">Product tile</span></a>
+          <a class="shell__link shell__link--child" href="kanban.html"><span class="shell__num">23</span><span class="shell__label">Kanban</span></a>
+          <a class="shell__link shell__link--child" href="event-calendar.html"><span class="shell__num">24</span><span class="shell__label">Event calendar</span></a>
+          <a class="shell__link shell__link--child" href="lanes.html"><span class="shell__num">25</span><span class="shell__label">Lanes</span></a>
+          <a class="shell__link shell__link--child" href="inbox-list.html"><span class="shell__num">26</span><span class="shell__label">Inbox list</span></a>
+          <a class="shell__link shell__link--child" href="check-matrix.html"><span class="shell__num">27</span><span class="shell__label">Check matrix</span></a>
+          <a class="shell__link shell__link--child" href="floor-plan.html"><span class="shell__num">28</span><span class="shell__label">Floor plan</span></a>
+          <a class="shell__link shell__link--child" href="route-schematic.html"><span class="shell__num">29</span><span class="shell__label">Route schematic</span></a>
+          <a class="shell__link shell__link--child" href="map.html"><span class="shell__num">30</span><span class="shell__label">Map</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g8"><span class="shell__section-label">Konten</span><span class="shell__section-count">7</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g8"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="prose.html"><span class="shell__num">1</span><span class="shell__label">Prose</span></a>
+          <a class="shell__link shell__link--child" href="quote.html"><span class="shell__num">2</span><span class="shell__label">Quote</span></a>
+          <a class="shell__link shell__link--child" href="citation.html"><span class="shell__num">3</span><span class="shell__label">Citation</span></a>
+          <a class="shell__link shell__link--child" href="inline-code.html"><span class="shell__num">4</span><span class="shell__label">Inline code</span></a>
+          <a class="shell__link shell__link--child" href="thumbnail.html"><span class="shell__num">5</span><span class="shell__label">Thumbnail</span></a>
+          <a class="shell__link shell__link--child" href="paper.html"><span class="shell__num">6</span><span class="shell__label">Paper</span></a>
+          <a class="shell__link shell__link--child" href="aksara.html"><span class="shell__num">7</span><span class="shell__label">Aksara Lampung</span><span class="badge badge--accent shell__badge">Baru</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="true" aria-controls="nav-g9"><span class="shell__section-label">Obrolan</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel is-open" id="nav-g9"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="tool-call.html" aria-current="page"><span class="shell__num">5</span><span class="shell__label">Tool call</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chat-layout.html"><span class="shell__num">1</span><span class="shell__label">Chat layout</span></a>
+          <a class="shell__link shell__link--child" href="chat-message.html"><span class="shell__num">2</span><span class="shell__label">Chat message</span></a>
+          <a class="shell__link shell__link--child" href="composer.html"><span class="shell__num">3</span><span class="shell__label">Composer</span></a>
+          <a class="shell__link shell__link--child" href="streaming-text.html"><span class="shell__num">4</span><span class="shell__label">Streaming text</span></a>
+          <a class="shell__link shell__link--child" href="tool-call.html" aria-current="page"><span class="shell__num">5</span><span class="shell__label">Tool call</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g10"><span class="shell__section-label">Pola halaman</span><span class="shell__section-count">6</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g10"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="sections.html"><span class="shell__num">1</span><span class="shell__label">Sections</span></a>
+          <a class="shell__link shell__link--child" href="spotlight.html"><span class="shell__num">2</span><span class="shell__label">Spotlight</span></a>
+          <a class="shell__link shell__link--child" href="link-card.html"><span class="shell__num">3</span><span class="shell__label">Link card</span></a>
+          <a class="shell__link shell__link--child" href="resizable-split.html"><span class="shell__num">4</span><span class="shell__label">Resizable split</span></a>
           <a class="shell__link shell__link--child" href="phone-screen.html"><span class="shell__num">5</span><span class="shell__label">Phone screen</span></a>
-          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="device-frame.html"><span class="shell__num">6</span><span class="shell__label">Device frame</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g11"><span class="shell__section-label">Promosi</span><span class="shell__section-count">8</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g11"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="hero.html"><span class="shell__num">1</span><span class="shell__label">Hero</span></a>
+          <a class="shell__link shell__link--child" href="marketing-section.html"><span class="shell__num">2</span><span class="shell__label">Marketing section</span></a>
+          <a class="shell__link shell__link--child" href="feature-row.html"><span class="shell__num">3</span><span class="shell__label">Feature row</span></a>
+          <a class="shell__link shell__link--child" href="plans.html"><span class="shell__num">4</span><span class="shell__label">Plans</span></a>
+          <a class="shell__link shell__link--child" href="compare-table.html"><span class="shell__num">5</span><span class="shell__label">Compare table</span></a>
+          <a class="shell__link shell__link--child" href="testimonial.html"><span class="shell__num">6</span><span class="shell__label">Testimonial</span></a>
+          <a class="shell__link shell__link--child" href="cta-band.html"><span class="shell__num">7</span><span class="shell__label">CTA band</span></a>
+          <a class="shell__link shell__link--child" href="site-footer.html"><span class="shell__num">8</span><span class="shell__label">Site footer</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
@@ -225,10 +243,10 @@
           <a class="shell__link shell__link--child" href="height-expand.html"><span class="shell__num">5</span><span class="shell__label">Height expand</span></a>
           <a class="shell__link shell__link--child" href="list-stagger.html"><span class="shell__num">6</span><span class="shell__label">List stagger</span></a>
           <a class="shell__link shell__link--child" href="view-swap.html"><span class="shell__num">7</span><span class="shell__label">View swap</span></a>
-          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="shared-element.html"><span class="shell__num">8</span><span class="shell__label">Shared element</span></a>
           <a class="shell__link shell__link--child" href="number-count.html"><span class="shell__num">9</span><span class="shell__label">Number count</span></a>
           <a class="shell__link shell__link--child" href="drag-and-momentum.html"><span class="shell__num">10</span><span class="shell__label">Drag and momentum</span></a>
-          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="reveal-on-scroll.html"><span class="shell__num">11</span><span class="shell__label">Reveal on scroll</span></a>
           <a class="shell__link shell__link--child" href="reduced-motion.html"><span class="shell__num">12</span><span class="shell__label">Reduced motion</span></a>
         </div></div></div>
       </div>
@@ -249,27 +267,27 @@
           <a class="shell__link shell__link--child" href="scroll-fades.html"><span class="shell__num">12</span><span class="shell__label">Scroll fades</span></a>
           <a class="shell__link shell__link--child" href="hints.html"><span class="shell__num">13</span><span class="shell__label">Hints</span></a>
           <a class="shell__link shell__link--child" href="haptics.html"><span class="shell__num">14</span><span class="shell__label">Haptics</span></a>
-          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="pull-to-refresh.html"><span class="shell__num">15</span><span class="shell__label">Pull to refresh</span></a>
         </div></div></div>
       </div>
       <div class="shell__section">
         <button class="shell__section-btn" aria-expanded="false" aria-controls="nav-g14"><span class="shell__section-label">Grafik</span><span class="shell__section-count">16</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="nav-g14"><div><div class="shell__children">
           <a class="shell__link shell__link--child" href="chart-principles.html"><span class="shell__num">1</span><span class="shell__label">Chart principles</span></a>
-          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="chart-card.html"><span class="shell__num">2</span><span class="shell__label">Chart card</span></a>
           <a class="shell__link shell__link--child" href="sparkline-stat.html"><span class="shell__num">3</span><span class="shell__label">Sparkline stat</span></a>
           <a class="shell__link shell__link--child" href="bar-chart.html"><span class="shell__num">4</span><span class="shell__label">Bar chart</span></a>
-          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="ranked-bars.html"><span class="shell__num">5</span><span class="shell__label">Ranked bars</span></a>
           <a class="shell__link shell__link--child" href="line-chart.html"><span class="shell__num">6</span><span class="shell__label">Line chart</span></a>
-          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="area-chart.html"><span class="shell__num">7</span><span class="shell__label">Area chart</span></a>
+          <a class="shell__link shell__link--child" href="combo-chart.html"><span class="shell__num">8</span><span class="shell__label">Combo chart</span></a>
           <a class="shell__link shell__link--child" href="donut.html"><span class="shell__num">9</span><span class="shell__label">Donut</span></a>
-          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="gauge.html"><span class="shell__num">10</span><span class="shell__label">Gauge</span></a>
           <a class="shell__link shell__link--child" href="percentage-bar.html"><span class="shell__num">11</span><span class="shell__label">Percentage bar</span></a>
-          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span><span class="badge badge--accent shell__badge">Baru</span></a>
-          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="target-bar.html"><span class="shell__num">12</span><span class="shell__label">Target bar</span></a>
+          <a class="shell__link shell__link--child" href="funnel.html"><span class="shell__num">13</span><span class="shell__label">Funnel</span></a>
           <a class="shell__link shell__link--child" href="heatmap.html"><span class="shell__num">14</span><span class="shell__label">Heatmap</span></a>
-          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span><span class="badge badge--accent shell__badge">Baru</span></a>
+          <a class="shell__link shell__link--child" href="uptime-bars.html"><span class="shell__num">15</span><span class="shell__label">Uptime bars</span></a>
           <a class="shell__link shell__link--child" href="chart-states.html"><span class="shell__num">16</span><span class="shell__label">Chart states</span></a>
         </div></div></div>
       </div>
@@ -295,44 +313,44 @@
       <main class="cdoc__main" id="main" tabindex="-1">
         <header class="cdoc__head">
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Chat">Obrolan</a></li></ol></nav>
-          <h1>Tool call <span class="badge badge--accent">Baru</span></h1>
-          <p class="cdoc__lede">One step the assistant took on the way to its answer (searched the notes, read a file, checked the calendar), shown as a quiet one-line <code class="code">&lt;details&gt;</code> that opens to what it found. The answer stays the main thing.</p>
+          <h1>Tool call</h1>
+          <p class="cdoc__lede">Satu langkah yang diambil asisten untuk sampai pada jawabannya (mencari di catatan, membaca berkas, memeriksa kalender), ditampilkan sebagai <code class="code">&lt;details&gt;</code> satu baris yang tenang dan bisa dibuka untuk melihat temuannya. Jawaban tetap yang utama.</p>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>An assistant answer depends on something it looked up or ran, and people may want to check it: a search, a file it read, a calculation, a calendar lookup.</li><li>A step is still running: the line shows a spinner and a shimmering label until it finishes.</li><li>Several steps happened in order before the answer: stack them, one line each.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Waiting with no named step yet: pakai <a class="link" href="thinking.html">Thinking</a>.</li><li>A source quoted in the answer: pakai <a class="link" href="citation.html">Citation</a>.</li><li>A collapsible section of page content (FAQ, details): pakai <a class="link" href="accordion.html">Accordion</a>.</li><li>A history of actions a person took: pakai <a class="link" href="timeline.html">Timeline</a>.</li><li>Code the person should copy: pakai <a class="link" href="code-block.html">Code block</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Inside a <code class="code">msg--ai</code> <a class="link" href="chat-message.html">chat message</a>, above the <code class="code">.bubble</code> that holds the answer, in the order the steps ran. Full width of the answer column.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Jawaban asisten bergantung pada sesuatu yang dicari atau dijalankannya, dan orang mungkin ingin memeriksanya: pencarian, berkas yang dibaca, perhitungan, pengecekan kalender.</li><li>Langkah masih berjalan: baris menampilkan spinner dan label berkilau sampai selesai.</li><li>Beberapa langkah terjadi berurutan sebelum jawaban: tumpuk, satu baris per langkah.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Menunggu tanpa langkah yang bisa disebut: pakai <a class="link" href="thinking.html">Thinking</a>.</li><li>Sumber yang dikutip dalam jawaban: pakai <a class="link" href="citation.html">Citation</a>.</li><li>Bagian konten halaman yang bisa dilipat (FAQ, rincian): pakai <a class="link" href="accordion.html">Accordion</a>.</li><li>Riwayat tindakan yang dilakukan seseorang: pakai <a class="link" href="timeline.html">Timeline</a>.</li><li>Kode yang perlu disalin orang: pakai <a class="link" href="code-block.html">Code block</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di dalam <a class="link" href="chat-message.html">chat message</a> <code class="code">msg--ai</code>, di atas <code class="code">.bubble</code> yang berisi jawaban, sesuai urutan langkah dijalankan. Selebar kolom jawaban.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">What the assistant looked up</span><span class="cdoc__ex-d">Closed by default. Open one to check the sources the answer used.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Yang dicari asisten</span><span class="cdoc__ex-d">Tertutup secara bawaan. Buka salah satunya untuk memeriksa sumber yang dipakai jawaban.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="msg msg--ai" style="max-width: 560px;">
-  <details class="toolcall"><summary><span class="ic" aria-hidden="true">search</span>Searched your notes for "net force"<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Found 3 pages: Week 4 lecture, page 2; Problem set 3, question 4; Lab 2 handout.</div></details>
-  <details class="toolcall"><summary><span class="ic" aria-hidden="true">description</span>Read Problem set 3<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Question 4: a 7 kg box pushed with 20 N against 6 N of friction.</div></details>
-  <div class="bubble">The net force is 14 N, so the box accelerates at 2 m/s². Your answer used 20 N, the push alone.</div>
+  <details class="toolcall"><summary><span class="ic" aria-hidden="true">search</span>Mencari "gaya total" di catatan Anda<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Menemukan 3 halaman: materi minggu 4, halaman 2; latihan soal 3, nomor 4; panduan praktikum 2.</div></details>
+  <details class="toolcall"><summary><span class="ic" aria-hidden="true">description</span>Membaca latihan soal 3<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Nomor 4: kotak 7 kg didorong dengan 20 N melawan gesekan 6 N.</div></details>
+  <div class="bubble">Gaya totalnya 14 N, jadi percepatan kotak 2 m/s². Jawaban Anda memakai 20 N, yaitu gaya dorongnya saja.</div>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;msg msg--ai&quot; style=&quot;max-width: 560px;&quot;&gt;
-  &lt;details class=&quot;toolcall&quot;&gt;&lt;summary&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;search&lt;/span&gt;Searched your notes for &quot;net force&quot;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;toolcall__body&quot;&gt;Found 3 pages: Week 4 lecture, page 2; Problem set 3, question 4; Lab 2 handout.&lt;/div&gt;&lt;/details&gt;
-  &lt;details class=&quot;toolcall&quot;&gt;&lt;summary&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;Read Problem set 3&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;toolcall__body&quot;&gt;Question 4: a 7 kg box pushed with 20 N against 6 N of friction.&lt;/div&gt;&lt;/details&gt;
-  &lt;div class=&quot;bubble&quot;&gt;The net force is 14 N, so the box accelerates at 2 m/s². Your answer used 20 N, the push alone.&lt;/div&gt;
+  &lt;details class=&quot;toolcall&quot;&gt;&lt;summary&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;search&lt;/span&gt;Mencari &quot;gaya total&quot; di catatan Anda&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;toolcall__body&quot;&gt;Menemukan 3 halaman: materi minggu 4, halaman 2; latihan soal 3, nomor 4; panduan praktikum 2.&lt;/div&gt;&lt;/details&gt;
+  &lt;details class=&quot;toolcall&quot;&gt;&lt;summary&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;Membaca latihan soal 3&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;toolcall__body&quot;&gt;Nomor 4: kotak 7 kg didorong dengan 20 N melawan gesekan 6 N.&lt;/div&gt;&lt;/details&gt;
+  &lt;div class=&quot;bubble&quot;&gt;Gaya totalnya 14 N, jadi percepatan kotak 2 m/s². Jawaban Anda memakai 20 N, yaitu gaya dorongnya saja.&lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;msg msg--ai&quot; style=&quot;max-width: 560px;&quot;&gt;
-  &lt;details class=&quot;toolcall&quot;&gt;&lt;summary&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;search&lt;/span&gt;Searched your notes for &quot;net force&quot;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;toolcall__body&quot;&gt;Found 3 pages: Week 4 lecture, page 2; Problem set 3, question 4; Lab 2 handout.&lt;/div&gt;&lt;/details&gt;
-  &lt;details class=&quot;toolcall&quot;&gt;&lt;summary&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;Read Problem set 3&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;toolcall__body&quot;&gt;Question 4: a 7 kg box pushed with 20 N against 6 N of friction.&lt;/div&gt;&lt;/details&gt;
-  &lt;div class=&quot;bubble&quot;&gt;The net force is 14 N, so the box accelerates at 2 m/s². Your answer used 20 N, the push alone.&lt;/div&gt;
+  &lt;details class=&quot;toolcall&quot;&gt;&lt;summary&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;search&lt;/span&gt;Mencari &quot;gaya total&quot; di catatan Anda&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;toolcall__body&quot;&gt;Menemukan 3 halaman: materi minggu 4, halaman 2; latihan soal 3, nomor 4; panduan praktikum 2.&lt;/div&gt;&lt;/details&gt;
+  &lt;details class=&quot;toolcall&quot;&gt;&lt;summary&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;Membaca latihan soal 3&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;toolcall__body&quot;&gt;Nomor 4: kotak 7 kg didorong dengan 20 N melawan gesekan 6 N.&lt;/div&gt;&lt;/details&gt;
+  &lt;div class=&quot;bubble&quot;&gt;Gaya totalnya 14 N, jadi percepatan kotak 2 m/s². Jawaban Anda memakai 20 N, yaitu gaya dorongnya saja.&lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
-          <figcaption><span class="cdoc__ex-t">A step still running</span><span class="cdoc__ex-d">While it runs, a spinner replaces the icon and the label shimmers. When it finishes, the label changes to what it found and the icon to a check.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Langkah yang masih berjalan</span><span class="cdoc__ex-d">Selama berjalan, spinner menggantikan ikon dan labelnya berkilau. Saat selesai, label berganti menjadi temuannya dan ikon menjadi tanda centang.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="msg msg--ai" style="max-width: 560px;">
-  <details class="toolcall"><summary><span class="ic" aria-hidden="true">check_circle</span>Checked your calendar<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Free on Tuesday 13:00 to 15:00 and Thursday after 16:00.</div></details>
-  <details class="toolcall" id="tc-run"><summary><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">Booking the study room</span><span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Room 2.14, Tuesday 13:00 to 14:30.</div></details>
-  <button class="btn btn--plain btn--sm" style="align-self: flex-start; margin-left: -10px;" onclick="this.hidden = true; const s = document.querySelector('#tc-run summary'); s.firstElementChild.outerHTML = '<span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>check_circle</span>'; const l = s.querySelector('.shimmer'); l.classList.remove('shimmer'); l.textContent = 'Booked room 2.14';">Finish the step</button>
+  <details class="toolcall"><summary><span class="ic" aria-hidden="true">check_circle</span>Memeriksa kalender Anda<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Kosong hari Selasa pukul 13.00 sampai 15.00 dan Kamis setelah pukul 16.00.</div></details>
+  <details class="toolcall" id="tc-run"><summary><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">Memesan ruang belajar</span><span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Ruang 2.14, Selasa pukul 13.00 sampai 14.30.</div></details>
+  <button class="btn btn--plain btn--sm" style="align-self: flex-start; margin-left: -10px;" onclick="this.hidden = true; const s = document.querySelector('#tc-run summary'); s.firstElementChild.outerHTML = '<span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>check_circle</span>'; const l = s.querySelector('.shimmer'); l.classList.remove('shimmer'); l.textContent = 'Ruang 2.14 sudah dipesan';">Selesaikan langkah</button>
 </div></div>
           <template id="ex-2-stage-tpl"><div class="msg msg--ai" style="max-width: 560px;">
-  <details class="toolcall"><summary><span class="ic" aria-hidden="true">check_circle</span>Checked your calendar<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Free on Tuesday 13:00 to 15:00 and Thursday after 16:00.</div></details>
-  <details class="toolcall" id="tc-run"><summary><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">Booking the study room</span><span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Room 2.14, Tuesday 13:00 to 14:30.</div></details>
-  <button class="btn btn--plain btn--sm" style="align-self: flex-start; margin-left: -10px;" onclick="this.hidden = true; const s = document.querySelector('#tc-run summary'); s.firstElementChild.outerHTML = '<span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>check_circle</span>'; const l = s.querySelector('.shimmer'); l.classList.remove('shimmer'); l.textContent = 'Booked room 2.14';">Finish the step</button>
+  <details class="toolcall"><summary><span class="ic" aria-hidden="true">check_circle</span>Memeriksa kalender Anda<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Kosong hari Selasa pukul 13.00 sampai 15.00 dan Kamis setelah pukul 16.00.</div></details>
+  <details class="toolcall" id="tc-run"><summary><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">Memesan ruang belajar</span><span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Ruang 2.14, Selasa pukul 13.00 sampai 14.30.</div></details>
+  <button class="btn btn--plain btn--sm" style="align-self: flex-start; margin-left: -10px;" onclick="this.hidden = true; const s = document.querySelector('#tc-run summary'); s.firstElementChild.outerHTML = '<span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>check_circle</span>'; const l = s.querySelector('.shimmer'); l.classList.remove('shimmer'); l.textContent = 'Ruang 2.14 sudah dipesan';">Selesaikan langkah</button>
 </div></template>
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
@@ -340,63 +358,63 @@
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;details class=&quot;toolcall&quot;&gt;
   &lt;summary&gt;
     &lt;span class=&quot;spinner&quot; aria-hidden=&quot;true&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;span class=&quot;shimmer&quot;&gt;Booking the study room&lt;/span&gt;
+    &lt;span class=&quot;shimmer&quot;&gt;Memesan ruang belajar&lt;/span&gt;
     &lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;
   &lt;/summary&gt;
   &lt;div class=&quot;toolcall__body&quot;&gt;…&lt;/div&gt;
 &lt;/details&gt;
 &lt;!-- Done: replace the spinner with &lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check_circle&lt;/span&gt;,
-     drop the shimmer class and name the result: &quot;Booked room 2.14&quot;. --&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
+     drop the shimmer class and name the result: &quot;Ruang 2.14 sudah dipesan&quot;. --&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;details class=&quot;toolcall&quot;&gt;
   &lt;summary&gt;
     &lt;span class=&quot;spinner&quot; aria-hidden=&quot;true&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;
-    &lt;span class=&quot;shimmer&quot;&gt;Booking the study room&lt;/span&gt;
+    &lt;span class=&quot;shimmer&quot;&gt;Memesan ruang belajar&lt;/span&gt;
     &lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;
   &lt;/summary&gt;
   &lt;div class=&quot;toolcall__body&quot;&gt;…&lt;/div&gt;
 &lt;/details&gt;
 &lt;!-- Done: replace the spinner with &lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check_circle&lt;/span&gt;,
-     drop the shimmer class and name the result: &quot;Booked room 2.14&quot;. --&gt;</pre></div></div></div>
+     drop the shimmer class and name the result: &quot;Ruang 2.14 sudah dipesan&quot;. --&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-3">
-          <figcaption><span class="cdoc__ex-t">A step with code</span><span class="cdoc__ex-d">When the step ran code or a query, the body holds a code block so the person can copy and check it.</span></figcaption>
-          <div class="cdoc__stage cdoc__stage--block" id="ex-3-stage"><details class="toolcall" open style="max-width: 560px; width: 100%;"><summary><span class="ic" aria-hidden="true">code</span>Ran a query on your grades<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body"><div class="codeblock"><pre>SELECT AVG(score) FROM grades WHERE course = 'BIO101';</pre></div></div></details></div>
+          <figcaption><span class="cdoc__ex-t">Langkah dengan kode</span><span class="cdoc__ex-d">Jika langkah menjalankan kode atau query, isinya berupa code block agar orang bisa menyalin dan memeriksanya.</span></figcaption>
+          <div class="cdoc__stage cdoc__stage--block" id="ex-3-stage"><details class="toolcall" open style="max-width: 560px; width: 100%;"><summary><span class="ic" aria-hidden="true">code</span>Menjalankan query pada nilai Anda<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body"><div class="codeblock"><pre>SELECT AVG(score) FROM grades WHERE course = 'BIO101';</pre></div></div></details></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-3-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;details class=&quot;toolcall&quot; open style=&quot;max-width: 560px; width: 100%;&quot;&gt;&lt;summary&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;code&lt;/span&gt;Ran a query on your grades&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;toolcall__body&quot;&gt;&lt;div class=&quot;codeblock&quot;&gt;&lt;pre&gt;SELECT AVG(score) FROM grades WHERE course = 'BIO101';&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/details&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;details class=&quot;toolcall&quot; open style=&quot;max-width: 560px; width: 100%;&quot;&gt;&lt;summary&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;code&lt;/span&gt;Menjalankan query pada nilai Anda&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;toolcall__body&quot;&gt;&lt;div class=&quot;codeblock&quot;&gt;&lt;pre&gt;SELECT AVG(score) FROM grades WHERE course = 'BIO101';&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/details&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;details class=&quot;toolcall&quot; open style=&quot;max-width: 560px; width: 100%;&quot;&gt;&lt;summary&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;code&lt;/span&gt;Ran a query on your grades&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;toolcall__body&quot;&gt;&lt;div class=&quot;codeblock&quot;&gt;&lt;pre&gt;SELECT AVG(score) FROM grades WHERE course = 'BIO101';&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/details&gt;</pre></div></div></div>
+          <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;details class=&quot;toolcall&quot; open style=&quot;max-width: 560px; width: 100%;&quot;&gt;&lt;summary&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;code&lt;/span&gt;Menjalankan query pada nilai Anda&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;toolcall__body&quot;&gt;&lt;div class=&quot;codeblock&quot;&gt;&lt;pre&gt;SELECT AVG(score) FROM grades WHERE course = 'BIO101';&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;&lt;/details&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-4">
-          <figcaption><span class="cdoc__ex-t">A step that failed</span><span class="cdoc__ex-d">Say what failed and what the answer did instead. The answer below should not pretend the step worked.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Langkah yang gagal</span><span class="cdoc__ex-d">Sebutkan apa yang gagal dan apa yang dilakukan jawaban sebagai gantinya. Jawaban di bawahnya tidak boleh berpura-pura langkah itu berhasil.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-4-stage"><div class="msg msg--ai" style="max-width: 560px;">
-  <details class="toolcall"><summary><span class="ic" aria-hidden="true">cloud_off</span>Could not open lab-report.pdf<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">The file is larger than 20 MB. The answer below uses your notes only.</div></details>
-  <div class="bubble">From your notes, the control group should keep the same light and water as the test group.</div>
+  <details class="toolcall"><summary><span class="ic" aria-hidden="true">cloud_off</span>Tidak bisa membuka laporan-praktikum.pdf<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Ukuran berkas lebih dari 20 MB. Jawaban di bawah hanya memakai catatan Anda.</div></details>
+  <div class="bubble">Menurut catatan Anda, kelompok kontrol harus mendapat cahaya dan air yang sama dengan kelompok uji.</div>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-4-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;msg msg--ai&quot; style=&quot;max-width: 560px;&quot;&gt;
-  &lt;details class=&quot;toolcall&quot;&gt;&lt;summary&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;cloud_off&lt;/span&gt;Could not open lab-report.pdf&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;toolcall__body&quot;&gt;The file is larger than 20 MB. The answer below uses your notes only.&lt;/div&gt;&lt;/details&gt;
-  &lt;div class=&quot;bubble&quot;&gt;From your notes, the control group should keep the same light and water as the test group.&lt;/div&gt;
+  &lt;details class=&quot;toolcall&quot;&gt;&lt;summary&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;cloud_off&lt;/span&gt;Tidak bisa membuka laporan-praktikum.pdf&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;toolcall__body&quot;&gt;Ukuran berkas lebih dari 20 MB. Jawaban di bawah hanya memakai catatan Anda.&lt;/div&gt;&lt;/details&gt;
+  &lt;div class=&quot;bubble&quot;&gt;Menurut catatan Anda, kelompok kontrol harus mendapat cahaya dan air yang sama dengan kelompok uji.&lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Tersalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-4-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;msg msg--ai&quot; style=&quot;max-width: 560px;&quot;&gt;
-  &lt;details class=&quot;toolcall&quot;&gt;&lt;summary&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;cloud_off&lt;/span&gt;Could not open lab-report.pdf&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;toolcall__body&quot;&gt;The file is larger than 20 MB. The answer below uses your notes only.&lt;/div&gt;&lt;/details&gt;
-  &lt;div class=&quot;bubble&quot;&gt;From your notes, the control group should keep the same light and water as the test group.&lt;/div&gt;
+  &lt;details class=&quot;toolcall&quot;&gt;&lt;summary&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;cloud_off&lt;/span&gt;Tidak bisa membuka laporan-praktikum.pdf&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/summary&gt;&lt;div class=&quot;toolcall__body&quot;&gt;Ukuran berkas lebih dari 20 MB. Jawaban di bawah hanya memakai catatan Anda.&lt;/div&gt;&lt;/details&gt;
+  &lt;div class=&quot;bubble&quot;&gt;Menurut catatan Anda, kelompok kontrol harus mendapat cahaya dan air yang sama dengan kelompok uji.&lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
-        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">details.toolcall</code></td><td>Required. Native <code class="code">&lt;details&gt;</code>: quiet fill, 12 px radius.</td></tr><tr><td><code class="code">summary</code></td><td>Required. One line, 40 px min: a leading icon (or a spinner while running), the step in words, then the <code class="code">expand_more</code> chevron as the last icon.</td></tr><tr><td><code class="code">.ic:last-child</code></td><td>Required. The chevron; it turns 180 degrees when open. It must be the last icon in the summary.</td></tr><tr><td><code class="code">.toolcall__body</code></td><td>What the step found or did: a short sentence, a <a class="link" href="list.html">list</a>, or a <a class="link" href="code-block.html">code block</a>.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">closed</code></td><td>The default: one line, chevron down.</td></tr><tr><td><code class="code">open</code></td><td><code class="code">[open]</code>: the body shows at once; the chevron turns 180 degrees.</td></tr><tr><td><code class="code">running</code></td><td>A <code class="code">.spinner</code> in place of the leading icon and a <code class="code">.shimmer</code> label.</td></tr><tr><td><code class="code">done</code></td><td>A result icon (<code class="code">check_circle</code>, <code class="code">search</code>, <code class="code">description</code>), the label names what it found.</td></tr><tr><td><code class="code">failed</code></td><td>A plain icon (<code class="code">cloud_off</code>, <code class="code">error</code>) and the reason in words; no red fill.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Chevron: rotates 180 degrees on <code class="code">--spring-smooth</code> (<code class="code">--d-smooth</code>, 560 ms); reverses from where it is if toggled again.</li><li>Body: appears and disappears at once. Native <code class="code">&lt;details&gt;</code> does not animate its height here; if you need the height to move, use an <a class="link" href="accordion.html">accordion</a> instead.</li><li>Running: the spinner turns (800 ms per turn) and the label shimmers on a 1.8 s cycle; when the step ends, the shimmer settles to solid text over <code class="code">--d-standard</code>.</li><li>Reduced motion: the shimmer stops (solid text), the chevron turns in 120 ms; the spinner keeps turning because it reports work.</li></ul></section>
-        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Native <code class="code">&lt;details&gt;</code>/<code class="code">&lt;summary&gt;</code>: keyboard (Enter, Space) and expanded state come for free. Keep it.</li><li>The summary text must say the step on its own (&quot;Searched your notes for net force&quot;), not just an icon.</li><li>Icons are <code class="code">aria-hidden</code>; the spinner too. While a step runs, the message is <code class="code">aria-busy=&quot;true&quot;</code>.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Name the step and its object: &quot;Read Problem set 3&quot;.</li><li>Keep steps closed by default; the answer is the main thing.</li><li>Put steps in the order they ran, above the answer.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Show raw tool names or JSON in the summary.</li><li>Use it for page content people need to read; use an <a class="link" href="accordion.html">accordion</a>.</li><li>Leave a spinner running after the step ended or failed.</li></ul></div></div></section>
-        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> None. It is native <code class="code">&lt;details&gt;</code>. Update the summary yourself when a step finishes.</p></section>
-        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="chat-message.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Chat message</span><span class="link-card__body">One turn in a conversation. Your words sit in an accent bubble on the right; the assistant answers as plain reading text in the column, with a quiet actions row under it. System lines are centered footnotes.</span></a><a class="link-card" href="thinking.html"><span class="link-card__eyebrow">Umpan balik</span><span class="link-card__title">Thinking</span><span class="link-card__body">A dot-grid wave, a shimmering label and an honest elapsed timer, for work of unknown length. When it finishes, the label turns into the result.</span></a><a class="link-card" href="streaming-text.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Streaming text</span><span class="link-card__body">An answer that arrives word by word, each word fading in from a 3 px blur, with a round caret at the end while more is coming. It shows real progress; never fake it for text you already have.</span></a><a class="link-card" href="accordion.html"><span class="link-card__eyebrow">Tampilan data</span><span class="link-card__title">Accordion</span><span class="link-card__body">A stack of questions or sections, each opening its panel on a spring. For content people read selectively; never to hide what everyone needs.</span></a></div></section>
+        <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">details.toolcall</code></td><td>Wajib. <code class="code">&lt;details&gt;</code> bawaan: isian tenang, radius 12 px.</td></tr><tr><td><code class="code">summary</code></td><td>Wajib. Satu baris, minimal 40 px: ikon di depan (atau spinner saat berjalan), langkahnya dalam kata-kata, lalu chevron <code class="code">expand_more</code> sebagai ikon terakhir.</td></tr><tr><td><code class="code">.ic:last-child</code></td><td>Wajib. Chevron; berputar 180 derajat saat terbuka. Harus menjadi ikon terakhir di summary.</td></tr><tr><td><code class="code">.toolcall__body</code></td><td>Apa yang ditemukan atau dilakukan langkah itu: satu kalimat pendek, <a class="link" href="list.html">list</a>, atau <a class="link" href="code-block.html">code block</a>.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">closed</code></td><td>Bawaan: satu baris, chevron mengarah ke bawah.</td></tr><tr><td><code class="code">open</code></td><td><code class="code">[open]</code>: isi langsung tampil; chevron berputar 180 derajat.</td></tr><tr><td><code class="code">running</code></td><td><code class="code">.spinner</code> menggantikan ikon depan dan label <code class="code">.shimmer</code>.</td></tr><tr><td><code class="code">done</code></td><td>Ikon hasil (<code class="code">check_circle</code>, <code class="code">search</code>, <code class="code">description</code>), label menyebut temuannya.</td></tr><tr><td><code class="code">failed</code></td><td>Ikon biasa (<code class="code">cloud_off</code>, <code class="code">error</code>) dan alasannya dalam kata-kata; tanpa isian merah.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Chevron: berputar 180 derajat dengan <code class="code">--spring-smooth</code> (<code class="code">--d-smooth</code>, 560 ms); berbalik dari posisinya saat itu jika diklik lagi.</li><li>Isi: muncul dan hilang seketika. <code class="code">&lt;details&gt;</code> bawaan tidak menganimasikan tingginya di sini; jika tinggi perlu bergerak, pakai <a class="link" href="accordion.html">accordion</a>.</li><li>Berjalan: spinner berputar (800 ms per putaran) dan label berkilau dengan siklus 1,8 detik; saat langkah selesai, kilau mengendap menjadi teks solid selama <code class="code">--d-standard</code>.</li><li>Reduced motion: kilau berhenti (teks solid), chevron berputar dalam 120 ms; spinner tetap berputar karena melaporkan pekerjaan.</li></ul></section>
+        <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li><code class="code">&lt;details&gt;</code>/<code class="code">&lt;summary&gt;</code> bawaan: keyboard (Enter, Space) dan status terbuka sudah tersedia. Pertahankan.</li><li>Teks summary harus menyebut langkahnya sendiri (&quot;Mencari gaya total di catatan Anda&quot;), bukan hanya ikon.</li><li>Ikon memakai <code class="code">aria-hidden</code>; spinner juga. Selama langkah berjalan, pesan diberi <code class="code">aria-busy=&quot;true&quot;</code>.</li></ul></section>
+        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Sebut langkah dan objeknya: &quot;Membaca latihan soal 3&quot;.</li><li>Biarkan langkah tertutup secara bawaan; jawaban yang utama.</li><li>Susun langkah sesuai urutan jalannya, di atas jawaban.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Menampilkan nama tool mentah atau JSON di summary.</li><li>Memakainya untuk konten halaman yang perlu dibaca orang; pakai <a class="link" href="accordion.html">accordion</a>.</li><li>Membiarkan spinner berputar setelah langkah selesai atau gagal.</li></ul></div></div></section>
+        <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> Tidak ada. Ini <code class="code">&lt;details&gt;</code> bawaan. Perbarui summary sendiri saat langkah selesai.</p></section>
+        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="chat-message.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Chat message</span><span class="link-card__body">Satu giliran dalam percakapan. Kata-kata Anda ada di bubble aksen di kanan; asisten menjawab dengan teks baca biasa di kolom, dengan baris aksi yang tenang di bawahnya. Baris sistem berupa footnote di tengah.</span></a><a class="link-card" href="thinking.html"><span class="link-card__eyebrow">Umpan balik</span><span class="link-card__title">Thinking</span><span class="link-card__body">Gelombang titik, label berkilau dan timer waktu berjalan yang jujur, untuk pekerjaan yang lamanya tidak diketahui. Saat selesai, labelnya berubah menjadi hasilnya.</span></a><a class="link-card" href="streaming-text.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Streaming text</span><span class="link-card__body">Jawaban yang datang kata demi kata, setiap kata memudar masuk dari blur 3 px, dengan caret bulat di ujung selama masih ada yang datang. Ini menunjukkan kemajuan nyata; jangan pernah memalsukannya untuk teks yang sudah Anda miliki.</span></a><a class="link-card" href="accordion.html"><span class="link-card__eyebrow">Tampilan data</span><span class="link-card__title">Accordion</span><span class="link-card__body">Tumpukan pertanyaan atau bagian yang masing-masing membuka panelnya dengan spring. Untuk isi yang dibaca sebagian saja; jangan pernah untuk menyembunyikan hal yang dibutuhkan semua orang.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
           <a class="link-card cdoc__prev" href="streaming-text.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Sebelumnya</span><span class="link-card__title">Streaming text</span></a>
           <a class="link-card cdoc__next" href="sections.html"><span class="link-card__eyebrow">Berikutnya<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Sections</span></a>

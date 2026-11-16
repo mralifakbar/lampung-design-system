@@ -1,6 +1,6 @@
 # Check matrix
 
-Group: Data display (new). Docs page: `docs/components/check-matrix.html`.
+Group: Data display. Docs page: `docs/components/check-matrix.html`.
 
 A grid of checkboxes: things in rows grouped by area, options in columns. The header and the first column stay in place while the box scrolls, and each area has one checkbox per column for all of it.
 

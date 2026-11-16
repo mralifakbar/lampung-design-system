@@ -1,6 +1,6 @@
 # Prose
 
-Group: Content (new). Docs page: `docs/components/prose.html`.
+Group: Content. Docs page: `docs/components/prose.html`.
 
 A wrapper for long-form text you do not control line by line: articles, help pages, lesson notes, rendered Markdown. `.prose` styles plain headings, paragraphs, lists, links, tables and inline code inside it and caps the line length at 680 px.
 

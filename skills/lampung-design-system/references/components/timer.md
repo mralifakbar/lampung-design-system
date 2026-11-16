@@ -1,6 +1,6 @@
 # Timer
 
-Group: Feedback (new). Docs page: `docs/components/timer.html`.
+Group: Feedback. Docs page: `docs/components/timer.html`.
 
 A countdown pill in tabular mono figures that turns amber when time runs low and red at zero, then fires `lds:timeup`. For real deadlines the person is working against.
 

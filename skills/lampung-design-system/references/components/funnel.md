@@ -1,6 +1,6 @@
 # Funnel
 
-Group: Charts (new). Docs page: `docs/components/funnel.html`.
+Group: Charts. Docs page: `docs/components/funnel.html`.
 
 The steps of a flow, each with how many reached it and what share of the step before moved on. Centered bars narrow with the count, so the biggest drop is visible at a glance; the words carry the exact numbers.
 
