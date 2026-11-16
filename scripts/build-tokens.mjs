@@ -217,6 +217,173 @@ ${springConsts}
 }
 `);
 
+// ---------- Flutter package (packages/flutter) ----------
+// Same values as dist/flutter/lds_tokens.dart, shaped for the lampung_design_system package:
+// LdsColors is a ThemeExtension (copyWith, lerp), font families carry the package prefix,
+// and shadows are parsed into BoxShadow lists.
+const PKG = 'lampung_design_system';
+const pkgFamily = (css) => `packages/${PKG}/${fontFamily(css)}`;
+const splitTop = (v) => {
+  const out = [];
+  let depth = 0, cur = '';
+  for (const ch of v) {
+    if (ch === '(') depth++;
+    if (ch === ')') depth--;
+    if (ch === ',' && depth === 0) { out.push(cur.trim()); cur = ''; } else cur += ch;
+  }
+  if (cur.trim()) out.push(cur.trim());
+  return out;
+};
+function dartShadows(v) {
+  if (v.trim() === 'none') return '<BoxShadow>[]';
+  const items = splitTop(v).filter((p) => !p.startsWith('inset')).map((p) => {
+    const color = p.match(/rgba?\([^)]*\)|#[0-9a-f]{6}/i)[0];
+    const nums = p.replace(color, '').trim().split(/\s+/).map((n) => parseFloat(n));
+    const [x = 0, y = 0, blur = 0, spread = 0] = nums;
+    const args = [`color: ${dartColor(color)}`];
+    if (x || y) args.push(`offset: Offset(${x}, ${y})`);
+    if (blur) args.push(`blurRadius: ${blur}`);
+    if (spread) args.push(`spreadRadius: ${spread}`);
+    return `BoxShadow(${args.join(', ')})`;
+  });
+  return `<BoxShadow>[${items.join(', ')}]`;
+}
+const shadowNames = Object.keys(t.shadow.light).filter((k) => !k.startsWith('finish-'));
+const shadowField = (k) => camel(k.replace(/^shadow-/, ''));
+const pkgColorCopyParams = names.map((k) => `    Color? ${camel(k)},`).join('\n');
+const pkgColorCopyBody = names.map((k) => `      ${camel(k)}: ${camel(k)} ?? this.${camel(k)},`).join('\n');
+const pkgColorLerpBody = names.map((k) => `      ${camel(k)}: Color.lerp(${camel(k)}, other.${camel(k)}, t)!,`).join('\n');
+const pkgTypeConsts = Object.entries(t.type).map(([k, s]) =>
+  `  static const TextStyle ${camel(k)} = TextStyle(fontFamily: family, fontSize: ${s.size}, height: ${(s.line / s.size).toFixed(4)}, fontWeight: FontWeight.w${s.weight}, letterSpacing: ${(s.tracking * s.size).toFixed(3)});`).join('\n');
+const pkgTypeSizes = Object.entries(t.type).map(([k, s]) =>
+  `    '${k}': (size: ${s.size}, line: ${s.line}, weight: ${s.weight}, tracking: ${s.tracking}),`).join('\n');
+const pkgSpringConsts = Object.entries(t.motion.spring).map(([k, s]) =>
+  `  /// ${s.description}\n  static final SpringDescription ${camel(k)}Spring = SpringDescription.withDampingRatio(mass: 1, stiffness: ${((2 * Math.PI / s.response) ** 2).toFixed(2)}${s.damping === 1 ? '' : `, ratio: ${s.damping}`});\n  static const Duration ${camel(k)}SpringDuration = Duration(milliseconds: ${s.duration});`).join('\n');
+
+write('packages/flutter/lib/src/tokens.g.dart', `// GENERATED CODE - DO NOT MODIFY BY HAND.
+// ${HEADER}
+// ignore_for_file: public_member_api_docs, lines_longer_than_80_chars
+
+import 'package:flutter/material.dart';
+
+/// Every color role of Lampung Design System, for one appearance.
+///
+/// Registered on [ThemeData.extensions] by \`LdsTheme\`, so widgets read it with
+/// \`context.lds\` and it animates between light and dark with the theme.
+@immutable
+class LdsColors extends ThemeExtension<LdsColors> {
+  const LdsColors({
+${colorCtor}
+  });
+
+${colorFields}
+
+  /// Light appearance (the default).
+  static const LdsColors light = LdsColors(
+${colorConst('light')}
+  );
+
+  /// Dark appearance.
+  static const LdsColors dark = LdsColors(
+${colorConst('dark')}
+  );
+
+  /// Every role keyed by its token name in tokens.json (\`accent-text\`, \`bg-fill\`, ...).
+  Map<String, Color> toMap() => <String, Color>{
+${names.map((k) => `        '${k}': ${camel(k)},`).join('\n')}
+      };
+
+  @override
+  LdsColors copyWith({
+${pkgColorCopyParams}
+  }) {
+    return LdsColors(
+${pkgColorCopyBody}
+    );
+  }
+
+  @override
+  LdsColors lerp(covariant ThemeExtension<LdsColors>? other, double t) {
+    if (other is! LdsColors) return this;
+    return LdsColors(
+${pkgColorLerpBody}
+    );
+  }
+}
+
+/// Elevation for layers that float (menus, dialogs, sheets, toasts). Resting content has none.
+@immutable
+class LdsShadows {
+  const LdsShadows({
+${shadowNames.map((k) => `    required this.${shadowField(k)},`).join('\n')}
+  });
+
+${shadowNames.map((k) => `  final List<BoxShadow> ${shadowField(k)};`).join('\n')}
+
+  static const LdsShadows light = LdsShadows(
+${shadowNames.map((k) => `    ${shadowField(k)}: ${dartShadows(t.shadow.light[k])},`).join('\n')}
+  );
+
+  static const LdsShadows dark = LdsShadows(
+${shadowNames.map((k) => `    ${shadowField(k)}: ${dartShadows(t.shadow.dark[k])},`).join('\n')}
+  );
+}
+
+/// Type scale. Size, weight and tracking move together.
+abstract final class LdsType {
+  /// The package that bundles the fonts.
+  static const String package = '${PKG}';
+  /// Family names as declared in this package's pubspec.yaml.
+  static const String familyName = '${fontFamily(t.font.sans)}';
+  static const String monoName = '${fontFamily(t.font.mono)}';
+  static const String iconsName = '${fontFamily(t.font.icons)}';
+  static const String iconsFillName = '${fontFamily(t.font['icons-fill'])}';
+  /// Family names to use in a [TextStyle] from any app (package prefix included).
+  static const String family = '${pkgFamily(t.font.sans)}';
+  static const String mono = '${pkgFamily(t.font.mono)}';
+  static const String icons = '${pkgFamily(t.font.icons)}';
+  static const String iconsFill = '${pkgFamily(t.font['icons-fill'])}';
+${pkgTypeConsts}
+
+  /// Raw values from tokens.json: size and line in logical pixels, tracking in em.
+  static const Map<String, ({double size, double line, int weight, double tracking})> scale = {
+${pkgTypeSizes}
+  };
+}
+
+/// Spacing on a 4 pt grid.
+abstract final class LdsSpace {
+${spaceConsts}
+
+  static const Map<String, double> values = <String, double>{${Object.entries(t.space).map(([k, v]) => `'${k}': ${v}`).join(', ')}};
+}
+
+/// Corner radii. Inner radius = outer radius - padding.
+abstract final class LdsRadius {
+${radiusConsts}
+
+  static const Map<String, double> values = <String, double>{${Object.entries(t.radius).map(([k, v]) => `'${k}': ${v}`).join(', ')}};
+}
+
+/// Control heights, the minimum touch target and the reading measure.
+abstract final class LdsSize {
+${sizeConsts}
+
+  static const Map<String, double> values = <String, double>{${Object.entries(t.size).map(([k, v]) => `'${k}': ${v}`).join(', ')}};
+}
+
+/// Durations, curves and springs. Enter on a critically damped spring, leave faster.
+abstract final class LdsMotion {
+${durConsts}
+  static const Duration momentum = Duration(milliseconds: ${t.motion.spring.momentum.duration});
+${curveConsts}
+${pkgSpringConsts}
+
+  static const Map<String, Duration> durations = <String, Duration>{${Object.keys(t.motion.duration).map((k) => `'${k}': ${camel(k)}`).join(', ')}};
+  static const Map<String, Cubic> curves = <String, Cubic>{${Object.keys(t.motion.easing).map((k) => `'${k}': ${camel(k)}Curve`).join(', ')}};
+}
+`);
+
 // ---------- shadcn/ui ----------
 // shadcn's variable names mapped to this system's roles. Values are resolved per mode, so
 // a shadcn app themed this way shows the same colors as the CSS components.
