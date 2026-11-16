@@ -1,0 +1,241 @@
+---
+title: Kepegawaian
+description: Pegawai ASN dan PPPK Pemerintah Kota Contoh: kehadiran hari ini, cuti yang menunggu persetujuan, pensiun, dan jam pengembangan kompetensi.
+---
+<template data-slot="actions">
+<div class="seg" role="group" aria-label="Periode" data-lds-segmented data-periode style="width: 220px;">
+  <span class="seg__thumb"></span>
+  <button type="button" class="seg__btn" aria-pressed="true" data-p="hari">Hari ini</button>
+  <button type="button" class="seg__btn" aria-pressed="false" data-p="bulan">November</button>
+</div>
+<button class="btn btn--primary btn--md" type="button" data-export><span class="btn__label"><span class="ic" aria-hidden="true">download</span>Unduh rekap kehadiran</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button>
+</template>
+
+<section aria-label="Angka utama" data-states>
+  <div class="dash-kpis" data-state-view="loaded" data-lds-grow>
+    <article class="kpi" aria-labelledby="kpi-peg">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">groups</span></span><span class="kpi__label" id="kpi-peg">Pegawai aktif</span></div>
+      <div class="kpi__value">8.214</div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--up"><span class="ic" aria-hidden="true">arrow_upward</span>186<span class="sr-only"> lebih banyak dari Januari</span></span><span>6.032 ASN, 2.182 PPPK</span></div>
+      <div class="kpi__bars" role="img" aria-label="Jumlah pegawai per bulan, Januari sampai November, naik pada Juli saat PPPK baru masuk"><i style="--h: 92%;"></i><i style="--h: 92%;"></i><i style="--h: 91%;"></i><i style="--h: 91%;"></i><i style="--h: 91%;"></i><i style="--h: 90%;"></i><i style="--h: 99%;"></i><i style="--h: 99%;"></i><i style="--h: 99%;"></i><i style="--h: 100%;"></i><i class="is-on" style="--h: 100%;"></i></div>
+    </article>
+    <article class="kpi" aria-labelledby="kpi-hadir">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">fingerprint</span></span><span class="kpi__label" id="kpi-hadir" data-hadir-label>Hadir hari ini</span></div>
+      <div class="kpi__value"><span class="roll" data-lds-roll="93,4%" data-hadir></span></div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--up delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>1,2 poin<span class="sr-only"> naik dari Senin lalu</span></span><span data-hadir-meta>dari 92,2% Senin lalu, sampai 09.30</span></div>
+      <svg class="kpi__spark" viewBox="0 0 240 52" preserveAspectRatio="none" role="img" aria-label="Kehadiran harian 30 hari terakhir, stabil di atas 90 persen pada hari kerja"><path class="series-area" d="M0 18 L24 16 L48 20 L72 14 L96 15 L120 30 L144 17 L168 15 L192 13 L216 16 L240 12 L240 52 L0 52 Z"></path><path class="series-line" d="M0 18 L24 16 L48 20 L72 14 L96 15 L120 30 L144 17 L168 15 L192 13 L216 16 L240 12"></path></svg>
+    </article>
+    <article class="kpi" aria-labelledby="kpi-cuti">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">event_busy</span></span><span class="kpi__label" id="kpi-cuti">Cuti menunggu persetujuan</span></div>
+      <div class="kpi__value"><span class="roll" data-lds-roll="4" data-cuti-count></span></div>
+      <div class="kpi__meta"><span>2 mulai minggu ini</span></div>
+      <svg class="kpi__spark" viewBox="0 0 240 52" preserveAspectRatio="none" role="img" aria-label="Pengajuan cuti per minggu, naik menjelang akhir tahun"><path class="series-area" d="M0 40 L40 38 L80 36 L120 34 L160 28 L200 22 L240 14 L240 52 L0 52 Z"></path><path class="series-line" d="M0 40 L40 38 L80 36 L120 34 L160 28 L200 22 L240 14"></path></svg>
+    </article>
+    <article class="kpi" aria-labelledby="kpi-pensiun">
+      <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">history</span></span><span class="kpi__label" id="kpi-pensiun">Pensiun tahun 2026</span></div>
+      <div class="kpi__value">214</div>
+      <div class="kpi__meta"><span class="delta delta--pill delta--up delta--bad"><span class="ic" aria-hidden="true">arrow_upward</span>38<span class="sr-only"> lebih banyak dari 2025</span></span><span>lebih banyak dari 2025; 31 guru</span></div>
+      <div class="kpi__bars" role="img" aria-label="Pegawai pensiun per tahun, 2022 sampai 2026, naik"><i style="--h: 58%;"></i><i style="--h: 66%;"></i><i style="--h: 74%;"></i><i style="--h: 82%;"></i><i class="is-on" style="--h: 100%;"></i></div>
+    </article>
+  </div>
+  <div class="dash-kpis" data-state-view="loading" role="status" aria-label="Memuat angka utama" hidden>
+    <div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div>
+    <div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div>
+    <div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div>
+    <div class="kpi" aria-hidden="true"><div class="skel" style="height: 14px; width: 45%;"></div><div class="skel" style="height: 28px; width: 60%; margin-top: 8px;"></div><div class="skel" style="height: 12px; width: 75%; margin-top: 6px;"></div><div class="skel" style="height: 40px; margin-top: 12px;"></div></div>
+  </div>
+  <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Angka utama tidak termuat</div><div class="alert__body">Sistem presensi tidak menjawab tepat waktu. Tidak ada data yang hilang.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+</section>
+
+<div class="dash-grid dash-grid--stretch">
+  <section class="chart-card dash-span-5" aria-labelledby="dinas-q" data-states>
+    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="dinas-q">Di mana pegawai bekerja?</div><div class="chart-card__sub">Pegawai per perangkat daerah, ASN dan PPPK, perubahan sejak Januari</div></div></div>
+    <div class="hbars hbars--inside" role="list" data-lds-grow aria-label="Pegawai per perangkat daerah" data-state-view="loaded">
+      <div role="listitem" class="hbar is-top"><span class="hbar__track"><span class="hbar__fill" style="--v: 100%;"></span><span class="hbar__label">Dinas Pendidikan</span></span><span class="hbar__val">4.106<span class="delta delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>142<span class="sr-only"> bertambah</span></span></span></div>
+      <div role="listitem" class="hbar"><span class="hbar__track"><span class="hbar__fill" style="--v: 42.3%;"></span><span class="hbar__label">Dinas Kesehatan dan RSUD</span></span><span class="hbar__val">1.738<span class="delta delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>64<span class="sr-only"> bertambah</span></span></span></div>
+      <div role="listitem" class="hbar"><span class="hbar__track"><span class="hbar__fill" style="--v: 12.1%;"></span><span class="hbar__label">Kecamatan dan kelurahan</span></span><span class="hbar__val">496<span class="delta delta--down delta--bad"><span class="ic" aria-hidden="true">arrow_upward</span>11<span class="sr-only"> berkurang</span></span></span></div>
+      <div role="listitem" class="hbar"><span class="hbar__track"><span class="hbar__fill" style="--v: 8.9%;"></span><span class="hbar__label">Sekretariat Daerah</span></span><span class="hbar__val">364<span class="delta delta--flat delta--neutral"><span class="ic" aria-hidden="true">arrow_upward</span>0<span class="sr-only"> tetap</span></span></span></div>
+      <div role="listitem" class="hbar"><span class="hbar__track"><span class="hbar__fill" style="--v: 7.4%;"></span><span class="hbar__label">Satuan Polisi Pamong Praja</span></span><span class="hbar__val">302<span class="delta delta--down delta--bad"><span class="ic" aria-hidden="true">arrow_upward</span>6<span class="sr-only"> berkurang</span></span></span></div>
+      <div role="listitem" class="hbar"><span class="hbar__track"><span class="hbar__fill" style="--v: 29.3%;"></span><span class="hbar__label">24 perangkat daerah lain</span></span><span class="hbar__val">1.208<span class="delta delta--down delta--bad"><span class="ic" aria-hidden="true">arrow_upward</span>3<span class="sr-only"> berkurang</span></span></span></div>
+    </div>
+    <div class="stack" style="--gap: 16px;" data-state-view="loading" role="status" aria-label="Memuat pegawai per perangkat daerah" hidden><div class="skel" style="height: 20px;"></div><div class="skel" style="height: 20px; width: 70%;"></div><div class="skel" style="height: 20px; width: 60%;"></div><div class="skel" style="height: 20px; width: 50%;"></div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Data perangkat daerah tidak termuat</div><div class="alert__body">Coba lagi sebentar lagi.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    <div class="chart-card__foot"><span>8.214 pegawai di 29 perangkat daerah</span></div>
+  </section>
+
+  <section class="chart-card dash-span-7" aria-labelledby="hadir-q" data-states>
+    <div class="chart-card__head">
+      <div class="chart-card__titles"><div class="chart-card__q" id="hadir-q">Apakah kehadiran stabil?</div><div class="chart-card__sub">Persentase pegawai yang absen masuk sebelum 08.00, hari kerja</div></div>
+      <div class="chart-card__actions">
+        <div class="seg chart-card__range" role="group" aria-label="Periode" data-lds-segmented data-lds-chart-for="hadir">
+          <span class="seg__thumb"></span>
+          <button type="button" class="seg__btn" aria-pressed="true" data-set="2m">2 minggu</button>
+          <button type="button" class="seg__btn" aria-pressed="false" data-set="6b">6 bulan</button>
+        </div>
+      </div>
+    </div>
+    <div class="stack" style="--gap: 14px;" data-state-view="loaded">
+      <div class="chart-card__figure"><div class="chart-card__big" data-chart-figure>93%</div><span class="chart-card__sub" data-chart-note>rata-rata 2 minggu terakhir; target 95%</span></div>
+      <div class="chart" id="hadir" data-lds-chart='{"kind":"line","xName":"Hari","height":220,"format":{"suffix":"%"},"x":["3 Nov","4 Nov","5 Nov","6 Nov","9 Nov","10 Nov","11 Nov","12 Nov","13 Nov","16 Nov"],"xFull":["Sen, 3 Nov","Sel, 4 Nov","Rab, 5 Nov","Kam, 6 Nov","Sen, 9 Nov","Sel, 10 Nov","Rab, 11 Nov","Kam, 12 Nov","Jum, 13 Nov","Sen, 16 Nov"],"series":[{"name":"Hadir","values":[94,93,92,94,92,93,94,93,90,93]},{"name":"Target","values":[95,95,95,95,95,95,95,95,95,95],"dashed":true,"color":"neutral"}],"figure":"93%","note":"rata-rata 2 minggu terakhir; target 95%","label":"Kehadiran harian 2 minggu terakhir antara 90 dan 94 persen, di bawah target 95 persen. Terendah Jumat 13 November, hujan lebat pagi hari.","sets":{"2m":{"x":["3 Nov","4 Nov","5 Nov","6 Nov","9 Nov","10 Nov","11 Nov","12 Nov","13 Nov","16 Nov"],"xFull":["Sen, 3 Nov","Sel, 4 Nov","Rab, 5 Nov","Kam, 6 Nov","Sen, 9 Nov","Sel, 10 Nov","Rab, 11 Nov","Kam, 12 Nov","Jum, 13 Nov","Sen, 16 Nov"],"series":[{"name":"Hadir","values":[94,93,92,94,92,93,94,93,90,93]},{"name":"Target","values":[95,95,95,95,95,95,95,95,95,95],"dashed":true,"color":"neutral"}],"figure":"93%","note":"rata-rata 2 minggu terakhir; target 95%","label":"Kehadiran harian 2 minggu terakhir antara 90 dan 94 persen, di bawah target 95 persen."},"6b":{"x":["Jun","Jul","Agu","Sep","Okt","Nov"],"xFull":["Juni 2026","Juli 2026","Agustus 2026","September 2026","Oktober 2026","November 2026"],"series":[{"name":"Hadir","values":[91,90,92,93,94,93]},{"name":"Target","values":[95,95,95,95,95,95],"dashed":true,"color":"neutral"}],"figure":"92%","note":"rata-rata 6 bulan; target 95%","label":"Kehadiran rata-rata per bulan, Juni sampai November, naik dari 91 ke 93 persen, belum mencapai target 95 persen."}}}'></div>
+    </div>
+    <div class="stack" style="--gap: 30px; padding-top: 24px;" data-state-view="loading" role="status" aria-label="Memuat kehadiran" hidden><div class="skel" style="height: 32px; width: 30%;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div></div>
+    <div class="empty" data-state-view="empty" hidden><div class="empty__title">Belum ada data presensi</div><div class="empty__body">Grafik terisi setelah mesin presensi kantor tersambung.</div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Kehadiran tidak termuat</div><div class="alert__body">Sistem presensi tidak menjawab.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    <div class="chart-card__foot"><span>Dinas luar dan cuti tidak dihitung sebagai tidak hadir</span></div>
+  </section>
+</div>
+
+<div class="dash-grid dash-grid--stretch">
+  <section class="stack dash-span-7" style="--gap: 16px;" aria-labelledby="req-title" data-states>
+    <div class="section__head"><h2 class="section__title-sm" id="req-title">Cuti menunggu persetujuan</h2><p class="section__sub" aria-live="polite" data-req-sub>4 pengajuan, yang paling dekat di atas.</p></div>
+    <div class="list" data-state-view="loaded" data-req>
+      <div class="lrow" data-req-row style="align-items: flex-start;"><span class="avatar avatar--gray" aria-hidden="true">YP</span><span class="lrow__body"><span class="lrow__title">Yuliana Pratiwi</span><span class="lrow__sub">Cuti tahunan · 18 sampai 20 Nov · 3 hari kerja</span><span class="lrow__sub">"Mengantar orang tua berobat" · sisa cuti 7 hari · Dinas Kependudukan</span><span class="dash-kepegawaian__req-actions" data-req-actions><button class="btn btn--tinted" type="button" data-approve><span class="ic" aria-hidden="true">check</span>Setujui</button><div class="confirm" data-lds-confirm><span class="confirm__face confirm__face--rest"><button class="confirm__arm" type="button" data-act="arm"><span class="ic" aria-hidden="true">close</span>Tolak</button></span><span class="confirm__face confirm__face--ask"><span class="confirm__q">Tolak?</span><button class="btn btn--plain" type="button" data-act="cancel">Batal</button><button class="btn btn--danger" type="button" data-act="confirm">Tolak</button></span><span class="confirm__face confirm__face--busy" role="status"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">Menolak</span></span><span class="confirm__face confirm__face--done" role="status"><span class="ic" aria-hidden="true">check_circle</span>Ditolak<button class="confirm__undo" type="button" data-act="undo">Urungkan</button></span></div></span></span></div>
+      <div class="lrow" data-req-row style="align-items: flex-start;"><span class="avatar avatar--gray" aria-hidden="true">HS</span><span class="lrow__body"><span class="lrow__title">Hendra Saputra</span><span class="lrow__sub">Cuti sakit · 16 sampai 19 Nov · 4 hari kerja</span><span class="lrow__sub">"Surat dokter terlampir" · Dinas Perhubungan</span><span class="dash-kepegawaian__req-actions" data-req-actions><button class="btn btn--tinted" type="button" data-approve><span class="ic" aria-hidden="true">check</span>Setujui</button><div class="confirm" data-lds-confirm><span class="confirm__face confirm__face--rest"><button class="confirm__arm" type="button" data-act="arm"><span class="ic" aria-hidden="true">close</span>Tolak</button></span><span class="confirm__face confirm__face--ask"><span class="confirm__q">Tolak?</span><button class="btn btn--plain" type="button" data-act="cancel">Batal</button><button class="btn btn--danger" type="button" data-act="confirm">Tolak</button></span><span class="confirm__face confirm__face--busy" role="status"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">Menolak</span></span><span class="confirm__face confirm__face--done" role="status"><span class="ic" aria-hidden="true">check_circle</span>Ditolak<button class="confirm__undo" type="button" data-act="undo">Urungkan</button></span></div></span></span></div>
+      <div class="lrow" data-req-row style="align-items: flex-start;"><span class="avatar avatar--gray" aria-hidden="true">NA</span><span class="lrow__body"><span class="lrow__title">Nurul Aini</span><span class="lrow__sub">Cuti melahirkan · 1 Des 2026 sampai 28 Feb 2027 · 3 bulan</span><span class="lrow__sub">"Perkiraan lahir 5 Desember" · Puskesmas Sukamaju</span><span class="dash-kepegawaian__req-actions" data-req-actions><button class="btn btn--tinted" type="button" data-approve><span class="ic" aria-hidden="true">check</span>Setujui</button><div class="confirm" data-lds-confirm><span class="confirm__face confirm__face--rest"><button class="confirm__arm" type="button" data-act="arm"><span class="ic" aria-hidden="true">close</span>Tolak</button></span><span class="confirm__face confirm__face--ask"><span class="confirm__q">Tolak?</span><button class="btn btn--plain" type="button" data-act="cancel">Batal</button><button class="btn btn--danger" type="button" data-act="confirm">Tolak</button></span><span class="confirm__face confirm__face--busy" role="status"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">Menolak</span></span><span class="confirm__face confirm__face--done" role="status"><span class="ic" aria-hidden="true">check_circle</span>Ditolak<button class="confirm__undo" type="button" data-act="undo">Urungkan</button></span></div></span></span></div>
+      <div class="lrow" data-req-row style="align-items: flex-start;"><span class="avatar avatar--gray" aria-hidden="true">BW</span><span class="lrow__body"><span class="lrow__title">Bayu Wicaksono</span><span class="lrow__sub">Cuti tahunan · 22 sampai 31 Des · 6 hari kerja</span><span class="lrow__sub">"Pulang kampung akhir tahun" · sisa cuti 4 hari, tidak cukup · Satpol PP</span><span class="dash-kepegawaian__req-actions" data-req-actions><button class="btn btn--tinted" type="button" data-approve><span class="ic" aria-hidden="true">check</span>Setujui</button><div class="confirm" data-lds-confirm><span class="confirm__face confirm__face--rest"><button class="confirm__arm" type="button" data-act="arm"><span class="ic" aria-hidden="true">close</span>Tolak</button></span><span class="confirm__face confirm__face--ask"><span class="confirm__q">Tolak?</span><button class="btn btn--plain" type="button" data-act="cancel">Batal</button><button class="btn btn--danger" type="button" data-act="confirm">Tolak</button></span><span class="confirm__face confirm__face--busy" role="status"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">Menolak</span></span><span class="confirm__face confirm__face--done" role="status"><span class="ic" aria-hidden="true">check_circle</span>Ditolak<button class="confirm__undo" type="button" data-act="undo">Urungkan</button></span></div></span></span></div>
+    </div>
+    <div class="list" data-state-view="loading" role="status" aria-label="Memuat pengajuan cuti" hidden>
+      <div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 50%;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 46%;"></span><span class="skel" style="display: block; height: 11px; width: 70%; margin-top: 8px;"></span><span class="skel" style="display: block; height: 32px; width: 60%; margin-top: 12px; border-radius: 10px;"></span></span></div>
+      <div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 50%;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 40%;"></span><span class="skel" style="display: block; height: 11px; width: 64%; margin-top: 8px;"></span><span class="skel" style="display: block; height: 32px; width: 60%; margin-top: 12px; border-radius: 10px;"></span></span></div>
+      <div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 50%;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 50%;"></span><span class="skel" style="display: block; height: 11px; width: 72%; margin-top: 8px;"></span><span class="skel" style="display: block; height: 32px; width: 60%; margin-top: 12px; border-radius: 10px;"></span></span></div>
+    </div>
+    <div class="list list--fill" data-state-view="empty" hidden><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">event_available</span></div><div class="empty__title">Tidak ada cuti yang menunggu</div><div class="empty__body">Pengajuan cuti dari pegawai di bawah Anda masuk ke sini, juga ke kotak masuk.</div><a class="btn btn--secondary btn--md" href="kotak-masuk.html">Buka kotak masuk</a></div></div>
+    <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Pengajuan cuti tidak termuat</div><div class="alert__body">Tidak ada pengajuan yang disetujui atau ditolak.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+  </section>
+
+  <div class="stack dash-span-5" style="--gap: 28px;">
+    <section class="chart-card" aria-labelledby="latih-q" data-states>
+      <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="latih-q">Sudahkah pegawai memenuhi 20 jam pelatihan?</div><div class="chart-card__sub">Rata-rata jam pengembangan kompetensi per pegawai, 2026</div></div></div>
+      <div class="target-list" data-state-view="loaded" data-lds-grow>
+        <div class="target target--success" style="--v: 96%; --t: 88%;"><div class="target__meta"><span class="target__label">Dinas Kesehatan dan RSUD</span><span class="target__val"><b>19,2 jam</b> dari 20</span></div><div class="target__track" role="img" aria-label="Dinas Kesehatan dan RSUD: 19,2 jam dari 20 jam"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div></div>
+        <div class="target" style="--v: 84%; --t: 88%;"><div class="target__meta"><span class="target__label">Dinas Pendidikan</span><span class="target__val"><b>16,8 jam</b> dari 20</span></div><div class="target__track" role="img" aria-label="Dinas Pendidikan: 16,8 jam dari 20 jam"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div></div>
+        <div class="target target--warning" style="--v: 51%; --t: 88%;"><div class="target__meta"><span class="target__label">Kecamatan dan kelurahan</span><span class="target__val"><b>10,2 jam</b> dari 20</span></div><div class="target__track" role="img" aria-label="Kecamatan dan kelurahan: 10,2 jam dari 20 jam, tertinggal"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div><div class="target__foot"><span>Kelas daring pelayanan publik dibuka 24 Nov</span></div></div>
+      </div>
+      <div class="stack" style="--gap: 16px;" data-state-view="loading" role="status" aria-label="Memuat jam pelatihan" hidden><div class="skel" style="height: 12px; width: 50%;"></div><div class="skel" style="height: 10px;"></div><div class="skel" style="height: 12px; width: 40%;"></div><div class="skel" style="height: 10px;"></div></div>
+      <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Jam pelatihan tidak termuat</div><div class="alert__body">Coba lagi sebentar lagi.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    </section>
+
+    <section class="stack" style="--gap: 16px;" aria-labelledby="pensiun-title" data-states>
+      <div class="section__head"><h2 class="section__title-sm" id="pensiun-title">Pensiun tiga bulan ke depan</h2><p class="section__sub">Siapkan pengganti dan serah terima tugas.</p></div>
+      <div class="list" data-state-view="loaded">
+        <div class="lrow"><time class="datetile" datetime="2026-12-01"><span class="datetile__m">Des</span><span class="datetile__d">1</span></time><span class="lrow__body"><span class="lrow__title">Drs. Suparman</span><span class="lrow__sub">Kepala Sekolah SMP Negeri 7 · 32 tahun masa kerja</span></span><span class="badge badge--warning">Belum ada pengganti</span></div>
+        <div class="lrow"><time class="datetile" datetime="2027-01-01"><span class="datetile__m">Jan</span><span class="datetile__d">1</span></time><span class="lrow__body"><span class="lrow__title">Ratna Kusumawati, S.Kep.</span><span class="lrow__sub">Kepala Ruang Rawat Inap RSUD · 30 tahun</span></span><span class="badge badge--success">Pengganti ditunjuk</span></div>
+        <div class="lrow"><time class="datetile" datetime="2027-02-01"><span class="datetile__m">Feb</span><span class="datetile__d">1</span></time><span class="lrow__body"><span class="lrow__title">Ir. Joko Susilo</span><span class="lrow__sub">Kepala Bidang Jalan, Dinas Pekerjaan Umum · 34 tahun</span></span><span class="badge">Serah terima Jan</span></div>
+      </div>
+      <div class="list" data-state-view="loading" role="status" aria-label="Memuat daftar pensiun" hidden><div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 10px;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 52%;"></span><span class="skel" style="display: block; height: 11px; width: 70%; margin-top: 8px;"></span></span></div><div class="lrow"><span class="skel" style="width: 40px; height: 40px; border-radius: 10px;"></span><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 44%;"></span><span class="skel" style="display: block; height: 11px; width: 62%; margin-top: 8px;"></span></span></div></div>
+      <div class="list list--fill" data-state-view="empty" hidden><div class="empty"><div class="empty__title">Tidak ada yang pensiun dalam tiga bulan</div><div class="empty__body">Daftar ini diambil dari tanggal lahir dan batas usia pensiun jabatannya.</div></div></div>
+      <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Daftar pensiun tidak termuat</div><div class="alert__body">Coba lagi sebentar lagi.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+    </section>
+  </div>
+</div>
+
+<section class="stack" style="--gap: 16px;" aria-labelledby="peg-title">
+  <div class="section__head"><h2 class="section__title-sm" id="peg-title">Kehadiran pegawai hari ini</h2><p class="section__sub">Pegawai Dinas Komunikasi dan Informatika serta unit yang Anda awasi.</p></div>
+  <div class="dtable" id="peg" data-lds-table="kepegawaian-hadir" data-page-size="8" data-noun="pegawai" data-states>
+    <div class="dtable__bar">
+      <div class="control search dtable__search"><span class="ic" aria-hidden="true">search</span><input type="search" data-lds-table-search placeholder="Cari nama, NIP, atau jabatan" aria-label="Cari pegawai"></div>
+      <div class="chip-row" data-lds-chips data-lds-table-filter="status" role="group" aria-label="Status kepegawaian">
+        <button class="chip" type="button" value="asn"><span class="ic chip__check" aria-hidden="true">check</span>ASN</button>
+        <button class="chip" type="button" value="pppk"><span class="ic chip__check" aria-hidden="true">check</span>PPPK</button>
+      </div>
+      <div class="dtable__tools">
+        <button class="btn btn--plain btn--md" type="button" data-lds-table-reset hidden>Hapus filter</button>
+        <div class="tip-host">
+          <button class="btn btn--secondary btn--md" type="button" data-lds-menu="f-hadir" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">fingerprint</span>Kehadiran<span class="dtable__filter-count" data-lds-table-filter-count="hadir" hidden>0</span></button>
+          <div class="menu menu--right" id="f-hadir" role="menu" aria-label="Saring menurut kehadiran" style="top: calc(100% + 6px); right: 0;">
+            <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="hadir" data-value="hadir">Hadir<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="hadir" data-value="terlambat">Terlambat<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="hadir" data-value="dinas">Dinas luar<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="hadir" data-value="cuti">Cuti<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="hadir" data-value="belum">Belum absen<span class="ic menu__check" aria-hidden="true">check</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="table-box" tabindex="0" aria-label="Kehadiran pegawai, bisa digeser ke samping">
+      <table class="table">
+        <thead><tr>
+          <th data-col="nama"><button type="button">Pegawai<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+          <th data-col="jabatan"><button type="button">Jabatan<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+          <th data-col="status">Status</th>
+          <th data-col="masuk" aria-sort="ascending"><button type="button">Absen masuk<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+          <th data-col="hadir">Kehadiran</th>
+          <th class="dtable__actions"><span class="sr-only">Tindakan</span></th>
+        </tr></thead>
+        <tbody>
+          <tr data-status="asn" data-hadir="hadir"><td data-sort="Andi Firmansyah"><span class="dtable__user"><span class="avatar avatar--gray">AF</span><span><b>Andi Firmansyah</b><small>NIP 19850412 201001 1 003</small></span></span></td><td>Kepala Bidang Aplikasi</td><td>ASN</td><td data-sort="07.18">07.18</td><td><span class="badge badge--success">Hadir</span></td><td class="dtable__actions"><button class="btn btn--plain btn--sm" type="button" data-nudge hidden>Ingatkan</button></td></tr>
+          <tr data-status="asn" data-hadir="hadir"><td data-sort="Rina Wijayanti"><span class="dtable__user"><span class="avatar">RW</span><span><b>Rina Wijayanti</b><small>NIP 19900921 201503 2 002</small></span></span></td><td>Pranata Komputer Ahli Muda</td><td>ASN</td><td data-sort="07.24">07.24</td><td><span class="badge badge--success">Hadir</span></td><td class="dtable__actions"><button class="btn btn--plain btn--sm" type="button" data-nudge hidden>Ingatkan</button></td></tr>
+          <tr data-status="pppk" data-hadir="hadir"><td data-sort="Dimas Prasetyo"><span class="dtable__user"><span class="avatar avatar--gray">DP</span><span><b>Dimas Prasetyo</b><small>NI PPPK 19960105 202321 1 014</small></span></span></td><td>Pengelola Jaringan</td><td>PPPK</td><td data-sort="07.31">07.31</td><td><span class="badge badge--success">Hadir</span></td><td class="dtable__actions"><button class="btn btn--plain btn--sm" type="button" data-nudge hidden>Ingatkan</button></td></tr>
+          <tr data-status="asn" data-hadir="dinas"><td data-sort="Siti Rahmawati"><span class="dtable__user"><span class="avatar avatar--gray">SR</span><span><b>Siti Rahmawati</b><small>NIP 19870730 201101 2 006</small></span></span></td><td>Kepala Seksi Persandian</td><td>ASN</td><td data-sort="07.40">07.40</td><td><span class="badge badge--accent">Dinas luar</span></td><td class="dtable__actions"><button class="btn btn--plain btn--sm" type="button" data-nudge hidden>Ingatkan</button></td></tr>
+          <tr data-status="pppk" data-hadir="hadir"><td data-sort="Agus Kurniawan"><span class="dtable__user"><span class="avatar avatar--gray">AK</span><span><b>Agus Kurniawan</b><small>NI PPPK 19920318 202321 1 022</small></span></span></td><td>Pengelola Layanan Aduan</td><td>PPPK</td><td data-sort="07.52">07.52</td><td><span class="badge badge--success">Hadir</span></td><td class="dtable__actions"><button class="btn btn--plain btn--sm" type="button" data-nudge hidden>Ingatkan</button></td></tr>
+          <tr data-status="asn" data-hadir="terlambat"><td data-sort="Fajar Nugraha"><span class="dtable__user"><span class="avatar avatar--gray">FN</span><span><b>Fajar Nugraha</b><small>NIP 19930614 201903 1 008</small></span></span></td><td>Analis Data</td><td>ASN</td><td data-sort="08.17">08.17</td><td><span class="badge badge--warning">Terlambat 17 menit</span></td><td class="dtable__actions"><button class="btn btn--plain btn--sm" type="button" data-nudge hidden>Ingatkan</button></td></tr>
+          <tr data-status="pppk" data-hadir="terlambat"><td data-sort="Wulan Sari"><span class="dtable__user"><span class="avatar avatar--gray">WS</span><span><b>Wulan Sari</b><small>NI PPPK 19980222 202321 2 031</small></span></span></td><td>Pengelola Media Sosial</td><td>PPPK</td><td data-sort="08.26">08.26</td><td><span class="badge badge--warning">Terlambat 26 menit</span></td><td class="dtable__actions"><button class="btn btn--plain btn--sm" type="button" data-nudge hidden>Ingatkan</button></td></tr>
+          <tr data-status="asn" data-hadir="cuti"><td data-sort="Yuliana Pratiwi"><span class="dtable__user"><span class="avatar avatar--gray">YP</span><span><b>Yuliana Pratiwi</b><small>NIP 19880909 201403 2 004</small></span></span></td><td>Penata Kelola Sistem</td><td>ASN</td><td data-sort="99.98">-</td><td><span class="badge">Cuti tahunan</span></td><td class="dtable__actions"><button class="btn btn--plain btn--sm" type="button" data-nudge hidden>Ingatkan</button></td></tr>
+          <tr data-status="asn" data-hadir="belum"><td data-sort="Rudi Hartono"><span class="dtable__user"><span class="avatar avatar--gray">RH</span><span><b>Rudi Hartono</b><small>NIP 19820101 200801 1 012</small></span></span></td><td>Pengadministrasi Umum</td><td>ASN</td><td data-sort="99.99">-</td><td><span class="badge badge--danger">Belum absen</span></td><td class="dtable__actions"><button class="btn btn--plain btn--sm" type="button" data-nudge aria-label="Ingatkan Rudi Hartono untuk absen">Ingatkan</button></td></tr>
+          <tr data-status="pppk" data-hadir="belum"><td data-sort="Lestari Handayani"><span class="dtable__user"><span class="avatar avatar--gray">LH</span><span><b>Lestari Handayani</b><small>NI PPPK 19950505 202321 2 018</small></span></span></td><td>Operator Layanan</td><td>PPPK</td><td data-sort="99.99">-</td><td><span class="badge badge--danger">Belum absen</span></td><td class="dtable__actions"><button class="btn btn--plain btn--sm" type="button" data-nudge aria-label="Ingatkan Lestari Handayani untuk absen">Ingatkan</button></td></tr>
+          <tr class="dtable__empty" hidden><td colspan="6"><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">filter_list</span></div><div class="empty__title">Tidak ada pegawai yang cocok</div><div class="empty__body">Coba nama atau NIP lain, atau hapus filter.</div><button class="btn btn--secondary btn--md" type="button" data-lds-table-reset>Hapus filter</button></div></td></tr>
+          <tr class="dtable__state" data-state="loading" hidden><td><span class="dtable__user"><span class="skel" style="width: 40px; height: 40px; border-radius: 50%;"></span><span class="stack" style="--gap: 6px; flex: 1;"><span class="skel" style="display: block; height: 13px; width: 52%;"></span><span class="skel" style="display: block; height: 11px; width: 70%;"></span></span></span></td><td colspan="5"><span class="skel" style="display: block; height: 12px; width: 44%;"></span></td></tr>
+          <tr class="dtable__state" data-state="loading" hidden><td><span class="dtable__user"><span class="skel" style="width: 40px; height: 40px; border-radius: 50%;"></span><span class="stack" style="--gap: 6px; flex: 1;"><span class="skel" style="display: block; height: 13px; width: 46%;"></span><span class="skel" style="display: block; height: 11px; width: 64%;"></span></span></span></td><td colspan="5"><span class="skel" style="display: block; height: 12px; width: 50%;"></span></td></tr>
+          <tr class="dtable__state" data-state="loading" hidden><td><span class="dtable__user"><span class="skel" style="width: 40px; height: 40px; border-radius: 50%;"></span><span class="stack" style="--gap: 6px; flex: 1;"><span class="skel" style="display: block; height: 13px; width: 58%;"></span><span class="skel" style="display: block; height: 11px; width: 72%;"></span></span></span></td><td colspan="5"><span class="skel" style="display: block; height: 12px; width: 38%;"></span></td></tr>
+          <tr class="dtable__state" data-state="empty" hidden><td colspan="6"><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">fingerprint</span></div><div class="empty__title">Belum ada yang absen hari ini</div><div class="empty__body">Absen masuk dibuka pukul 06.30. Daftar terisi saat pegawai pertama absen.</div><a class="btn btn--secondary btn--md" href="pengguna.html">Lihat daftar pengguna</a></div></td></tr>
+          <tr class="dtable__state" data-state="error" hidden><td colspan="6"><div class="alert alert--danger" role="alert"><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Kehadiran tidak termuat</div><div class="alert__body">Sistem presensi tidak menjawab tepat waktu. Tidak ada data yang berubah.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="dtable__foot">
+      <span class="dtable__info" data-lds-table-info aria-live="polite"></span>
+      <nav aria-label="Halaman"><div class="pager" data-lds-table-pager></div></nav>
+    </div>
+  </div>
+</section>
+
+<script type="module">
+import { tableState, setLoading, setRoll, morphText, announce } from '../../../js/lds.js';
+import { notify, delay } from './dashboard.js';
+
+// Header: period switch changes the attendance KPI; export
+const hadirEl = document.querySelector('[data-hadir]'), hadirLabel = document.querySelector('[data-hadir-label]'), hadirMeta = document.querySelector('[data-hadir-meta]');
+document.querySelector('[data-periode]').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-p]'); if (!b) return;
+  const today = b.dataset.p === 'hari';
+  setRoll(hadirEl, today ? '93,4%' : '92,8%');
+  morphText(hadirLabel, today ? 'Hadir hari ini' : 'Hadir rata-rata November');
+  hadirMeta.textContent = today ? 'dari 92,2% Senin lalu, sampai 09.30' : 'dari 93,5% pada Oktober, 11 hari kerja';
+});
+const ex = document.querySelector('[data-export]');
+ex.addEventListener('click', async () => { setLoading(ex, true); await delay(900); setLoading(ex, false); notify({ title: 'Rekap kehadiran diunduh', body: 'kehadiran-diskominfo-nov-2026.xlsx', icon: 'check_circle' }); });
+
+// Leave requests: approve in one tap (Undo), decline through the confirm pill
+const reqEl = document.querySelector('[data-req]'), countEl = document.querySelector('[data-cuti-count]'), sub = document.querySelector('[data-req-sub]');
+const pending = () => reqEl.querySelectorAll('[data-req-row]:not([data-done])').length;
+const sync = () => { const n = pending(); setRoll(countEl, String(n)); sub.textContent = n ? `${n} pengajuan, yang paling dekat di atas.` : 'Semua pengajuan sudah ditangani.'; };
+reqEl.addEventListener('click', (e) => {
+  const arm = e.target.closest('[data-act="arm"]'), cancel = e.target.closest('[data-act="cancel"]');
+  if (arm || cancel) { const ap = e.target.closest('[data-req-row]').querySelector('[data-approve]'); ap.hidden = !!arm; }
+  const b = e.target.closest('[data-approve]'); if (!b) return;
+  const row = b.closest('[data-req-row]'), actions = row.querySelector('[data-req-actions]'), name = row.querySelector('.lrow__title').textContent;
+  const before = actions.innerHTML;
+  actions.innerHTML = `<span class="badge badge--success"><span class="ic" aria-hidden="true">check</span>Disetujui, ${name.split(' ')[0]} mendapat pemberitahuan</span>`;
+  row.dataset.done = ''; sync();
+  notify({ title: `Cuti ${name} disetujui`, body: 'Masuk ke kalender kegiatan unit', icon: 'event_available', action: 'Urungkan', onAction: () => { actions.innerHTML = before; delete row.dataset.done; sync(); return { title: 'Kembali menunggu persetujuan', icon: 'undo' }; } });
+});
+reqEl.addEventListener('lds:confirm', (e) => {
+  const row = e.target.closest('[data-req-row]');
+  e.detail.wait(delay(600).then(() => { row.dataset.done = ''; sync(); announce(`Cuti ${row.querySelector('.lrow__title').textContent} ditolak`); }));
+});
+reqEl.addEventListener('lds:undo', (e) => {
+  const row = e.target.closest('[data-req-row]');
+  delete row.dataset.done; row.querySelector('[data-approve]').hidden = false; sync();
+});
+
+// Attendance table: remind people who have not clocked in
+const table = document.getElementById('peg'), tbody = table.querySelector('tbody');
+tbody.addEventListener('click', async (e) => {
+  const b = e.target.closest('[data-nudge]'); if (!b) return;
+  const name = b.closest('tr').querySelector('b').textContent;
+  b.disabled = true; morphText(b, 'Terkirim');
+  notify({ title: `Pengingat dikirim ke ${name}`, body: 'Lewat pesan singkat ke nomor dinas', icon: 'sms' });
+});
+table.addEventListener('dash:state', (e) => tableState(table, e.detail.state === 'loaded' ? 'ready' : e.detail.state));
+tbody.addEventListener('click', async (e) => { if (!e.target.closest('[data-retry]')) return; tableState(table, 'loading'); await delay(900); tableState(table, 'ready'); });
+</script>
