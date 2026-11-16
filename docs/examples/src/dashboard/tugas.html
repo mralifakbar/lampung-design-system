@@ -1,0 +1,727 @@
+---
+title: Tugas
+description: Semua tugas tim Sakai Dasbor menurut status, prioritas, dan penanggung jawab.
+---
+<template data-slot="actions">
+<a class="btn btn--secondary btn--md" href="tindak-lanjut.html"><span class="ic" aria-hidden="true">view_kanban</span>Buka kanban</a>
+<button class="btn btn--primary btn--md" type="button" data-new-task aria-keyshortcuts="n"><span class="ic" aria-hidden="true">add</span>Tugas baru</button>
+</template>
+
+<template data-slot="layers">
+<div class="scrim" data-lds-scrim="task-drawer"></div>
+<aside class="drawer dash-tugas__drawer" id="task-drawer" role="dialog" aria-modal="true" aria-labelledby="td-title" data-lds-layer>
+  <div class="sheet__head" style="margin: 0;"><h2 class="sheet__title" id="td-title">Tugas baru</h2><button class="icon-btn" type="button" aria-label="Tutup" data-lds-close style="margin: -10px -10px -10px 0;"><span class="ic" aria-hidden="true">close</span></button></div>
+  <form class="form dash-tugas__form" id="task-form" novalidate>
+    <div class="field">
+      <label class="field__label" for="tf-title">Judul</label>
+      <div class="control" data-title-control><input id="tf-title" name="title" placeholder="Periksa saluran di Jalan Kenanga" aria-describedby="tf-title-help" autocomplete="off"></div>
+      <span class="field__help" id="tf-title-help">Awali dengan kata kerja: seperti apa kalau sudah selesai.</span>
+    </div>
+    <div class="field">
+      <label class="field__label" for="tf-notes">Catatan <span>Opsional</span></label>
+      <div class="control control--area"><textarea id="tf-notes" name="notes" rows="3" placeholder="Lokasi, nomor laporan, siapa yang dihubungi"></textarea></div>
+    </div>
+    <div class="form__row">
+      <div class="field">
+        <span class="field__label" id="tf-status-label">Status</span>
+        <div class="select" data-lds-select data-pick="status">
+          <button type="button" class="control select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="tf-status-label"><span class="select__value">Akan dikerjakan</span><span class="ic" aria-hidden="true">expand_more</span></button>
+          <ul class="menu select__menu" role="listbox" aria-labelledby="tf-status-label">
+            <li class="menu__item" role="option" aria-selected="false" data-value="backlog">Belum dijadwalkan</li>
+            <li class="menu__item is-selected" role="option" aria-selected="true" data-value="todo">Akan dikerjakan</li>
+            <li class="menu__item" role="option" aria-selected="false" data-value="progress">Dikerjakan</li>
+            <li class="menu__item" role="option" aria-selected="false" data-value="review">Diperiksa</li>
+            <li class="menu__item" role="option" aria-selected="false" data-value="done">Selesai</li>
+            <li class="menu__item" role="option" aria-selected="false" data-value="canceled">Dibatalkan</li>
+          </ul>
+        </div>
+      </div>
+      <div class="field">
+        <span class="field__label" id="tf-who-label">Penanggung jawab</span>
+        <div class="select" data-lds-select data-pick="assignee">
+          <button type="button" class="control select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="tf-who-label"><span class="select__value">Rina Wijayanti</span><span class="ic" aria-hidden="true">expand_more</span></button>
+          <ul class="menu select__menu" role="listbox" aria-labelledby="tf-who-label" data-who-options></ul>
+        </div>
+      </div>
+    </div>
+    <fieldset class="stack" style="--gap: 10px;">
+      <legend class="field__label" style="margin-bottom: 10px;">Prioritas</legend>
+      <div class="seg" role="group" aria-label="Prioritas" data-lds-segmented data-prio-seg>
+        <span class="seg__thumb"></span>
+        <button type="button" class="seg__btn" aria-pressed="false" data-value="low">Rendah</button>
+        <button type="button" class="seg__btn" aria-pressed="true" data-value="medium">Sedang</button>
+        <button type="button" class="seg__btn" aria-pressed="false" data-value="high">Tinggi</button>
+        <button type="button" class="seg__btn" aria-pressed="false" data-value="urgent">Mendesak</button>
+      </div>
+    </fieldset>
+    <fieldset class="stack" style="--gap: 10px;">
+      <legend class="field__label" style="margin-bottom: 10px;">Jenis</legend>
+      <div class="chip-row" data-lds-chips="single" role="group" aria-label="Jenis" data-label-chips>
+        <button class="chip" type="button" value="feature" aria-pressed="true"><span class="ic chip__check" aria-hidden="true">check</span>Feature</button>
+        <button class="chip" type="button" value="bug" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Bug</button>
+        <button class="chip" type="button" value="design" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Design</button>
+        <button class="chip" type="button" value="docs" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Docs</button>
+        <button class="chip" type="button" value="chore" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Chore</button>
+      </div>
+    </fieldset>
+    <div class="field">
+      <label class="field__label" for="tf-due">Tenggat <span>Opsional</span></label>
+      <div class="control" data-due-control><input id="tf-due" name="due" type="date" min="2026-01-01" aria-describedby="tf-due-help"></div>
+      <span class="field__help" id="tf-due-help">Tugas yang melewati tanggalnya tampil sebagai terlambat.</span>
+    </div>
+    <div class="form__actions dash-tugas__form-actions">
+      <button class="btn btn--danger-tinted btn--md dash-tugas__delete" type="button" data-delete hidden><span class="ic" aria-hidden="true">delete</span>Hapus</button>
+      <button class="btn btn--secondary btn--md" type="button" data-lds-close>Batal</button>
+      <button class="btn btn--primary btn--md" type="submit" data-submit><span class="btn__label">Buat tugas</span><span class="btn__spin"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span></button>
+    </div>
+  </form>
+</aside>
+</template>
+
+<div class="stat-row-wrap"><dl class="stat-row stat-row--four" style="--n: 4">
+  <div class="stat-row__item"><dt class="stat-row__label">Terbuka</dt><dd class="stat-row__value"><span class="roll" data-lds-roll="0" data-stat="open"></span></dd><dd class="stat-row__sub">Belum selesai atau dibatalkan</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Tenggat minggu ini</dt><dd class="stat-row__value"><span class="roll" data-lds-roll="0" data-stat="week"></span></dd><dd class="stat-row__sub">16 sampai 22 November</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Terlambat</dt><dd class="stat-row__value"><span class="roll" data-lds-roll="0" data-stat="late"></span></dd><dd class="stat-row__sub">Melewati tenggat</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Selesai bulan November</dt><dd class="stat-row__value"><span class="roll" data-lds-roll="0" data-stat="done"></span></dd><dd class="stat-row__sub">Semua anggota tim</dd></div>
+</dl></div>
+
+<div class="dtable dash-tugas__table" id="tasks" data-lds-table="tasks" data-lds-selection="tasks-bar" data-page-size="10" data-noun="tugas" data-states>
+  <div class="dtable__bar">
+    <div class="control search dtable__search"><span class="ic" aria-hidden="true">search</span><input type="search" data-lds-table-search placeholder="Cari judul atau nomor" aria-label="Cari tugas"></div>
+    <div class="chip-row" data-lds-chips data-lds-table-filter="priority" role="group" aria-label="Prioritas">
+      <button class="chip" type="button" value="urgent"><span class="ic chip__check" aria-hidden="true">check</span>Mendesak</button>
+      <button class="chip" type="button" value="high"><span class="ic chip__check" aria-hidden="true">check</span>Tinggi</button>
+      <button class="chip" type="button" value="medium"><span class="ic chip__check" aria-hidden="true">check</span>Sedang</button>
+      <button class="chip" type="button" value="low"><span class="ic chip__check" aria-hidden="true">check</span>Rendah</button>
+    </div>
+    <div class="dtable__tools">
+      <button class="btn btn--plain btn--md" type="button" data-lds-table-reset hidden>Hapus filter</button>
+      <div class="tip-host">
+        <button class="btn btn--secondary btn--md" type="button" data-lds-menu="f-status" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">checklist</span>Status<span class="dtable__filter-count" data-lds-table-filter-count="status" hidden>0</span></button>
+        <div class="menu" id="f-status" role="menu" aria-label="Saring menurut status" style="top: calc(100% + 6px); left: 0; min-width: 200px;">
+          <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="status" data-value="backlog"><span class="ic" aria-hidden="true">history</span>Belum dijadwalkan<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="status" data-value="todo"><span class="ic" aria-hidden="true">schedule</span>Akan dikerjakan<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="status" data-value="progress"><span class="ic" aria-hidden="true">sync</span>Dikerjakan<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="status" data-value="review"><span class="ic" aria-hidden="true">visibility</span>Diperiksa<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="status" data-value="done"><span class="ic" aria-hidden="true">check_circle</span>Selesai<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="status" data-value="canceled"><span class="ic" aria-hidden="true">do_not_disturb_on</span>Dibatalkan<span class="ic menu__check" aria-hidden="true">check</span></button>
+        </div>
+      </div>
+      <div class="tip-host">
+        <button class="btn btn--secondary btn--md" type="button" data-lds-menu="f-label" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">label</span>Jenis<span class="dtable__filter-count" data-lds-table-filter-count="label" hidden>0</span></button>
+        <div class="menu" id="f-label" role="menu" aria-label="Saring menurut jenis" style="top: calc(100% + 6px); left: 0; min-width: 180px;">
+          <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="label" data-value="lapangan">Lapangan<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="label" data-value="data">Data<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="label" data-value="surat">Surat<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="label" data-value="rapat">Rapat<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="label" data-value="layanan">Layanan<span class="ic menu__check" aria-hidden="true">check</span></button>
+        </div>
+      </div>
+      <div class="tip-host">
+        <button class="btn btn--secondary btn--md" type="button" data-lds-menu="f-who" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">person</span>Penanggung jawab<span class="dtable__filter-count" data-lds-table-filter-count="assignee" hidden>0</span></button>
+        <div class="menu menu--right" id="f-who" role="menu" aria-label="Saring menurut penanggung jawab" style="top: calc(100% + 6px); right: 0; min-width: 220px;" data-who-filter></div>
+      </div>
+      <div class="tip-host">
+        <button class="btn btn--secondary btn--md" type="button" data-lds-menu="f-cols" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">view_column</span>Kolom</button>
+        <div class="menu menu--right" id="f-cols" role="menu" aria-label="Tampilkan kolom" style="top: calc(100% + 6px); right: 0;">
+          <p class="menu__label">Tampilkan kolom</p>
+          <button class="menu__item" type="button" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="status">Status<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" type="button" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="priority">Prioritas<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" type="button" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="assignee">Penanggung jawab<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" type="button" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="due">Tenggat<span class="ic menu__check" aria-hidden="true">check</span></button>
+        </div>
+      </div>
+      <div class="toggle-group" role="group" aria-label="Kerapatan baris">
+        <button class="toggle" type="button" data-lds-table-density="regular" aria-pressed="true">Biasa</button>
+        <button class="toggle" type="button" data-lds-table-density="compact" aria-pressed="false">Rapat</button>
+      </div>
+    </div>
+  </div>
+  <div class="table-box" tabindex="0" aria-label="Tugas, bisa digeser ke samping">
+    <table class="table">
+      <thead><tr>
+        <th class="dtable__select"><label class="check"><input type="checkbox" data-lds-select-all aria-label="Pilih semua tugas di halaman ini"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></th>
+        <th data-col="task"><button type="button">Tugas<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+        <th data-col="status"><button type="button">Status<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+        <th data-col="priority" aria-sort="descending"><button type="button">Prioritas<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+        <th data-col="assignee"><button type="button">Penanggung jawab<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+        <th data-col="due"><button type="button">Tenggat<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+        <th class="dtable__actions"><span class="sr-only">Tindakan</span></th>
+      </tr></thead>
+      <tbody>
+      <tr data-id="TGS-1048" data-status="progress" data-priority="high" data-label="lapangan" data-assignee="hg">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1048"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Periksa saluran Jalan Merpati bersama Dinas Pekerjaan Umum"><span class="dtable__user dash-tugas__task"><span><b>Periksa saluran Jalan Merpati bersama Dinas Pekerjaan Umum</b><small>TGS-1048 · Lapangan</small></span></span></td>
+        <td data-sort="2" data-status-cell><span class="badge badge--accent"><span class="ic" aria-hidden="true">sync</span>Dikerjakan</span></td>
+        <td data-sort="3" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_upward</span>Tinggi</span></td>
+        <td data-sort="Hendra Gunawan"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">HG</span><span>Hendra Gunawan</span></span></td>
+        <td data-sort="2026-11-18" data-due-cell>18 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1048" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1047" data-status="todo" data-priority="urgent" data-label="data" data-assignee="yh">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1047"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Tanggapi 11 laporan sampah Kecamatan Timur yang lewat batas"><span class="dtable__user dash-tugas__task"><span><b>Tanggapi 11 laporan sampah Kecamatan Timur yang lewat batas</b><small>TGS-1047 · Data</small></span></span></td>
+        <td data-sort="1" data-status-cell><span class="badge"><span class="ic" aria-hidden="true">schedule</span>Akan dikerjakan</span></td>
+        <td data-sort="4" data-prio-cell><span class="badge badge--danger"><span class="ic" aria-hidden="true">warning</span>Mendesak</span></td>
+        <td data-sort="Yusuf Hidayat"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">YH</span><span>Yusuf Hidayat</span></span></td>
+        <td data-sort="2026-11-16" data-due-cell><span class="badge badge--warning">Hari ini</span></td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1047" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1046" data-status="review" data-priority="medium" data-label="surat" data-assignee="bs">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1046"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Balas disposisi Sekretariat Daerah tentang genangan"><span class="dtable__user dash-tugas__task"><span><b>Balas disposisi Sekretariat Daerah tentang genangan</b><small>TGS-1046 · Surat</small></span></span></td>
+        <td data-sort="3" data-status-cell><span class="badge badge--warning"><span class="ic" aria-hidden="true">visibility</span>Diperiksa</span></td>
+        <td data-sort="2" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">remove</span>Sedang</span></td>
+        <td data-sort="Budi Santoso"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">BS</span><span>Budi Santoso</span></span></td>
+        <td data-sort="2026-11-18" data-due-cell>18 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1046" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1045" data-status="todo" data-priority="medium" data-label="rapat" data-assignee="rw">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1045"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Siapkan bahan rapat siaga musim hujan"><span class="dtable__user dash-tugas__task"><span><b>Siapkan bahan rapat siaga musim hujan</b><small>TGS-1045 · Rapat</small></span></span></td>
+        <td data-sort="1" data-status-cell><span class="badge"><span class="ic" aria-hidden="true">schedule</span>Akan dikerjakan</span></td>
+        <td data-sort="2" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">remove</span>Sedang</span></td>
+        <td data-sort="Rina Wijayanti"><span class="dtable__user"><span class="avatar" style="--size: 28px;" aria-hidden="true">RW</span><span>Rina Wijayanti</span></span></td>
+        <td data-sort="2026-11-17" data-due-cell>17 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1045" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1044" data-status="todo" data-priority="high" data-label="layanan" data-assignee="dl">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1044"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Setujui 12 izin usaha mikro yang berkasnya lengkap"><span class="dtable__user dash-tugas__task"><span><b>Setujui 12 izin usaha mikro yang berkasnya lengkap</b><small>TGS-1044 · Layanan</small></span></span></td>
+        <td data-sort="1" data-status-cell><span class="badge"><span class="ic" aria-hidden="true">schedule</span>Akan dikerjakan</span></td>
+        <td data-sort="3" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_upward</span>Tinggi</span></td>
+        <td data-sort="Dewi Lestari"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">DL</span><span>Dewi Lestari</span></span></td>
+        <td data-sort="2026-11-17" data-due-cell>17 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1044" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1043" data-status="todo" data-priority="urgent" data-label="layanan" data-assignee="dl">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1043"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Hubungi 3 pemohon izin yang belum melampirkan foto lokasi"><span class="dtable__user dash-tugas__task"><span><b>Hubungi 3 pemohon izin yang belum melampirkan foto lokasi</b><small>TGS-1043 · Layanan</small></span></span></td>
+        <td data-sort="1" data-status-cell><span class="badge"><span class="ic" aria-hidden="true">schedule</span>Akan dikerjakan</span></td>
+        <td data-sort="4" data-prio-cell><span class="badge badge--danger"><span class="ic" aria-hidden="true">warning</span>Mendesak</span></td>
+        <td data-sort="Dewi Lestari"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">DL</span><span>Dewi Lestari</span></span></td>
+        <td data-sort="2026-11-13" data-due-cell><span class="badge badge--danger">13 Nov, terlambat</span></td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1043" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1042" data-status="done" data-priority="medium" data-label="data" data-assignee="sh">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1042"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Unggah data kualitas udara Oktober"><span class="dtable__user dash-tugas__task"><span><b>Unggah data kualitas udara Oktober</b><small>TGS-1042 · Data</small></span></span></td>
+        <td data-sort="4" data-status-cell><span class="badge badge--success"><span class="ic" aria-hidden="true">check_circle</span>Selesai</span></td>
+        <td data-sort="2" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">remove</span>Sedang</span></td>
+        <td data-sort="Sari Handayani"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">SH</span><span>Sari Handayani</span></span></td>
+        <td data-sort="2026-11-14" data-due-cell>14 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1042" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1041" data-status="done" data-priority="high" data-label="lapangan" data-assignee="hg">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1041"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Pasang pompa portabel di Kelurahan Harapan Jaya"><span class="dtable__user dash-tugas__task"><span><b>Pasang pompa portabel di Kelurahan Harapan Jaya</b><small>TGS-1041 · Lapangan</small></span></span></td>
+        <td data-sort="4" data-status-cell><span class="badge badge--success"><span class="ic" aria-hidden="true">check_circle</span>Selesai</span></td>
+        <td data-sort="3" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_upward</span>Tinggi</span></td>
+        <td data-sort="Hendra Gunawan"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">HG</span><span>Hendra Gunawan</span></span></td>
+        <td data-sort="2026-11-16" data-due-cell>16 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1041" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1040" data-status="progress" data-priority="medium" data-label="data" data-assignee="sh">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1040"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Rapikan data antrean puskesmas Oktober"><span class="dtable__user dash-tugas__task"><span><b>Rapikan data antrean puskesmas Oktober</b><small>TGS-1040 · Data</small></span></span></td>
+        <td data-sort="2" data-status-cell><span class="badge badge--accent"><span class="ic" aria-hidden="true">sync</span>Dikerjakan</span></td>
+        <td data-sort="2" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">remove</span>Sedang</span></td>
+        <td data-sort="Sari Handayani"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">SH</span><span>Sari Handayani</span></span></td>
+        <td data-sort="2026-11-19" data-due-cell>19 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1040" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1039" data-status="progress" data-priority="medium" data-label="lapangan" data-assignee="as">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1039"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Data titik lampu jalan padam di Kecamatan Utara"><span class="dtable__user dash-tugas__task"><span><b>Data titik lampu jalan padam di Kecamatan Utara</b><small>TGS-1039 · Lapangan</small></span></span></td>
+        <td data-sort="2" data-status-cell><span class="badge badge--accent"><span class="ic" aria-hidden="true">sync</span>Dikerjakan</span></td>
+        <td data-sort="2" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">remove</span>Sedang</span></td>
+        <td data-sort="Arif Setiawan"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">AS</span><span>Arif Setiawan</span></span></td>
+        <td data-sort="2026-11-20" data-due-cell>20 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1039" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1038" data-status="review" data-priority="low" data-label="surat" data-assignee="bs">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1038"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Draf surat edaran jadwal car free day Desember"><span class="dtable__user dash-tugas__task"><span><b>Draf surat edaran jadwal car free day Desember</b><small>TGS-1038 · Surat</small></span></span></td>
+        <td data-sort="3" data-status-cell><span class="badge badge--warning"><span class="ic" aria-hidden="true">visibility</span>Diperiksa</span></td>
+        <td data-sort="1" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_downward</span>Rendah</span></td>
+        <td data-sort="Budi Santoso"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">BS</span><span>Budi Santoso</span></span></td>
+        <td data-sort="2026-11-20" data-due-cell>20 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1038" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1037" data-status="progress" data-priority="high" data-label="layanan" data-assignee="ws">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1037"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Perbarui daftar halte sementara koridor 3"><span class="dtable__user dash-tugas__task"><span><b>Perbarui daftar halte sementara koridor 3</b><small>TGS-1037 · Layanan</small></span></span></td>
+        <td data-sort="2" data-status-cell><span class="badge badge--accent"><span class="ic" aria-hidden="true">sync</span>Dikerjakan</span></td>
+        <td data-sort="3" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_upward</span>Tinggi</span></td>
+        <td data-sort="Wulan Sari"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">WS</span><span>Wulan Sari</span></span></td>
+        <td data-sort="2026-11-18" data-due-cell>18 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1037" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1036" data-status="backlog" data-priority="low" data-label="data" data-assignee="sh">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1036"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Peta sebaran laporan per kelurahan"><span class="dtable__user dash-tugas__task"><span><b>Peta sebaran laporan per kelurahan</b><small>TGS-1036 · Data</small></span></span></td>
+        <td data-sort="0" data-status-cell><span class="badge"><span class="ic" aria-hidden="true">history</span>Belum dijadwalkan</span></td>
+        <td data-sort="1" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_downward</span>Rendah</span></td>
+        <td data-sort="Sari Handayani"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">SH</span><span>Sari Handayani</span></span></td>
+        <td data-sort="2026-12-15" data-due-cell>15 Des</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1036" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1035" data-status="done" data-priority="medium" data-label="rapat" data-assignee="rw">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1035"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Notulen rapat koordinasi pengaduan 3 Nov"><span class="dtable__user dash-tugas__task"><span><b>Notulen rapat koordinasi pengaduan 3 Nov</b><small>TGS-1035 · Rapat</small></span></span></td>
+        <td data-sort="4" data-status-cell><span class="badge badge--success"><span class="ic" aria-hidden="true">check_circle</span>Selesai</span></td>
+        <td data-sort="2" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">remove</span>Sedang</span></td>
+        <td data-sort="Rina Wijayanti"><span class="dtable__user"><span class="avatar" style="--size: 28px;" aria-hidden="true">RW</span><span>Rina Wijayanti</span></span></td>
+        <td data-sort="2026-11-05" data-due-cell>5 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1035" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1034" data-status="done" data-priority="high" data-label="lapangan" data-assignee="yh">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1034"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Jadwal angkut tambahan Kecamatan Timur"><span class="dtable__user dash-tugas__task"><span><b>Jadwal angkut tambahan Kecamatan Timur</b><small>TGS-1034 · Lapangan</small></span></span></td>
+        <td data-sort="4" data-status-cell><span class="badge badge--success"><span class="ic" aria-hidden="true">check_circle</span>Selesai</span></td>
+        <td data-sort="3" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_upward</span>Tinggi</span></td>
+        <td data-sort="Yusuf Hidayat"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">YH</span><span>Yusuf Hidayat</span></span></td>
+        <td data-sort="2026-11-12" data-due-cell>12 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1034" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1033" data-status="todo" data-priority="high" data-label="data" data-assignee="as">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1033"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Rekap pengaduan untuk rapat pimpinan Kamis"><span class="dtable__user dash-tugas__task"><span><b>Rekap pengaduan untuk rapat pimpinan Kamis</b><small>TGS-1033 · Data</small></span></span></td>
+        <td data-sort="1" data-status-cell><span class="badge"><span class="ic" aria-hidden="true">schedule</span>Akan dikerjakan</span></td>
+        <td data-sort="3" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_upward</span>Tinggi</span></td>
+        <td data-sort="Arif Setiawan"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">AS</span><span>Arif Setiawan</span></span></td>
+        <td data-sort="2026-11-19" data-due-cell>19 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1033" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1032" data-status="review" data-priority="high" data-label="layanan" data-assignee="dl">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1032"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Uji coba formulir izin reklame di aplikasi warga"><span class="dtable__user dash-tugas__task"><span><b>Uji coba formulir izin reklame di aplikasi warga</b><small>TGS-1032 · Layanan</small></span></span></td>
+        <td data-sort="3" data-status-cell><span class="badge badge--warning"><span class="ic" aria-hidden="true">visibility</span>Diperiksa</span></td>
+        <td data-sort="3" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_upward</span>Tinggi</span></td>
+        <td data-sort="Dewi Lestari"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">DL</span><span>Dewi Lestari</span></span></td>
+        <td data-sort="2026-11-21" data-due-cell>21 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1032" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1031" data-status="backlog" data-priority="low" data-label="rapat" data-assignee="bs">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1031"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Agenda musrenbang kelurahan"><span class="dtable__user dash-tugas__task"><span><b>Agenda musrenbang kelurahan</b><small>TGS-1031 · Rapat</small></span></span></td>
+        <td data-sort="0" data-status-cell><span class="badge"><span class="ic" aria-hidden="true">history</span>Belum dijadwalkan</span></td>
+        <td data-sort="1" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_downward</span>Rendah</span></td>
+        <td data-sort="Budi Santoso"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">BS</span><span>Budi Santoso</span></span></td>
+        <td data-sort="2026-11-20" data-due-cell>20 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1031" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1030" data-status="progress" data-priority="low" data-label="surat" data-assignee="ws">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1030"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Kabari warga RT 04 dan 05 soal siaga banjir"><span class="dtable__user dash-tugas__task"><span><b>Kabari warga RT 04 dan 05 soal siaga banjir</b><small>TGS-1030 · Surat</small></span></span></td>
+        <td data-sort="2" data-status-cell><span class="badge badge--accent"><span class="ic" aria-hidden="true">sync</span>Dikerjakan</span></td>
+        <td data-sort="1" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_downward</span>Rendah</span></td>
+        <td data-sort="Wulan Sari"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">WS</span><span>Wulan Sari</span></span></td>
+        <td data-sort="2026-11-16" data-due-cell><span class="badge badge--warning">Hari ini</span></td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1030" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1029" data-status="backlog" data-priority="medium" data-label="data" data-assignee="rw">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1029"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Target layanan 2027 per dinas"><span class="dtable__user dash-tugas__task"><span><b>Target layanan 2027 per dinas</b><small>TGS-1029 · Data</small></span></span></td>
+        <td data-sort="0" data-status-cell><span class="badge"><span class="ic" aria-hidden="true">history</span>Belum dijadwalkan</span></td>
+        <td data-sort="2" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">remove</span>Sedang</span></td>
+        <td data-sort="Rina Wijayanti"><span class="dtable__user"><span class="avatar" style="--size: 28px;" aria-hidden="true">RW</span><span>Rina Wijayanti</span></span></td>
+        <td data-sort="2026-12-01" data-due-cell>1 Des</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1029" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1028" data-status="backlog" data-priority="low" data-label="layanan" data-assignee="sh">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1028"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Usulan kolom baru di formulir pengaduan"><span class="dtable__user dash-tugas__task"><span><b>Usulan kolom baru di formulir pengaduan</b><small>TGS-1028 · Layanan</small></span></span></td>
+        <td data-sort="0" data-status-cell><span class="badge"><span class="ic" aria-hidden="true">history</span>Belum dijadwalkan</span></td>
+        <td data-sort="1" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_downward</span>Rendah</span></td>
+        <td data-sort="Sari Handayani"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">SH</span><span>Sari Handayani</span></span></td>
+        <td data-sort="2026-12-10" data-due-cell>10 Des</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1028" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1027" data-status="backlog" data-priority="low" data-label="lapangan" data-assignee="yh">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1027"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Survei titik sampah liar di Kecamatan Pesisir"><span class="dtable__user dash-tugas__task"><span><b>Survei titik sampah liar di Kecamatan Pesisir</b><small>TGS-1027 · Lapangan</small></span></span></td>
+        <td data-sort="0" data-status-cell><span class="badge"><span class="ic" aria-hidden="true">history</span>Belum dijadwalkan</span></td>
+        <td data-sort="1" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_downward</span>Rendah</span></td>
+        <td data-sort="Yusuf Hidayat"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">YH</span><span>Yusuf Hidayat</span></span></td>
+        <td data-sort="2026-12-04" data-due-cell>4 Des</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1027" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1026" data-status="todo" data-priority="medium" data-label="surat" data-assignee="bs">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1026"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Undangan pelatihan operator dasbor kecamatan"><span class="dtable__user dash-tugas__task"><span><b>Undangan pelatihan operator dasbor kecamatan</b><small>TGS-1026 · Surat</small></span></span></td>
+        <td data-sort="1" data-status-cell><span class="badge"><span class="ic" aria-hidden="true">schedule</span>Akan dikerjakan</span></td>
+        <td data-sort="2" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">remove</span>Sedang</span></td>
+        <td data-sort="Budi Santoso"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">BS</span><span>Budi Santoso</span></span></td>
+        <td data-sort="2026-11-16" data-due-cell><span class="badge badge--warning">Hari ini</span></td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1026" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1025" data-status="done" data-priority="low" data-label="rapat" data-assignee="rw">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1025"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Daftar hadir pelatihan operator"><span class="dtable__user dash-tugas__task"><span><b>Daftar hadir pelatihan operator</b><small>TGS-1025 · Rapat</small></span></span></td>
+        <td data-sort="4" data-status-cell><span class="badge badge--success"><span class="ic" aria-hidden="true">check_circle</span>Selesai</span></td>
+        <td data-sort="1" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_downward</span>Rendah</span></td>
+        <td data-sort="Rina Wijayanti"><span class="dtable__user"><span class="avatar" style="--size: 28px;" aria-hidden="true">RW</span><span>Rina Wijayanti</span></span></td>
+        <td data-sort="2026-11-09" data-due-cell>9 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1025" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1024" data-status="canceled" data-priority="low" data-label="lapangan" data-assignee="sh">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1024"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Kunjungan ulang Taman Kenanga"><span class="dtable__user dash-tugas__task"><span><b>Kunjungan ulang Taman Kenanga</b><small>TGS-1024 · Lapangan</small></span></span></td>
+        <td data-sort="5" data-status-cell><span class="badge"><span class="ic" aria-hidden="true">do_not_disturb_on</span>Dibatalkan</span></td>
+        <td data-sort="1" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_downward</span>Rendah</span></td>
+        <td data-sort="Sari Handayani"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">SH</span><span>Sari Handayani</span></span></td>
+        <td data-sort="2026-11-11" data-due-cell>11 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1024" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1023" data-status="review" data-priority="medium" data-label="data" data-assignee="hg">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1023"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Hitung panjang saluran yang sudah dikeruk"><span class="dtable__user dash-tugas__task"><span><b>Hitung panjang saluran yang sudah dikeruk</b><small>TGS-1023 · Data</small></span></span></td>
+        <td data-sort="3" data-status-cell><span class="badge badge--warning"><span class="ic" aria-hidden="true">visibility</span>Diperiksa</span></td>
+        <td data-sort="2" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">remove</span>Sedang</span></td>
+        <td data-sort="Hendra Gunawan"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">HG</span><span>Hendra Gunawan</span></span></td>
+        <td data-sort="2026-11-20" data-due-cell>20 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1023" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1022" data-status="progress" data-priority="high" data-label="layanan" data-assignee="as">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1022"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Gabungkan laporan ganda soal lampu jalan"><span class="dtable__user dash-tugas__task"><span><b>Gabungkan laporan ganda soal lampu jalan</b><small>TGS-1022 · Layanan</small></span></span></td>
+        <td data-sort="2" data-status-cell><span class="badge badge--accent"><span class="ic" aria-hidden="true">sync</span>Dikerjakan</span></td>
+        <td data-sort="3" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_upward</span>Tinggi</span></td>
+        <td data-sort="Arif Setiawan"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">AS</span><span>Arif Setiawan</span></span></td>
+        <td data-sort="2026-11-17" data-due-cell>17 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1022" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1021" data-status="todo" data-priority="medium" data-label="rapat" data-assignee="rw">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1021"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Susun agenda rapat evaluasi akhir tahun"><span class="dtable__user dash-tugas__task"><span><b>Susun agenda rapat evaluasi akhir tahun</b><small>TGS-1021 · Rapat</small></span></span></td>
+        <td data-sort="1" data-status-cell><span class="badge"><span class="ic" aria-hidden="true">schedule</span>Akan dikerjakan</span></td>
+        <td data-sort="2" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">remove</span>Sedang</span></td>
+        <td data-sort="Rina Wijayanti"><span class="dtable__user"><span class="avatar" style="--size: 28px;" aria-hidden="true">RW</span><span>Rina Wijayanti</span></span></td>
+        <td data-sort="2026-11-27" data-due-cell>27 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1021" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1020" data-status="done" data-priority="low" data-label="surat" data-assignee="yh">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1020"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Balasan untuk 14 pelapor sampah"><span class="dtable__user dash-tugas__task"><span><b>Balasan untuk 14 pelapor sampah</b><small>TGS-1020 · Surat</small></span></span></td>
+        <td data-sort="4" data-status-cell><span class="badge badge--success"><span class="ic" aria-hidden="true">check_circle</span>Selesai</span></td>
+        <td data-sort="1" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_downward</span>Rendah</span></td>
+        <td data-sort="Yusuf Hidayat"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">YH</span><span>Yusuf Hidayat</span></span></td>
+        <td data-sort="2026-11-10" data-due-cell>10 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1020" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1019" data-status="done" data-priority="medium" data-label="data" data-assignee="dl">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1019"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Rekap izin terbit bulan Oktober"><span class="dtable__user dash-tugas__task"><span><b>Rekap izin terbit bulan Oktober</b><small>TGS-1019 · Data</small></span></span></td>
+        <td data-sort="4" data-status-cell><span class="badge badge--success"><span class="ic" aria-hidden="true">check_circle</span>Selesai</span></td>
+        <td data-sort="2" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">remove</span>Sedang</span></td>
+        <td data-sort="Dewi Lestari"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">DL</span><span>Dewi Lestari</span></span></td>
+        <td data-sort="2026-11-06" data-due-cell>6 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1019" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1018" data-status="done" data-priority="medium" data-label="lapangan" data-assignee="hg">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1018"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Tambal jalan di simpang Pasar Bukit"><span class="dtable__user dash-tugas__task"><span><b>Tambal jalan di simpang Pasar Bukit</b><small>TGS-1018 · Lapangan</small></span></span></td>
+        <td data-sort="4" data-status-cell><span class="badge badge--success"><span class="ic" aria-hidden="true">check_circle</span>Selesai</span></td>
+        <td data-sort="2" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">remove</span>Sedang</span></td>
+        <td data-sort="Hendra Gunawan"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">HG</span><span>Hendra Gunawan</span></span></td>
+        <td data-sort="2026-11-12" data-due-cell>12 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1018" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1017" data-status="canceled" data-priority="medium" data-label="surat" data-assignee="bs">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1017"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Surat ke pengelola pasar soal parkir"><span class="dtable__user dash-tugas__task"><span><b>Surat ke pengelola pasar soal parkir</b><small>TGS-1017 · Surat</small></span></span></td>
+        <td data-sort="5" data-status-cell><span class="badge"><span class="ic" aria-hidden="true">do_not_disturb_on</span>Dibatalkan</span></td>
+        <td data-sort="2" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">remove</span>Sedang</span></td>
+        <td data-sort="Budi Santoso"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">BS</span><span>Budi Santoso</span></span></td>
+        <td data-sort="2026-11-09" data-due-cell>9 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1017" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1016" data-status="backlog" data-priority="low" data-label="rapat" data-assignee="as">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1016"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Jadwal simulasi evakuasi tahun depan"><span class="dtable__user dash-tugas__task"><span><b>Jadwal simulasi evakuasi tahun depan</b><small>TGS-1016 · Rapat</small></span></span></td>
+        <td data-sort="0" data-status-cell><span class="badge"><span class="ic" aria-hidden="true">history</span>Belum dijadwalkan</span></td>
+        <td data-sort="1" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_downward</span>Rendah</span></td>
+        <td data-sort="Arif Setiawan"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">AS</span><span>Arif Setiawan</span></span></td>
+        <td data-sort="2026-12-18" data-due-cell>18 Des</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1016" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1015" data-status="todo" data-priority="low" data-label="layanan" data-assignee="dl">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1015"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Perbarui syarat izin usaha di portal layanan"><span class="dtable__user dash-tugas__task"><span><b>Perbarui syarat izin usaha di portal layanan</b><small>TGS-1015 · Layanan</small></span></span></td>
+        <td data-sort="1" data-status-cell><span class="badge"><span class="ic" aria-hidden="true">schedule</span>Akan dikerjakan</span></td>
+        <td data-sort="1" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_downward</span>Rendah</span></td>
+        <td data-sort="Dewi Lestari"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">DL</span><span>Dewi Lestari</span></span></td>
+        <td data-sort="2026-11-25" data-due-cell>25 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1015" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1014" data-status="review" data-priority="low" data-label="data" data-assignee="sh">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1014"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Periksa ulang angka penduduk per kelurahan"><span class="dtable__user dash-tugas__task"><span><b>Periksa ulang angka penduduk per kelurahan</b><small>TGS-1014 · Data</small></span></span></td>
+        <td data-sort="3" data-status-cell><span class="badge badge--warning"><span class="ic" aria-hidden="true">visibility</span>Diperiksa</span></td>
+        <td data-sort="1" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">arrow_downward</span>Rendah</span></td>
+        <td data-sort="Sari Handayani"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">SH</span><span>Sari Handayani</span></span></td>
+        <td data-sort="2026-11-23" data-due-cell>23 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1014" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr data-id="TGS-1013" data-status="progress" data-priority="medium" data-label="rapat" data-assignee="ws">
+        <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Pilih TGS-1013"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
+        <td data-sort="Persiapan posyandu Kelurahan Harapan Jaya"><span class="dtable__user dash-tugas__task"><span><b>Persiapan posyandu Kelurahan Harapan Jaya</b><small>TGS-1013 · Rapat</small></span></span></td>
+        <td data-sort="2" data-status-cell><span class="badge badge--accent"><span class="ic" aria-hidden="true">sync</span>Dikerjakan</span></td>
+        <td data-sort="2" data-prio-cell><span class="dash-tugas__prio"><span class="ic" aria-hidden="true">remove</span>Sedang</span></td>
+        <td data-sort="Wulan Sari"><span class="dtable__user"><span class="avatar avatar--gray" style="--size: 28px;" aria-hidden="true">WS</span><span>Wulan Sari</span></span></td>
+        <td data-sort="2026-11-18" data-due-cell>18 Nov</td>
+        <td class="dtable__actions"><button class="icon-btn" type="button" data-row-menu aria-label="Tindakan untuk TGS-1013" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">more_horiz</span></button></td>
+      </tr>
+      <tr class="dtable__empty" hidden><td colspan="7"><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">filter_list</span></div><div class="empty__title">Tidak ada tugas yang cocok</div><div class="empty__body">Periksa ejaannya, atau hapus pencarian dan filter untuk melihat semua tugas.</div><button class="btn btn--secondary btn--md" type="button" data-lds-table-reset>Hapus filter</button></div></td></tr>
+      <tr class="dtable__state" data-state="loading" hidden><td class="dtable__select"><span class="skel" style="display: block; width: 22px; height: 22px; border-radius: 7px;"></span></td><td><span class="stack" style="--gap: 6px;"><span class="skel" style="display: block; height: 13px; width: 70%;"></span><span class="skel" style="display: block; height: 11px; width: 24%;"></span></span></td><td colspan="5"><span class="skel" style="display: block; height: 12px; width: 52%;"></span></td></tr>
+      <tr class="dtable__state" data-state="loading" hidden><td class="dtable__select"><span class="skel" style="display: block; width: 22px; height: 22px; border-radius: 7px;"></span></td><td><span class="stack" style="--gap: 6px;"><span class="skel" style="display: block; height: 13px; width: 58%;"></span><span class="skel" style="display: block; height: 11px; width: 24%;"></span></span></td><td colspan="5"><span class="skel" style="display: block; height: 12px; width: 44%;"></span></td></tr>
+      <tr class="dtable__state" data-state="loading" hidden><td class="dtable__select"><span class="skel" style="display: block; width: 22px; height: 22px; border-radius: 7px;"></span></td><td><span class="stack" style="--gap: 6px;"><span class="skel" style="display: block; height: 13px; width: 76%;"></span><span class="skel" style="display: block; height: 11px; width: 24%;"></span></span></td><td colspan="5"><span class="skel" style="display: block; height: 12px; width: 60%;"></span></td></tr>
+      <tr class="dtable__state" data-state="loading" hidden><td class="dtable__select"><span class="skel" style="display: block; width: 22px; height: 22px; border-radius: 7px;"></span></td><td><span class="stack" style="--gap: 6px;"><span class="skel" style="display: block; height: 13px; width: 50%;"></span><span class="skel" style="display: block; height: 11px; width: 24%;"></span></span></td><td colspan="5"><span class="skel" style="display: block; height: 12px; width: 40%;"></span></td></tr>
+      <tr class="dtable__state" data-state="loading" hidden><td class="dtable__select"><span class="skel" style="display: block; width: 22px; height: 22px; border-radius: 7px;"></span></td><td><span class="stack" style="--gap: 6px;"><span class="skel" style="display: block; height: 13px; width: 64%;"></span><span class="skel" style="display: block; height: 11px; width: 24%;"></span></span></td><td colspan="5"><span class="skel" style="display: block; height: 12px; width: 56%;"></span></td></tr>
+      <tr class="dtable__state" data-state="empty" hidden><td colspan="7"><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">checklist</span></div><div class="empty__title">Belum ada tugas</div><div class="empty__body">Tambahkan tugas pertama, atau buat dari kartu di kanban tindak lanjut.</div><button class="btn btn--primary btn--md" type="button" data-new-task>Tugas baru</button></div></td></tr>
+      <tr class="dtable__state" data-state="error" hidden><td colspan="7"><div class="alert alert--danger" role="alert"><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Tugas tidak dapat dimuat</div><div class="alert__body">Layanan tugas tidak menjawab tepat waktu. Tidak ada yang berubah.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="dtable__foot">
+    <span class="dtable__info" data-lds-table-info aria-live="polite"></span>
+    <div class="dtable__pages">
+      <div class="tip-host">
+        <button class="btn btn--plain btn--sm" type="button" data-lds-menu="f-size" aria-haspopup="menu" aria-expanded="false"><span data-lds-table-size-label>10</span> per halaman<span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="menu menu--up" id="f-size" role="menu" aria-label="Baris per halaman" style="bottom: calc(100% + 6px); left: 0; min-width: 160px;">
+          <button class="menu__item" type="button" role="menuitemradio" data-lds-table-size="10">10 per halaman<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" type="button" role="menuitemradio" data-lds-table-size="20">20 per halaman<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" type="button" role="menuitemradio" data-lds-table-size="50">50 per halaman<span class="ic menu__check" aria-hidden="true">check</span></button>
+        </div>
+      </div>
+      <nav aria-label="Halaman"><div class="pager" data-lds-table-pager></div></nav>
+    </div>
+  </div>
+</div>
+
+<div class="menu menu--right" id="task-row-menu" role="menu" aria-label="Tindakan tugas" style="position: fixed;">
+  <button class="menu__item" type="button" role="menuitem" data-act="edit"><span class="ic" aria-hidden="true">edit</span>Sunting tugas</button>
+  <button class="menu__item" type="button" role="menuitem" data-act="done"><span class="ic" aria-hidden="true">check_circle</span>Tandai selesai</button>
+  <button class="menu__item" type="button" role="menuitem" data-act="duplicate"><span class="ic" aria-hidden="true">content_copy</span>Gandakan</button>
+  <button class="menu__item" type="button" role="menuitem" data-act="copy"><span class="ic" aria-hidden="true">link</span>Salin nomor tugas</button>
+  <div class="menu__sep"></div>
+  <button class="menu__item menu__item--danger" type="button" role="menuitem" data-act="delete"><span class="ic" aria-hidden="true">delete</span>Hapus</button>
+</div>
+
+<div class="selbar" id="tasks-bar" role="toolbar" aria-label="Tugas terpilih">
+  <span class="selbar__count" aria-live="polite"><span class="roll" data-lds-roll="0"></span> dipilih</span>
+  <div class="tip-host">
+    <button class="btn btn--md" type="button" data-lds-menu="bulk-status" aria-haspopup="menu" aria-expanded="false" aria-label="Ubah status"><span class="ic" aria-hidden="true">checklist</span><span class="selbar__label">Status</span></button>
+    <div class="menu menu--up" id="bulk-status" role="menu" aria-label="Ubah status" style="bottom: calc(100% + 10px); left: 0; min-width: 190px;">
+      <button class="menu__item" type="button" role="menuitem" data-bulk-status="todo"><span class="ic" aria-hidden="true">schedule</span>Akan dikerjakan</button>
+      <button class="menu__item" type="button" role="menuitem" data-bulk-status="progress"><span class="ic" aria-hidden="true">sync</span>Dikerjakan</button>
+      <button class="menu__item" type="button" role="menuitem" data-bulk-status="review"><span class="ic" aria-hidden="true">visibility</span>Diperiksa</button>
+      <button class="menu__item" type="button" role="menuitem" data-bulk-status="done"><span class="ic" aria-hidden="true">check_circle</span>Selesai</button>
+      <button class="menu__item" type="button" role="menuitem" data-bulk-status="canceled"><span class="ic" aria-hidden="true">do_not_disturb_on</span>Dibatalkan</button>
+    </div>
+  </div>
+  <div class="tip-host">
+    <button class="btn btn--md" type="button" data-lds-menu="bulk-who" aria-haspopup="menu" aria-expanded="false" aria-label="Tugaskan"><span class="ic" aria-hidden="true">person</span><span class="selbar__label">Tugaskan</span></button>
+    <div class="menu menu--up" id="bulk-who" role="menu" aria-label="Tugaskan ke" style="bottom: calc(100% + 10px); left: 0; min-width: 210px;" data-bulk-who></div>
+  </div>
+  <button class="btn btn--md btn--danger" type="button" data-bulk="delete" aria-label="Hapus yang dipilih"><span class="ic" aria-hidden="true">delete</span><span class="selbar__label">Hapus</span></button>
+  <button class="icon-btn" type="button" data-lds-select-clear aria-label="Batalkan pilihan"><span class="ic" aria-hidden="true">close</span></button>
+</div>
+
+<script type="module">
+import { init, tableRefresh, tableState, selectionRefresh, setLoading, shake, setRoll, closeMenus, openLayer, closeLayer, announce } from '../../../js/lds.js';
+import { notify, delay } from './dashboard.js';
+
+const PEOPLE = { RW: 'Rina Wijayanti', AS: 'Arif Setiawan', DL: 'Dewi Lestari', HG: 'Hendra Gunawan', SH: 'Sari Handayani', BS: 'Budi Santoso', WS: 'Wulan Sari', YH: 'Yusuf Hidayat' };
+const STATUS = { backlog: ['Belum dijadwalkan', '', 'history'], todo: ['Akan dikerjakan', '', 'schedule'], progress: ['Dikerjakan', 'accent', 'sync'], review: ['Diperiksa', 'warning', 'visibility'], done: ['Selesai', 'success', 'check_circle'], canceled: ['Dibatalkan', '', 'do_not_disturb_on'] };
+const PRIO = { urgent: ['Mendesak', 'warning', 4], high: ['Tinggi', 'arrow_upward', 3], medium: ['Sedang', 'remove', 2], low: ['Rendah', 'arrow_downward', 1] };
+const LABEL = { lapangan: ['Lapangan', 'accent'], data: ['Data', ''], surat: ['Surat', ''], rapat: ['Rapat', 'success'], layanan: ['Layanan', 'warning'] };
+const MON = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+const TODAY = '2026-11-16', WEEK_END = '2026-11-22';
+const fmt = (d) => { const [, m, dd] = d.split('-').map(Number); return `${dd} ${MON[m - 1]}`; };
+const statusCell = (s) => { const [t, tone, ic] = STATUS[s]; return `<span class="badge${tone ? ` badge--${tone}` : ''}"><span class="ic" aria-hidden="true">${ic}</span>${t}</span>`; };
+const prioCell = (p) => { const [t, ic] = PRIO[p]; return p === 'urgent' ? `<span class="badge badge--danger"><span class="ic" aria-hidden="true">${ic}</span>${t}</span>` : `<span class="dash-tugas__prio"><span class="ic" aria-hidden="true">${ic}</span>${t}</span>`; };
+const dueCell = (d, s) => { if (!d) return 'Tanpa tenggat'; const late = d < TODAY && s !== 'done' && s !== 'canceled'; return late ? `<span class="badge badge--danger">${fmt(d)}, terlambat</span>` : d === TODAY && s !== 'done' ? '<span class="badge badge--warning">Hari ini</span>' : fmt(d); };
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+const table = document.getElementById('tasks');
+const tbody = table.querySelector('tbody');
+const rows = () => [...tbody.querySelectorAll('tr[data-id]')];
+const due = (tr) => tr.querySelector('[data-due-cell]').getAttribute('data-sort');
+const stats = () => {
+  const r = rows(), open = r.filter((t) => !['done', 'canceled'].includes(t.dataset.status));
+  const v = { open: open.length, week: open.filter((t) => due(t) >= TODAY && due(t) <= WEEK_END).length, late: open.filter((t) => due(t) < TODAY).length, done: r.filter((t) => t.dataset.status === 'done').length };
+  document.querySelectorAll('[data-stat]').forEach((s) => setRoll(s, v[s.dataset.stat]));
+};
+const setStatus = (tr, s) => {
+  tr.dataset.status = s;
+  const c = tr.querySelector('[data-status-cell]'); c.innerHTML = statusCell(s); c.dataset.sort = Object.keys(STATUS).indexOf(s);
+  const d = tr.querySelector('[data-due-cell]'); const v = d.dataset.sort === '9999' ? '' : d.dataset.sort; d.innerHTML = dueCell(v, s);
+};
+const titleOf = (tr) => tr.querySelector('b').textContent;
+
+// Assignee choices, built once from the people list
+const whoItems = (attr) => Object.entries(PEOPLE).map(([k, n]) => attr(k, n)).join('');
+document.querySelector('[data-who-filter]').innerHTML = whoItems((k, n) => `<button class="menu__item" type="button" role="menuitemcheckbox" aria-checked="false" data-lds-keep-open data-lds-table-filter="assignee" data-value="${k.toLowerCase()}"><span class="avatar${k === 'RW' ? '' : ' avatar--gray'}" style="--size: 24px;" aria-hidden="true">${k}</span>${n}<span class="ic menu__check" aria-hidden="true">check</span></button>`);
+document.querySelector('[data-bulk-who]').innerHTML = whoItems((k, n) => `<button class="menu__item" type="button" role="menuitem" data-bulk-who-pick="${k}"><span class="avatar${k === 'RW' ? '' : ' avatar--gray'}" style="--size: 24px;" aria-hidden="true">${k}</span>${n}</button>`);
+document.querySelector('[data-who-options]').innerHTML = whoItems((k, n) => `<li class="menu__item${k === 'RW' ? ' is-selected' : ''}" role="option" aria-selected="${k === 'RW'}" data-value="${k}">${n}</li>`);
+init(document);
+tableRefresh(table);
+
+// ---------- row menu ----------
+const rowMenu = document.getElementById('task-row-menu');
+let rowFor = null, rowBtn = null;
+const closeRowMenu = (focus) => { rowMenu.classList.remove('is-open'); if (rowBtn) { rowBtn.setAttribute('aria-expanded', 'false'); if (focus) rowBtn.focus(); } rowBtn = null; };
+const openRowMenu = (btn) => {
+  if (rowBtn === btn && rowMenu.classList.contains('is-open')) { closeRowMenu(); return; }
+  closeMenus(); closeRowMenu();
+  rowFor = btn.closest('tr'); rowBtn = btn;
+  rowMenu.querySelector('[data-act="done"]').hidden = rowFor.dataset.status === 'done';
+  const r = btn.getBoundingClientRect();
+  rowMenu.style.left = 'auto'; rowMenu.style.right = `${Math.max(8, innerWidth - r.right)}px`;
+  const below = r.bottom + 6 + 240 < innerHeight;
+  rowMenu.style.top = below ? `${r.bottom + 6}px` : 'auto';
+  rowMenu.style.bottom = below ? 'auto' : `${innerHeight - r.top + 6}px`;
+  rowMenu.classList.toggle('is-flipped-y', !below);
+  rowMenu.classList.add('is-open'); btn.setAttribute('aria-expanded', 'true');
+  setTimeout(() => rowMenu.querySelector('.menu__item:not([hidden])').focus(), 30);
+};
+document.addEventListener('click', (e) => { if (!rowMenu.contains(e.target) && !e.target.closest('[data-row-menu]')) closeRowMenu(); });
+addEventListener('scroll', () => closeRowMenu(), { passive: true });
+rowMenu.addEventListener('keydown', (e) => {
+  const items = [...rowMenu.querySelectorAll('.menu__item:not([hidden])')];
+  const i = items.indexOf(document.activeElement);
+  if (e.key === 'ArrowDown') { e.preventDefault(); items[(i + 1) % items.length].focus(); }
+  if (e.key === 'ArrowUp') { e.preventDefault(); items[(i - 1 + items.length) % items.length].focus(); }
+  if (e.key === 'Escape') { e.stopPropagation(); closeRowMenu(true); }
+  if (e.key === 'Tab') closeRowMenu();
+});
+
+// A click on a row (not on its checkbox or menu) opens the task
+tbody.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-row-menu]'); if (b) { e.stopPropagation(); openRowMenu(b); return; }
+  if (e.target.closest('.dtable__select, .dtable__actions, .dtable__state, .dtable__empty')) return;
+  const tr = e.target.closest('tr[data-id]'); if (tr) openTask(tr);
+});
+
+const removeRows = (list) => {
+  const spots = list.map((r) => [r, r.nextElementSibling]);
+  list.forEach((r) => { r.querySelector('[data-lds-select]').checked = false; r.classList.remove('is-selected'); r.remove(); });
+  tableRefresh(table); selectionRefresh(table); stats();
+  notify({ title: list.length === 1 ? `${list[0].dataset.id} dihapus` : `${list.length} tugas dihapus`, body: list.length === 1 ? titleOf(list[0]) : '', icon: 'delete', action: 'Urungkan',
+    onAction: () => { spots.reverse().forEach(([r, next]) => tbody.insertBefore(r, next && next.isConnected ? next : tbody.querySelector('.dtable__empty'))); tableRefresh(table); stats(); return { title: 'Dikembalikan', icon: 'undo' }; } });
+};
+const changeStatus = (list, s) => {
+  const was = list.map((r) => r.dataset.status);
+  list.forEach((r) => setStatus(r, s)); tableRefresh(table); stats();
+  notify({ title: list.length === 1 ? `${list[0].dataset.id}: ${STATUS[s][0].toLowerCase()}` : `${list.length} tugas: ${STATUS[s][0].toLowerCase()}`, icon: STATUS[s][2], action: 'Urungkan', onAction: () => { list.forEach((r, i) => setStatus(r, was[i])); tableRefresh(table); stats(); return { title: 'Dibatalkan', icon: 'undo' }; } });
+};
+let nextId = 1049;
+rowMenu.addEventListener('click', (e) => {
+  const it = e.target.closest('[data-act]'); if (!it || !rowFor) return;
+  const tr = rowFor; closeRowMenu(true);
+  const a = it.dataset.act;
+  if (a === 'edit') openTask(tr);
+  if (a === 'done') changeStatus([tr], 'done');
+  if (a === 'delete') removeRows([tr]);
+  if (a === 'copy') { navigator.clipboard?.writeText(tr.dataset.id).catch(() => {}); notify({ title: `${tr.dataset.id} tersalin`, icon: 'content_copy' }); }
+  if (a === 'duplicate') {
+    const c = tr.cloneNode(true); const id = `TGS-${nextId++}`;
+    c.dataset.id = id; c.classList.remove('is-selected'); c.querySelector('[data-lds-select]').checked = false;
+    c.querySelector('[data-lds-select]').setAttribute('aria-label', `Pilih ${id}`); c.querySelector('small').textContent = `${id} · ${LABEL[c.dataset.label][0]}`;
+    c.querySelector('[data-row-menu]').setAttribute('aria-label', `Tindakan untuk ${id}`); c.querySelector('[data-row-menu]').setAttribute('aria-expanded', 'false');
+    tr.after(c); init(c); tableRefresh(table); stats(); c.classList.add('view-in');
+    notify({ title: `Digandakan sebagai ${id}`, body: titleOf(c), icon: 'content_copy' });
+  }
+});
+
+// ---------- bulk actions ----------
+const picked = () => rows().filter((r) => r.classList.contains('is-selected'));
+const bar = document.getElementById('tasks-bar');
+bar.addEventListener('click', (e) => {
+  const list = picked(); if (!list.length) return;
+  const s = e.target.closest('[data-bulk-status]'); if (s) { closeMenus(); changeStatus(list, s.dataset.bulkStatus); }
+  const w = e.target.closest('[data-bulk-who-pick]');
+  if (w) {
+    closeMenus();
+    const k = w.dataset.bulkWhoPick, was = list.map((r) => [r.dataset.assignee, r.cells[4].innerHTML, r.cells[4].dataset.sort]);
+    list.forEach((r) => assign(r, k)); tableRefresh(table);
+    notify({ title: `${list.length} tugas diberikan ke ${PEOPLE[k]}`, icon: 'person', action: 'Urungkan', onAction: () => { list.forEach((r, i) => { r.dataset.assignee = was[i][0]; r.cells[4].innerHTML = was[i][1]; r.cells[4].dataset.sort = was[i][2]; }); tableRefresh(table); return { title: 'Dibatalkan', icon: 'undo' }; } });
+  }
+  if (e.target.closest('[data-bulk="delete"]')) removeRows(list);
+});
+const assign = (r, k) => { r.dataset.assignee = k.toLowerCase(); r.cells[4].dataset.sort = PEOPLE[k]; r.cells[4].innerHTML = `<span class="dtable__user"><span class="avatar${k === 'RW' ? '' : ' avatar--gray'}" style="--size: 28px;" aria-hidden="true">${k}</span><span>${PEOPLE[k]}</span></span>`; };
+
+// ---------- create and edit ----------
+const drawer = document.getElementById('task-drawer');
+const form = document.getElementById('task-form');
+const titleCtrl = form.querySelector('[data-title-control]'), titleHelp = document.getElementById('tf-title-help');
+let editing = null, labelPick = 'lapangan';
+form.querySelector('[data-label-chips]').addEventListener('lds:change', (e) => { labelPick = e.detail.value; });
+const setSelect = (key, value, label) => {
+  const box = form.querySelector(`[data-pick="${key}"]`);
+  box.querySelectorAll('[role="option"]').forEach((o) => { const on = o.dataset.value === value; o.classList.toggle('is-selected', on); o.setAttribute('aria-selected', String(on)); });
+  box.querySelector('.select__value').textContent = label;
+};
+const getSelect = (key) => form.querySelector(`[data-pick="${key}"] [aria-selected="true"]`)?.dataset.value;
+const setSeg = (v) => { const b = form.querySelector(`[data-prio-seg] [data-value="${v}"]`); if (b && b.getAttribute('aria-pressed') !== 'true') b.click(); };
+const setChip = (v) => { labelPick = v; form.querySelectorAll('[data-label-chips] .chip').forEach((c) => c.setAttribute('aria-pressed', String(c.value === v))); };
+const resetTitle = () => { titleCtrl.classList.remove('is-invalid'); titleHelp.classList.remove('field__help--error'); titleHelp.textContent = 'Awali dengan kata kerja: seperti apa kalau sudah selesai.'; };
+function openTask(tr, from) {
+  editing = tr || null; form.reset(); resetTitle();
+  document.getElementById('td-title').textContent = tr ? `Sunting ${tr.dataset.id}` : 'Tugas baru';
+  form.querySelector('[data-submit] .btn__label').textContent = tr ? 'Simpan perubahan' : 'Buat tugas';
+  form.querySelector('[data-delete]').hidden = !tr;
+  if (tr) {
+    form.elements.title.value = titleOf(tr); form.elements.notes.value = tr.dataset.notes || '';
+    setSelect('status', tr.dataset.status, STATUS[tr.dataset.status][0]);
+    const k = tr.dataset.assignee.toUpperCase(); setSelect('assignee', k, PEOPLE[k]);
+    setSeg(tr.dataset.priority); setChip(tr.dataset.label);
+    const d = due(tr); form.elements.due.value = d === '9999' ? '' : d;
+  } else { setSelect('status', 'todo', 'Akan dikerjakan'); setSelect('assignee', 'RW', PEOPLE.RW); setSeg('medium'); setChip('lapangan'); }
+  openLayer('task-drawer', from || document.activeElement);
+  setTimeout(() => form.elements.title.focus(), 80);
+}
+document.addEventListener('click', (e) => { const b = e.target.closest('[data-new-task]'); if (b) openTask(null, b); });
+document.addEventListener('keydown', (e) => {
+  if (e.key !== 'n' || e.metaKey || e.ctrlKey || e.altKey || e.defaultPrevented) return;
+  if (e.target.closest && e.target.closest('input, textarea, select, [contenteditable="true"]')) return;
+  if (document.querySelector('dialog[open], .drawer.is-open, .cmdk.is-open')) return;
+  e.preventDefault(); openTask(null, document.querySelector('[data-new-task]'));
+});
+form.elements.title.addEventListener('input', () => { if (titleCtrl.classList.contains('is-invalid')) resetTitle(); });
+form.querySelector('[data-delete]').addEventListener('click', () => { const tr = editing; closeLayer('task-drawer'); if (tr) removeRows([tr]); });
+form.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const title = form.elements.title.value.trim();
+  if (title.length < 3) { titleCtrl.classList.add('is-invalid'); titleHelp.classList.add('field__help--error'); titleHelp.innerHTML = `<span class="ic" aria-hidden="true">error</span>${title ? 'Pakai minimal tiga karakter agar mudah dicari.' : 'Beri tugas ini judul.'}`; shake(titleCtrl); form.elements.title.focus(); return; }
+  const btn = form.querySelector('[data-submit]'); setLoading(btn, true); await delay(500); setLoading(btn, false);
+  const s = getSelect('status') || 'todo', k = getSelect('assignee') || 'RW';
+  const p = form.querySelector('[data-prio-seg] [aria-pressed="true"]')?.dataset.value || 'medium';
+  const d = form.elements.due.value;
+  let tr = editing;
+  if (!tr) {
+    tr = rows()[0].cloneNode(true); const id = `TGS-${nextId++}`;
+    tr.dataset.id = id; tr.classList.remove('is-selected'); tr.querySelector('[data-lds-select]').checked = false;
+    tr.querySelector('[data-lds-select]').setAttribute('aria-label', `Pilih ${id}`); tr.querySelector('small').textContent = id;
+    tr.querySelector('[data-row-menu]').setAttribute('aria-label', `Tindakan untuk ${id}`); tr.querySelector('[data-row-menu]').setAttribute('aria-expanded', 'false');
+    tbody.insertBefore(tr, tbody.firstElementChild);
+  }
+  tr.querySelector('b').textContent = title; tr.cells[1].dataset.sort = title; tr.dataset.notes = form.elements.notes.value.trim();
+  tr.dataset.priority = p; tr.cells[3].innerHTML = prioCell(p); tr.cells[3].dataset.sort = PRIO[p][2];
+  tr.dataset.label = labelPick; tr.querySelector('small').textContent = `${tr.dataset.id} · ${LABEL[labelPick][0]}`;
+  assign(tr, k);
+  tr.querySelector('[data-due-cell]').dataset.sort = d || '9999';
+  setStatus(tr, s);
+  if (!editing) init(tr);
+  tableRefresh(table); stats(); closeLayer('task-drawer');
+  tr.classList.remove('view-in'); void tr.offsetWidth; tr.classList.add('view-in');
+  notify({ title: editing ? `${tr.dataset.id} disimpan` : `${tr.dataset.id} dibuat`, body: title, icon: 'check_circle' });
+});
+
+// ---------- states ----------
+table.addEventListener('dash:state', (e) => tableState(table, e.detail.state === 'loaded' ? 'ready' : e.detail.state));
+tbody.addEventListener('click', async (e) => { if (!e.target.closest('[data-retry]')) return; tableState(table, 'loading'); await delay(900); tableState(table, 'ready'); });
+stats();
+</script>

@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="id" class="lds" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kanban tindak lanjut · Sakai Dasbor · Contoh Lampung Design System</title>
+<meta name="description" content="Laporan warga yang sedang ditindaklanjuti, dari masuk sampai selesai. Seret kartu untuk memindahkan, atau pakai papan ketik.">
+<meta name="theme-color" content="#FFFFFF">
+<script>try { var t = localStorage.getItem('lds-theme'); if (t) document.documentElement.setAttribute('data-theme', t); if (localStorage.getItem('lds-shell-rail') === '1') document.documentElement.setAttribute('data-shell-rail', ''); } catch (e) {}</script>
+<link rel="stylesheet" href="../../../css/lds.css">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="lds">
+<a class="skip-link" href="#main">Lewati ke isi</a>
+<div class="navprogress" aria-hidden="true"></div>
+<div class="shell" data-lds-shell>
+  <aside class="shell__side" id="side" aria-label="Menu samping">
+    <a class="shell__brand" href="ringkasan.html"><span class="shell__mark" aria-hidden="true">S</span><span class="shell__label">Sakai Dasbor</span></a>
+    <nav class="shell__nav" aria-label="Utama">
+      <span class="shell__hl" aria-hidden="true"></span>
+      <p class="shell__group">Dasbor</p>
+      <a class="shell__link" href="ringkasan.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Ringkasan kota</span></a>
+      <a class="shell__link" href="pengaduan.html"><span class="ic" aria-hidden="true">campaign</span><span class="shell__label">Pengaduan warga</span></a>
+      <a class="shell__link" href="perizinan.html"><span class="ic" aria-hidden="true">verified</span><span class="shell__label">Layanan perizinan</span></a>
+      <a class="shell__link" href="kependudukan.html"><span class="ic" aria-hidden="true">groups</span><span class="shell__label">Kependudukan</span></a>
+      <a class="shell__link" href="transportasi.html"><span class="ic" aria-hidden="true">directions_bus</span><span class="shell__label">Transportasi</span></a>
+      <a class="shell__link" href="kebencanaan.html"><span class="ic" aria-hidden="true">flood</span><span class="shell__label">Kebencanaan dan cuaca</span></a>
+      <a class="shell__link" href="kesehatan.html"><span class="ic" aria-hidden="true">local_hospital</span><span class="shell__label">Kesehatan</span></a>
+      <a class="shell__link" href="pendidikan.html"><span class="ic" aria-hidden="true">school</span><span class="shell__label">Pendidikan</span></a>
+      <a class="shell__link" href="pendapatan.html"><span class="ic" aria-hidden="true">request_quote</span><span class="shell__label">Pendapatan daerah</span></a>
+      <a class="shell__link" href="bantuan-sosial.html"><span class="ic" aria-hidden="true">volunteer_activism</span><span class="shell__label">Bantuan sosial</span></a>
+      <a class="shell__link" href="umkm.html"><span class="ic" aria-hidden="true">storefront</span><span class="shell__label">UMKM dan pasar</span></a>
+      <a class="shell__link" href="pariwisata.html"><span class="ic" aria-hidden="true">landscape</span><span class="shell__label">Pariwisata dan agenda</span></a>
+      <a class="shell__link" href="lingkungan.html"><span class="ic" aria-hidden="true">eco</span><span class="shell__label">Lingkungan</span></a>
+      <a class="shell__link" href="infrastruktur.html"><span class="ic" aria-hidden="true">lightbulb</span><span class="shell__label">Infrastruktur dan aset</span></a>
+      <a class="shell__link" href="pusat-komando.html"><span class="ic" aria-hidden="true">videocam</span><span class="shell__label">Pusat komando</span></a>
+      <a class="shell__link" href="kepegawaian.html"><span class="ic" aria-hidden="true">badge</span><span class="shell__label">Kepegawaian</span></a>
+      <a class="shell__link" href="keuangan.html"><span class="ic" aria-hidden="true">account_balance</span><span class="shell__label">Keuangan daerah</span></a>
+      <p class="shell__group">Halaman</p>
+      <a class="shell__link" href="laporan.html"><span class="ic" aria-hidden="true">article</span><span class="shell__label">Daftar laporan</span></a>
+      <a class="shell__link" href="kotak-masuk.html"><span class="ic" aria-hidden="true">inbox</span><span class="shell__label">Kotak masuk</span></a>
+      <a class="shell__link" href="obrolan.html"><span class="ic" aria-hidden="true">chat</span><span class="shell__label">Obrolan</span></a>
+      <a class="shell__link" href="kalender.html"><span class="ic" aria-hidden="true">calendar_month</span><span class="shell__label">Kalender kegiatan</span></a>
+      <a class="shell__link" href="tindak-lanjut.html" aria-current="page"><span class="ic" aria-hidden="true">view_kanban</span><span class="shell__label">Kanban tindak lanjut</span></a>
+      <a class="shell__link" href="tugas.html"><span class="ic" aria-hidden="true">checklist</span><span class="shell__label">Tugas</span></a>
+      <a class="shell__link" href="arsip.html"><span class="ic" aria-hidden="true">folder_open</span><span class="shell__label">Arsip dokumen</span></a>
+      <a class="shell__link" href="profil.html"><span class="ic" aria-hidden="true">person</span><span class="shell__label">Profil</span></a>
+      <a class="shell__link" href="pengguna.html"><span class="ic" aria-hidden="true">group</span><span class="shell__label">Pengguna</span></a>
+      <a class="shell__link" href="peran.html"><span class="ic" aria-hidden="true">shield_person</span><span class="shell__label">Peran dan akses</span></a>
+      <p class="shell__group">Masuk</p>
+      <a class="shell__link" href="masuk.html"><span class="ic" aria-hidden="true">login</span><span class="shell__label">Masuk</span></a>
+      <a class="shell__link" href="daftar.html"><span class="ic" aria-hidden="true">person_add</span><span class="shell__label">Daftar</span></a>
+      <a class="shell__link" href="lupa-kata-sandi.html"><span class="ic" aria-hidden="true">key</span><span class="shell__label">Lupa kata sandi</span></a>
+      <a class="shell__link" href="verifikasi.html"><span class="ic" aria-hidden="true">sms</span><span class="shell__label">Verifikasi OTP</span></a>
+      <a class="shell__link" href="akses-ditolak.html"><span class="ic" aria-hidden="true">do_not_disturb_on</span><span class="shell__label">Akses ditolak</span></a>
+    </nav>
+    <div class="shell__foot">
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">Semua contoh</span></a>
+      <a class="shell__link" href="../../index.html"><span class="ic" aria-hidden="true">menu_book</span><span class="shell__label">Dokumentasi sistem desain</span></a>
+    </div>
+  </aside>
+  <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
+  <div class="shell__scrim"></div>
+  <div class="shell__main">
+    <header class="shell__bar">
+      <button class="icon-btn" type="button" data-lds-shell-toggle aria-controls="side" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
+      <button class="icon-btn" type="button" data-lds-shell-rail aria-controls="side" aria-expanded="true" aria-label="Ciutkan menu samping"><span class="ic" aria-hidden="true">left_panel_close</span></button>
+      <span class="sep sep--v" aria-hidden="true"></span>
+      <nav aria-label="Jejak halaman"><ol class="crumbs"><li><a href="ringkasan.html">Sakai Dasbor</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="laporan.html">Halaman</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><span aria-current="page">Kanban tindak lanjut</span></li></ol></nav>
+      <div class="shell__bar-end">
+        <button class="control search shell__search" type="button" data-lds-open="palette" aria-haspopup="dialog"><span class="ic" aria-hidden="true">search</span>Cari halaman<span class="kbd">⌘K</span></button>
+        <button class="icon-btn shell__search-icon" type="button" data-lds-open="palette" aria-haspopup="dialog" aria-label="Cari halaman"><span class="ic" aria-hidden="true">search</span></button>
+        <div class="tip-host">
+          <button class="icon-btn" type="button" data-lds-menu="theme-menu" aria-haspopup="menu" aria-expanded="false" aria-label="Tampilan" data-theme-btn><span class="ic" aria-hidden="true">light_mode</span></button>
+          <div class="menu menu--right" id="theme-menu" role="menu" aria-label="Tampilan" style="top: calc(100% + 6px); right: 0; min-width: 180px;">
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-lds-theme="light"><span class="ic" aria-hidden="true">light_mode</span>Terang<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-lds-theme="dark"><span class="ic" aria-hidden="true">dark_mode</span>Gelap<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-lds-theme="system"><span class="ic" aria-hidden="true">desktop_windows</span>Ikuti sistem<span class="ic menu__check" aria-hidden="true">check</span></button>
+          </div>
+        </div>
+        <div class="tip-host">
+          <button class="icon-btn" type="button" data-lds-menu="notes" aria-haspopup="dialog" aria-expanded="false" aria-label="Notifikasi, 3 belum dibaca" data-notes-btn><span class="ic" aria-hidden="true">notifications</span><span class="count" data-notes-count>3</span></button>
+          <div class="popover dash-notes" id="notes" role="dialog" aria-labelledby="notes-title" style="top: calc(100% + 6px); right: 0;">
+            <div class="cluster dash-notes__head"><h2 class="section__title-sm" id="notes-title">Notifikasi</h2><button class="btn btn--plain btn--sm" type="button" data-notes-read>Tandai semua dibaca</button></div>
+            <div class="list list--fill">
+              <a class="lrow" href="tindak-lanjut.html" data-unread><span class="avatar avatar--gray" style="--size: 32px;">AS</span><span class="lrow__body"><span class="lrow__title">Arif Setiawan menugaskan Anda <b>Tindak lanjut genangan Jalan Merpati</b></span><span class="lrow__sub"><time data-lds-time="2026-11-16T09:12">09.12</time></span></span><span class="status status--ok" data-unread-dot><i></i><span class="sr-only">Belum dibaca</span></span></a>
+              <a class="lrow" href="perizinan.html" data-unread><span class="avatar avatar--gray" style="--size: 32px;">DL</span><span class="lrow__body"><span class="lrow__title">Dewi Lestari meminta persetujuan <b>12 izin usaha mikro</b></span><span class="lrow__sub"><time data-lds-time="2026-11-16T08:40">08.40</time></span></span><span class="status status--ok" data-unread-dot><i></i><span class="sr-only">Belum dibaca</span></span></a>
+              <a class="lrow" href="kebencanaan.html" data-unread><span class="avatar avatar--gray" style="--size: 32px;">BP</span><span class="lrow__body"><span class="lrow__title">BPBD Kota Contoh mengirim <b>peringatan dini hujan lebat</b> untuk sore ini</span><span class="lrow__sub"><time data-lds-time="2026-11-16T07:55">07.55</time></span></span><span class="status status--ok" data-unread-dot><i></i><span class="sr-only">Belum dibaca</span></span></a>
+              <a class="lrow" href="laporan.html"><span class="avatar avatar--gray" style="--size: 32px;">SH</span><span class="lrow__body"><span class="lrow__title">Sari Handayani mengekspor <b>1.204 laporan warga</b> ke CSV</span><span class="lrow__sub"><time data-lds-time="2026-11-15T11:30">11.30</time></span></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="tip-host">
+          <button class="icon-btn" type="button" data-lds-menu="user-menu" aria-haspopup="menu" aria-expanded="false" aria-label="Akun: Rina Wijayanti"><span class="avatar" style="--size: 32px;">RW</span></button>
+          <div class="menu menu--right" id="user-menu" role="menu" aria-label="Akun" style="top: calc(100% + 6px); right: 0; min-width: 240px;">
+            <div class="lrow dash-me"><span class="avatar" style="--size: 36px;">RW</span><span class="lrow__body"><span class="lrow__title">Rina Wijayanti</span><span class="lrow__sub">Admin dasbor</span></span></div>
+            <div class="menu__sep"></div>
+            <a class="menu__item" role="menuitem" href="profil.html"><span class="ic" aria-hidden="true">person</span>Profil</a>
+            <a class="menu__item" role="menuitem" href="peran.html"><span class="ic" aria-hidden="true">shield_person</span>Peran dan akses</a>
+            <a class="menu__item" role="menuitem" href="../../index.html"><span class="ic" aria-hidden="true">help</span>Bantuan dan dokumentasi</a>
+            <div class="menu__sep"></div>
+            <a class="menu__item" role="menuitem" href="masuk.html"><span class="ic" aria-hidden="true">logout</span>Keluar</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="dash dash--wide" id="main" tabindex="-1">
+      <header class="dash-head">
+        <div class="section__head">
+          <div class="cluster" style="--gap: 10px;"><h1 style="margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);">Kanban tindak lanjut</h1><span class="badge badge--outline"><span class="ic" aria-hidden="true">info</span>Contoh. Data fiktif, bukan layanan resmi.</span></div>
+          <p class="section__sub">Laporan warga yang sedang ditindaklanjuti, dari masuk sampai selesai. Seret kartu untuk memindahkan, atau pakai papan ketik.</p>
+        </div>
+        <div class="dash-head__actions">
+        <div class="split">
+          <button class="btn btn--primary btn--md" type="button" data-add-to="baru"><span class="ic" aria-hidden="true">add</span>Tambah kartu</button>
+          <button class="btn btn--primary btn--md" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Cara lain menambah kartu" data-lds-menu="add-more"><span class="ic" aria-hidden="true">expand_more</span></button>
+          <div class="menu menu--right" id="add-more" role="menu" aria-label="Tambah kartu" style="top: calc(100% + 6px); right: 0; min-width: 260px;">
+            <button class="menu__item" type="button" role="menuitem" data-import><span class="ic" aria-hidden="true">upload_file</span>Impor dari CSV</button>
+            <a class="menu__item" role="menuitem" href="laporan.html"><span class="ic" aria-hidden="true">article</span>Pilih dari daftar laporan</a>
+          </div>
+        </div></div>
+      </header>
+<div class="dash-tindak-lanjut__bar" role="search">
+  <div class="control search dtable__search"><span class="ic" aria-hidden="true">search</span><input type="search" placeholder="Cari kartu atau lokasi" aria-label="Cari kartu" data-k-search></div>
+  <div class="chip-row" data-lds-chips role="group" aria-label="Kategori" data-k-teams>
+    <button class="chip" type="button" value="sampah"><span class="ic chip__check" aria-hidden="true">check</span>Sampah</button>
+    <button class="chip" type="button" value="jalan"><span class="ic chip__check" aria-hidden="true">check</span>Jalan rusak</button>
+    <button class="chip" type="button" value="drainase"><span class="ic chip__check" aria-hidden="true">check</span>Drainase</button>
+    <button class="chip" type="button" value="penerangan"><span class="ic chip__check" aria-hidden="true">check</span>Penerangan</button>
+    <button class="chip" type="button" value="fasum"><span class="ic chip__check" aria-hidden="true">check</span>Fasilitas umum</button>
+  </div>
+  <div class="dash-tindak-lanjut__end">
+    <span class="section__sub" aria-live="polite" data-k-count></span>
+    <button class="btn btn--plain btn--md" type="button" data-k-clear hidden>Hapus filter</button>
+  </div>
+</div>
+
+<div class="kanban dash-tindak-lanjut__board" data-lds-kanban aria-label="Tindak lanjut laporan warga">
+    <section class="kanban__col" data-col="baru" aria-labelledby="col-baru">
+      <header class="kanban__head"><h2 class="kanban__title" id="col-baru">Baru</h2><span class="kanban__count"><span class="roll" data-lds-roll="3"></span></span>
+        <span class="kanban__head-end"><button class="icon-btn" type="button" data-add-to="baru" aria-label="Tambah kartu ke Baru"><span class="ic" aria-hidden="true">add</span></button></span></header>
+      <div class="kanban__list" role="list" aria-labelledby="col-baru">
+        <article class="kanban__card" role="listitem" tabindex="0" data-id="t1" data-cat="sampah" data-prio="medium" data-kec="Kecamatan Timur" data-dinas="Dinas Lingkungan Hidup Kota Contoh" aria-describedby="kanban-keys">
+          <div class="kanban__top"><span class="badge badge--warning">Sampah</span><span class="badge badge--warning"><span class="ic" aria-hidden="true">flag</span>Sedang</span></div>
+          <h3 class="kanban__card-title">Tumpukan sampah di depan Pasar Timur</h3>
+          <p class="kanban__card-body">Warga melapor sampah belum diangkut tiga hari. Jalan Kenari, Kelurahan Sukajaya.</p>
+          <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>18 Nov</span><span><span class="ic" aria-hidden="true">location_on</span>Timur<span class="sr-only">, kecamatan</span></span><span><span class="ic" aria-hidden="true">photo_camera</span>3<span class="sr-only"> foto</span></span><span class="avatar avatar--gray" title="Yusuf Hidayat" aria-label="Yusuf Hidayat">YH</span></div>
+        </article>
+        <article class="kanban__card" role="listitem" tabindex="0" data-id="t2" data-cat="penerangan" data-prio="low" data-kec="Kecamatan Utara" data-dinas="Dinas Perumahan dan Permukiman Kota Contoh" aria-describedby="kanban-keys">
+          <div class="kanban__top"><span class="badge">Penerangan</span><span class="badge"><span class="ic" aria-hidden="true">flag</span>Rendah</span></div>
+          <h3 class="kanban__card-title">Lampu jalan padam di gang sekolah</h3>
+          <p class="kanban__card-body">Empat titik lampu padam di Gang Melati, dekat SD Negeri 12.</p>
+          <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>23 Nov</span><span><span class="ic" aria-hidden="true">location_on</span>Utara<span class="sr-only">, kecamatan</span></span><span><span class="ic" aria-hidden="true">photo_camera</span>2<span class="sr-only"> foto</span></span><span class="avatar avatar--gray" title="Arif Setiawan" aria-label="Arif Setiawan">AS</span></div>
+        </article>
+        <article class="kanban__card" role="listitem" tabindex="0" data-id="t3" data-cat="fasum" data-prio="low" data-kec="Kecamatan Tengah" data-dinas="Dinas Perumahan dan Permukiman Kota Contoh" aria-describedby="kanban-keys">
+          <div class="kanban__top"><span class="badge">Fasilitas umum</span><span class="badge"><span class="ic" aria-hidden="true">flag</span>Rendah</span></div>
+          <h3 class="kanban__card-title">Ayunan taman kota patah</h3>
+          <p class="kanban__card-body">Satu ayunan di Taman Kenanga patah dan dipasangi tali oleh warga.</p>
+          <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>27 Nov</span><span><span class="ic" aria-hidden="true">location_on</span>Tengah<span class="sr-only">, kecamatan</span></span><span><span class="ic" aria-hidden="true">photo_camera</span>1<span class="sr-only"> foto</span></span><span class="avatar avatar--gray" title="Sari Handayani" aria-label="Sari Handayani">SH</span></div>
+        </article>
+        <div class="kanban__empty">Taruh kartu di sini</div>
+      </div>
+    </section>
+    <section class="kanban__col" data-col="verif" aria-labelledby="col-verif">
+      <header class="kanban__head"><h2 class="kanban__title" id="col-verif">Diverifikasi</h2><span class="kanban__count"><span class="roll" data-lds-roll="2"></span></span>
+        <span class="kanban__head-end"><button class="icon-btn" type="button" data-add-to="verif" aria-label="Tambah kartu ke Diverifikasi"><span class="ic" aria-hidden="true">add</span></button></span></header>
+      <div class="kanban__list" role="list" aria-labelledby="col-verif">
+        <article class="kanban__card" role="listitem" tabindex="0" data-id="t4" data-cat="drainase" data-prio="high" data-kec="Kecamatan Selatan" data-dinas="Dinas Pekerjaan Umum Kota Contoh" aria-describedby="kanban-keys">
+          <div class="kanban__top"><span class="badge badge--success">Drainase</span><span class="badge badge--danger"><span class="ic" aria-hidden="true">flag</span>Mendesak</span></div>
+          <h3 class="kanban__card-title">Genangan setinggi lutut di Jalan Merpati</h3>
+          <p class="kanban__card-body">14 laporan sejak Jumat. Saluran tersumbat lumpur dan sampah, Kelurahan Sukamaju.</p>
+          <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>18 Nov</span><span><span class="ic" aria-hidden="true">location_on</span>Selatan<span class="sr-only">, kecamatan</span></span><span><span class="ic" aria-hidden="true">photo_camera</span>6<span class="sr-only"> foto</span></span><span class="avatar avatar--gray" title="Hendra Gunawan" aria-label="Hendra Gunawan">HG</span></div>
+        </article>
+        <article class="kanban__card" role="listitem" tabindex="0" data-id="t5" data-cat="jalan" data-prio="medium" data-kec="Kecamatan Barat" data-dinas="Dinas Pekerjaan Umum Kota Contoh" aria-describedby="kanban-keys">
+          <div class="kanban__top"><span class="badge badge--accent">Jalan rusak</span><span class="badge badge--warning"><span class="ic" aria-hidden="true">flag</span>Sedang</span></div>
+          <h3 class="kanban__card-title">Lubang besar di Jalan Cendana</h3>
+          <p class="kanban__card-body">Lubang selebar 1 meter di lajur kiri, dekat halte bus koridor 3.</p>
+          <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>21 Nov</span><span><span class="ic" aria-hidden="true">location_on</span>Barat<span class="sr-only">, kecamatan</span></span><span><span class="ic" aria-hidden="true">photo_camera</span>2<span class="sr-only"> foto</span></span><span class="avatar avatar--gray" title="Budi Santoso" aria-label="Budi Santoso">BS</span></div>
+        </article>
+        <div class="kanban__empty">Taruh kartu di sini</div>
+      </div>
+    </section>
+    <section class="kanban__col" data-col="kerja" aria-labelledby="col-kerja" data-limit="3">
+      <header class="kanban__head"><h2 class="kanban__title" id="col-kerja">Dikerjakan</h2><span class="kanban__count"><span class="roll" data-lds-roll="3"></span></span>
+        <span class="kanban__head-end"><button class="icon-btn" type="button" data-add-to="kerja" aria-label="Tambah kartu ke Dikerjakan"><span class="ic" aria-hidden="true">add</span></button></span></header>
+      <div class="kanban__list" role="list" aria-labelledby="col-kerja">
+        <article class="kanban__card" role="listitem" tabindex="0" data-id="t6" data-cat="drainase" data-prio="high" data-kec="Kecamatan Pesisir" data-dinas="Dinas Pekerjaan Umum Kota Contoh" aria-describedby="kanban-keys">
+          <div class="kanban__top"><span class="badge badge--success">Drainase</span><span class="badge badge--danger"><span class="ic" aria-hidden="true">flag</span>Mendesak</span></div>
+          <h3 class="kanban__card-title">Normalisasi saluran Kelurahan Harapan Jaya</h3>
+          <p class="kanban__card-body">Pengerukan saluran primer sepanjang 400 m sebelum puncak musim hujan.</p>
+          <div><div class="progress-meta"><span>Progres</span><b>64%</b></div><div class="progress progress--thin"><span class="progress__fill" style="transform: scaleX(0.64);"></span></div></div>
+          <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>20 Nov</span><span><span class="ic" aria-hidden="true">location_on</span>Pesisir<span class="sr-only">, kecamatan</span></span><span><span class="ic" aria-hidden="true">photo_camera</span>8<span class="sr-only"> foto</span></span><span class="avatar avatar--gray" title="Hendra Gunawan" aria-label="Hendra Gunawan">HG</span></div>
+        </article>
+        <article class="kanban__card" role="listitem" tabindex="0" data-id="t7" data-cat="sampah" data-prio="medium" data-kec="Kecamatan Timur" data-dinas="Dinas Lingkungan Hidup Kota Contoh" aria-describedby="kanban-keys">
+          <div class="kanban__top"><span class="badge badge--warning">Sampah</span><span class="badge badge--warning"><span class="ic" aria-hidden="true">flag</span>Sedang</span></div>
+          <h3 class="kanban__card-title">Jadwal angkut tambahan Kecamatan Timur</h3>
+          <p class="kanban__card-body">Dua rit tambahan setiap Senin dan Kamis untuk 11 titik yang sering terlambat.</p>
+          <div><div class="progress-meta"><span>Progres</span><b>40%</b></div><div class="progress progress--thin"><span class="progress__fill" style="transform: scaleX(0.4);"></span></div></div>
+          <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>22 Nov</span><span><span class="ic" aria-hidden="true">location_on</span>Timur<span class="sr-only">, kecamatan</span></span><span><span class="ic" aria-hidden="true">photo_camera</span>2<span class="sr-only"> foto</span></span><span class="avatar avatar--gray" title="Yusuf Hidayat" aria-label="Yusuf Hidayat">YH</span></div>
+        </article>
+        <article class="kanban__card" role="listitem" tabindex="0" data-id="t8" data-cat="penerangan" data-prio="medium" data-kec="Kecamatan Utara" data-dinas="Dinas Perumahan dan Permukiman Kota Contoh" aria-describedby="kanban-keys">
+          <div class="kanban__top"><span class="badge">Penerangan</span><span class="badge badge--warning"><span class="ic" aria-hidden="true">flag</span>Sedang</span></div>
+          <h3 class="kanban__card-title">Perbaikan 23 lampu jalan Harapan Jaya</h3>
+          <p class="kanban__card-body">Usulan Kecamatan Utara. Tim sudah mengganti 6 lampu.</p>
+          <div><div class="progress-meta"><span>Progres</span><b>26%</b></div><div class="progress progress--thin"><span class="progress__fill" style="transform: scaleX(0.26);"></span></div></div>
+          <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>25 Nov</span><span><span class="ic" aria-hidden="true">location_on</span>Utara<span class="sr-only">, kecamatan</span></span><span><span class="ic" aria-hidden="true">photo_camera</span>4<span class="sr-only"> foto</span></span><span class="avatar avatar--gray" title="Arif Setiawan" aria-label="Arif Setiawan">AS</span></div>
+        </article>
+        <div class="kanban__empty">Taruh kartu di sini</div>
+      </div>
+    </section>
+    <section class="kanban__col" data-col="selesai" aria-labelledby="col-selesai">
+      <header class="kanban__head"><h2 class="kanban__title" id="col-selesai">Selesai</h2><span class="kanban__count"><span class="roll" data-lds-roll="2"></span></span>
+        <span class="kanban__head-end"><button class="icon-btn" type="button" data-add-to="selesai" aria-label="Tambah kartu ke Selesai"><span class="ic" aria-hidden="true">add</span></button></span></header>
+      <div class="kanban__list" role="list" aria-labelledby="col-selesai">
+        <article class="kanban__card" role="listitem" tabindex="0" data-id="t9" data-cat="jalan" data-prio="high" data-kec="Kecamatan Bukit" data-dinas="Dinas Pekerjaan Umum Kota Contoh" aria-describedby="kanban-keys">
+          <div class="kanban__top"><span class="badge badge--accent">Jalan rusak</span><span class="badge badge--danger"><span class="ic" aria-hidden="true">flag</span>Mendesak</span></div>
+          <h3 class="kanban__card-title">Tambal jalan di simpang Pasar Bukit</h3>
+          <p class="kanban__card-body">Ditambal sementara; perbaikan permanen masuk anggaran 2027.</p>
+          <div class="kanban__foot"><span><span class="ic" aria-hidden="true">check_circle</span>Selesai 12 Nov</span><span><span class="ic" aria-hidden="true">location_on</span>Bukit<span class="sr-only">, kecamatan</span></span><span><span class="ic" aria-hidden="true">photo_camera</span>5<span class="sr-only"> foto</span></span><span class="avatar avatar--gray" title="Budi Santoso" aria-label="Budi Santoso">BS</span></div>
+        </article>
+        <article class="kanban__card" role="listitem" tabindex="0" data-id="t10" data-cat="fasum" data-prio="low" data-kec="Kecamatan Tengah" data-dinas="Dinas Perhubungan Kota Contoh" aria-describedby="kanban-keys">
+          <div class="kanban__top"><span class="badge">Fasilitas umum</span><span class="badge"><span class="ic" aria-hidden="true">flag</span>Rendah</span></div>
+          <h3 class="kanban__card-title">Bangku halte Jalan Ahmad Yani</h3>
+          <p class="kanban__card-body">Dua bangku diganti; warga pelapor sudah diberi kabar.</p>
+          <div class="kanban__foot"><span><span class="ic" aria-hidden="true">check_circle</span>Selesai 10 Nov</span><span><span class="ic" aria-hidden="true">location_on</span>Tengah<span class="sr-only">, kecamatan</span></span><span><span class="ic" aria-hidden="true">photo_camera</span>2<span class="sr-only"> foto</span></span><span class="avatar avatar--gray" title="Dewi Lestari" aria-label="Dewi Lestari">DL</span></div>
+        </article>
+        <div class="kanban__empty">Taruh kartu di sini</div>
+      </div>
+    </section>
+</div>
+<p class="sr-only" id="kanban-keys">Tekan Spasi untuk mengangkat kartu, tombol panah untuk memindahkannya, Spasi untuk menaruhnya, dan Escape untuk membatalkan. Tekan Enter untuk membukanya.</p>
+    </main>
+  </div>
+</div>
+<div class="layer-host">
+  <div class="scrim" data-lds-scrim="palette"></div>
+  <div class="cmdk" id="palette" role="dialog" aria-modal="true" aria-label="Cari halaman dan tindakan" data-lds-layer data-lds-cmdk-key="k">
+    <div class="cmdk__search"><span class="ic" aria-hidden="true">search</span><input placeholder="Cari halaman dan tindakan" aria-label="Cari halaman dan tindakan" role="combobox" aria-expanded="true" aria-controls="palette-list" data-lds-filter="palette-list" data-lds-autofocus></div>
+    <div class="cmdk__list" id="palette-list" role="listbox" aria-label="Hasil">
+<div class="cmdk__group">Dasbor</div>
+<a class="cmdk__item" role="option" id="cmd-1" href="ringkasan.html"><span class="ic" aria-hidden="true">dashboard</span>Ringkasan kota</a>
+<a class="cmdk__item" role="option" id="cmd-2" href="pengaduan.html"><span class="ic" aria-hidden="true">campaign</span>Pengaduan warga</a>
+<a class="cmdk__item" role="option" id="cmd-3" href="perizinan.html"><span class="ic" aria-hidden="true">verified</span>Layanan perizinan</a>
+<a class="cmdk__item" role="option" id="cmd-4" href="kependudukan.html"><span class="ic" aria-hidden="true">groups</span>Kependudukan</a>
+<a class="cmdk__item" role="option" id="cmd-5" href="transportasi.html"><span class="ic" aria-hidden="true">directions_bus</span>Transportasi</a>
+<a class="cmdk__item" role="option" id="cmd-6" href="kebencanaan.html"><span class="ic" aria-hidden="true">flood</span>Kebencanaan dan cuaca</a>
+<a class="cmdk__item" role="option" id="cmd-7" href="kesehatan.html"><span class="ic" aria-hidden="true">local_hospital</span>Kesehatan</a>
+<a class="cmdk__item" role="option" id="cmd-8" href="pendidikan.html"><span class="ic" aria-hidden="true">school</span>Pendidikan</a>
+<a class="cmdk__item" role="option" id="cmd-9" href="pendapatan.html"><span class="ic" aria-hidden="true">request_quote</span>Pendapatan daerah</a>
+<a class="cmdk__item" role="option" id="cmd-10" href="bantuan-sosial.html"><span class="ic" aria-hidden="true">volunteer_activism</span>Bantuan sosial</a>
+<a class="cmdk__item" role="option" id="cmd-11" href="umkm.html"><span class="ic" aria-hidden="true">storefront</span>UMKM dan pasar</a>
+<a class="cmdk__item" role="option" id="cmd-12" href="pariwisata.html"><span class="ic" aria-hidden="true">landscape</span>Pariwisata dan agenda</a>
+<a class="cmdk__item" role="option" id="cmd-13" href="lingkungan.html"><span class="ic" aria-hidden="true">eco</span>Lingkungan</a>
+<a class="cmdk__item" role="option" id="cmd-14" href="infrastruktur.html"><span class="ic" aria-hidden="true">lightbulb</span>Infrastruktur dan aset</a>
+<a class="cmdk__item" role="option" id="cmd-15" href="pusat-komando.html"><span class="ic" aria-hidden="true">videocam</span>Pusat komando</a>
+<a class="cmdk__item" role="option" id="cmd-16" href="kepegawaian.html"><span class="ic" aria-hidden="true">badge</span>Kepegawaian</a>
+<a class="cmdk__item" role="option" id="cmd-17" href="keuangan.html"><span class="ic" aria-hidden="true">account_balance</span>Keuangan daerah</a>
+<div class="cmdk__group">Halaman</div>
+<a class="cmdk__item" role="option" id="cmd-18" href="laporan.html"><span class="ic" aria-hidden="true">article</span>Daftar laporan</a>
+<a class="cmdk__item" role="option" id="cmd-19" href="kotak-masuk.html"><span class="ic" aria-hidden="true">inbox</span>Kotak masuk</a>
+<a class="cmdk__item" role="option" id="cmd-20" href="obrolan.html"><span class="ic" aria-hidden="true">chat</span>Obrolan</a>
+<a class="cmdk__item" role="option" id="cmd-21" href="kalender.html"><span class="ic" aria-hidden="true">calendar_month</span>Kalender kegiatan</a>
+<a class="cmdk__item" role="option" id="cmd-22" href="tindak-lanjut.html"><span class="ic" aria-hidden="true">view_kanban</span>Kanban tindak lanjut</a>
+<a class="cmdk__item" role="option" id="cmd-23" href="tugas.html"><span class="ic" aria-hidden="true">checklist</span>Tugas</a>
+<a class="cmdk__item" role="option" id="cmd-24" href="arsip.html"><span class="ic" aria-hidden="true">folder_open</span>Arsip dokumen</a>
+<a class="cmdk__item" role="option" id="cmd-25" href="profil.html"><span class="ic" aria-hidden="true">person</span>Profil</a>
+<a class="cmdk__item" role="option" id="cmd-26" href="pengguna.html"><span class="ic" aria-hidden="true">group</span>Pengguna</a>
+<a class="cmdk__item" role="option" id="cmd-27" href="peran.html"><span class="ic" aria-hidden="true">shield_person</span>Peran dan akses</a>
+<a class="cmdk__item" role="option" id="cmd-28" href="segera-hadir.html"><span class="ic" aria-hidden="true">schedule</span>Segera hadir</a>
+<div class="cmdk__group">Masuk</div>
+<a class="cmdk__item" role="option" id="cmd-29" href="masuk.html"><span class="ic" aria-hidden="true">login</span>Masuk</a>
+<a class="cmdk__item" role="option" id="cmd-30" href="daftar.html"><span class="ic" aria-hidden="true">person_add</span>Daftar</a>
+<a class="cmdk__item" role="option" id="cmd-31" href="lupa-kata-sandi.html"><span class="ic" aria-hidden="true">key</span>Lupa kata sandi</a>
+<a class="cmdk__item" role="option" id="cmd-32" href="verifikasi.html"><span class="ic" aria-hidden="true">sms</span>Verifikasi OTP</a>
+<a class="cmdk__item" role="option" id="cmd-33" href="akses-ditolak.html"><span class="ic" aria-hidden="true">do_not_disturb_on</span>Akses ditolak</a>
+<div class="cmdk__group">Tindakan</div>
+<button type="button" class="cmdk__item" role="option" id="cmd-34" data-cmd="theme:light"><span class="ic" aria-hidden="true">light_mode</span>Pakai tampilan terang</button>
+<button type="button" class="cmdk__item" role="option" id="cmd-35" data-cmd="theme:dark"><span class="ic" aria-hidden="true">dark_mode</span>Pakai tampilan gelap</button>
+<button type="button" class="cmdk__item" role="option" id="cmd-36" data-cmd="theme:system"><span class="ic" aria-hidden="true">desktop_windows</span>Ikuti tampilan sistem</button>
+<button type="button" class="cmdk__item" role="option" id="cmd-37" data-cmd="rail"><span class="ic" aria-hidden="true">left_panel_close</span>Ciutkan atau lebarkan menu samping</button>
+<a class="cmdk__item" role="option" id="cmd-38" href="../index.html"><span class="ic" aria-hidden="true">grid_view</span>Semua contoh</a>
+<a class="cmdk__item" role="option" id="cmd-39" href="../../index.html"><span class="ic" aria-hidden="true">menu_book</span>Dokumentasi sistem desain</a>
+      <div class="cmdk__empty" data-lds-empty hidden>Tidak ada yang cocok. Coba nama halaman seperti "pengaduan" atau "kalender".</div>
+    </div>
+    <div class="cmdk__foot"><span><span class="kbd">↑</span> <span class="kbd">↓</span> untuk berpindah</span><span><span class="kbd">↵</span> untuk membuka</span><span><span class="kbd">esc</span> untuk menutup</span></div>
+  </div>
+  <div class="scrim" data-lds-scrim="task"></div>
+  <aside class="drawer dash-tindak-lanjut__drawer" id="task" role="dialog" aria-modal="true" aria-labelledby="task-title" data-lds-layer>
+    <div class="sheet__head" style="margin: 0;"><h2 class="sheet__title" id="task-title">Kartu</h2><button class="icon-btn" type="button" aria-label="Tutup" data-lds-close style="margin: -10px -10px -10px 0;"><span class="ic" aria-hidden="true">close</span></button></div>
+    <div class="cluster" data-task-badges></div>
+    <p class="section__sub" data-task-body></p>
+    <dl class="kv-list">
+      <div class="kv"><dt>Tahap</dt><dd data-task-stage></dd></div>
+      <div class="kv"><dt>Kecamatan</dt><dd data-task-kec></dd></div>
+      <div class="kv"><dt>Dinas</dt><dd data-task-dinas></dd></div>
+      <div class="kv"><dt>Penanggung jawab</dt><dd data-task-owner></dd></div>
+      <div class="kv"><dt>Tenggat</dt><dd data-task-due></dd></div>
+    </dl>
+    <div class="field">
+      <span class="field__label" id="move-label">Pindahkan ke</span>
+      <div class="cluster" role="group" aria-labelledby="move-label" data-task-move></div>
+    </div>
+    <div class="cluster" style="margin-top: auto; justify-content: space-between;">
+      <button class="btn btn--secondary btn--md" type="button" data-task-notify><span class="ic" aria-hidden="true">sms</span>Kabari pelapor</button>
+      <button class="btn btn--danger-tinted btn--md" type="button" data-task-delete><span class="ic" aria-hidden="true">delete</span>Hapus kartu</button>
+    </div>
+  </aside>
+  <div class="scrim" data-lds-scrim="new-task"></div>
+  <aside class="drawer dash-tindak-lanjut__drawer" id="new-task" role="dialog" aria-modal="true" aria-labelledby="new-task-title" data-lds-layer>
+    <div class="sheet__head" style="margin: 0;"><h2 class="sheet__title" id="new-task-title">Kartu baru</h2><button class="icon-btn" type="button" aria-label="Tutup" data-lds-close style="margin: -10px -10px -10px 0;"><span class="ic" aria-hidden="true">close</span></button></div>
+    <form class="form" id="new-task-form" novalidate style="flex: 1;">
+      <div class="field"><label class="field__label" for="nt-title">Judul</label><div class="control"><input id="nt-title" name="title" placeholder="Saluran tersumbat di Jalan Kenanga" required></div></div>
+      <div class="field"><label class="field__label" for="nt-body">Lokasi dan rincian <span>Opsional</span></label><div class="control control--area"><textarea id="nt-body" name="body" rows="3" placeholder="Alamat, kelurahan, dan apa yang perlu dikerjakan"></textarea></div></div>
+      <div class="field"><span class="field__label" id="nt-kec-label">Kecamatan</span>
+        <div class="select" data-lds-select data-nt-kec>
+          <button type="button" class="control select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="nt-kec-label"><span class="ic" aria-hidden="true">location_on</span><span class="select__value">Kecamatan Tengah</span><span class="ic" aria-hidden="true">expand_more</span></button>
+          <ul class="menu select__menu" role="listbox" aria-labelledby="nt-kec-label"><li class="menu__item" role="option" aria-selected="false" data-value="Kecamatan Utara">Kecamatan Utara</li><li class="menu__item" role="option" aria-selected="false" data-value="Kecamatan Selatan">Kecamatan Selatan</li><li class="menu__item" role="option" aria-selected="false" data-value="Kecamatan Timur">Kecamatan Timur</li><li class="menu__item" role="option" aria-selected="false" data-value="Kecamatan Barat">Kecamatan Barat</li><li class="menu__item is-selected" role="option" aria-selected="true" data-value="Kecamatan Tengah">Kecamatan Tengah</li><li class="menu__item" role="option" aria-selected="false" data-value="Kecamatan Pesisir">Kecamatan Pesisir</li><li class="menu__item" role="option" aria-selected="false" data-value="Kecamatan Bukit">Kecamatan Bukit</li><li class="menu__item" role="option" aria-selected="false" data-value="Kecamatan Teluk">Kecamatan Teluk</li><li class="menu__item" role="option" aria-selected="false" data-value="Kecamatan Sukarame Baru">Kecamatan Sukarame Baru</li></ul>
+        </div>
+        <input type="hidden" name="kec" value="Kecamatan Tengah">
+      </div>
+      <fieldset class="stack" style="--gap: 10px;">
+        <legend class="field__label" style="margin-bottom: 10px;">Kategori</legend>
+        <div class="chip-row" data-lds-chips="single" role="group" aria-label="Kategori" data-nt-team>
+          <button class="chip" type="button" value="sampah" aria-pressed="true"><span class="ic chip__check" aria-hidden="true">check</span>Sampah</button>
+          <button class="chip" type="button" value="jalan" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Jalan rusak</button>
+          <button class="chip" type="button" value="drainase" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Drainase</button>
+          <button class="chip" type="button" value="penerangan" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Penerangan</button>
+          <button class="chip" type="button" value="fasum" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Fasilitas umum</button>
+        </div>
+      </fieldset>
+      <input type="hidden" name="col" value="baru">
+      <div class="form__actions" style="margin-top: auto;"><button class="btn btn--secondary" type="button" data-lds-close>Batal</button><button class="btn btn--primary" type="submit" data-nt-submit>Tambah ke Baru</button></div>
+    </form>
+  </aside>
+</div>
+<script type="module" src="dashboard.js"></script>
+<script type="module">
+import { openLayer, closeLayer, shake, setRoll, announce } from '../../../js/lds.js';
+import { notify } from './dashboard.js';
+
+const board = document.querySelector('[data-lds-kanban]');
+const NAMES = { RW: 'Rina Wijayanti', AS: 'Arif Setiawan', DL: 'Dewi Lestari', HG: 'Hendra Gunawan', SH: 'Sari Handayani', BS: 'Budi Santoso', YH: 'Yusuf Hidayat' };
+const CAT = { sampah: ['Sampah', 'badge--warning', 'Dinas Lingkungan Hidup Kota Contoh'], jalan: ['Jalan rusak', 'badge--accent', 'Dinas Pekerjaan Umum Kota Contoh'], drainase: ['Drainase', 'badge--success', 'Dinas Pekerjaan Umum Kota Contoh'], penerangan: ['Penerangan', '', 'Dinas Perumahan dan Permukiman Kota Contoh'], fasum: ['Fasilitas umum', '', 'Dinas Perumahan dan Permukiman Kota Contoh'] };
+const colName = (key) => board.querySelector(`[data-col="${key}"] .kanban__title`).textContent;
+const recount = () => board.querySelectorAll('.kanban__col').forEach((c) => setRoll(c.querySelector('.roll'), c.querySelectorAll('.kanban__card:not([hidden])').length));
+
+// Moving a card: a toast confirms where it went and offers to put it back
+board.addEventListener('lds:move', (e) => {
+  const { card, from, to } = e.detail;
+  if (from === to) return;
+  const back = { list: board.querySelector(`[data-col="${from}"] .kanban__list`) };
+  const title = card.querySelector('.kanban__card-title').textContent;
+  notify({ title: `Dipindahkan ke ${colName(to)}`, body: title, icon: 'check_circle', action: 'Urungkan', onAction: () => { back.list.insertBefore(card, back.list.querySelector('.kanban__empty')); recount(); return { title: `Kembali ke ${colName(from)}`, icon: 'undo' }; } });
+});
+
+// Search and category filter: cards that do not match leave the board, counts follow
+const search = document.querySelector('[data-k-search]');
+const teams = document.querySelector('[data-k-teams]');
+const countEl = document.querySelector('[data-k-count]');
+const clear = document.querySelector('[data-k-clear]');
+let picked = new Set();
+const filter = () => {
+  const q = search.value.trim().toLowerCase();
+  let shown = 0, all = 0;
+  board.querySelectorAll('.kanban__card').forEach((c) => {
+    all++;
+    const ok = (!q || (c.textContent + ' ' + c.dataset.kec).toLowerCase().includes(q)) && (!picked.size || picked.has(c.dataset.cat));
+    c.hidden = !ok; if (ok) shown++;
+  });
+  recount();
+  const active = q || picked.size;
+  countEl.textContent = active ? `${shown} dari ${all} kartu` : '';
+  clear.hidden = !active;
+};
+search.addEventListener('input', filter);
+teams.addEventListener('lds:change', (e) => { picked = new Set(e.detail.selected); filter(); });
+clear.addEventListener('click', () => { search.value = ''; picked = new Set(); teams.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', 'false')); filter(); search.focus(); });
+
+// Open a card: a click or Enter opens the drawer with its details
+const drawer = document.getElementById('task');
+let current = null;
+const openTask = (card) => {
+  current = card;
+  const col = card.closest('.kanban__col').dataset.col;
+  drawer.querySelector('#task-title').textContent = card.querySelector('.kanban__card-title').textContent;
+  drawer.querySelector('[data-task-badges]').innerHTML = card.querySelector('.kanban__top').innerHTML;
+  drawer.querySelector('[data-task-body]').textContent = card.querySelector('.kanban__card-body').textContent;
+  drawer.querySelector('[data-task-stage]').textContent = colName(col);
+  drawer.querySelector('[data-task-kec]').textContent = card.dataset.kec;
+  drawer.querySelector('[data-task-dinas]').textContent = card.dataset.dinas;
+  const who = card.querySelector('.avatar');
+  drawer.querySelector('[data-task-owner]').textContent = NAMES[who.textContent] || who.textContent;
+  drawer.querySelector('[data-task-due]').textContent = card.querySelector('.kanban__foot span').textContent;
+  const seg = drawer.querySelector('[data-task-move]');
+  seg.innerHTML = [...board.querySelectorAll('.kanban__col')].map((c) => `<button type="button" class="btn btn--secondary btn--sm" data-move-to="${c.dataset.col}"${c.dataset.col === col ? ' aria-pressed="true" disabled' : ''}>${colName(c.dataset.col)}</button>`).join('');
+  openLayer('task', card);
+};
+board.addEventListener('click', (e) => { const c = e.target.closest('.kanban__card'); if (c && !e.target.closest('button, a')) openTask(c); });
+board.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.defaultPrevented && e.target.matches('.kanban__card')) openTask(e.target); });
+drawer.addEventListener('click', (e) => {
+  const m = e.target.closest('[data-move-to]');
+  if (m && current) {
+    const from = current.closest('.kanban__col').dataset.col, to = m.dataset.moveTo;
+    const list = board.querySelector(`[data-col="${to}"] .kanban__list`);
+    list.insertBefore(current, list.querySelector('.kanban__card'));
+    recount(); closeLayer('task');
+    current.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+    board.dispatchEvent(new CustomEvent('lds:move', { detail: { card: current, from, to, id: current.dataset.id, index: 0 } }));
+  }
+  if (e.target.closest('[data-task-notify]') && current) {
+    const stage = colName(current.closest('.kanban__col').dataset.col);
+    notify({ title: 'Kabar terkirim ke pelapor', body: `Status di aplikasi warga: ${stage}.`, icon: 'sms' });
+  }
+  if (e.target.closest('[data-task-delete]') && current) {
+    const card = current, list = card.parentElement, next = card.nextElementSibling;
+    card.remove(); recount(); closeLayer('task');
+    notify({ title: 'Kartu dihapus', body: card.querySelector('.kanban__card-title').textContent, icon: 'delete', action: 'Urungkan', onAction: () => { list.insertBefore(card, next); recount(); return { title: 'Kartu dikembalikan', icon: 'undo' }; } });
+  }
+});
+
+// New card: opened from the header or a column's + button, added to the top of that column
+const form = document.getElementById('new-task-form');
+let catPick = 'sampah';
+document.querySelector('[data-nt-team]').addEventListener('lds:change', (e) => { catPick = e.detail.value; });
+document.querySelector('[data-nt-kec]').addEventListener('lds:change', (e) => { form.elements.kec.value = e.detail.value; });
+document.addEventListener('click', (e) => {
+  const b = e.target.closest('[data-add-to]'); if (!b) return;
+  form.elements.col.value = b.dataset.addTo;
+  form.querySelector('[data-nt-submit]').textContent = `Tambah ke ${colName(b.dataset.addTo)}`;
+  openLayer('new-task', b);
+});
+form.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const t = form.elements.title, title = t.value.trim();
+  if (!title) { shake(t.closest('.control')); t.focus(); announce('Beri kartu sebuah judul'); return; }
+  const c = CAT[catPick], kec = form.elements.kec.value;
+  const tpl = board.querySelector('.kanban__card').cloneNode(true);
+  tpl.dataset.id = `t${Date.now()}`; tpl.dataset.cat = catPick; tpl.dataset.kec = kec; tpl.dataset.dinas = c[2]; tpl.hidden = false;
+  tpl.classList.remove('is-grabbed', 'is-settling');
+  tpl.querySelector('.kanban__top').innerHTML = `<span class="badge${c[1] ? ` ${c[1]}` : ''}">${c[0]}</span><span class="badge"><span class="ic" aria-hidden="true">flag</span>Rendah</span>`;
+  tpl.querySelector('.kanban__card-title').textContent = title;
+  tpl.querySelector('.kanban__card-body').textContent = form.elements.body.value.trim() || 'Belum ada rincian.';
+  tpl.querySelectorAll('.progress, .progress-meta').forEach((x) => x.parentElement.remove());
+  tpl.querySelector('.kanban__foot').innerHTML = `<span><span class="ic" aria-hidden="true">calendar_month</span>Belum ada tenggat</span><span><span class="ic" aria-hidden="true">location_on</span>${kec.replace('Kecamatan ', '')}<span class="sr-only">, kecamatan</span></span><span><span class="ic" aria-hidden="true">photo_camera</span>0<span class="sr-only"> foto</span></span><span class="avatar" aria-label="Rina Wijayanti">RW</span>`;
+  const list = board.querySelector(`[data-col="${form.elements.col.value}"] .kanban__list`);
+  list.insertBefore(tpl, list.firstElementChild);
+  recount(); closeLayer('new-task'); form.elements.title.value = ''; form.elements.body.value = '';
+  tpl.scrollIntoView({ block: 'nearest', inline: 'nearest', behavior: 'smooth' });
+  tpl.classList.add('view-in');
+  notify({ title: `Ditambahkan ke ${colName(form.elements.col.value)}`, body: title, icon: 'add_circle' });
+});
+document.querySelector('[data-import]').addEventListener('click', () => notify({ title: 'Pilih berkas CSV dengan kolom judul, kategori, kecamatan, dan tenggat', icon: 'upload_file' }));
+</script>
+</body>
+</html>
