@@ -22,3 +22,10 @@ test('no em dashes in docs, specs and copy', () => {
   const bad = files.filter((f) => /^(docs\/(spec|guides)|apps\/landing|README)/.test(f) && readFileSync(join(root, f), 'utf8').includes('—'));
   assert.deepEqual(bad, []);
 });
+
+test('the siger mark is the favicon and the docs mark', () => {
+  const mark = readFileSync(join(root, 'brand/mark.svg'), 'utf8');
+  assert.match(mark, /<svg[^>]+viewBox="0 0 64 64"/);
+  assert.equal(readFileSync(join(root, 'apps/landing/favicon.svg'), 'utf8'), mark);
+  assert.ok(readFileSync(join(root, 'docs/index.html'), 'utf8').includes('class="siger"'));
+});
