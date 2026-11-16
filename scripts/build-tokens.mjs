@@ -47,6 +47,37 @@ function staticBlock() {
   for (const [k, s] of Object.entries(t.motion.spring)) l.push(`  --spring-${k}: ${springCss(s)};`);
   return l.join('\n');
 }
+// Accent presets (data-accent="<name>"): only the accent roles change, for the light and dark themes,
+// including when data-accent and data-theme sit on different elements. When both sit on the same element
+// the selector repeats [data-theme] so it outranks a theme set on an ancestor.
+function accentBlocks() {
+  const out = [];
+  for (const [name, a] of Object.entries(t.accents || {})) {
+    if (name.startsWith('$')) continue;
+    const vars = (mode) => Object.entries(a[mode]).map(([k, v]) => `  --${k}: ${v};`).join('\n');
+    const sel = `[data-accent="${name}"]`;
+    out.push(`/* ${a.label}: ${a.story} */
+${sel},
+${sel} [data-theme="light"],
+[data-theme="light"][data-theme]${sel},
+[data-theme="light"] ${sel} {
+${vars('light')}
+}
+[data-theme="dark"][data-theme]${sel},
+[data-theme="dark"] ${sel},
+${sel} [data-theme="dark"] {
+${vars('dark')}
+}
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"][data-theme]${sel},
+  [data-theme="system"] ${sel},
+  ${sel} [data-theme="system"] {
+${vars('dark').replace(/^/gm, '  ')}
+  }
+}`);
+  }
+  return out.join('\n\n');
+}
 write('css/tokens.css', `/* ${HEADER} */
 
 /* Light is the default. Set data-theme="dark" on <html> (or any subtree) for dark,
@@ -72,6 +103,7 @@ ${themeBlock('dark')}
 ${themeBlock('dark').replace(/^/gm, '  ')}
   }
 }
+${accentBlocks()}
 
 @media (prefers-contrast: more) {
   :root {
