@@ -24,7 +24,7 @@ export default {
       html: `<div class="cta-band" style="width: 100%;">
   <h2 class="cta-band__title">Daftarkan usaha Anda dalam 15 menit.</h2>
   <p class="cta-band__body">Pendaftaran gratis, dan data usaha Anda bisa diperbarui kapan saja.</p>
-  <div class="codeblock"><div class="codeblock__bar"><span>Kode kelurahan Anda</span><button class="btn btn--plain btn--sm" data-lds-copy="UMKM-KDT-2026"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Tersalin">Salin</span></button></div><pre>UMKM-KDT-2026</pre></div>
+  <div class="codeblock"><div class="codeblock__bar"><span>Kode kelurahan Anda</span><button class="btn btn--plain btn--sm" data-lds-copy="UMKM-KDT-2026"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Disalin">Salin</span></button></div><pre>UMKM-KDT-2026</pre></div>
   <div class="cta-band__actions"><a class="btn btn--primary btn--lg" href="#">Daftarkan usaha</a><a class="btn btn--secondary btn--lg" href="#">Lihat persyaratan</a></div>
 </div>`,
     },
@@ -34,7 +34,7 @@ export default {
   ],
   a11y: [
     'Heading sungguhan, agar band ini ditemukan di daftar heading.',
-    'Tombol dan tautan sungguhan; tombol salin mengumumkan "Tersalin".',
+    'Tombol dan tautan sungguhan; tombol salin mengumumkan "Disalin".',
   ],
   do: [
     'Ulangi aksi utama hero, dengan nama yang sama.',

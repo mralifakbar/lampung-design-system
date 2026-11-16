@@ -38,7 +38,7 @@ const STRINGS = {
     html: 'id', intro: 'Pengenalan', masthead: 'Proyek komunitas. Ini bukan situs resmi pemerintah.', mastheadMore: 'Cara memastikan', mastheadLabel: 'Status situs', mastheadA: '<b>Dikelola sukarelawan.</b> Lampung Design System dibangun oleh komunitas open source. Tidak ada instansi pemerintah yang mengelola atau mendukungnya secara resmi.', mastheadB: '<b>Layanan resmi memakai go.id.</b> Situs pemerintah Indonesia berakhiran .go.id. Jangan masukkan NIK di situs yang Anda ragukan.', docs: 'Dokumentasi', components: 'Komponen', start: 'Memulai', all: 'Semua komponen', examples: 'Contoh',
     appearance: 'Tampilan', light: 'Terang', dark: 'Gelap', skip: 'Langsung ke konten', menu: 'Menu', newBadge: 'Baru',
     useWhen: 'Pakai saat', useElse: 'Pakai yang lain saat', use: 'pakai', where: 'Letaknya.', usage: 'Penggunaan',
-    code: 'Kode', replay: 'Putar ulang', copy: 'Salin', copied: 'Tersalin', anatomy: 'Anatomi', part: 'Bagian', whatItIs: 'Fungsinya',
+    code: 'Kode', replay: 'Putar ulang', copy: 'Salin', copied: 'Disalin', anatomy: 'Anatomi', part: 'Bagian', whatItIs: 'Fungsinya',
     variants: 'Varian dan ukuran', classOrAttr: 'Kelas atau atribut', when: 'Kapan', states: 'Status', state: 'Status', how: 'Caranya',
     motion: 'Gerak dan mikrointeraksi', a11y: 'Aksesibilitas', dd: 'Lakukan dan hindari', do: 'Lakukan', dont: 'Hindari',
     plain: 'HTML biasa.', react: 'React.', from: 'Dari', behavior: 'Perilaku dan kode', related: 'Terkait', crumbs: 'Remah roti',

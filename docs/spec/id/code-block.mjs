@@ -22,7 +22,7 @@ export default {
       title: 'Dengan aksi salin',
       desc: 'Bilah menyebut nama berkas; tombol salin mengonfirmasi di tempat.',
       html: `<div class="codeblock" style="max-width: 560px;">
-  <div class="codeblock__bar"><span>styles.css</span><button class="btn btn--plain btn--sm" data-lds-copy="@import 'lampung-design-system/css';"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Tersalin">Salin</span></button></div>
+  <div class="codeblock__bar"><span>styles.css</span><button class="btn btn--plain btn--sm" data-lds-copy="@import 'lampung-design-system/css';"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Disalin">Salin</span></button></div>
   <pre><code>@import 'lampung-design-system/css';</code></pre>
 </div>`,
     },
@@ -43,7 +43,7 @@ export default {
     ['without bar', 'Hanya `pre` di dalam `.codeblock`, untuk keluaran yang dibaca.'],
   ],
   states: [
-    ['copied', 'Tombol salin menukar ikonnya menjadi `check` dan labelnya menjadi "Tersalin" sesaat ([tombol salin](copy-button)).'],
+    ['copied', 'Tombol salin menukar ikonnya menjadi `check` dan labelnya menjadi "Disalin" sesaat ([tombol salin](copy-button)).'],
   ],
   motion: [
     'Hanya tombol salin yang bergerak: pertukaran ikon dengan `--spring-snappy`. Bloknya sendiri diam.',

@@ -25,8 +25,8 @@ export default {
   examples: [
     {
       title: 'Salin, lalu tersalin',
-      desc: 'Tekan salin: ikon menjadi centang dan labelnya berbunyi Tersalin, lalu keduanya kembali setelah 1,6 detik.',
-      html: `<div class="codeblock" style="width: 100%; max-width: 420px;"><div class="codeblock__bar"><span>Instalasi</span><button class="btn btn--plain btn--sm" data-lds-copy="npm install lampung-design-system">${SWAP('content_copy', 'check')}<span data-lds-copy-label="Tersalin">Salin</span></button></div><pre>npm install lampung-design-system</pre></div>
+      desc: 'Tekan salin: ikon menjadi centang dan labelnya berbunyi Disalin, lalu keduanya kembali setelah 1,6 detik.',
+      html: `<div class="codeblock" style="width: 100%; max-width: 420px;"><div class="codeblock__bar"><span>Instalasi</span><button class="btn btn--plain btn--sm" data-lds-copy="npm install lampung-design-system">${SWAP('content_copy', 'check')}<span data-lds-copy-label="Disalin">Salin</span></button></div><pre>npm install lampung-design-system</pre></div>
 <button class="icon-btn" aria-label="Salin tautan undangan" data-lds-copy="https://campus.ac.id/join/BIO101">${SWAP('link', 'check')}</button>`,
     },
     {
