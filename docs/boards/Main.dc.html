@@ -36,7 +36,7 @@ a{color:#0A6246}a:hover{color:#1E40AF}
       <div class="col" style="gap: 8px;">
         <span style="font: 600 13px/18px var(--font); color: var(--accent-text);">01</span>
         <h2 style="font: 600 17px/22px var(--font); letter-spacing: -0.01em; color: var(--text-strong);">Putih lebih dulu</h2>
-        <p style="font: 400 14px/21px var(--font); color: var(--text-subtle);">Kartu dan daftar duduk di atas isian #F4F4F6, bukan garis tepi. Bayangan hanya untuk sheet, menu, dialog, dan toast, yaitu lapisan yang memang melayang.</p>
+        <p style="font: 400 14px/21px var(--font); color: var(--text-subtle);">Kartu dan daftar duduk di atas isian #F3F5F4, bukan garis tepi. Bayangan hanya untuk sheet, menu, dialog, dan toast, yaitu lapisan yang memang melayang.</p>
       </div>
       <div class="col" style="gap: 8px;">
         <span style="font: 600 13px/18px var(--font); color: var(--accent-text);">02</span>
@@ -185,20 +185,20 @@ class Component extends DCLogic {
     const dark = theme === 'dark';
     const pick = (l, d) => (dark ? d : l);
     const surfaces = [
-      { name: 'Kanvas', token: '--bg-canvas', hex: pick('#FFFFFF', '#0B0B0D'), use: 'Halaman itu sendiri.' },
-      { name: 'Isian', token: '--bg-fill', hex: pick('#F4F4F6', '#18181B'), use: 'Kartu, daftar berkelompok, panggung contoh.' },
-      { name: 'Cekung', token: '--bg-recessed', hex: pick('#EFEFF2', '#26262A'), use: 'Lintasan segmented, pencarian, ceruk.' },
-      { name: 'Terangkat', token: '--bg-elevated', hex: pick('#FFFFFF', '#1F1F23'), use: 'Sheet, dialog, menu.' },
-      { name: 'Terbalik', token: '--bg-inverse', hex: pick('#1C1C20', '#F4F4F5'), use: 'Toast, tooltip, banner.' },
-      { name: 'Scrim', token: '--bg-scrim', hex: pick('9,9,11 · 32%', '0,0,0 · 56%'), use: 'Di balik lapisan modal.' }
+      { name: 'Kanvas', token: '--bg-canvas', hex: pick('#FFFFFF', '#0B0F0D'), use: 'Halaman itu sendiri.' },
+      { name: 'Isian', token: '--bg-fill', hex: pick('#F3F5F4', '#151A18'), use: 'Kartu, daftar berkelompok, panggung contoh.' },
+      { name: 'Cekung', token: '--bg-recessed', hex: pick('#ECEFED', '#232A27'), use: 'Lintasan segmented, pencarian, ceruk.' },
+      { name: 'Terangkat', token: '--bg-elevated', hex: pick('#FFFFFF', '#1C2220'), use: 'Sheet, dialog, menu.' },
+      { name: 'Terbalik', token: '--bg-inverse', hex: pick('#16201C', '#F1F4F2'), use: 'Toast, tooltip, banner.' },
+      { name: 'Scrim', token: '--bg-scrim', hex: pick('6,12,10 · 32%', '0,0,0 · 56%'), use: 'Di balik lapisan modal.' }
     ];
     const inks = [
-      { token: '--text-strong', sample: 'Judul dan nilai', hex: pick('#0A0A0B', '#FAFAFA'), ratio: pick('19.8 : 1', '18.8 : 1'), badge: 'ratio' },
-      { token: '--text-default', sample: 'Teks isi', hex: pick('#27272A', '#E4E4E7'), ratio: pick('14.9 : 1', '15.5 : 1'), badge: 'ratio' },
-      { token: '--text-subtle', sample: 'Teks sekunder', hex: pick('#5C5C66', '#A1A1AA'), ratio: pick('6.6 : 1', '7.7 : 1'), badge: 'ratio' },
-      { token: '--text-muted', sample: 'Placeholder, meta', hex: pick('#6B6B75', '#8E8E96'), ratio: pick('5.3 : 1', '6.1 : 1'), badge: 'ratio' },
-      { token: '--accent-text', sample: 'Tautan, label tint', hex: pick('#0A6246', '#5FD3A6'), ratio: pick('6.7 : 1', '9.4 : 1'), badge: 'ratio' },
-      { token: '--line-control', sample: 'Tepi kontrol, bukan teks', hex: pick('#8E8E96', '#77777F'), ratio: pick('3.3 : 1 UI', '4.4 : 1 UI'), badge: 'ratio ratio--ui' }
+      { token: '--text-strong', sample: 'Judul dan nilai', hex: pick('#0A0F0D', '#F7FAF8'), ratio: pick('19.3 : 1', '18.4 : 1'), badge: 'ratio' },
+      { token: '--text-default', sample: 'Teks isi', hex: pick('#26302C', '#E1E6E3'), ratio: pick('13.6 : 1', '15.3 : 1'), badge: 'ratio' },
+      { token: '--text-subtle', sample: 'Teks sekunder', hex: pick('#56615C', '#A0AAA5'), ratio: pick('6.4 : 1', '8.1 : 1'), badge: 'ratio' },
+      { token: '--text-muted', sample: 'Placeholder, meta', hex: pick('#66716C', '#8B9590'), ratio: pick('5.1 : 1', '6.2 : 1'), badge: 'ratio' },
+      { token: '--accent-text', sample: 'Tautan, label tint', hex: pick('#0A6246', '#5FD3A6'), ratio: pick('7.4 : 1', '10.4 : 1'), badge: 'ratio' },
+      { token: '--line-control', sample: 'Tepi kontrol, bukan teks', hex: pick('#8A948F', '#7C8681'), ratio: pick('3.1 : 1 UI', '5.1 : 1 UI'), badge: 'ratio ratio--ui' }
     ];
     const accents = [
       { name: 'Aksen', token: '--accent', hex: pick('#0B6E4F', '#0F7D59') },
