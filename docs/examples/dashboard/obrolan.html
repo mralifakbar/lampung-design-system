@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="id" class="lds" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Obrolan · Sakai Dasbor · Contoh Lampung Design System</title>
+<meta name="description" content="Koordinasi cepat antarpegawai dan grup posko, plus asisten yang menjawab dari data dasbor. Enter mengirim, Shift+Enter menambah baris.">
+<meta name="theme-color" content="#FFFFFF">
+<script>try { var t = localStorage.getItem('lds-theme'); if (t) document.documentElement.setAttribute('data-theme', t); if (localStorage.getItem('lds-shell-rail') === '1') document.documentElement.setAttribute('data-shell-rail', ''); } catch (e) {}</script>
+<link rel="stylesheet" href="../../../css/lds.css">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body class="lds">
+<a class="skip-link" href="#main">Lewati ke isi</a>
+<div class="navprogress" aria-hidden="true"></div>
+<div class="shell" data-lds-shell>
+  <aside class="shell__side" id="side" aria-label="Menu samping">
+    <a class="shell__brand" href="ringkasan.html"><span class="shell__mark" aria-hidden="true">S</span><span class="shell__label">Sakai Dasbor</span></a>
+    <nav class="shell__nav" aria-label="Utama">
+      <span class="shell__hl" aria-hidden="true"></span>
+      <p class="shell__group">Dasbor</p>
+      <a class="shell__link" href="ringkasan.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">Ringkasan kota</span></a>
+      <a class="shell__link" href="pengaduan.html"><span class="ic" aria-hidden="true">campaign</span><span class="shell__label">Pengaduan warga</span></a>
+      <a class="shell__link" href="perizinan.html"><span class="ic" aria-hidden="true">verified</span><span class="shell__label">Layanan perizinan</span></a>
+      <a class="shell__link" href="kependudukan.html"><span class="ic" aria-hidden="true">groups</span><span class="shell__label">Kependudukan</span></a>
+      <a class="shell__link" href="transportasi.html"><span class="ic" aria-hidden="true">directions_bus</span><span class="shell__label">Transportasi</span></a>
+      <a class="shell__link" href="kebencanaan.html"><span class="ic" aria-hidden="true">flood</span><span class="shell__label">Kebencanaan dan cuaca</span></a>
+      <a class="shell__link" href="kesehatan.html"><span class="ic" aria-hidden="true">local_hospital</span><span class="shell__label">Kesehatan</span></a>
+      <a class="shell__link" href="pendidikan.html"><span class="ic" aria-hidden="true">school</span><span class="shell__label">Pendidikan</span></a>
+      <a class="shell__link" href="pendapatan.html"><span class="ic" aria-hidden="true">request_quote</span><span class="shell__label">Pendapatan daerah</span></a>
+      <a class="shell__link" href="bantuan-sosial.html"><span class="ic" aria-hidden="true">volunteer_activism</span><span class="shell__label">Bantuan sosial</span></a>
+      <a class="shell__link" href="umkm.html"><span class="ic" aria-hidden="true">storefront</span><span class="shell__label">UMKM dan pasar</span></a>
+      <a class="shell__link" href="pariwisata.html"><span class="ic" aria-hidden="true">landscape</span><span class="shell__label">Pariwisata dan agenda</span></a>
+      <a class="shell__link" href="lingkungan.html"><span class="ic" aria-hidden="true">eco</span><span class="shell__label">Lingkungan</span></a>
+      <a class="shell__link" href="infrastruktur.html"><span class="ic" aria-hidden="true">lightbulb</span><span class="shell__label">Infrastruktur dan aset</span></a>
+      <a class="shell__link" href="pusat-komando.html"><span class="ic" aria-hidden="true">videocam</span><span class="shell__label">Pusat komando</span></a>
+      <a class="shell__link" href="kepegawaian.html"><span class="ic" aria-hidden="true">badge</span><span class="shell__label">Kepegawaian</span></a>
+      <a class="shell__link" href="keuangan.html"><span class="ic" aria-hidden="true">account_balance</span><span class="shell__label">Keuangan daerah</span></a>
+      <p class="shell__group">Halaman</p>
+      <a class="shell__link" href="laporan.html"><span class="ic" aria-hidden="true">article</span><span class="shell__label">Daftar laporan</span></a>
+      <a class="shell__link" href="kotak-masuk.html"><span class="ic" aria-hidden="true">inbox</span><span class="shell__label">Kotak masuk</span></a>
+      <a class="shell__link" href="obrolan.html" aria-current="page"><span class="ic" aria-hidden="true">chat</span><span class="shell__label">Obrolan</span></a>
+      <a class="shell__link" href="kalender.html"><span class="ic" aria-hidden="true">calendar_month</span><span class="shell__label">Kalender kegiatan</span></a>
+      <a class="shell__link" href="tindak-lanjut.html"><span class="ic" aria-hidden="true">view_kanban</span><span class="shell__label">Kanban tindak lanjut</span></a>
+      <a class="shell__link" href="tugas.html"><span class="ic" aria-hidden="true">checklist</span><span class="shell__label">Tugas</span></a>
+      <a class="shell__link" href="arsip.html"><span class="ic" aria-hidden="true">folder_open</span><span class="shell__label">Arsip dokumen</span></a>
+      <a class="shell__link" href="profil.html"><span class="ic" aria-hidden="true">person</span><span class="shell__label">Profil</span></a>
+      <a class="shell__link" href="pengguna.html"><span class="ic" aria-hidden="true">group</span><span class="shell__label">Pengguna</span></a>
+      <a class="shell__link" href="peran.html"><span class="ic" aria-hidden="true">shield_person</span><span class="shell__label">Peran dan akses</span></a>
+      <p class="shell__group">Masuk</p>
+      <a class="shell__link" href="masuk.html"><span class="ic" aria-hidden="true">login</span><span class="shell__label">Masuk</span></a>
+      <a class="shell__link" href="daftar.html"><span class="ic" aria-hidden="true">person_add</span><span class="shell__label">Daftar</span></a>
+      <a class="shell__link" href="lupa-kata-sandi.html"><span class="ic" aria-hidden="true">key</span><span class="shell__label">Lupa kata sandi</span></a>
+      <a class="shell__link" href="verifikasi.html"><span class="ic" aria-hidden="true">sms</span><span class="shell__label">Verifikasi OTP</span></a>
+      <a class="shell__link" href="akses-ditolak.html"><span class="ic" aria-hidden="true">do_not_disturb_on</span><span class="shell__label">Akses ditolak</span></a>
+    </nav>
+    <div class="shell__foot">
+      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">Semua contoh</span></a>
+      <a class="shell__link" href="../../index.html"><span class="ic" aria-hidden="true">menu_book</span><span class="shell__label">Dokumentasi sistem desain</span></a>
+    </div>
+  </aside>
+  <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
+  <div class="shell__scrim"></div>
+  <div class="shell__main">
+    <header class="shell__bar">
+      <button class="icon-btn" type="button" data-lds-shell-toggle aria-controls="side" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
+      <button class="icon-btn" type="button" data-lds-shell-rail aria-controls="side" aria-expanded="true" aria-label="Ciutkan menu samping"><span class="ic" aria-hidden="true">left_panel_close</span></button>
+      <span class="sep sep--v" aria-hidden="true"></span>
+      <nav aria-label="Jejak halaman"><ol class="crumbs"><li><a href="ringkasan.html">Sakai Dasbor</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="laporan.html">Halaman</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><span aria-current="page">Obrolan</span></li></ol></nav>
+      <div class="shell__bar-end">
+        <button class="control search shell__search" type="button" data-lds-open="palette" aria-haspopup="dialog"><span class="ic" aria-hidden="true">search</span>Cari halaman<span class="kbd">⌘K</span></button>
+        <button class="icon-btn shell__search-icon" type="button" data-lds-open="palette" aria-haspopup="dialog" aria-label="Cari halaman"><span class="ic" aria-hidden="true">search</span></button>
+        <div class="tip-host">
+          <button class="icon-btn" type="button" data-lds-menu="theme-menu" aria-haspopup="menu" aria-expanded="false" aria-label="Tampilan" data-theme-btn><span class="ic" aria-hidden="true">light_mode</span></button>
+          <div class="menu menu--right" id="theme-menu" role="menu" aria-label="Tampilan" style="top: calc(100% + 6px); right: 0; min-width: 180px;">
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-lds-theme="light"><span class="ic" aria-hidden="true">light_mode</span>Terang<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-lds-theme="dark"><span class="ic" aria-hidden="true">dark_mode</span>Gelap<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-lds-theme="system"><span class="ic" aria-hidden="true">desktop_windows</span>Ikuti sistem<span class="ic menu__check" aria-hidden="true">check</span></button>
+          </div>
+        </div>
+        <div class="tip-host">
+          <button class="icon-btn" type="button" data-lds-menu="notes" aria-haspopup="dialog" aria-expanded="false" aria-label="Notifikasi, 3 belum dibaca" data-notes-btn><span class="ic" aria-hidden="true">notifications</span><span class="count" data-notes-count>3</span></button>
+          <div class="popover dash-notes" id="notes" role="dialog" aria-labelledby="notes-title" style="top: calc(100% + 6px); right: 0;">
+            <div class="cluster dash-notes__head"><h2 class="section__title-sm" id="notes-title">Notifikasi</h2><button class="btn btn--plain btn--sm" type="button" data-notes-read>Tandai semua dibaca</button></div>
+            <div class="list list--fill">
+              <a class="lrow" href="tindak-lanjut.html" data-unread><span class="avatar avatar--gray" style="--size: 32px;">AS</span><span class="lrow__body"><span class="lrow__title">Arif Setiawan menugaskan Anda <b>Tindak lanjut genangan Jalan Merpati</b></span><span class="lrow__sub"><time data-lds-time="2026-11-16T09:12">09.12</time></span></span><span class="status status--ok" data-unread-dot><i></i><span class="sr-only">Belum dibaca</span></span></a>
+              <a class="lrow" href="perizinan.html" data-unread><span class="avatar avatar--gray" style="--size: 32px;">DL</span><span class="lrow__body"><span class="lrow__title">Dewi Lestari meminta persetujuan <b>12 izin usaha mikro</b></span><span class="lrow__sub"><time data-lds-time="2026-11-16T08:40">08.40</time></span></span><span class="status status--ok" data-unread-dot><i></i><span class="sr-only">Belum dibaca</span></span></a>
+              <a class="lrow" href="kebencanaan.html" data-unread><span class="avatar avatar--gray" style="--size: 32px;">BP</span><span class="lrow__body"><span class="lrow__title">BPBD Kota Contoh mengirim <b>peringatan dini hujan lebat</b> untuk sore ini</span><span class="lrow__sub"><time data-lds-time="2026-11-16T07:55">07.55</time></span></span><span class="status status--ok" data-unread-dot><i></i><span class="sr-only">Belum dibaca</span></span></a>
+              <a class="lrow" href="laporan.html"><span class="avatar avatar--gray" style="--size: 32px;">SH</span><span class="lrow__body"><span class="lrow__title">Sari Handayani mengekspor <b>1.204 laporan warga</b> ke CSV</span><span class="lrow__sub"><time data-lds-time="2026-11-15T11:30">11.30</time></span></span></a>
+            </div>
+          </div>
+        </div>
+        <div class="tip-host">
+          <button class="icon-btn" type="button" data-lds-menu="user-menu" aria-haspopup="menu" aria-expanded="false" aria-label="Akun: Rina Wijayanti"><span class="avatar" style="--size: 32px;">RW</span></button>
+          <div class="menu menu--right" id="user-menu" role="menu" aria-label="Akun" style="top: calc(100% + 6px); right: 0; min-width: 240px;">
+            <div class="lrow dash-me"><span class="avatar" style="--size: 36px;">RW</span><span class="lrow__body"><span class="lrow__title">Rina Wijayanti</span><span class="lrow__sub">Admin dasbor</span></span></div>
+            <div class="menu__sep"></div>
+            <a class="menu__item" role="menuitem" href="profil.html"><span class="ic" aria-hidden="true">person</span>Profil</a>
+            <a class="menu__item" role="menuitem" href="peran.html"><span class="ic" aria-hidden="true">shield_person</span>Peran dan akses</a>
+            <a class="menu__item" role="menuitem" href="../../index.html"><span class="ic" aria-hidden="true">help</span>Bantuan dan dokumentasi</a>
+            <div class="menu__sep"></div>
+            <a class="menu__item" role="menuitem" href="masuk.html"><span class="ic" aria-hidden="true">logout</span>Keluar</a>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main class="dash dash--wide" id="main" tabindex="-1">
+      <header class="dash-head">
+        <div class="section__head">
+          <div class="cluster" style="--gap: 10px;"><h1 style="margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);">Obrolan</h1><span class="badge badge--outline"><span class="ic" aria-hidden="true">info</span>Contoh. Data fiktif, bukan layanan resmi.</span></div>
+          <p class="section__sub">Koordinasi cepat antarpegawai dan grup posko, plus asisten yang menjawab dari data dasbor. Enter mengirim, Shift+Enter menambah baris.</p>
+        </div>
+        <div class="dash-head__actions"><div class="tip-host">
+          <button class="btn btn--plain btn--md" type="button" data-lds-menu="state-menu" aria-haspopup="menu" aria-expanded="false"><span class="ic" aria-hidden="true">visibility</span>Pratinjau keadaan<span class="ic" aria-hidden="true">expand_more</span></button>
+          <div class="menu menu--right" id="state-menu" role="menu" aria-label="Pratinjau keadaan data" style="top: calc(100% + 6px); right: 0; min-width: 200px;">
+            <p class="menu__label">Tampilkan semua widget sebagai</p>
+            <button class="menu__item" role="menuitemradio" aria-checked="true" data-state-set="loaded">Termuat<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-state-set="loading">Memuat<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-state-set="empty">Kosong<span class="ic menu__check" aria-hidden="true">check</span></button>
+            <button class="menu__item" role="menuitemradio" aria-checked="false" data-state-set="error">Galat<span class="ic menu__check" aria-hidden="true">check</span></button>
+          </div>
+        </div>
+        <button class="btn btn--primary btn--md" type="button" data-lds-modal="new-chat"><span class="ic" aria-hidden="true">edit_square</span>Obrolan baru</button></div>
+      </header>
+<section class="dash-obrolan" aria-label="Obrolan" data-states>
+  <div class="dash-obrolan__stage" data-state-view="loaded" data-stage>
+    <div class="card dash-obrolan__app" id="chat-app">
+      <section class="dash-obrolan__list" id="chat-list" aria-labelledby="chat-list-title">
+        <div class="dash-obrolan__list-head">
+          <div class="dash-obrolan__title-row">
+            <h2 class="section__title-sm" id="chat-list-title">Percakapan</h2>
+            <div class="seg dash-obrolan__seg" role="group" aria-label="Tampilkan" data-lds-segmented data-chat-filter>
+              <span class="seg__thumb"></span>
+              <button type="button" class="seg__btn" aria-pressed="true" data-show="all">Semua</button>
+              <button type="button" class="seg__btn" aria-pressed="false" data-show="unread">Baru</button>
+            </div>
+          </div>
+          <div class="control search"><span class="ic" aria-hidden="true">search</span><input type="search" placeholder="Cari orang dan pesan" aria-label="Cari percakapan" data-chat-search></div>
+        </div>
+        <div class="dash-obrolan__scroll">
+          <div class="inbox inbox--avatars" data-lds-inbox aria-label="Percakapan" data-convos></div>
+          <div class="empty" data-convos-empty hidden>
+            <div class="empty__icon"><span class="ic" aria-hidden="true">search</span></div>
+            <div class="empty__title" data-convos-empty-title>Tidak ada percakapan yang cocok</div>
+            <div class="empty__body">Periksa ejaannya, atau cari nama pegawai untuk memulai obrolan baru.</div>
+            <button class="btn btn--secondary btn--md" type="button" data-convos-clear>Hapus pencarian</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="dash-obrolan__thread" id="chat-thread" aria-labelledby="thread-name">
+        <header class="dash-obrolan__thread-head">
+          <button class="btn btn--plain btn--md dash-obrolan__back" type="button" data-back aria-label="Kembali ke percakapan"><span class="ic" aria-hidden="true">arrow_back_ios_new</span></button>
+          <span class="avatar" style="--size: 40px;" aria-hidden="true" data-thread-avatar></span>
+          <div class="dash-obrolan__who">
+            <h2 class="section__title-sm dash-obrolan__name" id="thread-name" data-thread-name></h2>
+            <span class="section__sub" aria-live="polite" data-thread-status></span>
+          </div>
+          <span class="tip-host"><button class="icon-btn" type="button" aria-label="Cari di percakapan ini" data-thread-search><span class="ic" aria-hidden="true">search</span></button><span class="tip tip--below" role="tooltip">Cari di percakapan</span></span>
+          <span class="tip-host"><button class="icon-btn" type="button" aria-label="Detail percakapan" data-thread-info><span class="ic" aria-hidden="true">info</span></button><span class="tip tip--below" role="tooltip">Detail</span></span>
+        </header>
+        <div class="dash-obrolan__history" id="chat-scroll" tabindex="0" aria-label="Riwayat pesan">
+          <div class="chat dash-obrolan__log" role="log" aria-label="Percakapan" data-log>
+            <button class="btn btn--secondary btn--sm chat__jump" type="button" data-lds-jump="chat-scroll" style="--jump-offset: 16px;"><span class="ic" aria-hidden="true">arrow_downward</span>Terbaru</button>
+          </div>
+        </div>
+        <div class="dash-obrolan__foot">
+          <div class="chip-row" role="group" aria-label="Contoh pertanyaan" data-starters hidden>
+            <button class="chip" type="button">Laporan mana yang lewat batas waktu?</button>
+            <button class="chip" type="button">Ringkas surat yang belum dibaca</button>
+            <button class="chip" type="button">Buat draf laporan mingguan</button>
+          </div>
+          <ul class="dash-obrolan__files" aria-label="Berkas yang akan dikirim" data-pending hidden></ul>
+          <form class="composer" data-lds-composer data-composer>
+            <button class="icon-btn" type="button" aria-label="Lampirkan berkas" data-attach><span class="ic" aria-hidden="true">attach_file</span></button>
+            <input type="file" multiple hidden aria-label="Lampirkan berkas" data-attach-input>
+            <textarea rows="1" aria-label="Pesan" placeholder="Tulis pesan" data-input></textarea>
+            <button class="composer__send" type="submit" aria-label="Kirim" data-send><span class="ic" aria-hidden="true">arrow_upward</span></button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="card dash-obrolan__skel" data-state-view="loading" role="status" aria-label="Memuat percakapan" hidden>
+    <div class="stack" style="--gap: 20px;" aria-hidden="true">
+      <div class="skel" style="height: 40px;"></div>
+      <div class="cluster" style="--gap: 12px; flex-wrap: nowrap;"><div class="skel" style="width: 40px; height: 40px; border-radius: 50%; flex: none;"></div><div class="stack" style="--gap: 6px; flex: 1;"><div class="skel" style="height: 13px; width: 50%;"></div><div class="skel" style="height: 11px; width: 80%;"></div></div></div>
+      <div class="cluster" style="--gap: 12px; flex-wrap: nowrap;"><div class="skel" style="width: 40px; height: 40px; border-radius: 50%; flex: none;"></div><div class="stack" style="--gap: 6px; flex: 1;"><div class="skel" style="height: 13px; width: 40%;"></div><div class="skel" style="height: 11px; width: 70%;"></div></div></div>
+      <div class="cluster" style="--gap: 12px; flex-wrap: nowrap;"><div class="skel" style="width: 40px; height: 40px; border-radius: 50%; flex: none;"></div><div class="stack" style="--gap: 6px; flex: 1;"><div class="skel" style="height: 13px; width: 56%;"></div><div class="skel" style="height: 11px; width: 64%;"></div></div></div>
+    </div>
+    <div class="stack dash-obrolan__skel-thread" style="--gap: 16px;" aria-hidden="true">
+      <div class="skel" style="height: 40px; width: 40%;"></div>
+      <div class="skel" style="height: 44px; width: 52%; align-self: flex-end; border-radius: 18px;"></div>
+      <div class="skel" style="height: 64px; width: 70%; border-radius: 18px;"></div>
+      <div class="skel" style="height: 44px; width: 40%; align-self: flex-end; border-radius: 18px;"></div>
+      <div class="skel" style="height: 48px; margin-top: auto; border-radius: 24px;"></div>
+    </div>
+  </div>
+  <div class="card" data-state-view="empty" hidden>
+    <div class="empty">
+      <div class="empty__icon"><span class="ic" aria-hidden="true">chat</span></div>
+      <div class="empty__title">Belum ada percakapan</div>
+      <div class="empty__body">Kirim pesan ke rekan kerja atau grup posko, atau tanyakan data dasbor ke asisten.</div>
+      <button class="btn btn--primary btn--md" type="button" data-lds-modal="new-chat">Mulai obrolan</button>
+    </div>
+  </div>
+  <div class="alert alert--danger" role="alert" data-state-view="error" hidden><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Percakapan tidak dapat dimuat</div><div class="alert__body">Sambungan ke layanan obrolan terputus. Pesan yang sudah Anda tulis disimpan dan terkirim begitu sambungan pulih.</div><div class="alert__actions"><button class="btn btn--secondary btn--sm" type="button" data-state-retry><span class="ic" aria-hidden="true">refresh</span>Coba lagi</button></div></div></div>
+</section>
+
+<dialog class="modal" id="new-chat" aria-labelledby="new-chat-title">
+  <button class="icon-btn dialog__close" type="button" data-lds-modal-close aria-label="Tutup"><span class="ic" aria-hidden="true">close</span></button>
+  <h2 class="dialog__title" id="new-chat-title">Obrolan baru</h2>
+  <p class="dialog__body">Pilih pegawai. Jika sudah pernah mengobrol, percakapan terbuka di tempat terakhir.</p>
+  <div class="control search" style="margin-top: 16px;"><span class="ic" aria-hidden="true">search</span><input type="search" placeholder="Cari pegawai" aria-label="Cari pegawai" data-people-search></div>
+  <div class="list dash-obrolan__people" data-people style="margin-top: 12px;"></div>
+</dialog>
+    </main>
+  </div>
+</div>
+<div class="layer-host">
+  <div class="scrim" data-lds-scrim="palette"></div>
+  <div class="cmdk" id="palette" role="dialog" aria-modal="true" aria-label="Cari halaman dan tindakan" data-lds-layer data-lds-cmdk-key="k">
+    <div class="cmdk__search"><span class="ic" aria-hidden="true">search</span><input placeholder="Cari halaman dan tindakan" aria-label="Cari halaman dan tindakan" role="combobox" aria-expanded="true" aria-controls="palette-list" data-lds-filter="palette-list" data-lds-autofocus></div>
+    <div class="cmdk__list" id="palette-list" role="listbox" aria-label="Hasil">
+<div class="cmdk__group">Dasbor</div>
+<a class="cmdk__item" role="option" id="cmd-1" href="ringkasan.html"><span class="ic" aria-hidden="true">dashboard</span>Ringkasan kota</a>
+<a class="cmdk__item" role="option" id="cmd-2" href="pengaduan.html"><span class="ic" aria-hidden="true">campaign</span>Pengaduan warga</a>
+<a class="cmdk__item" role="option" id="cmd-3" href="perizinan.html"><span class="ic" aria-hidden="true">verified</span>Layanan perizinan</a>
+<a class="cmdk__item" role="option" id="cmd-4" href="kependudukan.html"><span class="ic" aria-hidden="true">groups</span>Kependudukan</a>
+<a class="cmdk__item" role="option" id="cmd-5" href="transportasi.html"><span class="ic" aria-hidden="true">directions_bus</span>Transportasi</a>
+<a class="cmdk__item" role="option" id="cmd-6" href="kebencanaan.html"><span class="ic" aria-hidden="true">flood</span>Kebencanaan dan cuaca</a>
+<a class="cmdk__item" role="option" id="cmd-7" href="kesehatan.html"><span class="ic" aria-hidden="true">local_hospital</span>Kesehatan</a>
+<a class="cmdk__item" role="option" id="cmd-8" href="pendidikan.html"><span class="ic" aria-hidden="true">school</span>Pendidikan</a>
+<a class="cmdk__item" role="option" id="cmd-9" href="pendapatan.html"><span class="ic" aria-hidden="true">request_quote</span>Pendapatan daerah</a>
+<a class="cmdk__item" role="option" id="cmd-10" href="bantuan-sosial.html"><span class="ic" aria-hidden="true">volunteer_activism</span>Bantuan sosial</a>
+<a class="cmdk__item" role="option" id="cmd-11" href="umkm.html"><span class="ic" aria-hidden="true">storefront</span>UMKM dan pasar</a>
+<a class="cmdk__item" role="option" id="cmd-12" href="pariwisata.html"><span class="ic" aria-hidden="true">landscape</span>Pariwisata dan agenda</a>
+<a class="cmdk__item" role="option" id="cmd-13" href="lingkungan.html"><span class="ic" aria-hidden="true">eco</span>Lingkungan</a>
+<a class="cmdk__item" role="option" id="cmd-14" href="infrastruktur.html"><span class="ic" aria-hidden="true">lightbulb</span>Infrastruktur dan aset</a>
+<a class="cmdk__item" role="option" id="cmd-15" href="pusat-komando.html"><span class="ic" aria-hidden="true">videocam</span>Pusat komando</a>
+<a class="cmdk__item" role="option" id="cmd-16" href="kepegawaian.html"><span class="ic" aria-hidden="true">badge</span>Kepegawaian</a>
+<a class="cmdk__item" role="option" id="cmd-17" href="keuangan.html"><span class="ic" aria-hidden="true">account_balance</span>Keuangan daerah</a>
+<div class="cmdk__group">Halaman</div>
+<a class="cmdk__item" role="option" id="cmd-18" href="laporan.html"><span class="ic" aria-hidden="true">article</span>Daftar laporan</a>
+<a class="cmdk__item" role="option" id="cmd-19" href="kotak-masuk.html"><span class="ic" aria-hidden="true">inbox</span>Kotak masuk</a>
+<a class="cmdk__item" role="option" id="cmd-20" href="obrolan.html"><span class="ic" aria-hidden="true">chat</span>Obrolan</a>
+<a class="cmdk__item" role="option" id="cmd-21" href="kalender.html"><span class="ic" aria-hidden="true">calendar_month</span>Kalender kegiatan</a>
+<a class="cmdk__item" role="option" id="cmd-22" href="tindak-lanjut.html"><span class="ic" aria-hidden="true">view_kanban</span>Kanban tindak lanjut</a>
+<a class="cmdk__item" role="option" id="cmd-23" href="tugas.html"><span class="ic" aria-hidden="true">checklist</span>Tugas</a>
+<a class="cmdk__item" role="option" id="cmd-24" href="arsip.html"><span class="ic" aria-hidden="true">folder_open</span>Arsip dokumen</a>
+<a class="cmdk__item" role="option" id="cmd-25" href="profil.html"><span class="ic" aria-hidden="true">person</span>Profil</a>
+<a class="cmdk__item" role="option" id="cmd-26" href="pengguna.html"><span class="ic" aria-hidden="true">group</span>Pengguna</a>
+<a class="cmdk__item" role="option" id="cmd-27" href="peran.html"><span class="ic" aria-hidden="true">shield_person</span>Peran dan akses</a>
+<a class="cmdk__item" role="option" id="cmd-28" href="segera-hadir.html"><span class="ic" aria-hidden="true">schedule</span>Segera hadir</a>
+<div class="cmdk__group">Masuk</div>
+<a class="cmdk__item" role="option" id="cmd-29" href="masuk.html"><span class="ic" aria-hidden="true">login</span>Masuk</a>
+<a class="cmdk__item" role="option" id="cmd-30" href="daftar.html"><span class="ic" aria-hidden="true">person_add</span>Daftar</a>
+<a class="cmdk__item" role="option" id="cmd-31" href="lupa-kata-sandi.html"><span class="ic" aria-hidden="true">key</span>Lupa kata sandi</a>
+<a class="cmdk__item" role="option" id="cmd-32" href="verifikasi.html"><span class="ic" aria-hidden="true">sms</span>Verifikasi OTP</a>
+<a class="cmdk__item" role="option" id="cmd-33" href="akses-ditolak.html"><span class="ic" aria-hidden="true">do_not_disturb_on</span>Akses ditolak</a>
+<div class="cmdk__group">Tindakan</div>
+<button type="button" class="cmdk__item" role="option" id="cmd-34" data-cmd="theme:light"><span class="ic" aria-hidden="true">light_mode</span>Pakai tampilan terang</button>
+<button type="button" class="cmdk__item" role="option" id="cmd-35" data-cmd="theme:dark"><span class="ic" aria-hidden="true">dark_mode</span>Pakai tampilan gelap</button>
+<button type="button" class="cmdk__item" role="option" id="cmd-36" data-cmd="theme:system"><span class="ic" aria-hidden="true">desktop_windows</span>Ikuti tampilan sistem</button>
+<button type="button" class="cmdk__item" role="option" id="cmd-37" data-cmd="rail"><span class="ic" aria-hidden="true">left_panel_close</span>Ciutkan atau lebarkan menu samping</button>
+<a class="cmdk__item" role="option" id="cmd-38" href="../index.html"><span class="ic" aria-hidden="true">grid_view</span>Semua contoh</a>
+<a class="cmdk__item" role="option" id="cmd-39" href="../../index.html"><span class="ic" aria-hidden="true">menu_book</span>Dokumentasi sistem desain</a>
+      <div class="cmdk__empty" data-lds-empty hidden>Tidak ada yang cocok. Coba nama halaman seperti "pengaduan" atau "kalender".</div>
+    </div>
+    <div class="cmdk__foot"><span><span class="kbd">↑</span> <span class="kbd">↓</span> untuk berpindah</span><span><span class="kbd">↵</span> untuk membuka</span><span><span class="kbd">esc</span> untuk menutup</span></div>
+  </div>
+  <div class="scrim" data-lds-scrim="chat-info"></div>
+<aside class="drawer dash-obrolan__drawer" id="chat-info" role="dialog" aria-modal="true" aria-labelledby="chat-info-title" data-lds-layer>
+  <div class="sheet__head" style="margin: 0;"><h2 class="sheet__title" id="chat-info-title">Detail</h2><button class="icon-btn" type="button" aria-label="Tutup" data-lds-close style="margin: -10px -10px -10px 0;"><span class="ic" aria-hidden="true">close</span></button></div>
+  <div class="stack" style="--gap: 20px;" data-info></div>
+</aside>
+</div>
+<script type="module" src="dashboard.js"></script>
+<script type="module">
+import { init, openLayer, closeModal, morphText, thinkingDone, announce, haptic, pushView, popView } from '../../../js/lds.js';
+import { notify, delay } from './dashboard.js';
+
+const PEOPLE = {
+  ai: { name: 'Asisten dasbor', ini: '', icon: 'bolt', sq: true, status: 'Menjawab dari laporan, surat, dan tugas di dasbor', role: 'Asisten' },
+  bs: { name: 'Budi Santoso', ini: 'BS', online: true, role: 'Koordinator pengaduan', email: 'budi.santoso@kotacontoh.example', unit: 'Sekretariat Daerah Kota Contoh' },
+  pb: { name: 'Posko banjir Kecamatan Pesisir', ini: 'PB', sq: true, gray: true, members: 'Agus, Wulan, Hendra, Fitri, dan Anda', role: '5 anggota' },
+  tp: { name: 'Tim perizinan', ini: 'TP', sq: true, gray: true, members: 'Dewi, Rahmat, Lina, dan Anda', role: '4 anggota' },
+  dl: { name: 'Dewi Lestari', ini: 'DL', gray: true, online: true, role: 'Verifikator perizinan', email: 'dewi.lestari@kotacontoh.example', unit: 'Dinas Penanaman Modal Kota Contoh' },
+  ag: { name: 'Agus Firmansyah', ini: 'AG', gray: true, seen: 'Aktif 20 menit lalu', role: 'Petugas lapangan BPBD', email: 'agus.firmansyah@kotacontoh.example', unit: 'BPBD Kota Contoh' },
+  wl: { name: 'Wulan Sari', ini: 'WS', gray: true, online: true, role: 'Operator Kecamatan Pesisir', email: 'wulan.sari@kotacontoh.example', unit: 'Kecamatan Pesisir' },
+  hd: { name: 'Hendra Gunawan', ini: 'HG', gray: true, seen: 'Aktif 5 menit lalu', role: 'Dinas Pekerjaan Umum', email: 'hendra.gunawan@kotacontoh.example', unit: 'Dinas Pekerjaan Umum Kota Contoh' },
+  sh: { name: 'Sari Handayani', ini: 'SH', gray: true, seen: 'Aktif kemarin', role: 'Analis data', email: 'sari.handayani@kotacontoh.example', unit: 'Dinas Komunikasi dan Informatika Kota Contoh' },
+  yh: { name: 'Yusuf Hidayat', ini: 'YH', gray: true, seen: 'Aktif 2 jam lalu', role: 'Petugas Dinas Lingkungan Hidup', email: 'yusuf.hidayat@kotacontoh.example', unit: 'Dinas Lingkungan Hidup Kota Contoh' },
+};
+const C = [
+  { id: 'pb', unread: 3, last: 6, time: '10.14', msgs: [
+    { sys: 'Hari ini' },
+    { from: 'ag', text: 'Tinggi air di pintu air Teluk 1 naik ke 142 cm, status waspada.', time: '09.40' },
+    { from: 'wl', text: 'Warga RT 04 dan 05 Kelurahan Harapan Jaya sudah diminta siaga. Belum ada yang mengungsi.', time: '09.46' },
+    { me: true, text: 'Terima kasih. Peringatan dini sudah tampil di dasbor kebencanaan. Kabari kalau lewat 160 cm.', time: '09.51', status: 'Dilihat 4 orang' },
+    { from: 'hd', text: 'Satu pompa portabel dari gudang Kecamatan Tengah sedang dikirim, perkiraan tiba 10.30.', time: '10.08' },
+    { from: 'ag', text: 'Foto saluran yang tersumbat di Jalan Kenanga.', time: '10.14', files: [['saluran-jalan-kenanga.jpg', '1,8 MB', 'image']] },
+  ] },
+  { id: 'bs', unread: 2, last: 12, time: '10.08', msgs: [
+    { sys: 'Hari ini' },
+    { from: 'bs', text: 'Pagi, Bu Rina. Rekap pengaduan minggu lalu sudah saya unggah.', time: '09.58' },
+    { me: true, text: 'Baik, saya buka setelah apel.', time: '10.01', status: 'Dibaca' },
+    { from: 'bs', text: 'Yang perlu dilihat dua: 14 laporan sampah di Kecamatan Timur yang lewat batas waktu, dan lonjakan laporan genangan.', time: '10.06' },
+    { from: 'bs', text: 'Pimpinan minta ringkasannya hari Kamis.', time: '10.08', files: [['rekap-pengaduan-9-15-nov.xlsx', '84 KB', 'description']] },
+  ] },
+  { id: 'tp', unread: 0, last: 95, time: '08.45', msgs: [
+    { sys: 'Hari ini' },
+    { from: 'dl', text: '12 izin usaha mikro sudah lengkap, menunggu persetujuan.', time: '08.30' },
+    { me: true, text: 'Saya setujui siang ini. Yang berkasnya kurang tolong dikabari lewat aplikasi warga.', time: '08.38', status: 'Dilihat 3 orang' },
+    { from: 'dl', text: 'Siap, Bu. Ada 3 yang kurang foto lokasi usaha.', time: '08.45' },
+  ] },
+  { id: 'ai', unread: 0, last: 645, time: 'Kemarin', msgs: [
+    { sys: 'Kemarin' },
+    { me: true, text: 'Bagaimana jumlah laporan warga minggu lalu?', time: '16.02' },
+    { ai: true, tools: [['bar_chart', 'Membaca rekap pengaduan 9 sampai 15 Nov', 'Laporan per hari menurut kategori, 7 hari, 1.204 laporan.']], html: '<p>Minggu lalu ada <b>1.204 laporan warga</b>, 8% lebih banyak dari minggu sebelumnya.</p><ul><li>Sampah tetap terbanyak: 362 laporan.</li><li>Genangan naik dari 96 menjadi 188 setelah hujan lebat 12 Nov.</li><li>Jalan rusak turun 11%.</li></ul><p>Kenaikan terutama dari laporan genangan, bukan perubahan cara warga melapor.</p>' },
+  ] },
+  { id: 'dl', unread: 0, last: 1150, time: 'Kemarin', msgs: [
+    { sys: 'Kemarin' },
+    { from: 'dl', text: 'Formulir izin reklame sudah bisa diisi lewat aplikasi warga.', time: '15.20' },
+    { me: true, text: 'Terima kasih! Itu yang terakhir sebelum uji coba.', time: '15.26', status: 'Dibaca' },
+  ] },
+  { id: 'sh', unread: 0, last: 2900, time: 'Sab', msgs: [
+    { sys: 'Sabtu' },
+    { from: 'sh', text: 'Data kualitas udara Oktober sudah masuk ke dasbor lingkungan.', time: '12.40' },
+  ] },
+  { id: 'yh', unread: 0, last: 5900, time: 'Kam', msgs: [
+    { sys: 'Kamis' },
+    { from: 'yh', text: 'Jadwal angkut tambahan di Kecamatan Timur mulai Senin, 11 dari 14 laporan sudah tertangani.', time: '14.30' },
+  ] },
+];
+const REPLIES = {
+  bs: ['Terima kasih, Bu. Kabari kalau ada yang kurang.', 'Baik, saya siapkan untuk rapat Kamis pagi.'],
+  dl: ['Siap, saya teruskan ke tim.'],
+  ag: ['Baik, saya pantau terus dari pintu air.'],
+  wl: ['Siap, Bu. Saya kabari warga lewat ketua RT.'],
+  hd: ['Siap, pompa saya pasang begitu tiba.'],
+  sh: ['Baik, hari ini saya perbarui.'],
+  yh: ['Terima kasih, angkanya saya kirim sore ini.'],
+  pb: [['ag', 'Siap, saya kabari setiap 30 menit.'], ['wl', 'Dapur umum di balai kelurahan sudah disiapkan kalau dibutuhkan.']],
+  tp: [['dl', 'Siap, Bu.'], ['dl', 'Baik, saya catat.']],
+};
+const ANSWERS = [
+  [/batas|lewat|terlambat|laporan/i, [['article', 'Mencari 1.204 laporan bulan November', 'Disaring menurut status: belum ditanggapi lebih dari 3 hari kerja.']], '<p>Ada 14 laporan yang lewat batas waktu tanggapan:</p><ul><li><b>11 laporan sampah</b> di Kecamatan Timur, tertua 6 hari.</li><li><b>2 laporan lampu jalan</b> di Kelurahan Sukajaya.</li><li><b>1 laporan genangan</b> di Jalan Merpati.</li></ul><p>Yusuf sudah menjadwalkan angkut tambahan untuk Kecamatan Timur. Mau saya buatkan kartu tindak lanjut untuk sisanya?</p>'],
+  [/surat|baca|ringkas|kotak/i, [['mail', 'Membaca 3 surat yang belum dibaca', 'Dari Sekretariat Daerah, BPBD, dan Dinas Perhubungan Kota Contoh.']], '<p>Ada tiga surat yang belum dibaca:</p><ul><li><b>Sekretariat Daerah</b> mendisposisikan 14 laporan genangan di Jalan Merpati, tenggat Rabu.</li><li><b>BPBD</b> mengundang rapat siaga musim hujan, Selasa 09.00.</li><li><b>Dinas Perhubungan</b> mengalihkan bus koridor 3 mulai Rabu.</li></ul><p>Hanya disposisi yang punya tenggat.</p>'],
+  [/mingguan|draf|tulis|laporan/i, [['checklist', 'Membaca 9 tugas yang selesai minggu ini', 'Dari kanban tindak lanjut.']], '<p>Ini draf laporan mingguan:</p><p>Minggu ini 1.204 laporan warga masuk dan 86% ditanggapi dalam 2 hari kerja. Angkut sampah tambahan berjalan di Kecamatan Timur. Minggu depan: rapat siaga musim hujan dan uji coba izin reklame lewat aplikasi warga.</p><p>Mau dibuat lebih pendek, atau langsung dikirim ke grup tim?</p>'],
+];
+const DEFAULT_ANSWER = [[['search', 'Mencari di laporan, surat, dan tugas', 'Tidak ada yang cocok langsung dengan pertanyaan.']], '<p>Saya tidak menemukannya di dasbor. Saya bisa menjawab dari laporan warga, surat, dan tugas; coba tanyakan laporan mana yang lewat batas waktu.</p>'];
+
+const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const byId = (id) => C.find((c) => c.id === id);
+const app = document.getElementById('chat-app');
+const stage = document.querySelector('[data-stage]');
+const root = document.querySelector('.dash-obrolan');
+const list = document.querySelector('[data-convos]');
+const log = document.querySelector('[data-log]');
+const scroller = document.getElementById('chat-scroll');
+const jump = log.querySelector('.chat__jump');
+const form = document.querySelector('[data-composer]');
+const input = document.querySelector('[data-input]');
+const send = document.querySelector('[data-send]');
+const pending = document.querySelector('[data-pending]');
+const starters = document.querySelector('[data-starters]');
+const search = document.querySelector('[data-chat-search]');
+let current = null, show = 'all', files = [], streaming = null;
+const first = (n) => n.split(' ')[0];
+
+const avatar = (p, size = 40, presence = true) => `<span class="avatar${p.gray ? ' avatar--gray' : ''}${p.sq ? ' avatar--sq' : ''}" style="--size: ${size}px;" aria-hidden="true">${p.icon ? `<span class="ic">${p.icon}</span>` : p.ini}${presence && p.online ? '<span class="avatar__presence"></span>' : ''}</span>`;
+const isGroup = (id) => id === 'pb' || id === 'tp';
+const preview = (c) => {
+  const m = [...c.msgs].reverse().find((x) => !x.sys);
+  if (!m) return '';
+  const who = m.me ? 'Anda: ' : m.from && isGroup(c.id) ? `${first(PEOPLE[m.from].name)}: ` : '';
+  const text = m.text || (m.html || '').replace(/<\/(p|li)>/g, ' ').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+  return who + (m.files && !m.text ? `Mengirim ${m.files[0][0]}` : text);
+};
+
+// ---------- the list ----------
+const renderList = () => {
+  const q = search.value.trim().toLowerCase();
+  const items = [...C].sort((a, b) => a.last - b.last).filter((c) => (show === 'all' || c.unread) && (!q || (PEOPLE[c.id].name + ' ' + preview(c)).toLowerCase().includes(q)));
+  list.innerHTML = items.map((c) => {
+    const p = PEOPLE[c.id];
+    return `<button class="inbox__row${c.unread ? ' is-unread' : ''}" type="button" data-convo="${c.id}"${c.id === current ? ' aria-current="true"' : ''}>${avatar(p)}<span class="inbox__body"><span class="inbox__line"><span class="inbox__from">${esc(p.name)}</span><time class="inbox__time">${c.time}</time></span><span class="inbox__line"><span class="inbox__preview">${esc(preview(c))}</span>${c.unread ? `<span class="count">${c.unread}<span class="sr-only"> belum dibaca</span></span>` : ''}</span></span></button>`;
+  }).join('');
+  const empty = document.querySelector('[data-convos-empty]');
+  empty.hidden = items.length > 0;
+  document.querySelector('[data-convos-empty-title]').textContent = q ? `Tidak ada percakapan yang cocok dengan "${search.value.trim()}"` : 'Tidak ada pesan baru';
+  document.querySelector('[data-convos-clear]').textContent = q ? 'Hapus pencarian' : 'Tampilkan semua';
+  const unread = C.reduce((n, c) => n + (c.unread ? 1 : 0), 0);
+  list.setAttribute('aria-label', `Percakapan, ${unread} belum dibaca`);
+};
+list.addEventListener('click', (e) => { const b = e.target.closest('[data-convo]'); if (b) openConvo(b.dataset.convo, b); });
+search.addEventListener('input', renderList);
+document.querySelector('[data-chat-filter]').addEventListener('click', (e) => { const b = e.target.closest('[data-show]'); if (b) { show = b.dataset.show; renderList(); } });
+document.querySelector('[data-convos-clear]').addEventListener('click', () => { if (search.value) search.value = ''; else document.querySelector('[data-show="all"]').click(); show = 'all'; renderList(); search.focus(); });
+
+// ---------- messages ----------
+const fileList = (fs) => `<ul class="stack dash-obrolan__msg-files" style="--gap: 6px;" aria-label="Berkas">${fs.map(([n, s, i]) => `<li class="file-row"><span class="file-row__icon"><span class="ic" aria-hidden="true">${i}</span></span><span class="file-row__body"><span class="file-row__name">${esc(n)}</span><span class="file-row__meta">${s}</span></span><button type="button" class="icon-btn" aria-label="Unduh ${esc(n)}" data-download="${esc(n)}"><span class="ic" aria-hidden="true">download</span></button></li>`).join('')}</ul>`;
+const toolHtml = ([icon, label, body]) => `<details class="toolcall"><summary><span class="ic" aria-hidden="true">${icon}</span>${esc(label)}<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">${esc(body)}</div></details>`;
+const aiActions = (plain) => `<div class="msg__actions"><button class="icon-btn" type="button" aria-label="Salin jawaban" data-lds-copy="${esc(plain)}"><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" type="button" aria-label="Tanyakan lagi" data-again><span class="ic" aria-hidden="true">refresh</span></button></div>`;
+const msgHtml = (m, c) => {
+  if (m.sys) return `<p class="msg msg--system">${esc(m.sys)}</p>`;
+  if (m.me) return `<div class="msg msg--me"><span class="sr-only">Anda menulis</span>${m.text ? `<div class="bubble">${esc(m.text)}</div>` : ''}${m.files ? fileList(m.files) : ''}<span class="msg__meta">${m.time}${m.status ? ` · ${m.status}` : ''}</span></div>`;
+  if (m.ai) { const plain = m.html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim(); return `<div class="msg msg--ai"><span class="sr-only">Asisten menjawab</span>${(m.tools || []).map(toolHtml).join('')}<div class="bubble">${m.html}</div>${m.stopped ? '<span class="msg__meta">Dihentikan</span>' : aiActions(plain)}</div>`; }
+  const p = PEOPLE[m.from];
+  return `<div class="msg msg--other">${isGroup(c.id) ? `<span class="msg__name">${esc(p.name)}</span>` : `<span class="sr-only">${esc(p.name)} menulis</span>`}${m.text ? `<div class="bubble">${esc(m.text)}</div>` : ''}${m.files ? fileList(m.files) : ''}<span class="msg__meta">${m.time}</span></div>`;
+};
+const nearEnd = () => scroller.scrollHeight - scroller.scrollTop - scroller.clientHeight < 160;
+const toEnd = (smooth) => { scroller.scrollTo({ top: scroller.scrollHeight, behavior: smooth ? 'smooth' : 'auto' }); };
+const syncJump = () => scroller.dispatchEvent(new Event('scroll'));
+const append = (m, c) => {
+  const stick = nearEnd();
+  jump.insertAdjacentHTML('beforebegin', msgHtml(m, c));
+  const el = jump.previousElementSibling; el.classList.add('is-new'); init(el);
+  if (stick) toEnd(true); else syncJump();
+  return el;
+};
+const status = (c) => { const p = PEOPLE[c.id]; return p.online ? 'Daring' : p.seen || p.status || p.members || ''; };
+const statusEl = document.querySelector('[data-thread-status]');
+const setStatus = (text) => morphText(statusEl, text);
+
+function openConvo(id, from) {
+  const c = byId(id); if (!c) return;
+  if (streaming) stopStream();
+  current = id; c.unread = 0;
+  const p = PEOPLE[id];
+  document.querySelector('[data-thread-avatar]').outerHTML = avatar(p, 40).replace('aria-hidden="true"', 'aria-hidden="true" data-thread-avatar');
+  document.querySelector('[data-thread-name]').textContent = p.name;
+  statusEl.textContent = status(c);
+  log.querySelectorAll(':scope > :not(.chat__jump)').forEach((n) => n.remove());
+  jump.insertAdjacentHTML('beforebegin', c.msgs.map((m) => msgHtml(m, c)).join(''));
+  init(log);
+  log.setAttribute('aria-label', `Percakapan dengan ${p.name}`);
+  input.placeholder = id === 'ai' ? 'Tanyakan laporan, surat, atau tugas' : `Pesan untuk ${isGroup(id) ? p.name : first(p.name)}`;
+  input.setAttribute('aria-label', id === 'ai' ? 'Tanya asisten' : `Pesan untuk ${p.name}`);
+  starters.hidden = id !== 'ai';
+  renderList();
+  requestAnimationFrame(() => { toEnd(false); syncJump(); });
+  if (stacked) { stage.getBoundingClientRect().top > 80 && stage.scrollIntoView({ block: 'start', behavior: 'smooth' }); pushView('chat-thread', from); }
+}
+
+// ---------- sending ----------
+// The example clock starts at 10.20 on 16 November and runs with real minutes
+const T0 = Date.now();
+const now = () => { const m = 20 + Math.floor((Date.now() - T0) / 60000); return `${10 + Math.floor(m / 60)}.${String(m % 60).padStart(2, '0')}`; };
+const bump = (c) => { c.last = -Date.now() / 60000; c.time = now(); renderList(); };
+form.addEventListener('lds:send', (e) => {
+  const c = byId(current); if (!c) return;
+  const m = { me: true, text: e.detail.text, time: now(), files: files.length ? files : undefined, status: 'Terkirim' };
+  files = []; renderPending();
+  c.msgs.push(m); const el = append(m, c); toEnd(true); bump(c); haptic('light');
+  if (c.id === 'ai') answer(c, e.detail.text);
+  else reply(c, m, el);
+});
+const meta = (el, text) => { const s = el.querySelector('.msg__meta'); if (s) s.textContent = text; };
+async function reply(c, m, el) {
+  const lines = REPLIES[c.id] || ['Baik, terima kasih.'];
+  const pick = lines[(c.msgs.filter((x) => x.me).length) % lines.length];
+  const [who, text] = Array.isArray(pick) ? pick : [c.id, pick];
+  await delay(700); m.status = 'Dibaca'; if (current === c.id) meta(el, `${m.time} · Dibaca`);
+  await delay(500);
+  if (current === c.id) setStatus(isGroup(c.id) ? `${first(PEOPLE[who].name)} sedang mengetik` : 'Sedang mengetik');
+  await delay(1800);
+  const r = { from: who, text, time: now() };
+  c.msgs.push(r);
+  if (current === c.id) { append(r, c); setStatus(status(c)); } else { c.unread += 1; }
+  bump(c);
+}
+
+// The assistant: thinking, then the step it took, then the answer word by word. Send turns into Stop meanwhile.
+const setStop = (on) => {
+  send.classList.toggle('is-stop', on);
+  send.type = on ? 'button' : 'submit';
+  send.setAttribute('aria-label', on ? 'Hentikan jawaban' : 'Kirim');
+  send.querySelector('.ic').textContent = on ? 'pause' : 'arrow_upward';
+  send.disabled = on ? false : !input.value.trim();
+  if (on) setTimeout(() => { if (streaming) send.disabled = false; });
+};
+input.addEventListener('input', () => { if (streaming) send.disabled = false; });
+send.addEventListener('click', () => { if (streaming) stopStream(); });
+function stopStream() { if (!streaming) return; streaming.stopped = true; }
+async function answer(c, q) {
+  const [tools, html] = (ANSWERS.find(([re]) => re.test(q)) || [null, ...DEFAULT_ANSWER]).slice(1);
+  const m = { ai: true, tools: [], html: '' };
+  jump.insertAdjacentHTML('beforebegin', '<div class="msg msg--ai is-new" aria-busy="true"><span class="sr-only">Asisten menjawab</span><div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Membaca data dasbor</span><span class="thinking__time" aria-hidden="true"></span></div></div>');
+  const el = jump.previousElementSibling; init(el); toEnd(true);
+  const run = { stopped: false }; streaming = run; setStop(true);
+  setStatus('Sedang bekerja');
+  await delay(1100);
+  const th = el.querySelector('.thinking');
+  if (run.stopped) return finish();
+  const [icon, label, body] = tools[0];
+  th.remove();
+  el.insertAdjacentHTML('beforeend', `<details class="toolcall"><summary><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">${esc(label)}</span><span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">${esc(body)}</div></details>`);
+  if (nearEnd()) toEnd(true);
+  await delay(1200);
+  if (run.stopped) return finish();
+  el.querySelector('.toolcall').outerHTML = toolHtml(tools[0]);
+  m.tools = tools;
+  const bubble = document.createElement('div'); bubble.className = 'bubble'; el.appendChild(bubble);
+  // the caret follows the block being written, so it sits after the last word instead of on a line of its own
+  const caret = (node) => { bubble.querySelectorAll('.is-streaming').forEach((n) => n.classList.remove('is-streaming')); node.classList.add('stream', 'is-streaming'); };
+  const tmp = document.createElement('div'); tmp.innerHTML = html;
+  for (const block of [...tmp.children]) {
+    const target = document.createElement(block.tagName); bubble.appendChild(target);
+    const parts = block.tagName === 'UL' ? [...block.children] : [block];
+    for (const part of parts) {
+      const into = block.tagName === 'UL' ? target.appendChild(document.createElement('li')) : target;
+      caret(into);
+      for (const node of [...part.childNodes]) {
+        const wrap = node.nodeType === 1 ? into.appendChild(document.createElement(node.tagName)) : into;
+        for (const w of node.textContent.split(/(\s+)/)) {
+          if (run.stopped) return finish();
+          if (/^\s*$/.test(w)) { wrap.append(w); continue; }
+          const s = document.createElement('span'); s.className = 'stream__w'; s.textContent = w; wrap.append(s);
+          if (nearEnd()) scroller.scrollTop = scroller.scrollHeight;
+          await delay(matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 32);
+        }
+      }
+    }
+  }
+  return finish();
+  function finish() {
+    const t = el.querySelector('.thinking'); if (t) { thinkingDone(t, 'Dihentikan sebelum menjawab'); }
+    const tc = el.querySelector('.toolcall .spinner'); if (tc) el.querySelector('.toolcall').outerHTML = toolHtml([icon, `Dihentikan: ${label}`, body]);
+    const b = el.querySelector('.bubble'); if (b) b.querySelectorAll('.stream').forEach((n) => n.classList.remove('stream', 'is-streaming'));
+    m.html = b ? b.innerHTML.replace(/<span class="stream__w">([^<]*)<\/span>/g, '$1') : '<p>Dihentikan.</p>';
+    m.stopped = run.stopped;
+    el.removeAttribute('aria-busy');
+    el.insertAdjacentHTML('beforeend', run.stopped ? '<span class="msg__meta">Dihentikan</span>' : aiActions(b.textContent.trim()));
+    init(el);
+    c.msgs.push(m); bump(c);
+    streaming = null; setStop(false); setStatus(status(c));
+    if (run.stopped) announce('Jawaban dihentikan');
+    syncJump();
+  }
+}
+log.addEventListener('click', (e) => {
+  const d = e.target.closest('[data-download]'); if (d) notify({ title: 'Unduhan dimulai', body: d.dataset.download, icon: 'download' });
+  const a = e.target.closest('[data-again]');
+  if (a && !streaming) { const c = byId(current); const q = [...c.msgs].reverse().find((x) => x.me); if (q) answer(c, q.text); }
+});
+starters.addEventListener('click', (e) => { const b = e.target.closest('.chip'); if (!b) return; input.value = b.textContent; input.dispatchEvent(new Event('input')); input.focus(); });
+
+// ---------- attachments ----------
+const kb = (b) => (b > 1e6 ? `${(b / 1e6).toFixed(1).replace('.', ',')} MB` : `${Math.max(1, Math.round(b / 1e3))} KB`);
+const icon = (n) => (/\.(png|jpe?g|gif|webp)$/i.test(n) ? 'image' : /\.(pdf|docx?|xlsx?|txt|csv)$/i.test(n) ? 'description' : 'insert_drive_file');
+const renderPending = () => {
+  pending.hidden = !files.length;
+  pending.innerHTML = files.map(([n, s, i], k) => `<li class="file-row"><span class="file-row__icon"><span class="ic" aria-hidden="true">${i}</span></span><span class="file-row__body"><span class="file-row__name">${esc(n)}</span><span class="file-row__meta">${s} · terkirim bersama pesan berikutnya</span></span><button type="button" class="icon-btn" aria-label="Hapus ${esc(n)}" data-unpend="${k}"><span class="ic" aria-hidden="true">close</span></button></li>`).join('');
+};
+form.querySelector('[data-attach]').addEventListener('click', () => form.querySelector('[data-attach-input]').click());
+form.querySelector('[data-attach-input]').addEventListener('change', (e) => { [...e.target.files].forEach((f) => files.push([f.name, kb(f.size), icon(f.name)])); e.target.value = ''; renderPending(); input.focus(); });
+pending.addEventListener('click', (e) => { const b = e.target.closest('[data-unpend]'); if (b) { const [f] = files.splice(Number(b.dataset.unpend), 1); renderPending(); announce(`${f[0]} dihapus`); input.focus(); } });
+
+// ---------- details drawer ----------
+document.querySelector('[data-thread-info]').addEventListener('click', (e) => {
+  const c = byId(current), p = PEOPLE[current];
+  const shared = c.msgs.flatMap((m) => m.files || []);
+  document.querySelector('[data-info]').innerHTML = `
+    <div class="cluster" style="--gap: 12px; flex-wrap: nowrap;">${avatar(p, 56)}<div class="stack" style="--gap: 2px; min-width: 0;"><b>${esc(p.name)}</b><span class="section__sub">${esc(p.role || '')}</span></div></div>
+    <dl class="kv-list">${p.email ? `<div class="kv"><dt>Surel</dt><dd>${esc(p.email)}</dd></div>` : ''}${p.unit ? `<div class="kv"><dt>Unit kerja</dt><dd>${esc(p.unit)}</dd></div>` : ''}${p.members ? `<div class="kv"><dt>Anggota</dt><dd>${esc(p.members)}</dd></div>` : ''}<div class="kv"><dt>Pesan</dt><dd>${c.msgs.filter((m) => !m.sys).length}</dd></div></dl>
+    <label class="switch"><input type="checkbox" role="switch" data-mute${c.muted ? ' checked' : ''}><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="switch__text">Bisukan percakapan ini<small>Tanpa notifikasi; jumlah pesan baru tetap tampil</small></span></label>
+    <section class="stack" style="--gap: 10px;" aria-labelledby="shared-title"><h3 class="section__title-sm" id="shared-title">Berkas bersama</h3>${shared.length ? fileList(shared) : '<p class="section__sub">Belum ada berkas yang dibagikan.</p>'}</section>`;
+  init(document.querySelector('[data-info]'));
+  openLayer('chat-info', e.currentTarget);
+});
+document.querySelector('[data-info]').addEventListener('change', (e) => {
+  if (!e.target.matches('[data-mute]')) return;
+  const c = byId(current); c.muted = e.target.checked;
+  notify({ title: c.muted ? `${PEOPLE[current].name} dibisukan` : `Notifikasi ${PEOPLE[current].name} aktif`, icon: c.muted ? 'volume_mute' : 'notifications' });
+});
+document.querySelector('[data-info]').addEventListener('click', (e) => { const d = e.target.closest('[data-download]'); if (d) notify({ title: 'Unduhan dimulai', body: d.dataset.download, icon: 'download' }); });
+document.querySelector('[data-thread-search]').addEventListener('click', () => { search.value = first(PEOPLE[current].name); if (stacked) popView(app); renderList(); search.focus(); });
+
+// ---------- new conversation ----------
+const people = document.querySelector('[data-people]');
+const peopleSearch = document.querySelector('[data-people-search]');
+const renderPeople = () => {
+  const q = peopleSearch.value.trim().toLowerCase();
+  const ids = Object.keys(PEOPLE).filter((k) => !isGroup(k) && (!q || PEOPLE[k].name.toLowerCase().includes(q)));
+  people.innerHTML = ids.length ? ids.map((k) => `<button class="lrow" type="button" data-person="${k}">${avatar(PEOPLE[k], 36)}<span class="lrow__body"><span class="lrow__title">${esc(PEOPLE[k].name)}</span><span class="lrow__sub">${esc(PEOPLE[k].role || '')}</span></span>${byId(k) ? '<span class="lrow__value">Buka</span>' : ''}<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>`).join('') : '<div class="empty"><div class="empty__title">Tidak ada pegawai dengan nama itu</div><div class="empty__body">Undang dulu dari halaman Pengguna.</div></div>';
+};
+peopleSearch.addEventListener('input', renderPeople);
+document.getElementById('new-chat').addEventListener('click', (e) => {
+  const b = e.target.closest('[data-person]'); if (!b) return;
+  const k = b.dataset.person;
+  if (!byId(k)) C.push({ id: k, unread: 0, last: -Date.now() / 60000, time: now(), msgs: [{ sys: 'Hari ini' }, { sys: `Anda memulai percakapan dengan ${PEOPLE[k].name}` }] });
+  closeModal(document.getElementById('new-chat'), () => { peopleSearch.value = ''; renderPeople(); });
+  search.value = ''; openConvo(k); setTimeout(() => input.focus(), 400);
+});
+renderPeople();
+
+// ---------- phone: the list and the thread become a navigation stack ----------
+let stacked = false;
+const syncLayout = () => {
+  const want = root.clientWidth < 700;
+  if (want === stacked) return;
+  stacked = want;
+  const panes = [document.getElementById('chat-list'), document.getElementById('chat-thread')];
+  if (want) {
+    app.classList.add('navstack'); app.setAttribute('data-lds-navstack', '');
+    panes.forEach((p) => p.classList.add('navstack__view'));
+    app._views = null; panes[1].hidden = true; current = null; renderList();
+    init(stage);
+  } else {
+    app.classList.remove('navstack', 'is-moving'); app.removeAttribute('data-lds-navstack');
+    panes.forEach((p) => { p.classList.remove('navstack__view', 'is-under', 'is-off', 'is-leaving', 'is-thrown', 'is-instant'); p.hidden = false; p.inert = false; p.style.transform = ''; });
+    app._views = null;
+    if (!current) openConvo('pb');
+  }
+};
+document.querySelector('[data-back]').addEventListener('click', () => popView(app));
+app.addEventListener('lds:pop', () => { current = null; renderList(); });
+new ResizeObserver(syncLayout).observe(root);
+
+renderList();
+syncLayout();
+if (!stacked) openConvo('pb');
+</script>
+</body>
+</html>
