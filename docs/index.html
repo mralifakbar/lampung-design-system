@@ -1,51 +1,72 @@
 <!doctype html>
-<html lang="en" data-theme="light" class="lds">
+<html lang="id" data-theme="light" class="lds">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Lampung Design System</title>
+<title>Pengenalan · Lampung Design System</title>
+<meta name="description" content="Lampung Design System (LDS) adalah design system terbuka untuk membangun situs dan aplikasi layanan publik dengan cepat dan tampilan yang konsisten. Satu berkas token untuk CSS, JavaScript, shadcn/ui, dan Flutter; komponen berupa kelas CSS biasa; perilaku interaktif dalam satu modul JavaScript opsional.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate" hreflang="en" href="en/">
 <link rel="stylesheet" href="../css/lds.css">
 <link rel="stylesheet" href="./docs.css">
+<script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
 </head>
 <body class="lds">
-<a class="skip" href="#board">Skip to content</a>
+<a class="skip" href="#board">Langsung ke konten</a>
+<div class="masthead" role="region" aria-label="Status situs">
+  <div class="masthead__bar">
+    <span class="masthead__mark" aria-hidden="true"><span class="ic">info</span></span>
+    <span class="masthead__text">Proyek komunitas. Ini bukan situs resmi pemerintah.</span>
+    <button class="masthead__toggle" data-lds-masthead aria-expanded="false" aria-controls="lds-masthead">Cara memastikan<span class="ic" aria-hidden="true">expand_more</span></button>
+  </div>
+  <div class="collapse is-closed" id="lds-masthead" inert><div><div class="masthead__body">
+    <p class="masthead__item"><span class="ic" aria-hidden="true">groups</span><span><b>Dikelola sukarelawan.</b> Lampung Design System dibangun oleh komunitas open source. Tidak ada instansi pemerintah yang mengelola atau mendukungnya secara resmi.</span></p>
+    <p class="masthead__item"><span class="ic" aria-hidden="true">verified_user</span><span><b>Layanan resmi memakai go.id.</b> Situs pemerintah Indonesia berakhiran .go.id. Jangan masukkan NIK di situs yang Anda ragukan.</span></p>
+  </div></div></div>
+</div>
 <div class="shell" id="shell">
 
-  <aside class="shell__side" id="side" aria-label="Documentation">
-    <div class="shell__brand"><span class="page-head__mark">L</span>Lampung Design System</div>
-    <nav class="shell__nav" id="nav" aria-label="Pages">
+  <aside class="shell__side" id="side" aria-label="Dokumentasi">
+    <a class="shell__brand" href="/" aria-label="Beranda proyek"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>Lampung Design System</a>
+    <nav class="shell__nav" id="nav" aria-label="Halaman">
       <span class="shell__hl" id="nav-hl" aria-hidden="true"></span>
-      <span class="shell__group">Start</span>
-      <a class="shell__link" href="#/start" data-route="start"><span class="ic" aria-hidden="true">home</span>Getting started</a>
-      <a class="shell__link" href="./gallery.html"><span class="ic" aria-hidden="true">grid_view</span>Plain HTML gallery</a>
-      <a class="shell__link" href="./examples/index.html"><span class="ic" aria-hidden="true">dashboard</span>Examples</a>
-      <span class="shell__group">Foundations</span>
-      <a class="shell__link" href="#/color" data-route="color"><span class="ic" aria-hidden="true">contrast</span>Color</a>
-      <a class="shell__link" href="#/typography" data-route="typography"><span class="ic" aria-hidden="true">text_fields</span>Typography</a>
-      <a class="shell__link" href="#/layout" data-route="layout"><span class="ic" aria-hidden="true">grid_view</span>Space, radius, depth</a>
-      <a class="shell__link" href="#/motion" data-route="motion"><span class="ic" aria-hidden="true">timeline</span>Motion</a>
-      <a class="shell__link" href="#/micro" data-route="micro"><span class="ic" aria-hidden="true">touch_app</span>Microinteractions</a>
-      <span class="shell__group">Components</span>
-      <a class="shell__link" href="./components/index.html"><span class="ic" aria-hidden="true">grid_view</span>All components, one per page</a>
-      <span class="shell__group">Boards</span>
-      <a class="shell__link" href="#/actions" data-route="actions"><span class="ic" aria-hidden="true">touch_app</span>Actions</a>
-      <a class="shell__link" href="#/inputs" data-route="inputs"><span class="ic" aria-hidden="true">edit_square</span>Inputs</a>
-      <a class="shell__link" href="#/selection" data-route="selection"><span class="ic" aria-hidden="true">check_circle</span>Selection</a>
-      <a class="shell__link" href="#/navigation" data-route="navigation"><span class="ic" aria-hidden="true">near_me</span>Navigation</a>
-      <a class="shell__link" href="#/overlays" data-route="overlays"><span class="ic" aria-hidden="true">inventory_2</span>Overlays</a>
-      <a class="shell__link" href="#/feedback" data-route="feedback"><span class="ic" aria-hidden="true">notifications</span>Feedback</a>
-      <a class="shell__link" href="#/data" data-route="data"><span class="ic" aria-hidden="true">list</span>Data display</a>
-      <a class="shell__link" href="#/charts" data-route="charts"><span class="ic" aria-hidden="true">bar_chart</span>Charts</a>
-      <span class="shell__group">Patterns</span>
-      <a class="shell__link" href="#/phone" data-route="phone"><span class="ic" aria-hidden="true">call</span>Phone screen</a>
-      <a class="shell__link" href="#/patterns" data-route="patterns"><span class="ic" aria-hidden="true">dashboard</span>App patterns</a>
-      <a class="shell__link" href="#/marketing" data-route="marketing"><span class="ic" aria-hidden="true">public</span>Marketing</a>
+      <span class="shell__group">Memulai</span>
+      <a class="shell__link" href="#/start" data-route="start"><span class="ic" aria-hidden="true">home</span>Pengenalan</a>
+      <a class="shell__link" href="guide/instalasi.html"><span class="ic" aria-hidden="true">download</span>Instalasi</a>
+      <a class="shell__link" href="guide/penulisan.html"><span class="ic" aria-hidden="true">edit_square</span>Penulisan</a>
+      <a class="shell__link" href="guide/aksesibilitas.html"><span class="ic" aria-hidden="true">accessible</span>Aksesibilitas</a>
+      <a class="shell__link" href="guide/desainer.html"><span class="ic" aria-hidden="true">palette</span>Untuk desainer</a>
+      <span class="shell__group">Landasan</span>
+      <a class="shell__link" href="#/color" data-route="color"><span class="ic" aria-hidden="true">contrast</span>Warna dan identitas</a>
+      <a class="shell__link" href="#/typography" data-route="typography"><span class="ic" aria-hidden="true">text_fields</span>Tipografi</a>
+      <a class="shell__link" href="components/aksara.html"><span class="ic" aria-hidden="true">draft</span>Aksara Lampung</a>
+      <a class="shell__link" href="#/layout" data-route="layout"><span class="ic" aria-hidden="true">grid_view</span>Ruang, radius, kedalaman</a>
+      <a class="shell__link" href="#/motion" data-route="motion"><span class="ic" aria-hidden="true">timeline</span>Gerak</a>
+      <a class="shell__link" href="#/micro" data-route="micro"><span class="ic" aria-hidden="true">touch_app</span>Mikrointeraksi</a>
+      <span class="shell__group">Komponen</span>
+      <a class="shell__link" href="components/index.html"><span class="ic" aria-hidden="true">grid_view</span>Semua komponen</a>
+      <a class="shell__link" href="./gallery.html"><span class="ic" aria-hidden="true">widgets</span>Galeri HTML</a>
+      <span class="shell__group">Papan komponen</span>
+      <a class="shell__link" href="#/actions" data-route="actions"><span class="ic" aria-hidden="true">touch_app</span>Aksi</a>
+      <a class="shell__link" href="#/inputs" data-route="inputs"><span class="ic" aria-hidden="true">edit_square</span>Input</a>
+      <a class="shell__link" href="#/selection" data-route="selection"><span class="ic" aria-hidden="true">check_circle</span>Pilihan</a>
+      <a class="shell__link" href="#/navigation" data-route="navigation"><span class="ic" aria-hidden="true">near_me</span>Navigasi</a>
+      <a class="shell__link" href="#/overlays" data-route="overlays"><span class="ic" aria-hidden="true">inventory_2</span>Lapisan</a>
+      <a class="shell__link" href="#/feedback" data-route="feedback"><span class="ic" aria-hidden="true">notifications</span>Umpan balik</a>
+      <a class="shell__link" href="#/data" data-route="data"><span class="ic" aria-hidden="true">list</span>Tampilan data</a>
+      <a class="shell__link" href="#/charts" data-route="charts"><span class="ic" aria-hidden="true">bar_chart</span>Grafik</a>
+      <span class="shell__group">Pola</span>
+      <a class="shell__link" href="#/phone" data-route="phone"><span class="ic" aria-hidden="true">smartphone</span>Layar ponsel</a>
+      <a class="shell__link" href="#/patterns" data-route="patterns"><span class="ic" aria-hidden="true">dashboard</span>Pola aplikasi</a>
+      <a class="shell__link" href="#/marketing" data-route="marketing"><span class="ic" aria-hidden="true">public</span>Halaman promosi</a>
+      <a class="shell__link" href="./examples/index.html"><span class="ic" aria-hidden="true">location_city</span>Contoh</a>
     </nav>
     <div class="shell__foot">
-      <div class="seg" role="group" aria-label="Appearance" id="theme-seg">
+      <a class="shell__link" href="en/" hreflang="en" lang="en"><span class="ic" aria-hidden="true">language</span>English</a>
+      <div class="seg" role="group" aria-label="Tampilan" id="theme-seg">
         <span class="seg__thumb" style="width: calc((100% - 4px) / 2);"></span>
-        <button class="seg__btn" aria-pressed="true" data-mode="light"><span class="ic ic--sm" aria-hidden="true">light_mode</span>&nbsp;Light</button>
-        <button class="seg__btn" aria-pressed="false" data-mode="dark"><span class="ic ic--sm" aria-hidden="true">dark_mode</span>&nbsp;Dark</button>
+        <button class="seg__btn" aria-pressed="true" data-mode="light"><span class="ic ic--sm" aria-hidden="true">light_mode</span>&nbsp;Terang</button>
+        <button class="seg__btn" aria-pressed="false" data-mode="dark"><span class="ic ic--sm" aria-hidden="true">dark_mode</span>&nbsp;Gelap</button>
       </div>
     </div>
   </aside>
@@ -53,12 +74,12 @@
 
   <div class="shell__main">
     <header class="shell__top">
-      <button class="icon-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="side"><span class="ic" aria-hidden="true">list</span></button>
+      <button class="icon-btn" id="menu-btn" aria-label="Buka menu" aria-expanded="false" aria-controls="side"><span class="ic" aria-hidden="true">list</span></button>
       <span style="font: 600 15px/20px var(--font); color: var(--text-strong);" id="top-title">Lampung Design System</span>
       <span style="width: 44px;"></span>
     </header>
     <main class="board-host" id="board" tabindex="-1"></main>
-    <nav class="pager-next" id="pager" aria-label="Previous and next page"></nav>
+    <nav class="pager-next" id="pager" aria-label="Halaman sebelumnya dan berikutnya"></nav>
   </div>
 </div>
 
@@ -66,92 +87,56 @@
   <div class="page">
     <header class="page-head">
       <div>
-        <div class="page-head__crumb"><span class="page-head__mark">L</span>Start</div>
-        <h1>Getting started</h1>
-        <p class="page-head__lede">One set of tokens and components for every project: plain HTML, Next.js or any web framework, and Flutter. The web side is plain CSS and one optional JavaScript module; nothing here assumes a framework.</p>
+        <div class="page-head__crumb"><span class="page-head__mark"><span class="aksara" data-lds-aksara="la" aria-hidden="true"></span></span>Memulai</div>
+        <h1>Pengenalan</h1>
+        <p class="page-head__lede">Lampung Design System (LDS) adalah design system terbuka untuk membangun situs dan aplikasi layanan publik dengan cepat dan tampilan yang konsisten. Satu berkas token untuk CSS, JavaScript, shadcn/ui, dan Flutter; komponen berupa kelas CSS biasa; perilaku interaktif dalam satu modul JavaScript opsional.</p>
       </div>
     </header>
-    <div class="docs-prose">
-      <h2>What is in the box</h2>
-      <ul>
-        <li><span class="code">tokens/tokens.json</span>: the single source for colors (light and dark), type, space, radius, elevation and motion.</li>
-        <li><span class="code">css/lds.css</span>: tokens plus every component. Light by default; <span class="code">data-theme="dark"</span> or <span class="code">"system"</span> on any element switches it.</li>
-        <li><span class="code">js/lds.js</span>: optional behaviors wired by <span class="code">data-lds-*</span> attributes: layers, sheets with momentum, menus, toasts, steppers, OTP, confirms, data tables, kanban, calendars, maps and charts drawn from JSON (<span class="code">drawChart</span>).</li>
-        <li><span class="code">fonts/</span>: Solar icons as two ligature fonts. Type the name: <span class="code">&lt;span class="ic"&gt;search&lt;/span&gt;</span>.</li>
-        <li><span class="code">react/index.tsx</span>: optional React bindings that render the same markup and own the state (Tabs, Select, Combobox, Switch, Chart, notify and more).</li>
-        <li><span class="code">dist/</span>: generated tokens for JS/TS, Flutter and a shadcn/ui theme.</li>
-        <li><a href="examples/index.html">Examples</a>: whole products built only from the system: a landing page, a 33-page admin dashboard with a foldable sidebar and command palette, and three phone apps. Run <span class="code">npm run serve</span> and open <span class="code">/docs/examples/</span>; rebuild the dashboard with <span class="code">npm run build:examples</span>.</li>
-        <li><a href="components/">Components</a>: 177 components and recipes, one page each with usage, live examples, code, motion and accessibility. The same specs feed the agent skill in <span class="code">skills/lampung-design-system/</span>.</li>
-      </ul>
-      <h2>Add it to a project</h2>
-      <div class="codeblock"><pre><span class="c"># vendors css, js, react, icons and fonts into the folder, with a VERSION file</span>
-npm run sync -- ../my-app/vendor/lds</pre></div>
-      <h2>Plain HTML</h2>
-      <div class="codeblock"><pre>&lt;html class="lds" data-theme="light"&gt;
-&lt;link rel="stylesheet" href="lampung-design-system/css/lds.css"&gt;
-&lt;button class="btn btn--primary"&gt;Save changes&lt;/button&gt;
-&lt;script type="module"&gt;
-  import { init } from 'lampung-design-system/js/lds.js';
-  init();
-&lt;/script&gt;</pre></div>
-      <h2>Next.js</h2>
-      <div class="codeblock"><pre><span class="c">// app/layout.tsx</span>
-<span class="k">import</span> 'lampung-design-system/css';
-&lt;html lang="en" className="lds" data-theme="light"&gt;
-
-<span class="c">// any client component that needs behaviors</span>
-'use client';
-<span class="k">import</span> { useEffect, useRef } <span class="k">from</span> 'react';
-<span class="k">import</span> { init } <span class="k">from</span> 'lampung-design-system/js';
-<span class="k">const</span> ref = useRef(null);
-useEffect(() =&gt; { init(ref.current); }, []);
-
-<span class="c">// or let React own the state</span>
-<span class="k">import</span> { Tabs, Select, notify } <span class="k">from</span> 'lampung-design-system/react';</pre></div>
-      <h2>shadcn/ui</h2>
-      <p>Theme a shadcn app with the system's colors (light and dark), Plus Jakarta Sans, type scale, spacing, elevation, radius and motion curves. Component shapes stay shadcn's; for the exact LDS look and spring motion, use the CSS components.</p>
-      <div class="codeblock"><pre>R=node_modules/lampung-design-system/dist/shadcn/registry
-npx shadcn@latest add $R/lds.json $R/lds-font-sans.json $R/lds-font-mono.json</pre></div>
-      <h2>Flutter</h2>
-      <div class="codeblock"><pre><span class="c">// copy dist/flutter/lds_tokens.dart into lib/, register fonts in pubspec.yaml</span>
-<span class="k">final</span> c = LdsColors.light;
-Text('Today', style: LdsType.largeTitle.copyWith(color: c.textStrong));
-AnimatedContainer(duration: LdsMotion.smooth, curve: LdsMotion.standardCurve);
-SpringSimulation(LdsMotion.smoothSpring, 0, 1, velocity);</pre></div>
-      <h2>Rules that keep it looking like itself</h2>
-      <ul>
-        <li>White canvas. Group with <span class="code">--bg-fill</span>, never with a shadow. Shadows only on things that float.</li>
-        <li>One accent, used for the primary action, the selection and links.</li>
-        <li>Type moves as a set: size, weight and tracking together. Large tightens, small opens.</li>
-        <li>Enter on a spring, leave faster on the exit curve, and always start from where the element is now.</li>
-        <li>Every interactive element is 44 by 44 or larger, keyboard reachable, with a visible focus ring.</li>
-      </ul>
-    </div>
+      <div class="docs-prose">
+        <div class="alert alert--warning" role="note" style="margin-bottom: 8px;"><span class="ic alert__icon" aria-hidden="true">info</span><div class="alert__body"><p class="alert__title">Proyek komunitas, bukan produk resmi</p><p class="alert__text">LDS dibuat dan dirawat komunitas open source. Tidak ada instansi pemerintah yang mengelola atau mendukungnya secara resmi. Warna hijau dan emasnya terinspirasi dari lambang daerah dan siger, bukan atribut resmi.</p></div></div>
+        <h2>Untuk siapa</h2>
+        <ul>
+          <li><b>Pemerintah daerah dan perangkat daerah</b> yang perlu meluncurkan layanan digital tanpa merancang ulang tombol dan formulir setiap kali.</li>
+          <li><b>Pengembang</b> yang ingin mulai dari komponen teruji dengan satu perintah, apa pun framework-nya.</li>
+          <li><b>Desainer</b> yang butuh token, tipografi, dan pola halaman yang sudah lolos uji kontras.</li>
+          <li><b>UMKM, komunitas, dan siapa pun</b> yang membangun untuk warga Lampung dan sekitarnya.</li>
+        </ul>
+        <h2>Mulai dalam satu perintah</h2>
+        <div class="codeblock"><pre>npx lampung-ds@latest init</pre></div>
+        <p>CLI mengenali Next.js, Vite, TanStack Start, React Router, Astro, Laravel, HTML biasa, dan Flutter. Panduan lengkap per framework ada di <a class="link" href="guide/instalasi.html">Instalasi</a>; semua perintah ada di <a class="link" href="guide/cli.html">CLI</a>.</p>
+        <h2>Isi paket</h2>
+        <ul>
+          <li><span class="code">tokens/tokens.json</span>: satu sumber untuk warna (terang dan gelap), tipe, spasi, radius, kedalaman, dan gerak.</li>
+          <li><span class="code">css/lds.css</span>: token dan semua komponen. Terang secara bawaan; <span class="code">data-theme="dark"</span> atau <span class="code">"system"</span> pada elemen mana pun mengubahnya.</li>
+          <li><span class="code">js/lds.js</span>: perilaku opsional lewat atribut <span class="code">data-lds-*</span>: lapisan, sheet dengan momentum, menu, toast, stepper, OTP, tabel data, kanban, kalender, peta, grafik, dan aksara Lampung.</li>
+          <li><span class="code">react/</span>, <span class="code">dist/shadcn/</span>, paket Flutter <span class="code">lampung_design_system</span>, dan CLI <span class="code">lampung-ds</span>.</li>
+          <li><a class="link" href="components/index.html">179 komponen dan resep</a>, masing-masing dengan cara pakai, contoh langsung, kode, gerak, dan aksesibilitas.</li>
+          <li><a class="link" href="examples/index.html">Contoh</a> layanan kota yang dibangun hanya dari sistem ini: dasbor operasional, aplikasi warga, dan portal layanan publik.</li>
+        </ul>
+        <h2>Aturan yang menjaga tampilannya</h2>
+        <ul>
+          <li>Kanvas putih. Kelompokkan dengan <span class="code">--bg-fill</span>, bukan bayangan. Bayangan hanya untuk yang melayang.</li>
+          <li>Satu aksen hijau Lampung untuk aksi utama, pilihan, dan tautan. Emas siger hanya untuk identitas dan ornamen.</li>
+          <li>Aksara Lampung sebagai aksen yang tenang, selalu dengan bacaan Latin.</li>
+          <li>Tipe bergerak sebagai satu set: ukuran, ketebalan, dan jarak huruf berubah bersama.</li>
+          <li>Masuk dengan spring, keluar lebih cepat, dan selalu mulai dari posisi elemen saat itu.</li>
+          <li>Setiap elemen interaktif minimal 44 × 44, bisa dijangkau keyboard, dengan focus ring yang terlihat.</li>
+        </ul>
+        <h2>Panduan</h2>
+        <div class="link-grid"><a class="link-card" href="guide/instalasi.html"><span class="link-card__title">Instalasi</span><span class="link-card__body">Pilih framework yang Anda pakai. CLI lampung-ds menyiapkan semuanya: memasang paket, mengimpor CSS, memberi kelas lds pada &lt;html&gt;, dan</span></a><a class="link-card" href="guide/penulisan.html"><span class="link-card__title">Penulisan</span><span class="link-card__body">Cara menulis teks antarmuka untuk layanan publik dalam bahasa Indonesia: jelas bagi setiap warga, sopan tanpa berbelit, dan selalu memberi t</span></a><a class="link-card" href="guide/aksesibilitas.html"><span class="link-card__title">Aksesibilitas</span><span class="link-card__body">Layanan publik harus bisa dipakai setiap warga, termasuk penyandang disabilitas dan orang yang memakai ponsel lama atau layar kecil. LDS men</span></a><a class="link-card" href="guide/desainer.html"><span class="link-card__title">Untuk desainer</span><span class="link-card__body">Tempat sumber desain LDS, font yang perlu dipasang, tujuh keputusan yang membentuk tampilannya, dan cara menyerahkan desain ke developer tan</span></a></div>
+      </div>
+    <div class="aksara-band" aria-hidden="true" style="margin-top: 48px;"></div>
   </div>
 </template>
 
 <script type="module">
   import { mount } from './runtime.js';
+  import { init } from '../js/lds.js';
+  init(document.body);
 
-  const ROUTES = [
-    { slug: 'start', title: 'Getting started', template: 'tpl-start' },
-    { slug: 'color', title: 'Color', file: 'Main' },
-    { slug: 'typography', title: 'Typography', file: 'Typography' },
-    { slug: 'layout', title: 'Space, radius, depth', file: 'Layout' },
-    { slug: 'motion', title: 'Motion', file: 'Motion' },
-    { slug: 'micro', title: 'Microinteractions', file: 'Micro' },
-    { slug: 'actions', title: 'Actions', file: 'Actions' },
-    { slug: 'inputs', title: 'Inputs', file: 'Inputs' },
-    { slug: 'selection', title: 'Selection', file: 'Selection' },
-    { slug: 'navigation', title: 'Navigation', file: 'Navigation' },
-    { slug: 'overlays', title: 'Overlays', file: 'Overlays' },
-    { slug: 'feedback', title: 'Feedback', file: 'Feedback' },
-    { slug: 'data', title: 'Data display', file: 'DataDisplay' },
-    { slug: 'charts', title: 'Charts', file: 'Charts' },
-    { slug: 'phone', title: 'Phone screen', file: 'Mobile' },
-    { slug: 'patterns', title: 'App patterns', file: 'Patterns' },
-    { slug: 'marketing', title: 'Marketing', file: 'Marketing' }
-  ];
+  const ROUTES = [{"slug":"start","title":"Pengenalan","template":"tpl-start"},{"slug":"color","title":"Warna dan identitas","file":"Main"},{"slug":"typography","title":"Tipografi","file":"Typography"},{"slug":"layout","title":"Ruang, radius, kedalaman","file":"Layout"},{"slug":"motion","title":"Gerak","file":"Motion"},{"slug":"micro","title":"Mikrointeraksi","file":"Micro"},{"slug":"actions","title":"Aksi","file":"Actions"},{"slug":"inputs","title":"Input","file":"Inputs"},{"slug":"selection","title":"Pilihan","file":"Selection"},{"slug":"navigation","title":"Navigasi","file":"Navigation"},{"slug":"overlays","title":"Lapisan","file":"Overlays"},{"slug":"feedback","title":"Umpan balik","file":"Feedback"},{"slug":"data","title":"Tampilan data","file":"DataDisplay"},{"slug":"charts","title":"Grafik","file":"Charts"},{"slug":"phone","title":"Layar ponsel","file":"Mobile"},{"slug":"patterns","title":"Pola aplikasi","file":"Patterns"},{"slug":"marketing","title":"Halaman promosi","file":"Marketing"}];
+  const BOARDS = './boards/';
+  const STR = {"prev":"Sebelumnya","next":"Berikutnya"};
   const html = document.documentElement;
   const host = document.getElementById('board');
   const shell = document.getElementById('shell');
@@ -163,7 +148,6 @@ SpringSimulation(LdsMotion.smoothSpring, 0, 1, velocity);</pre></div>
   const seg = document.getElementById('theme-seg');
   const applyTheme = (m, fromBoard) => {
     mode = m;
-    /* Shell and board switch in the same frame, with transitions held off (no patchy flash). */
     html.classList.add('lds-theme-swap');
     setTimeout(() => html.classList.remove('lds-theme-swap'), 120);
     html.setAttribute('data-theme', m);
@@ -193,7 +177,7 @@ SpringSimulation(LdsMotion.smoothSpring, 0, 1, velocity);</pre></div>
   };
 
   /* Prefetch a board on hover so the transition never waits on the network. */
-  const fileUrl = (r) => `./boards/${r.file}.dc.html`;
+  const fileUrl = (r) => `${BOARDS}${r.file}.dc.html`;
   document.querySelectorAll('.shell__link[data-route]').forEach((a) => a.addEventListener('pointerenter', () => {
     const r = ROUTES.find((x) => x.slug === a.dataset.route);
     if (r && r.file) fetch(fileUrl(r));
@@ -204,8 +188,8 @@ SpringSimulation(LdsMotion.smoothSpring, 0, 1, velocity);</pre></div>
     const prev = ROUTES[i - 1], next = ROUTES[i + 1];
     pager.replaceChildren();
     const link = (r, cls, label) => { const a = document.createElement('a'); a.href = `#/${r.slug}`; a.className = cls; const s = document.createElement('span'); s.textContent = label; a.append(s, document.createTextNode(r.title)); return a; };
-    if (prev) pager.appendChild(link(prev, '', 'Previous'));
-    if (next) pager.appendChild(link(next, 'is-next', 'Next'));
+    if (prev) pager.appendChild(link(prev, '', STR.prev));
+    if (next) pager.appendChild(link(next, 'is-next', STR.next));
   };
 
   async function show(slug, first) {
@@ -214,7 +198,7 @@ SpringSimulation(LdsMotion.smoothSpring, 0, 1, velocity);</pre></div>
     const swap = async () => {
       if (current) { current.unmount(); current = null; }
       host.className = 'board-host' + (route.file === 'Mobile' ? ' board-host--phone' : '');
-      if (route.template) host.replaceChildren(document.getElementById(route.template).content.cloneNode(true));
+      if (route.template) { host.replaceChildren(document.getElementById(route.template).content.cloneNode(true)); init(host); }
       else current = await mount(host, fileUrl(route), { theme: mode });
       if (current) current.component.setState({ theme: mode });
       window.scrollTo({ top: 0, behavior: 'instant' });
