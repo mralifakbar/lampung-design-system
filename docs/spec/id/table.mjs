@@ -2,7 +2,7 @@ export default {
   summary: 'Baris catatan yang dibandingkan dengan kolom yang sama, di dalam `.table-box` yang bergulir ke samping bila perlu. `<table>` asli secara default, `.table--wrap` untuk teks, dan grid `.dt` bila sebuah template mengulang baris.',
   when: [
     'Membandingkan banyak catatan menurut atribut yang sama: layanan menurut kode, lama proses, dan kuota; pembayaran menurut tanggal, jumlah, dan status.',
-    'Data yang diurutkan, dipindai per kolom, atau dipilih barisnya (rekap nilai, daftar peserta, tagihan).',
+    'Data yang diurutkan, dipindai per kolom, atau dipilih barisnya (rekap retribusi, daftar peserta, tagihan pajak).',
     'Tabel teks dua kolom berisi aturan atau definisi (`.table--wrap`).',
   ],
   whenNot: [

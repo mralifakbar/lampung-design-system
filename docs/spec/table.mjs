@@ -4,8 +4,8 @@ export default {
   order: 7,
   summary: 'Rows of records compared by the same columns, in a `.table-box` that scrolls sideways when it must. A real `<table>` by default, `.table--wrap` for text, and the `.dt` grid when a template repeats rows.',
   when: [
-    'Comparing many records by the same attributes: courses by code, credits and seats; payments by date, amount and status.',
-    'Data people sort, scan down a column or select rows from (grade books, rosters, invoices).',
+    'Comparing many records by the same attributes: services by code, processing time and quota; payments by date, amount and status.',
+    'Data people sort, scan down a column or select rows from (levy records, attendee lists, tax bills).',
     'A two-column text table of rules or definitions (`.table--wrap`).',
   ],
   whenNot: [
@@ -29,15 +29,15 @@ export default {
   examples: [
     {
       title: 'Records with sorting and selection',
-      desc: 'Numbers right-aligned, the naming column strong, a selected row on the accent tint. Sorted by credits, descending.',
+      desc: 'Numbers right-aligned, the naming column strong, a selected row on the accent tint. Sorted by processing time, descending.',
       stage: 'block',
       html: `<div class="table-box">
   <table class="table">
-    <thead><tr><th>Course</th><th>Code</th><th class="num" aria-sort="descending"><button class="is-sorted is-desc">Credits<span class="ic" aria-hidden="true">arrow_upward</span></button></th><th class="num">Seats left</th><th>Status</th></tr></thead>
+    <thead><tr><th>Service</th><th>Code</th><th class="num" aria-sort="descending"><button class="is-sorted is-desc">Processing days<span class="ic" aria-hidden="true">arrow_upward</span></button></th><th class="num">Quota left</th><th>Status</th></tr></thead>
     <tbody>
-      <tr><td class="strong">Database Systems</td><td>CS 2104</td><td class="num">4</td><td class="num">12</td><td><span class="badge badge--success">Open</span></td></tr>
-      <tr class="is-selected"><td class="strong">Computer Networks</td><td>CS 3102</td><td class="num">3</td><td class="num">0</td><td><span class="badge badge--danger">Full</span></td></tr>
-      <tr><td class="strong">Technical Writing</td><td>HU 1201</td><td class="num">2</td><td class="num">31</td><td><span class="badge badge--success">Open</span></td></tr>
+      <tr><td class="strong">Micro business permit</td><td>IUM 2104</td><td class="num">4</td><td class="num">12</td><td><span class="badge badge--success">Open</span></td></tr>
+      <tr class="is-selected"><td class="strong">Building approval</td><td>PBG 3102</td><td class="num">3</td><td class="num">0</td><td><span class="badge badge--danger">Full</span></td></tr>
+      <tr><td class="strong">Domicile letter</td><td>SKD 1201</td><td class="num">2</td><td class="num">31</td><td><span class="badge badge--success">Open</span></td></tr>
     </tbody>
   </table>
 </div>`,
@@ -50,8 +50,8 @@ export default {
   <table class="table table--wrap">
     <thead><tr><th>Rule</th><th>What it means</th></tr></thead>
     <tbody>
-      <tr><td class="strong">Late submission</td><td>Work handed in after the deadline loses 5 % a day, for up to five days. After that it is not graded.</td></tr>
-      <tr><td class="strong">Extension</td><td>Ask your lecturer before the deadline. Medical extensions need a letter within three days.</td></tr>
+      <tr><td class="strong">Late payment</td><td>Tax paid after the due date carries a 2 % fine per month, for up to 24 months.</td></tr>
+      <tr><td class="strong">Relief</td><td>Apply before the due date. Relief because of a disaster needs a letter from the kelurahan within three days.</td></tr>
     </tbody>
   </table>
 </div>`,
@@ -63,8 +63,8 @@ export default {
       html: `<div class="table-box">
   <div class="dt" role="table" aria-label="Payments">
     <div class="dt__row dt__head" role="row" style="grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;"><span class="dt__cell" role="columnheader">Item</span><span class="dt__cell" role="columnheader" aria-sort="ascending"><button class="dt__sort is-sorted">Date<span class="ic" aria-hidden="true">arrow_upward</span></button></span><span class="dt__cell num" role="columnheader">Amount</span><span class="dt__cell" role="columnheader">Status</span></div>
-    <div class="dt__row" role="row" style="grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;"><span class="dt__cell strong" role="cell">Term fee</span><span class="dt__cell" role="cell">2 Sep 2026</span><span class="dt__cell num" role="cell">Rp 4.200.000</span><span class="dt__cell" role="cell"><span class="badge badge--success">Paid</span></span></div>
-    <div class="dt__row" role="row" style="grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;"><span class="dt__cell strong" role="cell">Graduation deposit</span><span class="dt__cell" role="cell">28 Nov 2026</span><span class="dt__cell num" role="cell">Rp 1.000.000</span><span class="dt__cell" role="cell"><span class="badge badge--warning">Due</span></span></div>
+    <div class="dt__row" role="row" style="grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;"><span class="dt__cell strong" role="cell">Land and building tax</span><span class="dt__cell" role="cell">2 Sep 2026</span><span class="dt__cell num" role="cell">Rp 1.250.000</span><span class="dt__cell" role="cell"><span class="badge badge--success">Paid</span></span></div>
+    <div class="dt__row" role="row" style="grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;"><span class="dt__cell strong" role="cell">Vehicle tax</span><span class="dt__cell" role="cell">28 Nov 2026</span><span class="dt__cell num" role="cell">Rp 1.000.000</span><span class="dt__cell" role="cell"><span class="badge badge--warning">Due</span></span></div>
   </div>
 </div>`,
     },
