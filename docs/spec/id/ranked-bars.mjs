@@ -5,7 +5,7 @@ const fmt = (v) => String(v).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 const sources = [
   { name: 'Mesin pencari', icon: 'search', v: 4210, d: '+12%', good: true },
   { name: 'Buletin email', icon: 'mail', v: 2380, d: '+4%', good: true },
-  { name: 'Situs sekolah', icon: 'school', v: 1710, d: '−6%', good: false },
+  { name: 'Situs kelurahan', icon: 'location_city', v: 1710, d: '−6%', good: false },
   { name: 'Media sosial', icon: 'share', v: 960, d: '+21%', good: true },
   { name: 'Langsung', icon: 'link', v: 640, d: '−2%', good: false },
 ];
@@ -26,7 +26,7 @@ export default {
   summary: 'Baris berisi label, batang horizontal, dan nilainya, diurutkan dari yang terpanjang: sumber teratas, halaman teratas, skor terbaik. Label panjang tetap terbaca karena berada di samping (atau di dalam) batang, bukan di bawahnya, dan setiap baris berbagi satu grid sehingga batang dan nilai sejajar.',
   when: [
     'Memeringkat 3 sampai 10 hal bernama menurut satu nilai: sumber kunjungan, halaman, layanan, petugas, kecamatan.',
-    'Nama kategorinya panjang atau banyak ("Situs sekolah", "/layanan/ktp-elektronik"), yang harus diputar jika memakai batang vertikal.',
+    'Nama kategorinya panjang atau banyak ("Situs kelurahan", "/layanan/ktp-elektronik"), yang harus diputar jika memakai batang vertikal.',
     'Papan peringkat: urutan, siapa, dan skornya, dengan batang untuk memberi gambaran cepat tentang selisihnya.',
   ],
   whenNot: [
