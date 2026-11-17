@@ -32,9 +32,9 @@ export default {
       replay: true,
       html: `<div class="docs-col" style="max-width: 420px;">
   <div class="list">
-    ${ROW('Lab report feedback', 'Two comments on section 3', '09:41', THREE)}
-    ${ROW('Seminar room changed', 'Now in building C, room 204', 'Yesterday', THREE)}
-    ${ROW('Library hold ready', 'Pick up before Friday', 'Mon', THREE)}
+    ${ROW('Pothole report answered', 'Two notes from the field officer', '09:41', THREE)}
+    ${ROW('KTP-el recording moved', 'Now at the kecamatan office, floor 2', 'Yesterday', THREE)}
+    ${ROW('Business permit ready to collect', 'Collect before Friday', 'Mon', THREE)}
   </div>
 </div>`,
       code: `<div class="list">
@@ -60,8 +60,8 @@ export default {
       stage: 'fill',
       replay: true,
       html: `<div class="list" style="width: 100%; max-width: 420px;">
-  ${ROW('Read chapter 4', 'Biology 101', 'Today', ONE)}
-  ${ROW('Print the lab worksheet', 'Biology 101', 'Tomorrow', ONE)}
+  ${ROW('Photocopy the family card (KK)', 'Business permit requirement', 'Today', ONE)}
+  ${ROW('Pay motor vehicle tax', 'Rp 450.000', 'Tomorrow', ONE)}
 </div>`,
     },
   ],
