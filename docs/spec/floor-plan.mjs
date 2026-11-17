@@ -2,7 +2,7 @@
 const t = (name, meta, area, tone = '', round = false, pressed = false, flag = '') => `<button class="floor__unit${round ? ' floor__unit--round' : ''}${tone ? ` floor__unit--${tone}` : ''}" type="button" aria-pressed="${pressed}" style="grid-area: ${area};">${flag ? `<span class="ic floor__flag" aria-hidden="true">${flag}</span>` : ''}<span class="floor__name">${name}</span><span class="floor__meta">${meta}</span></button>`;
 
 const room = `<div class="stack" style="--gap: 12px;">
-<div class="floor" tabindex="0" role="region" aria-label="Study centre, ground floor, scrolls sideways" style="--cols: 10; --row: 56px; --min: 560px;">
+<div class="floor" tabindex="0" role="region" aria-label="Regional library, ground floor, scrolls sideways" style="--cols: 10; --row: 56px; --min: 560px;">
   <div class="floor__plan">
     <span class="floor__zone" style="grid-area: 1 / 8 / 5 / 11;">Quiet room</span>
     ${t('A1', 'Free', '1 / 1 / 3 / 3', '', true)}
@@ -33,9 +33,9 @@ export default {
   title: 'Floor plan',
   group: 'Data display',
   order: 22.6,
-  summary: 'Bookable things drawn where they are: tables in a dining room, rooms on a floor, desks in a study centre. Each one is a button colored by its state, and the state is always in words too, so people find a free one by place and by name.',
+  summary: 'Bookable things drawn where they are: tables in a dining room, rooms on a floor, desks in a regional library. Each one is a button colored by its state, and the state is always in words too, so people find a free one by place and by name.',
   when: [
-    'Where something is matters as much as its state: tables in a restaurant, desks or study rooms people book, beds on a ward.',
+    'Where something is matters as much as its state: tables in a restaurant, desks or study rooms people book, beds on a puskesmas ward.',
     'Rooms of a building by floor, where staff scan for the ones that need them (cleaning, inspection, out of order).',
     'A front desk or host stand that seats, moves and joins things all day and needs to see the whole room at once.',
   ],
@@ -57,7 +57,7 @@ export default {
   ],
   examples: [
     {
-      title: 'Placed: a study centre',
+      title: 'Placed: a regional library',
       desc: 'Desks and booths where they stand. Booked, in use, cleaning and out of order each have a tone and a word; the selected booth has the accent ring. Narrow the window: the plan keeps its shape and scrolls inside its box.',
       stage: 'block',
       html: room,
