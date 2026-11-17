@@ -224,10 +224,13 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
                         : 'Bulan berikutnya',
                     onPressed: () => _shift(1),
                   ),
-                  const SizedBox(width: 8),
+                  SizedBox(width: narrow ? 4 : 8),
                   SizedBox(
-                    // The segmented control fills a bounded width.
-                    width: narrow ? 176 : 252,
+                    // The segmented control fills a bounded width. Narrow
+                    // shows two segments, so 152 keeps the whole toolbar
+                    // within a 375 pt phone with 16 pt gutters and a card
+                    // padding of 16.
+                    width: narrow ? 152 : 252,
                     child: LdsSegmented<LdsCalendarView>(
                       semanticLabel: 'Tampilan kalender',
                       value: view,
