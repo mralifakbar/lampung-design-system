@@ -212,3 +212,21 @@ body { margin: 0; overflow-x: clip; }
 .docs-legal { display: flex; gap: 6px; margin: 0; padding: 0 8px; font: var(--type-footnote); color: var(--text-subtle); }
 .docs-legal a { color: inherit; text-decoration: none; min-height: 24px; display: inline-flex; align-items: center; }
 @media (hover: hover) and (pointer: fine) { .docs-legal a:hover { color: var(--text-strong); text-decoration: underline; } }
+
+/* Page to page: the browser keeps the sidebar, top bar and masthead in place and crossfades only the
+   content, instead of flashing a blank page between documents (cross-document view transitions). */
+@view-transition { navigation: auto; }
+.shell__side { view-transition-name: docs-side; }
+.shell__top { view-transition-name: docs-top; }
+.masthead { view-transition-name: docs-masthead; }
+::view-transition-group(docs-side), ::view-transition-group(docs-top), ::view-transition-group(docs-masthead) { animation: none; }
+::view-transition-old(docs-side), ::view-transition-new(docs-side),
+::view-transition-old(docs-top), ::view-transition-new(docs-top),
+::view-transition-old(docs-masthead), ::view-transition-new(docs-masthead) { animation: none; }
+::view-transition-old(root) { animation: 120ms var(--ease-exit) both docs-fade-out; }
+::view-transition-new(root) { animation: 200ms var(--ease-enter) both docs-fade-in; }
+@keyframes docs-fade-out { to { opacity: 0; } }
+@keyframes docs-fade-in { from { opacity: 0; transform: translateY(4px); } }
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none; }
+}
