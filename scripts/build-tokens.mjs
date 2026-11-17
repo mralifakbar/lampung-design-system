@@ -81,24 +81,31 @@ ${vars('dark').replace(/^/gm, '  ')}
 write('css/tokens.css', `/* ${HEADER} */
 
 /* Light is the default. Set data-theme="dark" on <html> (or any subtree) for dark,
-   or data-theme="system" to follow the OS setting. */
+   or data-theme="system" to follow the OS setting. The :root.lds and :root[data-theme]
+   selectors outrank a plain :root, so a framework starter's own :root variables
+   (--accent, --bg, --border and the like) cannot override LDS on <html class="lds">. */
 :root,
-[data-theme="light"] {
+:root.lds,
+[data-theme="light"],
+:root[data-theme="light"] {
   color-scheme: light;
 ${themeBlock('light')}
 }
 
-:root {
+:root,
+:root.lds {
 ${staticBlock()}
 }
 
-[data-theme="dark"] {
+[data-theme="dark"],
+:root[data-theme="dark"] {
   color-scheme: dark;
 ${themeBlock('dark')}
 }
 
 @media (prefers-color-scheme: dark) {
-  [data-theme="system"] {
+  [data-theme="system"],
+  :root[data-theme="system"] {
     color-scheme: dark;
 ${themeBlock('dark').replace(/^/gm, '  ')}
   }
