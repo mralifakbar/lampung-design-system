@@ -29,8 +29,8 @@ export default {
   <div style="position: relative;">
     <button class="btn btn--gray btn--md" data-lds-menu="ee-sort" aria-haspopup="menu" aria-expanded="false">Sort by<span class="ic" aria-hidden="true">expand_more</span></button>
     <div class="menu" id="ee-sort" role="menu" style="top: calc(100% + 6px); left: 0;">
-      <button class="menu__item" role="menuitem">Due date</button>
-      <button class="menu__item" role="menuitem">Course</button>
+      <button class="menu__item" role="menuitem">Report date</button>
+      <button class="menu__item" role="menuitem">Kecamatan</button>
       <button class="menu__item" role="menuitem">Recently added</button>
     </div>
   </div>
@@ -51,23 +51,23 @@ export default {
       stage: 'flush',
       html: `<div class="viewport docs-box">
   <div class="viewport__content">
-    <p class="card__title">Database Systems</p>
+    <p class="card__title">Micro business permit service</p>
     <div class="docs-row">
-      <button class="btn btn--secondary btn--md" data-lds-open="ee-dialog" aria-haspopup="dialog">Rename course</button>
+      <button class="btn btn--secondary btn--md" data-lds-open="ee-dialog" aria-haspopup="dialog">Rename service</button>
       <button class="btn btn--secondary btn--md" data-lds-open="ee-drawer" aria-haspopup="dialog"><span class="ic" aria-hidden="true">tune</span>Filters</button>
     </div>
   </div>
   <div class="scrim" data-lds-scrim="ee-dialog"></div>
   <div class="dialog" id="ee-dialog" role="dialog" aria-modal="true" aria-labelledby="ee-dialog-t" data-lds-layer>
-    <h3 class="dialog__title" id="ee-dialog-t">Rename course</h3>
-    <p class="dialog__body">Students see the new name the next time they open the app.</p>
-    <div class="control" style="margin-top: 16px;"><input aria-label="Course name" value="Database Systems" data-lds-autofocus></div>
+    <h3 class="dialog__title" id="ee-dialog-t">Rename service</h3>
+    <p class="dialog__body">Residents see the new name the next time they open the app.</p>
+    <div class="control" style="margin-top: 16px;"><input aria-label="Service name" value="Micro business permit service" data-lds-autofocus></div>
     <div class="dialog__actions"><button class="btn btn--secondary btn--md" data-lds-close>Cancel</button><button class="btn btn--primary btn--md" data-lds-close>Save name</button></div>
   </div>
   <div class="scrim" data-lds-scrim="ee-drawer"></div>
   <aside class="drawer" id="ee-drawer" role="dialog" aria-modal="true" aria-labelledby="ee-drawer-t" data-lds-layer>
     <div class="sheet__head" style="margin: 0;"><h3 class="sheet__title" id="ee-drawer-t">Filters</h3><button class="icon-btn" aria-label="Close filters" data-lds-close style="margin: -10px -10px -10px 0;"><span class="ic" aria-hidden="true">close</span></button></div>
-    <button class="btn btn--primary btn--block" style="margin-top: auto;" data-lds-close>Show 8 courses</button>
+    <button class="btn btn--primary btn--block" style="margin-top: auto;" data-lds-close>Show 8 services</button>
   </aside>
 </div>`,
     },
@@ -77,7 +77,7 @@ export default {
       stage: 'flush',
       html: `<div class="viewport docs-box" style="height: 300px;">
   <div class="viewport__content">
-    <p class="card__title">Lab report</p>
+    <p class="card__title">Citizen report</p>
     <button class="btn btn--secondary btn--md" onclick="import('../../js/lds.js').then((m) => m.toast({ title: 'Draft saved', icon: 'check_circle', container: this.closest('.viewport') }))">Save draft</button>
   </div>
   <div class="toaster" role="status" aria-live="polite"></div>
@@ -91,8 +91,8 @@ toast({ title: 'Draft saved', icon: 'check_circle' });`,
       stage: 'block',
       replay: true,
       html: `<div class="docs-col" style="max-width: 420px;">
-  <div>${FILE('lab-report.pdf', '1.2 MB')}</div>
-  <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="const list = this.previousElementSibling; const row = list.firstElementChild.cloneNode(true); row.querySelector('.file-row__name').textContent = 'week-' + (list.children.length + 3) + '-notes.pdf'; row.querySelector('.file-row__meta').textContent = '340 KB'; list.append(row);"><span class="ic" aria-hidden="true">add</span>Add a file</button>
+  <div>${FILE('damaged-road-photo.jpg', '1.2 MB')}</div>
+  <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="const list = this.previousElementSibling; const row = list.firstElementChild.cloneNode(true); row.querySelector('.file-row__name').textContent = 'attachment-' + (list.children.length + 1) + '.pdf'; row.querySelector('.file-row__meta').textContent = '340 KB'; list.append(row);"><span class="ic" aria-hidden="true">add</span>Add a file</button>
 </div>`,
     },
     {
@@ -102,7 +102,7 @@ toast({ title: 'Draft saved', icon: 'check_circle' });`,
 <dialog class="modal" id="ee-modal" aria-labelledby="ee-modal-t">
   <button class="icon-btn dialog__close" data-lds-modal-close aria-label="Close"><span class="ic" aria-hidden="true">close</span></button>
   <h2 class="dialog__title" id="ee-modal-t">Report a mistake</h2>
-  <p class="dialog__body">Tell us what is wrong in question 12 and what it should say.</p>
+  <p class="dialog__body">Tell us which detail on your local tax bill is wrong and what it should say.</p>
   <div class="dialog__actions"><button class="btn btn--secondary" data-lds-modal-close>Cancel</button><button class="btn btn--primary" data-lds-modal-close>Send report</button></div>
 </dialog>`,
     },
