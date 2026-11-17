@@ -2,7 +2,7 @@ export default {
   summary: 'Card berwarna terbalik yang menunjuk satu bagian antarmuka dengan penjelasan singkat, dalam tur paling banyak tiga langkah. Selalu bisa dilewati.',
   when: [
     'Fitur baru berada di tempat yang tidak akan dicari orang, dan satu kalimat yang menunjuknya menghemat satu pertanyaan ke layanan bantuan.',
-    'Tur singkat saat pertama kali dipakai (satu sampai tiga langkah) di layar yang padat, seperti editor formulir permohonan atau buku nilai.',
+    'Tur singkat saat pertama kali dipakai (satu sampai tiga langkah) di layar yang padat, seperti editor formulir permohonan atau buku kas pajak.',
   ],
   whenNot: [
     ['Tips sekali tampil yang tidak perlu menunjuk kontrol', 'hints'],

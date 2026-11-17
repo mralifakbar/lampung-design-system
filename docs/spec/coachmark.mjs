@@ -5,7 +5,7 @@ export default {
   summary: 'An inverse card that points at one part of the interface with a short explanation, in a tour of at most three steps. Always skippable.',
   when: [
     'A new feature lives somewhere the person would not look, and one sentence pointing at it saves a support question.',
-    'A short first-run tour (one to three steps) through a dense screen, such as the exam editor or a grade book.',
+    'A short first-run tour (one to three steps) through a dense screen, such as the permit application form editor or a tax ledger.',
   ],
   whenNot: [
     ['A one-time tip that does not need to point at a control', 'hints'],
@@ -34,15 +34,15 @@ export default {
   <div class="docs-row">
     <button class="btn btn--secondary btn--md is-lit" data-step="0"><span class="ic" aria-hidden="true">search</span>Search</button>
     <button class="btn btn--secondary btn--md" data-step="1"><span class="ic" aria-hidden="true">filter_list</span>Filter</button>
-    <button class="btn btn--primary btn--md" data-step="2"><span class="ic" aria-hidden="true">add</span>New note</button>
+    <button class="btn btn--primary btn--md" data-step="2"><span class="ic" aria-hidden="true">add</span>New report</button>
   </div>
   <div class="coach" role="dialog" aria-labelledby="cm-t" aria-describedby="cm-b" style="top: 64px; left: 0;">
     <div class="coach__step" id="cm-s">Step 1 of 3</div>
-    <div class="coach__title" id="cm-t">Search every note</div>
-    <div class="coach__body" id="cm-b">Find a note by any word in it, not only the title.</div>
+    <div class="coach__title" id="cm-t">Search every report</div>
+    <div class="coach__body" id="cm-b">Find a report by any word in it, not only the title.</div>
     <div class="docs-row" style="gap: 8px; margin-top: 14px; justify-content: flex-end;">
       <button class="btn btn--sm" onclick="this.closest('.coach').hidden = true; document.querySelectorAll('#cm [data-step]').forEach((b) => b.classList.remove('is-lit'));">Skip</button>
-      <button class="btn btn--sm is-primary" onclick="const box = document.getElementById('cm'); const c = box.querySelector('.coach'); const n = Number(c.dataset.n || 0) + 1; const t = [['Search every note', 'Find a note by any word in it, not only the title.'], ['Filter by course', 'Show only the notes from one course or one week.'], ['Start a new note', 'It saves as you type, even offline.']]; if (n > 2) { c.hidden = true; box.querySelectorAll('[data-step]').forEach((b) => b.classList.remove('is-lit')); return; } c.dataset.n = n; const target = box.querySelector('[data-step=&quot;' + n + '&quot;]'); box.querySelectorAll('[data-step]').forEach((b) => b.classList.toggle('is-lit', b === target)); c.style.transform = 'translateX(' + Math.max(0, target.offsetLeft - 8) + 'px)'; c.style.setProperty('--arrow', Math.min(240, target.offsetWidth / 2 + 2) + 'px'); document.getElementById('cm-s').textContent = 'Step ' + (n + 1) + ' of 3'; document.getElementById('cm-t').textContent = t[n][0]; document.getElementById('cm-b').textContent = t[n][1]; if (n === 2) this.textContent = 'Done';">Next</button>
+      <button class="btn btn--sm is-primary" onclick="const box = document.getElementById('cm'); const c = box.querySelector('.coach'); const n = Number(c.dataset.n || 0) + 1; const t = [['Search every report', 'Find a report by any word in it, not only the title.'], ['Filter by kecamatan', 'Show only the reports from one kecamatan or one week.'], ['Start a new report', 'It saves as you type, even offline.']]; if (n > 2) { c.hidden = true; box.querySelectorAll('[data-step]').forEach((b) => b.classList.remove('is-lit')); return; } c.dataset.n = n; const target = box.querySelector('[data-step=&quot;' + n + '&quot;]'); box.querySelectorAll('[data-step]').forEach((b) => b.classList.toggle('is-lit', b === target)); c.style.transform = 'translateX(' + Math.max(0, target.offsetLeft - 8) + 'px)'; c.style.setProperty('--arrow', Math.min(240, target.offsetWidth / 2 + 2) + 'px'); document.getElementById('cm-s').textContent = 'Step ' + (n + 1) + ' of 3'; document.getElementById('cm-t').textContent = t[n][0]; document.getElementById('cm-b').textContent = t[n][1]; if (n === 2) this.textContent = 'Done';">Next</button>
     </div>
   </div>
 </div>`,
@@ -50,8 +50,8 @@ export default {
   <button class="btn btn--secondary btn--md is-lit" id="search-btn">Search</button>
   <div class="coach" role="dialog" aria-labelledby="coach-t" aria-describedby="coach-b" style="top: 64px; left: 0; --arrow: 40px;">
     <div class="coach__step">Step 1 of 3</div>
-    <div class="coach__title" id="coach-t">Search every note</div>
-    <div class="coach__body" id="coach-b">Find a note by any word in it, not only the title.</div>
+    <div class="coach__title" id="coach-t">Search every report</div>
+    <div class="coach__body" id="coach-b">Find a report by any word in it, not only the title.</div>
     <div class="cluster" style="margin-top: 14px; justify-content: flex-end;">
       <button class="btn btn--sm">Skip</button>
       <button class="btn btn--sm is-primary">Next</button>
@@ -66,7 +66,7 @@ export default {
       html: `<div style="position: relative; min-height: 210px;">
   <button class="btn btn--gray btn--md is-lit"><span class="ic" aria-hidden="true">download</span>Export</button>
   <div class="coach" role="dialog" aria-labelledby="cm2-t" style="top: 60px; left: 0; --arrow: 36px;">
-    <div class="coach__title" id="cm2-t">Export grades to a spreadsheet</div>
+    <div class="coach__title" id="cm2-t">Export retribusi data to a spreadsheet</div>
     <div class="coach__body">Every column you see is included, in the same order.</div>
     <div class="docs-row" style="margin-top: 14px; justify-content: flex-end;"><button class="btn btn--sm is-primary" onclick="this.closest('.coach').hidden = true; this.closest('.coach').parentElement.querySelector('.is-lit').classList.remove('is-lit');">Got it</button></div>
   </div>
@@ -87,7 +87,7 @@ export default {
     '`role="dialog"` (non-modal) with `aria-labelledby` the title and `aria-describedby` the body. Move focus to the Next button when it opens, and back to the target when it closes.',
     'Escape must skip the tour; wire it in the app (there is no built-in behavior).',
     'The page stays usable behind it: no scrim, no focus trap.',
-    'The lit ring is not the only cue; the text names the control ("Filter by course").',
+    'The lit ring is not the only cue; the text names the control ("Filter by kecamatan").',
   ],
   do: [
     'Point at one control per step, three steps at most.',
