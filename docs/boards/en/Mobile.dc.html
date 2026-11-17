@@ -75,19 +75,19 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
 
       <sc-if value="{{isToday}}" hint-placeholder-val="{{true}}">
         <div class="search-wrap {{searchCls}}">
-          <div class="control search" style="flex: 1;"><span class="ic" aria-hidden="true">search</span><input placeholder="Search classes and rooms" value="{{q}}" onChange="{{onQ}}" onFocus="{{onFocus}}" aria-label="Search classes and rooms"></div>
+          <div class="control search" style="flex: 1;"><span class="ic" aria-hidden="true">search</span><input placeholder="Search services and places" value="{{q}}" onChange="{{onQ}}" onFocus="{{onFocus}}" aria-label="Search services and places"></div>
           <button class="search__cancel" onClick="{{cancel}}">Cancel</button>
         </div>
 
         <div class="now">
-          <div style="display: flex; justify-content: space-between; align-items: center;"><span class="now__meta">Next class · 08:00</span><span class="badge" style="background: rgba(255,255,255,.18); color: #fff;">In 25 min</span></div>
-          <div><div class="now__title">Database Systems</div><div class="now__meta" style="margin-top: 2px;">Room 2.14, building H</div></div>
-          <div class="now__bar" role="progressbar" aria-label="Time until class" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100"><i></i></div>
-          <div class="row" style="gap: 8px;"><button class="now__go" onClick="{{openSheet}}"><span class="ic" aria-hidden="true">{{checkIcon}}</span>{{checkCta}}</button><button class="now__icon" aria-label="Directions to room 2.14"><span class="ic" aria-hidden="true">location_on</span></button></div>
+          <div style="display: flex; justify-content: space-between; align-items: center;"><span class="now__meta">Queue A-027 · 08:00</span><span class="badge" style="background: rgba(255,255,255,.18); color: #fff;">In 25 min</span></div>
+          <div><div class="now__title">General clinic</div><div class="now__meta" style="margin-top: 2px;">Puskesmas Contoh Utara, counter 2</div></div>
+          <div class="now__bar" role="progressbar" aria-label="Time until your turn" aria-valuenow="64" aria-valuemin="0" aria-valuemax="100"><i></i></div>
+          <div class="row" style="gap: 8px;"><button class="now__go" onClick="{{openSheet}}"><span class="ic" aria-hidden="true">{{checkIcon}}</span>{{checkCta}}</button><button class="now__icon" aria-label="Directions to the puskesmas"><span class="ic" aria-hidden="true">location_on</span></button></div>
         </div>
 
         <div>
-          <div class="ph-h"><h2>Classes</h2></div>
+          <div class="ph-h"><h2>Agenda</h2></div>
           <div class="seg" role="group" aria-label="Day" style="margin-bottom: 12px;">
             <span class="seg__thumb" style="width: calc((100% - 4px) / 3); transform: translateX({{segX}});"></span>
             <sc-for list="{{segs}}" as="o" hint-placeholder-count="3"><button class="seg__btn" aria-pressed="{{o.on}}" onClick="{{o.pick}}">{{o.label}}</button></sc-for>
@@ -100,7 +100,7 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
                 <span class="ic lrow__chev" aria-hidden="true">chevron_right</span>
               </button>
             </sc-for>
-            <sc-if value="{{noClasses}}" hint-placeholder-val="{{false}}"><div class="empty" style="padding: 24px;"><div class="empty__title" style="font-size: 15px;">No classes match "{{q}}"</div><div class="empty__body">Try a course name or a room.</div></div></sc-if>
+            <sc-if value="{{noClasses}}" hint-placeholder-val="{{false}}"><div class="empty" style="padding: 24px;"><div class="empty__title" style="font-size: 15px;">No agenda items match "{{q}}"</div><div class="empty__body">Try a service name or a place.</div></div></sc-if>
           </div>
         </div>
 
@@ -117,8 +117,8 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
         </div>
 
         <div class="grid2" style="gap: 12px;">
-          <article class="kpi"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">event_available</span></span><span class="kpi__label">Attendance</span></div><div class="kpi__value">92<small>%</small></div></article>
-          <article class="kpi"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">assignment</span></span><span class="kpi__label">Tasks due</span></div><div class="kpi__value"><span class="ph-rise" key="{{dueKey}}">{{dueLeft}}</span></div></article>
+          <article class="kpi"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">event_available</span></span><span class="kpi__label">Reports resolved</span></div><div class="kpi__value">92<small>%</small></div></article>
+          <article class="kpi"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">assignment</span></span><span class="kpi__label">Needs action</span></div><div class="kpi__value"><span class="ph-rise" key="{{dueKey}}">{{dueLeft}}</span></div></article>
         </div>
       </sc-if>
 
@@ -131,7 +131,7 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
           <sc-for list="{{slots}}" as="s" hint-placeholder-count="3">
             <div class="slot" style="animation: lds-blur-in 280ms var(--ease-enter) both; animation-delay: {{s.d}};"><span class="slot__time">{{s.time}}</span><div class="slot__card" style="--c: {{s.c}};"><div class="slot__name">{{s.name}}</div><div class="slot__meta">{{s.room}} · {{s.len}}</div></div></div>
           </sc-for>
-          <sc-if value="{{freeDay}}" hint-placeholder-val="{{false}}"><div class="empty" style="padding: 32px 16px;"><div class="empty__icon"><span class="ic" aria-hidden="true">event_available</span></div><div class="empty__title">No classes on {{dayName}}</div><div class="empty__body">A good day to catch up on reading.</div></div></sc-if>
+          <sc-if value="{{freeDay}}" hint-placeholder-val="{{false}}"><div class="empty" style="padding: 32px 16px;"><div class="empty__icon"><span class="ic" aria-hidden="true">event_available</span></div><div class="empty__title">Nothing scheduled on {{dayName}}</div><div class="empty__body">Check flood updates and city bus times before you travel.</div></div></sc-if>
         </div>
       </sc-if>
 
@@ -139,18 +139,18 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
         <div class="list list--fill">
           <sc-for list="{{courses}}" as="c" hint-placeholder-count="5">
             <div class="course" style="animation: lds-blur-in 280ms var(--ease-enter) both; animation-delay: {{c.d}};">
-              <div class="course__top">{{c.name}}<span>{{c.credits}} credits</span></div>
+              <div class="course__top">{{c.name}}<span>{{c.credits}} steps</span></div>
               <div class="progress progress--thin" role="progressbar" aria-label="{{c.aria}}" aria-valuenow="{{c.pct}}" aria-valuemin="0" aria-valuemax="100"><div class="progress__fill" style="transform: scaleX({{c.scale}});"></div></div>
-              <div class="task__sub">Attended {{c.pct}}% of sessions</div>
+              <div class="task__sub">Progress {{c.pct}}%</div>
             </div>
           </sc-for>
         </div>
       </sc-if>
 
       <sc-if value="{{isProfile}}" hint-placeholder-val="{{false}}">
-        <div class="me"><span class="avatar avatar--gray"><span class="ic" style="font-size: 38px;" aria-hidden="true">person</span></span><div><div class="me__name">Your name</div><div class="me__sub">Computer Science · Year 3</div></div></div>
+        <div class="me"><span class="avatar avatar--gray"><span class="ic" style="font-size: 38px;" aria-hidden="true">person</span></span><div><div class="me__name">Siti Rahma</div><div class="me__sub">Resident of Kelurahan Contoh · verified account</div></div></div>
         <div class="list list--fill">
-          <label class="lrow lrow--icon" style="min-height: 52px;"><span class="lrow__icon" style="background: var(--tile-red);"><span class="ic" aria-hidden="true">notifications</span></span><span class="lrow__body"><span class="lrow__title">Class reminders</span></span><span class="switch switch--sm"><input type="checkbox" role="switch" checked="{{remind}}" onChange="{{toggleRemind}}" aria-label="Class reminders"><span class="switch__track"><span class="switch__thumb"></span></span></span></label>
+          <label class="lrow lrow--icon" style="min-height: 52px;"><span class="lrow__icon" style="background: var(--tile-red);"><span class="ic" aria-hidden="true">notifications</span></span><span class="lrow__body"><span class="lrow__title">Queue reminders</span></span><span class="switch switch--sm"><input type="checkbox" role="switch" checked="{{remind}}" onChange="{{toggleRemind}}" aria-label="Queue reminders"><span class="switch__track"><span class="switch__thumb"></span></span></span></label>
           <label class="lrow lrow--icon" style="min-height: 52px;"><span class="lrow__icon" style="background: var(--tile-blue);"><span class="ic" aria-hidden="true">touch_app</span></span><span class="lrow__body"><span class="lrow__title">Haptic feedback</span></span><span class="switch switch--sm"><input type="checkbox" role="switch" checked="{{haptics}}" onChange="{{toggleHaptics}}" aria-label="Haptic feedback"><span class="switch__track"><span class="switch__thumb"></span></span></span></label>
           <button class="lrow lrow--icon" style="min-height: 52px;"><span class="lrow__icon" style="background: var(--tile-gray);"><span class="ic" aria-hidden="true">public</span></span><span class="lrow__body"><span class="lrow__title">Language</span></span><span class="lrow__value">English</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
           <button class="lrow lrow--icon" style="min-height: 52px;"><span class="lrow__icon" style="background: var(--tile-green);"><span class="ic" aria-hidden="true">lock</span></span><span class="lrow__body"><span class="lrow__title">Privacy</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
@@ -169,8 +169,8 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
   <div class="scrim {{scrimCls}}" onClick="{{closeSheet}}" aria-hidden="true" style="z-index: 50;"></div>
   <div class="sheet {{sheetCls}}" style="z-index: 55; padding-bottom: 40px;" role="dialog" aria-modal="true" aria-labelledby="m-sh" aria-hidden="{{sheetHidden}}" onKeyDown="{{sheetKey}}">
     <div class="sheet__grabber" aria-hidden="true"></div>
-    <div class="sheet__head"><h2 class="sheet__title" id="m-sh">Check in to Database Systems</h2><button class="icon-btn icon-btn--filled" aria-label="Close" onClick="{{closeSheet}}" style="width: 30px; height: 30px; margin: 0;"><span class="ic" style="font-size: 17px;" aria-hidden="true">close</span></button></div>
-    <p style="font: 400 14px/20px var(--font); color: var(--text-subtle); margin-bottom: 16px;">Scan the code on the projector screen, or enter the six-digit code your lecturer reads out.</p>
+    <div class="sheet__head"><h2 class="sheet__title" id="m-sh">Confirm arrival at the general clinic</h2><button class="icon-btn icon-btn--filled" aria-label="Close" onClick="{{closeSheet}}" style="width: 30px; height: 30px; margin: 0;"><span class="ic" style="font-size: 17px;" aria-hidden="true">close</span></button></div>
+    <p style="font: 400 14px/20px var(--font); color: var(--text-subtle); margin-bottom: 16px;">Scan the QR code at the registration desk, or enter the six-digit code from the officer.</p>
     <div class="col" style="gap: 10px;">
       <button class="btn btn--primary btn--block {{checkCls}}" onClick="{{checkIn}}">
         <span class="btn__label" key="{{checkKey}}"><span class="ic" aria-hidden="true">{{checkBtnIcon}}</span>{{checkLabel}}</span>
@@ -191,24 +191,24 @@ class Component extends DCLogic {
     const s = this.state || {};
     const theme = this.props.theme || 'light';
     const y = s.y || 0;
-    const tabDefs = [['today', 'Today'], ['calendar_month', 'Schedule'], ['school', 'Courses'], ['person', 'Profile']];
+    const tabDefs = [['today', 'Today'], ['calendar_month', 'Agenda'], ['assignment', 'Services'], ['person', 'Profile']];
     const tab = s.tab || 0;
     const days = ['Today', 'Tomorrow', 'Friday'];
     const day = s.day || 0;
     const C = {
-      db: { name: 'Database Systems', room: 'H 2.14', icon: 'code', c: 'var(--tile-blue)' },
-      la: { name: 'Linear Algebra', room: 'A 1.02', icon: 'grid_view', c: 'var(--accent)' },
-      net: { name: 'Computer Networks', room: 'H 3.01', icon: 'lan', c: 'var(--tile-orange)' },
-      os: { name: 'Operating Systems', room: 'H 2.10', icon: 'settings', c: 'var(--tile-red)' },
-      hci: { name: 'Human-Computer Interaction', room: 'Lab 4', icon: 'touch_app', c: 'var(--tile-green)' },
-      dm: { name: 'Discrete Mathematics', room: 'A 2.05', icon: 'list', c: 'var(--tile-gray)' }
+      db: { name: 'General clinic queue', room: 'Puskesmas Utara', icon: 'local_hospital', c: 'var(--tile-blue)' },
+      la: { name: 'City bus corridor 2', room: 'Balai Kota stop', icon: 'directions_bus', c: 'var(--accent)' },
+      net: { name: 'Business permit consultation', room: 'Public service mall', icon: 'storefront', c: 'var(--tile-orange)' },
+      os: { name: 'KTP data recording', room: 'Kecamatan office', icon: 'id_card', c: 'var(--tile-red)' },
+      hci: { name: 'RT 04 community clean-up', room: 'Community hall', icon: 'groups', c: 'var(--tile-green)' },
+      dm: { name: 'Toddler posyandu', room: 'RW 07 post', icon: 'medical_services', c: 'var(--tile-gray)' }
     };
     const plan = [
-      [['db', '08:00', '100 min'], ['la', '10:00', '100 min'], ['net', '13:00', '150 min']],
-      [['os', '09:00', '100 min'], ['hci', '14:00', '150 min']],
-      [['dm', '08:00', '100 min']],
+      [['db', '08:00', '45 min'], ['la', '10:00', '30 min'], ['net', '13:00', '60 min']],
+      [['os', '09:00', '30 min'], ['hci', '14:00', '2 h']],
+      [['dm', '08:00', '2 h']],
       [],
-      [['db', '10:00', '100 min'], ['hci', '13:00', '100 min']]
+      [['db', '10:00', '45 min'], ['hci', '13:00', '2 h']]
     ];
     const dayPlan = [0, 1, 2];
     const q = (s.q || '').toLowerCase();
@@ -216,7 +216,7 @@ class Component extends DCLogic {
       .filter(c => !q || c.name.toLowerCase().includes(q) || c.room.toLowerCase().includes(q))
       .map((c, i) => ({ ...c, d: (i * 35) + 'ms' }));
 
-    const taskDefs = [['Lab report 3', 'Computer Networks · due tomorrow'], ['Problem set 7', 'Linear Algebra · due Thursday'], ['Reading: chapter 9', 'Operating Systems · due Friday']];
+    const taskDefs = [['Pay 2026 property tax', 'Regional tax · due tomorrow'], ['Complete business permit files', 'Permits · by Thursday'], ['Renew vehicle tax', 'Regional tax · by Friday']];
     const done = s.done || [false, false, false];
     const left = done.filter(d => !d).length;
     const tasks = taskDefs.map(([name, due], i) => ({
@@ -231,7 +231,7 @@ class Component extends DCLogic {
     const slots = weekPlan[wd].map(([k, time, len], i) => ({ ...C[k], time, len, d: (i * 35) + 'ms' }));
 
     const courses = [['db', 4, 96], ['la', 3, 88], ['net', 4, 92], ['os', 3, 84], ['hci', 3, 100], ['dm', 3, 90]]
-      .map(([k, credits, pct], i) => ({ name: C[k].name, credits, pct, scale: (pct / 100).toFixed(2), aria: C[k].name + ' attendance', d: (i * 35) + 'ms' }));
+      .map(([k, credits, pct], i) => ({ name: C[k].name, credits, pct, scale: (pct / 100).toFixed(2), aria: C[k].name + ' progress', d: (i * 35) + 'ms' }));
 
     const check = s.check || 'idle';
     return {
@@ -239,7 +239,7 @@ class Component extends DCLogic {
       navCls: y > 44 ? 'is-scrolled' : '',
       onScroll: (e) => { const v = e.currentTarget.scrollTop; if ((v > 44) !== (y > 44)) this.setState({ y: v }); },
       title: tabDefs[tab][1], tabKey: 't' + tab,
-      dateLine: tab === 0 ? 'Tuesday, 4 November' : (tab === 1 ? 'Week 10 of 16' : (tab === 2 ? 'Semester 5 · 20 credits' : 'Account and settings')),
+      dateLine: tab === 0 ? 'Sakai · Tuesday, 4 November' : (tab === 1 ? 'Sakai · 3 to 7 November' : (tab === 2 ? 'Sakai · 6 active services' : 'Sakai · Account and settings')),
       isToday: tab === 0, isSchedule: tab === 1, isCourses: tab === 2, isProfile: tab === 3,
       tabs: tabDefs.map(([icon, label], i) => ({ icon, label, cur: i === tab ? 'page' : 'false', pick: () => this.setState({ tab: i, y: 0 }) })),
       goProfile: () => this.setState({ tab: 3 }),
@@ -252,20 +252,20 @@ class Component extends DCLogic {
       classes, noClasses: classes.length === 0,
       tasks, dueLeft: String(left), dueKey: 'k' + left,
       dueText: left ? left + ' open' : 'All done', dueBadge: left ? 'badge--warning' : 'badge--success',
-      week: weekNames.map((d, i) => ({ d, n: String(3 + i), on: String(i === wd), dot: weekPlan[i].length ? '0.6' : '0', aria: weekFull[i] + ', ' + weekPlan[i].length + ' classes', pick: () => this.setState({ wd: i }) })),
+      week: weekNames.map((d, i) => ({ d, n: String(3 + i), on: String(i === wd), dot: weekPlan[i].length ? '0.6' : '0', aria: weekFull[i] + ', ' + weekPlan[i].length + ' items', pick: () => this.setState({ wd: i }) })),
       weekX: 'calc(' + wd + ' * 100%)', weekKey: 'w' + wd,
       slots, freeDay: slots.length === 0, dayName: weekFull[wd],
       courses,
       remind: s.remind !== false, toggleRemind: () => this.setState({ remind: s.remind === false }),
       haptics: s.haptics !== false, toggleHaptics: () => this.setState({ haptics: s.haptics === false }),
-      checkCta: s.checked ? 'Checked in' : 'Check in', checkIcon: s.checked ? 'check_circle' : 'qr_code_scanner',
+      checkCta: s.checked ? 'Arrived' : 'Confirm arrival', checkIcon: s.checked ? 'check_circle' : 'qr_code_scanner',
       sheetCls: s.sheet ? 'is-open' : '', scrimCls: s.sheet ? 'is-open' : '', sheetHidden: String(!s.sheet),
       openSheet: () => this.setState({ sheet: true, check: s.checked ? 'done' : 'idle' }),
       closeSheet: () => this.setState({ sheet: false }),
       sheetKey: (e) => { if (e.key === 'Escape') this.setState({ sheet: false }); },
       checkCls: check === 'busy' ? 'is-loading' : (check === 'done' ? 'is-done' : ''),
       checkKey: check, checkBtnIcon: check === 'done' ? 'check' : 'qr_code_scanner',
-      checkLabel: check === 'done' ? 'Checked in at 07:38' : 'Scan code',
+      checkLabel: check === 'done' ? 'Arrival recorded at 07:38' : 'Scan code',
       checkIn: () => {
         if (check !== 'idle') return;
         this.setState({ check: 'busy' });
