@@ -8,7 +8,7 @@ export default {
   order: 14,
   summary: 'A dark bar that floats up from the bottom while items in a list are selected, holding the count and the actions for all of them. It leaves when the selection is empty.',
   when: [
-    'Bulk actions on a list or table people select from: archive 12 messages, grade 5 submissions, export 30 students.',
+    'Bulk actions on a list or table people select from: archive 12 messages, verify 5 applications, export 30 applicant records.',
     'Selection mode on phones, where a toolbar at the top would be out of reach.',
   ],
   whenNot: [
@@ -28,24 +28,24 @@ export default {
   ],
   examples: [
     {
-      title: 'Bulk grading',
-      desc: 'Select a submission or two: the bar rises from the bottom of this box. Clear the selection and it leaves. In a page it is fixed to the bottom of the window.',
+      title: 'Bulk verification',
+      desc: 'Select an application or two: the bar rises from the bottom of this box. Clear the selection and it leaves. In a page it is fixed to the bottom of the window.',
       height: 340,
       stage: 'block',
       html: `<div class="list" id="sb-list" style="max-width: 460px;" onchange="${sync}">
-${row('Rina Wijaya', 'Lab report 3 · submitted Monday')}
-${row('Bayu Pratama', 'Lab report 3 · submitted Tuesday')}
-${row('Sari Nugroho', 'Lab report 3 · submitted late')}
+${row('Rina Wijaya', 'Micro business permit · sent Monday')}
+${row('Bayu Pratama', 'Micro business permit · sent Tuesday')}
+${row('Sari Nugroho', 'Micro business permit · past the deadline')}
 </div>
-<div class="selbar" id="sb-bar" role="toolbar" aria-label="Selected submissions" inert>
+<div class="selbar" id="sb-bar" role="toolbar" aria-label="Selected applications" inert>
   <span class="selbar__count" id="sb-count" aria-live="polite">0 selected</span>
-  <button class="btn btn--md"><span class="ic" aria-hidden="true">edit</span>Grade</button>
+  <button class="btn btn--md"><span class="ic" aria-hidden="true">edit</span>Verify</button>
   <button class="btn btn--md"><span class="ic" aria-hidden="true">download</span>Export</button>
   <button class="icon-btn" aria-label="Clear selection" onclick="${clear}"><span class="ic" aria-hidden="true">close</span></button>
 </div>`,
-      code: `<div class="selbar" role="toolbar" aria-label="Selected submissions">
+      code: `<div class="selbar" role="toolbar" aria-label="Selected applications">
   <span class="selbar__count" aria-live="polite">3 selected</span>
-  <button class="btn btn--md"><span class="ic" aria-hidden="true">edit</span>Grade</button>
+  <button class="btn btn--md"><span class="ic" aria-hidden="true">edit</span>Verify</button>
   <button class="btn btn--md"><span class="ic" aria-hidden="true">download</span>Export</button>
   <button class="icon-btn" aria-label="Clear selection"><span class="ic" aria-hidden="true">close</span></button>
 </div>
