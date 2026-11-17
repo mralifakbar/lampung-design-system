@@ -27,12 +27,12 @@ export default {
       stage: 'block',
       html: `<div style="max-width: 360px;">
   <div class="docs-row" style="justify-content: space-between;">
-    <span class="card__title">Campus</span>
+    <span class="card__title">Citizen services</span>
     <button class="icon-btn" aria-label="Menu" aria-expanded="false" aria-controls="mi-nav" onclick="${TOGGLE}"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
   </div>
   <div class="collapse is-closed" id="mi-nav"><div><nav class="list list--fill" aria-label="Main" style="margin-top: 8px;">
     <a class="lrow" href="#" aria-current="page"><span class="lrow__body"><span class="lrow__title">Home</span></span></a>
-    <a class="lrow" href="#"><span class="lrow__body"><span class="lrow__title">Courses</span></span></a>
+    <a class="lrow" href="#"><span class="lrow__body"><span class="lrow__title">Services</span></span></a>
     <a class="lrow" href="#"><span class="lrow__body"><span class="lrow__title">Schedule</span></span></a>
   </nav></div></div>
 </div>`,
