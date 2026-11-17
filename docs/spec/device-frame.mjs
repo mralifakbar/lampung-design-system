@@ -4,7 +4,7 @@ export default {
   order: 6,
   summary: 'A phone body around a `.phone` screen: rounded bezel, side buttons, the camera island and a status bar, scaled to fit the page. On a real phone the same screen drops the body and fills the display with `.device--bleed`.',
   when: [
-    'Showing a phone app inside a wide page: a product tour, an examples page, a design review, onboarding for a mobile app.',
+    'Showing a phone app inside a wide page: a tour of a citizen services app, an examples page, a design review, onboarding for a mobile app.',
     'A preview whose screens push, pull and recede like an installed app, where the bezel tells people it is a phone.',
     'The same preview on a phone, where the frame should disappear and the app should fill the screen.',
   ],
@@ -39,19 +39,19 @@ export default {
         <h3 class="large-title">Today</h3>
         <div class="stack" style="--gap: 24px; padding: 12px 16px 120px;">
           <div class="list list--fill">
-            <div class="lrow"><span class="lrow__body"><span class="lrow__title">Database Systems</span><span class="lrow__sub">08:00 · Room H 2.14</span></span></div>
-            <div class="lrow"><span class="lrow__body"><span class="lrow__title">Computer Networks</span><span class="lrow__sub">13:00 · Lab 3.01</span></span></div>
+            <div class="lrow"><span class="lrow__body"><span class="lrow__title">Posyandu Melati</span><span class="lrow__sub">08:00 · RT 03 community hall</span></span></div>
+            <div class="lrow"><span class="lrow__body"><span class="lrow__title">Child immunization</span><span class="lrow__sub">13:00 · Puskesmas Kedaton</span></span></div>
           </div>
-          <button type="button" class="btn btn--secondary btn--lg btn--block" data-lds-open="df-sheet" aria-haspopup="dialog">Mark attendance</button>
+          <button type="button" class="btn btn--secondary btn--lg btn--block" data-lds-open="df-sheet" aria-haspopup="dialog">Check in</button>
         </div>
       </div>
-      <nav class="tabbar" aria-label="Main"><button type="button" class="tabbar__item" aria-current="page"><span class="ic" aria-hidden="true">today</span>Today</button><button type="button" class="tabbar__item"><span class="ic" aria-hidden="true">menu_book</span>Courses</button><button type="button" class="tabbar__item"><span class="ic" aria-hidden="true">person</span>Profile</button></nav>
+      <nav class="tabbar" aria-label="Main"><button type="button" class="tabbar__item" aria-current="page"><span class="ic" aria-hidden="true">today</span>Today</button><button type="button" class="tabbar__item"><span class="ic" aria-hidden="true">menu_book</span>Services</button><button type="button" class="tabbar__item"><span class="ic" aria-hidden="true">person</span>Profile</button></nav>
     </div>
     <div class="scrim" data-lds-scrim="df-sheet"></div>
     <div class="sheet" id="df-sheet" role="dialog" aria-modal="true" aria-labelledby="df-sheet-t" data-lds-layer style="padding-bottom: 38px;">
       <div class="sheet__grabber" aria-hidden="true"></div>
-      <div class="sheet__head" data-lds-drag><h4 class="sheet__title" id="df-sheet-t">Mark attendance</h4><button type="button" class="icon-btn icon-btn--filled" aria-label="Close" data-lds-close><span class="ic" aria-hidden="true">close</span></button></div>
-      <button type="button" class="btn btn--primary btn--lg btn--block" data-lds-close>I am in class</button>
+      <div class="sheet__head" data-lds-drag><h4 class="sheet__title" id="df-sheet-t">Check in</h4><button type="button" class="icon-btn icon-btn--filled" aria-label="Close" data-lds-close><span class="ic" aria-hidden="true">close</span></button></div>
+      <button type="button" class="btn btn--primary btn--lg btn--block" data-lds-close>I am at the location</button>
     </div>
     <div class="device__status" aria-hidden="true"><span>9:41</span><span class="device__status-end"><span class="device__signal"><i></i><i></i><i></i><i></i></span><span class="ic">wifi</span><span class="device__battery" style="--level: 0.76;"></span></span></div>
     <span class="device__island" aria-hidden="true"></span>
