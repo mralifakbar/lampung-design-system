@@ -50,11 +50,11 @@ export default {
 </div>
 <img alt="" hidden src="data:," onerror="const a = document.getElementById('ck-all'); if (a) a.indeterminate = true;">`,
       code: `<label class="check is-mixed">
-  <input type="checkbox" id="all-subjects">
+  <input type="checkbox" id="all-documents">
   <span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span>
   <span class="check__text">Semua dokumen</span>
 </label>
-<script>document.getElementById('all-subjects').indeterminate = true;</script>`,
+<script>document.getElementById('all-documents').indeterminate = true;</script>`,
     },
     {
       title: 'Persetujuan dan nonaktif',

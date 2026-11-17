@@ -10,8 +10,8 @@ export default {
   order: 1,
   summary: 'A native checkbox with a drawn tick, for independent yes or no choices that are saved with a form. Several can be on at once; each label says what turning it on means.',
   when: [
-    'Several independent options in a form, any number of which can be on: which notifications to receive, which subjects to include.',
-    'One agreement before submitting: "I have read the exam rules".',
+    'Several independent options in a form, any number of which can be on: which notifications to receive, which documents to attach.',
+    'One agreement before submitting: "I have read the service terms".',
     'Selecting rows in a list or table to act on them together (with a "select all" that can be mixed).',
   ],
   whenNot: [
@@ -35,36 +35,36 @@ export default {
       desc: 'The tick draws in after a short delay; unticking erases it faster. The second line explains the consequence.',
       html: `<fieldset class="stack" style="border: 0;">
   <legend class="field__label" style="margin-bottom: 12px;">Email me when</legend>
-  ${cb('New grades are posted', 'As soon as a lecturer publishes them', true)}
+  ${cb('My application status changes', 'As soon as an officer updates it', true)}
   ${cb('A deadline is 24 hours away', '', true)}
-  ${cb('Someone replies to my question', 'At most one email a day')}
+  ${cb('Someone replies to my report', 'At most one email a day')}
 </fieldset>`,
     },
     {
       title: 'Select all, with a mixed state',
       desc: 'When some but not all are on, the parent shows a dash and reports "mixed". Toggle the children to see it.',
       html: `<div class="stack">
-  ${cb('All subjects', '', false, ` id="ck-all" onchange="${ALL}"`).replace('class="check"', 'class="check is-mixed"')}
+  ${cb('All documents', '', false, ` id="ck-all" onchange="${ALL}"`).replace('class="check"', 'class="check is-mixed"')}
   <div class="stack" id="ck-kids" style="padding-left: 34px;">
-    ${cb('Numerical reasoning', '', true, ` onchange="${KID}"`)}
-    ${cb('Verbal reasoning', '', false, ` onchange="${KID}"`)}
-    ${cb('Figural reasoning', '', false, ` onchange="${KID}"`)}
+    ${cb('KTP copy', '', true, ` onchange="${KID}"`)}
+    ${cb('Family card', '', false, ` onchange="${KID}"`)}
+    ${cb('RT cover letter', '', false, ` onchange="${KID}"`)}
   </div>
 </div>
 <img alt="" hidden src="data:," onerror="const a = document.getElementById('ck-all'); if (a) a.indeterminate = true;">`,
       code: `<label class="check is-mixed">
-  <input type="checkbox" id="all-subjects">
+  <input type="checkbox" id="all-documents">
   <span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span>
-  <span class="check__text">All subjects</span>
+  <span class="check__text">All documents</span>
 </label>
-<script>document.getElementById('all-subjects').indeterminate = true;</script>`,
+<script>document.getElementById('all-documents').indeterminate = true;</script>`,
     },
     {
       title: 'Agreement and disabled',
       desc: 'A single checkbox before an important submit. A disabled option says why in its second line.',
       html: `<div class="stack">
-  ${cb('I have read the exam rules', 'Phones must stay off for the whole session')}
-  ${cb('Include questions from last year', 'Available after you finish 3 tryouts', false, ' disabled')}
+  ${cb('I have read the service terms', 'The data I send must match the original documents')}
+  ${cb('Fill in from my previous application', 'Available once one of your applications is complete', false, ' disabled')}
 </div>`,
     },
   ],
