@@ -58,13 +58,6 @@ final _events = [
       tone: 3),
 ];
 
-// LdsCitation.span lets its pill fill the line width; IntrinsicWidth keeps
-// the pill at its own size.
-InlineSpan _citation(int n, VoidCallback onTap) => WidgetSpan(
-      alignment: PlaceholderAlignment.middle,
-      child: IntrinsicWidth(child: LdsCitation(n, onTap: onTap)),
-    );
-
 const _fileNames = {
   LdsFileType.folder: 'Arsip keluarga',
   LdsFileType.doc: 'Surat pengantar RT.pdf',
@@ -159,9 +152,8 @@ final List<GalleryEntry> dataEntries = [
     ]);
   }),
   GalleryEntry('LdsKbd', 'Tombol papan ketik', (context) {
-    return const Row(children: [
+    return const DemoColumn(children: [
       LdsKbd('Esc'),
-      SizedBox(width: 16),
       LdsKbdRow(['Ctrl', 'K']),
     ]);
   }),
@@ -473,17 +465,13 @@ final List<GalleryEntry> dataEntries = [
     );
   }),
   GalleryEntry('LdsEventCalendar', 'Kalender kegiatan', (context) {
-    // Its toolbar needs about 333 pt, so it gets nearly the full box width.
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(4, 12, 4, 4),
-      child: LdsEventCalendar(
-        events: _events,
-        today: galleryToday,
-        now: const TimeOfDay(hour: 10, minute: 20),
-        onEventTap: (e) => galleryToast(context, e.title),
-      ),
+    return LdsEventCalendar(
+      events: _events,
+      today: galleryToday,
+      now: const TimeOfDay(hour: 10, minute: 20),
+      onEventTap: (e) => galleryToast(context, e.title),
     );
-  }, bleed: true),
+  }),
   GalleryEntry('LdsQuote', 'Kutipan', (context) {
     return const LdsQuote('Pelayanan yang baik dimulai dari mendengar warga.',
         attribution: 'Petugas loket, Kedaton');
@@ -493,9 +481,11 @@ final List<GalleryEntry> dataEntries = [
       style: LdsType.body.copyWith(color: context.lds.textDefault),
       children: [
         const TextSpan(text: 'Waktu layanan rata-rata tiga hari'),
-        _citation(1, () => galleryToast(context, 'Sumber 1: laporan bulanan')),
+        LdsCitation.span(1,
+            onTap: () => galleryToast(context, 'Sumber 1: laporan bulanan')),
         const TextSpan(text: ' dan antrean turun 20 persen'),
-        _citation(2, () => galleryToast(context, 'Sumber 2: survei warga')),
+        LdsCitation.span(2,
+            onTap: () => galleryToast(context, 'Sumber 2: survei warga')),
         const TextSpan(text: '.'),
       ],
     ));

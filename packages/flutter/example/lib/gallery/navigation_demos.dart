@@ -53,40 +53,31 @@ final List<GalleryEntry> navigationEntries = [
     return Hold<String>(
       initial: 'ringkasan',
       builder: (context, v, set) => DemoColumn(children: [
-        // Tabs stretch to their row height, so they need a bounded one.
-        SizedBox(
-            height: 45,
-            child: LdsTabs<String>(tabs: _tabs, value: v, onChanged: set)),
+        LdsTabs<String>(tabs: _tabs, value: v, onChanged: set),
         DemoNote(switch (v) {
           'dokumen' => 'KTP, KK dan surat pengantar RT.',
           'riwayat' => 'Diajukan 12 November, diverifikasi 14 November.',
           _ => 'Permohonan akta kelahiran, Disdukcapil Kota Contoh.',
         }),
-        SizedBox(
-          height: 45,
-          child: LdsTabs<String>(
-              tabs: _tabs,
-              value: v,
-              alignment: LdsTabsAlignment.start,
-              onChanged: set),
-        ),
+        LdsTabs<String>(
+            tabs: _tabs,
+            value: v,
+            alignment: LdsTabsAlignment.start,
+            onChanged: set),
       ]),
     );
   }),
   GalleryEntry('LdsSlidingIndicator', 'Penanda geser', (context) {
     return Hold<int>(
       initial: 0,
-      builder: (context, i, set) => SizedBox(
-        height: 44,
-        child: LdsSlidingIndicator(
-          direction: Axis.horizontal,
-          spacing: 4,
-          selectedIndex: i,
-          children: [
-            for (final (k, t) in const ['Antrean', 'Riwayat', 'Info'].indexed)
-              TextButton(onPressed: () => set(k), child: Text(t)),
-          ],
-        ),
+      builder: (context, i, set) => LdsSlidingIndicator(
+        direction: Axis.horizontal,
+        spacing: 4,
+        selectedIndex: i,
+        children: [
+          for (final (k, t) in const ['Antrean', 'Riwayat', 'Info'].indexed)
+            TextButton(onPressed: () => set(k), child: Text(t)),
+        ],
       ),
     );
   }),
@@ -103,7 +94,8 @@ final List<GalleryEntry> navigationEntries = [
   GalleryEntry('LdsPagination', 'Halaman', (context) {
     return Hold<int>(
       initial: 5,
-      // Unbounded width lets each page button keep its own size.
+      // Nine 44 pt buttons and two gaps need about 444 pt, more than a
+      // phone, so the row scrolls sideways instead of wrapping.
       builder: (context, p, set) => SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         child: LdsPagination(page: p, pageCount: 12, onChanged: set),
@@ -119,9 +111,7 @@ final List<GalleryEntry> navigationEntries = [
           LdsStep(label: 'Dokumen', subtitle: 'KTP dan KK'),
           LdsStep(label: 'Periksa'),
         ]),
-        // Vertical steps stay on the last step: an unfilled connector has
-        // an infinite intrinsic height inside the package's IntrinsicHeight.
-        const LdsSteps(current: 2, direction: Axis.vertical, steps: [
+        LdsSteps(current: cur, direction: Axis.vertical, steps: const [
           LdsStep(label: 'Isi data usaha'),
           LdsStep(label: 'Unggah NIB'),
           LdsStep(label: 'Verifikasi Dinas Koperasi dan UMKM'),
