@@ -4,7 +4,7 @@ const d30 = days(30);
 const now = wave(30, { base: 820, trend: 0.25, week: 0.18, seed: 11, round: 10 });
 const last = wave(30, { base: 760, trend: 0.05, week: 0.18, seed: 5, round: 10 });
 const visits = {
-  label: `Course page visits per day. This month ${fmt(sum(now))}, ${Math.round((sum(now) / sum(last) - 1) * 100)}% more than last month.`,
+  label: `City bus passengers per day. This month ${fmt(sum(now))}, ${Math.round((sum(now) / sum(last) - 1) * 100)}% more than last month.`,
   x: d30.short, xFull: d30.long, xName: 'Day',
   series: [{ name: 'This month', values: now }, { name: 'Last month', values: last, kind: 'line', dashed: true, color: 4 }],
 };
@@ -12,16 +12,16 @@ const visits = {
 const d14 = days(14);
 const phone = wave(14, { base: 410, trend: 0.2, seed: 2, round: 5 }), desk = wave(14, { base: 260, week: 0.3, seed: 9, round: 5 }), tab = wave(14, { base: 70, seed: 4, round: 5 });
 const devices = {
-  label: 'Study sessions per day by device, last 14 days. Phones carry more than half of all sessions.',
+  label: 'Citizen complaints per day by channel, last 14 days. The phone app carries more than half of all complaints.',
   x: d14.short, xFull: d14.long, xName: 'Day', stacked: true, total: true,
-  series: [{ name: 'Phone', values: phone }, { name: 'Laptop', values: desk }, { name: 'Tablet', values: tab }],
+  series: [{ name: 'Phone app', values: phone }, { name: 'Website', values: desk }, { name: 'Phone call', values: tab }],
 };
 
 const hours = ['08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'];
 const seats = {
-  label: 'Seats left in the Saturday mock exam, by hour of Monday. Down from 120 to 34.',
+  label: 'Vaccination slots left for Saturday, by hour of Monday. Down from 120 to 34.',
   x: hours, xName: 'Time', step: true, height: 200,
-  series: [{ name: 'Seats left', values: [120, 118, 104, 96, 96, 81, 77, 60, 52, 41, 34] }],
+  series: [{ name: 'Slots left', values: [120, 118, 104, 96, 96, 81, 77, 60, 52, 41, 34] }],
   refs: [{ value: 40, label: 'Waitlist opens at 40' }],
   y: { max: 120, ticks: 4 },
 };
@@ -37,13 +37,13 @@ export default {
   order: 4.5,
   summary: 'A filled line over time, drawn from data: one series against a dashed comparison, up to four series stacked into a total, or steps for a value that changes in jumps. Legend items switch series on and off; the crosshair reads every series at once.',
   when: [
-    'Volume over time where the amount under the line matters: visits, orders, sessions, minutes studied.',
-    'Parts of a total over time, stacked: sessions by device, orders by channel, enrolments by programme.',
-    'A level that changes in steps and holds: seats left, stock on hand, price tier, members on a plan.',
+    'Volume over time where the amount under the line matters: visits, passengers, complaints, applications.',
+    'Parts of a total over time, stacked: complaints by channel, applications by type, passengers by corridor.',
+    'A level that changes in steps and holds: slots left, medicine stock, tariff tier, registered participants.',
   ],
   whenNot: [
     ['Comparing trends whose totals do not add up', 'line-chart', 'Overlapping fills hide each other; lines do not.'],
-    ['A few separate buckets (weekdays, grades)', 'bar-chart'],
+    ['A few separate buckets (weekdays, districts)', 'bar-chart'],
     ['Parts of one whole at one moment', 'donut'],
     ['A tiny trend under a headline number', 'kpi-card'],
     ['Daily activity over many months', 'heatmap'],
@@ -66,21 +66,21 @@ export default {
       desc: 'One filled series and a dashed comparison. The fill grows from the baseline on first view; the dashed line fades in. Point at the plot, or focus it and use the arrow keys.',
       stage: 'block',
       replay: true,
-      html: card('ac-visits', 'Are more people finding the course pages?', 'Visits per day, November against October', `<div class="chart" data-lds-chart='${cfg(visits)}'></div>`),
+      html: card('ac-visits', 'Are more people riding the city bus?', 'Passengers per day, November against October', `<div class="chart" data-lds-chart='${cfg(visits)}'></div>`),
     },
     {
       title: 'Stacked into a total',
-      desc: 'Three devices stack into all sessions. Switch a device off in the legend: its band collapses and the scale eases to the new total. The tooltip lists the top band first, then the total.',
+      desc: 'Three channels stack into all complaints. Switch a channel off in the legend: its band collapses and the scale eases to the new total. The tooltip lists the top band first, then the total.',
       stage: 'block',
       replay: true,
-      html: card('ac-devices', 'Where do people study?', 'Study sessions per day by device, last 14 days', `<div class="chart" data-lds-chart='${cfg(devices)}'></div>`),
+      html: card('ac-devices', 'How do residents send complaints?', 'Complaints per day by channel, last 14 days', `<div class="chart" data-lds-chart='${cfg(devices)}'></div>`),
     },
     {
       title: 'Steps and a reference line',
-      desc: 'Seats change in jumps and hold between bookings, so the edge steps instead of sloping. The dashed line marks when the waitlist opens.',
+      desc: 'Slots change in jumps and hold between bookings, so the edge steps instead of sloping. The dashed line marks when the waitlist opens.',
       stage: 'block',
       replay: true,
-      html: `<div style="max-width: 560px;">${card('ac-seats', 'How fast is the mock exam filling?', 'Seats left on Monday, by hour', `<div class="chart" data-lds-chart='${cfg(seats)}'></div>`)}</div>`,
+      html: `<div style="max-width: 560px;">${card('ac-seats', 'How fast are vaccination slots filling?', 'Slots left on Monday, by hour', `<div class="chart" data-lds-chart='${cfg(seats)}'></div>`)}</div>`,
     },
   ],
   variants: [
@@ -127,10 +127,10 @@ export default {
 const [period, setPeriod] = useState<'7d' | '30d'>('30d');
 <section className="chart-card" aria-labelledby="orders-q">
   <div className="chart-card__head">
-    <div className="chart-card__titles"><div className="chart-card__q" id="orders-q">Where do orders come from?</div></div>
+    <div className="chart-card__titles"><div className="chart-card__q" id="orders-q">How do residents send complaints?</div></div>
     <div className="chart-card__actions"><Segmented className="chart-card__range" label="Period" value={period} onChange={setPeriod} options={[{ value: '7d', label: '7 days' }, { value: '30d', label: '30 days' }]} /></div>
   </div>
-  <Chart config={{ label: 'Orders per day by channel', stacked: true, x: data[period].x, series: data[period].series }} />
+  <Chart config={{ label: 'Complaints per day by channel', stacked: true, x: data[period].x, series: data[period].series }} />
 </section>`,
   related: ['chart-card', 'line-chart', 'bar-chart', 'chart-principles'],
 };
