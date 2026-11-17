@@ -4,7 +4,7 @@ export default {
   order: 1,
   summary: 'The top of a product or landing page: one headline, one line under it, at most two actions, and the product itself beside or below. The product is shown working, not as a picture of a screen.',
   when: [
-    'The first screen of a landing, product or pricing page that sits in front of an app.',
+    'The first screen of a landing, service or fees page that sits in front of an app.',
     'A launch page for one feature, where the feature can run live next to the headline.',
   ],
   whenNot: [
@@ -23,7 +23,7 @@ export default {
     ['.hero__quiet', 'Optional second sentence inside the title in the subtle color.'],
     ['p.hero__lede', 'One to three sentences with the facts behind the headline.'],
     ['.hero__actions', 'One primary button, one secondary at most.'],
-    ['.hero__note', 'A short line under the actions: a shortcut, a free plan, a requirement.'],
+    ['.hero__note', 'A short line under the actions: a shortcut, a free service, a requirement.'],
     ['.hero__media', 'The product: live components on a [feature stage](feature-row), a working demo.'],
   ],
   examples: [
@@ -34,18 +34,18 @@ export default {
       replay: true,
       html: `<section class="hero hero--split hero--enter" aria-labelledby="hx-t" style="width: 100%; padding-block: 24px;">
   <div class="hero__copy">
-    <h1 class="hero__title" id="hx-t">Send invoices that get paid on time.</h1>
-    <p class="hero__lede">Write one in a minute, send it from your own address, and see the moment it is opened and paid.</p>
-    <div class="hero__actions"><a class="btn btn--primary btn--lg" href="#hx-t">Start free</a><a class="btn btn--secondary btn--lg" href="#hx-t">See pricing</a></div>
-    <p class="hero__note">Free for your first 10 invoices.</p>
+    <h1 class="hero__title" id="hx-t">Pay your vehicle tax without queuing.</h1>
+    <p class="hero__lede">Enter the plate number, check the bill details, then pay from home. The receipt goes straight to your email.</p>
+    <div class="hero__actions"><a class="btn btn--primary btn--lg" href="#hx-t">Check bill</a><a class="btn btn--secondary btn--lg" href="#hx-t">See requirements</a></div>
+    <p class="hero__note">No extra service fee.</p>
   </div>
   <div class="hero__media">
     <div class="feature__stage">
       <div class="card" style="display: grid; gap: 16px;">
-        <div><div class="card__title">Halim Studio</div><div class="card__sub">Design retainer, November 2026</div></div>
-        <div class="stat-row-wrap"><dl class="stat-row" style="--n: 2"><div class="stat-row__item"><dt class="stat-row__label">Amount due</dt><dd class="stat-row__value">$2,480</dd><dd class="stat-row__sub">US dollars</dd></div><div class="stat-row__item"><dt class="stat-row__label">Hours billed</dt><dd class="stat-row__value">32</dd><dd class="stat-row__sub">Of 40 in the retainer</dd></div></dl></div>
-        <label class="switch"><input type="checkbox" role="switch"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="bell ic" aria-hidden="true">notifications</span>Email me when it is paid</label>
-        <button class="btn btn--primary hold" data-lds-hold><span class="hold__fill" aria-hidden="true"></span><span class="ic" aria-hidden="true">wallet</span><span>Hold to pay $2,480</span></button>
+        <div><div class="card__title">BE 1234 AB</div><div class="card__sub">Annual tax, due 28 November 2026</div></div>
+        <div class="stat-row-wrap"><dl class="stat-row" style="--n: 2"><div class="stat-row__item"><dt class="stat-row__label">Total due</dt><dd class="stat-row__value">Rp 1,245,000</dd><dd class="stat-row__sub">Includes SWDKLLJ</dd></div><div class="stat-row__item"><dt class="stat-row__label">Days left</dt><dd class="stat-row__value">12</dd><dd class="stat-row__sub">Before a late fee</dd></div></dl></div>
+        <label class="switch"><input type="checkbox" role="switch"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="bell ic" aria-hidden="true">notifications</span>Tell me when the payment is received</label>
+        <button class="btn btn--primary hold" data-lds-hold><span class="hold__fill" aria-hidden="true"></span><span class="ic" aria-hidden="true">wallet</span><span>Hold to pay Rp 1,245,000</span></button>
       </div>
     </div>
   </div>
@@ -57,9 +57,9 @@ export default {
       stage: 'block',
       html: `<section class="hero hero--center" aria-labelledby="hx2-t" style="width: 100%; padding-block: 24px;">
   <div class="hero__copy">
-    <h1 class="hero__title" id="hx2-t">Grade a class of forty in one evening. <span class="hero__quiet">Comments included.</span></h1>
-    <p class="hero__lede">Rubrics, saved comments and a keyboard for every step, so marking takes the time it should.</p>
-    <div class="hero__actions"><a class="btn btn--primary btn--lg" href="#hx2-t">Try it with your class</a></div>
+    <h1 class="hero__title" id="hx2-t">Report a damaged road in one minute. <span class="hero__quiet">Photo and location included.</span></h1>
+    <p class="hero__lede">Photo, map pin and category sit in one form, and you can follow the repair until it is done.</p>
+    <div class="hero__actions"><a class="btn btn--primary btn--lg" href="#hx2-t">Make a report</a></div>
   </div>
 </section>`,
     },
@@ -85,7 +85,7 @@ export default {
   do: [
     'Say the outcome in the title and the facts in the lede.',
     'Show the real product, running.',
-    'Name the primary button for what happens ("Start free", "Choose a plan").',
+    'Name the primary button for what happens ("Check bill", "Make a report").',
   ],
   dont: [
     'Park a pill badge above the title that repeats it.',
