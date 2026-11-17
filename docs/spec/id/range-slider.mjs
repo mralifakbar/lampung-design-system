@@ -1,7 +1,7 @@
 export default {
   summary: 'Dua thumb pada satu lintasan untuk nilai minimum dan maksimum, dengan isian aksen di antaranya. Kedua thumb tidak pernah bisa bersilangan; masing-masing adalah input range bawaan.',
   when: [
-    'Menyaring berdasarkan rentang: harga dari dan sampai, usia, skor di antara, durasi.',
+    'Menyaring berdasarkan rentang: tarif dari dan sampai, usia, skor di antara, durasi.',
     'Kedua ujung penting dan posisi perkiraan sudah cukup saat menelusuri.',
   ],
   whenNot: [
@@ -20,7 +20,7 @@ export default {
   examples: [
     {
       title: 'Usia peserta',
-      desc: 'Seret salah satu thumb, atau Tab ke sana dan pakai tombol panah. Thumb bawah berhenti satu langkah di bawah thumb atas.',
+      desc: 'Rentang usia untuk pelatihan kerja pemuda. Seret salah satu thumb, atau Tab ke sana dan pakai tombol panah. Thumb bawah berhenti satu langkah di bawah thumb atas.',
       html: `<div class="field" style="max-width: 420px; width: 100%;">
   <span class="field__label">Usia peserta <span id="rs-credits">16 sampai 21</span></span>
   <div class="range" data-lds-range oninput="const [lo, hi] = this.querySelectorAll('input'); document.getElementById('rs-credits').textContent = lo.value + ' sampai ' + hi.value;">
@@ -31,14 +31,14 @@ export default {
 </div>`,
     },
     {
-      title: 'Filter harga',
-      desc: 'Langkah lebih besar untuk uang; label menampilkan nilai yang sudah diformat.',
+      title: 'Filter tarif',
+      desc: 'Menyaring gedung serbaguna milik daerah menurut tarif sewa harian. Langkah lebih besar untuk uang; label menampilkan nilai yang sudah diformat.',
       html: `<div class="field" style="max-width: 420px; width: 100%;">
-  <span class="field__label">Harga <span id="rs-price">Rp 50.000 sampai Rp 250.000</span></span>
+  <span class="field__label">Tarif sewa harian <span id="rs-price">Rp 50.000 sampai Rp 250.000</span></span>
   <div class="range" data-lds-range oninput="const [lo, hi] = this.querySelectorAll('input'), f = (v) => 'Rp ' + Number(v).toLocaleString('id-ID'); document.getElementById('rs-price').textContent = f(lo.value) + ' sampai ' + f(hi.value);">
     <div class="range__track"><div class="range__fill"></div></div>
-    <input type="range" min="0" max="500000" step="25000" value="50000" aria-label="Harga minimum">
-    <input type="range" min="0" max="500000" step="25000" value="250000" aria-label="Harga maksimum">
+    <input type="range" min="0" max="500000" step="25000" value="50000" aria-label="Tarif minimum">
+    <input type="range" min="0" max="500000" step="25000" value="250000" aria-label="Tarif maksimum">
   </div>
 </div>`,
     },
