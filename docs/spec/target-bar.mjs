@@ -10,9 +10,9 @@ export default {
   order: 6.5,
   summary: 'A horizontal bar for progress toward a goal: the fill is where you are, a marker shows where you should be (the goal, or today\'s pace), and an optional tint ahead of the fill shows the forecast. Words above say the value against the goal.',
   when: [
-    'A figure measured against a target: revenue against the quarter goal, enrolments against capacity planned, hours studied against the weekly plan.',
+    'A figure measured against a target: local tax income against the quarter target, participants against the planned quota, vaccine doses against the weekly plan.',
     'Comparing actual and expected pace: the marker sits where you should be by today, so falling behind is visible before the deadline.',
-    'A short list of goals side by side (one per course, per team, per month).',
+    'A short list of goals side by side (one per puskesmas, per team, per month).',
   ],
   whenNot: [
     ['A task running toward done (upload, import)', 'progress-bar'],
@@ -24,7 +24,7 @@ export default {
   where: 'In a [chart card](chart-card) or a [KPI card](kpi-card) under the figure; several in a `.target-list`, 20 px apart. Full width of its container; the words wrap above the bar on phones.',
   anatomy: [
     ['.target', 'Required. Sets `--v` (fill, percent of the track), `--t` (marker) and optional `--f` (forecast).'],
-    ['.target__meta', 'Required. `.target__label` and `.target__val` ("**$84,300** of $100,000").'],
+    ['.target__meta', 'Required. `.target__label` and `.target__val` ("**Rp 84.3 bn** of Rp 100 bn").'],
     ['.target__track', 'Required. 12 px track, `role="img"` with the values in words.'],
     ['.target__fill', 'Required. The actual value, in the accent; `.target--success` once the goal is met, `.target--warning` when behind pace.'],
     ['.target__forecast', 'Optional. The projected end value as a tint behind the fill.'],
@@ -34,12 +34,12 @@ export default {
   examples: [
     {
       title: 'Quarter goal with a forecast',
-      desc: 'The fill is the revenue so far, the tint is where the trend ends the quarter, the marker is the goal. Fills grow in on first view.',
+      desc: 'The fill is the income so far, the tint is where the trend ends the quarter, the marker is the goal. Fills grow in on first view.',
       stage: 'block',
       replay: true,
       html: `<section class="chart-card" style="max-width: 520px;" data-lds-grow aria-labelledby="tb-q">
-  <div><div class="chart-card__q" id="tb-q">Will we reach the Q4 goal?</div><div class="chart-card__sub">Course sales since 1 October</div></div>
-  ${bar({ label: 'Sales', val: '$84,300', of: '$100,000', v: 84.3, t: 100, f: 97, mark: 'Goal', end: true, foot: '<span>Forecast $97,000 by 31 Dec</span><span>45 days left</span>' })}
+  <div><div class="chart-card__q" id="tb-q">Will we reach the Q4 target?</div><div class="chart-card__sub">Local tax income since 1 October</div></div>
+  ${bar({ label: 'Local tax', val: 'Rp 84.3 bn', of: 'Rp 100 bn', v: 84.3, t: 100, f: 97, mark: 'Goal', end: true, foot: '<span>Forecast Rp 97 bn by 31 Dec</span><span>45 days left</span>' })}
 </section>`,
     },
     {
@@ -48,11 +48,11 @@ export default {
       stage: 'block',
       replay: true,
       html: `<section class="chart-card" style="max-width: 520px;" aria-labelledby="tb-pace">
-  <div><div class="chart-card__q" id="tb-pace">Which study plans are on track?</div><div class="chart-card__sub">Hours studied this week against each plan</div></div>
+  <div><div class="chart-card__q" id="tb-pace">Which puskesmas are on plan?</div><div class="chart-card__sub">Vaccine doses given this week against each puskesmas plan</div></div>
   <div class="target-list" data-lds-grow>
-  ${bar({ label: 'Database Systems', val: '7 h', of: '8 h', v: 87.5, t: 62, mark: 'Today', tone: 'success', foot: '<span>Ahead of plan</span>' })}
-  ${bar({ label: 'Statistics', val: '2 h', of: '6 h', v: 33, t: 62, mark: 'Today', tone: 'warning', foot: '<span>1.7 h behind plan</span>' })}
-  ${bar({ label: 'Academic writing', val: '3 h', of: '5 h', v: 60, t: 62, mark: 'Today', foot: '<span>On plan</span>' })}
+  ${bar({ label: 'Puskesmas Kedaton', val: '175', of: '200 doses', v: 87.5, t: 62, mark: 'Today', tone: 'success', foot: '<span>Ahead of plan</span>' })}
+  ${bar({ label: 'Puskesmas Panjang', val: '60', of: '180 doses', v: 33, t: 62, mark: 'Today', tone: 'warning', foot: '<span>52 doses behind plan</span>' })}
+  ${bar({ label: 'Puskesmas Way Halim', val: '90', of: '150 doses', v: 60, t: 62, mark: 'Today', foot: '<span>On plan</span>' })}
   </div>
 </section>`,
     },
@@ -64,7 +64,7 @@ export default {
     ['.target__mark.is-end', 'Marker label aligned to its right edge (goal at 90 % or more).'],
   ],
   states: [
-    ['over the goal', 'Cap `--v` at 100 %, switch to `.target--success` and say the overshoot in words ("$4,200 over").'],
+    ['over the goal', 'Cap `--v` at 100 %, switch to `.target--success` and say the overshoot in words ("Rp 4.2 bn over").'],
     ['no forecast yet', 'Leave out `.target__forecast` and say why in the foot ("Forecast after week 2").'],
     ['loading', 'A `.skel` line for the words and a 12 px `.skel` strip for the track.'],
   ],
@@ -79,7 +79,7 @@ export default {
     'The marker label is real text, 12 px, with tabular figures.',
   ],
   do: [
-    'Say the goal in the meta ("of $100,000") and what the marker means ("Goal", "Today").',
+    'Say the goal in the meta ("of Rp 100 bn") and what the marker means ("Goal", "Today").',
     'Use the pace marker for goals with a deadline.',
   ],
   dont: [

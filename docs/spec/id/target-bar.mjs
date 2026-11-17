@@ -43,9 +43,9 @@ export default {
       html: `<section class="chart-card" style="max-width: 520px;" aria-labelledby="tb-pace">
   <div><div class="chart-card__q" id="tb-pace">Puskesmas mana yang sesuai rencana?</div><div class="chart-card__sub">Dosis vaksin yang diberikan minggu ini terhadap rencana tiap puskesmas</div></div>
   <div class="target-list" data-lds-grow>
-  ${bar({ label: 'Puskesmas Kota', val: '175', of: '200 dosis', v: 87.5, t: 62, mark: 'Hari ini', tone: 'success', foot: '<span>Di depan rencana</span>' })}
-  ${bar({ label: 'Puskesmas Pesisir', val: '60', of: '180 dosis', v: 33, t: 62, mark: 'Hari ini', tone: 'warning', foot: '<span>52 dosis di belakang rencana</span>' })}
-  ${bar({ label: 'Puskesmas Bukit', val: '90', of: '150 dosis', v: 60, t: 62, mark: 'Hari ini', foot: '<span>Sesuai rencana</span>' })}
+  ${bar({ label: 'Puskesmas Kedaton', val: '175', of: '200 dosis', v: 87.5, t: 62, mark: 'Hari ini', tone: 'success', foot: '<span>Di depan rencana</span>' })}
+  ${bar({ label: 'Puskesmas Panjang', val: '60', of: '180 dosis', v: 33, t: 62, mark: 'Hari ini', tone: 'warning', foot: '<span>52 dosis di belakang rencana</span>' })}
+  ${bar({ label: 'Puskesmas Way Halim', val: '90', of: '150 dosis', v: 60, t: 62, mark: 'Hari ini', foot: '<span>Sesuai rencana</span>' })}
   </div>
 </section>`,
     },
