@@ -98,7 +98,7 @@
 @media (max-width: 560px) { .btn:not(.btn--sm) { white-space: normal; text-align: center; height: auto; min-height: var(--size-control); padding-block: 10px; } .btn--md { min-height: var(--size-control-md); padding-block: 8px; } .btn--lg { min-height: var(--size-control-lg); } }
 .btn--sm .ic { font-size: 15px; }
 .btn--block { display: flex; width: 100%; }
-.btn--primary { --tone: var(--accent); color: var(--text-on-accent); }
+.btn--primary { --tone: var(--accent); --btn-fg: var(--text-on-accent); color: var(--btn-fg); }
 /* Filled buttons: a light-to-tone gradient, the inner glow and top light of --finish-primary,
    and a ring one step darker than the fill so the edge reads as a real object. */
 .btn--primary, .btn--danger {
@@ -106,12 +106,15 @@
   background-image: linear-gradient(180deg, color-mix(in oklch, var(--tone), white 12%), var(--tone) 70%);
   box-shadow: var(--finish-primary), 0 0 0 1px color-mix(in oklch, var(--tone), black 14%);
 }
-.btn--secondary { background: var(--bg-base); color: var(--text-strong); box-shadow: inset 0 0 0 1px var(--line-strong), var(--finish-secondary); }
-.btn--tinted { background: var(--accent-tint); color: var(--accent-text); }
-.btn--gray { background: var(--bg-recessed); color: var(--text-strong); }
-.btn--plain { color: var(--accent-text); padding: 0 10px; }
-.btn--danger { --tone: var(--danger); color: #fff; }
-.btn--danger-tinted { background: var(--danger-tint); color: var(--danger-text); }
+.btn--secondary { background: var(--bg-base); --btn-fg: var(--text-strong); color: var(--btn-fg); box-shadow: inset 0 0 0 1px var(--line-strong), var(--finish-secondary); }
+.btn--tinted { background: var(--accent-tint); --btn-fg: var(--accent-text); color: var(--btn-fg); }
+.btn--gray { background: var(--bg-recessed); --btn-fg: var(--text-strong); color: var(--btn-fg); }
+.btn--plain { --btn-fg: var(--accent-text); color: var(--btn-fg); padding: 0 10px; }
+.btn--danger { --tone: var(--danger); --btn-fg: #fff; color: var(--btn-fg); }
+.btn--danger-tinted { background: var(--danger-tint); --btn-fg: var(--danger-text); color: var(--btn-fg); }
+/* Buttons rendered as links keep their variant color against page-wide a and a:hover rules
+   (starter templates, CMS themes), which would otherwise outrank a single class. */
+a.btn:is(:link, :visited, :hover, :active, :focus-visible) { color: var(--btn-fg, inherit); }
 @media (hover: hover) and (pointer: fine) {
   .btn--primary:hover { --tone: var(--accent-hover); }
   .btn--danger:hover { --tone: color-mix(in oklch, var(--danger), black 6%); }
