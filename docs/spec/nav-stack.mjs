@@ -4,7 +4,7 @@ export default {
   order: 13,
   summary: 'Push a detail screen in from the right over the one you came from, and go back with the back button or by dragging the screen away from the left edge. The screen underneath slides at 30 % and dims, so people always know where back leads.',
   when: [
-    'A phone app where a row opens its detail: a course from a list, a payment from activity, a project from projects.',
+    'A phone app where a row opens its detail: a service from a list, a payment from activity, a report from reports.',
     'Drilling two or three levels into one area of an app while the tab bar stays put.',
     'A settings area on a phone where each row opens its own screen.',
   ],
@@ -26,47 +26,47 @@ export default {
   ],
   examples: [
     {
-      title: 'Courses to a course',
-      desc: 'Open a course: it slides in over the list. Press back, or drag the screen from its left edge and let go past halfway (a quick flick counts its speed).',
+      title: 'From the services list to one service',
+      desc: 'Open a service: it slides in over the list. Press back, or drag the screen from its left edge and let go past halfway (a quick flick counts its speed).',
       stage: 'phone',
       html: `<div class="phone phone--inline" style="height: 560px;">
   <div class="navstack" data-lds-navstack>
-    <section class="navstack__view" aria-label="Courses">
-      <div class="navbar" id="ns-root-bar" style="height: 64px; padding-top: 14px;"><span></span><span class="navbar__title" aria-hidden="true">Courses</span><span></span></div>
+    <section class="navstack__view" aria-label="Services">
+      <div class="navbar" id="ns-root-bar" style="height: 64px; padding-top: 14px;"><span></span><span class="navbar__title" aria-hidden="true">Services</span><span></span></div>
       <div class="phone__scroll" data-lds-navbar="ns-root-bar">
         <div style="height: 64px;"></div>
-        <h3 class="large-title">Courses</h3>
+        <h3 class="large-title">Services</h3>
         <div style="padding: 12px 16px 40px;"><div class="list list--fill">
-          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Database Systems</span><span class="lrow__sub">IF 3104 · Mon and Thu, 08:00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
-          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Computer Networks</span><span class="lrow__sub">IF 3112 · Mon, 13:00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
+          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Micro business permit</span><span class="lrow__sub">Mal Pelayanan Publik · Mon and Thu, 08:00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
+          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Domicile letter</span><span class="lrow__sub">Kantor kelurahan · Mon, 13:00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
         </div></div>
       </div>
     </section>
-    <section class="navstack__view" id="ns-course" aria-label="Database Systems" hidden>
+    <section class="navstack__view" id="ns-course" aria-label="Micro business permit" hidden>
       <div class="navbar navbar--inline" id="ns-course-bar" style="height: 64px; padding-top: 14px;">
-        <span><button type="button" class="navbar__back" data-lds-back aria-label="Back to Courses"><span class="ic" aria-hidden="true">arrow_back_ios_new</span><span>Courses</span></button></span>
-        <h3 class="navbar__title">Database Systems</h3><span></span>
+        <span><button type="button" class="navbar__back" data-lds-back aria-label="Back to Services"><span class="ic" aria-hidden="true">arrow_back_ios_new</span><span>Services</span></button></span>
+        <h3 class="navbar__title">Micro business permit</h3><span></span>
       </div>
       <div class="phone__scroll" data-lds-navbar="ns-course-bar">
         <div style="height: 64px;"></div>
-        <div style="padding: 12px 16px 40px;"><dl class="kv-list"><div class="kv"><dt>Lecturer</dt><dd>Dr. Ayu Rahmawati</dd></div><div class="kv"><dt>Room</dt><dd>H 2.14</dd></div><div class="kv"><dt>Credits</dt><dd>3</dd></div></dl></div>
+        <div style="padding: 12px 16px 40px;"><dl class="kv-list"><div class="kv"><dt>Officer</dt><dd>Ayu Rahmawati</dd></div><div class="kv"><dt>Counter</dt><dd>Counter 2</dd></div><div class="kv"><dt>Processing time</dt><dd>3 working days</dd></div></dl></div>
       </div>
     </section>
   </div>
 </div>`,
       code: `<div class="navstack" data-lds-navstack>
-  <section class="navstack__view" aria-label="Courses">
+  <section class="navstack__view" aria-label="Services">
     <div class="navbar" id="courses-bar">…</div>
     <div class="phone__scroll" data-lds-navbar="courses-bar">
       <div class="navbar-gap"></div>
-      <h1 class="large-title">Courses</h1>
-      <button class="lrow" data-lds-nav="course">…Database Systems…</button>
+      <h1 class="large-title">Services</h1>
+      <button class="lrow" data-lds-nav="course">…Micro business permit…</button>
     </div>
   </section>
-  <section class="navstack__view" id="course" aria-label="Database Systems" hidden>
+  <section class="navstack__view" id="course" aria-label="Micro business permit" hidden>
     <div class="navbar navbar--inline" id="course-bar">
-      <span><button class="navbar__back" data-lds-back aria-label="Back to Courses"><span class="ic" aria-hidden="true">arrow_back_ios_new</span><span>Courses</span></button></span>
-      <h1 class="navbar__title">Database Systems</h1>
+      <span><button class="navbar__back" data-lds-back aria-label="Back to Services"><span class="ic" aria-hidden="true">arrow_back_ios_new</span><span>Services</span></button></span>
+      <h1 class="navbar__title">Micro business permit</h1>
       <span></span>
     </div>
     <div class="phone__scroll" data-lds-navbar="course-bar">…</div>
@@ -89,7 +89,7 @@ export default {
   a11y: [
     'On push, focus moves to the pushed screen\'s heading (or `[data-lds-autofocus]`); on pop, it returns to the row that opened the screen.',
     'Covered screens are `inert`, so neither Tab nor a screen reader reaches them.',
-    'The back button is a real button with `aria-label="Back to Courses"`; the drag is only a shortcut.',
+    'The back button is a real button with `aria-label="Back to Services"`; the drag is only a shortcut.',
     'Give each view an `aria-label` with its title.',
   ],
   do: [

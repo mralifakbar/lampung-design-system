@@ -33,8 +33,8 @@ export default {
         <div style="height: 64px;"></div>
         <h3 class="large-title">Layanan</h3>
         <div style="padding: 12px 16px 40px;"><div class="list list--fill">
-          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Izin usaha mikro</span><span class="lrow__sub">IUM 3104 · Senin dan Kamis, 08.00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
-          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Surat keterangan domisili</span><span class="lrow__sub">SKD 3112 · Senin, 13.00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
+          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Izin usaha mikro</span><span class="lrow__sub">Mal Pelayanan Publik · Senin dan Kamis, 08.00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
+          <button type="button" class="lrow" data-lds-nav="ns-course"><span class="lrow__body"><span class="lrow__title">Surat keterangan domisili</span><span class="lrow__sub">Kantor kelurahan · Senin, 13.00</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
         </div></div>
       </div>
     </section>
