@@ -6,8 +6,8 @@ export default {
   order: 3,
   summary: 'A grid of destinations on the quiet fill: each card is one link with an eyebrow, a title, a line of detail and a foot whose chevron leans toward where it goes.',
   when: [
-    'A hub page that sends people to a few places of equal weight: my courses, the question bank, transcripts, settings.',
-    'Each destination deserves a sentence or a status ("3 tasks open", "Updated today").',
+    'A hub page that sends people to a few places of equal weight: my applications, citizen reports, payment history, settings.',
+    'Each destination deserves a sentence or a status ("3 files to complete", "Updated today").',
     'Two to about nine destinations; the grid fills columns of at least 300 px.',
   ],
   whenNot: [
@@ -32,18 +32,18 @@ export default {
       title: 'Where to go',
       desc: 'Hover (with a mouse) tints the card and moves the chevron 3 px toward the destination; pressing sinks it slightly.',
       html: `<div class="link-grid" style="width: 100%;">
-  ${lc('menu_book', 'Course', 'Database Systems', 'Week 9: indexing and query plans', '3 tasks open')}
-  ${lc('school', 'Grades', 'Transcript', 'Every course and grade so far', 'Updated today')}
-  ${lc('assignment', 'Practice', 'Question bank', 'Over 2,000 questions with explanations', '18 saved')}
+  ${lc('assignment', 'Licensing', 'Micro business permit', 'Stage 2: document check by an officer', '3 files to complete')}
+  ${lc('receipt_long', 'Payments', 'Regional tax', 'Every bill and receipt so far', 'Updated today')}
+  ${lc('campaign', 'Complaints', 'Citizen reports', 'Over 2,000 reports with their follow-up', '18 followed')}
 </div>`,
     },
     {
       title: 'Short cards',
       desc: 'Title and foot only, for a settings hub.',
       html: `<div class="link-grid" style="width: 100%;">
-  <a class="link-card" href="#"><span class="link-card__title">Profile</span><span class="link-card__foot">Name, photo, school<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
+  <a class="link-card" href="#"><span class="link-card__title">Profile</span><span class="link-card__foot">Name, photo, address<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
   <a class="link-card" href="#"><span class="link-card__title">Notifications</span><span class="link-card__foot">Email and push<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
-  <a class="link-card" href="#"><span class="link-card__title">Billing</span><span class="link-card__foot">Plan until exam day<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
+  <a class="link-card" href="#"><span class="link-card__title">Bills</span><span class="link-card__foot">Due 31 December<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
 </div>`,
     },
   ],
