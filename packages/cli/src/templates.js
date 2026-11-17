@@ -7,19 +7,35 @@ export function providerSource({ ts, useClient }) {
 import { useEffect } from 'react';
 import { init, restoreTheme${ts ? ', type ThemeMode' : ''} } from 'lampung-design-system/js';
 
+// init() adds attributes and nodes to [data-lds-*] markup. On a server-rendered page, touching that
+// markup before React has hydrated it makes React throw a hydration mismatch, so every run waits
+// until the browser is idle, which is after hydration work has finished. The timeout still runs it
+// in a background tab, where idle callbacks are held back.
+const whenIdle = (fn${ts ? ': () => void' : ''}) =>
+  typeof requestIdleCallback === 'function' ? requestIdleCallback(fn, { timeout: 2000 }) : window.setTimeout(fn, 200);
+const cancelIdle = (id${ts ? ': number' : ''}) =>
+  typeof cancelIdleCallback === 'function' ? cancelIdleCallback(id) : window.clearTimeout(id);
+
 export function LdsProvider(${props}) {
   useEffect(() => {
     restoreTheme(document.documentElement, theme);
-    init();
-    let frame = 0;
-    const observer = new MutationObserver(() => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => init());
+    let pending = 0;
+    const run = () => {
+      pending = 0;
+      init();
+    };
+    pending = whenIdle(run);
+    // New elements get wired on the next idle run. A run already waiting covers them, and text-only
+    // changes (timers, counters) never need one.
+    const observer = new MutationObserver((records) => {
+      if (pending) return;
+      if (!records.some((r) => Array.from(r.addedNodes).some((n) => n.nodeType === 1))) return;
+      pending = whenIdle(run);
     });
     observer.observe(document.body, { childList: true, subtree: true });
     return () => {
       observer.disconnect();
-      cancelAnimationFrame(frame);
+      if (pending) cancelIdle(pending);
     };
   }, [theme]);
   return null;
