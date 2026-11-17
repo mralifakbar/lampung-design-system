@@ -6,9 +6,9 @@ const slide = (label, done) => `<div class="slide" data-lds-slide>
 </div>`;
 
 export default {
-  summary: 'Lintasan dengan kenop yang digeser sampai ujung untuk mengonfirmasi langkah mahal di layar sentuh (kirim nilai, kirim pembayaran). Kenop mengikuti jari 1:1, menahan saat melewati ujung, dan terkonfirmasi setelah melewati 85 % lintasan.',
+  summary: 'Lintasan dengan kenop yang digeser sampai ujung untuk mengonfirmasi langkah mahal di layar sentuh (kirim daftar penerima bantuan, kirim pembayaran). Kenop mengikuti jari 1:1, menahan saat melewati ujung, dan terkonfirmasi setelah melewati 85 % lintasan.',
   when: [
-    'Konfirmasi mahal dan disengaja di ponsel atau tablet yang tidak boleh terpicu oleh ketukan tak sengaja: kirim nilai akhir, bayar retribusi, kirim ujian untuk dinilai.',
+    'Konfirmasi mahal dan disengaja di ponsel atau tablet yang tidak boleh terpicu oleh ketukan tak sengaja: kirim daftar akhir penerima bantuan, bayar retribusi, kirim izin untuk ditandatangani.',
     'Langkah terakhir sebuah alur, di bagian bawah layar dalam jangkauan ibu jari.',
   ],
   whenNot: [
@@ -21,22 +21,22 @@ export default {
   anatomy: [
     ['.slide[data-lds-slide]', 'Wajib. Lintasan 56 px berbentuk pil di atas `--bg-recessed`.'],
     ['.slide__fill', 'Wajib. Jejak bernuansa aksen yang tumbuh di belakang kenop.'],
-    ['.slide__label', 'Wajib. Instruksinya ("Geser untuk mengirim nilai"); memudar saat kenop melewatinya. Ganti teksnya dengan hasil setelah konfirmasi.'],
+    ['.slide__label', 'Wajib. Instruksinya ("Geser untuk mengirim data penerima"); memudar saat kenop melewatinya. Ganti teksnya dengan hasil setelah konfirmasi.'],
     ['.slide__knob', 'Wajib. `<button>` 48 px, aksen, dengan ikon `arrow_forward` yang menjadi `check` setelah selesai. Butuh `aria-label`.'],
   ],
   examples: [
     {
-      title: 'Kirim nilai',
+      title: 'Kirim data penerima bantuan',
       desc: 'Geser kenop sampai ujung. Lepas sebelum 85 % dan ia memantul pulang; jentikan cepat ikut dihitung kecepatannya. Dengan keyboard, fokuskan kenop lalu tekan Enter.',
-      html: slide('Geser untuk mengirim nilai', 'Nilai terkirim'),
-      code: `<div class="slide" data-lds-slide id="submit-grades">
+      html: slide('Geser untuk mengirim data penerima', 'Data penerima terkirim'),
+      code: `<div class="slide" data-lds-slide id="submit-aid">
   <span class="slide__fill" aria-hidden="true"></span>
-  <span class="slide__label" aria-live="polite">Geser untuk mengirim nilai</span>
-  <button class="slide__knob" aria-label="Geser untuk mengirim nilai. Tekan Enter untuk mengonfirmasi."><span class="ic" aria-hidden="true">arrow_forward</span></button>
+  <span class="slide__label" aria-live="polite">Geser untuk mengirim data penerima</span>
+  <button class="slide__knob" aria-label="Geser untuk mengirim data penerima. Tekan Enter untuk mengonfirmasi."><span class="ic" aria-hidden="true">arrow_forward</span></button>
 </div>
 <script type="module">
-  const s = document.getElementById('submit-grades');
-  s.addEventListener('lds:confirm', () => { s.querySelector('.slide__label').textContent = 'Nilai terkirim'; sendGrades(); });
+  const s = document.getElementById('submit-aid');
+  s.addEventListener('lds:confirm', () => { s.querySelector('.slide__label').textContent = 'Data penerima terkirim'; sendRecipients(); });
 </script>`,
     },
     {
@@ -66,7 +66,7 @@ export default {
   ],
   a11y: [
     'Kenop adalah `<button>`: Tab mencapainya dan Enter langsung mengonfirmasi. Sebutkan ini di `aria-label`-nya.',
-    'Pasang `aria-live="polite"` pada `.slide__label` agar hasilnya ("Nilai terkirim") diumumkan saat Anda mengubahnya.',
+    'Pasang `aria-live="polite"` pada `.slide__label` agar hasilnya ("Data penerima terkirim") diumumkan saat Anda mengubahnya.',
     'Menggeser bukan satu-satunya jalur: Enter berfungsi, dan untuk pengguna switch atau suara sediakan rute lain (tombol konfirmasi di pengaturan).',
     'Kontras: label adalah `--text-subtle` di atas `--bg-recessed`; label selesai adalah `--success-text` di atas `--success-tint`.',
   ],
