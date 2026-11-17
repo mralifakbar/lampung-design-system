@@ -27,24 +27,24 @@ const refunds = wave(12, { base: 9, trend: -0.45, seed: 6 });
 
 const row = `<div class="auto-grid" style="--min: 220px;" data-lds-grow>
   <article class="kpi" aria-labelledby="kpi-rev">
-    <div class="kpi__head"><span class="kpi__label" id="kpi-rev">Course sales</span>${more('kpi-rev-menu', 'Course sales')}</div>
-    <div class="kpi__value">$48,210</div>
-    <div class="kpi__meta">${up('12.4%')}<span>from $42,890 in October</span></div>
-    ${spark(rev, 'Daily sales over 30 days, rising')}
+    <div class="kpi__head"><span class="kpi__label" id="kpi-rev">Levy revenue</span>${more('kpi-rev-menu', 'Levy revenue')}</div>
+    <div class="kpi__value">Rp 482 M</div>
+    <div class="kpi__meta">${up('12.4%')}<span>from Rp 429 M in October</span></div>
+    ${spark(rev, 'Daily revenue over 30 days, rising')}
   </article>
   <article class="kpi" aria-labelledby="kpi-sign">
-    <div class="kpi__head"><span class="kpi__label" id="kpi-sign">New sign-ups</span></div>
+    <div class="kpi__head"><span class="kpi__label" id="kpi-sign">New applications</span></div>
     <div class="kpi__value">${fmt(632)}</div>
     <div class="kpi__meta">${up('8%')}<span>this week</span></div>
-    ${minibars(signups, 'Sign-ups per day over 14 days; today is the highest')}
+    ${minibars(signups, 'Applications per day over 14 days; today is the highest')}
   </article>
   <article class="kpi" aria-labelledby="kpi-ref">
-    <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">receipt_long</span></span><span class="kpi__label" id="kpi-ref">Refund requests</span></div>
+    <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">receipt_long</span></span><span class="kpi__label" id="kpi-ref">Returned applications</span></div>
     <div class="kpi__value">14</div>
     <div class="kpi__meta">${down('36%')}<span>fewer than last month</span></div>
   </article>
   <article class="kpi" aria-labelledby="kpi-time">
-    <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">schedule</span></span><span class="kpi__label" id="kpi-time">Average reply time</span></div>
+    <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">schedule</span></span><span class="kpi__label" id="kpi-time">Average complaint reply time</span></div>
     <div class="kpi__value">3.2<small>hours</small></div>
     <div class="kpi__meta">${up('0.6 h', 'bad')}<span>slower than last week</span></div>
   </article>
@@ -60,7 +60,7 @@ export default {
   order: 3.5,
   summary: 'One metric on a dashboard: what it is, its value, how it changed against a stated baseline, and optionally its recent shape as a sparkline or mini bars. The value is the point; the change always says what it is compared with.',
   when: [
-    'The first row of a dashboard: three to six metrics people check every visit (sales, sign-ups, refunds, reply time).',
+    'The first row of a dashboard: three to six metrics people check every visit (levy revenue, applications, returned files, reply time).',
     'A metric whose recent shape matters as much as its value: add a sparkline (continuous) or mini bars (per day or week).',
     'Several metrics of one subject joined into a strip (`.kpi-grid`) at the top of an analytics page.',
   ],
@@ -75,7 +75,7 @@ export default {
     ['.kpi', 'Required. `article` (or `a.kpi--link` when the whole card opens a report). Base background, `--line` ring, 16 px padding, 16 px radius.'],
     ['.kpi__head', 'Required. `.kpi__label` (what is measured), optional `.kpi__icon` before it and one menu `.icon-btn` after it.'],
     ['.kpi__value', 'Required. 28 px tabular figure; a unit in `small`.'],
-    ['.kpi__meta', 'Recommended. A [trend delta](trend-delta) and the baseline in words ("from $42,890 in October").'],
+    ['.kpi__meta', 'Recommended. A [trend delta](trend-delta) and the baseline in words ("from Rp 429 M in October").'],
     ['svg.kpi__spark', 'Optional. A full-bleed sparkline along the bottom edge: `.series-area` and `.series-line` in a 240 × 52 viewBox, `preserveAspectRatio="none"`. `role="img"` with the trend in words.'],
     ['.kpi__bars', 'Optional. Mini bars, one `i` per period with `--h` as a percent; `.is-on` marks the current one.'],
     ['.kpi-grid-wrap > .kpi-grid', 'Joins cards into one ringed block with hairlines between them; `--n` sets the columns (2, 3, 4 or 6 so rows fill).'],
@@ -83,7 +83,7 @@ export default {
   examples: [
     {
       title: 'A dashboard\'s first row',
-      desc: 'Sparkline, mini bars, and two cards with an icon. The color of each change follows its meaning: fewer refunds is good, a slower reply is bad. The bottoms grow in on first view.',
+      desc: 'Sparkline, mini bars, and two cards with an icon. The color of each change follows its meaning: fewer returned applications is good, a slower reply is bad. The bottoms grow in on first view.',
       stage: 'block',
       replay: true,
       html: row,
@@ -103,15 +103,15 @@ export default {
       title: 'The whole card opens the report',
       desc: 'When a card leads to one place, make the card the link. It sinks slightly on press.',
       html: `<a class="kpi kpi--link" href="#kpi-link" id="kpi-link" style="width: 260px;">
-  <div class="kpi__head"><span class="kpi__label">Open support tickets</span><span class="ic" aria-hidden="true" style="color: var(--text-faint);">chevron_right</span></div>
+  <div class="kpi__head"><span class="kpi__label">Open complaints</span><span class="ic" aria-hidden="true" style="color: var(--text-faint);">chevron_right</span></div>
   <div class="kpi__value">27</div>
   <div class="kpi__meta">${down('5')}<span>since Monday</span></div>
 </a>`,
     },
   ],
   variants: [
-    ['.kpi__spark', 'Continuous measure (sales, visitors): a filled line, no axes, no dots.'],
-    ['.kpi__bars', 'Counted per period (sign-ups per day): mini bars with the current one in the series color.'],
+    ['.kpi__spark', 'Continuous measure (revenue, visitors): a filled line, no axes, no dots.'],
+    ['.kpi__bars', 'Counted per period (applications per day): mini bars with the current one in the series color.'],
     ['.kpi__icon', 'A quiet glyph tile that helps scanning a long row; not a colored tile.'],
     ['.kpi--link', 'The card is one link to the metric\'s report.'],
     ['.kpi-grid', 'Joined strip. `--n: 2 | 3 | 4 | 6`.'],
@@ -131,7 +131,7 @@ export default {
     'Each card is an `article` labelled by its `.kpi__label` (`aria-labelledby`), so a screen reader lists the metrics by name.',
     'The delta carries the direction in words (`.sr-only` "up" / "down"); color only repeats it.',
     'Sparklines and mini bars are `role="img"` with the trend in words; they are never the only place a value lives.',
-    'The menu button names its metric: "More actions for Course sales".',
+    'The menu button names its metric: "More actions for Levy revenue".',
   ],
   do: [
     'Say what the change is compared with, in the meta.',

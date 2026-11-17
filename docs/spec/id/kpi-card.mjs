@@ -38,7 +38,7 @@ const row = `<div class="auto-grid" style="--min: 220px;" data-lds-grow>
     ${minibars(signups, 'Permohonan per hari selama 14 hari; hari ini yang tertinggi')}
   </article>
   <article class="kpi" aria-labelledby="kpi-ref">
-    <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">receipt_long</span></span><span class="kpi__label" id="kpi-ref">Permintaan pengembalian dana</span></div>
+    <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">receipt_long</span></span><span class="kpi__label" id="kpi-ref">Berkas dikembalikan</span></div>
     <div class="kpi__value">14</div>
     <div class="kpi__meta">${down('36%')}<span>lebih sedikit dari bulan lalu</span></div>
   </article>
@@ -56,7 +56,7 @@ ${items.map(([label, value, delta, note]) => `  <div class="kpi"><div class="kpi
 export default {
   summary: 'Satu metrik di dasbor: apa yang diukur, nilainya, bagaimana perubahannya terhadap pembanding yang disebutkan, dan bila perlu bentuk terbarunya sebagai sparkline atau mini bar. Nilainya yang utama; perubahan selalu menyebut pembandingnya.',
   when: [
-    'Baris pertama dasbor: tiga sampai enam metrik yang diperiksa setiap kali berkunjung (penerimaan, permohonan, pengembalian dana, waktu balas).',
+    'Baris pertama dasbor: tiga sampai enam metrik yang diperiksa setiap kali berkunjung (penerimaan, permohonan, berkas dikembalikan, waktu balas).',
     'Metrik yang bentuk terbarunya sama pentingnya dengan nilainya: tambahkan sparkline (berkelanjutan) atau mini bar (per hari atau minggu).',
     'Beberapa metrik dari satu pokok yang digabung menjadi strip (`.kpi-grid`) di atas halaman analitik.',
   ],
@@ -79,7 +79,7 @@ export default {
   examples: [
     {
       title: 'Baris pertama dasbor',
-      desc: 'Sparkline, mini bar, dan dua kartu dengan ikon. Warna setiap perubahan mengikuti artinya: pengembalian dana yang berkurang itu baik, balasan yang melambat itu buruk. Bagian bawahnya tumbuh saat pertama terlihat.',
+      desc: 'Sparkline, mini bar, dan dua kartu dengan ikon. Warna setiap perubahan mengikuti artinya: berkas dikembalikan yang berkurang itu baik, balasan yang melambat itu buruk. Bagian bawahnya tumbuh saat pertama terlihat.',
       html: row,
     },
     {
