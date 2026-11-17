@@ -4,7 +4,7 @@ const tile = (f, name, meta, price, qty = '', extra = '') => `<button class="pti
 export default {
   summary: 'Produk yang diketuk untuk ditambahkan ke penjualan atau pesanan: gambar, nama, satu baris meta, dan harga, dengan badge di sudut yang menghitung berapa yang sudah masuk ke penjualan. Seluruh tile adalah satu tombol.',
   when: [
-    'Kasir atau loket tempat petugas menambahkan produk dengan mengetuknya: toko UMKM, kantin, loket tiket.',
+    'Kasir atau loket tempat petugas menambahkan produk dengan mengetuknya: galeri UMKM di pameran kota, kantin kantor pelayanan, loket tiket objek wisata.',
     'Layar pesan mandiri atau menu tempat orang menyusun pesanan dari grid butir.',
     'Grid apa pun tempat satu ketukan menambah satu butir dan hitungan berjalan lebih penting daripada detailnya.',
   ],
@@ -28,17 +28,17 @@ export default {
   examples: [
     {
       title: 'Grid kasir',
-      desc: 'Hitungan di sudut dan ring aksen menunjukkan yang sudah ada di penjualan; stok menipis disebut dalam kata; tile yang habis memudar dan menyebut kapan tersedia lagi.',
+      desc: 'Kasir galeri UMKM saat pameran kota. Hitungan di sudut dan ring aksen menunjukkan yang sudah ada di penjualan; stok menipis disebut dalam kata; tile yang habis memudar dan menyebut kapan tersedia lagi.',
       html: `<div class="ptile-grid" style="max-width: 680px;">
-  ${tile('stoneware-mug', 'Mug keramik, isi 2', 'Stok 36', 'Rp 85.000', '2')}
-  ${tile('soy-candle', 'Lilin aromaterapi serai', 'Sisa 4', 'Rp 45.000').replace('<span class="ptile__meta">Sisa 4', '<span class="ptile__meta ptile__meta--low">Sisa 4')}
-  ${tile('canvas-tote', 'Tas kanvas tebal', 'Stok 58', 'Rp 65.000')}
+  ${tile('stoneware-mug', 'Mug keramik motif siger, isi 2', 'Stok 36', 'Rp 85.000', '2')}
+  ${tile('soy-candle', 'Lilin aromaterapi kopi Lampung', 'Sisa 4', 'Rp 45.000').replace('<span class="ptile__meta">Sisa 4', '<span class="ptile__meta ptile__meta--low">Sisa 4')}
+  ${tile('canvas-tote', 'Tas kanvas aksen tapis', 'Stok 58', 'Rp 65.000')}
   ${tile('field-watch', 'Jam tangan kayu, 38 mm', 'Habis sampai 2 Des', 'Rp 350.000', '', ' aria-disabled="true"')}
 </div>`,
       code: `<div class="ptile-grid">
-  <button class="ptile is-in" type="button" aria-label="Mug keramik, isi 2, Rp 85.000, 2 di penjualan ini">
+  <button class="ptile is-in" type="button" aria-label="Mug keramik motif siger, isi 2, Rp 85.000, 2 di penjualan ini">
     <span class="ptile__media"><img src="img/products/stoneware-mug.svg" alt=""></span>
-    <span class="ptile__body"><span class="ptile__name">Mug keramik, isi 2</span><span class="ptile__meta">Stok 36</span></span>
+    <span class="ptile__body"><span class="ptile__name">Mug keramik motif siger, isi 2</span><span class="ptile__meta">Stok 36</span></span>
     <span class="ptile__price">Rp 85.000</span>
     <span class="ptile__qty">2</span>
   </button>
@@ -54,7 +54,7 @@ export default {
       desc: '`ptile--compact` menaruh gambar di samping nama: untuk panel samping, pilihan cepat, atau daftar panjang di ponsel.',
       html: `<div class="ptile-grid" style="--min: 240px; max-width: 520px;">
   ${tile('crew-tee', 'Kaus katun motif tapis', 'S, M, L', 'Rp 95.000').replace('class="ptile"', 'class="ptile ptile--compact"')}
-  ${tile('dot-notebook', 'Buku catatan titik, A5', 'Stok 120', 'Rp 30.000', '1').replace('class="ptile is-in"', 'class="ptile ptile--compact is-in"')}
+  ${tile('dot-notebook', 'Buku catatan sampul tapis, A5', 'Stok 120', 'Rp 30.000', '1').replace('class="ptile is-in"', 'class="ptile ptile--compact is-in"')}
 </div>`,
     },
   ],

@@ -7,7 +7,7 @@ export default {
   order: 20.5,
   summary: 'A product people tap to add to a sale or an order: picture, name, one meta line and the price, with a badge in the corner that counts how many are already in the sale. The whole tile is one button.',
   when: [
-    'A point of sale or a counter where the cashier adds products by tapping them: a shop, a cafe, a ticket desk.',
+    'A point of sale or a counter where the cashier adds products by tapping them: an UMKM gallery at a city expo, a canteen in a service office, a ticket desk at a tourist site.',
     'A self-order screen or a menu where people build an order from a grid of items.',
     'Any grid where one tap adds one item and the running count matters more than the details.',
   ],
@@ -31,22 +31,22 @@ export default {
   examples: [
     {
       title: 'A point-of-sale grid',
-      desc: 'The count in the corner and the accent ring say what is already in the sale; low stock is said in words; the sold-out tile fades and says when it is back.',
+      desc: 'The till at an UMKM gallery during a city expo. The count in the corner and the accent ring say what is already in the sale; low stock is said in words; the sold-out tile fades and says when it is back.',
       stage: 'block',
       html: `<div class="ptile-grid" style="max-width: 680px;">
-  ${tile('stoneware-mug', 'Stoneware mug, set of 2', '36 in stock', '$36.00', '2')}
-  ${tile('soy-candle', 'Soy candle, vetiver', '4 left', '$28.00').replace('<span class="ptile__meta">4 left', '<span class="ptile__meta ptile__meta--low">4 left')}
-  ${tile('canvas-tote', 'Heavy canvas tote', '58 in stock', '$34.00')}
-  ${tile('field-watch', 'Field watch, 38 mm', 'Sold out until 2 Dec', '$189.00', '', ' aria-disabled="true"')}
+  ${tile('stoneware-mug', 'Siger motif ceramic mug, set of 2', '36 in stock', 'Rp 85.000', '2')}
+  ${tile('soy-candle', 'Lampung coffee scented candle', '4 left', 'Rp 45.000').replace('<span class="ptile__meta">4 left', '<span class="ptile__meta ptile__meta--low">4 left')}
+  ${tile('canvas-tote', 'Tapis trim canvas tote', '58 in stock', 'Rp 65.000')}
+  ${tile('field-watch', 'Wooden watch, 38 mm', 'Sold out until 2 Dec', 'Rp 350.000', '', ' aria-disabled="true"')}
 </div>`,
       code: `<div class="ptile-grid">
-  <button class="ptile is-in" type="button" aria-label="Stoneware mug, set of 2, $36.00, 2 in this sale">
+  <button class="ptile is-in" type="button" aria-label="Siger motif ceramic mug, set of 2, Rp 85.000, 2 in this sale">
     <span class="ptile__media"><img src="img/products/stoneware-mug.svg" alt=""></span>
-    <span class="ptile__body"><span class="ptile__name">Stoneware mug, set of 2</span><span class="ptile__meta">36 in stock</span></span>
-    <span class="ptile__price">$36.00</span>
+    <span class="ptile__body"><span class="ptile__name">Siger motif ceramic mug, set of 2</span><span class="ptile__meta">36 in stock</span></span>
+    <span class="ptile__price">Rp 85.000</span>
     <span class="ptile__qty">2</span>
   </button>
-  <button class="ptile" type="button" aria-disabled="true" aria-label="Field watch, 38 mm, $189.00, sold out">…<span class="ptile__meta">Sold out until 2 Dec</span>…</button>
+  <button class="ptile" type="button" aria-disabled="true" aria-label="Wooden watch, 38 mm, Rp 350.000, sold out">…<span class="ptile__meta">Sold out until 2 Dec</span>…</button>
 </div>
 <script type="module">
   // On tap: add to the sale, then show the count and pop it
@@ -58,8 +58,8 @@ export default {
       desc: '`ptile--compact` puts the picture beside the name: for a side panel, quick picks or a long list on a phone.',
       stage: 'block',
       html: `<div class="ptile-grid" style="--min: 240px; max-width: 520px;">
-  ${tile('crew-tee', 'Organic cotton crew tee', 'S, M, L', '$29.00').replace('class="ptile"', 'class="ptile ptile--compact"')}
-  ${tile('dot-notebook', 'Dot grid notebook, A5', '120 in stock', '$18.00', '1').replace('class="ptile is-in"', 'class="ptile ptile--compact is-in"')}
+  ${tile('crew-tee', 'Tapis motif cotton tee', 'S, M, L', 'Rp 95.000').replace('class="ptile"', 'class="ptile ptile--compact"')}
+  ${tile('dot-notebook', 'Tapis cover notebook, A5', '120 in stock', 'Rp 30.000', '1').replace('class="ptile is-in"', 'class="ptile ptile--compact is-in"')}
 </div>`,
     },
   ],
@@ -82,7 +82,7 @@ export default {
     'Reduced motion: no pop and no scale; the count and ring change at once.',
   ],
   a11y: [
-    'A real `button`; `aria-label` carries the name, the price and the count ("Stoneware mug, $36.00, 2 in this sale"). Update it when the count changes.',
+    'A real `button`; `aria-label` carries the name, the price and the count ("Siger motif ceramic mug, Rp 85.000, 2 in this sale"). Update it when the count changes.',
     'Use `aria-disabled` rather than `disabled` for sold out, so the tile stays focusable and can explain itself.',
     'Announce each add through a polite live region ("Added Stoneware mug, 2 in the sale").',
     'Tiles are at least 148 px wide, far above the 44 px target.',
