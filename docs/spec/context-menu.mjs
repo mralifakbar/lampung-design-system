@@ -4,7 +4,7 @@ export default {
   order: 7,
   summary: 'A command menu that opens at the pointer on right-click, a long press on touch, or Shift+F10. A shortcut for commands that are also reachable another way.',
   when: [
-    'An area full of objects people act on often (files, lessons in an editor, cells) where right-click is expected.',
+    'An area full of objects people act on often (files, items in an editor, cells) where right-click is expected.',
     'Power users want the commands of the thing under the pointer without moving to a toolbar.',
   ],
   whenNot: [
@@ -21,12 +21,12 @@ export default {
   ],
   examples: [
     {
-      title: 'Files in a course',
+      title: 'Application files',
       desc: 'Right-click in the box (or press and hold on touch, or focus it and press Shift+F10).',
       stage: 'block',
-      html: `<div class="card card--fill" data-lds-contextmenu="cm-file" tabindex="0" aria-label="Lecture 5 slides, press Shift+F10 for actions" style="position: relative; height: 220px; display: grid; place-items: center; text-align: center; user-select: none;">
-  <span class="section__sub"><span class="ic" aria-hidden="true">description</span> Lecture 5 slides.pdf<br>Right-click for actions</span>
-  <div class="menu" id="cm-file" role="menu" aria-label="Lecture 5 slides" style="min-width: 200px;">
+      html: `<div class="card card--fill" data-lds-contextmenu="cm-file" tabindex="0" aria-label="Domicile certificate, press Shift+F10 for actions" style="position: relative; height: 220px; display: grid; place-items: center; text-align: center; user-select: none;">
+  <span class="section__sub"><span class="ic" aria-hidden="true">description</span> Surat keterangan domisili.pdf<br>Right-click for actions</span>
+  <div class="menu" id="cm-file" role="menu" aria-label="Domicile certificate" style="min-width: 200px;">
     <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">visibility</span>Open</button>
     <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">content_copy</span>Copy link<kbd>⌘C</kbd></button>
     <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
@@ -36,7 +36,7 @@ export default {
 </div>`,
       code: `<div class="card card--fill" data-lds-contextmenu="file-menu" tabindex="0" style="position: relative;">
   …
-  <div class="menu" id="file-menu" role="menu" aria-label="Lecture 5 slides">
+  <div class="menu" id="file-menu" role="menu" aria-label="Domicile certificate">
     <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">visibility</span>Open</button>
     <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
     <div class="menu__sep"></div>
