@@ -1,7 +1,7 @@
 export default {
   summary: 'Track 6 px yang terisi seiring tugas dengan ukuran yang diketahui berjalan. Tampilkan angkanya di samping; pakai bar indeterminate hanya jika benar-benar tidak bisa diukur.',
   when: [
-    'Tugas dengan jumlah yang terukur sedang berjalan: unggahan, impor data, ekspor laporan, soal yang sudah dijawab dalam tryout.',
+    'Tugas dengan jumlah yang terukur sedang berjalan: unggahan, impor data, ekspor laporan, isian yang sudah dilengkapi dalam permohonan izin.',
     'Kemajuan dalam pelatihan atau modul, ditampilkan dengan angkanya ("12 dari 20 materi").',
     'Langkah persiapan singkat yang tidak terukur, saat garis lebih cocok daripada spinner (`.progress--indeterminate`).',
   ],
