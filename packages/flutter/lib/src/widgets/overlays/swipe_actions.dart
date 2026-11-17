@@ -169,9 +169,18 @@ class _LdsSwipeActionsState extends State<LdsSwipeActions>
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
-    return SizeTransition(
-      sizeFactor: _size,
-      axisAlignment: -1,
+    // Collapses from the bottom edge when the row is removed. Built from Align rather than
+    // SizeTransition, whose axisAlignment is deprecated after Flutter 3.41 while its replacement
+    // does not exist in the oldest Flutter this package supports.
+    return AnimatedBuilder(
+      animation: _size,
+      builder: (context, child) => ClipRect(
+        child: Align(
+          alignment: Alignment.topCenter,
+          heightFactor: _size.value.clamp(0.0, 1.0),
+          child: child,
+        ),
+      ),
       child: LayoutBuilder(builder: (context, box) {
         _width = box.maxWidth.isFinite ? box.maxWidth : 400;
         return Semantics(
