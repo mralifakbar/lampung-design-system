@@ -27,7 +27,7 @@ export default {
   examples: [
     {
       title: 'Bulanan atau tahunan, dengan jumlah peserta',
-      desc: 'Paket bimbingan belajar dari usaha lokal fiktif. Ganti periode dan ubah jumlah siswa: harga bergulir, kata-kata berubah bentuk.',
+      desc: 'Sewa tempat usaha dari kantor pasar kota fiktif. Ganti periode dan ubah jumlah lapak: harga bergulir, kata-kata berubah bentuk.',
       html: `<div data-lds-billing style="width: 100%;">
   <div class="billing">
     <div class="seg seg--lg" role="group" aria-label="Periode pembayaran" data-lds-segmented><span class="seg__thumb"></span><button class="seg__btn" aria-pressed="true" data-billing="month">Bulanan</button><button class="seg__btn" aria-pressed="false" data-billing="year">Tahunan</button></div>
@@ -35,16 +35,16 @@ export default {
   </div>
   <div class="plans">
     <article class="plan plan--featured" aria-labelledby="pl-1">
-      <div class="plan__head"><h3 class="plan__name" id="pl-1">Privat</h3><p class="plan__desc">Untuk satu siswa, dua pertemuan per minggu.</p></div>
+      <div class="plan__head"><h3 class="plan__name" id="pl-1">Kios</h3><p class="plan__desc">Satu kios tertutup di Pasar Tugu, Tanjung Karang Timur.</p></div>
       <div class="plan__price"><span class="plan__amount"><span class="plan__currency">Rp</span><span class="roll" data-price-month="360" data-price-year="300" data-lds-roll-label="{n} ribu rupiah per bulan"></span></span><span class="plan__period morph" data-lds-morph data-billing-month="ribu per bulan" data-billing-year="ribu per bulan, dibayar tahunan">ribu per bulan</span></div>
-      <ul class="plan__list"><li><span class="ic" aria-hidden="true">check</span>Jadwal bisa diatur ulang</li><li><span class="ic" aria-hidden="true">check</span>Laporan kemajuan setiap bulan</li></ul>
-      <div class="plan__cta"><button class="btn btn--primary btn--block">Daftar paket Privat</button></div>
+      <ul class="plan__list"><li><span class="ic" aria-hidden="true">check</span>Sudah termasuk meteran listrik dan air</li><li><span class="ic" aria-hidden="true">check</span>Angkut sampah setiap hari</li></ul>
+      <div class="plan__cta"><button class="btn btn--primary btn--block">Ajukan sewa kios</button></div>
     </article>
     <article class="plan" aria-labelledby="pl-2">
-      <div class="plan__head"><h3 class="plan__name" id="pl-2">Sekolah mitra</h3><p class="plan__desc">Untuk kelas tambahan di satu sekolah.</p></div>
-      <div class="plan__price"><span class="plan__amount"><span class="plan__currency">Rp</span><span class="roll" data-per-seat data-price-month="30" data-price-year="25" data-lds-roll-label="{n} ribu rupiah per bulan"></span></span><span class="plan__period morph" data-lds-morph data-billing-month="ribu per bulan untuk {seats} siswa" data-billing-year="ribu per bulan untuk {seats} siswa">ribu per bulan untuk 10 siswa</span></div>
-      <div class="plan__seats"><span id="pl-s">Siswa</span><div class="stepper-field" role="group" aria-labelledby="pl-s" data-lds-stepper data-min="5" data-max="200" data-value="10"><button aria-label="Kurangi siswa"><span class="ic" aria-hidden="true">remove</span></button><span class="stepper-field__value"><span class="roll" aria-live="polite"></span></span><button aria-label="Tambah siswa"><span class="ic" aria-hidden="true">add</span></button></div></div>
-      <div class="plan__cta"><button class="btn btn--secondary btn--block">Minta penawaran untuk sekolah</button></div>
+      <div class="plan__head"><h3 class="plan__name" id="pl-2">Lapak bazar UMKM</h3><p class="plan__desc">Lapak terbuka untuk kelompok usaha lokal di bazar hari Sabtu.</p></div>
+      <div class="plan__price"><span class="plan__amount"><span class="plan__currency">Rp</span><span class="roll" data-per-seat data-price-month="30" data-price-year="25" data-lds-roll-label="{n} ribu rupiah per bulan"></span></span><span class="plan__period morph" data-lds-morph data-billing-month="ribu per bulan untuk {seats} lapak" data-billing-year="ribu per bulan untuk {seats} lapak">ribu per bulan untuk 10 lapak</span></div>
+      <div class="plan__seats"><span id="pl-s">Lapak</span><div class="stepper-field" role="group" aria-labelledby="pl-s" data-lds-stepper data-min="5" data-max="200" data-value="10"><button aria-label="Kurangi lapak"><span class="ic" aria-hidden="true">remove</span></button><span class="stepper-field__value"><span class="roll" aria-live="polite"></span></span><button aria-label="Tambah lapak"><span class="ic" aria-hidden="true">add</span></button></div></div>
+      <div class="plan__cta"><button class="btn btn--secondary btn--block">Minta rincian untuk kelompok</button></div>
     </article>
   </div>
 </div>`,

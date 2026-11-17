@@ -30,7 +30,7 @@ export default {
   examples: [
     {
       title: 'Monthly or yearly, with seats',
-      desc: 'Switch the period and change the seats: the prices roll, the words morph.',
+      desc: 'Market stall rental from a fictional city market office. Switch the period and change the number of stalls: the prices roll, the words morph.',
       stage: 'block',
       html: `<div data-lds-billing style="width: 100%;">
   <div class="billing">
@@ -39,16 +39,16 @@ export default {
   </div>
   <div class="plans">
     <article class="plan plan--featured" aria-labelledby="pl-1">
-      <div class="plan__head"><h3 class="plan__name" id="pl-1">Teacher</h3><p class="plan__desc">For one teacher and all their classes.</p></div>
-      <div class="plan__price"><span class="plan__amount"><span class="plan__currency">$</span><span class="roll" data-price-month="12" data-price-year="10" data-lds-roll-label="{n} US dollars a month"></span></span><span class="plan__period morph" data-lds-morph data-billing-month="a month" data-billing-year="a month, billed yearly">a month</span></div>
-      <ul class="plan__list"><li><span class="ic" aria-hidden="true">check</span>Unlimited classes</li><li><span class="ic" aria-hidden="true">check</span>Rubrics and saved comments</li></ul>
-      <div class="plan__cta"><button class="btn btn--primary btn--block">Start the Teacher plan</button></div>
+      <div class="plan__head"><h3 class="plan__name" id="pl-1">Kiosk</h3><p class="plan__desc">One closed kiosk at Pasar Tugu, Tanjung Karang Timur.</p></div>
+      <div class="plan__price"><span class="plan__amount"><span class="plan__currency">Rp</span><span class="roll" data-price-month="360" data-price-year="300" data-lds-roll-label="{n} thousand rupiah a month"></span></span><span class="plan__period morph" data-lds-morph data-billing-month="thousand a month" data-billing-year="thousand a month, paid yearly">thousand a month</span></div>
+      <ul class="plan__list"><li><span class="ic" aria-hidden="true">check</span>Electricity and water meter included</li><li><span class="ic" aria-hidden="true">check</span>Daily waste pickup</li></ul>
+      <div class="plan__cta"><button class="btn btn--primary btn--block">Apply for a kiosk</button></div>
     </article>
     <article class="plan" aria-labelledby="pl-2">
-      <div class="plan__head"><h3 class="plan__name" id="pl-2">School</h3><p class="plan__desc">For every teacher in one school.</p></div>
-      <div class="plan__price"><span class="plan__amount"><span class="plan__currency">$</span><span class="roll" data-per-seat data-price-month="9" data-price-year="7" data-lds-roll-label="{n} US dollars a month"></span></span><span class="plan__period morph" data-lds-morph data-billing-month="a month for {seats} teachers" data-billing-year="a month for {seats} teachers">a month for 10 teachers</span></div>
-      <div class="plan__seats"><span id="pl-s">Teachers</span><div class="stepper-field" role="group" aria-labelledby="pl-s" data-lds-stepper data-min="5" data-max="200" data-value="10"><button aria-label="Fewer teachers"><span class="ic" aria-hidden="true">remove</span></button><span class="stepper-field__value"><span class="roll" aria-live="polite"></span></span><button aria-label="More teachers"><span class="ic" aria-hidden="true">add</span></button></div></div>
-      <div class="plan__cta"><button class="btn btn--secondary btn--block">Ask for a school invoice</button></div>
+      <div class="plan__head"><h3 class="plan__name" id="pl-2">UMKM bazaar stalls</h3><p class="plan__desc">Open stalls for a group of local businesses at the Saturday bazaar.</p></div>
+      <div class="plan__price"><span class="plan__amount"><span class="plan__currency">Rp</span><span class="roll" data-per-seat data-price-month="30" data-price-year="25" data-lds-roll-label="{n} thousand rupiah a month"></span></span><span class="plan__period morph" data-lds-morph data-billing-month="thousand a month for {seats} stalls" data-billing-year="thousand a month for {seats} stalls">thousand a month for 10 stalls</span></div>
+      <div class="plan__seats"><span id="pl-s">Stalls</span><div class="stepper-field" role="group" aria-labelledby="pl-s" data-lds-stepper data-min="5" data-max="200" data-value="10"><button aria-label="Fewer stalls"><span class="ic" aria-hidden="true">remove</span></button><span class="stepper-field__value"><span class="roll" aria-live="polite"></span></span><button aria-label="More stalls"><span class="ic" aria-hidden="true">add</span></button></div></div>
+      <div class="plan__cta"><button class="btn btn--secondary btn--block">Ask for a group quote</button></div>
     </article>
   </div>
 </div>`,
