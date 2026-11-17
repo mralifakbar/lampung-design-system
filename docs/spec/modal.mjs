@@ -6,7 +6,7 @@ export default {
   order: 3,
   summary: 'A page-level dialog over the whole window: a native `<dialog class="modal">` in the top layer, or `.overlay` rendered in place by a framework. Below 600 px the native modal becomes a bottom sheet. Close it with `closeModal()` so it plays its exit.',
   when: [
-    'A form or confirm that belongs to the whole page rather than to a region: report a mistake, invite a student, edit profile details.',
+    'A form or confirm that belongs to the whole page rather than to a region: report a data mistake, invite an officer, edit profile details.',
     'The layer must sit above everything, including sticky headers and the app shell, without managing z-index.',
     'A React or other framework app that mounts and unmounts the layer itself (`.overlay`).',
   ],
@@ -32,12 +32,12 @@ export default {
     {
       title: 'Native page modal',
       desc: 'Opens above the whole page in the top layer. Escape, a click on the backdrop and Cancel all play the exit before it closes. Narrow the window below 600 px to see it as a bottom sheet.',
-      html: `<button class="btn btn--secondary" data-lds-modal="md-report"><span class="ic" aria-hidden="true">error</span>Report a mistake</button>
+      html: `<button class="btn btn--secondary" data-lds-modal="md-report"><span class="ic" aria-hidden="true">error</span>Report a data mistake</button>
 <dialog class="modal" id="md-report" aria-labelledby="md-report-t">
   <button class="icon-btn dialog__close" data-lds-modal-close aria-label="Close"><span class="ic" aria-hidden="true">close</span></button>
-  <h2 class="dialog__title" id="md-report-t">Report a mistake</h2>
-  <p class="dialog__body">Tell us what is wrong in question 14 and what it should say.</p>
-  <div class="field" style="margin-top: 16px;"><div class="control control--area"><textarea aria-label="What is wrong" placeholder="The answer key says B, the explanation says C."></textarea></div></div>
+  <h2 class="dialog__title" id="md-report-t">Report a data mistake</h2>
+  <p class="dialog__body">Tell us what is wrong in the puskesmas schedule and what it should say.</p>
+  <div class="field" style="margin-top: 16px;"><div class="control control--area"><textarea aria-label="What is wrong" placeholder="The schedule says it opens at 07:00, the sign on site says 08:00."></textarea></div></div>
   <div class="dialog__actions"><button class="btn btn--secondary" data-lds-modal-close>Cancel</button><button class="btn btn--primary" data-lds-modal-close>Send report</button></div>
 </dialog>`,
     },
@@ -45,21 +45,21 @@ export default {
       title: 'In-place overlay',
       desc: 'The same layer rendered by a framework: mount `.overlay` to open, call `closeModal(el, unmount)` to play the exit and then unmount. Shown here inside this box.',
       height: 360,
-      html: `<button class="btn btn--secondary" id="md-ov-open" onclick="const o = document.getElementById('md-ov'); o.hidden = false; o.querySelector('input').focus();"><span class="ic" aria-hidden="true">person_add</span>Invite a student</button>
+      html: `<button class="btn btn--secondary" id="md-ov-open" onclick="const o = document.getElementById('md-ov'); o.hidden = false; o.querySelector('input').focus();"><span class="ic" aria-hidden="true">person_add</span>Invite an officer</button>
 <div class="overlay" id="md-ov" hidden>
   <div class="overlay__panel" role="dialog" aria-modal="true" aria-labelledby="md-ov-t">
     <button class="icon-btn dialog__close" aria-label="Close" onclick="${shut}"><span class="ic" aria-hidden="true">close</span></button>
-    <h2 class="dialog__title" id="md-ov-t">Invite a student</h2>
-    <p class="dialog__body">They get an email with a link to join Database Systems.</p>
-    <div class="control"><input type="email" aria-label="Email address" placeholder="name@school.edu"></div>
+    <h2 class="dialog__title" id="md-ov-t">Invite an officer</h2>
+    <p class="dialog__body">They get an email with a link to join the permit verification team.</p>
+    <div class="control"><input type="email" aria-label="Email address" placeholder="name@example.id"></div>
     <div class="dialog__actions"><button class="btn btn--secondary" onclick="${shut}">Cancel</button><button class="btn btn--primary" onclick="${shut}">Send invite</button></div>
   </div>
 </div>`,
       code: `{open && (
   <div className="overlay" ref={ref} onKeyDown={(e) => e.key === 'Escape' && closeModal(ref.current, () => setOpen(false))}>
     <div className="overlay__panel" role="dialog" aria-modal="true" aria-labelledby="invite-t">
-      <h2 className="dialog__title" id="invite-t">Invite a student</h2>
-      <p className="dialog__body">They get an email with a link to join Database Systems.</p>
+      <h2 className="dialog__title" id="invite-t">Invite an officer</h2>
+      <p className="dialog__body">They get an email with a link to join the permit verification team.</p>
       <div className="dialog__actions">
         <button className="btn btn--secondary" onClick={() => closeModal(ref.current, () => setOpen(false))}>Cancel</button>
         <button className="btn btn--primary" onClick={send}>Send invite</button>
