@@ -54,7 +54,7 @@ const S = {
     lang: 'id', skip: 'Langsung ke konten', docs: 'Dokumentasi', pages: 'Halaman', start: 'Memulai', foundations: 'Landasan', components: 'Komponen',
     boards: 'Papan komponen', patterns: 'Pola', all: 'Semua komponen', gallery: 'Galeri HTML', examples: 'Contoh', aksara: 'Aksara Lampung',
     appearance: 'Tampilan', light: 'Terang', dark: 'Gelap', other: 'English', otherHref: 'en/', openMenu: 'Buka menu', prev: 'Sebelumnya', next: 'Berikutnya', pager: 'Halaman sebelumnya dan berikutnya',
-    home: 'Beranda proyek',
+    home: 'Beranda proyek', privacy: 'Privasi', terms: 'Ketentuan',
     title: 'Pengenalan',
     lede: 'Lampung Design System (LDS) adalah design system terbuka untuk membangun situs dan aplikasi layanan publik dengan cepat dan tampilan yang konsisten. Satu berkas token untuk CSS, JavaScript, shadcn/ui, dan Flutter; komponen berupa kelas CSS biasa; perilaku interaktif dalam satu modul JavaScript opsional.',
   },
@@ -62,7 +62,7 @@ const S = {
     lang: 'en', skip: 'Skip to content', docs: 'Documentation', pages: 'Pages', start: 'Getting started', foundations: 'Foundations', components: 'Components',
     boards: 'Component boards', patterns: 'Patterns', all: 'All components', gallery: 'Plain HTML gallery', examples: 'Examples', aksara: 'Aksara Lampung',
     appearance: 'Appearance', light: 'Light', dark: 'Dark', other: 'Bahasa Indonesia', otherHref: '../', openMenu: 'Open menu', prev: 'Previous', next: 'Next', pager: 'Previous and next page',
-    home: 'Project home',
+    home: 'Project home', privacy: 'Privacy', terms: 'Terms',
     title: 'Introduction',
     lede: 'Lampung Design System (LDS) is an open design system for building public-service websites and apps quickly, with a consistent look. One token file feeds CSS, JavaScript, shadcn/ui and Flutter; components are plain CSS classes; interactive behaviors live in one optional JavaScript module.',
   },
@@ -197,6 +197,7 @@ ${routes.slice(14).map(link).join('\n')}
         <button class="seg__btn" aria-pressed="true" data-mode="light"><span class="ic ic--sm" aria-hidden="true">light_mode</span>&nbsp;${s.light}</button>
         <button class="seg__btn" aria-pressed="false" data-mode="dark"><span class="ic ic--sm" aria-hidden="true">dark_mode</span>&nbsp;${s.dark}</button>
       </div>
+      <p class="docs-legal"><a href="guide/privasi.html">${s.privacy}</a><span aria-hidden="true">·</span><a href="guide/ketentuan.html">${s.terms}</a></p>
     </div>
   </aside>
   <div class="shell__scrim" id="scrim" aria-hidden="true"></div>

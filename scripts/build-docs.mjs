@@ -13,6 +13,7 @@ import { readFileSync, writeFileSync, readdirSync, mkdirSync, rmSync, existsSync
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { shell } from './docs-shell.mjs';
+import { htmlToMd } from './html-to-md.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 // The siger mark drawn by scripts/build-brand.mjs.
@@ -34,6 +35,7 @@ const STRINGS = {
     motion: 'Motion and microinteractions', a11y: 'Accessibility', dd: 'Do and don\'t', do: 'Do', dont: 'Don\'t',
     plain: 'Plain HTML.', react: 'React.', from: 'From', behavior: 'Behavior and code', related: 'Related', crumbs: 'Breadcrumb',
     prev: 'Previous', next: 'Next', pager: 'Previous and next component', toc: 'On this page', other: 'Bahasa Indonesia', otherLang: 'id',
+    privacy: 'Privacy', terms: 'Terms', group: 'Group', markup: 'Markup', plainBehavior: 'Behavior (plain HTML)', mdNew: 'new', agentLabel: 'For AI agents', copyLlm: 'Copy for LLM', viewMd: 'View as Markdown', copiedLlm: 'Copied', copyFail: 'Copy failed',
     lede: (n) => `${n} components and recipes. Each page says when to use it, when to use something else, the markup, its motion and its accessibility. Start here before building anything new: if a need is covered, use that component; if it is not, add a component to the system instead of styling one page. To see them working together, open the <a class="link" href="../../examples/index.html">examples</a>: a city services dashboard, a citizen app and a public portal.`,
   },
   id: {
@@ -45,6 +47,7 @@ const STRINGS = {
     motion: 'Gerak dan mikrointeraksi', a11y: 'Aksesibilitas', dd: 'Lakukan dan hindari', do: 'Lakukan', dont: 'Hindari',
     plain: 'HTML biasa.', react: 'React.', from: 'Dari', behavior: 'Perilaku dan kode', related: 'Terkait', crumbs: 'Remah roti',
     prev: 'Sebelumnya', next: 'Berikutnya', pager: 'Komponen sebelumnya dan berikutnya', toc: 'Di halaman ini', other: 'English', otherLang: 'en',
+    privacy: 'Privasi', terms: 'Ketentuan', group: 'Kelompok', markup: 'Markup', plainBehavior: 'Perilaku (HTML biasa)', mdNew: 'baru', agentLabel: 'Untuk agen AI', copyLlm: 'Salin untuk LLM', viewMd: 'Lihat sebagai Markdown', copiedLlm: 'Disalin', copyFail: 'Gagal menyalin',
     lede: (n) => `${n} komponen dan resep. Setiap halaman menjelaskan kapan memakainya, kapan memakai yang lain, markup, gerak, dan aksesibilitasnya. Mulailah dari sini sebelum membuat sesuatu yang baru: jika kebutuhan sudah tercakup, pakai komponen itu; jika belum, tambahkan komponen ke sistem alih-alih menata satu halaman saja. Untuk melihat semuanya bekerja bersama, buka <a class="link" href="../examples/index.html">contoh</a>: dasbor layanan kota, aplikasi warga, dan portal publik.`,
   },
 };
@@ -183,6 +186,14 @@ let SECTION = 'components'; // folder of the page being written: 'components' or
 const ALT = (current) => `${LANG === 'en' ? '../../' : '../en/'}${SECTION}/${current ? current.slug : 'index'}.html`;
 const COMP = () => (SECTION === 'components' ? '' : '../components/');
 const GUIDE = () => (SECTION === 'guide' ? '' : '../guide/');
+const ORIGIN = process.env.LDS_SITE_ORIGIN || 'https://lampung.kartadinata.app';
+// Public URL of a docs page (clean, no .html: the site redirects .html to it).
+const pageUrl = (slug) => `${ORIGIN}/docs/${LANG === 'en' ? 'en/' : ''}${SECTION}/${slug === 'index' ? '' : slug}`;
+// "Copy for LLM" and "View as Markdown": every page has a .md twin next to it.
+const agentBar = (file) => `<div class="cdoc__agent" role="group" aria-label="${T.agentLabel}">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="${file}" data-done="${T.copiedLlm}" data-fail="${T.copyFail}"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>${T.copyLlm}</span></button>
+            <a class="btn btn--gray btn--sm" href="${file}" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">open_in_new</span><span>${T.viewMd}</span></a>
+          </div>`;
 const linkHtml = (h) => (/^(https?:|#|\.|\/)/.test(h) ? h : `${h}.html`);
 const nav = (current) => {
   const sections = groupsWith.map(([g], gi) => {
@@ -215,6 +226,7 @@ ${GUIDES.filter((g) => !g.hidden).map((g) => `      <a class="shell__link" href=
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">${T.light}</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">${T.dark}</button>
       </div>
+      <p class="docs-legal"><a href="${GUIDE()}privasi.html">${T.privacy}</a><span aria-hidden="true">·</span><a href="${GUIDE()}ketentuan.html">${T.terms}</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>`;
@@ -274,6 +286,17 @@ ${body}
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
   }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
+  }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));
     const tpl = document.getElementById(stage.id + '-tpl');
@@ -288,6 +311,8 @@ const list = (items, link) => `<ul class="cdoc__list">${items.map((t) => `<li>${
 const table = (head, rows, link) => `<div class="table-box"><table class="table table--wrap"><thead><tr>${head.map((h) => `<th>${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.map((r) => `<tr>${r.map((c, i) => `<td>${i === 0 ? `<code class="code">${esc(c)}</code>` : inline(c, link)}</td>`).join('')}</tr>`).join('')}</tbody></table></div>`;
 const dedent = (s) => { const t = String(s).replace(/^\n+|\s+$/g, ''); const m = Math.min(...t.split('\n').filter((l) => l.trim()).map((l) => l.match(/^ */)[0].length)); return t.split('\n').map((l) => l.slice(m)).join('\n'); };
 
+// Spec demos are written for docs/components/; English pages sit one folder deeper.
+const demo = (html) => (LANG === 'en' ? html.replace(/((?:src|href|poster)=")\.\.\/(?!\.\.\/)/g, '$1../../') : html);
 function page(s, i) {
   const link = linkHtml;
   const prev = ordered[i - 1], next = ordered[i + 1];
@@ -304,8 +329,8 @@ function page(s, i) {
     const code = esc(dedent(ex.code || ex.html));
     return `<figure class="cdoc__ex" id="${id}">
           <figcaption><span class="cdoc__ex-t">${esc(ex.title)}</span>${ex.desc ? `<span class="cdoc__ex-d">${inline(ex.desc, link)}</span>` : ''}</figcaption>
-          <div class="cdoc__stage${ex.stage ? ` cdoc__stage--${ex.stage}` : ''}" id="${id}-stage"${ex.height ? ` style="min-height: ${ex.height}px;"` : ''}>${ex.html}</div>
-          ${ex.replay ? `<template id="${id}-stage-tpl">${ex.html}</template>` : ''}
+          <div class="cdoc__stage${ex.stage ? ` cdoc__stage--${ex.stage}` : ''}" id="${id}-stage"${ex.height ? ` style="min-height: ${ex.height}px;"` : ''}>${demo(ex.html)}</div>
+          ${ex.replay ? `<template id="${id}-stage-tpl">${demo(ex.html)}</template>` : ''}
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="${id}-code"><span class="ic ic--sm" aria-hidden="true">code</span>${T.code}</button>
             ${ex.replay ? `<button class="btn btn--plain btn--sm" data-replay="${id}-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>${T.replay}</button>` : ''}
@@ -333,6 +358,7 @@ function page(s, i) {
           <nav aria-label="${T.crumbs}"><ol class="crumbs"><li><a href="index.html">${T.components}</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#${encodeURIComponent(s.group)}">${esc(groupLabel(s.group))}</a></li></ol></nav>
           <h1>${esc(s.title)}${s.status === 'new' ? ` <span class="badge badge--accent">${T.newBadge}</span>` : ''}</h1>
           <p class="cdoc__lede">${inline(s.summary, link)}</p>
+          ${agentBar(`${s.slug}.md`)}
         </header>
         ${secs.map((x) => x.html).join('\n        ')}
         <nav class="cdoc__pager" aria-label="${T.pager}">
@@ -344,6 +370,20 @@ function page(s, i) {
 }
 
 const slugify = (t) => t.toLowerCase().replace(/<[^>]+>/g, '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+const guideBody = (L) => L.body.replace(/\{\{comp\}\}/g, '../components/').replace(/\{\{guide\}\}/g, '').replace(/\{\{docs\}\}/g, DOCS()).replace(/\{\{root\}\}/g, UP());
+function guideMd(g) {
+  const L = g[LANG];
+  return htmlToMd(`<h1>${L.title}</h1><p>${pageUrl(g.slug)}</p>${L.lede ? `<p>${L.lede}</p>` : ''}${guideBody(L)}`);
+}
+function indexMdSite() {
+  const L = [`# ${T.components}`, '', pageUrl('index'), '', htmlToMd(`<p>${T.lede(ordered.length)}</p>`).trim(), ''];
+  for (const [g, d] of groupsWith) {
+    L.push(`## ${groupLabel(g)}`, '', groupDesc(g, d), '');
+    for (const s of ordered.filter((x) => x.group === g)) L.push(`- [${s.title}](${s.slug}.md): ${mdInline(s.summary, (h) => (/^(https?:|#|\.|\/)/.test(h) ? h : `${h}.md`))}`);
+    L.push('');
+  }
+  return L.join('\n');
+}
 function guidePage(g) {
   const L = g[LANG];
   const toc = [];
@@ -356,6 +396,7 @@ function guidePage(g) {
           <nav aria-label="${T.crumbs}"><ol class="crumbs"><li><a href="../index.html">${T.start}</a></li>${parent ? `<li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="${parent.slug}.html">${esc(parent[LANG].title)}</a></li>` : ''}</ol></nav>
           <h1>${esc(L.title)}</h1>
           ${L.lede ? `<p class="cdoc__lede">${L.lede}</p>` : ''}
+          ${agentBar(`${g.slug}.md`)}
         </header>
         <section class="cdoc__sec cdoc__intro">${body}</section>`.replace('<section class="cdoc__sec cdoc__intro"></section>', '');
   const outline = toc.length > 1 ? `<nav class="toc cdoc__toc" data-lds-toc aria-label="${T.toc}"><span class="toc__ink" aria-hidden="true"></span>${toc.map(([i, t]) => `<a href="#${i}">${esc(t)}</a>`).join('')}</nav>` : '';
@@ -366,32 +407,35 @@ function indexPage() {
   const body = `        <header class="cdoc__head">
           <h1>${T.components}</h1>
           <p class="cdoc__lede">${T.lede(ordered.length)}</p>
+          ${agentBar('index.md')}
         </header>
         ${groupsWith.map(([g, d]) => `<section class="cdoc__sec" id="${encodeURIComponent(g)}"><h2>${esc(groupLabel(g))}</h2><p class="cdoc__p">${esc(groupDesc(g, d))}</p><div class="link-grid">${ordered.filter((s) => s.group === g).map((s) => `<a class="link-card" href="${s.slug}.html"><span class="link-card__title">${esc(s.title)}${s.status === 'new' ? ` <span class="badge badge--accent">${T.newBadge}</span>` : ''}</span><span class="link-card__body">${esc(s.summary)}</span></a>`).join('')}</div></section>`).join('\n        ')}`;
   return frame(T.components, null, body);
 }
 
 // ---------- Markdown for the skill ----------
-function md(s) {
+// `url` set: the copy served next to the page on the site (headings in the page's language, absolute
+// URL of the page); unset: the English copy in the skill, which points at the repository file.
+function md(s, url) {
   const link = (h) => (/^(https?:|#|\.|\/)/.test(h) ? h : `${h}.md`);
   const L = [];
-  L.push(`# ${s.title}`, '', `Group: ${s.group}${s.status === 'new' ? ' (new)' : ''}. Docs page: \`docs/components/${s.slug}.html\`.`, '', mdInline(s.summary, link), '');
-  L.push('## Use it when', ...s.when.map((w) => `- ${mdInline(w, link)}`), '');
-  if (s.whenNot?.length) L.push('## Use something else when', ...s.whenNot.map(([why, slug, extra]) => `- ${mdInline(why, link)}: use [${bySlug.get(slug)?.title || slug}](${slug}.md)${extra ? `. ${mdInline(endDot(extra), link)}` : '.'}`), '');
-  if (s.where) L.push('## Where it goes', mdInline(s.where, link), '');
-  if (s.anatomy?.length) L.push('## Anatomy', '| Part | What it is |', '|---|---|', ...s.anatomy.map(([a, b]) => `| \`${a}\` | ${mdInline(b, link)} |`), '');
-  L.push('## Markup');
+  L.push(`# ${s.title}`, '', url ? `${T.group}: ${groupLabel(s.group)}${s.status === 'new' ? ` (${T.mdNew})` : ''}. ${url}` : `Group: ${s.group}${s.status === 'new' ? ' (new)' : ''}. Docs page: \`docs/components/${s.slug}.html\`.`, '', mdInline(s.summary, link), '');
+  L.push(`## ${T.useWhen}`, ...s.when.map((w) => `- ${mdInline(w, link)}`), '');
+  if (s.whenNot?.length) L.push(`## ${T.useElse}`, ...s.whenNot.map(([why, slug, extra]) => `- ${mdInline(why, link)}: ${T.use} [${bySlug.get(slug)?.title || slug}](${slug}.md)${extra ? `. ${mdInline(endDot(extra), link)}` : '.'}`), '');
+  if (s.where) L.push(`## ${T.where.replace(/\.$/, '')}`, mdInline(s.where, link), '');
+  if (s.anatomy?.length) L.push(`## ${T.anatomy}`, `| ${T.part} | ${T.whatItIs} |`, '|---|---|', ...s.anatomy.map(([a, b]) => `| \`${a}\` | ${mdInline(b, link)} |`), '');
+  L.push(`## ${T.markup}`);
   for (const ex of s.examples) L.push('', `**${ex.title}.**${ex.desc ? ` ${mdInline(ex.desc, link)}` : ''}`, '```html', dedent(ex.code || ex.html), '```');
   L.push('');
-  if (s.variants?.length) L.push('## Variants and sizes', '| Class or attribute | When |', '|---|---|', ...s.variants.map(([a, b]) => `| \`${a}\` | ${mdInline(b, link)} |`), '');
-  if (s.states?.length) L.push('## States', '| State | How |', '|---|---|', ...s.states.map(([a, b]) => `| \`${a}\` | ${mdInline(b, link)} |`), '');
-  if (s.motion?.length) L.push('## Motion and microinteractions', ...s.motion.map((w) => `- ${mdInline(w, link)}`), '');
-  if (s.a11y?.length) L.push('## Accessibility', ...s.a11y.map((w) => `- ${mdInline(w, link)}`), '');
-  if (s.do?.length) L.push('## Do', ...s.do.map((w) => `- ${mdInline(w, link)}`), '');
-  if (s.dont?.length) L.push('## Don\'t', ...s.dont.map((w) => `- ${mdInline(w, link)}`), '');
-  if (s.js) L.push('## Behavior (plain HTML)', mdInline(s.js, link), '');
+  if (s.variants?.length) L.push(`## ${T.variants}`, `| ${T.classOrAttr} | ${T.when} |`, '|---|---|', ...s.variants.map(([a, b]) => `| \`${a}\` | ${mdInline(b, link)} |`), '');
+  if (s.states?.length) L.push(`## ${T.states}`, `| ${T.state} | ${T.how} |`, '|---|---|', ...s.states.map(([a, b]) => `| \`${a}\` | ${mdInline(b, link)} |`), '');
+  if (s.motion?.length) L.push(`## ${T.motion}`, ...s.motion.map((w) => `- ${mdInline(w, link)}`), '');
+  if (s.a11y?.length) L.push(`## ${T.a11y}`, ...s.a11y.map((w) => `- ${mdInline(w, link)}`), '');
+  if (s.do?.length) L.push(`## ${T.do}`, ...s.do.map((w) => `- ${mdInline(w, link)}`), '');
+  if (s.dont?.length) L.push(`## ${T.dont}`, ...s.dont.map((w) => `- ${mdInline(w, link)}`), '');
+  if (s.js) L.push(`## ${T.plainBehavior}`, mdInline(s.js, link), '');
   if (s.react) L.push('## React', '```tsx', dedent(s.react), '```', '');
-  if (s.related?.length) L.push('## Related', s.related.map((r) => `[${bySlug.get(r)?.title || r}](${r}.md)`).join(' · '), '');
+  if (s.related?.length) L.push(`## ${T.related}`, s.related.map((r) => `[${bySlug.get(r)?.title || r}](${r}.md)`).join(' · '), '');
   return L.join('\n');
 }
 
@@ -416,13 +460,18 @@ for (const lang of ['en', 'id']) {
   ordered = orderOf(specs);
   ordered.forEach((s, i) => {
     writeFileSync(join(OUT[lang], `${s.slug}.html`), page(s, i));
+    writeFileSync(join(OUT[lang], `${s.slug}.md`), md(s, pageUrl(s.slug)));
     if (lang === 'en') writeFileSync(join(skillDir, `${s.slug}.md`), md(s));
   });
   writeFileSync(join(OUT[lang], 'index.html'), indexPage());
+  writeFileSync(join(OUT[lang], 'index.md'), indexMdSite());
   SECTION = 'guide';
   const gdir = join(root, lang === 'en' ? 'docs/en/guide' : 'docs/guide');
   mkdirSync(gdir, { recursive: true });
-  for (const g of GUIDES) writeFileSync(join(gdir, `${g.slug}.html`), guidePage(g));
+  for (const g of GUIDES) {
+    writeFileSync(join(gdir, `${g.slug}.html`), guidePage(g));
+    writeFileSync(join(gdir, `${g.slug}.md`), guideMd(g));
+  }
   SECTION = 'components';
   if (lang === 'en') writeFileSync(join(root, 'skills/lampung-design-system/references/components.md'), indexMd());
 }

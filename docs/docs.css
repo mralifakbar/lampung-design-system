@@ -166,6 +166,9 @@ body { margin: 0; overflow-x: clip; }
 .cdoc__head { display: flex; flex-direction: column; gap: 12px; }
 .cdoc__head h1 { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; font: var(--type-large-title); letter-spacing: var(--tracking-large-title); color: var(--text-strong); }
 .cdoc__lede { font: 400 17px/27px var(--font); color: var(--text-subtle); max-width: 640px; }
+/* Copy for LLM and View as Markdown under the page title */
+.cdoc__agent { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.cdoc__agent .btn { min-height: 32px; }
 .cdoc__sec { display: flex; flex-direction: column; gap: 14px; scroll-margin-top: 80px; }
 .cdoc__sec > h2 { font: var(--type-title-2); letter-spacing: var(--tracking-title-2); color: var(--text-strong); }
 .cdoc__p { font: var(--type-body); color: var(--text-default); max-width: var(--size-measure); }
@@ -204,3 +207,8 @@ body { margin: 0; overflow-x: clip; }
 @media (max-width: 600px) { .cdoc { padding: 28px 20px 64px; } .cdoc__stage { padding: 20px; } .cdoc__dd, .cdoc__pager { grid-template-columns: minmax(0, 1fr); } .cdoc__head h1 { font: var(--type-title-1); letter-spacing: var(--tracking-title-1); } }
 .cdoc__sec > *, .cdoc__ex > * { min-width: 0; max-width: 100%; }
 .cdoc__stage[style*="min-height"] { align-items: flex-start; align-content: flex-start; }
+
+/* Privacy and terms links under the theme switch */
+.docs-legal { display: flex; gap: 6px; margin: 0; padding: 0 8px; font: var(--type-footnote); color: var(--text-subtle); }
+.docs-legal a { color: inherit; text-decoration: none; min-height: 24px; display: inline-flex; align-items: center; }
+@media (hover: hover) and (pointer: fine) { .docs-legal a:hover { color: var(--text-strong); text-decoration: underline; } }
