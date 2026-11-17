@@ -3,7 +3,7 @@ export default {
   when: [
     'Dua sampai empat angka yang merangkum halaman atau bagian: permohonan masuk, rata-rata waktu proses, tugas jatuh tempo.',
     'Bagian atas laporan atau bagian dasbor, sebelum detailnya.',
-    'Hasil setelah ujian: nilai, peringkat, waktu terpakai.',
+    'Hasil setelah satu periode layanan: laporan masuk, menunggu, waktu tanggap.',
   ],
   whenNot: [
     ['Angka yang masing-masing butuh kartu, ikon, atau perubahan sendiri', 'kpi-card'],
@@ -36,19 +36,19 @@ export default {
       title: 'Empat angka',
       desc: '`stat-row--four` dengan `--n: 4` menjaga angka lebih kecil agar muat dalam satu baris.',
       html: `<div class="stat-row-wrap"><dl class="stat-row stat-row--four" style="--n: 4">
-  <div class="stat-row__item"><dt class="stat-row__label">Nilai</dt><dd class="stat-row__value">412</dd></div>
-  <div class="stat-row__item"><dt class="stat-row__label">Peringkat</dt><dd class="stat-row__value">38</dd><dd class="stat-row__sub">Dari 1.204</dd></div>
-  <div class="stat-row__item"><dt class="stat-row__label">Benar</dt><dd class="stat-row__value">86%</dd></div>
-  <div class="stat-row__item"><dt class="stat-row__label">Waktu terpakai</dt><dd class="stat-row__value">1:42</dd><dd class="stat-row__sub">Dari 2:00</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Laporan masuk</dt><dd class="stat-row__value">412</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Menunggu</dt><dd class="stat-row__value">38</dd><dd class="stat-row__sub">Dari 412</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Selesai tepat waktu</dt><dd class="stat-row__value">86%</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Waktu tanggap</dt><dd class="stat-row__value">1:42</dd><dd class="stat-row__sub">Target 2:00 jam</dd></div>
 </dl></div>`,
     },
     {
       title: 'Di kolom sempit',
       desc: 'Markup yang sama di kolom 340 px: dua per baris.',
       html: `<div class="stat-row-wrap" style="max-width: 340px;"><dl class="stat-row" style="--n: 3">
-  <div class="stat-row__item"><dt class="stat-row__label">Siswa</dt><dd class="stat-row__value">128</dd></div>
-  <div class="stat-row__item"><dt class="stat-row__label">Sudah mengumpulkan</dt><dd class="stat-row__value">97</dd></div>
-  <div class="stat-row__item"><dt class="stat-row__label">Nilai rata-rata</dt><dd class="stat-row__value">74,5</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Penerima terdaftar</dt><dd class="stat-row__value">128</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Bantuan sudah diambil</dt><dd class="stat-row__value">97</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Skor kepuasan</dt><dd class="stat-row__value">74,5</dd></div>
 </dl></div>`,
     },
   ],
@@ -70,7 +70,7 @@ export default {
   ],
   do: [
     'Batasi pada dua sampai empat angka yang paling penting.',
-    'Tulis konteks di baris sub ("Dari kuota 24", "Naik 0,1").',
+    'Tulis konteks di baris sub ("Dari kuota 24", "Lebih cepat 0,4 hari").',
     'Atur `--n` sesuai jumlah angka.',
   ],
   dont: [
