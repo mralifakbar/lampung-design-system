@@ -26,15 +26,15 @@ export default {
       stage: 'block',
       html: `<footer class="site-footer" style="width: 100%;">
   <div class="site-footer__top">
-    <div class="site-footer__brand"><span class="site-footer__name">Gradebook</span><p class="site-footer__about">Marking, comments and reports for teachers.</p></div>
+    <div class="site-footer__brand"><span class="site-footer__name">Layanan Warga</span><p class="site-footer__about">Permits, local tax and citizen reports in one place.</p></div>
     <nav class="site-footer__nav" aria-label="Footer">
-      <div class="site-footer__group"><h2>Product</h2><ul><li><a href="#">Features</a></li><li><a href="#">Pricing</a></li></ul></div>
+      <div class="site-footer__group"><h2>Services</h2><ul><li><a href="#">Permits</a></li><li><a href="#">Local tax</a></li></ul></div>
       <div class="site-footer__group"><h2>Help</h2><ul><li><a href="#">Guides</a></li><li><a href="#">Contact</a></li></ul></div>
       <div class="site-footer__group"><h2>Legal</h2><ul><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li></ul></div>
     </nav>
   </div>
   <div class="site-footer__bottom">
-    <p>© 2026 Gradebook. Example content.</p>
+    <p>© 2026 Layanan Warga. Example content.</p>
     <div class="seg" role="group" aria-label="Appearance" data-lds-segmented style="width: 200px;"><span class="seg__thumb"></span><button class="seg__btn" aria-pressed="true" data-lds-theme="light"><span class="ic ic--sm" aria-hidden="true">light_mode</span>&nbsp;Light</button><button class="seg__btn" aria-pressed="false" data-lds-theme="dark"><span class="ic ic--sm" aria-hidden="true">dark_mode</span>&nbsp;Dark</button></div>
   </div>
 </footer>`,
