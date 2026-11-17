@@ -1,19 +1,19 @@
 const box = (label, { on = false, dis = false, all = false } = {}) => `<label class="check"><input type="checkbox"${all ? ' data-lds-matrix-all' : ''}${on ? ' checked' : ''}${dis ? ' disabled' : ''} aria-label="${label}"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>`;
-const roles = ['Pemilik', 'Admin', 'Penyunting', 'Pembaca'];
+const roles = ['Kepala dinas', 'Admin', 'Verifikator', 'Petugas loket'];
 const groupRow = (key, name) => `      <tr class="matrix__group" data-group="${key}"><th scope="rowgroup">${name}</th>${roles.map((r) => `<td>${box(`Semua izin ${name} untuk ${r}`, { all: true })}</td>`).join('')}</tr>`;
 const permRow = (key, name, sub, on) => `      <tr data-group="${key}"><th scope="row">${name}<span class="matrix__sub">${sub}</span></th>${roles.map((r, i) => `<td>${box(`${r}: ${name}`, { on: on[i], dis: i === 0 })}</td>`).join('')}</tr>`;
 
 export default {
   summary: 'Grid kotak centang: hal yang diputuskan di baris, dikelompokkan per area, dan pilihan di kolom. Header dan kolom pertama tetap di tempat saat kotaknya digulir, dan setiap area punya satu kotak centang per kolom untuk semuanya.',
   when: [
-    'Izin per peran: peran mana yang boleh mengundang orang, melihat tagihan, mengekspor laporan.',
+    'Izin per peran: peran mana yang boleh meneruskan laporan warga, menandatangani izin, mengekspor data.',
     'Notifikasi per kanal: peristiwa mana yang dikirim lewat email, push, dan SMS.',
-    'Keputusan ya atau tidak untuk setiap pasangan dari dua daftar pendek (fitur per paket di admin, mata pelajaran per jurusan).',
+    'Keputusan ya atau tidak untuk setiap pasangan dari dua daftar pendek (layanan per kantor kecamatan, berkas per jenis izin).',
   ],
   whenNot: [
     ['Beberapa pilihan bebas untuk satu hal', 'checkbox'],
     ['Pengaturan yang langsung berlaku, satu per baris', 'switch'],
-    ['Paket yang dibandingkan di halaman harga, hanya dibaca', 'compare-table'],
+    ['Pilihan layanan yang dibandingkan berdampingan, hanya dibaca', 'compare-table'],
     ['Catatan berisi nilai, bukan pilihan', 'data-table'],
   ],
   where: 'Selebar kolom isi, di dalam `.matrix-box`. Beri kotaknya tinggi (`--h`) bila barisnya panjang agar header tetap terlihat; di ponsel kotak bergulir ke samping dengan kolom pertama tetap. Simpan perubahan dengan tombol di sebelahnya bila pilihannya berdampak besar; selain itu simpan setiap perubahan dan konfirmasi dengan [toast](toast).',
@@ -23,24 +23,24 @@ export default {
     ['thead th', 'Pilihannya (peran, kanal), menempel di atas dengan isian tenang. `.matrix__sub` di bawah nama untuk jumlah.'],
     ['tr.matrix__group[data-group]', 'Baris judul area: `th[scope=rowgroup]` dan satu `input[data-lds-matrix-all]` per kolom.'],
     ['tr[data-group] > th[scope=row]', 'Wajib. Hal yang diputuskan, menempel di kiri, dengan baris `.matrix__sub` opsional.'],
-    ['td > .check', 'Wajib. Satu [checkbox](checkbox) per sel dengan `aria-label` yang menyebut keduanya ("Admin: Undang orang"). Seluruh sel menjadi area klik.'],
+    ['td > .check', 'Wajib. Satu [checkbox](checkbox) per sel dengan `aria-label` yang menyebut keduanya ("Admin: Teruskan laporan"). Seluruh sel menjadi area klik.'],
   ],
   examples: [
     {
       title: 'Izin per peran',
-      desc: 'Centang satu sel, atau centang area untuk satu kolom penuh: kotak area menampilkan campuran bila hanya sebagian yang aktif. Pemilik dikunci. Gulir kotaknya: header dan nama izin tetap di tempat.',
+      desc: 'Centang satu sel, atau centang area untuk satu kolom penuh: kotak area menampilkan campuran bila hanya sebagian yang aktif. Kepala dinas dikunci. Gulir kotaknya: header dan nama izin tetap di tempat.',
       html: `<div class="matrix-box" tabindex="0" role="region" aria-label="Izin per peran, bisa digulir" style="--h: 360px;">
   <table class="matrix" data-lds-matrix>
     <caption class="sr-only">Izin per peran</caption>
     <thead><tr><th scope="col">Izin</th>${roles.map((r, i) => `<th scope="col">${r}${i === 0 ? ' <span class="ic" aria-label="Dikunci">lock</span>' : ''}</th>`).join('')}</tr></thead>
     <tbody>
-${groupRow('people', 'Anggota')}
-${permRow('people', 'Undang orang', 'Kirim undangan lewat email', [1, 1, 0, 0])}
-${permRow('people', 'Ubah peran', 'Naikkan atau turunkan peran anggota', [1, 1, 0, 0])}
-${permRow('people', 'Keluarkan orang', '', [1, 0, 0, 0])}
-${groupRow('billing', 'Tagihan')}
-${permRow('billing', 'Lihat tagihan', '', [1, 1, 1, 0])}
-${permRow('billing', 'Ganti paket', 'Kenaikan paket langsung ditagih', [1, 0, 0, 0])}
+${groupRow('complaints', 'Pengaduan')}
+${permRow('complaints', 'Teruskan laporan', 'Kirim laporan ke petugas kelurahan', [1, 1, 0, 0])}
+${permRow('complaints', 'Tutup laporan', 'Tandai laporan sebagai selesai', [1, 1, 0, 0])}
+${permRow('complaints', 'Hapus laporan', '', [1, 0, 0, 0])}
+${groupRow('permits', 'Perizinan')}
+${permRow('permits', 'Verifikasi berkas', '', [1, 1, 1, 0])}
+${permRow('permits', 'Tanda tangani izin', 'Izin langsung terbit setelah ditandatangani', [1, 0, 0, 0])}
 ${groupRow('reports', 'Laporan')}
 ${permRow('reports', 'Lihat dasbor', '', [1, 1, 1, 1])}
 ${permRow('reports', 'Ekspor data', 'CSV dan PDF', [1, 1, 1, 0])}
@@ -56,7 +56,7 @@ ${permRow('reports', 'Ekspor data', 'CSV dan PDF', [1, 1, 1, 0])}
     <caption class="sr-only">Notifikasi per kanal</caption>
     <thead><tr><th scope="col">Peristiwa</th><th scope="col">Email</th><th scope="col">Push</th></tr></thead>
     <tbody>
-      <tr><th scope="row">Disebut</th><td>${box('Email: Disebut', { on: true })}</td><td>${box('Push: Disebut', { on: true })}</td></tr>
+      <tr><th scope="row">Laporan baru</th><td>${box('Email: Laporan baru', { on: true })}</td><td>${box('Push: Laporan baru', { on: true })}</td></tr>
       <tr><th scope="row">Ditugaskan ke saya</th><td>${box('Email: Ditugaskan ke saya', { on: true })}</td><td>${box('Push: Ditugaskan ke saya')}</td></tr>
       <tr><th scope="row">Ringkasan mingguan</th><td>${box('Email: Ringkasan mingguan', { on: true })}</td><td>${box('Push: Ringkasan mingguan')}</td></tr>
     </tbody>
@@ -84,7 +84,7 @@ ${permRow('reports', 'Ekspor data', 'CSV dan PDF', [1, 1, 1, 0])}
   ],
   a11y: [
     'Ini `table` asli: pilihan adalah `th[scope=col]`, hal yang diputuskan `th[scope=row]`, area `th[scope=rowgroup]`, dengan `caption`.',
-    'Setiap kotak centang punya `aria-label` yang menyebut baris dan kolomnya ("Admin: Undang orang"); kotak area berbunyi "Semua izin Anggota untuk Admin".',
+    'Setiap kotak centang punya `aria-label` yang menyebut baris dan kolomnya ("Admin: Teruskan laporan"); kotak area berbunyi "Semua izin Pengaduan untuk Admin".',
     'Kotaknya bisa difokus dan berlabel agar pengguna keyboard bisa menggulirnya; Tab berpindah antar kotak centang sesuai urutan baca dan Space mencentang.',
     'Kolom yang dikunci menyatakannya dalam kata, bukan hanya dengan dibuat redup.',
   ],

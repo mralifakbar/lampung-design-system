@@ -1,5 +1,5 @@
 const box = (label, { on = false, dis = false, all = false } = {}) => `<label class="check"><input type="checkbox"${all ? ' data-lds-matrix-all' : ''}${on ? ' checked' : ''}${dis ? ' disabled' : ''} aria-label="${label}"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>`;
-const roles = ['Owner', 'Admin', 'Editor', 'Viewer'];
+const roles = ['Head of office', 'Admin', 'Verifier', 'Counter staff'];
 const groupRow = (key, name) => `      <tr class="matrix__group" data-group="${key}"><th scope="rowgroup">${name}</th>${roles.map((r) => `<td>${box(`All ${name} permissions for ${r}`, { all: true })}</td>`).join('')}</tr>`;
 const permRow = (key, name, sub, on) => `      <tr data-group="${key}"><th scope="row">${name}<span class="matrix__sub">${sub}</span></th>${roles.map((r, i) => `<td>${box(`${r}: ${name}`, { on: on[i], dis: i === 0 })}</td>`).join('')}</tr>`;
 
@@ -9,14 +9,14 @@ export default {
   order: 22.6,
   summary: 'A grid of checkboxes: things in rows grouped by area, options in columns. The header and the first column stay in place while the box scrolls, and each area has one checkbox per column for all of it.',
   when: [
-    'Permissions by role: which roles can invite people, see billing, export reports.',
+    'Permissions by role: which roles can assign citizen reports, sign permits, export data.',
     'Notifications by channel: which events reach email, push and SMS.',
-    'Any yes or no decision for each pair of two short lists (features per plan in an admin, courses per study program).',
+    'Any yes or no decision for each pair of two short lists (services per kecamatan office, documents per permit type).',
   ],
   whenNot: [
     ['A few independent options for one thing', 'checkbox'],
     ['Settings that take effect at once, one per row', 'switch'],
-    ['Plans compared on a pricing page, read only', 'compare-table'],
+    ['Service options compared side by side, read only', 'compare-table'],
     ['Records with values, not choices', 'data-table'],
   ],
   where: 'Full width of the content column, inside `.matrix-box`. Give the box a height (`--h`) when the rows run long so the header stays visible; on phones it scrolls sideways with the first column pinned. Save changes with a button next to it when the choices are costly; otherwise save each change and confirm with a [toast](toast).',
@@ -26,25 +26,25 @@ export default {
     ['thead th', 'The options (roles, channels), sticky at the top on the quiet fill. `.matrix__sub` under a name for a count.'],
     ['tr.matrix__group[data-group]', 'An area heading row: `th[scope=rowgroup]` and one `input[data-lds-matrix-all]` per column.'],
     ['tr[data-group] > th[scope=row]', 'Required. The thing being decided, sticky on the left, with an optional `.matrix__sub` line.'],
-    ['td > .check', 'Required. One [checkbox](checkbox) per cell with an `aria-label` that names both ("Admin: Invite people"). The whole cell is the target.'],
+    ['td > .check', 'Required. One [checkbox](checkbox) per cell with an `aria-label` that names both ("Admin: Assign reports"). The whole cell is the target.'],
   ],
   examples: [
     {
       title: 'Permissions by role',
-      desc: 'Tick a cell, or tick an area for a whole column: the area box shows mixed when only some are on. Owner is locked. Scroll the box: the header and the permission names stay.',
+      desc: 'Tick a cell, or tick an area for a whole column: the area box shows mixed when only some are on. Head of office is locked. Scroll the box: the header and the permission names stay.',
       stage: 'block',
       html: `<div class="matrix-box" tabindex="0" role="region" aria-label="Permissions by role, scrolls" style="--h: 360px;">
   <table class="matrix" data-lds-matrix>
     <caption class="sr-only">Permissions by role</caption>
     <thead><tr><th scope="col">Permission</th>${roles.map((r, i) => `<th scope="col">${r}${i === 0 ? ' <span class="ic" aria-label="Locked">lock</span>' : ''}</th>`).join('')}</tr></thead>
     <tbody>
-${groupRow('people', 'People')}
-${permRow('people', 'Invite people', 'Send invites by email', [1, 1, 0, 0])}
-${permRow('people', 'Change roles', 'Promote or demote members', [1, 1, 0, 0])}
-${permRow('people', 'Remove people', '', [1, 0, 0, 0])}
-${groupRow('billing', 'Billing')}
-${permRow('billing', 'See invoices', '', [1, 1, 1, 0])}
-${permRow('billing', 'Change the plan', 'Upgrades bill at once', [1, 0, 0, 0])}
+${groupRow('complaints', 'Complaints')}
+${permRow('complaints', 'Assign reports', 'Send a report to a kelurahan officer', [1, 1, 0, 0])}
+${permRow('complaints', 'Close reports', 'Mark a report as resolved', [1, 1, 0, 0])}
+${permRow('complaints', 'Delete reports', '', [1, 0, 0, 0])}
+${groupRow('permits', 'Permits')}
+${permRow('permits', 'Verify documents', '', [1, 1, 1, 0])}
+${permRow('permits', 'Sign permits', 'Signing issues the permit at once', [1, 0, 0, 0])}
 ${groupRow('reports', 'Reports')}
 ${permRow('reports', 'View dashboards', '', [1, 1, 1, 1])}
 ${permRow('reports', 'Export data', 'CSV and PDF', [1, 1, 1, 0])}
@@ -61,7 +61,7 @@ ${permRow('reports', 'Export data', 'CSV and PDF', [1, 1, 1, 0])}
     <caption class="sr-only">Notifications by channel</caption>
     <thead><tr><th scope="col">Event</th><th scope="col">Email</th><th scope="col">Push</th></tr></thead>
     <tbody>
-      <tr><th scope="row">Mentions</th><td>${box('Email: Mentions', { on: true })}</td><td>${box('Push: Mentions', { on: true })}</td></tr>
+      <tr><th scope="row">New report</th><td>${box('Email: New report', { on: true })}</td><td>${box('Push: New report', { on: true })}</td></tr>
       <tr><th scope="row">Assigned to me</th><td>${box('Email: Assigned to me', { on: true })}</td><td>${box('Push: Assigned to me')}</td></tr>
       <tr><th scope="row">Weekly summary</th><td>${box('Email: Weekly summary', { on: true })}</td><td>${box('Push: Weekly summary')}</td></tr>
     </tbody>
@@ -89,7 +89,7 @@ ${permRow('reports', 'Export data', 'CSV and PDF', [1, 1, 1, 0])}
   ],
   a11y: [
     'It is a real `table`: options are `th[scope=col]`, things are `th[scope=row]`, areas `th[scope=rowgroup]`, with a `caption`.',
-    'Every checkbox has an `aria-label` that names the row and the column ("Admin: Invite people"); area boxes say "All People permissions for Admin".',
+    'Every checkbox has an `aria-label` that names the row and the column ("Admin: Assign reports"); area boxes say "All Complaints permissions for Admin".',
     'The box is focusable with a label so keyboard users can scroll it; Tab moves through the checkboxes in reading order and Space ticks.',
     'A locked column says so in words, not only by dimming.',
   ],
