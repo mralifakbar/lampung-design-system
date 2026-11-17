@@ -1,14 +1,14 @@
 const SEND = `<button class="composer__send" type="submit" aria-label="Kirim"><span class="ic" aria-hidden="true">arrow_upward</span></button>`;
-const REPLY = `event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const c = document.getElementById('cp-chat'); const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); c.append(m); const a = document.createElement('div'); a.className = 'msg msg--ai is-new'; const ab = document.createElement('div'); ab.className = 'bubble'; a.append(ab); setTimeout(() => { c.append(a); import('../../js/lds.js').then((d) => d.streamText(ab, 'Pertanyaan bagus. Mulai dari satuannya: yang ditanyakan meter per detik, jadi bagi jarak dalam meter dengan waktu dalam detik.')); }, 400);`;
+const REPLY = `event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const c = document.getElementById('cp-chat'); const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); c.append(m); const a = document.createElement('div'); a.className = 'msg msg--ai is-new'; const ab = document.createElement('div'); ab.className = 'bubble'; a.append(ab); setTimeout(() => { c.append(a); import('../../js/lds.js').then((d) => d.streamText(ab, 'Pertanyaan bagus. Untuk KTP elektronik baru, siapkan KK dan surat pengantar RT/RW. Bawa keduanya ke loket Disdukcapil atau kantor kecamatan; perekaman sekitar 15 menit.')); }, 400);`;
 
 export default {
   summary: 'Kotak balasan di bawah percakapan: kolom membulat yang tumbuh mengikuti teks, Enter untuk mengirim, Shift+Enter untuk baris baru, dan satu tombol kirim bulat yang nonaktif sampai ada yang bisa dikirim.',
   when: [
-    'Orang menulis pesan berikutnya di [chat layout](chat-layout): kepada tutor, asisten, atau utas layanan pengaduan.',
+    'Orang menulis pesan berikutnya di [chat layout](chat-layout): kepada asisten layanan kota, meja bantuan, atau utas layanan pengaduan.',
     'Satu kotak pertanyaan di bagian atas halaman asisten yang masih kosong, sebelum ada percakapan.',
   ],
   whenNot: [
-    ['Kolom formulir untuk jawaban panjang yang disimpan, bukan dikirim (esai, deskripsi)', 'textarea', 'Di sana Enter harus menambah baris, bukan mengirim.'],
+    ['Kolom formulir untuk jawaban panjang yang disimpan, bukan dikirim (uraian pengaduan, keterangan)', 'textarea', 'Di sana Enter harus menambah baris, bukan mengirim.'],
     ['Mencari atau menyaring daftar', 'search-field'],
     ['Nilai satu baris seperti nama atau email', 'text-field'],
     ['Melompat ke perintah atau halaman', 'command-palette'],
@@ -26,12 +26,12 @@ export default {
       desc: 'Ketik lalu tekan Enter (atau tombolnya). Pesan Anda masuk ke kolom dan jawaban mengalir masuk. Shift+Enter menambah baris, bukan mengirim.',
       html: `<div class="docs-col" style="max-width: 520px;">
   <div class="chat" id="cp-chat" role="log" aria-label="Percakapan">
-    <div class="msg msg--ai"><div class="bubble">Tanyakan apa saja tentang soal fisika minggu ini.</div></div>
+    <div class="msg msg--ai"><div class="bubble">Tanyakan tentang layanan Disdukcapil: KTP elektronik, KK, akta kelahiran, surat pindah.</div></div>
   </div>
-  <form class="composer" data-lds-composer onsubmit="${REPLY}"><textarea rows="1" aria-label="Pesan" placeholder="Tanyakan tentang materi ini"></textarea>${SEND}</form>
+  <form class="composer" data-lds-composer onsubmit="${REPLY}"><textarea rows="1" aria-label="Pesan" placeholder="Tanya tentang layanan Disdukcapil"></textarea>${SEND}</form>
 </div>`,
       code: `<form class="composer" data-lds-composer>
-  <textarea rows="1" aria-label="Pesan" placeholder="Tanyakan tentang materi ini"></textarea>
+  <textarea rows="1" aria-label="Pesan" placeholder="Tanya tentang layanan Disdukcapil"></textarea>
   <button class="composer__send" type="submit" aria-label="Kirim"><span class="ic" aria-hidden="true">arrow_upward</span></button>
 </form>
 <script type="module">
@@ -48,16 +48,16 @@ export default {
       desc: 'Alat ada sebelum textarea dan mempertahankan area sentuh 44 px. Tombol kirim tetap satu-satunya kontrol berisi warna.',
       html: `<form class="composer" data-lds-composer style="max-width: 520px; width: 100%;">
   <button class="icon-btn" type="button" aria-label="Lampirkan berkas"><span class="ic" aria-hidden="true">attach_file</span></button>
-  <textarea rows="1" aria-label="Pesan" placeholder="Jelaskan kesalahan yang Anda temukan"></textarea>${SEND}
+  <textarea rows="1" aria-label="Pesan" placeholder="Jelaskan masalah yang Anda temukan"></textarea>${SEND}
 </form>`,
     },
     {
       title: 'Tumbuh mengikuti teks',
       desc: 'Draf panjang membuat kotak tumbuh baris demi baris sampai 200 px, lalu bergulir di dalam. Tombol tetap di bawah, di samping baris terakhir.',
       html: `<form class="composer" data-lds-composer style="max-width: 520px; width: 100%;">
-  <textarea rows="1" aria-label="Pesan">Saya sudah membaca bab 4 dua kali, tetapi masih belum paham kenapa enzim berhenti bekerja di atas 40 derajat.
-Apakah alasannya sama dengan kenapa demam tinggi berbahaya?
-Bisa beri contoh dengan angka?</textarea>${SEND}
+  <textarea rows="1" aria-label="Pesan">Saya pindah dari Metro ke Kedaton, Bandar Lampung bulan lalu dan KK saya masih memakai alamat lama.
+Apakah saya perlu surat pindah dari Metro dulu, atau bisa diurus di kelurahan Kedaton?
+Dokumen apa saja yang harus dibawa?</textarea>${SEND}
 </form>`,
     },
   ],

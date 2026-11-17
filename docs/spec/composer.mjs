@@ -1,5 +1,5 @@
 const SEND = `<button class="composer__send" type="submit" aria-label="Send"><span class="ic" aria-hidden="true">arrow_upward</span></button>`;
-const REPLY = `event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const c = document.getElementById('cp-chat'); const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); c.append(m); const a = document.createElement('div'); a.className = 'msg msg--ai is-new'; const ab = document.createElement('div'); ab.className = 'bubble'; a.append(ab); setTimeout(() => { c.append(a); import('../../js/lds.js').then((d) => d.streamText(ab, 'Good question. Start with the units: you are asked for meters per second, so divide the distance in meters by the time in seconds.')); }, 400);`;
+const REPLY = `event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const c = document.getElementById('cp-chat'); const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); c.append(m); const a = document.createElement('div'); a.className = 'msg msg--ai is-new'; const ab = document.createElement('div'); ab.className = 'bubble'; a.append(ab); setTimeout(() => { c.append(a); import('../../js/lds.js').then((d) => d.streamText(ab, 'Good question. For a new e-KTP you need your KK and a surat pengantar from your RT/RW. Bring both to the Disdukcapil counter or your kecamatan office; recording takes about 15 minutes.')); }, 400);`;
 
 export default {
   title: 'Composer',
@@ -7,11 +7,11 @@ export default {
   order: 3,
   summary: 'The reply box under a conversation: a rounded field that grows with the text, Enter to send, Shift+Enter for a new line, and one round send button that stays disabled until there is something to send.',
   when: [
-    'The person writes the next message in a [chat layout](chat-layout): to a tutor, an assistant, a support thread.',
+    'The person writes the next message in a [chat layout](chat-layout): to a city services assistant, a help desk, a complaint thread.',
     'A single prompt box at the top of an empty assistant page, before any conversation exists.',
   ],
   whenNot: [
-    ['A form field for a long answer that is saved, not sent (an essay, a description)', 'textarea', 'Enter must add a line there, not submit.'],
+    ['A form field for a long answer that is saved, not sent (a complaint description, a statement)', 'textarea', 'Enter must add a line there, not submit.'],
     ['Searching or filtering a list', 'search-field'],
     ['A one-line value such as a name or an email', 'text-field'],
     ['Jumping to a command or a page', 'command-palette'],
@@ -30,12 +30,12 @@ export default {
       stage: 'block',
       html: `<div class="docs-col" style="max-width: 520px;">
   <div class="chat" id="cp-chat" role="log" aria-label="Conversation">
-    <div class="msg msg--ai"><div class="bubble">Ask me anything about this week's physics problems.</div></div>
+    <div class="msg msg--ai"><div class="bubble">Ask me about Disdukcapil services: e-KTP, KK, birth certificates, moving letters.</div></div>
   </div>
-  <form class="composer" data-lds-composer onsubmit="${REPLY}"><textarea rows="1" aria-label="Message" placeholder="Ask about this lesson"></textarea>${SEND}</form>
+  <form class="composer" data-lds-composer onsubmit="${REPLY}"><textarea rows="1" aria-label="Message" placeholder="Ask about Disdukcapil services"></textarea>${SEND}</form>
 </div>`,
       code: `<form class="composer" data-lds-composer>
-  <textarea rows="1" aria-label="Message" placeholder="Ask about this lesson"></textarea>
+  <textarea rows="1" aria-label="Message" placeholder="Ask about Disdukcapil services"></textarea>
   <button class="composer__send" type="submit" aria-label="Send"><span class="ic" aria-hidden="true">arrow_upward</span></button>
 </form>
 <script type="module">
@@ -53,7 +53,7 @@ export default {
       stage: 'block',
       html: `<form class="composer" data-lds-composer style="max-width: 520px; width: 100%;">
   <button class="icon-btn" type="button" aria-label="Attach a file"><span class="ic" aria-hidden="true">attach_file</span></button>
-  <textarea rows="1" aria-label="Message" placeholder="Describe the mistake you found"></textarea>${SEND}
+  <textarea rows="1" aria-label="Message" placeholder="Describe the problem you found"></textarea>${SEND}
 </form>`,
     },
     {
@@ -61,9 +61,9 @@ export default {
       desc: 'A long draft grows the box line by line up to 200 px, then scrolls inside. The button stays at the bottom, next to the last line.',
       stage: 'block',
       html: `<form class="composer" data-lds-composer style="max-width: 520px; width: 100%;">
-  <textarea rows="1" aria-label="Message">I read chapter 4 twice but I still do not understand why the enzyme stops working above 40 degrees.
-Is it the same reason fever is dangerous?
-Could you give me an example with numbers?</textarea>${SEND}
+  <textarea rows="1" aria-label="Message">I moved from Metro to Kedaton, Bandar Lampung last month and my KK still shows the old address.
+Do I need a surat pindah from Metro first, or can the kelurahan in Kedaton handle it?
+Which documents should I bring?</textarea>${SEND}
 </form>`,
     },
   ],
