@@ -33,11 +33,11 @@ export default {
       desc: 'Tiga baris terbaru, yang lebih lama berada di tempat di bawahnya. Baris tersembunyi berada di dalam kotak daftar yang sama.',
       html: `<div class="more" data-lds-more data-more="Tampilkan 2 yang lebih lama" data-less="Tampilkan lebih sedikit" style="max-width: 460px;">
   <div class="list">
-    <a class="lrow" href="#a1"><span class="lrow__body"><span class="lrow__title">Lokasi ujian hari Sabtu sudah diumumkan</span><span class="lrow__sub">Hari ini</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+    <a class="lrow" href="#a1"><span class="lrow__body"><span class="lrow__title">Lokasi Samsat keliling hari Sabtu sudah diumumkan</span><span class="lrow__sub">Hari ini</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
     <a class="lrow" href="#a2"><span class="lrow__body"><span class="lrow__title">Perpustakaan daerah buka sampai 22.00 minggu ini</span><span class="lrow__sub">Kemarin</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
     <a class="lrow" href="#a3"><span class="lrow__body"><span class="lrow__title">Jadwal baru vaksinasi di puskesmas</span><span class="lrow__sub">Sen</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
     <div class="more__rest"><div>
-      <a class="lrow" href="#a4" style="box-shadow: inset 0 0.5px 0 var(--line-strong);"><span class="lrow__body"><span class="lrow__title">Ruang seminar pindah ke gedung C</span><span class="lrow__sub">Minggu lalu</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+      <a class="lrow" href="#a4" style="box-shadow: inset 0 0.5px 0 var(--line-strong);"><span class="lrow__body"><span class="lrow__title">Loket Disdukcapil pindah ke gedung C</span><span class="lrow__sub">Minggu lalu</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
       <a class="lrow" href="#a5"><span class="lrow__body"><span class="lrow__title">Pendaftaran beasiswa daerah sudah dibuka</span><span class="lrow__sub">Minggu lalu</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
     </div></div>
   </div>
