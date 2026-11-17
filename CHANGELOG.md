@@ -14,7 +14,7 @@ First public release.
 - 179 components and recipes, each with Indonesian and English documentation.
 - Aksara Lampung: original glyph drawings, Latin transliteration, `[data-lds-aksara]` and the decorative `.aksara-band`.
 - Masthead component for stating whether a public-service site is official.
-- The siger mark (`brand/`): a smooth siger with seven leaf-shaped lekuk fanning out above a gold band, used as logo and favicon.
+- The siger mark (`brand/`): a siger with seven flame-shaped lekuk curling toward the center above an arched base, white on a Lampung green tile, used as logo and favicon.
 - 53 icons for public services and smart city screens.
 - `lampung-ds` CLI: `init`, `create`, `add`, `list` and `doctor` for Next.js, Vite, TanStack Start, React Router, Astro, Laravel, plain HTML and Flutter.
 - `lampung_design_system` Flutter package: theme, tokens, widgets and aksara.
