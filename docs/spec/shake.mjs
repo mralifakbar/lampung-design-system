@@ -9,7 +9,7 @@ export default {
   when: [
     'The person pressed Continue or Submit and the input is refused: an email with no domain, a wrong code, a wrong password.',
     'An optimistic action is rolled back by the server ([like](like), [confirm in place](confirm-in-place), [inline edit](inline-edit) do this for you).',
-    'A limit refuses input at the moment it is hit: a stepper already at its maximum, a full class.',
+    'A limit refuses input at the moment it is hit: a stepper already at its maximum, a full queue quota.',
   ],
   whenNot: [
     ['Validation while typing', 'text-field', 'Show the message after the field is left or on submit, without shaking.'],
@@ -24,9 +24,9 @@ export default {
       desc: 'Press Send code. The field shakes, turns red, and says what is missing. Fix the address and try again: no shake.',
       html: `<div class="docs-col" style="max-width: 360px;">
   <div class="field">
-    <label class="field__label" for="sh-email">Campus email</label>
-    <div class="control"><span class="ic" aria-hidden="true">mail</span><input id="sh-email" type="email" value="ana.putri@campus" aria-describedby="sh-email-help"></div>
-    <span class="field__help field__help--error" id="sh-email-help" hidden><span class="ic" aria-hidden="true">error</span>Add the end of the address, like ana.putri@campus.ac.id.</span>
+    <label class="field__label" for="sh-email">Email</label>
+    <div class="control"><span class="ic" aria-hidden="true">mail</span><input id="sh-email" type="email" value="ana.putri@contoh" aria-describedby="sh-email-help"></div>
+    <span class="field__help field__help--error" id="sh-email-help" hidden><span class="ic" aria-hidden="true">error</span>Add the end of the address, like ana.putri@contoh.go.id.</span>
   </div>
   <button class="btn btn--primary btn--block" onclick="${EMAIL}">Send code</button>
 </div>`,
@@ -80,6 +80,6 @@ otpError(document.querySelector('.otp-wrap')); // red cells and one shake; typin
   js: '`shake(el)` adds `.is-shake` (restarting it if needed), removes it when done, and buzzes an error haptic. `otpError(wrap)` marks an OTP row as wrong and shakes it. `likeRevert`, the confirm pill and inline edit call it on failure.',
   react: `import { reject } from 'lampung-design-system/react';
 
-if (!valid) { setError('Add the end of the address, like ana.putri@campus.ac.id.'); reject(controlRef.current); }`,
+if (!valid) { setError('Add the end of the address, like ana.putri@contoh.go.id.'); reject(controlRef.current); }`,
   related: ['text-field', 'otp', 'haptics', 'confirm-in-place'],
 };
