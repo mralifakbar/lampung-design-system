@@ -4,7 +4,7 @@ export default {
   order: 6,
   summary: 'Minus and plus buttons around a small whole number whose digits roll to the new value. For counts people change by one or two, inside a known range.',
   when: [
-    'A small count with clear bounds: seats to reserve, tickets, people in a study group, tryout attempts.',
+    'A small count with clear bounds: seats to reserve, tickets, people in a group, queue numbers.',
     'Most changes are one or two steps from a sensible default.',
   ],
   whenNot: [
@@ -13,7 +13,7 @@ export default {
     ['Choosing between a few fixed counts (1, 2, 3 sessions a week)', 'segmented-control', 'Or [chips](chips) for more than five'],
     ['Showing a number that changes by itself (live score, count)', 'rolling-number'],
   ],
-  where: 'In a form next to its label, or at the end of a list row (a cart line, an attendee row). It keeps its own width (about 140 px) and never stretches.',
+  where: 'In a form next to its label, or at the end of a list row (a request line, an attendee row). It keeps its own width (about 140 px) and never stretches.',
   anatomy: [
     ['.stepper-field', 'Required. 44 px pill-shaped box, `role="group"` with `aria-labelledby` pointing at the label. Carries `data-lds-stepper` with `data-min`, `data-max`, `data-value`.'],
     ['button (first)', 'Required. Decrease, with an `aria-label` ("Fewer seats") and a `remove` icon. 44 by 44.'],
@@ -38,7 +38,7 @@ export default {
       title: 'At the end of a list row',
       desc: 'A small count per line, such as attendees per session.',
       html: `<div class="list" style="max-width: 440px; width: 100%;">
-  <div class="lrow"><span class="lrow__body"><span class="lrow__title" id="ns-r1">Saturday tryout, room A</span></span>
+  <div class="lrow"><span class="lrow__body"><span class="lrow__title" id="ns-r1">Saturday UMKM workshop, room A</span></span>
     <div class="stepper-field" role="group" aria-labelledby="ns-r1" data-lds-stepper data-min="0" data-max="6" data-value="2">
       <button type="button" aria-label="One person fewer"><span class="ic" aria-hidden="true">remove</span></button>
       <span class="stepper-field__value"><span class="roll" aria-live="polite"></span></span>
