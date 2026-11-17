@@ -1,7 +1,7 @@
 export default {
   summary: 'Langkah bernomor dari urutan tetap dengan bilah yang terisi saat setiap langkah selesai. Menunjukkan posisi orang dalam sebuah alur dan berapa yang tersisa.',
   when: [
-    'Alur dengan tiga sampai lima langkah tetap yang dikerjakan berurutan: permohonan izin (data diri, data usaha, pembayaran, tinjau), pendaftaran sekolah, pendaftaran UMKM.',
+    'Alur dengan tiga sampai lima langkah tetap yang dikerjakan berurutan: permohonan izin (data diri, data usaha, pembayaran, tinjau), pencatatan kelahiran, pendaftaran UMKM.',
     'Orang terbantu dengan mengetahui berapa langkah lagi sebelum mereka mengirim.',
   ],
   whenNot: [
@@ -9,7 +9,7 @@ export default {
     ['Petunjuk atau persyaratan untuk dibaca, bukan alur untuk dilalui', 'list', 'Pakai baris bernomor (`.lrow--num`) di list'],
     ['Peristiwa yang sudah terjadi dalam waktu', 'timeline'],
     ['Kemajuan satu tugas yang berjalan sendiri', 'progress-bar'],
-    ['Materi dalam sebuah modul, sebagian sudah selesai', 'app-shell', 'Pakai tautan anak bernomor dengan tanda selesai di shell'],
+    ['Materi dalam modul pelatihan, sebagian sudah selesai', 'app-shell', 'Pakai tautan anak bernomor dengan tanda selesai di shell'],
   ],
   where: 'Di atas alur, di bawah judul halaman, selebar kolom formulir. Tombol kembali dan lanjut berada di bawah formulir, bukan di samping langkah. Di ponsel dengan label panjang, buat titik dan label tetap pendek (satu atau dua kata) atau tampilkan teks "Langkah 2 dari 4" saja.',
   anatomy: [

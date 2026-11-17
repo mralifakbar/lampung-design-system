@@ -4,7 +4,7 @@ export default {
   order: 7,
   summary: 'Numbered steps of a fixed sequence with a bar that fills as each one completes. Shows where people are in a flow and how much is left.',
   when: [
-    'A flow with three to five fixed steps done in order: registration (details, courses, payment, review), exam setup, onboarding a school.',
+    'A flow with three to five fixed steps done in order: a permit application (details, business, payment, review), registering a newborn, registering an UMKM.',
     'People benefit from knowing how many steps remain before they commit.',
   ],
   whenNot: [
@@ -12,7 +12,7 @@ export default {
     ['Instructions or requirements to read, not a flow to move through', 'list', 'Use numbered rows (`.lrow--num`) in a list'],
     ['Events that already happened in time', 'timeline'],
     ['Progress of one task that runs by itself', 'progress-bar'],
-    ['Lessons in a course, some done', 'app-shell', 'Use numbered child links with done marks in the shell'],
+    ['Items in a training module, some done', 'app-shell', 'Use numbered child links with done marks in the shell'],
   ],
   where: 'At the top of the flow, under the page title, full width of the form column. Back and next buttons sit at the bottom of the form, not next to the steps. On phones with long labels, keep the dots and labels short (one or two words) or show "Step 2 of 4" in text instead.',
   anatomy: [
@@ -26,32 +26,32 @@ export default {
   ],
   examples: [
     {
-      title: 'Course registration',
+      title: 'Business permit application',
       desc: 'Step 2 of 4. Press Continue to complete a step: the bar fills, then the dot turns to a check.',
       stage: 'block',
       html: `<div class="stack" style="--gap: 24px;">
-  <ol class="steps" aria-label="Registration progress" id="st-demo">
+  <ol class="steps" aria-label="Application progress" id="st-demo">
     <li class="step is-done"><div class="step__head"><span class="step__dot"><span class="ic" aria-hidden="true">check</span></span><span class="step__bar"></span></div><span class="step__label">Personal details</span><span class="step__sub">Name and contact</span></li>
-    <li class="step is-current" aria-current="step"><div class="step__head"><span class="step__dot">2</span><span class="step__bar"></span></div><span class="step__label">Courses</span><span class="step__sub">Up to 24 credits</span></li>
-    <li class="step"><div class="step__head"><span class="step__dot">3</span><span class="step__bar"></span></div><span class="step__label">Payment</span><span class="step__sub">Tuition and fees</span></li>
+    <li class="step is-current" aria-current="step"><div class="step__head"><span class="step__dot">2</span><span class="step__bar"></span></div><span class="step__label">Business</span><span class="step__sub">Type and location</span></li>
+    <li class="step"><div class="step__head"><span class="step__dot">3</span><span class="step__bar"></span></div><span class="step__label">Payment</span><span class="step__sub">Levy and fees</span></li>
     <li class="step"><div class="step__head"><span class="step__dot">4</span></div><span class="step__label">Review</span><span class="step__sub">Check and submit</span></li>
   </ol>
   <div class="cluster">
     <button class="btn btn--primary btn--md" onclick="const c = document.querySelector('#st-demo .is-current'); if (!c) return; c.classList.replace('is-current', 'is-done'); c.removeAttribute('aria-current'); c.querySelector('.step__dot').innerHTML = '&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;'; const n = c.nextElementSibling; if (n) { n.classList.add('is-current'); n.setAttribute('aria-current', 'step'); }">Continue</button>
   </div>
 </div>`,
-      code: `<ol class="steps" aria-label="Registration progress">
+      code: `<ol class="steps" aria-label="Application progress">
   <li class="step is-done">
     <div class="step__head"><span class="step__dot"><span class="ic" aria-hidden="true">check</span></span><span class="step__bar"></span></div>
     <span class="step__label">Personal details</span><span class="step__sub">Name and contact</span>
   </li>
   <li class="step is-current" aria-current="step">
     <div class="step__head"><span class="step__dot">2</span><span class="step__bar"></span></div>
-    <span class="step__label">Courses</span><span class="step__sub">Up to 24 credits</span>
+    <span class="step__label">Business</span><span class="step__sub">Type and location</span>
   </li>
   <li class="step">
     <div class="step__head"><span class="step__dot">3</span></div>
-    <span class="step__label">Payment</span><span class="step__sub">Tuition and fees</span>
+    <span class="step__label">Payment</span><span class="step__sub">Levy and fees</span>
   </li>
 </ol>`,
     },
@@ -59,8 +59,8 @@ export default {
       title: 'Labels only',
       desc: 'Three short steps without a second line.',
       stage: 'block',
-      html: `<ol class="steps" aria-label="Exam setup">
-  <li class="step is-done"><div class="step__head"><span class="step__dot"><span class="ic" aria-hidden="true">check</span></span><span class="step__bar"></span></div><span class="step__label">Questions</span></li>
+      html: `<ol class="steps" aria-label="Publishing an announcement">
+  <li class="step is-done"><div class="step__head"><span class="step__dot"><span class="ic" aria-hidden="true">check</span></span><span class="step__bar"></span></div><span class="step__label">Content</span></li>
   <li class="step is-done"><div class="step__head"><span class="step__dot"><span class="ic" aria-hidden="true">check</span></span><span class="step__bar"></span></div><span class="step__label">Schedule</span></li>
   <li class="step is-current" aria-current="step"><div class="step__head"><span class="step__dot">3</span></div><span class="step__label">Publish</span></li>
 </ol>`,
@@ -94,6 +94,6 @@ export default {
   js: 'None. Move `.is-done`, `.is-current` and `aria-current="step"` from your code; swap the number for a `check` icon when a step is done.',
   react: `import { Steps } from 'lampung-design-system/react';
 
-<Steps label="Registration progress" current={1} items={['Personal details', 'Courses', 'Payment', 'Review']} />`,
+<Steps label="Application progress" current={1} items={['Personal details', 'Business', 'Payment', 'Review']} />`,
   related: ['progress-bar', 'tabs', 'list', 'form-layout'],
 };
