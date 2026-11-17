@@ -24,8 +24,8 @@ export default {
   order: 12,
   summary: 'A text field for a date with a calendar button that opens a calendar in a popover. Typing the date always works; the calendar is the helper. Built from existing parts: `.control`, `.control__btn`, `.popover` and `.cal`.',
   when: [
-    'People enter one date in a form: a date of birth, an exam date, a deadline, a payment date.',
-    'The date is near today and seeing the month helps (scheduling a tryout, choosing a due date).',
+    'People enter one date in a form: a date of birth, a service visit date, a deadline, a payment date.',
+    'The date is near today and seeing the month helps (booking a visit, choosing a due date).',
   ],
   whenNot: [
     ['Showing a month of events, or picking a range on the page itself', 'calendar', 'The `.cal` component inline, not in a popover'],
@@ -44,18 +44,18 @@ export default {
   ],
   examples: [
     {
-      title: 'Exam date',
+      title: 'Visit date',
       desc: 'Type a date, or open the calendar with the button. Picking a day fills the field, closes the calendar and returns focus to the input. Escape or a click outside closes it.',
       html: `<div class="field" style="max-width: 300px; width: 100%;" data-date-field>
-  <label class="field__label" for="df-exam">Exam date</label>
+  <label class="field__label" for="df-exam">Visit date</label>
   <div style="position: relative;">
     <div class="control"><input id="df-exam" inputmode="numeric" placeholder="DD/MM/YYYY" value="24/11/2026" aria-describedby="df-exam-help"><button type="button" class="control__btn" aria-label="Choose a date" aria-haspopup="dialog" aria-expanded="false" data-lds-menu="df-pop"><span class="ic" aria-hidden="true">calendar_month</span></button></div>
     ${cal('df-pop', 24)}
   </div>
-  <span class="field__help" id="df-exam-help">DD/MM/YYYY. Exams run Monday to Saturday.</span>
+  <span class="field__help" id="df-exam-help">DD/MM/YYYY. Service counters open Monday to Saturday.</span>
 </div>`,
       code: `<div class="field">
-  <label class="field__label" for="exam-date">Exam date</label>
+  <label class="field__label" for="exam-date">Visit date</label>
   <div style="position: relative;">
     <div class="control">
       <input id="exam-date" inputmode="numeric" placeholder="DD/MM/YYYY" aria-describedby="exam-date-help">
@@ -81,7 +81,7 @@ export default {
       </div>
     </div>
   </div>
-  <span class="field__help" id="exam-date-help">DD/MM/YYYY. Exams run Monday to Saturday.</span>
+  <span class="field__help" id="exam-date-help">DD/MM/YYYY. Service counters open Monday to Saturday.</span>
 </div>
 <!-- Your code: render the month, page it with the arrows, and on a day click
      write the date into the input, move .is-selected, then closeMenus() and focus the input. -->`,

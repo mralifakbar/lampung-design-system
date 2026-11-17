@@ -21,7 +21,7 @@ const cal = (id, selected) => {
 export default {
   summary: 'Text field untuk tanggal dengan tombol kalender yang membuka kalender di popover. Mengetik tanggal selalu bisa; kalender hanya membantu. Dibangun dari bagian yang sudah ada: `.control`, `.control__btn`, `.popover`, dan `.cal`.',
   when: [
-    'Orang memasukkan satu tanggal di formulir: tanggal lahir, tanggal ujian, batas waktu, tanggal pembayaran.',
+    'Orang memasukkan satu tanggal di formulir: tanggal lahir, tanggal kunjungan layanan, batas waktu, tanggal pembayaran.',
     'Tanggalnya dekat dengan hari ini dan melihat bulannya membantu (menjadwalkan kunjungan, memilih tanggal jatuh tempo).',
   ],
   whenNot: [
