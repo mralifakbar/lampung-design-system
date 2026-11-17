@@ -27,7 +27,7 @@ export default {
   <button class="btn btn--gray btn--md" data-lds-menu="mp-menu" aria-haspopup="menu" aria-expanded="false">Urutkan laporan<span class="ic" aria-hidden="true">expand_more</span></button>
   <div class="menu" id="mp-menu" role="menu" style="top: calc(100% + 6px); left: 0;">
     <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">event</span>Tanggal lapor</button>
-    <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">school</span>Jenis layanan</button>
+    <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">label</span>Jenis layanan</button>
     <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">schedule</span>Baru ditambahkan</button>
   </div>
 </div>`,

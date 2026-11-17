@@ -29,10 +29,10 @@ export default {
       stage: 'block',
       height: 250,
       html: `<div style="position: relative; display: inline-block;">
-  <button class="btn btn--gray btn--md" data-lds-menu="mp-menu" aria-haspopup="menu" aria-expanded="false">Sort assignments<span class="ic" aria-hidden="true">expand_more</span></button>
+  <button class="btn btn--gray btn--md" data-lds-menu="mp-menu" aria-haspopup="menu" aria-expanded="false">Sort reports<span class="ic" aria-hidden="true">expand_more</span></button>
   <div class="menu" id="mp-menu" role="menu" style="top: calc(100% + 6px); left: 0;">
-    <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">event</span>Due date</button>
-    <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">school</span>Course</button>
+    <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">event</span>Date reported</button>
+    <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">label</span>Service type</button>
     <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">schedule</span>Recently added</button>
   </div>
 </div>`,
@@ -44,7 +44,7 @@ export default {
   <span class="seg__thumb"></span>
   <button class="seg__btn" aria-pressed="true">Week</button>
   <button class="seg__btn" aria-pressed="false">Month</button>
-  <button class="seg__btn" aria-pressed="false">Term</button>
+  <button class="seg__btn" aria-pressed="false">Quarter</button>
   <button class="seg__btn" aria-pressed="false">Year</button>
 </div>`,
     },
@@ -54,7 +54,7 @@ export default {
       stage: 'flush',
       html: `<div class="viewport docs-box" data-lds-push="mp-sheet">
   <div class="viewport__content">
-    <p class="card__title">Biology 101, Tuesday</p>
+    <p class="card__title">Puskesmas visit, Tuesday</p>
     <div class="docs-row">
       <button class="btn btn--secondary btn--md" data-lds-open="mp-sheet" aria-haspopup="dialog">Mark attendance</button>
       <button class="btn btn--secondary btn--md" data-lds-open="mp-drawer" aria-haspopup="dialog"><span class="ic" aria-hidden="true">tune</span>Filters</button>
@@ -64,13 +64,13 @@ export default {
   <div class="sheet" id="mp-sheet" role="dialog" aria-modal="true" aria-labelledby="mp-sheet-t" data-lds-layer>
     <div class="sheet__grabber" aria-hidden="true"></div>
     <div class="sheet__head" data-lds-drag><h3 class="sheet__title" id="mp-sheet-t">Mark attendance</h3></div>
-    <div class="list list--fill"><button class="lrow"><span class="lrow__body"><span class="lrow__title">Present</span></span></button><button class="lrow"><span class="lrow__body"><span class="lrow__title">Late, with reason</span></span></button><button class="lrow"><span class="lrow__body"><span class="lrow__title">Excused absence</span></span></button></div>
+    <div class="list list--fill"><button class="lrow"><span class="lrow__body"><span class="lrow__title">Present</span></span></button><button class="lrow"><span class="lrow__body"><span class="lrow__title">Late, with reason</span></span></button><button class="lrow"><span class="lrow__body"><span class="lrow__title">Cancelled with notice</span></span></button></div>
     <button class="btn btn--primary btn--block" style="margin-top: 16px;" data-lds-close>Save attendance</button>
   </div>
   <div class="scrim" data-lds-scrim="mp-drawer"></div>
   <aside class="drawer" id="mp-drawer" role="dialog" aria-modal="true" aria-labelledby="mp-drawer-t" data-lds-layer>
     <div class="sheet__head" style="margin: 0;"><h3 class="sheet__title" id="mp-drawer-t">Filters</h3><button class="icon-btn" aria-label="Close filters" data-lds-close style="margin: -10px -10px -10px 0;"><span class="ic" aria-hidden="true">close</span></button></div>
-    <label class="check"><input type="checkbox" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">Needs grading</span></label>
+    <label class="check"><input type="checkbox" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">Needs follow-up</span></label>
     <button class="btn btn--primary btn--block" style="margin-top: auto;" data-lds-close>Show 12 results</button>
   </aside>
 </div>`,
