@@ -4,7 +4,7 @@ export default {
   order: 7,
   summary: 'Grey shapes in the exact layout of the content that is loading, with a soft shine passing over them. When the data lands, nothing moves.',
   when: [
-    'A view loads data and you already know its layout: a list of courses, a profile header, a dashboard of cards.',
+    'A view loads data and you already know its layout: a list of applications, a profile header, a dashboard of cards.',
     'The loading state of the four [data states](data-states) (loading, empty, error, loaded) for any data view.',
   ],
   whenNot: [
@@ -25,7 +25,7 @@ export default {
       title: 'List rows',
       desc: 'A square icon and two lines, the same as the loaded row.',
       stage: 'block',
-      html: `<div class="list" style="max-width: 420px;" aria-busy="true" aria-label="Loading courses">
+      html: `<div class="list" style="max-width: 420px;" aria-busy="true" aria-label="Loading applications">
   <div class="lrow" aria-hidden="true"><div class="skel" style="width: 30px; height: 30px;"></div><div class="lrow__body"><div class="skel" style="height: 12px; width: 60%;"></div><div class="skel" style="height: 10px; width: 35%; margin-top: 8px;"></div></div></div>
   <div class="lrow" aria-hidden="true"><div class="skel" style="width: 30px; height: 30px;"></div><div class="lrow__body"><div class="skel" style="height: 12px; width: 48%;"></div><div class="skel" style="height: 10px; width: 30%; margin-top: 8px;"></div></div></div>
   <div class="lrow" aria-hidden="true"><div class="skel" style="width: 30px; height: 30px;"></div><div class="lrow__body"><div class="skel" style="height: 12px; width: 66%;"></div><div class="skel" style="height: 10px; width: 40%; margin-top: 8px;"></div></div></div>
@@ -47,9 +47,9 @@ export default {
       stage: 'block',
       html: `<div class="docs-col" style="max-width: 420px;">
   <div class="list" id="sk-l" aria-busy="true"><div class="lrow" aria-hidden="true"><div class="skel" style="width: 30px; height: 30px;"></div><div class="lrow__body"><div class="skel" style="height: 12px; width: 55%;"></div><div class="skel" style="height: 10px; width: 30%; margin-top: 8px;"></div></div></div></div>
-  <div class="docs-row"><button class="btn btn--secondary btn--sm" onclick="const l = document.getElementById('sk-l'); l.removeAttribute('aria-busy'); l.innerHTML = '<div class=&quot;lrow lrow--icon&quot;><span class=&quot;lrow__icon&quot;><span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>menu_book</span></span><div class=&quot;lrow__body&quot;><div class=&quot;lrow__title&quot;>Database Systems</div><div class=&quot;lrow__sub&quot;>Week 9 of 14</div></div></div>';">Finish loading</button></div>
+  <div class="docs-row"><button class="btn btn--secondary btn--sm" onclick="const l = document.getElementById('sk-l'); l.removeAttribute('aria-busy'); l.innerHTML = '<div class=&quot;lrow lrow--icon&quot;><span class=&quot;lrow__icon&quot;><span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>menu_book</span></span><div class=&quot;lrow__body&quot;><div class=&quot;lrow__title&quot;>Micro business permit</div><div class=&quot;lrow__sub&quot;>Stage 2 of 4</div></div></div>';">Finish loading</button></div>
 </div>`,
-      code: `<div class="list" aria-busy="true" aria-label="Loading courses">
+      code: `<div class="list" aria-busy="true" aria-label="Loading applications">
   <div class="lrow" aria-hidden="true">
     <div class="skel" style="width: 30px; height: 30px;"></div>
     <div class="lrow__body">
@@ -72,7 +72,7 @@ export default {
   ],
   a11y: [
     'The shapes say nothing: `aria-hidden="true"` on each placeholder row.',
-    'Mark the region `aria-busy="true"` and give it a name ("Loading courses") so screen reader users know something is coming.',
+    'Mark the region `aria-busy="true"` and give it a name ("Loading applications") so screen reader users know something is coming.',
     'When the content arrives, it is read in the normal flow; do not announce every row.',
   ],
   do: [
