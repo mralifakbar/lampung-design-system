@@ -21,6 +21,34 @@
 
 > **Proyek komunitas, bukan produk resmi.** Lampung Design System (LDS) dibuat dan dirawat komunitas open source. Tidak ada instansi pemerintah yang mengelola atau mendukungnya secara resmi.
 
+## Pratinjau
+
+### Situs web
+
+<p align="center">
+  <img src=".github/assets/preview-landing.png" alt="Beranda situs dengan demo pengaduan warga yang bisa dicoba" width="860">
+</p>
+
+<table>
+  <tr>
+    <td width="50%"><img src=".github/assets/preview-docs.png" alt="Dokumentasi komponen, lengkap dengan Salin untuk LLM"><br><sub>Dokumentasi komponen, lengkap dengan Salin untuk LLM</sub></td>
+    <td width="50%"><img src=".github/assets/preview-dashboard.png" alt="Contoh dasbor layanan kota (Sakai), dibangun hanya dari LDS"><br><sub>Contoh dasbor layanan kota (Sakai), dibangun hanya dari LDS</sub></td>
+  </tr>
+</table>
+
+### Aplikasi Flutter (iPhone)
+
+<table>
+  <tr>
+    <td align="center" width="25%"><img src=".github/assets/preview-app-home.png" alt="Beranda aplikasi warga" width="200"><br><sub>Beranda aplikasi warga</sub></td>
+    <td align="center" width="25%"><img src=".github/assets/preview-app-report.png" alt="Formulir laporan warga" width="200"><br><sub>Formulir laporan warga</sub></td>
+    <td align="center" width="25%"><img src=".github/assets/preview-app-dark.png" alt="Mode gelap" width="200"><br><sub>Mode gelap</sub></td>
+    <td align="center" width="25%"><img src=".github/assets/preview-mobile-web.png" alt="Aplikasi warga versi web di ponsel" width="200"><br><sub>Aplikasi warga versi web di ponsel</sub></td>
+  </tr>
+</table>
+
+Semua data di tangkapan layar adalah contoh. Coba langsung di [lampung.kartadinata.app](https://lampung.kartadinata.app) atau jalankan aplikasi Flutter di `packages/flutter/example`.
+
 ## Kenapa LDS
 
 - **Cepat dipakai.** Satu perintah menyiapkan Next.js, Vite, TanStack Start, React Router, Astro, Laravel, HTML biasa, atau Flutter.

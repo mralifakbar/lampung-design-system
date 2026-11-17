@@ -21,6 +21,34 @@
 
 > **A community project, not an official product.** Lampung Design System (LDS) is built and maintained by an open source community. No government agency runs or endorses it.
 
+## Preview
+
+### Website
+
+<p align="center">
+  <img src=".github/assets/preview-landing.png" alt="Home page with a live citizen report demo" width="860">
+</p>
+
+<table>
+  <tr>
+    <td width="50%"><img src=".github/assets/preview-docs.png" alt="Component docs, with Copy for LLM"><br><sub>Component docs, with Copy for LLM</sub></td>
+    <td width="50%"><img src=".github/assets/preview-dashboard.png" alt="City services dashboard example (Sakai), built only from LDS"><br><sub>City services dashboard example (Sakai), built only from LDS</sub></td>
+  </tr>
+</table>
+
+### Flutter app (iPhone)
+
+<table>
+  <tr>
+    <td align="center" width="25%"><img src=".github/assets/preview-app-home.png" alt="Citizen app home" width="200"><br><sub>Citizen app home</sub></td>
+    <td align="center" width="25%"><img src=".github/assets/preview-app-report.png" alt="Citizen report form" width="200"><br><sub>Citizen report form</sub></td>
+    <td align="center" width="25%"><img src=".github/assets/preview-app-dark.png" alt="Dark mode" width="200"><br><sub>Dark mode</sub></td>
+    <td align="center" width="25%"><img src=".github/assets/preview-mobile-web.png" alt="The citizen app as a mobile web page" width="200"><br><sub>The citizen app as a mobile web page</sub></td>
+  </tr>
+</table>
+
+All data in the screenshots is made up. Try it at [lampung.kartadinata.app](https://lampung.kartadinata.app) or run the Flutter app in `packages/flutter/example`.
+
 ## Why LDS
 
 - **Quick to adopt.** One command sets up Next.js, Vite, TanStack Start, React Router, Astro, Laravel, plain HTML or Flutter.
