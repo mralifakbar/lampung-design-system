@@ -4,25 +4,25 @@ const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const thisWeek = [12, 18, 26, 22, 31, 9, 4];
 const lastWeek = [15, 21, 19, 24, 17, 6, 8];
 const pct = (v) => `${Math.round((v / 32) * 100)}%`;
-const col = (d, v, muted, extra = '') => `<div class="bars__col"><span class="bars__bar${muted ? ' bars__bar--muted' : ''}" style="height: ${pct(v)};"${extra}><span class="bars__tip">${v} submitted</span></span><span class="bars__x">${d}</span></div>`;
+const col = (d, v, muted, extra = '') => `<div class="bars__col"><span class="bars__bar${muted ? ' bars__bar--muted' : ''}" style="height: ${pct(v)};"${extra}><span class="bars__tip">${v} reports</span></span><span class="bars__x">${d}</span></div>`;
 const highlight = days.map((d, i) => col(d, thisWeek[i], thisWeek[i] !== 31)).join('\n    ');
-const switchable = days.map((d, i) => col(d, thisWeek[i], false, ` data-a="${pct(thisWeek[i])}" data-ta="${thisWeek[i]} submitted" data-b="${pct(lastWeek[i])}" data-tb="${lastWeek[i]} submitted"`)).join('\n    ');
+const switchable = days.map((d, i) => col(d, thisWeek[i], false, ` data-a="${pct(thisWeek[i])}" data-ta="${thisWeek[i]} reports" data-b="${pct(lastWeek[i])}" data-tb="${lastWeek[i]} reports"`)).join('\n    ');
 const set = (k) => `onclick="this.closest('.chart-card').querySelectorAll('.bars__bar').forEach(b => { b.style.height = b.dataset.${k}; b.firstChild.textContent = b.dataset.t${k}; })"`;
-const scores = [['A', 12], ['B', 18], ['C', 9], ['D', 3]];
-const dist = scores.map(([g, v]) => `<div class="bars__col"><span class="bars__bar" style="height: ${Math.round((v / 20) * 100)}%; background: var(--series-3);"><span class="bars__tip">${v} students</span></span><span class="bars__x">${g}</span></div>`).join('\n    ');
+const scores = [['Paripurna', 12], ['Utama', 18], ['Madya', 9], ['Dasar', 3]];
+const dist = scores.map(([g, v]) => `<div class="bars__col"><span class="bars__bar" style="height: ${Math.round((v / 20) * 100)}%; background: var(--series-3);"><span class="bars__tip">${v} puskesmas</span></span><span class="bars__x">${g}</span></div>`).join('\n    ');
 
 const grouped = {
-  label: 'Assignments per week by status, last 6 weeks. On time grew from 58 to 74; late stayed under 12.',
+  label: 'Citizen reports per week by status, last 6 weeks. On time grew from 58 to 74; late stayed under 12.',
   x: ['W41', 'W42', 'W43', 'W44', 'W45', 'W46'], xFull: ['Week of 5 Oct', 'Week of 12 Oct', 'Week of 19 Oct', 'Week of 26 Oct', 'Week of 2 Nov', 'Week of 9 Nov'], xName: 'Week', kind: 'bar',
-  series: [{ name: 'On time', values: [58, 61, 66, 63, 70, 74] }, { name: 'Late', values: [11, 9, 12, 8, 7, 6] }, { name: 'Missing', values: [6, 5, 4, 6, 3, 2], color: 'neutral' }],
+  series: [{ name: 'On time', values: [58, 61, 66, 63, 70, 74] }, { name: 'Late', values: [11, 9, 12, 8, 7, 6] }, { name: 'Not handled', values: [6, 5, 4, 6, 3, 2], color: 'neutral' }],
   height: 200,
 };
-const stackedBars = { ...grouped, label: 'Assignments per week, stacked by status. Totals between 75 and 82; the missing share keeps shrinking.', stacked: true, total: true };
+const stackedBars = { ...grouped, label: 'Citizen reports per week, stacked by status. Totals between 75 and 82; the unhandled share keeps shrinking.', stacked: true, total: true };
 const cash = {
   label: 'Money in and out per month, 2026. Every month but August ended positive.',
   x: ['Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov'], xFull: ['June', 'July', 'August', 'September', 'October', 'November'], xName: 'Month', kind: 'bar', stacked: true, total: true,
-  format: { prefix: '$', compact: true },
-  series: [{ name: 'Course sales', values: [18400, 21200, 15800, 24100, 26900, 28300], color: 3 }, { name: 'Costs', values: [-14200, -15100, -17300, -16800, -17900, -18600], color: 2 }],
+  format: { prefix: 'Rp ', suffix: ' M', compact: true },
+  series: [{ name: 'Market levies', values: [184, 212, 158, 241, 269, 283], color: 3 }, { name: 'Upkeep costs', values: [-142, -151, -173, -168, -179, -186], color: 2 }],
   height: 220,
 };
 
@@ -30,9 +30,9 @@ export default {
   title: 'Bar chart',
   group: 'Charts',
   order: 3,
-  summary: 'Vertical bars that compare one value across a few categories or periods (weekdays, grades, courses). Bars start at zero, the answer is highlighted, the rest recede.',
+  summary: 'Vertical bars that compare one value across a few categories or periods (weekdays, districts, service types). Bars start at zero, the answer is highlighted, the rest recede.',
   when: [
-    'Comparing a count or amount across 3 to 12 categories: submissions per weekday, students per grade, hours per course.',
+    'Comparing a count or amount across 3 to 12 categories: reports per weekday, visits per puskesmas, applications per permit type.',
     'Discrete periods where each bar is its own bucket (weeks, months) and the reader compares their sizes.',
   ],
   whenNot: [
@@ -58,8 +58,8 @@ export default {
       stage: 'block',
       replay: true,
       html: `<div class="chart-card" style="max-width: 520px;">
-  <div><div class="chart-card__q">Which days are busiest?</div><div class="chart-card__sub">Assignments submitted per weekday, this week</div></div>
-  <div class="bars" role="img" data-lds-grow aria-label="Submissions per weekday. Friday is busiest with 31.">
+  <div><div class="chart-card__q">Which days are busiest?</div><div class="chart-card__sub">Citizen reports received per weekday, this week</div></div>
+  <div class="bars" role="img" data-lds-grow aria-label="Citizen reports per weekday. Friday is busiest with 31 reports.">
     ${highlight}
   </div>
 </div>`,
@@ -70,7 +70,7 @@ export default {
       stage: 'block',
       html: `<div class="chart-card" style="max-width: 520px;">
   <div class="cluster" style="justify-content: space-between; align-items: flex-start;">
-    <div><div class="chart-card__q">Which days are busiest?</div><div class="chart-card__sub">Assignments submitted per weekday</div></div>
+    <div><div class="chart-card__q">Which days are busiest?</div><div class="chart-card__sub">Citizen reports received per weekday</div></div>
     <div class="seg" role="group" aria-label="Period" data-lds-segmented style="width: 200px;">
       <span class="seg__thumb"></span>
       <button class="seg__btn" aria-pressed="true" ${set('a')}>This week</button>
@@ -84,11 +84,11 @@ export default {
     },
     {
       title: 'Distribution',
-      desc: 'Students per final grade. One series, one color, no highlight when no single bar is the answer.',
+      desc: 'Puskesmas per accreditation level. One series, one color, no highlight when no single bar is the answer.',
       stage: 'block',
       html: `<div class="chart-card" style="max-width: 420px;">
-  <div><div class="chart-card__q">How are grades distributed?</div><div class="chart-card__sub">Final grades, Database Systems, class A</div></div>
-  <div class="bars" role="img" aria-label="Grades: A 12, B 18, C 9, D or lower 3 students">
+  <div><div class="chart-card__q">How are puskesmas accredited?</div><div class="chart-card__sub">Accreditation level, 42 puskesmas in three regencies</div></div>
+  <div class="bars" role="img" aria-label="Accreditation: Paripurna 12, Utama 18, Madya 9, Dasar 3 puskesmas">
     ${dist}
   </div>
 </div>`,
@@ -99,8 +99,8 @@ export default {
       stage: 'block',
       replay: true,
       html: `<div class="auto-grid" style="--min: 300px;">
-  <section class="chart-card" aria-labelledby="bc-g"><div><div class="chart-card__q" id="bc-g">Are more assignments on time?</div><div class="chart-card__sub">Assignments per week by status</div></div><div class="chart" data-lds-chart='${cfg(grouped)}'></div></section>
-  <section class="chart-card" aria-labelledby="bc-s"><div><div class="chart-card__q" id="bc-s">How do the weeks add up?</div><div class="chart-card__sub">Assignments per week, stacked by status</div></div><div class="chart" data-lds-chart='${cfg(stackedBars)}'></div></section>
+  <section class="chart-card" aria-labelledby="bc-g"><div><div class="chart-card__q" id="bc-g">Are more reports handled on time?</div><div class="chart-card__sub">Citizen reports per week by status</div></div><div class="chart" data-lds-chart='${cfg(grouped)}'></div></section>
+  <section class="chart-card" aria-labelledby="bc-s"><div><div class="chart-card__q" id="bc-s">How many reports each week?</div><div class="chart-card__sub">Citizen reports per week, stacked by status</div></div><div class="chart" data-lds-chart='${cfg(stackedBars)}'></div></section>
 </div>`,
     },
     {
@@ -108,7 +108,7 @@ export default {
       desc: 'Negative values stack below the zero line, so money in and money out share one scale. The tooltip adds them into the month\'s total.',
       stage: 'block',
       replay: true,
-      html: `<section class="chart-card" style="max-width: 640px;" aria-labelledby="bc-c"><div><div class="chart-card__q" id="bc-c">Did each month end positive?</div><div class="chart-card__sub">Money in and out per month, 2026</div></div><div class="chart" data-lds-chart='${cfg(cash)}'></div></section>`,
+      html: `<section class="chart-card" style="max-width: 640px;" aria-labelledby="bc-c"><div><div class="chart-card__q" id="bc-c">Did each month end positive?</div><div class="chart-card__sub">Market levies and upkeep costs per month, 2026</div></div><div class="chart" data-lds-chart='${cfg(cash)}'></div></section>`,
     },
   ],
   variants: [

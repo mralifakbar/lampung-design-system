@@ -8,8 +8,8 @@ const col = (d, v, muted, extra = '') => `<div class="bars__col"><span class="ba
 const highlight = days.map((d, i) => col(d, thisWeek[i], thisWeek[i] !== 31)).join('\n    ');
 const switchable = days.map((d, i) => col(d, thisWeek[i], false, ` data-a="${pct(thisWeek[i])}" data-ta="${thisWeek[i]} laporan" data-b="${pct(lastWeek[i])}" data-tb="${lastWeek[i]} laporan"`)).join('\n    ');
 const set = (k) => `onclick="this.closest('.chart-card').querySelectorAll('.bars__bar').forEach(b => { b.style.height = b.dataset.${k}; b.firstChild.textContent = b.dataset.t${k}; })"`;
-const scores = [['A', 12], ['B', 18], ['C', 9], ['D', 3]];
-const dist = scores.map(([g, v]) => `<div class="bars__col"><span class="bars__bar" style="height: ${Math.round((v / 20) * 100)}%; background: var(--series-3);"><span class="bars__tip">${v} sekolah</span></span><span class="bars__x">${g}</span></div>`).join('\n    ');
+const scores = [['Paripurna', 12], ['Utama', 18], ['Madya', 9], ['Dasar', 3]];
+const dist = scores.map(([g, v]) => `<div class="bars__col"><span class="bars__bar" style="height: ${Math.round((v / 20) * 100)}%; background: var(--series-3);"><span class="bars__tip">${v} puskesmas</span></span><span class="bars__x">${g}</span></div>`).join('\n    ');
 
 const grouped = {
   label: 'Laporan warga per minggu menurut status, 6 minggu terakhir. Tepat waktu naik dari 58 ke 74; terlambat tetap di bawah 12.',
@@ -78,10 +78,10 @@ export default {
     },
     {
       title: 'Sebaran',
-      desc: 'Jumlah sekolah per nilai akreditasi. Satu seri, satu warna, tanpa sorotan karena tidak ada satu batang yang menjadi jawaban.',
+      desc: 'Jumlah puskesmas per tingkat akreditasi. Satu seri, satu warna, tanpa sorotan karena tidak ada satu batang yang menjadi jawaban.',
       html: `<div class="chart-card" style="max-width: 420px;">
-  <div><div class="chart-card__q">Bagaimana sebaran akreditasi sekolah?</div><div class="chart-card__sub">Nilai akreditasi SD negeri, satu kecamatan</div></div>
-  <div class="bars" role="img" aria-label="Akreditasi: A 12, B 18, C 9, D atau di bawahnya 3 sekolah">
+  <div><div class="chart-card__q">Bagaimana sebaran akreditasi puskesmas?</div><div class="chart-card__sub">Tingkat akreditasi, 42 puskesmas di tiga kabupaten</div></div>
+  <div class="bars" role="img" aria-label="Akreditasi: Paripurna 12, Utama 18, Madya 9, Dasar 3 puskesmas">
     ${dist}
   </div>
 </div>`,
