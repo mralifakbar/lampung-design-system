@@ -5,7 +5,7 @@ Group: Data display. Docs page: `docs/components/data-table.html`.
 A table people work in: search, filter chips and menus, sortable headers, a column menu, row density, row selection with a selection bar, and pagination with a page size, all on a plain `.table` and wired by one hook. Every control changes the rows at once and says what it did.
 
 ## Use it when
-- A list of records people search, narrow, sort and act on in bulk: members of a workspace, customers, orders, invoices.
+- A list of records people search, narrow, sort and act on in bulk: staff of a service portal, applicants, permit applications, bills.
 - More than about 20 rows, so paging and a page size help, and enough columns that some people want fewer.
 
 ## Use something else when
@@ -34,7 +34,7 @@ Full width of the content column. The bar sits above the table (search first, fi
 
 ## Markup
 
-**Members of a workspace.** Search "fin", tick a status chip, filter by role from the menu (it stays open while you tick), sort by any header, hide a column, switch to compact rows, tick rows (Shift-click for a run) and page through. Every change filters at once; the count and the pager follow.
+**Staff of a service portal.** Search "fin", tick a status chip, filter by role from the menu (it stays open while you tick), sort by any header, hide a column, switch to compact rows, tick rows (Shift-click for a run) and page through. Every change filters at once; the count and the pager follow.
 ```html
 <div class="dtable" data-lds-table="demo-members" data-lds-selection="dt-bar" data-page-size="5" data-noun="members">
   <div class="dtable__bar">
@@ -59,7 +59,7 @@ Full width of the content column. The bar sits above the table (search first, fi
           <p class="menu__label">Show columns</p>
           <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="role">Role<span class="ic menu__check" aria-hidden="true">check</span></button>
           <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="status">Status<span class="ic menu__check" aria-hidden="true">check</span></button>
-          <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="team">Team<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="team">Division<span class="ic menu__check" aria-hidden="true">check</span></button>
           <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="joined">Joined<span class="ic menu__check" aria-hidden="true">check</span></button>
         </div>
       </div>
@@ -76,29 +76,29 @@ Full width of the content column. The bar sits above the table (search first, fi
         <th data-col="name"><button>Name<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
         <th data-col="role"><button>Role<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
         <th data-col="status">Status</th>
-        <th data-col="team"><button>Team<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+        <th data-col="team"><button>Division<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
         <th data-col="joined" aria-sort="descending"><button>Joined<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
       </tr></thead>
       <tbody>
       <tr data-status="active" data-role="admin">
         <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Rina Wijaya"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
-        <td data-sort="Rina Wijaya"><span class="dtable__user"><span class="avatar">RW</span><span><b>Rina Wijaya</b><small>rina@kelola.id</small></span></span></td>
+        <td data-sort="Rina Wijaya"><span class="dtable__user"><span class="avatar">RW</span><span><b>Rina Wijaya</b><small>rina@contoh.id</small></span></span></td>
         <td>Admin</td>
         <td><span class="badge badge--success">Active</span></td>
-        <td>Platform</td>
+        <td>Permits</td>
         <td data-sort="2024-06-24">24 Jun 2024</td>
       </tr>
       <tr data-status="active" data-role="editor">
         <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Arif Santoso"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
-        <td data-sort="Arif Santoso"><span class="dtable__user"><span class="avatar">AS</span><span><b>Arif Santoso</b><small>arif@kelola.id</small></span></span></td>
+        <td data-sort="Arif Santoso"><span class="dtable__user"><span class="avatar">AS</span><span><b>Arif Santoso</b><small>arif@contoh.id</small></span></span></td>
         <td>Editor</td>
         <td><span class="badge badge--success">Active</span></td>
-        <td>Growth</td>
+        <td>Complaints</td>
         <td data-sort="2023-03-15">15 Mar 2023</td>
       </tr>
       <tr data-status="invited" data-role="viewer">
         <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Dewi Lestari"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
-        <td data-sort="Dewi Lestari"><span class="dtable__user"><span class="avatar">DL</span><span><b>Dewi Lestari</b><small>dewi@kelola.id</small></span></span></td>
+        <td data-sort="Dewi Lestari"><span class="dtable__user"><span class="avatar">DL</span><span><b>Dewi Lestari</b><small>dewi@contoh.id</small></span></span></td>
         <td>Viewer</td>
         <td><span class="badge badge--accent">Invited</span></td>
         <td>Finance</td>
@@ -106,15 +106,15 @@ Full width of the content column. The bar sits above the table (search first, fi
       </tr>
       <tr data-status="suspended" data-role="editor">
         <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Bima Prasetyo"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
-        <td data-sort="Bima Prasetyo"><span class="dtable__user"><span class="avatar">BP</span><span><b>Bima Prasetyo</b><small>bima@kelola.id</small></span></span></td>
+        <td data-sort="Bima Prasetyo"><span class="dtable__user"><span class="avatar">BP</span><span><b>Bima Prasetyo</b><small>bima@contoh.id</small></span></span></td>
         <td>Editor</td>
         <td><span class="badge badge--danger">Suspended</span></td>
-        <td>Support</td>
+        <td>Services</td>
         <td data-sort="2022-04-10">10 Apr 2022</td>
       </tr>
       <tr data-status="active" data-role="admin">
         <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Sari Handayani"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
-        <td data-sort="Sari Handayani"><span class="dtable__user"><span class="avatar">SH</span><span><b>Sari Handayani</b><small>sari@kelola.id</small></span></span></td>
+        <td data-sort="Sari Handayani"><span class="dtable__user"><span class="avatar">SH</span><span><b>Sari Handayani</b><small>sari@contoh.id</small></span></span></td>
         <td>Admin</td>
         <td><span class="badge badge--success">Active</span></td>
         <td>Finance</td>
@@ -122,26 +122,26 @@ Full width of the content column. The bar sits above the table (search first, fi
       </tr>
       <tr data-status="active" data-role="viewer">
         <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Yusuf Hakim"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
-        <td data-sort="Yusuf Hakim"><span class="dtable__user"><span class="avatar">YH</span><span><b>Yusuf Hakim</b><small>yusuf@kelola.id</small></span></span></td>
+        <td data-sort="Yusuf Hakim"><span class="dtable__user"><span class="avatar">YH</span><span><b>Yusuf Hakim</b><small>yusuf@contoh.id</small></span></span></td>
         <td>Viewer</td>
         <td><span class="badge badge--success">Active</span></td>
-        <td>Support</td>
+        <td>Services</td>
         <td data-sort="2025-01-20">20 Jan 2025</td>
       </tr>
       <tr data-status="invited" data-role="editor">
         <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Nadia Putri"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
-        <td data-sort="Nadia Putri"><span class="dtable__user"><span class="avatar">NP</span><span><b>Nadia Putri</b><small>nadia@kelola.id</small></span></span></td>
+        <td data-sort="Nadia Putri"><span class="dtable__user"><span class="avatar">NP</span><span><b>Nadia Putri</b><small>nadia@contoh.id</small></span></span></td>
         <td>Editor</td>
         <td><span class="badge badge--accent">Invited</span></td>
-        <td>Growth</td>
+        <td>Complaints</td>
         <td data-sort="2026-11-14">14 Nov 2026</td>
       </tr>
       <tr data-status="active" data-role="viewer">
         <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Galih Ramadhan"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
-        <td data-sort="Galih Ramadhan"><span class="dtable__user"><span class="avatar">GR</span><span><b>Galih Ramadhan</b><small>galih@kelola.id</small></span></span></td>
+        <td data-sort="Galih Ramadhan"><span class="dtable__user"><span class="avatar">GR</span><span><b>Galih Ramadhan</b><small>galih@contoh.id</small></span></span></td>
         <td>Viewer</td>
         <td><span class="badge badge--success">Active</span></td>
-        <td>Platform</td>
+        <td>Permits</td>
         <td data-sort="2024-12-01">1 Dec 2024</td>
       </tr>
       <tr class="dtable__empty" hidden><td colspan="6"><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">filter_list</span></div><div class="empty__title">No members match</div><div class="empty__body">Try another name, or clear the search and filters.</div><button class="btn btn--secondary btn--md" data-lds-table-reset>Clear filters</button></div></td></tr>

@@ -7,7 +7,7 @@ A word changes in place and only the letters that differ move: kept letters slid
 ## Use it when
 - A button says what it is doing and what happened: Save draft, Saving, Saved.
 - A status changes in front of the person: Submitted, In review, Approved.
-- A short count in words changes: 3 seats left, 2 seats left, Class full.
+- A short count in words changes: 3 slots left, 2 slots left, Quota full.
 - A toast that changes its own text after Undo (Deleted, Restored); `toast()` already does this.
 
 ## Use something else when
@@ -45,10 +45,10 @@ Status: <span class="morph" data-lds-morph>Submitted</span>
 // on click: morphText(label, 'Saving'); await save(); morphText(label, 'Saved');
 ```
 
-**A count in words.** Reserve seats until the class is full. Only the digit changes until the sentence itself changes.
+**A count in words.** Take queue numbers until the quota runs out. Only the digit changes until the sentence itself changes.
 ```html
-<span class="badge badge--warning"><span class="morph" data-lds-morph id="tm-seats" aria-live="polite">3 seats left</span></span>
-<button class="btn btn--primary btn--md" onclick="const el = document.getElementById('tm-seats'); const n = Number(el.dataset.n || 3) - 1; if (n < 0) return; el.dataset.n = n; import('../../js/lds.js').then((m) => m.morphText(el, n === 0 ? 'Class full' : n === 1 ? '1 seat left' : n + ' seats left')); if (n === 0) this.disabled = true;">Reserve a seat</button>
+<span class="badge badge--warning"><span class="morph" data-lds-morph id="tm-seats" aria-live="polite">3 slots left</span></span>
+<button class="btn btn--primary btn--md" onclick="const el = document.getElementById('tm-seats'); const n = Number(el.dataset.n || 3) - 1; if (n < 0) return; el.dataset.n = n; import('../../js/lds.js').then((m) => m.morphText(el, n === 0 ? 'Quota full' : n === 1 ? '1 slot left' : n + ' slots left')); if (n === 0) this.disabled = true;">Take a queue number</button>
 ```
 
 ## Motion and microinteractions

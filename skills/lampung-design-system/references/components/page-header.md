@@ -5,8 +5,8 @@ Group: Navigation. Docs page: `docs/components/page-header.html`.
 The top of a page: breadcrumbs, the title with one line of context, and the page actions on the same baseline. A composition of existing parts, not a component of its own.
 
 ## Use it when
-- Every content page inside an app: a course, a student record, a report.
-- The page has actions that apply to the whole page (Share, New assignment) and they need a home.
+- Every content page inside an app: a service, an applicant record, a report.
+- The page has actions that apply to the whole page (Share, New application) and they need a home.
 
 ## Use something else when
 - A phone screen with a title that collapses into the bar on scroll: use [Phone bars](phone-bars.md). Use the nav bar with a large title.
@@ -24,31 +24,31 @@ The first thing in the content column of an [app shell](app-shell.md), above [ta
 | `nav > ol.crumbs` | Optional [breadcrumbs](breadcrumbs.md). |
 | `.cluster` | Required. The title row: title block and actions, spread apart and aligned to the bottom; wraps when narrow. |
 | `.section__head > h1` | Required. The page title at `--type-title-1` (28/34, 600) and `--tracking-title-1`. Set the type on the `<h1>`; the system has no page title class yet. |
-| `.section__sub` | One line of context under the title: code, credits, schedule, owner. |
+| `.section__sub` | One line of context under the title: code, processing time, schedule, owner. |
 | `.btn--md` | Page actions: one primary and one or two secondary, 36 px. |
 
 ## Markup
 
-**Course page.** Breadcrumbs, the title with its context, and two actions on the same baseline.
+**Service page.** Breadcrumbs, the title with its context, and two actions on the same baseline.
 ```html
 <header class="stack" style="--gap: 14px;">
   <nav aria-label="Breadcrumb">
     <ol class="crumbs">
-      <li><a href="#ph">Academics</a></li>
+      <li><a href="#ph">Services</a></li>
       <li><span class="ic" aria-hidden="true">chevron_right</span></li>
-      <li><a href="#ph">Courses</a></li>
+      <li><a href="#ph">Permits</a></li>
       <li><span class="ic" aria-hidden="true">chevron_right</span></li>
-      <li><span aria-current="page">Database Systems</span></li>
+      <li><span aria-current="page">Micro business permit</span></li>
     </ol>
   </nav>
   <div class="cluster" style="justify-content: space-between; align-items: flex-end; --gap: 16px;">
     <div class="section__head">
-      <h1 style="margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);">Database Systems</h1>
-      <p class="section__sub">CS 2104 · 3 credits · Mon and Thu, 08:00</p>
+      <h1 style="margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);">Micro business permit</h1>
+      <p class="section__sub">IUM 2104 · done in 3 working days · Mon to Thu, 08:00</p>
     </div>
     <div class="cluster">
       <button class="btn btn--secondary btn--md"><span class="ic" aria-hidden="true">ios_share</span>Share</button>
-      <button class="btn btn--primary btn--md"><span class="ic" aria-hidden="true">add</span>New assignment</button>
+      <button class="btn btn--primary btn--md"><span class="ic" aria-hidden="true">add</span>New application</button>
     </div>
   </div>
 </header>
@@ -60,17 +60,17 @@ The first thing in the content column of an [app shell](app-shell.md), above [ta
   <div class="cluster" style="justify-content: space-between; align-items: flex-end; --gap: 16px;">
     <div class="section__head">
       <h1 style="margin: 0; font: var(--type-title-1); letter-spacing: var(--tracking-title-1); color: var(--text-strong);">Rina Wijaya</h1>
-      <p class="section__sub">Student 2023-0418 · Computer Science · Year 2</p>
+      <p class="section__sub">Applicant 2023-0418 · Kedaton district · 2 open applications</p>
     </div>
     <div class="cluster">
       <button class="btn btn--secondary btn--md"><span class="ic" aria-hidden="true">mail</span>Send message</button>
       <button class="icon-btn" aria-label="More actions"><span class="ic" aria-hidden="true">more_horiz</span></button>
     </div>
   </div>
-  <div class="tabs tabs--start" role="tablist" aria-label="Student record">
+  <div class="tabs tabs--start" role="tablist" aria-label="Applicant record">
     <button class="tabs__btn" role="tab" aria-selected="true">Profile</button>
-    <button class="tabs__btn" role="tab" aria-selected="false" tabindex="-1">Grades</button>
-    <button class="tabs__btn" role="tab" aria-selected="false" tabindex="-1">Attendance</button>
+    <button class="tabs__btn" role="tab" aria-selected="false" tabindex="-1">Applications</button>
+    <button class="tabs__btn" role="tab" aria-selected="false" tabindex="-1">History</button>
   </div>
 </header>
 ```

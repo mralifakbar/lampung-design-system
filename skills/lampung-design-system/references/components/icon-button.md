@@ -44,8 +44,8 @@ Top right of cards, dialogs and sheets (close, more); at both ends of the phone 
 ```html
 <div class="card" style="width: 340px;">
   <div class="cluster" style="justify-content: space-between; flex-wrap: nowrap;">
-    <div><div class="card__title">Lab report 3</div><div class="card__sub">Computer Networks · due tomorrow</div></div>
-    <span class="tip-host" style="margin: -10px -10px 0 0;"><button class="icon-btn" aria-label="More options for Lab report 3"><span class="ic" aria-hidden="true">more_vert</span></button><span class="tip" role="tooltip">More options</span></span>
+    <div><div class="card__title">Micro business permit</div><div class="card__sub">UMKM Sukarame · 1 document missing</div></div>
+    <span class="tip-host" style="margin: -10px -10px 0 0;"><button class="icon-btn" aria-label="More options for Micro business permit"><span class="ic" aria-hidden="true">more_vert</span></button><span class="tip" role="tooltip">More options</span></span>
   </div>
 </div>
 ```

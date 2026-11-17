@@ -33,19 +33,19 @@ On the direct children of the list that arrived: `.lrow` rows, `.card`s and `.kp
 **Notifications that came in together.** Opening the panel after a morning away: three new notifications arrive in order, newest first.
 ```html
 <div class="list" style="width: 100%; max-width: 440px;">
-  <div class="lrow" style="animation: lds-blur-in var(--d-standard) var(--ease-enter) both; animation-delay: 0ms;"><span class="avatar" style="--size: 36px;">AP</span><span class="lrow__body"><span class="lrow__title">Ana Putri commented on your lab report</span><span class="lrow__sub">2 minutes ago</span></span></div>
-  <div class="lrow" style="animation: lds-blur-in var(--d-standard) var(--ease-enter) both; animation-delay: 35ms;"><span class="avatar avatar--gray" style="--size: 36px;">RS</span><span class="lrow__body"><span class="lrow__title">Rizal Siregar shared Week 6 notes</span><span class="lrow__sub">40 minutes ago</span></span></div>
-  <div class="lrow" style="animation: lds-blur-in var(--d-standard) var(--ease-enter) both; animation-delay: 70ms;"><span class="avatar avatar--gray" style="--size: 36px;">BK</span><span class="lrow__body"><span class="lrow__title">Grades for Quiz 3 are published</span><span class="lrow__sub">1 hour ago</span></span></div>
+  <div class="lrow" style="animation: lds-blur-in var(--d-standard) var(--ease-enter) both; animation-delay: 0ms;"><span class="avatar" style="--size: 36px;">AP</span><span class="lrow__body"><span class="lrow__title">Ana Putri responded to your report</span><span class="lrow__sub">2 minutes ago</span></span></div>
+  <div class="lrow" style="animation: lds-blur-in var(--d-standard) var(--ease-enter) both; animation-delay: 35ms;"><span class="avatar avatar--gray" style="--size: 36px;">RS</span><span class="lrow__body"><span class="lrow__title">Rizal Siregar updated the road repair status</span><span class="lrow__sub">40 minutes ago</span></span></div>
+  <div class="lrow" style="animation: lds-blur-in var(--d-standard) var(--ease-enter) both; animation-delay: 70ms;"><span class="avatar avatar--gray" style="--size: 36px;">BK</span><span class="lrow__body"><span class="lrow__title">This year's PBB bill is out</span><span class="lrow__sub">1 hour ago</span></span></div>
 </div>
 ```
 
 **Dashboard cards on first load.** KPI cards arrive left to right in reading order. Do this on the first load of a session only; coming back to the page shows them at once.
 ```html
 <div class="auto-grid" style="--min: 150px; width: 100%;">
-  <article class="kpi" style="animation: lds-blur-in var(--d-standard) var(--ease-enter) both; animation-delay: 0ms;"><div class="kpi__head"><span class="kpi__label">Classes today</span></div><div class="kpi__value">3</div></article>
-  <article class="kpi" style="animation: lds-blur-in var(--d-standard) var(--ease-enter) both; animation-delay: 35ms;"><div class="kpi__head"><span class="kpi__label">Due this week</span></div><div class="kpi__value">4</div></article>
-  <article class="kpi" style="animation: lds-blur-in var(--d-standard) var(--ease-enter) both; animation-delay: 70ms;"><div class="kpi__head"><span class="kpi__label">Average grade</span></div><div class="kpi__value">3.62</div></article>
-  <article class="kpi" style="animation: lds-blur-in var(--d-standard) var(--ease-enter) both; animation-delay: 105ms;"><div class="kpi__head"><span class="kpi__label">Absences</span></div><div class="kpi__value">1</div></article>
+  <article class="kpi" style="animation: lds-blur-in var(--d-standard) var(--ease-enter) both; animation-delay: 0ms;"><div class="kpi__head"><span class="kpi__label">Reports today</span></div><div class="kpi__value">128</div></article>
+  <article class="kpi" style="animation: lds-blur-in var(--d-standard) var(--ease-enter) both; animation-delay: 35ms;"><div class="kpi__head"><span class="kpi__label">Awaiting follow-up</span></div><div class="kpi__value">24</div></article>
+  <article class="kpi" style="animation: lds-blur-in var(--d-standard) var(--ease-enter) both; animation-delay: 70ms;"><div class="kpi__head"><span class="kpi__label">Average response time</span></div><div class="kpi__value">2.4 days</div></article>
+  <article class="kpi" style="animation: lds-blur-in var(--d-standard) var(--ease-enter) both; animation-delay: 105ms;"><div class="kpi__head"><span class="kpi__label">Resolved this week</span></div><div class="kpi__value">96</div></article>
 </div>
 ```
 

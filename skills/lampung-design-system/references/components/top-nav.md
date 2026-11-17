@@ -6,10 +6,10 @@ A translucent bar across the top of a site without a sidebar: brand, up to five 
 
 ## Use it when
 - A marketing, landing or content site with five or fewer top-level pages and no need for a sidebar.
-- A public part of a product (pricing, docs home, sign in) that sits in front of an app shell.
+- A public part of a service (fees, guide home, sign in) that sits in front of an app shell.
 
 ## Use something else when
-- An app with many destinations, groups or nested lessons: use [App shell](app-shell.md).
+- An app with many destinations, groups or nested sections: use [App shell](app-shell.md).
 - A phone app with three to five destinations people switch between all day: use [Phone bars](phone-bars.md). The tab bar sits under the thumb; a folded top menu does not.
 - Sibling sections of one record or page: use [Tabs](tabs.md).
 - File, Edit, View style command menus in an editor: use [Menubar](menubar.md).
@@ -32,15 +32,15 @@ The first element in `<body>`, sticky to the top of the viewport, full width. 60
 **Site header.** Brand, four links and one call to action. Below 760 px the links fold behind the menu button; pick one or press Escape to close it. Boxed for the demo; in a page it is sticky to the viewport.
 ```html
 <header class="topnav" data-lds-topnav>
-  <a class="topnav__brand" href="/">Exam prep</a>
+  <a class="topnav__brand" href="/">Layanan Warga</a>
   <nav class="topnav__links" id="site-links" aria-label="Main">
-    <a class="topnav__link" href="/courses" aria-current="page">Courses</a>
-    <a class="topnav__link" href="/tryouts">Tryouts</a>
-    <a class="topnav__link" href="/pricing">Pricing</a>
+    <a class="topnav__link" href="/services" aria-current="page">Services</a>
+    <a class="topnav__link" href="/complaints">Complaints</a>
+    <a class="topnav__link" href="/fees">Fees</a>
   </nav>
   <div class="topnav__actions">
     <a class="btn btn--plain btn--md" href="/sign-in">Sign in</a>
-    <a class="btn btn--primary btn--md" href="/start">Start free</a>
+    <a class="btn btn--primary btn--md" href="/apply">Apply now</a>
     <button class="icon-btn topnav__toggle" data-lds-topnav-toggle aria-controls="site-links" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
   </div>
 </header>
@@ -50,17 +50,17 @@ The first element in `<body>`, sticky to the top of the viewport, full width. 60
 ```html
 <div style="height: 260px; overflow: hidden; position: relative;">
   <header class="topnav" data-lds-topnav>
-    <a class="topnav__brand" href="#tn2-body">Teacher guide</a>
+    <a class="topnav__brand" href="#tn2-body">Officer guide</a>
     <nav class="topnav__links" id="tn2-links" aria-label="Guide">
       <a class="topnav__link" href="#tn2-body">Start here</a>
-      <a class="topnav__link" href="#tn2-body" aria-current="page">Grading</a>
+      <a class="topnav__link" href="#tn2-body" aria-current="page">Verification</a>
       <a class="topnav__link" href="#tn2-body">Reports</a>
     </nav>
     <div class="topnav__actions">
       <button class="icon-btn topnav__toggle" data-lds-topnav-toggle aria-controls="tn2-links" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
     </div>
   </header>
-  <div class="stack" id="tn2-body" style="padding: 32px 20px;"><p class="section__sub">Grading: how scores are weighted and when students see them.</p></div>
+  <div class="stack" id="tn2-body" style="padding: 32px 20px;"><p class="section__sub">Verification: how documents are checked and when applicants see the result.</p></div>
 </div>
 ```
 

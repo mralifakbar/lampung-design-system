@@ -34,14 +34,14 @@ On individual figure-like elements: `.stat-row__item`, `.thumb`, `.chart-card`, 
 </script>
 ```
 
-**Pictures further down a guide.** Photos in a long campus guide fade up as they arrive; the text around them is already there.
+**Pictures further down a guide.** Photos in a long service guide fade up as they arrive; the text around them is already there.
 ```html
 <div class="docs-scroll" style="height: 300px;">
   <div class="prose">
-    <h3>Your first week on campus</h3>
-    <p>Pick up your student card at the service desk in the main hall. Bring your ID card and the acceptance letter.</p>
-    <p>The library opens at 07:30 on weekdays. The quiet floor is the third one; group rooms can be booked a week ahead.</p>
-    <p>Lunch is served from 11:00 to 14:00 in the canteen next to building C.</p>
+    <h3>Getting a business permit at the public service mall</h3>
+    <p>Take a queue number from the machine by the entrance. Bring your KTP, family card and a photo of the business.</p>
+    <p>Counters open at 07:30 on working days. The waiting room is on the second floor; consultations can be booked a week ahead.</p>
+    <p>Levy payments are taken from 08:00 to 14:00 at the counter next to building C.</p>
   </div>
   <div class="auto-grid" style="--min: 140px; margin-top: 24px;">
     <div class="thumb" data-lds-reveal style="--i: 0"></div>

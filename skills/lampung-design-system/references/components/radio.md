@@ -5,7 +5,7 @@ Group: Selection. Docs page: `docs/components/radio.html`.
 Native radio buttons for exactly one choice out of two to five options that should all be visible. The dot springs in; arrow keys move between options.
 
 ## Use it when
-- One answer from a short list where seeing every option helps: delivery method, exam session, answer options in a question.
+- One answer from a short list where seeing every option helps: delivery method, service session, answers in a satisfaction survey.
 - Options are mutually exclusive and need a word or a line of explanation each.
 
 ## Use something else when
@@ -34,20 +34,20 @@ In a [form](form-layout.md), stacked in a column 12 px apart inside a `<fieldset
 ```html
 <fieldset class="stack" style="border: 0;">
   <legend class="field__label" style="margin-bottom: 12px;">Where should we send your results?</legend>
-  <label class="check"><input type="radio" name="rd-del" checked><span class="radio__dot" aria-hidden="true"></span><span class="check__text">Email<small>siti@campus.ac.id</small></span></label>
+  <label class="check"><input type="radio" name="rd-del" checked><span class="radio__dot" aria-hidden="true"></span><span class="check__text">Email<small>siti@contoh.id</small></span></label>
   <label class="check"><input type="radio" name="rd-del"><span class="radio__dot" aria-hidden="true"></span><span class="check__text">Push notification<small>On the phone you signed in with</small></span></label>
   <label class="check"><input type="radio" name="rd-del"><span class="radio__dot" aria-hidden="true"></span><span class="check__text">Both</span></label>
 </fieldset>
 ```
 
-**Answer options in a question.** Exam answers are radios: one answer, all visible, keyboard friendly. A disabled option stays readable.
+**Service session.** Session slots are radios: one answer, all visible, keyboard friendly. A full session is disabled and stays readable.
 ```html
 <fieldset class="stack" style="border: 0; max-width: 520px;">
-  <legend class="field__label" style="margin-bottom: 12px;">Which number continues the series 2, 6, 12, 20, …?</legend>
-  <label class="check"><input type="radio" name="rd-q"><span class="radio__dot" aria-hidden="true"></span><span class="check__text">A. 26</span></label>
-  <label class="check"><input type="radio" name="rd-q"><span class="radio__dot" aria-hidden="true"></span><span class="check__text">B. 28</span></label>
-  <label class="check"><input type="radio" name="rd-q" checked><span class="radio__dot" aria-hidden="true"></span><span class="check__text">C. 30</span></label>
-  <label class="check"><input type="radio" name="rd-q" disabled><span class="radio__dot" aria-hidden="true"></span><span class="check__text">D. 32</span></label>
+  <legend class="field__label" style="margin-bottom: 12px;">Which session for e-KTP recording at Kedaton district office?</legend>
+  <label class="check"><input type="radio" name="rd-q"><span class="radio__dot" aria-hidden="true"></span><span class="check__text">Monday, 08:00</span></label>
+  <label class="check"><input type="radio" name="rd-q"><span class="radio__dot" aria-hidden="true"></span><span class="check__text">Monday, 10:00</span></label>
+  <label class="check"><input type="radio" name="rd-q" checked><span class="radio__dot" aria-hidden="true"></span><span class="check__text">Tuesday, 08:00</span></label>
+  <label class="check"><input type="radio" name="rd-q" disabled><span class="radio__dot" aria-hidden="true"></span><span class="check__text">Tuesday, 10:00<small>Full</small></span></label>
 </fieldset>
 ```
 

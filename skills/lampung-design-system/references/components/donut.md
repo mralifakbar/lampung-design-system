@@ -5,7 +5,7 @@ Group: Charts. Docs page: `docs/components/donut.html`.
 A ring split into up to four segments that show parts of one whole, with the total in the middle and a labelled list beside it. The list carries the numbers; the ring shows proportion at a glance.
 
 ## Use it when
-- Two to four parts of one whole where the reader cares about the rough split: students per grade, time per activity.
+- Two to four parts of one whole where the reader cares about the rough split: food stalls per hygiene grade, budget per line item.
 - A dashboard tile where the total matters as much as the split (the total sits in the hole).
 
 ## Use something else when
@@ -35,38 +35,38 @@ In a `.chart-card`, ring on the left (168 px) and the list on the right; on phon
 **Drawn from data, with a legend list.** The ring, the total and a legend with each value and share come from one config. Point at a segment or a legend row: both come forward. Switch months: segments move to their new sizes from where they are. Segments sweep in on first view.
 ```html
 <section class="chart-card" style="max-width: 520px;" aria-labelledby="dn-q">
-  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="dn-q">Where do sign-ups come from?</div><div class="chart-card__sub">New accounts by source</div></div>
+  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="dn-q">Where do new service portal accounts come from?</div><div class="chart-card__sub">New accounts by source</div></div>
     <div class="chart-card__actions"><div class="seg chart-card__range" role="group" aria-label="Month" data-lds-segmented data-lds-chart-for="dn-src" style="width: 200px;"><span class="seg__thumb"></span><button type="button" class="seg__btn" aria-pressed="true" data-set="nov">November</button><button type="button" class="seg__btn" aria-pressed="false" data-set="oct">October</button></div></div>
   </div>
-  <div id="dn-src" data-lds-chart='{"type":"donut","label":"Where 1,284 sign-ups came from this month: search 42%, newsletter 26%, partner schools 19%, other 13%.","unit":"sign-ups","center":"1,284","segments":[{"name":"Search","value":540},{"name":"Newsletter","value":334},{"name":"Partner schools","value":244},{"name":"Other","value":166,"color":"neutral"}],"sets":{"nov":{"center":"1,284","label":"November sign-ups by source.","segments":[{"name":"Search","value":540},{"name":"Newsletter","value":334},{"name":"Partner schools","value":244},{"name":"Other","value":166,"color":"neutral"}]},"oct":{"center":"1,106","label":"October sign-ups by source.","segments":[{"name":"Search","value":402},{"name":"Newsletter","value":361},{"name":"Partner schools","value":198},{"name":"Other","value":145,"color":"neutral"}]}}}'></div>
+  <div id="dn-src" data-lds-chart='{"type":"donut","label":"Where 1,284 new service portal accounts came from this month: search 42%, email bulletin 26%, kelurahan counters 19%, other 13%.","unit":"new accounts","center":"1,284","segments":[{"name":"Search","value":540},{"name":"Email bulletin","value":334},{"name":"Kelurahan counters","value":244},{"name":"Other","value":166,"color":"neutral"}],"sets":{"nov":{"center":"1,284","label":"November new accounts by source.","segments":[{"name":"Search","value":540},{"name":"Email bulletin","value":334},{"name":"Kelurahan counters","value":244},{"name":"Other","value":166,"color":"neutral"}]},"oct":{"center":"1,106","label":"October new accounts by source.","segments":[{"name":"Search","value":402},{"name":"Email bulletin","value":361},{"name":"Kelurahan counters","value":198},{"name":"Other","value":145,"color":"neutral"}]}}}'></div>
 </section>
 ```
 
 **Thin ring in a small card.** `thin: true` draws a 10 px ring; `size` makes it smaller. Under about 400 px the legend wraps under the ring.
 ```html
-<section class="chart-card" style="max-width: 440px;" aria-labelledby="dn-b"><div><div class="chart-card__q" id="dn-b">Where does the budget go?</div><div class="chart-card__sub">Planned spending, November</div></div><div data-lds-chart='{"type":"donut","label":"Monthly budget of $3,200: rent 45%, food 22%, transport 12%, the rest 21%.","unit":"this month","center":"$3,200","thin":true,"size":148,"format":{"prefix":"$"},"segments":[{"name":"Rent","value":1440},{"name":"Food","value":704},{"name":"Transport","value":384},{"name":"Everything else","value":672,"color":"neutral"}]}'></div></section>
+<section class="chart-card" style="max-width: 440px;" aria-labelledby="dn-b"><div><div class="chart-card__q" id="dn-b">Where does the posyandu budget go?</div><div class="chart-card__sub">Planned spending, November</div></div><div data-lds-chart='{"type":"donut","label":"Monthly posyandu budget of Rp 3.2 million: cadre stipends 45%, supplementary food 22%, transport 12%, the rest 21%.","unit":"this month","center":"Rp 3.2 m","thin":true,"size":148,"format":{"prefix":"Rp ","suffix":"k"},"segments":[{"name":"Cadre stipends","value":1440},{"name":"Supplementary food","value":704},{"name":"Transport","value":384},{"name":"Everything else","value":672,"color":"neutral"}]}'></div></section>
 ```
 
-**Grades by class.** Switch classes: segments move to their new sizes over 480 ms on the in-out curve.
+**Hygiene grades by area.** Switch areas: segments move to their new sizes over 480 ms on the in-out curve.
 ```html
 <div class="chart-card" style="max-width: 520px;">
   <div class="cluster" style="justify-content: space-between; align-items: flex-start;">
-    <div><div class="chart-card__q">How are grades distributed?</div><div class="chart-card__sub">Final grades, Database Systems</div></div>
-    <div class="seg" role="group" aria-label="Class" data-lds-segmented style="width: 180px;">
+    <div><div class="chart-card__q">How are hygiene grades distributed?</div><div class="chart-card__sub">Food stall inspections, third quarter</div></div>
+    <div class="seg" role="group" aria-label="Area" data-lds-segmented style="width: 180px;">
       <span class="seg__thumb"></span>
-      <button class="seg__btn" aria-pressed="true" onclick="const c = this.closest('.chart-card'); c.querySelectorAll('circle').forEach(e => { const [d, o] = e.dataset.a.split('|'); e.style.strokeDasharray = d; e.style.strokeDashoffset = o; }); c.querySelectorAll('b[data-a]').forEach(e => e.textContent = e.dataset.a); c.querySelector('[data-total]').textContent = '42';">Class A</button>
-      <button class="seg__btn" aria-pressed="false" onclick="const c = this.closest('.chart-card'); c.querySelectorAll('circle').forEach(e => { const [d, o] = e.dataset.b.split('|'); e.style.strokeDasharray = d; e.style.strokeDashoffset = o; }); c.querySelectorAll('b[data-b]').forEach(e => e.textContent = e.dataset.b); c.querySelector('[data-total]').textContent = '42';">Class B</button>
+      <button class="seg__btn" aria-pressed="true" onclick="const c = this.closest('.chart-card'); c.querySelectorAll('circle').forEach(e => { const [d, o] = e.dataset.a.split('|'); e.style.strokeDasharray = d; e.style.strokeDashoffset = o; }); c.querySelectorAll('b[data-a]').forEach(e => e.textContent = e.dataset.a); c.querySelector('[data-total]').textContent = '42';">Area 1</button>
+      <button class="seg__btn" aria-pressed="false" onclick="const c = this.closest('.chart-card'); c.querySelectorAll('circle').forEach(e => { const [d, o] = e.dataset.b.split('|'); e.style.strokeDasharray = d; e.style.strokeDashoffset = o; }); c.querySelectorAll('b[data-b]').forEach(e => e.textContent = e.dataset.b); c.querySelector('[data-total]').textContent = '42';">Area 2</button>
     </div>
   </div>
   <div class="cluster" style="--gap: 28px;">
     <div style="position: relative; width: 168px; height: 168px; flex: none;">
-      <svg class="donut" viewBox="0 0 168 168" style="width: 168px; height: 168px; transform: rotate(-90deg);" role="img" aria-label="Grades: A 12, B 18, C 9, D or lower 3 of 42 students">
+      <svg class="donut" viewBox="0 0 168 168" style="width: 168px; height: 168px; transform: rotate(-90deg);" role="img" aria-label="Hygiene grades: A 12, B 18, C 9, D or lower 3 of 42 food stalls">
       <circle cx="84" cy="84" r="64" style="stroke: var(--series-1); stroke-dasharray: 112.89 289.23; stroke-dashoffset: 0.00;" data-a="112.89 289.23|0.00" data-b="74.60 327.53|0.00"></circle>
       <circle cx="84" cy="84" r="64" style="stroke: var(--series-2); stroke-dasharray: 170.34 231.79; stroke-dashoffset: -114.89;" data-a="170.34 231.79|-114.89" data-b="151.19 250.93|-76.60"></circle>
       <circle cx="84" cy="84" r="64" style="stroke: var(--series-3); stroke-dasharray: 84.17 317.95; stroke-dashoffset: -287.23;" data-a="84.17 317.95|-287.23" data-b="122.47 279.66|-229.79"></circle>
       <circle cx="84" cy="84" r="64" style="stroke: var(--series-4); stroke-dasharray: 26.72 375.40; stroke-dashoffset: -373.40;" data-a="26.72 375.40|-373.40" data-b="45.87 356.25|-354.25"></circle>
       </svg>
-      <div class="center" style="position: absolute; inset: 0;"><div><div style="font: var(--type-title-2); color: var(--text-strong); font-variant-numeric: tabular-nums;" data-total>42</div><div style="font: var(--type-footnote); color: var(--text-subtle);">students</div></div></div>
+      <div class="center" style="position: absolute; inset: 0;"><div><div style="font: var(--type-title-2); color: var(--text-strong); font-variant-numeric: tabular-nums;" data-total>42</div><div style="font: var(--type-footnote); color: var(--text-subtle);">food stalls</div></div></div>
     </div>
     <div class="stack" style="--gap: 10px; flex: 1; min-width: 160px;">
       <div class="cluster" style="flex-wrap: nowrap; --gap: 10px; font: var(--type-subhead); color: var(--text-default);"><span style="width: 10px; height: 10px; border-radius: 3px; flex: none; background: var(--series-1);"></span><span style="flex: 1;">A</span><b style="font-weight: 500; color: var(--text-strong); font-variant-numeric: tabular-nums;" data-a="12" data-b="8">12</b></div>
@@ -106,7 +106,7 @@ In a `.chart-card`, ring on the left (168 px) and the list on the right; on phon
 - Use a full pie or 3D.
 
 ## Behavior (plain HTML)
-`data-lds-chart='{ "type": "donut", "segments": [{ "name": "Search", "value": 540 }], "center": "1,284", "unit": "sign-ups", "label": "…" }'` or `drawChart(el, config)`; calling it again with the same number of parts moves the segments. `data-lds-chart-for` on a range control switches `sets`. Hand-written `.donut-chart` markup gets the linked hover from `init()`.
+`data-lds-chart='{ "type": "donut", "segments": [{ "name": "Search", "value": 540 }], "center": "1,284", "unit": "new accounts", "label": "…" }'` or `drawChart(el, config)`; calling it again with the same number of parts moves the segments. `data-lds-chart-for` on a range control switches `sets`. Hand-written `.donut-chart` markup gets the linked hover from `init()`.
 
 ## Related
 [Percentage bar](percentage-bar.md) · [Gauge](gauge.md) · [Bar chart](bar-chart.md) · [Chart principles](chart-principles.md)

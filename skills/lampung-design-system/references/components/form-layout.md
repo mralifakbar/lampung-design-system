@@ -5,7 +5,7 @@ Group: Foundations. Docs page: `docs/components/form-layout.html`.
 The frame every form uses: `form` stacks fields 20 px apart, `form__row` puts short fields side by side when there is room, and `form__actions` ends the form with its buttons. Fields inside are always `.field`.
 
 ## Use it when
-- Any form with more than one field: sign up, profile, checkout, a course settings page, the body of a dialog or sheet.
+- Any form with more than one field: registration, profile, payment, a service settings page, the body of a dialog or sheet.
 - Two or three short fields belong together on one line on wide screens (first and last name, city and postal code, start and end date) and must stack on phones.
 - A form needs its buttons at the end, primary on the right on wide screens and full width on top on phones.
 
@@ -46,12 +46,12 @@ Inside the page content column (cap it with `measure` or a max width around 560 
   <div class="field">
       <label class="field__label" for="pf-email">Email</label>
       <div class="control"><input id="pf-email" type="email" value="rina.kusuma@example.com" aria-describedby="pf-email-help"></div>
-      <span class="field__help" id="pf-email-help">Grades and receipts go here.</span>
+      <span class="field__help" id="pf-email-help">Application receipts and payment slips go here.</span>
     </div>
   <div class="field">
-      <label class="field__label" for="pf-phone">Phone <span>Optional</span></label>
+      <label class="field__label" for="pf-phone">Mobile number <span>Optional</span></label>
       <div class="control"><input id="pf-phone" type="tel" value="" aria-describedby="pf-phone-help"></div>
-      <span class="field__help" id="pf-phone-help">Only for exam day reminders.</span>
+      <span class="field__help" id="pf-phone-help">Only for service appointment reminders.</span>
     </div>
   <div class="form__actions">
     <button type="button" class="btn btn--secondary">Cancel</button>
@@ -64,8 +64,8 @@ Inside the page content column (cap it with `measure` or a max width around 560 
 ```html
 <form class="form" style="max-width: 560px;" onsubmit="event.preventDefault()">
   <div class="field">
-      <label class="field__label" for="ex-name">Exam name</label>
-      <div class="control"><input id="ex-name" type="text" value="Midterm, Database Systems"></div>
+      <label class="field__label" for="ex-name">Activity name</label>
+      <div class="control"><input id="ex-name" type="text" value="Child immunization, Puskesmas Kedaton"></div>
     </div>
   <div class="form__row">
     <div class="field">
@@ -78,13 +78,13 @@ Inside the page content column (cap it with `measure` or a max width around 560 
     </div>
   </div>
   <fieldset class="stack" style="--gap: 12px; border: 0;">
-    <legend class="field__label" style="margin-bottom: 12px;">Notify students</legend>
+    <legend class="field__label" style="margin-bottom: 12px;">Remind residents</legend>
     <label class="check"><input type="checkbox" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">One week before</span></label>
     <label class="check"><input type="checkbox" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">The evening before</span></label>
   </fieldset>
   <div class="form__actions">
     <button type="button" class="btn btn--plain">Save as draft</button>
-    <button type="submit" class="btn btn--primary">Schedule exam</button>
+    <button type="submit" class="btn btn--primary">Schedule activity</button>
   </div>
 </form>
 ```
@@ -93,9 +93,9 @@ Inside the page content column (cap it with `measure` or a max width around 560 
 ```html
 <form class="form">
   <div class="field">
-    <label class="field__label" for="sn">Student number</label>
+    <label class="field__label" for="sn">NIK</label>
     <div class="control is-invalid"><input id="sn" inputmode="numeric" aria-invalid="true" aria-describedby="sn-help"></div>
-    <span class="field__help field__help--error" id="sn-help"><span class="ic" aria-hidden="true">error</span>Enter the 10 digit student number on your card.</span>
+    <span class="field__help field__help--error" id="sn-help"><span class="ic" aria-hidden="true">error</span>Enter the 16 digit NIK shown on your KTP.</span>
   </div>
   <div class="form__actions">
     <button type="submit" class="btn btn--primary">Link my account</button>
@@ -125,7 +125,7 @@ Inside the page content column (cap it with `measure` or a max width around 560 
 ## Do
 - Cap single-column forms near 560 px; long inputs across a wide screen are hard to scan.
 - Pair only short, related fields in a `form__row`; keep one idea per row.
-- Name the primary for its outcome ("Save profile", "Schedule exam").
+- Name the primary for its outcome ("Save profile", "Schedule activity").
 
 ## Don't
 - Lay out fields with `auto-grid` or hand-written flex; error lines and labels stop lining up.

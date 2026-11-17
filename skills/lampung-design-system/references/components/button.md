@@ -13,7 +13,7 @@ The control people press to make something happen: save, send, start, delete. On
 - The control only shows an icon: use [Icon button](icon-button.md).
 - Turning a setting on or off that applies at once: use [Switch](switch.md).
 - Picking one view of the same content: use [Segmented control](segmented-control.md).
-- A costly but not dangerous confirm (submit an exam, send payment): use [Hold to confirm](hold-to-confirm.md).
+- A costly but not dangerous confirm (submit an application, send payment): use [Hold to confirm](hold-to-confirm.md).
 
 ## Where it goes
 At the end of the thing it acts on: under a form (`form__actions`), at the bottom of a dialog (`dialog__actions`), in a card footer, or in a sticky bar on phones. The primary sits on the right on wide screens and on top (full width) on phones.
@@ -44,8 +44,8 @@ At the end of the thing it acts on: under a form (`form__actions`), at the botto
 **Sizes and icons.** 52 for the one big call to action on a landing page, 44 by default, 36 in toolbars and dense rows, 28 inside rows and chips. Small sizes keep a 44 px hit area through the space around them.
 ```html
 <div class="docs-row">
-  <button class="btn btn--primary btn--lg"><span class="ic" aria-hidden="true">play_arrow</span>Start the tryout</button>
-  <button class="btn btn--secondary"><span class="ic" aria-hidden="true">add</span>Add course</button>
+  <button class="btn btn--primary btn--lg"><span class="ic" aria-hidden="true">play_arrow</span>Start application</button>
+  <button class="btn btn--secondary"><span class="ic" aria-hidden="true">add</span>Add service</button>
   <button class="btn btn--secondary btn--md"><span class="ic" aria-hidden="true">download</span>Export</button>
   <button class="btn btn--plain btn--sm">Edit</button>
 </div>
@@ -54,7 +54,7 @@ At the end of the thing it acts on: under a form (`form__actions`), at the botto
 **Loading without a jump.** The label blurs out, the spinner scales in, the width stays. Press it.
 ```html
 <button class="btn btn--primary is-loading" aria-busy="true">
-  <span class="btn__label">Submit answers</span>
+  <span class="btn__label">Submit application</span>
   <span class="btn__spin" aria-hidden="true"><span class="spinner"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
 </button>
 ```
@@ -63,7 +63,7 @@ At the end of the thing it acts on: under a form (`form__actions`), at the botto
 ```html
 <div class="docs-col" style="max-width: 360px;">
   <button class="btn btn--primary" disabled>Send report</button>
-  <span class="field__help">Choose what kind of mistake it is to send the report.</span>
+  <span class="field__help">Choose the kind of problem to send the report.</span>
 </div>
 ```
 
@@ -102,7 +102,7 @@ At the end of the thing it acts on: under a form (`form__actions`), at the botto
 - The focus ring comes from the system (`:focus-visible`); never remove it.
 
 ## Do
-- Name the outcome: "Save changes", "Send report", "Start the tryout".
+- Name the outcome: "Save changes", "Send report", "Start application".
 - Keep one primary per view; demote the rest to secondary, tinted or plain.
 - Make the primary full width in phone layouts (`btn--block`).
 

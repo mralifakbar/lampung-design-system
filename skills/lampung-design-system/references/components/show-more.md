@@ -31,8 +31,8 @@ Wherever a [list](list.md), a [timeline](timeline.md) or a cluster of [chips](ch
 **Topics.** Six topics shown, the rest behind the button.
 ```html
 <div class="more" data-lds-more data-more="Show 5 more topics" data-less="Show fewer topics" style="max-width: 520px;">
-  <div class="cluster"><button class="chip">Algebra</button><button class="chip">Geometry</button><button class="chip">Statistics</button><button class="chip">Reading</button><button class="chip">Vocabulary</button><button class="chip">Logic</button></div>
-  <div class="more__rest"><div><div class="cluster" style="padding-top: 8px;"><button class="chip">Civics</button><button class="chip">History</button><button class="chip">Geography</button><button class="chip">Biology</button><button class="chip">Chemistry</button></div></div></div>
+  <div class="cluster"><button class="chip">Civil registry</button><button class="chip">Health</button><button class="chip">Education</button><button class="chip">Permits</button><button class="chip">Local tax</button><button class="chip">Transport</button></div>
+  <div class="more__rest"><div><div class="cluster" style="padding-top: 8px;"><button class="chip">Disasters</button><button class="chip">Environment</button><button class="chip">UMKM</button><button class="chip">Farming</button><button class="chip">Tourism</button></div></div></div>
   <button class="btn btn--plain btn--sm more__btn"></button>
 </div>
 ```
@@ -41,12 +41,12 @@ Wherever a [list](list.md), a [timeline](timeline.md) or a cluster of [chips](ch
 ```html
 <div class="more" data-lds-more data-more="Show 2 older" data-less="Show less" style="max-width: 460px;">
   <div class="list">
-    <a class="lrow" href="#a1"><span class="lrow__body"><span class="lrow__title">Exam rooms for Saturday are posted</span><span class="lrow__sub">Today</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
-    <a class="lrow" href="#a2"><span class="lrow__body"><span class="lrow__title">Library opens until 22:00 this week</span><span class="lrow__sub">Yesterday</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
-    <a class="lrow" href="#a3"><span class="lrow__body"><span class="lrow__title">New practice tryout: numerical reasoning</span><span class="lrow__sub">Mon</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+    <a class="lrow" href="#a1"><span class="lrow__body"><span class="lrow__title">Saturday mobile Samsat locations are posted</span><span class="lrow__sub">Today</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+    <a class="lrow" href="#a2"><span class="lrow__body"><span class="lrow__title">Regional library opens until 22:00 this week</span><span class="lrow__sub">Yesterday</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+    <a class="lrow" href="#a3"><span class="lrow__body"><span class="lrow__title">New vaccination schedule at the puskesmas</span><span class="lrow__sub">Mon</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
     <div class="more__rest"><div>
-      <a class="lrow" href="#a4" style="box-shadow: inset 0 0.5px 0 var(--line-strong);"><span class="lrow__body"><span class="lrow__title">Seminar room changed to building C</span><span class="lrow__sub">Last week</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
-      <a class="lrow" href="#a5"><span class="lrow__body"><span class="lrow__title">Scholarship applications are open</span><span class="lrow__sub">Last week</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+      <a class="lrow" href="#a4" style="box-shadow: inset 0 0.5px 0 var(--line-strong);"><span class="lrow__body"><span class="lrow__title">Disdukcapil desk moved to building C</span><span class="lrow__sub">Last week</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+      <a class="lrow" href="#a5"><span class="lrow__body"><span class="lrow__title">Regional scholarship applications are open</span><span class="lrow__sub">Last week</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
     </div></div>
   </div>
   <button class="btn btn--plain btn--sm more__btn"></button>

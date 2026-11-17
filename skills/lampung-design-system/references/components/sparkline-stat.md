@@ -5,7 +5,7 @@ Group: Charts. Docs page: `docs/components/sparkline-stat.html`.
 One headline number with a word on its direction and a tiny line of its recent history, in a chart card. The number is the point; the sparkline only shows the shape of the trend.
 
 ## Use it when
-- A dashboard tile for one metric people check often, where the trend matters as much as the value: attendance rate, study hours, average score.
+- A dashboard tile for one metric people check often, where the trend matters as much as the value: reports closed on time, average waiting time, satisfaction score.
 - A row of two to four such tiles at the top of a report.
 
 ## Use something else when
@@ -33,10 +33,10 @@ At the top of a dashboard or report, in an `auto-grid` with `--min: 300px`. On p
 ```html
 <div class="auto-grid" style="--min: 300px;">
 <div class="chart-card">
-  <div><div class="chart-card__q">How often do I attend?</div><div class="chart-card__sub">Attendance rate, last 12 weeks</div></div>
+  <div><div class="chart-card__q">How fast are citizen reports closed?</div><div class="chart-card__sub">Reports closed on time, last 12 weeks</div></div>
   <div class="cluster" style="justify-content: space-between; align-items: flex-end; --gap: 20px;">
-    <div><div class="chart-card__big">92%</div><div class="badge badge--success" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_up</span>4 points above term start</div></div>
-    <svg viewBox="0 0 220 64" style="width: 220px; max-width: 100%; height: 64px;" role="img" aria-label="Attendance rising from 88 to 92 percent over 12 weeks">
+    <div><div class="chart-card__big">92%</div><div class="badge badge--success" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_up</span>4 points above the start of the year</div></div>
+    <svg viewBox="0 0 220 64" style="width: 220px; max-width: 100%; height: 64px;" role="img" aria-label="Reports closed on time rising from 88 to 92 percent over 12 weeks">
       <path class="series-area" d="M4 42.7 L23.3 48.4 L42.5 36.9 L61.8 42.7 L81.1 31.1 L100.4 36.9 L119.6 25.3 L138.9 31.1 L158.2 19.6 L177.5 25.3 L196.7 13.8 L216 19.6 L216 64 L4 64 Z"></path>
       <path class="series-line draw" pathLength="1200" d="M4 42.7 L23.3 48.4 L42.5 36.9 L61.8 42.7 L81.1 31.1 L100.4 36.9 L119.6 25.3 L138.9 31.1 L158.2 19.6 L177.5 25.3 L196.7 13.8 L216 19.6"></path>
       <circle cx="216" cy="19.6" r="4" fill="var(--series-1)" stroke="var(--bg-base)" stroke-width="2"></circle>
@@ -44,10 +44,10 @@ At the top of a dashboard or report, in an `auto-grid` with `--min: 300px`. On p
   </div>
 </div>
 <div class="chart-card">
-  <div><div class="chart-card__q">How much am I studying?</div><div class="chart-card__sub">Hours logged per week, last 12 weeks</div></div>
+  <div><div class="chart-card__q">How long is the queue at the desk?</div><div class="chart-card__sub">Average waiting time per week, last 12 weeks</div></div>
   <div class="cluster" style="justify-content: space-between; align-items: flex-end; --gap: 20px;">
-    <div><div class="chart-card__big">7 h</div><div class="badge badge--warning" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_down</span>Half of week 1</div></div>
-    <svg viewBox="0 0 220 64" style="width: 220px; max-width: 100%; height: 64px;" role="img" aria-label="Study hours falling from 14 to 7 per week over 12 weeks">
+    <div><div class="chart-card__big">7 min</div><div class="badge badge--warning" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_down</span>Half of week 1</div></div>
+    <svg viewBox="0 0 220 64" style="width: 220px; max-width: 100%; height: 64px;" role="img" aria-label="Waiting time falling from 14 to 7 minutes over 12 weeks">
       <path class="series-area" d="M4 13.2 L23.3 23.6 L42.5 28.8 L61.8 23.6 L81.1 34 L100.4 39.2 L119.6 34 L138.9 44.4 L158.2 39.2 L177.5 49.6 L196.7 44.4 L216 49.6 L216 64 L4 64 Z"></path>
       <path class="series-line draw" pathLength="1200" d="M4 13.2 L23.3 23.6 L42.5 28.8 L61.8 23.6 L81.1 34 L100.4 39.2 L119.6 34 L138.9 44.4 L158.2 39.2 L177.5 49.6 L196.7 44.4 L216 49.6"></path>
       <circle cx="216" cy="49.6" r="4" fill="var(--series-1)" stroke="var(--bg-base)" stroke-width="2"></circle>
@@ -76,7 +76,7 @@ At the top of a dashboard or report, in an `auto-grid` with `--min: 300px`. On p
 
 ## Do
 - Lead with the number; keep the line small and unlabelled.
-- Say what the change is relative to ("above term start").
+- Say what the change is relative to ("above the start of the year").
 
 ## Don't
 - Add axes, ticks or tooltips to a sparkline.

@@ -5,7 +5,7 @@ Group: Feedback. Docs page: `docs/components/status-dot.html`.
 An 8 px colored dot followed by words, for the live state of a system, a service or a connection. The words say the state; the dot helps scanning.
 
 ## Use it when
-- The health or state of something that runs: a service is up, a sync is delayed, a classroom stream is live.
+- The health or state of something that runs: a service is up, a sync is delayed, a town hall meeting stream is live.
 - A column of states in a table or a list where a dot speeds up scanning ("Running", "Stopped").
 
 ## Use something else when
@@ -32,7 +32,7 @@ Inline, where the state is read: in a table cell, at the end of a list row, in a
 <div class="docs-col" style="max-width: 320px;">
   <span class="status"><i aria-hidden="true"></i>Not started</span>
   <span class="status status--ok"><i aria-hidden="true"></i>All systems running</span>
-  <span class="status status--warn"><i aria-hidden="true"></i>Grade sync delayed</span>
+  <span class="status status--warn"><i aria-hidden="true"></i>Tax data sync delayed</span>
   <span class="status status--down"><i aria-hidden="true"></i>Payments unavailable</span>
   <span class="status status--live"><i aria-hidden="true"></i>Live now</span>
 </div>
@@ -41,9 +41,9 @@ Inline, where the state is read: in a table cell, at the end of a list row, in a
 **In a list.** At the end of each row, so the states line up.
 ```html
 <div class="list" style="max-width: 420px;">
-  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Exam room A</div><div class="lrow__sub">32 candidates</div></div><span class="status status--live"><i aria-hidden="true"></i>Live</span></div>
-  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Exam room B</div><div class="lrow__sub">28 candidates</div></div><span class="status status--warn"><i aria-hidden="true"></i>Starting late</span></div>
-  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Exam room C</div><div class="lrow__sub">Closed</div></div><span class="status"><i aria-hidden="true"></i>Ended</span></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Service desk A</div><div class="lrow__sub">32 in queue</div></div><span class="status status--live"><i aria-hidden="true"></i>Open</span></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Service desk B</div><div class="lrow__sub">28 in queue</div></div><span class="status status--warn"><i aria-hidden="true"></i>Opening late</span></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Service desk C</div><div class="lrow__sub">Closed</div></div><span class="status"><i aria-hidden="true"></i>Ended</span></div>
 </div>
 ```
 

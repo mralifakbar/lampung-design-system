@@ -5,13 +5,13 @@ Group: Inputs. Docs page: `docs/components/file-input.html`.
 A drop zone with a real Choose button, and one row per chosen file that shows its size, upload progress, errors and a way to remove it. The button is the main path; dropping is a shortcut.
 
 ## Use it when
-- People attach files to a form: an answer sheet, a transcript, a profile photo, assignment files.
+- People attach files to a form: an ID card (KTP), a family card, a site photo, a cover letter.
 - Several files upload at once and each needs its own progress, retry and remove (`.file-row`).
 - A single large file uploads and the drop zone itself shows the progress around its edge (`uploadProgress`).
 
 ## Use something else when
 - Showing files that are already stored, to open or download: use [List](list.md). Linked rows with a file icon; no drop zone.
-- Progress of one long task that is not an upload (grading, import): use [Progress bar](progress-bar.md).
+- Progress of one long task that is not an upload (verification, import): use [Progress bar](progress-bar.md).
 - Pasting or typing text, links or codes: use [Textarea](textarea.md).
 - Viewing a chosen image large: use [Lightbox](lightbox.md).
 
@@ -37,20 +37,20 @@ In a [form](form-layout.md), full width of its column, with the file rows direct
 ```html
 <div class="drop">
   <span class="ic" aria-hidden="true">upload_file</span>
-  <span class="empty__title">Drop your answer sheets here</span>
+  <span class="empty__title">Drop your required documents here</span>
   <span class="empty__body">PDF or image, up to 10 MB each</span>
   <button type="button" class="btn btn--secondary btn--sm">Choose files</button>
-  <input type="file" multiple accept=".pdf,image/*" hidden aria-label="Answer sheets">
+  <input type="file" multiple accept=".pdf,image/*" hidden aria-label="Required documents">
 </div>
 <ul aria-label="Chosen files">
   <li class="file-row">
     <span class="file-row__icon"><span class="ic" aria-hidden="true">image</span></span>
     <span class="file-row__body">
-      <span class="file-row__name">page-2-photo.jpg</span>
+      <span class="file-row__name">business-location-photo.jpg</span>
       <span class="file-row__meta">1.1 MB of 3.0 MB · 37%</span>
-      <span class="progress progress--thin" role="progressbar" aria-label="Uploading page-2-photo.jpg" aria-valuemin="0" aria-valuemax="100" aria-valuenow="37"><span class="progress__fill" style="transform: scaleX(0.37);"></span></span>
+      <span class="progress progress--thin" role="progressbar" aria-label="Uploading business-location-photo.jpg" aria-valuemin="0" aria-valuemax="100" aria-valuenow="37"><span class="progress__fill" style="transform: scaleX(0.37);"></span></span>
     </span>
-    <button type="button" class="icon-btn" aria-label="Cancel upload of page-2-photo.jpg"><span class="ic" aria-hidden="true">close</span></button>
+    <button type="button" class="icon-btn" aria-label="Cancel upload of business-location-photo.jpg"><span class="ic" aria-hidden="true">close</span></button>
   </li>
   <li class="file-row is-error">…<span class="file-row__meta">Upload failed. Check your connection and retry.</span>…</li>
 </ul>
@@ -73,7 +73,7 @@ xhr.upload.onprogress = (e) => uploadProgress(drop, (e.loaded / e.total) * 100);
 | `.file-row uploading` | Meta says "1.1 MB of 3.0 MB · 37%", a `.progress--thin` bar under it, a cancel button. |
 | `.file-row done` | Meta says the size and "Uploaded"; the bar is gone; a remove button. |
 | `.file-row.is-error` | Icon and meta in the danger color; the meta says what failed and what to do; a retry button. |
-| `rejected file` | Wrong type or too large: do not add a row; say it under the zone in `.field__help--error` ("essay.docx is not a PDF or image"). |
+| `rejected file` | Wrong type or too large: do not add a row; say it under the zone in `.field__help--error` ("letter.docx is not a PDF or image"). |
 
 ## Motion and microinteractions
 - Drag over: tint and edge in `--d-fast` (160 ms) on `--ease-standard`; the zone scales to 1.01 on `--spring-smooth` (560 ms); the icon rises on `--spring-snappy`. Leaving reverses the same transitions.
@@ -86,7 +86,7 @@ xhr.upload.onprogress = (e) => uploadProgress(drop, (e.loaded / e.total) * 100);
 - Keyboard and screen reader users use the Choose button, a real `<button type="button">` that calls `input.click()` on a `hidden` file input with an `aria-label`. Dropping is never the only way.
 - Set `accept` and say the types and size in the zone text, before people choose.
 - Each uploading row has a `role="progressbar"` bar with `aria-valuenow` and a name; the percent pill from `uploadProgress` is a progressbar too.
-- Row buttons say the action and the file ("Retry essay-draft.pdf"). Announce finished or failed uploads in an `aria-live="polite"` region or a [toast](toast.md).
+- Row buttons say the action and the file ("Retry rt-cover-letter.pdf"). Announce finished or failed uploads in an `aria-live="polite"` region or a [toast](toast.md).
 
 ## Do
 - Upload right after choosing and show progress per file; let people keep filling the form.

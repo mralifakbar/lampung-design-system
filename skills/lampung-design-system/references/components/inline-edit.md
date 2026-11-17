@@ -5,7 +5,7 @@ Group: Microinteractions. Docs page: `docs/components/inline-edit.html`.
 Click a name to rename it where it is: the text becomes a field with the same font and width, Enter or leaving saves, Escape puts it back. A save draws a small check; a refused save restores the old name, shakes, and says why.
 
 ## Use it when
-- Renaming one thing in place: a project, a file, a note title, a group name.
+- Renaming one thing in place: an activity, a file, a note title, a group name.
 - A single short value that people change rarely and want to change without opening a form.
 
 ## Use something else when
@@ -21,17 +21,17 @@ On the title itself: a page heading, a card title, the title of a list row. The 
 | Part | What it is |
 |---|---|
 | `.inline-edit` | Required. `data-lds-inline`. Inherits the font of where it sits. |
-| `.inline-edit__text` | Required. The button showing the value; `aria-label` says what it renames ("Rename project"). |
+| `.inline-edit__text` | Required. The button showing the value; `aria-label` says what it renames ("Rename activity"). |
 | `.inline-edit__value` | Required. The value text. |
 | `.inline-edit__input` | The field swapped in while editing (created by JS), same metrics, accent ring. |
 | `.inline-edit__state` | The check drawn after a save (created by JS). |
 
 ## Markup
 
-**Rename a project.** Click the name, type, press Enter. The check draws in; the new name stays. Escape restores the old one.
+**Rename an activity.** Click the name, type, press Enter. The check draws in; the new name stays. Escape restores the old one.
 ```html
 <h1><span class="inline-edit" data-lds-inline>
-  <button class="inline-edit__text" aria-label="Rename project"><span class="inline-edit__value">Thesis draft</span><span class="ic" aria-hidden="true">edit</span></button>
+  <button class="inline-edit__text" aria-label="Rename activity"><span class="inline-edit__value">May toddler vaccination</span><span class="ic" aria-hidden="true">edit</span></button>
 </span></h1>
 <script type="module">
   document.querySelector('[data-lds-inline]').addEventListener('lds:save', (e) => {
@@ -43,8 +43,8 @@ On the title itself: a page heading, a card title, the title of a list row. The 
 **Rename a file in a list.** In a row the field takes the title's place and size; the size and date beside it do not move.
 ```html
 <div class="list" style="width: 100%; max-width: 440px;">
-  <div class="lrow"><span class="ic" aria-hidden="true">description</span><span class="lrow__body"><span class="inline-edit" data-lds-inline><button class="inline-edit__text" aria-label="Rename Week 6 notes"><span class="inline-edit__value">Week 6 notes</span><span class="ic" aria-hidden="true">edit</span></button></span></span><span class="lrow__value">340 KB</span></div>
-  <div class="lrow"><span class="ic" aria-hidden="true">description</span><span class="lrow__body"><span class="inline-edit" data-lds-inline><button class="inline-edit__text" aria-label="Rename Lab worksheet"><span class="inline-edit__value">Lab worksheet</span><span class="ic" aria-hidden="true">edit</span></button></span></span><span class="lrow__value">1.1 MB</span></div>
+  <div class="lrow"><span class="ic" aria-hidden="true">description</span><span class="lrow__body"><span class="inline-edit" data-lds-inline><button class="inline-edit__text" aria-label="Rename RW meeting minutes"><span class="inline-edit__value">RW meeting minutes</span><span class="ic" aria-hidden="true">edit</span></button></span></span><span class="lrow__value">340 KB</span></div>
+  <div class="lrow"><span class="ic" aria-hidden="true">description</span><span class="lrow__body"><span class="inline-edit" data-lds-inline><button class="inline-edit__text" aria-label="Rename Business location sketch"><span class="inline-edit__value">Business location sketch</span><span class="ic" aria-hidden="true">edit</span></button></span></span><span class="lrow__value">1.1 MB</span></div>
 </div>
 ```
 
@@ -64,7 +64,7 @@ On the title itself: a page heading, a card title, the title of a list row. The 
 - Reduced motion: the field appears at once, the check appears without drawing, no shake.
 
 ## Accessibility
-- The value is a real button whose `aria-label` names the action and object ("Rename project"). The input takes the same label.
+- The value is a real button whose `aria-label` names the action and object ("Rename activity"). The input takes the same label.
 - Enter saves, Escape cancels and returns focus to the button, Tab saves (blur).
 - Results are announced in a polite status inside the component.
 

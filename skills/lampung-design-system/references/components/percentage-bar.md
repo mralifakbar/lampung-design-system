@@ -5,9 +5,9 @@ Group: Charts. Docs page: `docs/components/percentage-bar.html`.
 One horizontal bar split into up to four colored parts that add up to 100 %, with a legend that names each part and its share. The compact way to show composition.
 
 ## Use it when
-- Showing how one whole splits into parts: credits by course type, time spent by activity, answers right, wrong and skipped.
+- Showing how one whole splits into parts: a budget by sector, time spent by activity, reports resolved, in progress and rejected.
 - Composition in a narrow space or inside a list row or table cell, where a donut would not fit.
-- Comparing composition across a few rows (one bar per class) when the parts are the same.
+- Comparing composition across a few rows (one bar per period) when the parts are the same.
 
 ## Use something else when
 - Progress of one value toward done: use [Progress bar](progress-bar.md). A progress bar has one part and a track.
@@ -27,22 +27,22 @@ In a `.chart-card` under the title, inside list rows or table cells at full cell
 
 ## Markup
 
-**Composition of a whole.** Credits by course type. The legend carries the numbers.
+**Composition of a whole.** A kelurahan budget by sector. The legend carries the numbers.
 ```html
 <div class="chart-card" style="max-width: 460px;">
-  <div><div class="chart-card__q">Where do my credits go?</div><div class="chart-card__sub">Share of 120 credits by course type</div></div>
-  <div class="pbar" role="img" aria-label="Core 50 percent, electives 25, labs 15, general 10"><span style="flex-grow: 50; background: var(--series-1);"></span><span style="flex-grow: 25; background: var(--series-2);"></span><span style="flex-grow: 15; background: var(--series-3);"></span><span style="flex-grow: 10; background: var(--series-4);"></span></div>
-  <div class="legend"><span><i style="background: var(--series-1);"></i>Core <b style="font-weight: 500; color: var(--text-strong);">50%</b></span><span><i style="background: var(--series-2);"></i>Electives <b style="font-weight: 500; color: var(--text-strong);">25%</b></span><span><i style="background: var(--series-3);"></i>Labs <b style="font-weight: 500; color: var(--text-strong);">15%</b></span><span><i style="background: var(--series-4);"></i>General <b style="font-weight: 500; color: var(--text-strong);">10%</b></span></div>
+  <div><div class="chart-card__q">Where does the kelurahan budget go?</div><div class="chart-card__sub">Share of the budget by sector, 2026</div></div>
+  <div class="pbar" role="img" aria-label="Development 50 percent, services 25, empowerment 15, other 10"><span style="flex-grow: 50; background: var(--series-1);"></span><span style="flex-grow: 25; background: var(--series-2);"></span><span style="flex-grow: 15; background: var(--series-3);"></span><span style="flex-grow: 10; background: var(--series-4);"></span></div>
+  <div class="legend"><span><i style="background: var(--series-1);"></i>Development <b style="font-weight: 500; color: var(--text-strong);">50%</b></span><span><i style="background: var(--series-2);"></i>Services <b style="font-weight: 500; color: var(--text-strong);">25%</b></span><span><i style="background: var(--series-3);"></i>Empowerment <b style="font-weight: 500; color: var(--text-strong);">15%</b></span><span><i style="background: var(--series-4);"></i>Other <b style="font-weight: 500; color: var(--text-strong);">10%</b></span></div>
 </div>
 ```
 
-**Compared across rows.** Answers in two tryouts. Same parts, same order, one bar per row; a change in the split reads at a glance.
+**Compared across rows.** Citizen report status in two quarters. Same parts, same order, one bar per row; a change in the split reads at a glance.
 ```html
 <div class="chart-card" style="max-width: 460px;">
-  <div><div class="chart-card__q">Am I answering more correctly?</div><div class="chart-card__sub">Answers in the last two tryouts</div></div>
-  <div class="stack" style="--gap: 6px;"><span class="card__sub" style="margin: 0;">Tryout 3</span><div class="pbar" role="img" aria-label="Tryout 3: 62 percent right, 28 wrong, 10 skipped"><span style="flex-grow: 62; background: var(--series-3);"></span><span style="flex-grow: 28; background: var(--series-2);"></span><span style="flex-grow: 10; background: var(--series-4);"></span></div></div>
-  <div class="stack" style="--gap: 6px;"><span class="card__sub" style="margin: 0;">Tryout 4</span><div class="pbar" role="img" aria-label="Tryout 4: 74 percent right, 20 wrong, 6 skipped"><span style="flex-grow: 74; background: var(--series-3);"></span><span style="flex-grow: 20; background: var(--series-2);"></span><span style="flex-grow: 6; background: var(--series-4);"></span></div></div>
-  <div class="legend"><span><i style="background: var(--series-3);"></i>Right</span><span><i style="background: var(--series-2);"></i>Wrong</span><span><i style="background: var(--series-4);"></i>Skipped</span></div>
+  <div><div class="chart-card__q">Are more reports getting resolved?</div><div class="chart-card__sub">Citizen report status, last two quarters</div></div>
+  <div class="stack" style="--gap: 6px;"><span class="card__sub" style="margin: 0;">Q2</span><div class="pbar" role="img" aria-label="Q2: 62 percent resolved, 28 in progress, 10 rejected"><span style="flex-grow: 62; background: var(--series-3);"></span><span style="flex-grow: 28; background: var(--series-2);"></span><span style="flex-grow: 10; background: var(--series-4);"></span></div></div>
+  <div class="stack" style="--gap: 6px;"><span class="card__sub" style="margin: 0;">Q3</span><div class="pbar" role="img" aria-label="Q3: 74 percent resolved, 20 in progress, 6 rejected"><span style="flex-grow: 74; background: var(--series-3);"></span><span style="flex-grow: 20; background: var(--series-2);"></span><span style="flex-grow: 6; background: var(--series-4);"></span></div></div>
+  <div class="legend"><span><i style="background: var(--series-3);"></i>Resolved</span><span><i style="background: var(--series-2);"></i>In progress</span><span><i style="background: var(--series-4);"></i>Rejected</span></div>
 </div>
 ```
 

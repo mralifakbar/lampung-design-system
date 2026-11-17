@@ -5,7 +5,7 @@ Group: Overlays. Docs page: `docs/components/modal.html`.
 A page-level dialog over the whole window: a native `<dialog class="modal">` in the top layer, or `.overlay` rendered in place by a framework. Below 600 px the native modal becomes a bottom sheet. Close it with `closeModal()` so it plays its exit.
 
 ## Use it when
-- A form or confirm that belongs to the whole page rather than to a region: report a mistake, invite a student, edit profile details.
+- A form or confirm that belongs to the whole page rather than to a region: report a data mistake, invite an officer, edit profile details.
 - The layer must sit above everything, including sticky headers and the app shell, without managing z-index.
 - A React or other framework app that mounts and unmounts the layer itself (`.overlay`).
 
@@ -35,12 +35,12 @@ Centered in the window, up to 520 px wide (`.overlay__panel` 440 px), with 16 px
 
 **Native page modal.** Opens above the whole page in the top layer. Escape, a click on the backdrop and Cancel all play the exit before it closes. Narrow the window below 600 px to see it as a bottom sheet.
 ```html
-<button class="btn btn--secondary" data-lds-modal="md-report"><span class="ic" aria-hidden="true">error</span>Report a mistake</button>
+<button class="btn btn--secondary" data-lds-modal="md-report"><span class="ic" aria-hidden="true">error</span>Report a data mistake</button>
 <dialog class="modal" id="md-report" aria-labelledby="md-report-t">
   <button class="icon-btn dialog__close" data-lds-modal-close aria-label="Close"><span class="ic" aria-hidden="true">close</span></button>
-  <h2 class="dialog__title" id="md-report-t">Report a mistake</h2>
-  <p class="dialog__body">Tell us what is wrong in question 14 and what it should say.</p>
-  <div class="field" style="margin-top: 16px;"><div class="control control--area"><textarea aria-label="What is wrong" placeholder="The answer key says B, the explanation says C."></textarea></div></div>
+  <h2 class="dialog__title" id="md-report-t">Report a data mistake</h2>
+  <p class="dialog__body">Tell us what is wrong in the puskesmas schedule and what it should say.</p>
+  <div class="field" style="margin-top: 16px;"><div class="control control--area"><textarea aria-label="What is wrong" placeholder="The schedule says it opens at 07:00, the sign on site says 08:00."></textarea></div></div>
   <div class="dialog__actions"><button class="btn btn--secondary" data-lds-modal-close>Cancel</button><button class="btn btn--primary" data-lds-modal-close>Send report</button></div>
 </dialog>
 ```
@@ -50,8 +50,8 @@ Centered in the window, up to 520 px wide (`.overlay__panel` 440 px), with 16 px
 {open && (
   <div className="overlay" ref={ref} onKeyDown={(e) => e.key === 'Escape' && closeModal(ref.current, () => setOpen(false))}>
     <div className="overlay__panel" role="dialog" aria-modal="true" aria-labelledby="invite-t">
-      <h2 className="dialog__title" id="invite-t">Invite a student</h2>
-      <p className="dialog__body">They get an email with a link to join Database Systems.</p>
+      <h2 className="dialog__title" id="invite-t">Invite an officer</h2>
+      <p className="dialog__body">They get an email with a link to join the permit verification team.</p>
       <div className="dialog__actions">
         <button className="btn btn--secondary" onClick={() => closeModal(ref.current, () => setOpen(false))}>Cancel</button>
         <button className="btn btn--primary" onClick={send}>Send invite</button>

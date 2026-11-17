@@ -53,9 +53,9 @@ Before the text it explains, 6 to 10 px away (components set the gap). Icons fol
 **Next to text.** Decorative icons are hidden from screen readers; the words carry the meaning.
 ```html
 <div class="docs-col" style="max-width: 420px;">
-  <button class="btn btn--secondary"><span class="ic" aria-hidden="true">download</span>Download transcript</button>
+  <button class="btn btn--secondary"><span class="ic" aria-hidden="true">download</span>Download registration receipt</button>
   <span class="badge badge--success"><span class="ic" aria-hidden="true">check</span>Approved</span>
-  <span class="field__help"><span class="ic" aria-hidden="true">info</span>Your grade is final once the lecturer signs it.</span>
+  <span class="field__help"><span class="ic" aria-hidden="true">info</span>Your permit is valid once the head of the agency signs it.</span>
 </div>
 ```
 

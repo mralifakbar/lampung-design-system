@@ -5,7 +5,7 @@ Group: Data display. Docs page: `docs/components/calendar.html`.
 A month grid of round day buttons with today in accent text and the selection in the accent fill; a range fills between its ends. The markup and states; picking logic is yours.
 
 ## Use it when
-- Choosing a day or a range where seeing the week matters: booking a consultation slot, picking exam days, setting leave dates.
+- Choosing a day or a range where seeing the week matters: booking a consultation slot, picking days for a Samsat keliling visit, setting leave dates.
 - Showing which days in a month are marked (deadlines, sessions) in a side panel.
 
 ## Use something else when

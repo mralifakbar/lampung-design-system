@@ -5,7 +5,7 @@ Group: Inputs. Docs page: `docs/components/number-stepper.html`.
 Minus and plus buttons around a small whole number whose digits roll to the new value. For counts people change by one or two, inside a known range.
 
 ## Use it when
-- A small count with clear bounds: seats to reserve, tickets, people in a study group, tryout attempts.
+- A small count with clear bounds: seats to reserve, tickets, people in a group, queue numbers.
 - Most changes are one or two steps from a sensible default.
 
 ## Use something else when
@@ -15,7 +15,7 @@ Minus and plus buttons around a small whole number whose digits roll to the new 
 - Showing a number that changes by itself (live score, count): use [Rolling number](rolling-number.md).
 
 ## Where it goes
-In a form next to its label, or at the end of a list row (a cart line, an attendee row). It keeps its own width (about 140 px) and never stretches.
+In a form next to its label, or at the end of a list row (a request line, an attendee row). It keeps its own width (about 140 px) and never stretches.
 
 ## Anatomy
 | Part | What it is |
@@ -43,7 +43,7 @@ In a form next to its label, or at the end of a list row (a cart line, an attend
 **At the end of a list row.** A small count per line, such as attendees per session.
 ```html
 <div class="list" style="max-width: 440px; width: 100%;">
-  <div class="lrow"><span class="lrow__body"><span class="lrow__title" id="ns-r1">Saturday tryout, room A</span></span>
+  <div class="lrow"><span class="lrow__body"><span class="lrow__title" id="ns-r1">Saturday UMKM workshop, room A</span></span>
     <div class="stepper-field" role="group" aria-labelledby="ns-r1" data-lds-stepper data-min="0" data-max="6" data-value="2">
       <button type="button" aria-label="One person fewer"><span class="ic" aria-hidden="true">remove</span></button>
       <span class="stepper-field__value"><span class="roll" aria-live="polite"></span></span>

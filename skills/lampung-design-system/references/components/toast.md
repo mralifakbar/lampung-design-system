@@ -5,7 +5,7 @@ Group: Overlays. Docs page: `docs/components/toast.html`.
 A short dark message at the bottom that confirms something that just happened, then leaves by itself. When the action can be reversed, the Undo lives in the toast with an honest countdown.
 
 ## Use it when
-- Confirming an action that finished: "Draft saved", "Invite sent", "Thread archived".
+- Confirming an action that finished: "Draft saved", "Invite sent", "Report archived".
 - Offering Undo right after a reversible destructive action, instead of asking first.
 - Reporting a background result the person started (export ready, upload finished).
 
@@ -38,9 +38,9 @@ import { toast } from 'lampung-design-system/js';
 toast({ title: 'Draft saved', body: 'Only you can see it.', icon: 'check_circle' });
 
 toast({
-  title: 'Thread archived', body: 'Moved out of your inbox.', icon: 'inventory_2',
+  title: 'Report archived', body: 'Moved out of your inbox.', icon: 'inventory_2',
   action: 'Undo', duration: 6000,
-  onAction: () => { restore(); return { title: 'Thread restored', icon: 'undo' }; },
+  onAction: () => { restore(); return { title: 'Report restored', icon: 'undo' }; },
 });
 ```
 
@@ -65,7 +65,7 @@ toast({
 - Enter: `lds-toast-in` over `--d-smooth` (560 ms) on `--spring-smooth`. Restacking moves on the same spring, so older toasts slide back as a new one arrives.
 - Exit: opacity and `translateY(12px) scale(0.96)` over `--d-exit` (180 ms) on `--ease-exit`.
 - Timer: the `.toast__timer` bar drains linearly over the duration and pauses with the clock while the stack is hovered or focused.
-- Undo: the title morphs in place to the result ("Thread restored") and the toast leaves 1.6 s later.
+- Undo: the title morphs in place to the result ("Report restored") and the toast leaves 1.6 s later.
 - Reduced motion: no rise; fades in 120 ms.
 
 ## Accessibility
@@ -92,7 +92,7 @@ toast({
 import { notify } from 'lampung-design-system/react';
 
 notify({ title: 'Invite sent', icon: 'check_circle' }, 'success');
-notify({ title: 'Thread archived', action: 'Undo', onAction: restore });
+notify({ title: 'Report archived', action: 'Undo', onAction: restore });
 ```
 
 ## Related

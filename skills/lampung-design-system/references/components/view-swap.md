@@ -23,7 +23,7 @@ On the region that changes, below the control that changed it. The control, the 
 
 **A step-by-step form, forward and back.** Continue and Back swap the step content; the steps header fills its bar on the in-out curve and the focus moves to the new heading. Nothing slides sideways, so going back feels the same as going forward.
 ```html
-<ol class="steps" aria-label="Application">…</ol>
+<ol class="steps" aria-label="Business permit application">…</ol>
 <section class="step-view" aria-labelledby="step-title" style="animation: lds-blur-in var(--d-standard) var(--ease-enter);">
   <h3 id="step-title" tabindex="-1">Upload your documents</h3>
   …
@@ -35,15 +35,15 @@ On the region that changes, below the control that changed it. The control, the 
 **Tab panels.** The ink slides; the panel below swaps with the blur-in. `.tab-panel` has the swap built in.
 ```html
 <div style="max-width: 460px;">
-  <div class="tabs" role="tablist" aria-label="Lab report" data-lds-tabs>
+  <div class="tabs" role="tablist" aria-label="Road damage report" data-lds-tabs>
     <span class="tabs__ink"></span>
-    <button class="tabs__btn" role="tab" aria-selected="true" aria-controls="vs-1">Instructions</button>
-    <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="vs-2">Rubric</button>
-    <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="vs-3">Submissions <span class="tabs__count">28</span></button>
+    <button class="tabs__btn" role="tab" aria-selected="true" aria-controls="vs-1">Details</button>
+    <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="vs-2">Handling</button>
+    <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="vs-3">Responses <span class="tabs__count">28</span></button>
   </div>
-  <div class="tab-panel" role="tabpanel" id="vs-1">Measure the mass of each potato slice before and after two hours in salt water.</div>
-  <div class="tab-panel" role="tabpanel" id="vs-2" hidden>Method 30 %, results 40 %, discussion 30 %. Late work loses 5 % a day.</div>
-  <div class="tab-panel" role="tabpanel" id="vs-3" hidden>28 of 32 students have submitted. 4 are still drafting.</div>
+  <div class="tab-panel" role="tabpanel" id="vs-1">A pothole 1.5 metres wide in the left lane, near the city bus stop.</div>
+  <div class="tab-panel" role="tabpanel" id="vs-2" hidden>Site survey done. Patching is scheduled for Tuesday, estimated cost Rp 4,500,000.</div>
+  <div class="tab-panel" role="tabpanel" id="vs-3" hidden>28 residents back this report. 4 added new photos.</div>
 </div>
 ```
 
@@ -54,11 +54,11 @@ On the region that changes, below the control that changed it. The control, the 
     <span class="seg__thumb"></span>
     <button class="seg__btn" aria-pressed="true">Week</button>
     <button class="seg__btn" aria-pressed="false">Month</button>
-    <button class="seg__btn" aria-pressed="false">Term</button>
+    <button class="seg__btn" aria-pressed="false">Year</button>
   </div>
-  <div data-pane style="animation: lds-blur-in var(--d-standard) var(--ease-enter); margin-top: 16px;"><p class="chart-card__big">6 h 40 m</p><p class="card__sub">Study time this week</p></div>
-  <div data-pane hidden style="animation: lds-blur-in var(--d-standard) var(--ease-enter); margin-top: 16px;"><p class="chart-card__big">27 h</p><p class="card__sub">Study time this month</p></div>
-  <div data-pane hidden style="animation: lds-blur-in var(--d-standard) var(--ease-enter); margin-top: 16px;"><p class="chart-card__big">94 h</p><p class="card__sub">Study time this term</p></div>
+  <div data-pane style="animation: lds-blur-in var(--d-standard) var(--ease-enter); margin-top: 16px;"><p class="chart-card__big">12,480</p><p class="card__sub">City bus passengers this week</p></div>
+  <div data-pane hidden style="animation: lds-blur-in var(--d-standard) var(--ease-enter); margin-top: 16px;"><p class="chart-card__big">51,326</p><p class="card__sub">City bus passengers this month</p></div>
+  <div data-pane hidden style="animation: lds-blur-in var(--d-standard) var(--ease-enter); margin-top: 16px;"><p class="chart-card__big">604,912</p><p class="card__sub">City bus passengers this year</p></div>
 </div>
 ```
 

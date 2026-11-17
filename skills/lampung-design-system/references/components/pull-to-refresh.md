@@ -24,7 +24,7 @@ On the `.phone__scroll` of a top-level screen, with the `.refresh` indicator as 
 
 ## Markup
 
-**Refresh a schedule.** Drag the list down with the mouse or a finger and let go past the spinner. The button does the same thing for people who cannot drag.
+**Refresh a clinic schedule.** Drag the list down with the mouse or a finger and let go past the spinner. The button does the same thing for people who cannot drag.
 ```html
 <div class="phone__scroll" data-lds-navbar="today-bar" data-lds-refresh>
   <div class="refresh" aria-hidden="true"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>

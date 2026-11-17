@@ -2,10 +2,10 @@
 
 Group: Chat. Docs page: `docs/components/tool-call.html`.
 
-One step the assistant took on the way to its answer (searched the notes, read a file, checked the calendar), shown as a quiet one-line `<details>` that opens to what it found. The answer stays the main thing.
+One step the assistant took on the way to its answer (searched the service guides, read a file, checked a schedule), shown as a quiet one-line `<details>` that opens to what it found. The answer stays the main thing.
 
 ## Use it when
-- An assistant answer depends on something it looked up or ran, and people may want to check it: a search, a file it read, a calculation, a calendar lookup.
+- An assistant answer depends on something it looked up or ran, and people may want to check it: a search, a file it read, a calculation, a schedule lookup.
 - A step is still running: the line shows a spinner and a shimmering label until it finishes.
 - Several steps happened in order before the answer: stack them, one line each.
 
@@ -32,9 +32,9 @@ Inside a `msg--ai` [chat message](chat-message.md), above the `.bubble` that hol
 **What the assistant looked up.** Closed by default. Open one to check the sources the answer used.
 ```html
 <div class="msg msg--ai" style="max-width: 560px;">
-  <details class="toolcall"><summary><span class="ic" aria-hidden="true">search</span>Searched your notes for "net force"<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Found 3 pages: Week 4 lecture, page 2; Problem set 3, question 4; Lab 2 handout.</div></details>
-  <details class="toolcall"><summary><span class="ic" aria-hidden="true">description</span>Read Problem set 3<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Question 4: a 7 kg box pushed with 20 N against 6 N of friction.</div></details>
-  <div class="bubble">The net force is 14 N, so the box accelerates at 2 m/s². Your answer used 20 N, the push alone.</div>
+  <details class="toolcall"><summary><span class="ic" aria-hidden="true">search</span>Searched the service guides for "surat pindah"<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Found 3 pages: Disdukcapil requirements, the RT/RW cover letter form, questions about moving between cities.</div></details>
+  <details class="toolcall"><summary><span class="ic" aria-hidden="true">description</span>Read the surat pindah requirements<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">Needed: KK, KTP-el, a cover letter from the RT/RW and the full destination address.</div></details>
+  <div class="bubble">To move from Kedaton to Metro, bring your KK, KTP-el and a cover letter from your RT/RW. Disdukcapil Bandar Lampung usually issues the letter within 3 working days.</div>
 </div>
 ```
 
@@ -43,25 +43,25 @@ Inside a `msg--ai` [chat message](chat-message.md), above the `.bubble` that hol
 <details class="toolcall">
   <summary>
     <span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-    <span class="shimmer">Booking the study room</span>
+    <span class="shimmer">Booking a queue number</span>
     <span class="ic" aria-hidden="true">expand_more</span>
   </summary>
   <div class="toolcall__body">…</div>
 </details>
 <!-- Done: replace the spinner with <span class="ic" aria-hidden="true">check_circle</span>,
-     drop the shimmer class and name the result: "Booked room 2.14". -->
+     drop the shimmer class and name the result: "Booked queue B-014". -->
 ```
 
 **A step with code.** When the step ran code or a query, the body holds a code block so the person can copy and check it.
 ```html
-<details class="toolcall" open style="max-width: 560px; width: 100%;"><summary><span class="ic" aria-hidden="true">code</span>Ran a query on your grades<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body"><div class="codeblock"><pre>SELECT AVG(score) FROM grades WHERE course = 'BIO101';</pre></div></div></details>
+<details class="toolcall" open style="max-width: 560px; width: 100%;"><summary><span class="ic" aria-hidden="true">code</span>Ran a query on citizen reports<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body"><div class="codeblock"><pre>SELECT COUNT(*) FROM reports WHERE kecamatan = 'Kedaton' AND status = 'open';</pre></div></div></details>
 ```
 
 **A step that failed.** Say what failed and what the answer did instead. The answer below should not pretend the step worked.
 ```html
 <div class="msg msg--ai" style="max-width: 560px;">
-  <details class="toolcall"><summary><span class="ic" aria-hidden="true">cloud_off</span>Could not open lab-report.pdf<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">The file is larger than 20 MB. The answer below uses your notes only.</div></details>
-  <div class="bubble">From your notes, the control group should keep the same light and water as the test group.</div>
+  <details class="toolcall"><summary><span class="ic" aria-hidden="true">cloud_off</span>Could not open site-plan.pdf<span class="ic" aria-hidden="true">expand_more</span></summary><div class="toolcall__body">The file is larger than 20 MB. The answer below uses your application form only.</div></details>
+  <div class="bubble">From your application form, the building approval still needs a site plan before the officer can check it.</div>
 </div>
 ```
 
@@ -82,7 +82,7 @@ Inside a `msg--ai` [chat message](chat-message.md), above the `.bubble` that hol
 
 ## Accessibility
 - Native `<details>`/`<summary>`: keyboard (Enter, Space) and expanded state come for free. Keep it.
-- The summary text must say the step on its own ("Searched your notes for net force"), not just an icon.
+- The summary text must say the step on its own ("Searched the service guides for surat pindah"), not just an icon.
 - Icons are `aria-hidden`; the spinner too. While a step runs, the message is `aria-busy="true"`.
 
 ## Do

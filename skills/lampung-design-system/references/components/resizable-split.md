@@ -5,7 +5,7 @@ Group: Page patterns. Docs page: `docs/components/resizable-split.html`.
 Two panes with a handle between them that people drag, or move with the arrow keys, to share the space. For tools where both panes are worked in at once.
 
 ## Use it when
-- Two panes used side by side and the right balance depends on the person: a question list and its editor, a reading passage and its questions, a student list and their submission.
+- Two panes used side by side and the right balance depends on the person: a report list and its editor, a list of requirements and its form, an applicant list and their files.
 - A stacked pair on wide screens where the lower pane is a console or preview (`resize--y`).
 
 ## Use something else when
@@ -28,19 +28,19 @@ In full-height tool pages on wide screens, inside a parent with a fixed height (
 
 ## Markup
 
-**Passage and questions.** Drag the handle, or focus it and use Left and Right (Shift for bigger steps), Home and End.
+**Requirements and form.** Drag the handle, or focus it and use Left and Right (Shift for bigger steps), Home and End.
 ```html
 <div class="resize card" data-lds-resize data-min="25" data-max="75" style="--size: 55%; height: 280px; width: 100%; padding: 0;">
-  <div id="rz-passage" style="padding: 16px;"><h3 class="section__title-sm">Reading passage</h3><p class="section__sub" style="margin-top: 8px;">Coral reefs cover less than one percent of the ocean floor, yet they support about a quarter of all marine species. Rising water temperatures cause corals to expel the algae that feed them, a process known as bleaching.</p></div>
-  <div class="resize__handle" aria-label="Resize passage" aria-controls="rz-passage"></div>
-  <div style="padding: 16px;"><h3 class="section__title-sm">Question 4 of 10</h3><p class="section__sub" style="margin-top: 8px;">What does the passage say causes bleaching?</p></div>
+  <div id="rz-passage" style="padding: 16px;"><h3 class="section__title-sm">Requirements</h3><p class="section__sub" style="margin-top: 8px;">Attach the business owner's KTP, a domicile letter from the kelurahan, and a photo of the front of the business. Files in PDF or JPG, up to 2 MB each.</p></div>
+  <div class="resize__handle" aria-label="Resize requirements" aria-controls="rz-passage"></div>
+  <div style="padding: 16px;"><h3 class="section__title-sm">Step 4 of 10</h3><p class="section__sub" style="margin-top: 8px;">Where is your business located?</p></div>
 </div>
 ```
 
 **Editor over a preview.** `resize--y` stacks the panes; Up and Down move the handle.
 ```html
 <div class="resize resize--y card" data-lds-resize style="--size: 60%; height: 300px; width: 100%; padding: 0;">
-  <div id="rz-editor" style="padding: 16px;"><h3 class="section__title-sm">Question text</h3><p class="section__sub" style="margin-top: 8px;">Which number continues the series 2, 6, 12, 20, …?</p></div>
+  <div id="rz-editor" style="padding: 16px;"><h3 class="section__title-sm">Announcement text</h3><p class="section__sub" style="margin-top: 8px;">e-KTP services at the district office are closed on 17 December.</p></div>
   <div class="resize__handle" aria-label="Resize editor" aria-controls="rz-editor"></div>
   <div style="padding: 16px;"><h3 class="section__title-sm">Preview</h3></div>
 </div>

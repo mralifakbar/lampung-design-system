@@ -5,7 +5,7 @@ Group: Overlays. Docs page: `docs/components/context-menu.html`.
 A command menu that opens at the pointer on right-click, a long press on touch, or Shift+F10. A shortcut for commands that are also reachable another way.
 
 ## Use it when
-- An area full of objects people act on often (files, lessons in an editor, cells) where right-click is expected.
+- An area full of objects people act on often (files, items in an editor, cells) where right-click is expected.
 - Power users want the commands of the thing under the pointer without moving to a toolbar.
 
 ## Use something else when
@@ -26,11 +26,11 @@ At the pointer (or 16 px into the area for the keyboard), clamped to stay inside
 
 ## Markup
 
-**Files in a course.** Right-click in the box (or press and hold on touch, or focus it and press Shift+F10).
+**Application files.** Right-click in the box (or press and hold on touch, or focus it and press Shift+F10).
 ```html
 <div class="card card--fill" data-lds-contextmenu="file-menu" tabindex="0" style="position: relative;">
   …
-  <div class="menu" id="file-menu" role="menu" aria-label="Lecture 5 slides">
+  <div class="menu" id="file-menu" role="menu" aria-label="Domicile certificate">
     <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">visibility</span>Open</button>
     <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
     <div class="menu__sep"></div>

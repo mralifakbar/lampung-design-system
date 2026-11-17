@@ -5,8 +5,8 @@ Group: Overlays. Docs page: `docs/components/drawer.html`.
 A panel that slides in from the right edge on wide screens for filters, details or a secondary task, while the list it belongs to stays visible. It leaves to the side it came from.
 
 ## Use it when
-- On wide screens, filters for a list or table: status, course, date range.
-- Details of a row people check without leaving the list: a submission, an invoice, a student.
+- On wide screens, filters for a list or table: status, service, date range.
+- Details of a row people check without leaving the list: an application, a bill, an applicant.
 - A secondary task that people do while looking at the page behind it.
 
 ## Use something else when
@@ -30,18 +30,18 @@ Inset 10 px from the top, right and bottom of its positioned container (`.viewpo
 
 ## Markup
 
-**Filter submissions.** It slides in from the right on a spring and leaves to the right, faster. Escape, the close button or the scrim close it; focus returns to Filters.
+**Filter applications.** It slides in from the right on a spring and leaves to the right, faster. Escape, the close button or the scrim close it; focus returns to Filters.
 ```html
 <div class="viewport docs-box">
   <div class="viewport__content">
     <button class="btn btn--secondary btn--md" data-lds-open="dr-filter" aria-haspopup="dialog"><span class="ic" aria-hidden="true">tune</span>Filters</button>
-    <p class="section__sub">48 submissions for Lab report 3</p>
+    <p class="section__sub">48 micro business permit applications</p>
   </div>
   <div class="scrim" data-lds-scrim="dr-filter" style="background: rgba(9, 9, 11, 0.12);"></div>
   <aside class="drawer" id="dr-filter" role="dialog" aria-labelledby="dr-filter-t" data-lds-layer>
     <div class="sheet__head" style="margin: 0;"><h3 class="sheet__title" id="dr-filter-t">Filters</h3><button class="icon-btn" aria-label="Close filters" data-lds-close style="margin: -10px -10px -10px 0;"><span class="ic" aria-hidden="true">close</span></button></div>
-    <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">Submitted late</span></label>
-    <label class="check"><input type="checkbox" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">Needs grading</span></label>
+    <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">Past the deadline</span></label>
+    <label class="check"><input type="checkbox" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">Needs verification</span></label>
     <div style="margin-top: auto; display: flex; gap: 8px;"><button class="btn btn--gray btn--md" style="flex: 1;">Clear</button><button class="btn btn--primary btn--md" style="flex: 1;" data-lds-close>Show 12 results</button></div>
   </aside>
 </div>
@@ -51,11 +51,11 @@ Inset 10 px from the top, right and bottom of its positioned container (`.viewpo
 ```html
 <div class="viewport docs-box">
   <div class="viewport__content">
-    <button class="btn btn--gray btn--md" data-lds-open="dr-inv" aria-haspopup="dialog">Invoice 2024-118</button>
+    <button class="btn btn--gray btn--md" data-lds-open="dr-inv" aria-haspopup="dialog">Bill 2024-118</button>
   </div>
   <aside class="drawer" id="dr-inv" role="dialog" aria-labelledby="dr-inv-t" data-lds-layer>
-    <div class="sheet__head" style="margin: 0;"><h3 class="sheet__title" id="dr-inv-t">Invoice 2024-118</h3><button class="icon-btn" aria-label="Close invoice" data-lds-close style="margin: -10px -10px -10px 0;"><span class="ic" aria-hidden="true">close</span></button></div>
-    <p class="section__sub">Tuition, odd semester. Issued 2 September, paid 9 September by bank transfer.</p>
+    <div class="sheet__head" style="margin: 0;"><h3 class="sheet__title" id="dr-inv-t">Bill 2024-118</h3><button class="icon-btn" aria-label="Close bill" data-lds-close style="margin: -10px -10px -10px 0;"><span class="ic" aria-hidden="true">close</span></button></div>
+    <p class="section__sub">Waste collection fee, second half of the year. Issued 2 September, paid 9 September by bank transfer.</p>
     <span class="badge badge--success">Paid</span>
     <div style="margin-top: auto;"><button class="btn btn--secondary btn--md btn--block"><span class="ic" aria-hidden="true">download</span>Download PDF</button></div>
   </aside>

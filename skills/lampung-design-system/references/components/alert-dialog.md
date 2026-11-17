@@ -5,12 +5,12 @@ Group: Overlays. Docs page: `docs/components/alert-dialog.html`.
 A dialog that confirms a destructive or irreversible action. The title names the object and the consequence; the safe button gets focus; the destructive button is the only place `btn--danger` belongs.
 
 ## Use it when
-- Before something that cannot be undone: delete a course, remove a member, discard a graded exam.
+- Before something that cannot be undone: delete a service, remove a team member, discard a verified file.
 - When an Undo toast is not possible because the action has effects outside the app (emails sent, payments made, data erased for everyone).
 
 ## Use something else when
 - The action can be undone: use [Toast](toast.md). Do it at once and offer Undo in the toast; it is faster and respects people.
-- A costly but not dangerous confirm (submit an exam, pay): use [Hold to confirm](hold-to-confirm.md).
+- A costly but not dangerous confirm (submit an application, pay): use [Hold to confirm](hold-to-confirm.md).
 - A small destructive action inside a row: use [Confirm in place](confirm-in-place.md). The control walks from rest to ask to done in place.
 - A non-destructive question or short input: use [Dialog](dialog.md).
 - A page-level confirm over the whole window: use [Modal](modal.md). Use `dialog.modal` with the same icon, title and danger button.
@@ -23,25 +23,25 @@ Centered above a scrim in its positioned container, like a [dialog](dialog.md). 
 |---|---|
 | `.dialog[role=alertdialog][aria-modal=true]` | Required. The layer with `data-lds-layer`, `aria-labelledby` the title and `aria-describedby` the body. |
 | `.dialog__icon` | The 44 px danger-tinted tile with a filled icon (`delete`, `warning`). |
-| `.dialog__title` | Required. "Delete Database Systems?": the verb and the object. |
+| `.dialog__title` | Required. "Delete the Micro business permit service?": the verb and the object. |
 | `.dialog__body` | Required. What will be lost, for whom, and that it cannot be undone. |
 | `.dialog__actions` | Required. The safe button first (`btn--secondary`, `data-lds-autofocus`), then `btn--danger` named with the verb. |
 | `.scrim[data-lds-scrim]` | Required. Clicking it cancels. |
 
 ## Markup
 
-**Delete a course.** Focus lands on "Keep course", so a stray Enter is safe. Escape, the scrim and "Keep course" all cancel.
+**Delete a service.** Focus lands on "Keep service", so a stray Enter is safe. Escape, the scrim and "Keep service" all cancel.
 ```html
 <div class="viewport docs-box">
   <div class="viewport__content">
-    <button class="btn btn--danger-tinted btn--md" data-lds-open="ad-delete" aria-haspopup="dialog"><span class="ic" aria-hidden="true">delete</span>Delete course</button>
+    <button class="btn btn--danger-tinted btn--md" data-lds-open="ad-delete" aria-haspopup="dialog"><span class="ic" aria-hidden="true">delete</span>Delete service</button>
   </div>
   <div class="scrim" data-lds-scrim="ad-delete"></div>
   <div class="dialog" id="ad-delete" role="alertdialog" aria-modal="true" aria-labelledby="ad-delete-t" aria-describedby="ad-delete-b" data-lds-layer>
     <div class="dialog__icon"><span class="ic ic--fill" aria-hidden="true">delete</span></div>
-    <h3 class="dialog__title" id="ad-delete-t">Delete Database Systems?</h3>
-    <p class="dialog__body" id="ad-delete-b">Its assignments and submissions are removed for every student. This cannot be undone.</p>
-    <div class="dialog__actions"><button class="btn btn--secondary btn--md" data-lds-close data-lds-autofocus>Keep course</button><button class="btn btn--danger btn--md" data-lds-close>Delete</button></div>
+    <h3 class="dialog__title" id="ad-delete-t">Delete the Micro business permit service?</h3>
+    <p class="dialog__body" id="ad-delete-b">All applications and their files are removed for every applicant. This cannot be undone.</p>
+    <div class="dialog__actions"><button class="btn btn--secondary btn--md" data-lds-close data-lds-autofocus>Keep service</button><button class="btn btn--danger btn--md" data-lds-close>Delete</button></div>
   </div>
 </div>
 ```
@@ -50,13 +50,13 @@ Centered above a scrim in its positioned container, like a [dialog](dialog.md). 
 ```html
 <div class="viewport docs-box">
   <div class="viewport__content">
-    <button class="btn btn--danger-tinted btn--md" data-lds-open="ad-remove" aria-haspopup="dialog">Remove from class</button>
+    <button class="btn btn--danger-tinted btn--md" data-lds-open="ad-remove" aria-haspopup="dialog">Remove from team</button>
   </div>
   <div class="scrim" data-lds-scrim="ad-remove"></div>
   <div class="dialog" id="ad-remove" role="alertdialog" aria-modal="true" aria-labelledby="ad-remove-t" aria-describedby="ad-remove-b" data-lds-layer>
     <div class="dialog__icon"><span class="ic ic--fill" aria-hidden="true">warning</span></div>
-    <h3 class="dialog__title" id="ad-remove-t">Remove Rina Wijaya from the class?</h3>
-    <p class="dialog__body" id="ad-remove-b">She loses access to materials and her grades are archived. Only an administrator can add her back.</p>
+    <h3 class="dialog__title" id="ad-remove-t">Remove Rina Wijaya from the verification team?</h3>
+    <p class="dialog__body" id="ad-remove-b">She loses access to application files and her work history is archived. Only an administrator can add her back.</p>
     <div class="dialog__actions"><button class="btn btn--secondary btn--md" data-lds-close data-lds-autofocus>Cancel</button><button class="btn btn--danger btn--md" data-lds-close>Remove</button></div>
   </div>
 </div>

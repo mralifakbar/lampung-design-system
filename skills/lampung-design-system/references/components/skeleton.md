@@ -5,7 +5,7 @@ Group: Feedback. Docs page: `docs/components/skeleton.html`.
 Grey shapes in the exact layout of the content that is loading, with a soft shine passing over them. When the data lands, nothing moves.
 
 ## Use it when
-- A view loads data and you already know its layout: a list of courses, a profile header, a dashboard of cards.
+- A view loads data and you already know its layout: a list of applications, a profile header, a dashboard of cards.
 - The loading state of the four [data states](data-states.md) (loading, empty, error, loaded) for any data view.
 
 ## Use something else when
@@ -29,7 +29,7 @@ In place of the real content, in the same container, with the same sizes, gaps a
 
 **List rows.** A square icon and two lines, the same as the loaded row.
 ```html
-<div class="list" style="max-width: 420px;" aria-busy="true" aria-label="Loading courses">
+<div class="list" style="max-width: 420px;" aria-busy="true" aria-label="Loading applications">
   <div class="lrow" aria-hidden="true"><div class="skel" style="width: 30px; height: 30px;"></div><div class="lrow__body"><div class="skel" style="height: 12px; width: 60%;"></div><div class="skel" style="height: 10px; width: 35%; margin-top: 8px;"></div></div></div>
   <div class="lrow" aria-hidden="true"><div class="skel" style="width: 30px; height: 30px;"></div><div class="lrow__body"><div class="skel" style="height: 12px; width: 48%;"></div><div class="skel" style="height: 10px; width: 30%; margin-top: 8px;"></div></div></div>
   <div class="lrow" aria-hidden="true"><div class="skel" style="width: 30px; height: 30px;"></div><div class="lrow__body"><div class="skel" style="height: 12px; width: 66%;"></div><div class="skel" style="height: 10px; width: 40%; margin-top: 8px;"></div></div></div>
@@ -47,7 +47,7 @@ In place of the real content, in the same container, with the same sizes, gaps a
 
 **Loading, then loaded.** Press the button: the real row replaces the placeholder in the same box, so nothing shifts.
 ```html
-<div class="list" aria-busy="true" aria-label="Loading courses">
+<div class="list" aria-busy="true" aria-label="Loading applications">
   <div class="lrow" aria-hidden="true">
     <div class="skel" style="width: 30px; height: 30px;"></div>
     <div class="lrow__body">
@@ -72,7 +72,7 @@ In place of the real content, in the same container, with the same sizes, gaps a
 
 ## Accessibility
 - The shapes say nothing: `aria-hidden="true"` on each placeholder row.
-- Mark the region `aria-busy="true"` and give it a name ("Loading courses") so screen reader users know something is coming.
+- Mark the region `aria-busy="true"` and give it a name ("Loading applications") so screen reader users know something is coming.
 - When the content arrives, it is read in the normal flow; do not announce every row.
 
 ## Do

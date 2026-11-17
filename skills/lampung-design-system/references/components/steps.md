@@ -5,7 +5,7 @@ Group: Navigation. Docs page: `docs/components/steps.html`.
 Numbered steps of a fixed sequence with a bar that fills as each one completes. Shows where people are in a flow and how much is left.
 
 ## Use it when
-- A flow with three to five fixed steps done in order: registration (details, courses, payment, review), exam setup, onboarding a school.
+- A flow with three to five fixed steps done in order: a permit application (details, business, payment, review), registering a newborn, registering an UMKM.
 - People benefit from knowing how many steps remain before they commit.
 
 ## Use something else when
@@ -13,7 +13,7 @@ Numbered steps of a fixed sequence with a bar that fills as each one completes. 
 - Instructions or requirements to read, not a flow to move through: use [List](list.md). Use numbered rows (`.lrow--num`) in a list.
 - Events that already happened in time: use [Timeline](timeline.md).
 - Progress of one task that runs by itself: use [Progress bar](progress-bar.md).
-- Lessons in a course, some done: use [App shell](app-shell.md). Use numbered child links with done marks in the shell.
+- Items in a training module, some done: use [App shell](app-shell.md). Use numbered child links with done marks in the shell.
 
 ## Where it goes
 At the top of the flow, under the page title, full width of the form column. Back and next buttons sit at the bottom of the form, not next to the steps. On phones with long labels, keep the dots and labels short (one or two words) or show "Step 2 of 4" in text instead.
@@ -31,28 +31,28 @@ At the top of the flow, under the page title, full width of the form column. Bac
 
 ## Markup
 
-**Course registration.** Step 2 of 4. Press Continue to complete a step: the bar fills, then the dot turns to a check.
+**Business permit application.** Step 2 of 4. Press Continue to complete a step: the bar fills, then the dot turns to a check.
 ```html
-<ol class="steps" aria-label="Registration progress">
+<ol class="steps" aria-label="Application progress">
   <li class="step is-done">
     <div class="step__head"><span class="step__dot"><span class="ic" aria-hidden="true">check</span></span><span class="step__bar"></span></div>
     <span class="step__label">Personal details</span><span class="step__sub">Name and contact</span>
   </li>
   <li class="step is-current" aria-current="step">
     <div class="step__head"><span class="step__dot">2</span><span class="step__bar"></span></div>
-    <span class="step__label">Courses</span><span class="step__sub">Up to 24 credits</span>
+    <span class="step__label">Business</span><span class="step__sub">Type and location</span>
   </li>
   <li class="step">
     <div class="step__head"><span class="step__dot">3</span></div>
-    <span class="step__label">Payment</span><span class="step__sub">Tuition and fees</span>
+    <span class="step__label">Payment</span><span class="step__sub">Levy and fees</span>
   </li>
 </ol>
 ```
 
 **Labels only.** Three short steps without a second line.
 ```html
-<ol class="steps" aria-label="Exam setup">
-  <li class="step is-done"><div class="step__head"><span class="step__dot"><span class="ic" aria-hidden="true">check</span></span><span class="step__bar"></span></div><span class="step__label">Questions</span></li>
+<ol class="steps" aria-label="Publishing an announcement">
+  <li class="step is-done"><div class="step__head"><span class="step__dot"><span class="ic" aria-hidden="true">check</span></span><span class="step__bar"></span></div><span class="step__label">Content</span></li>
   <li class="step is-done"><div class="step__head"><span class="step__dot"><span class="ic" aria-hidden="true">check</span></span><span class="step__bar"></span></div><span class="step__label">Schedule</span></li>
   <li class="step is-current" aria-current="step"><div class="step__head"><span class="step__dot">3</span></div><span class="step__label">Publish</span></li>
 </ol>
@@ -92,7 +92,7 @@ None. Move `.is-done`, `.is-current` and `aria-current="step"` from your code; s
 ```tsx
 import { Steps } from 'lampung-design-system/react';
 
-<Steps label="Registration progress" current={1} items={['Personal details', 'Courses', 'Payment', 'Review']} />
+<Steps label="Application progress" current={1} items={['Personal details', 'Business', 'Payment', 'Review']} />
 ```
 
 ## Related

@@ -5,12 +5,12 @@ Group: Marketing. Docs page: `docs/components/compare-table.html`.
 Plans as columns and features as rows, grouped by topic, with a check, a dash icon or a short value in each cell. It scrolls sideways in its own box while the feature names stay put.
 
 ## Use it when
-- Under the plan cards on a pricing page, for people who want every difference before they buy.
-- Comparing two to four editions of a product by the same list of features.
+- Under the plan cards on a fees page, for people who want every difference before they choose.
+- Comparing two to four kinds of a service by the same list of features.
 
 ## Use something else when
 - Choosing a plan: use [Plans](plans.md).
-- Records compared by attributes (students, invoices): use [Table](table.md).
+- Records compared by attributes (applications, permits): use [Table](table.md).
 - Label and value pairs of one item: use [Key-value](key-value.md).
 
 ## Where it goes
@@ -29,18 +29,18 @@ Under [plans](plans.md), often behind a "Compare every feature" button that open
 
 ## Markup
 
-**Two groups, three plans.** Narrow the window: the plans scroll under the feature names.
+**Two groups, three plans.** City library membership as the example. Narrow the window: the plans scroll under the feature names.
 ```html
 <div class="compare-box" data-lds-fade style="width: 100%;">
   <table class="compare">
-    <caption>Compare plans</caption>
-    <thead><tr><th scope="col">Feature</th><th scope="col">Free<span class="compare__price">$0</span></th><th scope="col" class="is-featured">Teacher<span class="compare__price">$12 a month</span></th><th scope="col">School<span class="compare__price">$9 per teacher</span></th></tr></thead>
+    <caption>Compare membership types</caption>
+    <thead><tr><th scope="col">Feature</th><th scope="col">General<span class="compare__price">Free</span></th><th scope="col" class="is-featured">Student<span class="compare__price">Rp 10.000 a year</span></th><th scope="col">Family<span class="compare__price">Rp 25.000 a year</span></th></tr></thead>
     <tbody>
-      <tr class="compare__group"><th scope="rowgroup" colspan="4">Classes</th></tr>
-      <tr><th scope="row">Classes</th><td>2</td><td class="is-featured">Unlimited</td><td>Unlimited</td></tr>
-      <tr><th scope="row">Rubrics</th><td><span class="ic compare__no" aria-hidden="true">remove</span><span class="sr-only">Not included</span></td><td class="is-featured"><span class="ic" aria-hidden="true">check</span><span class="sr-only">Included</span></td><td><span class="ic" aria-hidden="true">check</span><span class="sr-only">Included</span></td></tr>
-      <tr class="compare__group"><th scope="rowgroup" colspan="4">Support</th></tr>
-      <tr><th scope="row">Email support</th><td><span class="ic compare__no" aria-hidden="true">remove</span><span class="sr-only">Not included</span></td><td class="is-featured">2 business days</td><td>1 business day</td></tr>
+      <tr class="compare__group"><th scope="rowgroup" colspan="4">Borrowing</th></tr>
+      <tr><th scope="row">Books on loan at once</th><td>2</td><td class="is-featured">5</td><td>10</td></tr>
+      <tr><th scope="row">Group reading room</th><td><span class="ic compare__no" aria-hidden="true">remove</span><span class="sr-only">Not included</span></td><td class="is-featured"><span class="ic" aria-hidden="true">check</span><span class="sr-only">Included</span></td><td><span class="ic" aria-hidden="true">check</span><span class="sr-only">Included</span></td></tr>
+      <tr class="compare__group"><th scope="rowgroup" colspan="4">Help</th></tr>
+      <tr><th scope="row">Librarian help by email</th><td><span class="ic compare__no" aria-hidden="true">remove</span><span class="sr-only">Not included</span></td><td class="is-featured">2 business days</td><td>1 business day</td></tr>
     </tbody>
   </table>
 </div>
@@ -62,7 +62,7 @@ Under [plans](plans.md), often behind a "Compare every feature" button that open
 
 ## Do
 - Write limits as words or numbers ("3 to 50") instead of a check when they differ.
-- Group rows by what buyers ask about: features, platforms, license, support.
+- Group rows by what people ask about: borrowing, rooms, opening hours, help.
 
 ## Don't
 - Use color alone for included and not included.

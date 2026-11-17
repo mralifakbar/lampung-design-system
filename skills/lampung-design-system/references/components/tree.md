@@ -2,10 +2,10 @@
 
 Group: Data display. Docs page: `docs/components/tree.html`.
 
-Nested rows that open and close: folders and files, units and lessons. Each parent is a button with `aria-expanded`; its children open on a spring.
+Nested rows that open and close: folders and files, chapters and articles. Each parent is a button with `aria-expanded`; its children open on a spring.
 
 ## Use it when
-- A hierarchy people browse: course files in folders, units with lessons, a syllabus with chapters and sections.
+- A hierarchy people browse: service files in folders, divisions with sub-divisions, a regulation with chapters and articles.
 - A side panel for navigating a nested structure while the content shows on the right.
 
 ## Use something else when
@@ -27,18 +27,18 @@ In a side column of 240 to 320 px beside the content (an [app shell](app-shell.m
 
 ## Markup
 
-**Course files.** Open and close the folders. The selected file is on the accent tint.
+**Service files.** Open and close the folders. The selected file is on the accent tint.
 ```html
-<nav class="tree" aria-label="Course files" style="max-width: 300px;">
-  <button class="tree__row" aria-expanded="true" aria-controls="tk1"><span class="ic tree__chev" aria-hidden="true">chevron_right</span><span class="ic" aria-hidden="true">folder_open</span>Week 1: introduction</button>
+<nav class="tree" aria-label="Service files" style="max-width: 300px;">
+  <button class="tree__row" aria-expanded="true" aria-controls="tk1"><span class="ic tree__chev" aria-hidden="true">chevron_right</span><span class="ic" aria-hidden="true">folder_open</span>Micro business permit</button>
   <div class="tree__kids is-open" id="tk1"><div>
-    <a class="tree__row is-selected" href="#syllabus" aria-current="page"><span class="ic" aria-hidden="true">description</span>Syllabus</a>
-    <a class="tree__row" href="#slides"><span class="ic" aria-hidden="true">description</span>Lecture slides</a>
+    <a class="tree__row is-selected" href="#requirements" aria-current="page"><span class="ic" aria-hidden="true">description</span>Requirements</a>
+    <a class="tree__row" href="#flow"><span class="ic" aria-hidden="true">description</span>Application steps</a>
   </div></div>
-  <button class="tree__row" aria-expanded="false" aria-controls="tk2"><span class="ic tree__chev" aria-hidden="true">chevron_right</span><span class="ic" aria-hidden="true">folder</span>Week 2: sampling</button>
+  <button class="tree__row" aria-expanded="false" aria-controls="tk2"><span class="ic tree__chev" aria-hidden="true">chevron_right</span><span class="ic" aria-hidden="true">folder</span>Building approval</button>
   <div class="tree__kids" id="tk2"><div>
-    <a class="tree__row" href="#reading"><span class="ic" aria-hidden="true">description</span>Reading list</a>
-    <a class="tree__row" href="#quiz"><span class="ic" aria-hidden="true">assignment</span>Practice quiz</a>
+    <a class="tree__row" href="#documents"><span class="ic" aria-hidden="true">description</span>Document list</a>
+    <a class="tree__row" href="#form"><span class="ic" aria-hidden="true">assignment</span>Application form</a>
   </div></div>
 </nav>
 ```

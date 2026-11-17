@@ -5,7 +5,7 @@ Group: Navigation. Docs page: `docs/components/outline.html`.
 An "On this page" list of the headings of one long page, with an ink line that follows the section in view. The list on the right of this page is one.
 
 ## Use it when
-- A long page with four or more sections people jump between: documentation, a syllabus, course rules, a long report.
+- A long page with four or more sections people jump between: documentation, a service guide, regulations, a long report.
 - Wide screens with room for a third column beside the content.
 
 ## Use something else when
@@ -31,8 +31,8 @@ A sticky column to the right of the content on wide screens (about 200 to 220 px
 <nav class="toc" data-lds-toc aria-label="On this page">
   <span class="toc__ink" aria-hidden="true"></span>
   <a href="#intro">Introduction</a>
-  <a href="#grading">Grading</a>
-  <a href="#office-hours">Office hours</a>
+  <a href="#grading">Requirements</a>
+  <a href="#office-hours">Service hours</a>
 </nav>
 <!-- later in the page -->
 <h2 id="intro">Introduction</h2> …

@@ -5,13 +5,13 @@ Group: Chat. Docs page: `docs/components/chat-layout.html`.
 The conversation column: messages stacked 20 px apart in `.chat`, the history scrolling above a composer that never scrolls away, and a Latest button that appears only when the reader has scrolled up. Newest at the bottom, always.
 
 ## Use it when
-- A conversation with an assistant or a tutor: the person asks on the right, answers fill the reading column, newest at the bottom.
+- A conversation with a city services assistant: the person asks on the right, answers fill the reading column, newest at the bottom.
 - A support or feedback thread where order and time matter and the person replies from the same screen.
 - A history long enough to scroll, where people read back and need a way to return to the latest message.
 
 ## Use something else when
-- A history of events with no reply box (grade changes, status updates): use [Timeline](timeline.md).
-- Comments that each belong to a place in a document or submission: use [List](list.md). Put them next to what they discuss, not in one column.
+- A history of events with no reply box (application status changes, officer notes): use [Timeline](timeline.md).
+- Comments that each belong to a place in a document or application file: use [List](list.md). Put them next to what they discuss, not in one column.
 - One generated answer placed inside a page with no back and forth: use [Prose](prose.md). Show [thinking](thinking.md) while it works and [streaming text](streaming-text.md) as it arrives.
 - A feed of notifications: use [List](list.md).
 - A quick explanation of one question, in place: use [Popover](popover.md).
@@ -30,52 +30,52 @@ The main column of a page or a full-height panel beside the work it discusses (a
 
 ## Markup
 
-**A tutoring conversation.** Scroll the history up and the Latest button rises in; press it to glide back. Type a question and press Enter: your message joins the column.
+**Asking the city services assistant.** Scroll the history up and the Latest button rises in; press it to glide back. Type a question and press Enter: your message joins the column.
 ```html
 <div class="chat-scroll" id="chat-scroll"><!-- your scroller: overflow-y: auto, flex: 1 -->
-  <div class="chat" role="log" aria-label="Conversation with your tutor">
+  <div class="chat" role="log" aria-label="Conversation with the city services assistant">
     <p class="msg msg--system">Today, 09:12</p>
-    <div class="msg msg--me"><div class="bubble">Why was my answer to question 4 marked wrong?</div><span class="msg__meta">09:12</span></div>
-    <div class="msg msg--ai"><div class="bubble">Question 4 asks for the net force…</div>
+    <div class="msg msg--me"><div class="bubble">Why was my family card change for Kedaton sent back?</div><span class="msg__meta">09:12</span></div>
+    <div class="msg msg--ai"><div class="bubble">The surat pengantar from your RT/RW was not attached…</div>
       <div class="msg__actions">…</div>
     </div>
     <button class="btn btn--secondary btn--sm chat__jump" data-lds-jump="chat-scroll"><span class="ic" aria-hidden="true">arrow_downward</span>Latest</button>
   </div>
 </div>
 <form class="composer" data-lds-composer>
-  <textarea rows="1" aria-label="Message your tutor" placeholder="Ask about this lesson"></textarea>
+  <textarea rows="1" aria-label="Message the assistant" placeholder="Ask about this application"></textarea>
   <button class="composer__send" type="submit" aria-label="Send"><span class="ic" aria-hidden="true">arrow_upward</span></button>
 </form>
 <script type="module">
   import { init } from 'lampung-design-system/js';
   init();
-  document.querySelector('.composer').addEventListener('lds:send', (e) => sendToTutor(e.detail.text));
+  document.querySelector('.composer').addEventListener('lds:send', (e) => sendToAssistant(e.detail.text));
 </script>
 ```
 
 **System lines mark what changed.** Day breaks, a mode switching on, a file joining the conversation: centered footnote lines, no bubble, no actions. They are part of the history, so they scroll with it.
 ```html
-<div class="chat" role="log" aria-label="Exam practice" style="max-width: 560px;">
+<div class="chat" role="log" aria-label="Business permit help" style="max-width: 560px;">
   <p class="msg msg--system">Yesterday</p>
-  <div class="msg msg--me"><div class="bubble">Quiz me on chapter 3, ten questions.</div></div>
-  <div class="msg msg--ai"><div class="bubble">Ready when you are. Each question has four choices; answer with the letter.</div></div>
-  <p class="msg msg--system">Exam mode is on. Hints stay hidden until you submit.</p>
-  <p class="msg msg--system">You attached lab-report-draft.pdf</p>
+  <div class="msg msg--me"><div class="bubble">Check my UMKM business permit documents, one by one.</div></div>
+  <div class="msg msg--ai"><div class="bubble">Ready. I will go through the five documents in order; answer yes when each one is ready to upload.</div></div>
+  <p class="msg msg--system">Guided mode is on. The form stays locked until every document is checked.</p>
+  <p class="msg msg--system">You attached surat-keterangan-domisili.pdf</p>
   <p class="msg msg--system">Today</p>
-  <div class="msg msg--me"><div class="bubble">Submit my answers.</div></div>
+  <div class="msg msg--me"><div class="bubble">Submit my application.</div></div>
 </div>
 ```
 
 **Before the first message.** An empty conversation says what the assistant can do and offers two or three starting questions as chips. A chip fills the composer; the person still presses send.
 ```html
 <div class="empty">
-  <div class="empty__icon"><span class="ic" aria-hidden="true">school</span></div>
-  <p class="empty__title">Ask about Biology 101</p>
-  <p class="empty__body">Answers use your course notes and say which page they come from.</p>
+  <div class="empty__icon"><span class="ic" aria-hidden="true">id_card</span></div>
+  <p class="empty__title">Ask about Disdukcapil services</p>
+  <p class="empty__body">Answers use the published service requirements and say which page they come from.</p>
 </div>
 <div class="chip-row">
-  <button class="chip">Explain osmosis simply</button>
-  <button class="chip">Quiz me on cell parts</button>
+  <button class="chip">How to get an electronic KTP</button>
+  <button class="chip">Requirements for a moving letter</button>
 </div>
 <form class="composer" data-lds-composer>…</form>
 <!-- On a chip click: put its text in the textarea, dispatch 'input' (enables send), focus it. -->

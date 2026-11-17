@@ -5,7 +5,7 @@ Group: Data display. Docs page: `docs/components/file-tile.html`.
 Files and folders as tiles in a grid: a tinted thumbnail by type (or the picture itself), a two-line name, size and date, a checkbox that appears on hover, focus or while selecting, and a more menu. The tile opens the file; ticking selects it for a bulk action.
 
 ## Use it when
-- A file manager or a library where people recognize files by type or picture: course materials, shared drive, uploaded receipts.
+- A file manager or a library where people recognize files by type or picture: training materials, shared drive, uploaded payment receipts.
 - Picking several files for one action: download 4 files, move 12 photos, delete 2 drafts.
 
 ## Use something else when
@@ -33,7 +33,7 @@ In `.file-grid`, which fits as many tiles of at least `--min` (168 px) as the co
 
 **A shared folder.** Hover a tile for its checkbox and menu. Tick one: every checkbox stays visible and the selection bar rises with a rolling count. Shift-click ticks a run; Escape clears.
 ```html
-<div class="file-grid" role="list" aria-label="Q4 planning" data-lds-selection="files-bar">
+<div class="file-grid" role="list" aria-label="Fourth quarter planning" data-lds-selection="files-bar">
   <div class="file-tile file-tile--sheet" role="listitem">
     <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Budget Q4 2026.xlsx"><span class="check__box" aria-hidden="true">…</span></label>
     <a class="file-tile__open" href="/files/budget-q4"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Budget Q4 2026.xlsx</span><span class="file-tile__meta">214 KB · Edited 2 h ago</span></a>
@@ -85,10 +85,10 @@ In `.file-grid`, which fits as many tiles of at least `--min` (168 px) as the co
     </div>
   </div>
   <div class="file-tile file-tile--sheet" role="listitem">
-    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Payroll November.xlsx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
-    <a class="file-tile__open" href="#ft-14"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Payroll November.xlsx</span><span class="file-tile__meta">96 KB</span></a>
-    <button class="icon-btn file-tile__more" aria-label="More actions for Payroll November.xlsx" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-14"><span class="ic" aria-hidden="true">more_horiz</span></button>
-    <div class="menu menu--right" id="ft-m-14" role="menu" aria-label="Payroll November.xlsx" style="top: 44px; right: 4px;">
+    <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Officer stipends November.xlsx"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label>
+    <a class="file-tile__open" href="#ft-14"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Officer stipends November.xlsx</span><span class="file-tile__meta">96 KB</span></a>
+    <button class="icon-btn file-tile__more" aria-label="More actions for Officer stipends November.xlsx" aria-haspopup="menu" aria-expanded="false" data-lds-menu="ft-m-14"><span class="ic" aria-hidden="true">more_horiz</span></button>
+    <div class="menu menu--right" id="ft-m-14" role="menu" aria-label="Officer stipends November.xlsx" style="top: 44px; right: 4px;">
       <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Download</button>
       <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Rename</button>
       <div class="menu__sep"></div>

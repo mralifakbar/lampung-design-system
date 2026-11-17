@@ -5,7 +5,7 @@ Group: Selection. Docs page: `docs/components/switch.html`.
 An on and off control for a setting that applies the moment it is flipped, with no Save button. The thumb stretches while held and travels on a spring.
 
 ## Use it when
-- A setting that takes effect immediately: notifications, sounds, dark mode, show timer during exams.
+- A setting that takes effect immediately: notifications, sounds, dark mode, show the queue number on the lock screen.
 - Settings lists on phones (a small switch at the end of a list row).
 - Turning a feature on with a short explanation under the label (`.switch__text` with `small`).
 
@@ -33,16 +33,16 @@ In settings: one per line in a column, or at the end of a `.lrow` in an inset [l
 **With an explanation.** Press and hold: the thumb widens toward where it will go, then travels on the smooth spring and stretches once as it lands.
 ```html
 <div class="stack" style="--gap: 16px;">
-  <label class="switch"><input type="checkbox" role="switch" checked><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="switch__text">Class reminders<small>15 minutes before each class starts</small></span></label>
-  <label class="switch"><input type="checkbox" role="switch"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="switch__text">Show the timer during tryouts<small>Hide it if the countdown makes you anxious</small></span></label>
-  <label class="switch"><input type="checkbox" role="switch" disabled><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="switch__text">Sync with the campus calendar<small>Ask your faculty admin to enable it</small></span></label>
+  <label class="switch"><input type="checkbox" role="switch" checked><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="switch__text">Service appointment reminders<small>15 minutes before your appointment</small></span></label>
+  <label class="switch"><input type="checkbox" role="switch"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="switch__text">Show the queue number on the lock screen<small>Hide it if you share your phone</small></span></label>
+  <label class="switch"><input type="checkbox" role="switch" disabled><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="switch__text">Sync with the office calendar<small>Ask your agency admin to enable it</small></span></label>
 </div>
 ```
 
 **Settings rows on a phone.** The list row is the label, so tapping anywhere on it flips the small switch at the end.
 ```html
 <div class="list list--fill" style="max-width: 380px; width: 100%;">
-  <label class="lrow lrow--icon"><span class="lrow__icon" style="background: var(--tile-red);"><span class="ic" aria-hidden="true">notifications</span></span><span class="lrow__body"><span class="lrow__title">Class reminders</span></span><span class="switch switch--sm"><input type="checkbox" role="switch" checked><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span></span></label>
+  <label class="lrow lrow--icon"><span class="lrow__icon" style="background: var(--tile-red);"><span class="ic" aria-hidden="true">notifications</span></span><span class="lrow__body"><span class="lrow__title">Appointment reminders</span></span><span class="switch switch--sm"><input type="checkbox" role="switch" checked><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span></span></label>
   <label class="lrow lrow--icon"><span class="lrow__icon" style="background: var(--tile-blue);"><span class="ic" aria-hidden="true">touch_app</span></span><span class="lrow__body"><span class="lrow__title">Haptic feedback</span></span><span class="switch switch--sm"><input type="checkbox" role="switch"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span></span></label>
 </div>
 ```
@@ -75,7 +75,7 @@ In settings: one per line in a column, or at the end of a `.lrow` in an inset [l
 - The change applies at once; if it can fail (a server call), revert the switch and explain in a [toast](toast.md).
 
 ## Do
-- Label the setting, not the action: "Class reminders", not "Turn on reminders".
+- Label the setting, not the action: "Appointment reminders", not "Turn on reminders".
 - Apply immediately and show the result when it is not obvious.
 
 ## Don't
@@ -90,8 +90,8 @@ Automatic for every `.switch input`: on change it adds `.is-flip` for the landin
 ```tsx
 import { Switch } from 'lampung-design-system/react';
 
-<Switch checked={reminders} onChange={setReminders} sub="15 minutes before each class starts">
-  Class reminders
+<Switch checked={reminders} onChange={setReminders} sub="15 minutes before your appointment">
+  Appointment reminders
 </Switch>
 <Switch size="sm" checked={haptics} onChange={setHaptics}>Haptic feedback</Switch>
 ```

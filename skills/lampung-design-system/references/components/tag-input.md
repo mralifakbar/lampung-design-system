@@ -5,7 +5,7 @@ Group: Inputs. Docs page: `docs/components/tag-input.html`.
 A field that turns typed text into removable tags: Enter or comma adds one, Backspace on an empty field removes the last. For several short free values.
 
 ## Use it when
-- People enter several short values that are not from a fixed list: topics of interest, keywords for a question, emails to invite.
+- People enter several short values that are not from a fixed list: keywords for a citizen report, areas of interest, emails to invite.
 - The values are made up by the person, so a list of options cannot cover them.
 
 ## Use something else when
@@ -28,16 +28,16 @@ In a [form](form-layout.md), full width of its column, with a helper that states
 
 ## Markup
 
-**Topics.** Type a topic and press Enter or comma. Backspace in the empty field removes the last tag.
+**Report keywords.** Type a keyword and press Enter or comma. Backspace in the empty field removes the last tag.
 ```html
 <div class="field">
-  <label class="field__label" for="topics">Topics to practise</label>
+  <label class="field__label" for="topics">Keywords for the report</label>
   <div class="control tags">
-    <span class="tag">Number series<button type="button" aria-label="Remove Number series"><span class="ic" aria-hidden="true">close</span></button></span>
-    <span class="tag">Pancasila<button type="button" aria-label="Remove Pancasila"><span class="ic" aria-hidden="true">close</span></button></span>
-    <input id="topics" placeholder="Add a topic" aria-describedby="topics-help">
+    <span class="tag">Pothole<button type="button" aria-label="Remove Pothole"><span class="ic" aria-hidden="true">close</span></button></span>
+    <span class="tag">Street light<button type="button" aria-label="Remove Street light"><span class="ic" aria-hidden="true">close</span></button></span>
+    <input id="topics" placeholder="Add a keyword" aria-describedby="topics-help">
   </div>
-  <span class="field__help" id="topics-help">Up to 8 topics. Press Enter after each one.</span>
+  <span class="field__help" id="topics-help">Up to 8 keywords. Press Enter after each one.</span>
 </div>
 <!-- Your code: Enter or comma adds a .tag before the input; Backspace on an empty input removes the last; each tag's button removes it. -->
 ```
@@ -45,9 +45,9 @@ In a [form](form-layout.md), full width of its column, with a helper that states
 **Invite by email, with a rejected value.** Validate each value as it becomes a tag; keep the bad text in the input and explain.
 ```html
 <div class="field" style="max-width: 520px; width: 100%;">
-  <label class="field__label" for="ti-mail">Invite classmates</label>
-  <div class="control tags is-invalid"><span class="tag">rani@campus.ac.id<button type="button" aria-label="Remove rani@campus.ac.id" onclick="this.parentElement.remove()"><span class="ic" aria-hidden="true">close</span></button></span><span class="tag">dimas@campus.ac.id<button type="button" aria-label="Remove dimas@campus.ac.id" onclick="this.parentElement.remove()"><span class="ic" aria-hidden="true">close</span></button></span><input id="ti-mail" type="email" value="budi@campus" aria-invalid="true" aria-describedby="ti-mail-help"></div>
-  <span class="field__help field__help--error" id="ti-mail-help"><span class="ic" aria-hidden="true">error</span>budi@campus is missing a domain, like budi@campus.ac.id.</span>
+  <label class="field__label" for="ti-mail">Invite fellow officers</label>
+  <div class="control tags is-invalid"><span class="tag">rani@example.go.id<button type="button" aria-label="Remove rani@example.go.id" onclick="this.parentElement.remove()"><span class="ic" aria-hidden="true">close</span></button></span><span class="tag">dimas@example.go.id<button type="button" aria-label="Remove dimas@example.go.id" onclick="this.parentElement.remove()"><span class="ic" aria-hidden="true">close</span></button></span><input id="ti-mail" type="email" value="budi@example" aria-invalid="true" aria-describedby="ti-mail-help"></div>
+  <span class="field__help field__help--error" id="ti-mail-help"><span class="ic" aria-hidden="true">error</span>budi@example is missing a domain, like budi@example.go.id.</span>
 </div>
 ```
 
@@ -56,7 +56,7 @@ In a [form](form-layout.md), full width of its column, with a helper that states
 |---|---|
 | `focus` | Accent edge and halo on the whole box (`:focus-within`), as any `.control`. |
 | `.is-invalid` | Danger edge when the typed value is rejected; the text stays in the input. |
-| `at the limit` | Disable the input and say so in the helper ("8 of 8 topics"). |
+| `at the limit` | Disable the input and say so in the helper ("8 of 8 keywords"). |
 | `tag hover` | The remove button tints on hover. |
 
 ## Motion and microinteractions
@@ -66,8 +66,8 @@ In a [form](form-layout.md), full width of its column, with a helper that states
 
 ## Accessibility
 - The input is labelled by the field label; the helper says how to add (Enter) and the limit.
-- Each remove button is a `<button type="button">` named "Remove Number series". After removing, move focus back to the input.
-- Announce adds and removes in an `aria-live="polite"` region if the list is long ("Pancasila added, 3 topics").
+- Each remove button is a `<button type="button">` named "Remove Pothole". After removing, move focus back to the input.
+- Announce adds and removes in an `aria-live="polite"` region if the list is long ("Street light added, 3 keywords").
 - Enter must not submit the form while the input has text; prevent it only in that case.
 
 ## Do

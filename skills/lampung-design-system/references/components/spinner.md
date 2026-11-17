@@ -40,9 +40,9 @@ Where the result will appear: centred in the area that is refreshing, at the tra
 **Loading more at the end of a list.** The spinner sits where the next rows will appear, with words.
 ```html
 <div class="list" style="max-width: 420px;">
-  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Tryout 12: general knowledge</div><div class="lrow__sub">Score 412</div></div></div>
-  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Tryout 11: verbal reasoning</div><div class="lrow__sub">Score 388</div></div></div>
-  <div class="lrow" role="status" style="justify-content: center; color: var(--text-subtle);"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="lrow__sub" style="margin: 0;">Loading older tryouts</span></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Street light out, Kedaton</div><div class="lrow__sub">Resolved</div></div></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Blocked drain, Rajabasa</div><div class="lrow__sub">In progress</div></div></div>
+  <div class="lrow" role="status" style="justify-content: center; color: var(--text-subtle);"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="lrow__sub" style="margin: 0;">Loading earlier reports</span></div>
 </div>
 ```
 

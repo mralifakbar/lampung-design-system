@@ -6,10 +6,10 @@ The picture you tap grows out of its own thumbnail into the full view and shrink
 
 ## Use it when
 - Opening a photo, diagram or scan from a grid or an article into a [lightbox](lightbox.md).
-- Any thumbnail whose large version is the same picture: campus photos, lab results, a scanned answer sheet.
+- Any thumbnail whose large version is the same picture: photos of service buildings, test results, a scanned application form.
 
 ## Use something else when
-- Opening details that are not the same picture (a course card to its page): use [Nav progress](nav-progress.md). There is no generic shared-element transition for arbitrary elements yet; navigate normally.
+- Opening details that are not the same picture (a service card to its page): use [Nav progress](nav-progress.md). There is no generic shared-element transition for arbitrary elements yet; navigate normally.
 - A form or a question over the page: use [Dialog](dialog.md).
 - Browsing a row of pictures in place: use [Carousel](carousel.md).
 - Content opening below its trigger: use [Height expand](height-expand.md).
@@ -20,22 +20,22 @@ On a `.thumb` link (`<a class="thumb" href="large.jpg" data-lds-lightbox>`) arou
 
 ## Markup
 
-**A grid of campus photos.** Open a photo: it grows from its exact place in the grid to the center while the backdrop fades in. Close it (Escape, the close button or the backdrop) and it shrinks back into the same tile.
+**A grid of service building photos.** Open a photo: it grows from its exact place in the grid to the center while the backdrop fades in. Close it (Escape, the close button or the backdrop) and it shrinks back into the same tile.
 ```html
 <div class="auto-grid" style="--min: 150px;">
-  <a class="thumb" href="library-large.jpg" data-lds-lightbox data-caption="Central library, east entrance">
-    <img src="library-small.jpg" alt="The central library with its tall windows">
+  <a class="thumb" href="library-large.jpg" data-lds-lightbox data-caption="Public service mall, east entrance">
+    <img src="library-small.jpg" alt="The public service mall with its tall windows">
   </a>
   …
 </div>
 ```
 
-**A figure in a lesson.** Inside an article the figure stays small enough to keep reading; tapping it grows it without losing the place in the text.
+**A figure in a guide.** Inside an article the figure stays small enough to keep reading; tapping it grows it without losing the place in the text.
 ```html
 <div class="prose">
-  <p>Plant cells keep their shape because the cell wall pushes back when water flows in. The photo below shows the lab building where you will run the experiment in week 6.</p>
-  <div style="max-width: 280px;"><a class="thumb" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20800%20600'%3E%3Crect%20width%3D'800'%20height%3D'600'%20fill%3D'%23DCFCE7'%2F%3E%3Ccircle%20cx%3D'640'%20cy%3D'130'%20r%3D'56'%20fill%3D'%23FDE68A'%2F%3E%3Crect%20x%3D'170'%20y%3D'210'%20width%3D'460'%20height%3D'270'%20rx%3D'8'%20fill%3D'%2315803D'%2F%3E%3Cpath%20d%3D'M150%20220%20L400%20110%20L650%20220%20Z'%20fill%3D'%2315803D'%2F%3E%3Cg%20fill%3D'%23DCFCE7'%20opacity%3D'0.85'%3E%3Crect%20x%3D'220'%20y%3D'270'%20width%3D'60'%20height%3D'80'%2F%3E%3Crect%20x%3D'320'%20y%3D'270'%20width%3D'60'%20height%3D'80'%2F%3E%3Crect%20x%3D'420'%20y%3D'270'%20width%3D'60'%20height%3D'80'%2F%3E%3Crect%20x%3D'520'%20y%3D'270'%20width%3D'60'%20height%3D'80'%2F%3E%3Crect%20x%3D'360'%20y%3D'380'%20width%3D'80'%20height%3D'100'%2F%3E%3C%2Fg%3E%3Crect%20y%3D'480'%20width%3D'800'%20height%3D'120'%20fill%3D'%23166534'%2F%3E%3C%2Fsvg%3E" data-lds-lightbox data-caption="Biology lab, building C, room 2.14"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20800%20600'%3E%3Crect%20width%3D'800'%20height%3D'600'%20fill%3D'%23DCFCE7'%2F%3E%3Ccircle%20cx%3D'640'%20cy%3D'130'%20r%3D'56'%20fill%3D'%23FDE68A'%2F%3E%3Crect%20x%3D'170'%20y%3D'210'%20width%3D'460'%20height%3D'270'%20rx%3D'8'%20fill%3D'%2315803D'%2F%3E%3Cpath%20d%3D'M150%20220%20L400%20110%20L650%20220%20Z'%20fill%3D'%2315803D'%2F%3E%3Cg%20fill%3D'%23DCFCE7'%20opacity%3D'0.85'%3E%3Crect%20x%3D'220'%20y%3D'270'%20width%3D'60'%20height%3D'80'%2F%3E%3Crect%20x%3D'320'%20y%3D'270'%20width%3D'60'%20height%3D'80'%2F%3E%3Crect%20x%3D'420'%20y%3D'270'%20width%3D'60'%20height%3D'80'%2F%3E%3Crect%20x%3D'520'%20y%3D'270'%20width%3D'60'%20height%3D'80'%2F%3E%3Crect%20x%3D'360'%20y%3D'380'%20width%3D'80'%20height%3D'100'%2F%3E%3C%2Fg%3E%3Crect%20y%3D'480'%20width%3D'800'%20height%3D'120'%20fill%3D'%23166534'%2F%3E%3C%2Fsvg%3E" alt="The biology lab building among trees"></a></div>
-  <p>Bring a lab coat and your printed worksheet. The room opens 15 minutes before the session.</p>
+  <p>Antenatal check-ups are held in the outpatient building every Monday and Thursday. The photo below shows the building where you register.</p>
+  <div style="max-width: 280px;"><a class="thumb" href="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20800%20600'%3E%3Crect%20width%3D'800'%20height%3D'600'%20fill%3D'%23DCFCE7'%2F%3E%3Ccircle%20cx%3D'640'%20cy%3D'130'%20r%3D'56'%20fill%3D'%23FDE68A'%2F%3E%3Crect%20x%3D'170'%20y%3D'210'%20width%3D'460'%20height%3D'270'%20rx%3D'8'%20fill%3D'%2315803D'%2F%3E%3Cpath%20d%3D'M150%20220%20L400%20110%20L650%20220%20Z'%20fill%3D'%2315803D'%2F%3E%3Cg%20fill%3D'%23DCFCE7'%20opacity%3D'0.85'%3E%3Crect%20x%3D'220'%20y%3D'270'%20width%3D'60'%20height%3D'80'%2F%3E%3Crect%20x%3D'320'%20y%3D'270'%20width%3D'60'%20height%3D'80'%2F%3E%3Crect%20x%3D'420'%20y%3D'270'%20width%3D'60'%20height%3D'80'%2F%3E%3Crect%20x%3D'520'%20y%3D'270'%20width%3D'60'%20height%3D'80'%2F%3E%3Crect%20x%3D'360'%20y%3D'380'%20width%3D'80'%20height%3D'100'%2F%3E%3C%2Fg%3E%3Crect%20y%3D'480'%20width%3D'800'%20height%3D'120'%20fill%3D'%23166534'%2F%3E%3C%2Fsvg%3E" data-lds-lightbox data-caption="Puskesmas, outpatient building, room 2"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%20800%20600'%3E%3Crect%20width%3D'800'%20height%3D'600'%20fill%3D'%23DCFCE7'%2F%3E%3Ccircle%20cx%3D'640'%20cy%3D'130'%20r%3D'56'%20fill%3D'%23FDE68A'%2F%3E%3Crect%20x%3D'170'%20y%3D'210'%20width%3D'460'%20height%3D'270'%20rx%3D'8'%20fill%3D'%2315803D'%2F%3E%3Cpath%20d%3D'M150%20220%20L400%20110%20L650%20220%20Z'%20fill%3D'%2315803D'%2F%3E%3Cg%20fill%3D'%23DCFCE7'%20opacity%3D'0.85'%3E%3Crect%20x%3D'220'%20y%3D'270'%20width%3D'60'%20height%3D'80'%2F%3E%3Crect%20x%3D'320'%20y%3D'270'%20width%3D'60'%20height%3D'80'%2F%3E%3Crect%20x%3D'420'%20y%3D'270'%20width%3D'60'%20height%3D'80'%2F%3E%3Crect%20x%3D'520'%20y%3D'270'%20width%3D'60'%20height%3D'80'%2F%3E%3Crect%20x%3D'360'%20y%3D'380'%20width%3D'80'%20height%3D'100'%2F%3E%3C%2Fg%3E%3Crect%20y%3D'480'%20width%3D'800'%20height%3D'120'%20fill%3D'%23166534'%2F%3E%3C%2Fsvg%3E" alt="The puskesmas outpatient building among trees"></a></div>
+  <p>Bring your KIA book and your KTP. The registration desk opens 15 minutes before the service starts.</p>
 </div>
 ```
 

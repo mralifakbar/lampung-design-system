@@ -30,7 +30,7 @@ At the end of the row or control that leads to the items, before the chevron. In
 ```html
 <div class="list" style="max-width: 420px;">
   <a class="lrow lrow--icon" href="#messages"><span class="lrow__icon" style="background: var(--tile-blue);"><span class="ic" aria-hidden="true">chat</span></span><span class="lrow__body"><span class="lrow__title">Messages</span></span><span class="count">3<span class="sr-only"> unread</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
-  <a class="lrow lrow--icon" href="#requests"><span class="lrow__icon" style="background: var(--tile-orange);"><span class="ic" aria-hidden="true">person_add</span></span><span class="lrow__body"><span class="lrow__title">Join requests</span></span><span class="count">99+<span class="sr-only"> waiting</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+  <a class="lrow lrow--icon" href="#requests"><span class="lrow__icon" style="background: var(--tile-orange);"><span class="ic" aria-hidden="true">person_add</span></span><span class="lrow__body"><span class="lrow__title">Registration requests</span></span><span class="count">99+<span class="sr-only"> waiting</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
   <a class="lrow lrow--icon" href="#notifications"><span class="lrow__icon" style="background: var(--tile-red);"><span class="ic" aria-hidden="true">notifications</span></span><span class="lrow__body"><span class="lrow__title">Notifications</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
 </div>
 ```
@@ -63,7 +63,7 @@ At the end of the row or control that leads to the items, before the chevron. In
 - Place it inside a flex parent (row, button) so it keeps its pill shape.
 
 ## Don't
-- Use it for totals ("42 courses"); write the total as text.
+- Use it for totals ("42 services"); write the total as text.
 - Show a count on more than two or three destinations at once.
 - Use it as a dot without a number.
 

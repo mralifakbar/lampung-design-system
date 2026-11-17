@@ -10,7 +10,7 @@ Two to five equal segments with one thumb that slides to the chosen one. For swi
 - A compact single choice in a toolbar or a card header.
 
 ## Use something else when
-- Each choice shows a different panel of content (Overview, Assignments, Files): use [Tabs](tabs.md). Tabs carry tab semantics and panels.
+- Each choice shows a different panel of content (Overview, Files, History): use [Tabs](tabs.md). Tabs carry tab semantics and panels.
 - More than five options, or long labels: use [Select](select.md).
 - A single on and off setting: use [Switch](switch.md).
 - A choice saved with a form, needing explanations: use [Radio](radio.md). Or [radio cards](radio-card.md)

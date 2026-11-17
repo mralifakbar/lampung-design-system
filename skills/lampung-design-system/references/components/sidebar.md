@@ -35,7 +35,7 @@ In the left column of a `split-2` inside the content, 240 px wide, at the top of
   <span class="sidebar__hl" aria-hidden="true" style="transform: translateY(120px);"></span>
   <span class="sidebar__head">Workspace</span>
   <a class="sidebar__item" href="/home"><span class="ic" aria-hidden="true">home</span>Home</a>
-  <a class="sidebar__item" href="/courses" aria-current="page"><span class="ic" aria-hidden="true">menu_book</span>Courses<span class="sidebar__badge">6</span></a>
+  <a class="sidebar__item" href="/services" aria-current="page"><span class="ic" aria-hidden="true">menu_book</span>Services<span class="sidebar__badge">6</span></a>
 </nav>
 <script type="module">
   // Move the one highlight to the current item
@@ -55,7 +55,7 @@ In the left column of a `split-2` inside the content, 240 px wide, at the top of
     <a class="sidebar__item" href="#sb2"><span class="ic" aria-hidden="true">lock</span>Password and sign in</a>
   </nav>
   <div class="section" id="sb2">
-    <div class="section__head"><h2>Profile</h2><p class="section__sub">How your name and photo appear to lecturers and classmates.</p></div>
+    <div class="section__head"><h2>Profile</h2><p class="section__sub">How your name and photo appear to service officers.</p></div>
   </div>
 </div>
 ```

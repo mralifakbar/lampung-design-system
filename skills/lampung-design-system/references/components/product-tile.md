@@ -5,7 +5,7 @@ Group: Data display. Docs page: `docs/components/product-tile.html`.
 A product people tap to add to a sale or an order: picture, name, one meta line and the price, with a badge in the corner that counts how many are already in the sale. The whole tile is one button.
 
 ## Use it when
-- A point of sale or a counter where the cashier adds products by tapping them: a shop, a cafe, a ticket desk.
+- A point of sale or a counter where the cashier adds products by tapping them: an UMKM gallery at a city expo, a canteen in a service office, a ticket desk at a tourist site.
 - A self-order screen or a menu where people build an order from a grid of items.
 - Any grid where one tap adds one item and the running count matters more than the details.
 
@@ -32,16 +32,16 @@ In a `.ptile-grid` (columns of at least `--min`, 148 px by default) beside or ab
 
 ## Markup
 
-**A point-of-sale grid.** The count in the corner and the accent ring say what is already in the sale; low stock is said in words; the sold-out tile fades and says when it is back.
+**A point-of-sale grid.** The till at an UMKM gallery during a city expo. The count in the corner and the accent ring say what is already in the sale; low stock is said in words; the sold-out tile fades and says when it is back.
 ```html
 <div class="ptile-grid">
-  <button class="ptile is-in" type="button" aria-label="Stoneware mug, set of 2, $36.00, 2 in this sale">
+  <button class="ptile is-in" type="button" aria-label="Siger motif ceramic mug, set of 2, Rp 85.000, 2 in this sale">
     <span class="ptile__media"><img src="img/products/stoneware-mug.svg" alt=""></span>
-    <span class="ptile__body"><span class="ptile__name">Stoneware mug, set of 2</span><span class="ptile__meta">36 in stock</span></span>
-    <span class="ptile__price">$36.00</span>
+    <span class="ptile__body"><span class="ptile__name">Siger motif ceramic mug, set of 2</span><span class="ptile__meta">36 in stock</span></span>
+    <span class="ptile__price">Rp 85.000</span>
     <span class="ptile__qty">2</span>
   </button>
-  <button class="ptile" type="button" aria-disabled="true" aria-label="Field watch, 38 mm, $189.00, sold out">…<span class="ptile__meta">Sold out until 2 Dec</span>…</button>
+  <button class="ptile" type="button" aria-disabled="true" aria-label="Wooden watch, 38 mm, Rp 350.000, sold out">…<span class="ptile__meta">Sold out until 2 Dec</span>…</button>
 </div>
 <script type="module">
   // On tap: add to the sale, then show the count and pop it
@@ -52,8 +52,8 @@ In a `.ptile-grid` (columns of at least `--min`, 148 px by default) beside or ab
 **Compact, in a narrow panel.** `ptile--compact` puts the picture beside the name: for a side panel, quick picks or a long list on a phone.
 ```html
 <div class="ptile-grid" style="--min: 240px; max-width: 520px;">
-  <button class="ptile ptile--compact" type="button" aria-label="Organic cotton crew tee, $29.00"><span class="ptile__media"><img src="../examples/dashboard/img/products/crew-tee.svg" alt=""></span><span class="ptile__body"><span class="ptile__name">Organic cotton crew tee</span><span class="ptile__meta">S, M, L</span></span><span class="ptile__price">$29.00</span><span class="ptile__qty" hidden></span></button>
-  <button class="ptile ptile--compact is-in" type="button" aria-label="Dot grid notebook, A5, $18.00, 1 in this sale"><span class="ptile__media"><img src="../examples/dashboard/img/products/dot-notebook.svg" alt=""></span><span class="ptile__body"><span class="ptile__name">Dot grid notebook, A5</span><span class="ptile__meta">120 in stock</span></span><span class="ptile__price">$18.00</span><span class="ptile__qty">1</span></button>
+  <button class="ptile ptile--compact" type="button" aria-label="Tapis motif cotton tee, Rp 95.000"><span class="ptile__media"><img src="../examples/dashboard/img/products/crew-tee.svg" alt=""></span><span class="ptile__body"><span class="ptile__name">Tapis motif cotton tee</span><span class="ptile__meta">S, M, L</span></span><span class="ptile__price">Rp 95.000</span><span class="ptile__qty" hidden></span></button>
+  <button class="ptile ptile--compact is-in" type="button" aria-label="Tapis cover notebook, A5, Rp 30.000, 1 in this sale"><span class="ptile__media"><img src="../examples/dashboard/img/products/dot-notebook.svg" alt=""></span><span class="ptile__body"><span class="ptile__name">Tapis cover notebook, A5</span><span class="ptile__meta">120 in stock</span></span><span class="ptile__price">Rp 30.000</span><span class="ptile__qty">1</span></button>
 </div>
 ```
 
@@ -80,7 +80,7 @@ In a `.ptile-grid` (columns of at least `--min`, 148 px by default) beside or ab
 - Reduced motion: no pop and no scale; the count and ring change at once.
 
 ## Accessibility
-- A real `button`; `aria-label` carries the name, the price and the count ("Stoneware mug, $36.00, 2 in this sale"). Update it when the count changes.
+- A real `button`; `aria-label` carries the name, the price and the count ("Siger motif ceramic mug, Rp 85.000, 2 in this sale"). Update it when the count changes.
 - Use `aria-disabled` rather than `disabled` for sold out, so the tile stays focusable and can explain itself.
 - Announce each add through a polite live region ("Added Stoneware mug, 2 in the sale").
 - Tiles are at least 148 px wide, far above the 44 px target.

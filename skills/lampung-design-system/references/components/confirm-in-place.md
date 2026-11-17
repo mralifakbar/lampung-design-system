@@ -9,8 +9,8 @@ A destructive action that asks, works and reports inside one pill: rest, then "D
 - The action sits in a toolbar, a card header or a row, and a dialog would feel heavier than the action.
 
 ## Use something else when
-- The action cannot be undone or affects many people (delete a course for every student): use [Alert dialog](alert-dialog.md).
-- A costly but not dangerous commit (submit an exam, pay): use [Hold to confirm](hold-to-confirm.md). Or [slide to confirm](slide-to-confirm.md) on phones.
+- The action cannot be undone or affects many people (delete a service for every resident): use [Alert dialog](alert-dialog.md).
+- A costly but not dangerous commit (submit an application, pay): use [Hold to confirm](hold-to-confirm.md). Or [slide to confirm](slide-to-confirm.md) on phones.
 - Removing a row by gesture: use [Swipe actions](swipe-actions.md).
 - The result happened somewhere else on the page: use [Toast](toast.md). Offer Undo there.
 
@@ -41,13 +41,13 @@ Where the action already lives: the end of a file toolbar, a card header, the tr
 **Leave a group from its card.** The same walk with words for this action. Escape backs out of the question.
 ```html
 <div class="card" style="display: flex; align-items: center; gap: 12px; width: 100%; max-width: 560px; flex-wrap: wrap;">
-  <span class="avatar avatar--sq">TL</span>
-  <span style="flex: 1; min-width: 140px;"><span class="card__title" style="display: block;">Thesis Lab</span><span class="card__sub" style="display: block;">12 members, meets on Thursdays</span></span>
+  <span class="avatar avatar--sq">KS</span>
+  <span style="flex: 1; min-width: 140px;"><span class="card__title" style="display: block;">Kader Posyandu Sukarame</span><span class="card__sub" style="display: block;">12 members, meets on Thursdays</span></span>
   <div class="confirm" data-lds-confirm>
   <span class="confirm__face confirm__face--rest"><button class="confirm__arm" data-act="arm"><span class="ic" aria-hidden="true">logout</span>Leave group</button></span>
-  <span class="confirm__face confirm__face--ask"><span class="confirm__q">Leave Thesis Lab?</span><button class="btn btn--plain" data-act="cancel">Stay</button><button class="btn btn--danger" data-act="confirm">Leave</button></span>
+  <span class="confirm__face confirm__face--ask"><span class="confirm__q">Leave Kader Posyandu Sukarame?</span><button class="btn btn--plain" data-act="cancel">Stay</button><button class="btn btn--danger" data-act="confirm">Leave</button></span>
   <span class="confirm__face confirm__face--busy" role="status"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">Leaving</span></span>
-  <span class="confirm__face confirm__face--done" role="status"><span class="ic" aria-hidden="true">check_circle</span>You left Thesis Lab<button class="confirm__undo" data-act="undo">Undo</button></span>
+  <span class="confirm__face confirm__face--done" role="status"><span class="ic" aria-hidden="true">check_circle</span>You left the group<button class="confirm__undo" data-act="undo">Undo</button></span>
 </div>
 </div>
 ```
@@ -55,7 +55,7 @@ Where the action already lives: the end of a file toolbar, a card header, the tr
 **Remove a member in a row.** In a list the pill grows toward the row content; the name and email keep their place.
 ```html
 <div class="list" style="width: 100%; max-width: 560px;">
-  <div class="lrow" style="flex-wrap: wrap;"><span class="avatar" style="--size: 36px;">RS</span><span class="lrow__body"><span class="lrow__title">Rizal Siregar</span><span class="lrow__sub">rizal@campus.ac.id</span></span><div class="confirm" data-lds-confirm>
+  <div class="lrow" style="flex-wrap: wrap;"><span class="avatar" style="--size: 36px;">RS</span><span class="lrow__body"><span class="lrow__title">Rizal Siregar</span><span class="lrow__sub">rizal.siregar@contoh.id</span></span><div class="confirm" data-lds-confirm>
   <span class="confirm__face confirm__face--rest"><button class="confirm__arm" data-act="arm"><span class="ic" aria-hidden="true">person</span>Remove</button></span>
   <span class="confirm__face confirm__face--ask"><span class="confirm__q">Remove Rizal?</span><button class="btn btn--plain" data-act="cancel">Cancel</button><button class="btn btn--danger" data-act="confirm">Remove</button></span>
   <span class="confirm__face confirm__face--busy" role="status"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">Removing</span></span>

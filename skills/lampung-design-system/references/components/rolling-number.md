@@ -5,7 +5,7 @@ Group: Data display. Docs page: `docs/components/rolling-number.html`.
 A number whose digits each slide to their new value on the smooth spring, like an odometer. For a count that changes while the person watches.
 
 ## Use it when
-- A count that changes in front of the person: likes, seats taken, a stepper value, items in a cart.
+- A count that changes in front of the person: likes, queue numbers taken, a stepper value, seats booked on a city bus.
 - A live figure that ticks up or down while the page is open.
 
 ## Use something else when
@@ -15,7 +15,7 @@ A number whose digits each slide to their new value on the smooth spring, like a
 - A number the person types or steps: use [Number stepper](number-stepper.md). The stepper already uses a rolling number for its value.
 
 ## Where it goes
-Inline in the text or control that owns the number: a like button, a stepper, a stat value, a cart badge. It inherits font, size and color from its parent.
+Inline in the text or control that owns the number: a like button, a stepper, a stat value, a queue badge. It inherits font, size and color from its parent.
 
 ## Anatomy
 | Part | What it is |
@@ -26,7 +26,7 @@ Inline in the text or control that owns the number: a like button, a stepper, a 
 
 ## Markup
 
-**Seats taken.** Each digit slides to its new place. Press the buttons.
+**Queue numbers taken.** Queue tickets taken today at a district service counter. Each digit slides to its new place. Press the buttons.
 ```html
 <span class="roll" role="img" data-lds-roll="128"></span>
 <script type="module">

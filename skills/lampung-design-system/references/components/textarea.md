@@ -5,13 +5,13 @@ Group: Inputs. Docs page: `docs/components/textarea.html`.
 A field for a few sentences: the same `.control` box, taller, with an optional character counter. Say the limit before people reach it.
 
 ## Use it when
-- People write more than one line: a note to an adviser, a reason for a request, a report of a mistake in a question.
+- People write more than one line: a note to the officer, a reason for an application, a report of a mistake in a person's data.
 - A field has a character limit and people need to see how much room is left (`.counter`).
 
 ## Use something else when
 - One short line (a name, a title, an email): use [Text field](text-field.md).
 - Writing a chat message that sends on Enter: use [Composer](composer.md).
-- Long formatted content (an article, lesson notes): use [Prose](prose.md). Use a real editor; the textarea is plain text only.
+- Long formatted content (an article, a service guide): use [Prose](prose.md). Use a real editor; the textarea is plain text only.
 - Editing a short value in place inside a list or table: use [Inline edit](inline-edit.md).
 - Several short items like topics or emails: use [Tag input](tag-input.md).
 
@@ -31,11 +31,11 @@ In a [form](form-layout.md), usually last before the actions, full width of the 
 **With a counter.** The counter lives in the label row, so it never moves the helper. With `maxlength` the browser stops input at the limit, so the counter never needs an over-limit state.
 ```html
 <div class="field">
-  <label class="field__label" for="note">Note to your adviser <span class="counter" id="note-count">0 / 280</span></label>
+  <label class="field__label" for="note">Note to the officer <span class="counter" id="note-count">0 / 280</span></label>
   <div class="control control--area">
     <textarea id="note" maxlength="280" aria-describedby="note-help note-count"></textarea>
   </div>
-  <span class="field__help" id="note-help">Your adviser reads this before the meeting.</span>
+  <span class="field__help" id="note-help">The officer reads this before processing your application.</span>
 </div>
 <!-- Update #note-count on input in your own code. -->
 ```
@@ -43,9 +43,9 @@ In a [form](form-layout.md), usually last before the actions, full width of the 
 **Required reason with an error.** A report needs a reason; the helper explains what kind of detail helps.
 ```html
 <div class="field" style="max-width: 520px;">
-  <label class="field__label" for="ta-why">What is wrong with this question?</label>
+  <label class="field__label" for="ta-why">What is wrong with this data?</label>
   <div class="control control--area is-invalid"><textarea id="ta-why" rows="4" aria-invalid="true" aria-describedby="ta-why-help"></textarea></div>
-  <span class="field__help field__help--error" id="ta-why-help"><span class="ic" aria-hidden="true">error</span>Describe the mistake, for example which option should be correct and why.</span>
+  <span class="field__help field__help--error" id="ta-why-help"><span class="ic" aria-hidden="true">error</span>Describe the mistake, for example which part is wrong and what it should say.</span>
 </div>
 ```
 

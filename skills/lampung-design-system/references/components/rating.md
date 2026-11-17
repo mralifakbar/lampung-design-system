@@ -5,7 +5,7 @@ Group: Selection. Docs page: `docs/components/rating.html`.
 Five stars for rating something from one to five. Hovering previews the score, clicking sets it; it works as a radio group from the keyboard.
 
 ## Use it when
-- People rate a course, a lecturer, an explanation or a tryout from one to five.
+- People rate a service, an officer, an explanation or a visit from one to five.
 - Showing an average rating read-only next to a title (static stars without buttons).
 
 ## Use something else when
@@ -15,7 +15,7 @@ Five stars for rating something from one to five. Hovering previews the score, c
 - Choosing one of a few named levels (Easy, Medium, Hard): use [Segmented control](segmented-control.md).
 
 ## Where it goes
-At the end of the thing rated: after a finished course or tryout, in a review form, in a feedback [sheet](sheet.md) on phones. Read-only ratings sit next to the title or in a key-value row.
+At the end of the thing rated: after a finished service or visit, in a review form, in a feedback [sheet](sheet.md) on phones. Read-only ratings sit next to the title or in a key-value row.
 
 ## Anatomy
 | Part | What it is |
@@ -27,10 +27,10 @@ At the end of the thing rated: after a finished course or tryout, in a review fo
 
 ## Markup
 
-**Rate a course.** Hover to preview, click to set. From the keyboard, Tab to the stars and use the arrow keys.
+**Rate a service.** Hover to preview, click to set. From the keyboard, Tab to the stars and use the arrow keys.
 ```html
-<span class="field__label" id="course-rating">How was Database Systems?</span>
-<div class="stars" role="radiogroup" aria-labelledby="course-rating">
+<span class="field__label" id="service-rating">How was the KTP service today?</span>
+<div class="stars" role="radiogroup" aria-labelledby="service-rating">
   <button type="button" class="star on" role="radio" aria-checked="false" tabindex="-1" aria-label="1 star"><span class="ic" aria-hidden="true">star</span></button>
   <button type="button" class="star on" role="radio" aria-checked="false" tabindex="-1" aria-label="2 stars"><span class="ic" aria-hidden="true">star</span></button>
   <button type="button" class="star on" role="radio" aria-checked="true" tabindex="0" aria-label="3 stars"><span class="ic" aria-hidden="true">star</span></button>
@@ -44,7 +44,7 @@ At the end of the thing rated: after a finished course or tryout, in a review fo
 ```html
 <div class="docs-row" style="gap: 8px;">
   <span class="stars" role="img" aria-label="4 of 5 stars"><span class="star on"><span class="ic" aria-hidden="true">star</span></span><span class="star on"><span class="ic" aria-hidden="true">star</span></span><span class="star on"><span class="ic" aria-hidden="true">star</span></span><span class="star on"><span class="ic" aria-hidden="true">star</span></span><span class="star"><span class="ic" aria-hidden="true">star</span></span></span>
-  <span class="field__help">4.2 from 318 students</span>
+  <span class="field__help">4.2 from 318 citizens</span>
 </div>
 ```
 

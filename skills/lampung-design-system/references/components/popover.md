@@ -32,18 +32,18 @@ A small floating card anchored to a button, for content richer than a menu: a mi
 <div style="position: relative;">
   <button class="btn btn--secondary" aria-haspopup="dialog" aria-expanded="false" aria-controls="remind" data-lds-menu="remind">Remind me</button>
   <div class="popover" id="remind" role="dialog" aria-labelledby="remind-t" style="top: calc(100% + 8px); left: 0;">
-    <h3 class="section__title-sm" id="remind-t">Remind me about Lab report 3</h3>
+    <h3 class="section__title-sm" id="remind-t">Remind me about vehicle tax</h3>
     …
   </div>
 </div>
 ```
 
-**Static, open.** A popover explaining a score, shown open.
+**Static, open.** A popover explaining how an application is scored, shown open.
 ```html
 <div style="position: relative; align-self: flex-start;">
   <button class="btn btn--plain btn--sm" aria-haspopup="dialog" aria-expanded="true" aria-controls="po-score">How is this scored?</button>
   <div class="popover is-open" id="po-score" role="dialog" aria-label="How the score works" style="top: calc(100% + 8px); left: 0;">
-    <p class="section__sub">Each correct answer is worth 5 points, a wrong one 0. Unanswered questions do not count against you.</p>
+    <p class="section__sub">Each complete document is worth 5 points, an incomplete one 0. Optional documents you leave out do not count against you.</p>
   </div>
 </div>
 ```

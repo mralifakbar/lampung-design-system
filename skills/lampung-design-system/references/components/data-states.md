@@ -30,10 +30,10 @@ Each state fills exactly the area the loaded content will fill: the list box, th
 
 ## Markup
 
-**All four states.** The same assignment list in each state. Switch between them: the box keeps its place and the controls above it stay usable.
+**All four states.** The same application list in each state. Switch between them: the box keeps its place and the controls above it stay usable.
 ```html
 <!-- loading -->
-<div class="list" role="status" aria-busy="true" aria-label="Loading assignments">
+<div class="list" role="status" aria-busy="true" aria-label="Loading applications">
   <div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 62%;"></span><span class="skel" style="display: block; height: 11px; width: 37%; margin-top: 8px;"></span></span><span class="skel" style="width: 64px; height: 22px; border-radius: 6px;"></span></div>
   <div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 48%;"></span><span class="skel" style="display: block; height: 11px; width: 23%; margin-top: 8px;"></span></span><span class="skel" style="width: 64px; height: 22px; border-radius: 6px;"></span></div>
   <div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: 55%;"></span><span class="skel" style="display: block; height: 11px; width: 30%; margin-top: 8px;"></span></span><span class="skel" style="width: 64px; height: 22px; border-radius: 6px;"></span></div>
@@ -43,8 +43,8 @@ Each state fills exactly the area the loaded content will fill: the list box, th
 <div class="list list--fill">
   <div class="empty">
     <div class="empty__icon"><span class="ic" aria-hidden="true">event_available</span></div>
-    <div class="empty__title">Nothing due this week</div>
-    <div class="empty__body">New assignments appear here as soon as your lecturers post them.</div>
+    <div class="empty__title">No files due this week</div>
+    <div class="empty__body">New applications appear here as soon as residents submit them.</div>
     <button class="btn btn--secondary btn--md">Open full calendar</button>
   </div>
 </div>
@@ -53,17 +53,17 @@ Each state fills exactly the area the loaded content will fill: the list box, th
 <div class="alert alert--danger" role="alert">
   <span class="ic" aria-hidden="true">error</span>
   <div>
-    <div class="alert__title">Assignments did not load</div>
-    <div class="alert__body">The course service did not answer in time. Your work is safe.</div>
+    <div class="alert__title">Applications did not load</div>
+    <div class="alert__body">The permit service did not answer in time. Your data is safe.</div>
     <div class="alert__actions"><button class="btn btn--secondary btn--sm"><span class="ic" aria-hidden="true">refresh</span>Try again</button></div>
   </div>
 </div>
 
 <!-- loaded -->
 <div class="list">
-  <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Lab report 3</span><span class="lrow__sub" style="display: block;">Computer Networks · due tomorrow</span></span><span class="badge badge--warning">Tomorrow</span></div>
-  <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Problem set 7</span><span class="lrow__sub" style="display: block;">Linear Algebra · due Thursday</span></span><span class="badge">Thu</span></div>
-  <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Reading: chapter 9</span><span class="lrow__sub" style="display: block;">Operating Systems · due Friday</span></span><span class="badge">Fri</span></div>
+  <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Micro business permit</span><span class="lrow__sub" style="display: block;">UMKM Sukarame · due tomorrow</span></span><span class="badge badge--warning">Tomorrow</span></div>
+  <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Public event permit</span><span class="lrow__sub" style="display: block;">Kelurahan Kedaton · due Thursday</span></span><span class="badge">Thu</span></div>
+  <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Domicile certificate</span><span class="lrow__sub" style="display: block;">Kecamatan Way Halim · due Friday</span></span><span class="badge">Fri</span></div>
 </div>
 ```
 
@@ -72,8 +72,8 @@ Each state fills exactly the area the loaded content will fill: the list box, th
 <div class="list list--fill" style="max-width: 520px;">
   <div class="empty">
     <div class="empty__icon"><span class="ic" aria-hidden="true">filter_list</span></div>
-    <div class="empty__title">No courses match these filters</div>
-    <div class="empty__body">Nothing is open in semester 3 with fewer than 3 credits.</div>
+    <div class="empty__title">No services match these filters</div>
+    <div class="empty__body">No service in Kecamatan Rajabasa is processed in under 3 days.</div>
     <button class="btn btn--secondary btn--md">Clear filters</button>
   </div>
 </div>
@@ -85,15 +85,15 @@ Each state fills exactly the area the loaded content will fill: the list box, th
   <div class="alert alert--warning" role="status">
     <span class="ic" aria-hidden="true">sync_problem</span>
     <div>
-      <div class="alert__title">Showing results from 09:40</div>
-      <div class="alert__body">We could not refresh your grades. Check your connection and try again.</div>
+      <div class="alert__title">Showing data from 09:40</div>
+      <div class="alert__body">We could not refresh the application list. Check your connection and try again.</div>
       <div class="alert__actions"><button class="btn btn--secondary btn--sm"><span class="ic" aria-hidden="true">refresh</span>Refresh</button></div>
     </div>
   </div>
   <div class="list">
-  <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Lab report 3</span><span class="lrow__sub" style="display: block;">Computer Networks · due tomorrow</span></span><span class="badge badge--warning">Tomorrow</span></div>
-  <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Problem set 7</span><span class="lrow__sub" style="display: block;">Linear Algebra · due Thursday</span></span><span class="badge">Thu</span></div>
-  <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Reading: chapter 9</span><span class="lrow__sub" style="display: block;">Operating Systems · due Friday</span></span><span class="badge">Fri</span></div>
+  <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Micro business permit</span><span class="lrow__sub" style="display: block;">UMKM Sukarame · due tomorrow</span></span><span class="badge badge--warning">Tomorrow</span></div>
+  <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Public event permit</span><span class="lrow__sub" style="display: block;">Kelurahan Kedaton · due Thursday</span></span><span class="badge">Thu</span></div>
+  <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Domicile certificate</span><span class="lrow__sub" style="display: block;">Kecamatan Way Halim · due Friday</span></span><span class="badge">Fri</span></div>
 </div>
 </div>
 ```
@@ -112,7 +112,7 @@ Each state fills exactly the area the loaded content will fill: the list box, th
 - Errors and empty states appear without motion; they are answers, not events.
 
 ## Accessibility
-- Loading region: `role="status"`, `aria-busy="true"` and an `aria-label` ("Loading assignments"). Skeleton blocks are empty elements, so nothing else is read.
+- Loading region: `role="status"`, `aria-busy="true"` and an `aria-label` ("Loading applications"). Skeleton blocks are empty elements, so nothing else is read.
 - Errors that block the task use `role="alert"` so they are announced once; a stale-data warning uses `role="status"`.
 - After Try again, move focus back into the region (the first row or the alert) so keyboard users are not left on a removed button.
 - Empty state titles are plain text, not headings, unless the region is a page section with its own heading.
@@ -134,8 +134,8 @@ None required. Toggle the states from your data layer. `toast()` is for results 
 ```tsx
 import { Alert } from 'lampung-design-system/react';
 
-if (status === 'loading') return <div className="list" role="status" aria-busy="true" aria-label="Loading assignments">{/* .skel rows */}</div>;
-if (status === 'error') return <Alert tone="danger" title="Assignments did not load" actions={<button className="btn btn--secondary btn--sm" onClick={retry}>Try again</button>}>The course service did not answer in time.</Alert>;
+if (status === 'loading') return <div className="list" role="status" aria-busy="true" aria-label="Loading applications">{/* .skel rows */}</div>;
+if (status === 'error') return <Alert tone="danger" title="Applications did not load" actions={<button className="btn btn--secondary btn--sm" onClick={retry}>Try again</button>}>The permit service did not answer in time.</Alert>;
 if (items.length === 0) return <div className="empty">{/* icon, title, body, one action */}</div>;
 ```
 

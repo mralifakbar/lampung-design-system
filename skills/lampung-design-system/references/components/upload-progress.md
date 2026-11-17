@@ -6,13 +6,13 @@ An upload traces its progress around the edge of the drop zone it was dropped on
 
 ## Use it when
 - A file is uploading into a drop zone ([file input](file-input.md)) and the size is known, so a real percentage exists.
-- One large file where the wait is long enough to matter: a thesis, a recorded lecture, a scanned answer sheet.
+- One large file where the wait is long enough to matter: an environmental permit document, a recorded meeting, a scanned application file.
 
 ## Use something else when
 - Several files at once: use [File input](file-input.md). Show a progress bar inside each `.file-row` instead.
 - Progress that is not an upload: use [Progress bar](progress-bar.md).
 - Work with no known length: use [Thinking](thinking.md).
-- A course or task completion figure: use [Progress ring](progress-ring.md).
+- A program or task completion figure: use [Progress ring](progress-ring.md).
 
 ## Where it goes
 On the `.drop` zone the file went into. The pill sits in its top right corner; the trace follows its rounded edge.
@@ -27,7 +27,7 @@ On the `.drop` zone the file went into. The pill sits in its top right corner; t
 
 ## Markup
 
-**Upload a thesis.** Press Upload. The line runs around the edge as bytes arrive and the pill counts; at 100 % both turn green.
+**Upload a permit document.** Press Upload. The line runs around the edge as bytes arrive and the pill counts; at 100 % both turn green.
 ```html
 import { uploadProgress, uploadReset } from 'lampung-design-system/js';
 
@@ -37,7 +37,7 @@ xhr.upload.onprogress = (e) => uploadProgress(drop, (e.loaded / e.total) * 100);
 
 **An upload that stops.** This one fails halfway: the trace disappears, the zone shakes, and the reason replaces the size in words, with a way to try again.
 ```html
-<div class="drop" style="max-width: 420px;"><span class="ic" aria-hidden="true">cloud_upload</span><span class="card__title">lecture-6.mp4</span><span class="card__sub">4.2 MB</span><button class="btn btn--secondary btn--sm" style="margin-top: 6px;" onclick="const drop = this.closest('.drop'); const meta = drop.querySelector('.card__sub'); this.disabled = true; import('../../js/lds.js').then((m) => { m.uploadReset(drop); let p = 0; const t = setInterval(() => { p += 7 + Math.random() * 9; if (p > 55) { clearInterval(t); m.uploadReset(drop); meta.textContent = 'Upload stopped at 58 %. Check your connection and try again.'; meta.classList.add('field__help--error'); this.disabled = false; this.textContent = 'Try again'; m.shake(drop); return; } m.uploadProgress(drop, Math.min(p, 100)); meta.textContent = Math.round(Math.min(p, 100) * 0.042 * 10) / 10 + ' of 4.2 MB'; if (p >= 100) { clearInterval(t); meta.textContent = 'Uploaded, 4.2 MB'; this.disabled = false; this.textContent = 'Upload again'; } }, 220); });">Upload</button></div>
+<div class="drop" style="max-width: 420px;"><span class="ic" aria-hidden="true">cloud_upload</span><span class="card__title">musrenbang-recording.mp4</span><span class="card__sub">4.2 MB</span><button class="btn btn--secondary btn--sm" style="margin-top: 6px;" onclick="const drop = this.closest('.drop'); const meta = drop.querySelector('.card__sub'); this.disabled = true; import('../../js/lds.js').then((m) => { m.uploadReset(drop); let p = 0; const t = setInterval(() => { p += 7 + Math.random() * 9; if (p > 55) { clearInterval(t); m.uploadReset(drop); meta.textContent = 'Upload stopped at 58 %. Check your connection and try again.'; meta.classList.add('field__help--error'); this.disabled = false; this.textContent = 'Try again'; m.shake(drop); return; } m.uploadProgress(drop, Math.min(p, 100)); meta.textContent = Math.round(Math.min(p, 100) * 0.042 * 10) / 10 + ' of 4.2 MB'; if (p >= 100) { clearInterval(t); meta.textContent = 'Uploaded, 4.2 MB'; this.disabled = false; this.textContent = 'Upload again'; } }, 220); });">Upload</button></div>
 ```
 
 ## Motion and microinteractions

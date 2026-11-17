@@ -5,7 +5,7 @@ Group: Charts. Docs page: `docs/components/funnel.html`.
 The steps of a flow, each with how many reached it and what share of the step before moved on. Centered bars narrow with the count, so the biggest drop is visible at a glance; the words carry the exact numbers.
 
 ## Use it when
-- A sequence where each step is a subset of the one before: visit, try, sign up, pay; apply, screen, interview, offer.
+- A sequence where each step is a subset of the one before: open, fill in, submit, issued; register, screen, interview, accept.
 - Finding the step that loses the most people, to decide what to fix first.
 
 ## Use something else when
@@ -28,47 +28,47 @@ In a [chart card](chart-card.md), half or full width. Three to six steps. Words 
 
 ## Markup
 
-**From visit to payment.** Under 40 % moving on marks the step red in words. Bars grow from the center on first view, one after another.
+**From opening the page to permit issued.** Under 40 % moving on marks the step red in words. Bars grow from the center on first view, one after another.
 ```html
 <section class="chart-card" style="max-width: 560px;" aria-labelledby="fn-q">
-  <div><div class="chart-card__q" id="fn-q">Where do learners drop off?</div><div class="chart-card__sub">People at each step, 1 to 16 November</div></div>
-  <ol class="funnel" data-lds-grow aria-label="Sign-up funnel, 1 to 16 November">
+  <div><div class="chart-card__q" id="fn-q">At which step do applicants stop?</div><div class="chart-card__sub">People at each step, 1 to 16 November</div></div>
+  <ol class="funnel" data-lds-grow aria-label="Business permit application flow, 1 to 16 November">
   <li class="funnel__row" style="--v: 100.0%;">
-    <div class="funnel__meta"><span class="funnel__label">Visited the course page</span><span><span class="funnel__val">12,480</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Opened the business permit page</span><span><span class="funnel__val">12,480</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 42.0%;">
-    <div class="funnel__meta"><span class="funnel__label">Started the free lesson</span><span><span class="funnel__val">5,240</span><span class="funnel__conv">42% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Started the form</span><span><span class="funnel__val">5,240</span><span class="funnel__conv">42% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 24.9%;">
-    <div class="funnel__meta"><span class="funnel__label">Finished the free lesson</span><span><span class="funnel__val">3,110</span><span class="funnel__conv">59% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Uploaded documents</span><span><span class="funnel__val">3,110</span><span class="funnel__conv">59% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 18.3%;">
-    <div class="funnel__meta"><span class="funnel__label">Created an account</span><span><span class="funnel__val">2,290</span><span class="funnel__conv">74% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Submitted the application</span><span><span class="funnel__val">2,290</span><span class="funnel__conv">74% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row is-drop" style="--v: 4.9%;">
-    <div class="funnel__meta"><span class="funnel__label">Paid for the course</span><span><span class="funnel__val">610</span><span class="funnel__conv">27% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Permit issued</span><span><span class="funnel__val">610</span><span class="funnel__conv">27% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
 </ol>
-  <div class="chart-card__foot"><span>Biggest loss: account to payment, 27% move on</span></div>
+  <div class="chart-card__foot"><span>Biggest loss: application to permit issued, 27% move on</span></div>
 </section>
 ```
 
-**A short funnel.** Four steps of a hiring round.
+**A short funnel.** Four steps of recruiting posyandu volunteers.
 ```html
 <section class="chart-card" style="max-width: 420px;" aria-labelledby="fn-h">
-  <div><div class="chart-card__q" id="fn-h">How many tutors make it through?</div><div class="chart-card__sub">Tutor applications, autumn round</div></div>
-  <ol class="funnel" data-lds-grow aria-label="Tutor hiring funnel, autumn round">
+  <div><div class="chart-card__q" id="fn-h">How many volunteer candidates make it through?</div><div class="chart-card__sub">Posyandu volunteer registration, second round</div></div>
+  <ol class="funnel" data-lds-grow aria-label="Posyandu volunteer recruitment, second round">
   <li class="funnel__row" style="--v: 100.0%;">
-    <div class="funnel__meta"><span class="funnel__label">Applied</span><span><span class="funnel__val">214</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Registered</span><span><span class="funnel__val">214</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 44.9%;">
-    <div class="funnel__meta"><span class="funnel__label">Passed screening</span><span><span class="funnel__val">96</span><span class="funnel__conv">45% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Passed document check</span><span><span class="funnel__val">96</span><span class="funnel__conv">45% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row is-drop" style="--v: 14.5%;">
@@ -76,7 +76,7 @@ In a [chart card](chart-card.md), half or full width. Three to six steps. Words 
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row is-drop" style="--v: 2.8%;">
-    <div class="funnel__meta"><span class="funnel__label">Offered</span><span><span class="funnel__val">6</span><span class="funnel__conv">19% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Accepted</span><span><span class="funnel__val">6</span><span class="funnel__conv">19% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
 </ol>
@@ -107,7 +107,7 @@ In a [chart card](chart-card.md), half or full width. Three to six steps. Words 
 - The weakest step is named in words in the footer, not only by color.
 
 ## Do
-- Name steps as what people did ("Created an account").
+- Name steps as what people did ("Submitted the application").
 - Show the share of the step before, not of the first step; that is where the decision is.
 
 ## Don't

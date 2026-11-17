@@ -5,8 +5,8 @@ Group: Data display. Docs page: `docs/components/map.html`.
 A small slippy map over OpenStreetMap tiles: routes with the travelled part in the accent, the vehicle where it is, and pins for the places that matter. It draws only the tiles in view and always credits the map data in the corner.
 
 ## Use it when
-- Showing where a shipment, a driver or a flight is right now, on real geography, beside its details.
-- A handful of places people choose between by where they are: exam centres, pickup points, branches.
+- Showing where a relief shipment, an ambulance or a ferry is right now, on real geography, beside its details.
+- A handful of places people choose between by where they are: puskesmas, Samsat offices, aid distribution points.
 - An overview of everything moving at once, where a click on a vehicle opens its record.
 
 ## Use something else when
@@ -31,24 +31,24 @@ In the detail of a record, full width of its column, about 280 to 400 px tall (`
 
 ## Markup
 
-**A flight under way.** The leg follows the great circle, bowed gently so it reads as a flight. The travelled part draws in on first view, then the plane settles, turned along its path. Drag, scroll, pinch or use the buttons; focus the map and use the arrow keys and plus or minus.
+**A boat crossing under way.** The leg follows the great circle, bowed gently so it reads as a crossing over water. The travelled part draws in on first view, then the boat settles, turned along its path. Drag, scroll, pinch or use the buttons; focus the map and use the arrow keys and plus or minus.
 ```html
-<div class="map" style="--map-h: 340px;" data-lds-map='{"label":"Air freight from Jakarta to Singapore, 65 percent of the way","routes":[{"path":[[-6.1256,106.6559],[1.3644,103.9915]],"progress":0.65,"arc":true,"vehicle":{"icon":"flight","label":"Flight 884","sub":"Lands 08:45"}}],"markers":[{"at":[-6.1256,106.6559],"kind":"origin","label":"Jakarta CGK","sub":"Left 06:10"},{"at":[1.3644,103.9915],"kind":"destination","label":"Singapore SIN","sub":"Lands 08:45"}]}'></div>
+<div class="map" style="--map-h: 340px;" data-lds-map='{"label":"BPBD logistics boat from Dermaga Canti to Pulau Sebesi, 65 percent of the way","routes":[{"path":[[-5.8165,105.588],[-5.959,105.493]],"progress":0.65,"arc":true,"vehicle":{"icon":"directions_boat","label":"Logistics boat 02","sub":"Docks 10:45"}}],"markers":[{"at":[-5.8165,105.588],"kind":"origin","label":"Dermaga Canti","sub":"Left 09:30"},{"at":[-5.959,105.493],"kind":"destination","label":"Dermaga Tejang, Pulau Sebesi","sub":"Docks 10:45"}]}'></div>
 ```
 
-**A road trip with stops.** A truck route through road waypoints. Passed stops fill, the caret on the truck points the way it is heading, and each place says when in its label.
+**A road trip with stops.** A BPBD relief truck route through road waypoints. Passed stops fill, the caret on the truck points the way it is heading, and each place says when in its label.
 ```html
-<div class="map" style="--map-h: 360px;" data-lds-map='{"label":"Road freight from Bandung to Yogyakarta, past Tasikmalaya, next stop Purwokerto","routes":[{"path":[[-6.9175,107.6191],[-6.94,107.75],[-7.03,107.89],[-7.06,108.08],[-7.3274,108.2207],[-7.33,108.35],[-7.37,108.54],[-7.3,108.76],[-7.52,109.06],[-7.4245,109.2302],[-7.51,109.29],[-7.61,109.51],[-7.67,109.65],[-7.72,109.91],[-7.71,110.01],[-7.86,110.16],[-7.7956,110.3695]],"progress":0.36,"vehicle":{"icon":"local_shipping","label":"Truck D 8812 KL","sub":"Next: Purwokerto 06:30"}}],"markers":[{"at":[-6.9175,107.6191],"kind":"origin","label":"Bandung","sub":"Loaded 15 Nov, 21:00"},{"at":[-7.3274,108.2207],"kind":"stop","done":true,"label":"Tasikmalaya","sub":"Passed 16 Nov, 01:40"},{"at":[-7.4245,109.2302],"kind":"stop","label":"Purwokerto","sub":"Due 06:30"},{"at":[-7.7956,110.3695],"kind":"destination","label":"Yogyakarta","sub":"Due 10:15"}]}'></div>
+<div class="map" style="--map-h: 360px;" data-lds-map='{"label":"BPBD relief truck from Bandar Lampung to Kota Agung, past Gedong Tataan, next stop Pringsewu","routes":[{"path":[[-5.4292,105.261],[-5.406,105.205],[-5.394,105.135],[-5.3836,105.0789],[-5.37,105.025],[-5.3586,104.9746],[-5.356,104.92],[-5.353,104.879],[-5.378,104.793],[-5.418,104.755],[-5.4431,104.7266],[-5.472,104.67],[-5.4976,104.6232]],"progress":0.36,"vehicle":{"icon":"local_shipping","label":"Truck BE 9214 CD","sub":"Next: Pringsewu 10:20"}}],"markers":[{"at":[-5.4292,105.261],"kind":"origin","label":"BPBD warehouse, Bandar Lampung","sub":"Loaded 15 Nov, 07:00"},{"at":[-5.3836,105.0789],"kind":"stop","done":true,"label":"Gedong Tataan","sub":"Passed 15 Nov, 09:35"},{"at":[-5.3586,104.9746],"kind":"stop","label":"Pringsewu","sub":"Due 10:20"},{"at":[-5.4976,104.6232],"kind":"destination","label":"Kota Agung","sub":"Due 12:15"}]}'></div>
 ```
 
 **Several places, fitted.** Without routes, the map fits every marker with room for the pins. Inside a scrolling page, `scrollZoom: "modifier"` leaves the wheel to the page and zooms only with Ctrl or Cmd held, with a short hint.
 ```html
-<div class="map" style="--map-h: 300px; max-width: 560px;" data-lds-map='{"label":"Exam centres in Bandung","scrollZoom":"modifier","markers":[{"at":[-6.8915,107.6107],"label":"Dago centre","sub":"120 seats, 2 sessions left"},{"at":[-6.9147,107.6098],"label":"Braga centre","sub":"80 seats, full"},{"at":[-6.9389,107.6229],"label":"Buah Batu centre","sub":"96 seats, 5 sessions left"},{"at":[-6.8721,107.5841],"label":"Setiabudi centre","sub":"60 seats, 1 session left"},{"at":[-6.9447,107.5774],"label":"Kopo centre","sub":"140 seats, 8 sessions left"}]}'></div>
+<div class="map" style="--map-h: 300px; max-width: 560px;" data-lds-map='{"label":"Puskesmas in Bandar Lampung","scrollZoom":"modifier","markers":[{"at":[-5.3835,105.2785],"label":"Puskesmas Way Halim","sub":"Queue 14, open until 14:00"},{"at":[-5.3758,105.2556],"label":"Puskesmas Kedaton","sub":"Quota full today"},{"at":[-5.3687,105.238],"label":"Puskesmas Rajabasa","sub":"Queue 6, open until 14:00"},{"at":[-5.3846,105.302],"label":"Puskesmas Sukarame","sub":"Queue 21, open until 14:00"},{"at":[-5.474,105.316],"label":"Puskesmas Panjang","sub":"Queue 3, open until 21:00"}]}'></div>
 ```
 
 **Switching records: fly to fit.** Calling `drawMap` again on the same element (or `handle.update`) flies the map out and back in to fit the new route, then draws the travelled part. Any drag or key stops the flight where it is.
 ```html
-<div class="map" style="--map-h: 320px;" data-lds-map='{"label":"Air freight from Jakarta to Singapore","routes":[{"path":[[-6.1256,106.6559],[1.3644,103.9915]],"progress":0.65,"arc":true,"vehicle":{"icon":"flight","label":"Flight 884"}}],"markers":[{"at":[-6.1256,106.6559],"kind":"origin","label":"Jakarta CGK"},{"at":[1.3644,103.9915],"kind":"destination","label":"Singapore SIN"}]}'></div>
+<div class="map" style="--map-h: 320px;" data-lds-map='{"label":"BPBD logistics boat from Dermaga Canti to Pulau Sebesi","routes":[{"path":[[-5.8165,105.588],[-5.959,105.493]],"progress":0.65,"arc":true,"vehicle":{"icon":"directions_boat","label":"Logistics boat 02"}}],"markers":[{"at":[-5.8165,105.588],"kind":"origin","label":"Dermaga Canti"},{"at":[-5.959,105.493],"kind":"destination","label":"Dermaga Tejang, Pulau Sebesi"}]}'></div>
 
 <script type="module">
   import { drawMap } from 'lampung-design-system/js';
@@ -64,7 +64,7 @@ In the detail of a record, full width of its column, about 280 to 400 px tall (`
 ## Variants and sizes
 | Class or attribute | When |
 |---|---|
-| `routes[].arc` | Each leg follows the great circle, lifted into a gentle bow. For flights. |
+| `routes[].arc` | Each leg follows the great circle, lifted into a gentle bow. For flights and sea crossings. |
 | `routes[].progress` | 0 to 1 of the length. The travelled part is solid accent, the rest dashed muted. 1 means arrived: no vehicle unless `vehicle.arrived`. |
 | `routes[].thin` | Thinner lines for an overview with many routes. |
 | `markers[].kind` | `origin`, `destination`, `stop` (`done: true` fills it), `point`. Vehicles come from `routes[].vehicle`. |
@@ -91,7 +91,7 @@ In the detail of a record, full width of its column, about 280 to 400 px tall (`
 - Reduced motion: no draw-in, no flight, no momentum; the view jumps.
 
 ## Accessibility
-- The map surface is focusable, named by `label` and described by a sentence per marker ("Origin: Jakarta CGK, Left 06:10. Now: Flight 884, Lands 08:45 …") plus how to use the keys.
+- The map surface is focusable, named by `label` and described by a sentence per marker ("Origin: Dermaga Canti, Left 09:30. Now: Logistics boat 02, Docks 10:45 …") plus how to use the keys.
 - Arrow keys pan, plus and minus zoom, Home or 0 shows everything. The zoom and fit buttons are real buttons with names; zoom buttons disable at the limits.
 - Markers are buttons with a full name (kind, place, time); their visual labels are hidden from assistive tech to avoid double reading.
 - Nothing lives only on the map: keep the route, the status and the times in the record next to it.

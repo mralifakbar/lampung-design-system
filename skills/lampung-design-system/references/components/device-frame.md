@@ -5,7 +5,7 @@ Group: Page patterns. Docs page: `docs/components/device-frame.html`.
 A phone body around a `.phone` screen: rounded bezel, side buttons, the camera island and a status bar, scaled to fit the page. On a real phone the same screen drops the body and fills the display with `.device--bleed`.
 
 ## Use it when
-- Showing a phone app inside a wide page: a product tour, an examples page, a design review, onboarding for a mobile app.
+- Showing a phone app inside a wide page: a tour of a citizen services app, an examples page, a design review, onboarding for a mobile app.
 - A preview whose screens push, pull and recede like an installed app, where the bezel tells people it is a phone.
 - The same preview on a phone, where the frame should disappear and the app should fill the screen.
 

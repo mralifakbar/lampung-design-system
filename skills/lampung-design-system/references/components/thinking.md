@@ -5,9 +5,9 @@ Group: Feedback. Docs page: `docs/components/thinking.html`.
 A dot-grid wave, a shimmering label and an honest elapsed timer, for work of unknown length. When it finishes, the label turns into the result.
 
 ## Use it when
-- An assistant or a background job is working and you cannot measure progress: checking a schedule, grading an essay, building a study plan.
+- An assistant or a background job is working and you cannot measure progress: checking a service schedule, checking uploaded documents, building a requirements checklist.
 - Work that may take from a few seconds to a minute, where an elapsed timer reassures the person that it has not frozen.
-- A status that should settle into its answer in place ("Found 3 free slots").
+- A status that should settle into its answer in place ("Found 3 open slots at Samsat keliling").
 
 ## Use something else when
 - The work has a measurable size: use [Progress bar](progress-bar.md).
@@ -36,24 +36,24 @@ Where the answer will appear: at the top of the assistant reply in a [chat](chat
 ```html
 <div class="thinking" data-lds-thinking role="status">
   <span class="dotgrid" aria-hidden="true"></span>
-  <span class="shimmer">Checking your schedule</span>
+  <span class="shimmer">Checking the Samsat keliling schedule</span>
   <span class="thinking__time"></span>
 </div>
 <script type="module">
   import { thinkingDone } from 'lampung-design-system/js';
   // when the work ends:
-  thinkingDone(document.querySelector('.thinking'), 'Found 3 free slots');
+  thinkingDone(document.querySelector('.thinking'), 'Found 3 open slots at Samsat keliling');
 </script>
 ```
 
 **Without a timer.** Drop `.thinking__time` for waits that are usually short.
 ```html
-<div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Grading your essay</span></div>
+<div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Checking your documents</span></div>
 ```
 
 **Settled.** After `thinkingDone` the line stays as the heading of the result.
 ```html
-<div class="thinking is-done" role="status"><span class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer is-settled">Study plan ready: 6 weeks, 4 sessions a week</span><span class="thinking__time">8.4s</span></div>
+<div class="thinking is-done" role="status"><span class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer is-settled">Checklist ready: 4 documents for a surat pindah</span><span class="thinking__time">8.4s</span></div>
 ```
 
 ## States
@@ -92,7 +92,7 @@ Where the answer will appear: at the top of the assistant reply in a [chat](chat
 import { Thinking } from 'lampung-design-system/react';
 
 const [started] = useState(() => Date.now());
-<Thinking label={done ? 'Found 3 free slots' : 'Checking your schedule'} startedAt={started} done={done} />
+<Thinking label={done ? 'Found 3 open slots at Samsat keliling' : 'Checking your schedule'} startedAt={started} done={done} />
 // The React timer shows whole seconds as m:ss.
 ```
 

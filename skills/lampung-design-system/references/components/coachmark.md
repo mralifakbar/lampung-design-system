@@ -6,7 +6,7 @@ An inverse card that points at one part of the interface with a short explanatio
 
 ## Use it when
 - A new feature lives somewhere the person would not look, and one sentence pointing at it saves a support question.
-- A short first-run tour (one to three steps) through a dense screen, such as the exam editor or a grade book.
+- A short first-run tour (one to three steps) through a dense screen, such as the permit application form editor or a tax ledger.
 
 ## Use something else when
 - A one-time tip that does not need to point at a control: use [Hints](hints.md).
@@ -37,8 +37,8 @@ Directly under the control it explains, with its arrow aimed at it (the arrow is
   <button class="btn btn--secondary btn--md is-lit" id="search-btn">Search</button>
   <div class="coach" role="dialog" aria-labelledby="coach-t" aria-describedby="coach-b" style="top: 64px; left: 0; --arrow: 40px;">
     <div class="coach__step">Step 1 of 3</div>
-    <div class="coach__title" id="coach-t">Search every note</div>
-    <div class="coach__body" id="coach-b">Find a note by any word in it, not only the title.</div>
+    <div class="coach__title" id="coach-t">Search every report</div>
+    <div class="coach__body" id="coach-b">Find a report by any word in it, not only the title.</div>
     <div class="cluster" style="margin-top: 14px; justify-content: flex-end;">
       <button class="btn btn--sm">Skip</button>
       <button class="btn btn--sm is-primary">Next</button>
@@ -52,7 +52,7 @@ Directly under the control it explains, with its arrow aimed at it (the arrow is
 <div style="position: relative; min-height: 210px;">
   <button class="btn btn--gray btn--md is-lit"><span class="ic" aria-hidden="true">download</span>Export</button>
   <div class="coach" role="dialog" aria-labelledby="cm2-t" style="top: 60px; left: 0; --arrow: 36px;">
-    <div class="coach__title" id="cm2-t">Export grades to a spreadsheet</div>
+    <div class="coach__title" id="cm2-t">Export retribusi data to a spreadsheet</div>
     <div class="coach__body">Every column you see is included, in the same order.</div>
     <div class="docs-row" style="margin-top: 14px; justify-content: flex-end;"><button class="btn btn--sm is-primary" onclick="this.closest('.coach').hidden = true; this.closest('.coach').parentElement.querySelector('.is-lit').classList.remove('is-lit');">Got it</button></div>
   </div>
@@ -75,7 +75,7 @@ Directly under the control it explains, with its arrow aimed at it (the arrow is
 - `role="dialog"` (non-modal) with `aria-labelledby` the title and `aria-describedby` the body. Move focus to the Next button when it opens, and back to the target when it closes.
 - Escape must skip the tour; wire it in the app (there is no built-in behavior).
 - The page stays usable behind it: no scrim, no focus trap.
-- The lit ring is not the only cue; the text names the control ("Filter by course").
+- The lit ring is not the only cue; the text names the control ("Filter by kecamatan").
 
 ## Do
 - Point at one control per step, three steps at most.

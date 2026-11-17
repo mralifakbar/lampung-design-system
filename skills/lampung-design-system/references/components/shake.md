@@ -7,7 +7,7 @@ A refusal: the control shakes twice, quickly and with shrinking swings (360 ms),
 ## Use it when
 - The person pressed Continue or Submit and the input is refused: an email with no domain, a wrong code, a wrong password.
 - An optimistic action is rolled back by the server ([like](like.md), [confirm in place](confirm-in-place.md), [inline edit](inline-edit.md) do this for you).
-- A limit refuses input at the moment it is hit: a stepper already at its maximum, a full class.
+- A limit refuses input at the moment it is hit: a stepper already at its maximum, a full queue quota.
 
 ## Use something else when
 - Validation while typing: use [Text field](text-field.md). Show the message after the field is left or on submit, without shaking.
@@ -65,7 +65,7 @@ otpError(document.querySelector('.otp-wrap')); // red cells and one shake; typin
 ```tsx
 import { reject } from 'lampung-design-system/react';
 
-if (!valid) { setError('Add the end of the address, like ana.putri@campus.ac.id.'); reject(controlRef.current); }
+if (!valid) { setError('Add the end of the address, like ana.putri@contoh.go.id.'); reject(controlRef.current); }
 ```
 
 ## Related

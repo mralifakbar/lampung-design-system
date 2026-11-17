@@ -28,7 +28,7 @@ On a notifications icon only: inside a `.switch` label, or in an [icon button](i
 
 **Turning notifications on.** Switch it on: the thumb lands and stretches, and the bell rings once. Switching off is silent.
 ```html
-<label class="switch"><input type="checkbox" role="switch"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="bell ic" aria-hidden="true">notifications</span>Notify me when grades are posted</label>
+<label class="switch"><input type="checkbox" role="switch"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="bell ic" aria-hidden="true">notifications</span>Notify me when my report gets a response</label>
 ```
 
 **A new notification arrives.** Simulate one: the bell rings once and the count goes up. A second arrival rings again from the start.
@@ -67,7 +67,7 @@ Inside a `.switch`, `init()` rings any `.bell` in the label when the switch turn
 ```tsx
 import { Switch } from 'lampung-design-system/react';
 
-<Switch checked={notify} onChange={setNotify}>Notify me when grades are posted</Switch>
+<Switch checked={notify} onChange={setNotify}>Notify me when my report gets a response</Switch>
 // Switch does not ring a bell itself: render <span className={`bell ic${ring ? ' is-ringing' : ''}`}>notifications</span> beside it and set ring when it turns on.
 ```
 

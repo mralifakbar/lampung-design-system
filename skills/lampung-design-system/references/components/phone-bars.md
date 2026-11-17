@@ -5,7 +5,7 @@ Group: Navigation. Docs page: `docs/components/phone-bars.html`.
 The chrome of a phone screen: a nav bar at the top whose large title collapses into it on scroll, and a tab bar of three to five destinations at the bottom. Both are translucent so content scrolls visibly under them.
 
 ## Use it when
-- A phone-first app or installed web app with three to five top-level destinations people switch between all day: Today, Schedule, Courses, Profile.
+- A phone-first app or installed web app with three to five top-level destinations people switch between all day: Today, Schedule, Services, Profile.
 - A phone screen that needs a title, a back button and one or two actions at the top.
 
 ## Use something else when
@@ -45,7 +45,7 @@ Inside a full-height phone screen ([phone screen](phone-screen.md)): `.navbar` a
 <nav class="tabbar" aria-label="Main">
   <a class="tabbar__item" href="/today" aria-current="page"><span class="ic" aria-hidden="true">today</span>Today</a>
   <a class="tabbar__item" href="/schedule"><span class="ic" aria-hidden="true">calendar_month</span>Schedule</a>
-  <a class="tabbar__item" href="/courses"><span class="ic" aria-hidden="true">school</span>Courses</a>
+  <a class="tabbar__item" href="/services"><span class="ic" aria-hidden="true">account_balance</span>Services</a>
   <a class="tabbar__item" href="/profile"><span class="ic" aria-hidden="true">person</span>Profile</a>
 </nav>
 ```
@@ -54,12 +54,12 @@ Inside a full-height phone screen ([phone screen](phone-screen.md)): `.navbar` a
 ```html
 <div class="phone phone--inline" style="height: 300px;">
   <div class="navbar is-scrolled" style="height: 56px; padding-top: 8px;">
-    <span><button class="icon-btn" aria-label="Back to courses"><span class="ic" aria-hidden="true">arrow_back_ios_new</span></button></span>
-    <span class="navbar__title">Database Systems</span>
-    <div class="navbar__end"><button class="icon-btn" aria-label="Share course"><span class="ic" aria-hidden="true">ios_share</span></button></div>
+    <span><button class="icon-btn" aria-label="Back to services"><span class="ic" aria-hidden="true">arrow_back_ios_new</span></button></span>
+    <span class="navbar__title">Micro business permit</span>
+    <div class="navbar__end"><button class="icon-btn" aria-label="Share service"><span class="ic" aria-hidden="true">ios_share</span></button></div>
   </div>
   <div class="phone__scroll" style="padding: 72px 16px 24px;">
-    <p class="section__sub">CS 2104 · 3 credits · Mon and Thu, 08:00</p>
+    <p class="section__sub">IUM 2104 · done in 3 working days · Mon and Thu, 08:00</p>
   </div>
 </div>
 ```
@@ -79,7 +79,7 @@ Inside a full-height phone screen ([phone screen](phone-screen.md)): `.navbar` a
 
 ## Accessibility
 - The tab bar is a `<nav aria-label>`; items are links (or buttons in a single-page app) with `aria-current="page"`. Labels are always visible.
-- Icon-only bar buttons need `aria-label`s that name the destination ("Back to courses").
+- Icon-only bar buttons need `aria-label`s that name the destination ("Back to services").
 - The large title is the screen's `<h1>`; the inline bar title is a visual repeat and can be `aria-hidden`.
 - Tab items are full-height, at least 44 px tall and a quarter of the width each.
 

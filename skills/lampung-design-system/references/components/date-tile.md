@@ -2,11 +2,11 @@
 
 Group: Data display. Docs page: `docs/components/date-tile.html`.
 
-A small month-and-day block at the start of a row, for lists of things that happen on a date: classes, exams, payments due, events. People find the date before the title, so it leads.
+A small month-and-day block at the start of a row, for lists of things that happen on a date: posyandu sessions, mobile Samsat visits, payments due, events. People find the date before the title, so it leads.
 
 ## Use it when
-- A list of upcoming events or deadlines where the day is how people scan: exams, webinars, invoices due.
-- A card that announces one dated thing: the next class, a payment due.
+- A list of upcoming events or deadlines where the day is how people scan: posyandu sessions, public briefings, levies due.
+- A card that announces one dated thing: the next mobile Samsat visit, a payment due.
 
 ## Use something else when
 - Picking a date: use [Date field](date-field.md).
@@ -31,10 +31,10 @@ As the first element of a list row (`.lrow`), 12 px before the title; or at the 
 **Upcoming in a list.** Today first and accented, then the coming week. Badges say the kind of event in words.
 ```html
 <div class="list" style="max-width: 460px;">
-  <a class="lrow" href="#dt-2026-11-16" id="dt-2026-11-16"><time class="datetile datetile--today" datetime="2026-11-16"><span class="datetile__m">Nov</span><span class="datetile__d">16</span></time><span class="lrow__body"><span class="lrow__title">Statistics: live review</span><span class="lrow__sub">Today, 19:00 to 20:30 · Online</span></span><span class="badge badge--accent">Live</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
-  <a class="lrow" href="#dt-2026-11-18" id="dt-2026-11-18"><time class="datetile" datetime="2026-11-18"><span class="datetile__m">Nov</span><span class="datetile__d">18</span></time><span class="lrow__body"><span class="lrow__title">Database Systems quiz 4</span><span class="lrow__sub">Wed, opens 08:00 · 30 minutes</span></span><span class="badge">Quiz</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
-  <a class="lrow" href="#dt-2026-11-21" id="dt-2026-11-21"><time class="datetile" datetime="2026-11-21"><span class="datetile__m">Nov</span><span class="datetile__d">21</span></time><span class="lrow__body"><span class="lrow__title">Mock exam, hall B</span><span class="lrow__sub">Sat, 09:00 · Seat 42</span></span><span class="badge badge--warning">Bring ID</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
-  <a class="lrow" href="#dt-2026-12-02" id="dt-2026-12-02"><time class="datetile" datetime="2026-12-02"><span class="datetile__m">Dec</span><span class="datetile__d">2</span></time><span class="lrow__body"><span class="lrow__title">Second tuition payment due</span><span class="lrow__sub">Wed · $420</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+  <a class="lrow" href="#dt-2026-11-16" id="dt-2026-11-16"><time class="datetile datetile--today" datetime="2026-11-16"><span class="datetile__m">Nov</span><span class="datetile__d">16</span></time><span class="lrow__body"><span class="lrow__title">Regional tax briefing</span><span class="lrow__sub">Today, 19:00 to 20:30 · Online</span></span><span class="badge badge--accent">Live</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+  <a class="lrow" href="#dt-2026-11-18" id="dt-2026-11-18"><time class="datetile" datetime="2026-11-18"><span class="datetile__m">Nov</span><span class="datetile__d">18</span></time><span class="lrow__body"><span class="lrow__title">Posyandu for toddlers, RW 03</span><span class="lrow__sub">Wed, opens 08:00 · 3 hours</span></span><span class="badge">Health</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+  <a class="lrow" href="#dt-2026-11-21" id="dt-2026-11-21"><time class="datetile" datetime="2026-11-21"><span class="datetile__m">Nov</span><span class="datetile__d">21</span></time><span class="lrow__body"><span class="lrow__title">Mobile Samsat, Lapangan Saburai</span><span class="lrow__sub">Sat, 09:00 · Queue 42</span></span><span class="badge badge--warning">Bring KTP</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+  <a class="lrow" href="#dt-2026-12-02" id="dt-2026-12-02"><time class="datetile" datetime="2026-12-02"><span class="datetile__m">Dec</span><span class="datetile__d">2</span></time><span class="lrow__body"><span class="lrow__title">Market levy due</span><span class="lrow__sub">Wed · Rp 75.000</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
 </div>
 ```
 

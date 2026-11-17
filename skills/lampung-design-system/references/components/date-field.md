@@ -5,8 +5,8 @@ Group: Inputs. Docs page: `docs/components/date-field.html`.
 A text field for a date with a calendar button that opens a calendar in a popover. Typing the date always works; the calendar is the helper. Built from existing parts: `.control`, `.control__btn`, `.popover` and `.cal`.
 
 ## Use it when
-- People enter one date in a form: a date of birth, an exam date, a deadline, a payment date.
-- The date is near today and seeing the month helps (scheduling a tryout, choosing a due date).
+- People enter one date in a form: a date of birth, a service visit date, a deadline, a payment date.
+- The date is near today and seeing the month helps (booking a visit, choosing a due date).
 
 ## Use something else when
 - Showing a month of events, or picking a range on the page itself: use [Calendar](calendar.md). The `.cal` component inline, not in a popover.
@@ -29,10 +29,10 @@ In a [form](form-layout.md) like any field, about 220 px wide on wide screens (a
 
 ## Markup
 
-**Exam date.** Type a date, or open the calendar with the button. Picking a day fills the field, closes the calendar and returns focus to the input. Escape or a click outside closes it.
+**Visit date.** Type a date, or open the calendar with the button. Picking a day fills the field, closes the calendar and returns focus to the input. Escape or a click outside closes it.
 ```html
 <div class="field">
-  <label class="field__label" for="exam-date">Exam date</label>
+  <label class="field__label" for="exam-date">Visit date</label>
   <div style="position: relative;">
     <div class="control">
       <input id="exam-date" inputmode="numeric" placeholder="DD/MM/YYYY" aria-describedby="exam-date-help">
@@ -58,7 +58,7 @@ In a [form](form-layout.md) like any field, about 220 px wide on wide screens (a
       </div>
     </div>
   </div>
-  <span class="field__help" id="exam-date-help">DD/MM/YYYY. Exams run Monday to Saturday.</span>
+  <span class="field__help" id="exam-date-help">DD/MM/YYYY. Service counters open Monday to Saturday.</span>
 </div>
 <!-- Your code: render the month, page it with the arrows, and on a day click
      write the date into the input, move .is-selected, then closeMenus() and focus the input. -->

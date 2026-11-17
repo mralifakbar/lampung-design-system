@@ -5,7 +5,7 @@ Group: Actions. Docs page: `docs/components/link.html`.
 Text that takes you somewhere: an `<a href>` with `.link`, medium weight in the accent text color, the underline fading in on hover. `.link--external` adds an arrow for other sites.
 
 ## Use it when
-- Going to another page, section or site from inside a sentence or a short line of text: "Track its status", "Read the exam rules".
+- Going to another page, section or site from inside a sentence or a short line of text: "Track its status", "Read the service requirements".
 - A quiet secondary path next to a form or card that does not change anything ("Forgot your password?").
 - Pointing to another website or a document that opens in a new tab (`link--external`).
 
@@ -30,14 +30,14 @@ Inline in body text, in helper lines under fields, at the end of card descriptio
 
 **In a sentence.** Links read as part of the text. Hover to see the underline fade in.
 ```html
-<p class="measure" style="font: var(--type-body); color: var(--text-default);">Your request was sent to your adviser. <a class="link" href="#status">Track its status</a> or <a class="link link--external" href="https://example.com/exam-rules" target="_blank" rel="noreferrer">read the exam rules<span class="sr-only"> (opens in a new tab)</span></a>.</p>
+<p class="measure" style="font: var(--type-body); color: var(--text-default);">Your application was sent to the verification officer. <a class="link" href="#status">Track its status</a> or <a class="link link--external" href="https://example.com/service-requirements" target="_blank" rel="noreferrer">read the service requirements<span class="sr-only"> (opens in a new tab)</span></a>.</p>
 ```
 
 **Under a field.** A quiet second path that leaves the form.
 ```html
 <div class="field" style="max-width: 360px;">
   <label class="field__label" for="lk-pw">Password</label>
-  <div class="control"><input id="lk-pw" type="password" value="studyhard"></div>
+  <div class="control"><input id="lk-pw" type="password" value="warga2026"></div>
   <span class="field__help"><a class="link" href="#reset">Forgot your password?</a></span>
 </div>
 ```

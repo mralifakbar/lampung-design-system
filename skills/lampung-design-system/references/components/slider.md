@@ -37,7 +37,7 @@ In settings and filter panels, full width of its column with the end icons or th
 **With the value shown.** An exact readout when the number matters. The value updates as you drag.
 ```html
 <div class="field" style="max-width: 420px; width: 100%;">
-  <label class="field__label" for="sl-speed">Reading speed for listening questions</label>
+  <label class="field__label" for="sl-speed">Speed of the queue announcement voice</label>
   <div class="slider-row"><input class="slider" id="sl-speed" type="range" min="0.5" max="2" step="0.25" value="1" oninput="document.getElementById('sl-speed-out').textContent = this.value + 'x'"><output class="slider-value" id="sl-speed-out" for="sl-speed">1x</output></div>
 </div>
 ```

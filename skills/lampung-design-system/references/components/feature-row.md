@@ -36,8 +36,8 @@ Inside a [marketing section](marketing-section.md). From 900 px the copy takes 5
 <div class="feature" style="width: 100%;">
   <div class="feature__copy">
     <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">code</span>Exports</span>
-    <h3 class="feature__title">Your grades, in the format the office asks for.</h3>
-    <p class="feature__body">Export a term as a spreadsheet, a PDF report or a file for the national records system.</p>
+    <h3 class="feature__title">Social aid recipients, in the format the agency asks for.</h3>
+    <p class="feature__body">Export a distribution round as a spreadsheet, a PDF report or a file for the regional welfare data system.</p>
     <ul class="feature__points">
       <li><span class="ic" aria-hidden="true">check_circle</span><span>Columns match the official template.</span></li>
       <li><span class="ic" aria-hidden="true">check_circle</span><span>Exports run in the background.</span></li>
@@ -45,9 +45,9 @@ Inside a [marketing section](marketing-section.md). From 900 px the copy takes 5
   </div>
   <div class="feature__stage">
     <div class="seg" role="group" aria-label="Format" data-lds-segmented style="width: 240px;"><span class="seg__thumb"></span><button class="seg__btn" aria-pressed="true">CSV</button><button class="seg__btn" aria-pressed="false">PDF</button></div>
-    <div class="codeblock"><div class="codeblock__bar"><span>grades-term-1.csv</span></div><pre>student_id,name,grade
-2026001,Siti Rahmawati,A
-2026002,Budi Santoso,B+</pre></div>
+    <div class="codeblock"><div class="codeblock__bar"><span>aid-recipients-round-1.csv</span></div><pre>nik,name,kelurahan,status
+1871 •••• •••• 0042,Siti Rahmawati,Way Halim,verified
+1871 •••• •••• 0317,Budi Santoso,Kedaton,pending</pre></div>
     <span class="feature__caption">Example data.</span>
   </div>
 </div>
@@ -57,8 +57,8 @@ Inside a [marketing section](marketing-section.md). From 900 px the copy takes 5
 ```html
 <div class="feature feature--reverse" style="width: 100%;">
   <div class="feature__copy">
-    <h3 class="feature__title">Reminders that stop when the work is in.</h3>
-    <p class="feature__body">Students get one reminder a day before the deadline, and none once they submit.</p>
+    <h3 class="feature__title">Reminders that stop once the tax is paid.</h3>
+    <p class="feature__body">Taxpayers get one reminder a day before the due date, and none once they pay.</p>
   </div>
   <div class="feature__stage">
     <label class="switch"><input type="checkbox" role="switch" checked><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="bell ic" aria-hidden="true">notifications</span>Daily reminder</label>

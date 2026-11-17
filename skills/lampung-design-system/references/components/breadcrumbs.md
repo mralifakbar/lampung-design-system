@@ -5,12 +5,12 @@ Group: Navigation. Docs page: `docs/components/breadcrumbs.html`.
 The path from a section down to the current page, as links with chevrons between them. The last item is the current page and is not a link.
 
 ## Use it when
-- A page sits three or more levels deep in a hierarchy people need to climb back up: Academics, Courses, Database Systems.
+- A page sits three or more levels deep in a hierarchy people need to climb back up: Services, Permits, Micro business permit.
 - People land on deep pages from search or a shared link and need to see where they are.
 
 ## Use something else when
 - A single step back on a phone screen: use [Phone bars](phone-bars.md). Use the nav bar back button.
-- Progress through an ordered flow (registration, checkout): use [Steps](steps.md).
+- Progress through an ordered flow (registration, payment): use [Steps](steps.md).
 - The main navigation of the app: use [App shell](app-shell.md).
 - A flat site with two levels: use [Top nav](top-nav.md). The current link in the nav already says where you are.
 
@@ -28,15 +28,15 @@ At the very top of the content, above the page title, as the first line of the [
 
 ## Markup
 
-**Course page.** Two ancestors and the current page.
+**Service page.** Two ancestors and the current page.
 ```html
 <nav aria-label="Breadcrumb">
   <ol class="crumbs">
-    <li><a href="#bc">Academics</a></li>
+    <li><a href="#bc">Services</a></li>
     <li><span class="ic" aria-hidden="true">chevron_right</span></li>
-    <li><a href="#bc">Courses</a></li>
+    <li><a href="#bc">Permits</a></li>
     <li><span class="ic" aria-hidden="true">chevron_right</span></li>
-    <li><span aria-current="page">Database Systems</span></li>
+    <li><span aria-current="page">Micro business permit</span></li>
   </ol>
 </nav>
 ```
@@ -47,11 +47,11 @@ At the very top of the content, above the page title, as the first line of the [
   <ol class="crumbs">
     <li><a href="#bc" aria-label="Home"><span class="ic" aria-hidden="true">home</span></a></li>
     <li><span class="ic" aria-hidden="true">chevron_right</span></li>
-    <li><a href="#bc">Tryouts</a></li>
+    <li><a href="#bc">Citizen reports</a></li>
     <li><span class="ic" aria-hidden="true">chevron_right</span></li>
-    <li><a href="#bc">Civil service basics</a></li>
+    <li><a href="#bc">Roads and bridges</a></li>
     <li><span class="ic" aria-hidden="true">chevron_right</span></li>
-    <li><span aria-current="page">Result of tryout 4</span></li>
+    <li><span aria-current="page">Pothole report in Kedaton</span></li>
   </ol>
 </nav>
 ```

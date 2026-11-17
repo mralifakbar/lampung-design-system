@@ -5,13 +5,13 @@ Group: Charts. Docs page: `docs/components/area-chart.html`.
 A filled line over time, drawn from data: one series against a dashed comparison, up to four series stacked into a total, or steps for a value that changes in jumps. Legend items switch series on and off; the crosshair reads every series at once.
 
 ## Use it when
-- Volume over time where the amount under the line matters: visits, orders, sessions, minutes studied.
-- Parts of a total over time, stacked: sessions by device, orders by channel, enrolments by programme.
-- A level that changes in steps and holds: seats left, stock on hand, price tier, members on a plan.
+- Volume over time where the amount under the line matters: visits, passengers, complaints, applications.
+- Parts of a total over time, stacked: complaints by channel, applications by type, passengers by corridor.
+- A level that changes in steps and holds: slots left, medicine stock, tariff tier, registered participants.
 
 ## Use something else when
 - Comparing trends whose totals do not add up: use [Line chart](line-chart.md). Overlapping fills hide each other; lines do not.
-- A few separate buckets (weekdays, grades): use [Bar chart](bar-chart.md).
+- A few separate buckets (weekdays, districts): use [Bar chart](bar-chart.md).
 - Parts of one whole at one moment: use [Donut](donut.md).
 - A tiny trend under a headline number: use [KPI card](kpi-card.md).
 - Daily activity over many months: use [Heatmap](heatmap.md).
@@ -37,24 +37,24 @@ Inside a [chart card](chart-card.md), full width of the card. The svg is drawn a
 **This month against last month.** One filled series and a dashed comparison. The fill grows from the baseline on first view; the dashed line fades in. Point at the plot, or focus it and use the arrow keys.
 ```html
 <section class="chart-card" aria-labelledby="ac-visits">
-  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="ac-visits">Are more people finding the course pages?</div><div class="chart-card__sub">Visits per day, November against October</div></div></div>
-  <div class="chart" data-lds-chart='{"label":"Course page visits per day. This month 27,830, 18% more than last month.","x":["18 Oct","19 Oct","20 Oct","21 Oct","22 Oct","23 Oct","24 Oct","25 Oct","26 Oct","27 Oct","28 Oct","29 Oct","30 Oct","31 Oct","1 Nov","2 Nov","3 Nov","4 Nov","5 Nov","6 Nov","7 Nov","8 Nov","9 Nov","10 Nov","11 Nov","12 Nov","13 Nov","14 Nov","15 Nov","16 Nov"],"xFull":["Sun 18 Oct","Mon 19 Oct","Tue 20 Oct","Wed 21 Oct","Thu 22 Oct","Fri 23 Oct","Sat 24 Oct","Sun 25 Oct","Mon 26 Oct","Tue 27 Oct","Wed 28 Oct","Thu 29 Oct","Fri 30 Oct","Sat 31 Oct","Sun 1 Nov","Mon 2 Nov","Tue 3 Nov","Wed 4 Nov","Thu 5 Nov","Fri 6 Nov","Sat 7 Nov","Sun 8 Nov","Mon 9 Nov","Tue 10 Nov","Wed 11 Nov","Thu 12 Nov","Fri 13 Nov","Sat 14 Nov","Sun 15 Nov","Mon 16 Nov"],"xName":"Day","series":[{"name":"This month","values":[870,920,930,870,820,670,720,910,980,1050,1010,890,750,760,910,1050,1110,980,920,730,870,900,1090,1150,1070,930,850,900,1000,1220]},{"name":"Last month","values":[800,870,930,830,690,580,620,820,870,860,860,720,680,620,790,920,910,810,700,610,700,830,930,920,900,750,710,710,750,920],"kind":"line","dashed":true,"color":4}]}'></div>
+  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="ac-visits">Are more people riding the city bus?</div><div class="chart-card__sub">Passengers per day, November against October</div></div></div>
+  <div class="chart" data-lds-chart='{"label":"City bus passengers per day. This month 27,830, 18% more than last month.","x":["18 Oct","19 Oct","20 Oct","21 Oct","22 Oct","23 Oct","24 Oct","25 Oct","26 Oct","27 Oct","28 Oct","29 Oct","30 Oct","31 Oct","1 Nov","2 Nov","3 Nov","4 Nov","5 Nov","6 Nov","7 Nov","8 Nov","9 Nov","10 Nov","11 Nov","12 Nov","13 Nov","14 Nov","15 Nov","16 Nov"],"xFull":["Sun 18 Oct","Mon 19 Oct","Tue 20 Oct","Wed 21 Oct","Thu 22 Oct","Fri 23 Oct","Sat 24 Oct","Sun 25 Oct","Mon 26 Oct","Tue 27 Oct","Wed 28 Oct","Thu 29 Oct","Fri 30 Oct","Sat 31 Oct","Sun 1 Nov","Mon 2 Nov","Tue 3 Nov","Wed 4 Nov","Thu 5 Nov","Fri 6 Nov","Sat 7 Nov","Sun 8 Nov","Mon 9 Nov","Tue 10 Nov","Wed 11 Nov","Thu 12 Nov","Fri 13 Nov","Sat 14 Nov","Sun 15 Nov","Mon 16 Nov"],"xName":"Day","series":[{"name":"This month","values":[870,920,930,870,820,670,720,910,980,1050,1010,890,750,760,910,1050,1110,980,920,730,870,900,1090,1150,1070,930,850,900,1000,1220]},{"name":"Last month","values":[800,870,930,830,690,580,620,820,870,860,860,720,680,620,790,920,910,810,700,610,700,830,930,920,900,750,710,710,750,920],"kind":"line","dashed":true,"color":4}]}'></div>
 </section>
 ```
 
-**Stacked into a total.** Three devices stack into all sessions. Switch a device off in the legend: its band collapses and the scale eases to the new total. The tooltip lists the top band first, then the total.
+**Stacked into a total.** Three channels stack into all complaints. Switch a channel off in the legend: its band collapses and the scale eases to the new total. The tooltip lists the top band first, then the total.
 ```html
 <section class="chart-card" aria-labelledby="ac-devices">
-  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="ac-devices">Where do people study?</div><div class="chart-card__sub">Study sessions per day by device, last 14 days</div></div></div>
-  <div class="chart" data-lds-chart='{"label":"Study sessions per day by device, last 14 days. Phones carry more than half of all sessions.","x":["3 Nov","4 Nov","5 Nov","6 Nov","7 Nov","8 Nov","9 Nov","10 Nov","11 Nov","12 Nov","13 Nov","14 Nov","15 Nov","16 Nov"],"xFull":["Tue 3 Nov","Wed 4 Nov","Thu 5 Nov","Fri 6 Nov","Sat 7 Nov","Sun 8 Nov","Mon 9 Nov","Tue 10 Nov","Wed 11 Nov","Thu 12 Nov","Fri 13 Nov","Sat 14 Nov","Sun 15 Nov","Mon 16 Nov"],"xName":"Day","stacked":true,"total":true,"series":[{"name":"Phone","values":[405,435,450,465,390,385,410,460,505,510,510,475,430,485]},{"name":"Laptop","values":[250,330,345,285,230,170,205,250,315,335,305,240,175,215]},{"name":"Tablet","values":[65,80,80,75,65,60,60,65,75,80,75,70,65,60]}]}'></div>
+  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="ac-devices">How do residents send complaints?</div><div class="chart-card__sub">Complaints per day by channel, last 14 days</div></div></div>
+  <div class="chart" data-lds-chart='{"label":"Citizen complaints per day by channel, last 14 days. The phone app carries more than half of all complaints.","x":["3 Nov","4 Nov","5 Nov","6 Nov","7 Nov","8 Nov","9 Nov","10 Nov","11 Nov","12 Nov","13 Nov","14 Nov","15 Nov","16 Nov"],"xFull":["Tue 3 Nov","Wed 4 Nov","Thu 5 Nov","Fri 6 Nov","Sat 7 Nov","Sun 8 Nov","Mon 9 Nov","Tue 10 Nov","Wed 11 Nov","Thu 12 Nov","Fri 13 Nov","Sat 14 Nov","Sun 15 Nov","Mon 16 Nov"],"xName":"Day","stacked":true,"total":true,"series":[{"name":"Phone app","values":[405,435,450,465,390,385,410,460,505,510,510,475,430,485]},{"name":"Website","values":[250,330,345,285,230,170,205,250,315,335,305,240,175,215]},{"name":"Phone call","values":[65,80,80,75,65,60,60,65,75,80,75,70,65,60]}]}'></div>
 </section>
 ```
 
-**Steps and a reference line.** Seats change in jumps and hold between bookings, so the edge steps instead of sloping. The dashed line marks when the waitlist opens.
+**Steps and a reference line.** Slots change in jumps and hold between bookings, so the edge steps instead of sloping. The dashed line marks when the waitlist opens.
 ```html
 <div style="max-width: 560px;"><section class="chart-card" aria-labelledby="ac-seats">
-  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="ac-seats">How fast is the mock exam filling?</div><div class="chart-card__sub">Seats left on Monday, by hour</div></div></div>
-  <div class="chart" data-lds-chart='{"label":"Seats left in the Saturday mock exam, by hour of Monday. Down from 120 to 34.","x":["08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00"],"xName":"Time","step":true,"height":200,"series":[{"name":"Seats left","values":[120,118,104,96,96,81,77,60,52,41,34]}],"refs":[{"value":40,"label":"Waitlist opens at 40"}],"y":{"max":120,"ticks":4}}'></div>
+  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="ac-seats">How fast are vaccination slots filling?</div><div class="chart-card__sub">Slots left on Monday, by hour</div></div></div>
+  <div class="chart" data-lds-chart='{"label":"Vaccination slots left for Saturday, by hour of Monday. Down from 120 to 34.","x":["08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00"],"xName":"Time","step":true,"height":200,"series":[{"name":"Slots left","values":[120,118,104,96,96,81,77,60,52,41,34]}],"refs":[{"value":40,"label":"Waitlist opens at 40"}],"y":{"max":120,"ticks":4}}'></div>
 </section></div>
 ```
 
@@ -110,10 +110,10 @@ import { Chart, Segmented } from 'lampung-design-system/react';
 const [period, setPeriod] = useState<'7d' | '30d'>('30d');
 <section className="chart-card" aria-labelledby="orders-q">
   <div className="chart-card__head">
-    <div className="chart-card__titles"><div className="chart-card__q" id="orders-q">Where do orders come from?</div></div>
+    <div className="chart-card__titles"><div className="chart-card__q" id="orders-q">How do residents send complaints?</div></div>
     <div className="chart-card__actions"><Segmented className="chart-card__range" label="Period" value={period} onChange={setPeriod} options={[{ value: '7d', label: '7 days' }, { value: '30d', label: '30 days' }]} /></div>
   </div>
-  <Chart config={{ label: 'Orders per day by channel', stacked: true, x: data[period].x, series: data[period].series }} />
+  <Chart config={{ label: 'Complaints per day by channel', stacked: true, x: data[period].x, series: data[period].series }} />
 </section>
 ```
 

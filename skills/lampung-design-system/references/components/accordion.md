@@ -6,7 +6,7 @@ A stack of questions or sections, each opening its panel on a spring. For conten
 
 ## Use it when
 - Frequently asked questions, where each person needs one or two answers.
-- Optional detail under each item of a page: what each plan includes, the rules of each exam section.
+- Optional detail under each item of a page: what each service covers, the requirements of each permit type.
 - Long settings or reference pages where sections can be read one at a time (`data-lds-accordion="single"` keeps one open).
 
 ## Use something else when
@@ -37,17 +37,17 @@ In the content column, full width of it, often under a [section](sections.md) he
 **Questions, one open at a time.** With `data-lds-accordion="single"` opening one closes the other.
 ```html
 <div class="acc" data-lds-accordion="single" style="max-width: 560px;">
-  <div class="acc__item"><button class="acc__btn" id="faq1-b" aria-expanded="true" aria-controls="faq1">Can I change my schedule after registering?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel is-open" id="faq1" role="region" aria-labelledby="faq1-b"><div><p>Yes, until the end of the second week. After that, changes need your adviser's approval.</p></div></div></div>
-  <div class="acc__item"><button class="acc__btn" id="faq2-b" aria-expanded="false" aria-controls="faq2">Where do I find my transcript?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="faq2" role="region" aria-labelledby="faq2-b"><div><p>Under Academics, then Records. You can download it as a PDF.</p></div></div></div>
-  <div class="acc__item"><button class="acc__btn" id="faq3-b" aria-expanded="false" aria-controls="faq3">What happens if I miss an exam?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="faq3" role="region" aria-labelledby="faq3-b"><div><p>Ask for a make-up exam within three days with a letter that explains why.</p></div></div></div>
+  <div class="acc__item"><button class="acc__btn" id="faq1-b" aria-expanded="true" aria-controls="faq1">Can I change my queue slot after booking?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel is-open" id="faq1" role="region" aria-labelledby="faq1-b"><div><p>Yes, up to one day before the visit. On the day itself, ask the Disdukcapil counter in Way Halim.</p></div></div></div>
+  <div class="acc__item"><button class="acc__btn" id="faq2-b" aria-expanded="false" aria-controls="faq2">Where do I find my new family card (KK)?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="faq2" role="region" aria-labelledby="faq2-b"><div><p>Under Documents, then Population records. You can download it as a PDF with a QR code.</p></div></div></div>
+  <div class="acc__item"><button class="acc__btn" id="faq3-b" aria-expanded="false" aria-controls="faq3">What happens if I miss my e-KTP recording?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="faq3" role="region" aria-labelledby="faq3-b"><div><p>Book a new slot. Recording also opens every Saturday at the Kedaton district office.</p></div></div></div>
 </div>
 ```
 
 **Two-line titles and rich content.** `.acc__title` with `.acc__sub`, and `.acc__content` for a list and an action. Several can be open.
 ```html
 <div class="acc acc--fill" style="max-width: 560px;">
-  <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="sec1"><span class="acc__title">Section 1: verbal reasoning<span class="acc__sub">35 questions · 40 minutes</span></span><span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="sec1" role="region"><div><div class="acc__content"><p>Questions test vocabulary, analogies and reading.</p><ul><li>Each correct answer scores 5.</li><li>Wrong and empty answers score 0.</li></ul><button class="btn btn--secondary btn--sm" style="align-self: flex-start;">Try 5 sample questions</button></div></div></div></div>
-  <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="sec2"><span class="acc__title">Section 2: numerical reasoning<span class="acc__sub">30 questions · 30 minutes</span></span><span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="sec2" role="region"><div><div class="acc__content"><p>Series, arithmetic and word problems. Calculators are not allowed.</p></div></div></div></div>
+  <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="sec1"><span class="acc__title">Step 1: documents to bring<span class="acc__sub">4 documents · checked at the counter</span></span><span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="sec1" role="region"><div><div class="acc__content"><p>Bring the originals; copies are made at the counter.</p><ul><li>Cover letter from your RT/RW.</li><li>Family card (KK) and old ID card.</li></ul><button class="btn btn--secondary btn--sm" style="align-self: flex-start;">See the full checklist</button></div></div></div></div>
+  <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="sec2"><span class="acc__title">Step 2: pay the fee<span class="acc__sub">Free · no counter payment</span></span><span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="sec2" role="region"><div><div class="acc__content"><p>Population documents are free of charge. Report any request for payment through the complaint channel.</p></div></div></div></div>
 </div>
 ```
 
@@ -95,8 +95,8 @@ In the content column, full width of it, often under a [section](sections.md) he
 import { AccordionItem } from 'lampung-design-system/react';
 
 <div className="acc">
-  <AccordionItem title="Section 1: verbal reasoning" sub="35 questions · 40 minutes" defaultOpen>
-    <p>Questions test vocabulary, analogies and reading.</p>
+  <AccordionItem title="Step 1: documents to bring" sub="4 documents · checked at the counter" defaultOpen>
+    <p>Bring the originals; copies are made at the counter.</p>
   </AccordionItem>
 </div>
 ```

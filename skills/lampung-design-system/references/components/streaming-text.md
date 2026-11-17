@@ -40,13 +40,13 @@ actions.hidden = false;
 **After thinking.** Thinking runs with a real timer while the assistant reads. When the first words are ready it settles into what it did, and the answer streams in under it.
 ```html
 <div class="msg msg--ai">
-  <div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Reading your notes</span><span class="thinking__time"></span></div>
+  <div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Reading the service guide</span><span class="thinking__time"></span></div>
   <div class="bubble"></div>
 </div>
 <script type="module">
   import { thinkingDone, streamText } from 'lampung-design-system/js';
   // when the first token arrives:
-  thinkingDone(msg.querySelector('.thinking'), 'Read 3 pages of your notes');
+  thinkingDone(msg.querySelector('.thinking'), 'Read 3 pages of the service guide');
   await streamText(msg.querySelector('.bubble'), text);
 </script>
 ```
@@ -54,9 +54,9 @@ actions.hidden = false;
 **A summary generated in a page.** Streaming is not only for chat. A report summary can arrive the same way at the top of the page while the rest of the page is already usable.
 ```html
 <div class="card" style="max-width: 560px;">
-  <p class="card__title">Class summary</p>
+  <p class="card__title">This week in citizen reports</p>
   <p class="card__sub stream is-streaming" id="st-c" style="margin-top: 8px;"></p>
-  <button class="btn btn--plain btn--sm" style="margin-top: 8px; margin-left: -10px;" onclick="this.hidden = true; import('../../js/lds.js').then((m) => m.streamText(document.getElementById('st-c'), 'Most students finished the quiz in under 20 minutes. Question 7 was missed by 18 of 30, so it is worth reviewing on Monday.'));">Generate summary</button>
+  <button class="btn btn--plain btn--sm" style="margin-top: 8px; margin-left: -10px;" onclick="this.hidden = true; import('../../js/lds.js').then((m) => m.streamText(document.getElementById('st-c'), 'Most reports this week were about street lights in Way Halim and Kedaton. 18 of 30 reports of uncollected rubbish came from Rajabasa, so the Monday pickup route is worth checking.'));">Generate summary</button>
 </div>
 ```
 
@@ -96,7 +96,7 @@ actions.hidden = false;
 ```tsx
 import { Thinking } from 'lampung-design-system/react';
 
-{phase === 'thinking' && <Thinking label="Reading your notes" startedAt={startedAt} />}
+{phase === 'thinking' && <Thinking label="Reading the service guide" startedAt={startedAt} />}
 <div className={`bubble stream${phase === 'streaming' ? ' is-streaming' : ''}`} aria-busy={phase === 'streaming'}>
   {words.map((w, i) => <span key={i} className="stream__w">{w} </span>)}
 </div>

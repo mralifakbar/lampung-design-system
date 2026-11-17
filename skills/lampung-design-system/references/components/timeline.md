@@ -5,8 +5,8 @@ Group: Data display. Docs page: `docs/components/timeline.html`.
 Events in time order on a vertical line, with filled dots for what is done. For the history or the plan of one thing, oldest first.
 
 ## Use it when
-- The history of one record: a thesis from proposal to defense, an application from submitted to decided.
-- A plan with dated milestones where some are done: an exam prep schedule, a scholarship process.
+- The history of one record: a permit application from submitted to decided, a citizen report from received to handled.
+- A plan with dated milestones where some are done: a road repair schedule, a regional scholarship process.
 
 ## Use something else when
 - The steps of a flow the person is completing right now (a form wizard): use [Steps](steps.md).
@@ -30,25 +30,25 @@ Inside a [card](card.md) or a side panel about the thing it tracks, under a titl
 
 ## Markup
 
-**A thesis, from proposal to defense.** Done items filled, the current item with an icon, upcoming items empty.
+**A permit application, from submitted to issued.** Done items filled, the current item with an icon, upcoming items empty.
 ```html
 <div class="card" style="max-width: 400px;">
-  <div class="card__title" style="margin-bottom: 16px;">Thesis submission</div>
+  <div class="card__title" style="margin-bottom: 16px;">Building approval (PBG)</div>
   <ol class="tl">
-    <li class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">check</span></span><div><div class="tl__title">Proposal approved</div><div class="tl__meta"><span class="sr-only">Done. </span>12 Sep</div></div></li>
-    <li class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">check</span></span><div><div class="tl__title">Draft sent to adviser</div><div class="tl__meta"><span class="sr-only">Done. </span>20 Oct</div></div></li>
-    <li class="tl__item" aria-current="step"><span class="tl__dot"><span class="ic" aria-hidden="true">schedule</span></span><div><div class="tl__title">Revision due</div><div class="tl__meta">18 Nov · in progress</div></div></li>
-    <li class="tl__item"><span class="tl__dot"></span><div><div class="tl__title">Final defense</div><div class="tl__meta">Date to be set</div></div></li>
+    <li class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">check</span></span><div><div class="tl__title">Documents received</div><div class="tl__meta"><span class="sr-only">Done. </span>12 Sep</div></div></li>
+    <li class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">check</span></span><div><div class="tl__title">Site survey</div><div class="tl__meta"><span class="sr-only">Done. </span>20 Oct</div></div></li>
+    <li class="tl__item" aria-current="step"><span class="tl__dot"><span class="ic" aria-hidden="true">schedule</span></span><div><div class="tl__title">Technical drawing revision</div><div class="tl__meta">18 Nov · in progress</div></div></li>
+    <li class="tl__item"><span class="tl__dot"></span><div><div class="tl__title">Permit issued</div><div class="tl__meta">Date to be set</div></div></li>
   </ol>
 </div>
 ```
 
-**An application history.** Every item is done; icons say what kind of event it was.
+**A scholarship application history.** Every item is done; icons say what kind of event it was.
 ```html
 <ol class="tl" style="max-width: 400px;">
   <li class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">upload_file</span></span><div><div class="tl__title">Documents uploaded</div><div class="tl__meta">2 Nov, 09:14</div></div></li>
-  <li class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">visibility</span></span><div><div class="tl__title">Reviewed by the admissions office</div><div class="tl__meta">5 Nov, 13:40</div></div></li>
-  <li class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">mail</span></span><div><div class="tl__title">Offer letter sent</div><div class="tl__meta">9 Nov, 10:02</div></div></li>
+  <li class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">visibility</span></span><div><div class="tl__title">Checked by the regional scholarship committee</div><div class="tl__meta">5 Nov, 13:40</div></div></li>
+  <li class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">mail</span></span><div><div class="tl__title">Award letter sent</div><div class="tl__meta">9 Nov, 10:02</div></div></li>
 </ol>
 ```
 

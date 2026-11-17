@@ -5,7 +5,7 @@ Group: Overlays. Docs page: `docs/components/command-palette.html`.
 A search box over the page that finds and runs any command or destination by typing. A fast path for people who know what they want; never the only path.
 
 ## Use it when
-- An app with many destinations and commands where frequent users want keyboard speed: jump to a course, create an assignment, switch theme.
+- An app with many destinations and commands where frequent users want keyboard speed: jump to a service, start a new application, switch theme.
 - A global search across kinds of things (pages, people, actions) with results as you type.
 
 ## Use something else when
@@ -39,8 +39,8 @@ A search box over the page that finds and runs any command or destination by typ
   <div class="cmdk__search"><span class="ic" aria-hidden="true">search</span>
     <input placeholder="Type a command or search" aria-label="Command or search" role="combobox" aria-expanded="true" aria-controls="palette-list" data-lds-filter="palette-list" data-lds-autofocus></div>
   <div class="cmdk__list" id="palette-list" role="listbox" aria-label="Results">
-    <button class="cmdk__item" role="option" id="cmd-new" data-lds-close><span class="ic" aria-hidden="true">add_circle</span>New assignment<kbd>⌘N</kbd></button>
-    <div class="cmdk__empty" data-lds-empty hidden>Nothing matches. Try a course name or "new".</div>
+    <button class="cmdk__item" role="option" id="cmd-new" data-lds-close><span class="ic" aria-hidden="true">add_circle</span>New application<kbd>⌘N</kbd></button>
+    <div class="cmdk__empty" data-lds-empty hidden>Nothing matches. Try a service name or "new".</div>
   </div>
 </div>
 

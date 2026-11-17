@@ -42,8 +42,8 @@ Directly above or beside what it teaches: over the list that can be swiped, next
 **Teach a shortcut.** A keyboard shortcut next to the search it opens, for the first five visits.
 ```html
 <div class="docs-col" style="max-width: 420px;">
-  <div class="collapse"><div><div class="hint" data-lds-hint="docs-slash-search" data-max="5" role="note"><span class="ic" aria-hidden="true">search</span><span>Press <span class="kbd">/</span> to search your courses from anywhere.</span><button class="hint__close" data-lds-hint-close aria-label="Hide this hint"><span class="ic ic--sm" aria-hidden="true">close</span></button></div></div></div>
-  <div class="control search"><span class="ic" aria-hidden="true">search</span><input aria-label="Search courses" placeholder="Search courses"></div>
+  <div class="collapse"><div><div class="hint" data-lds-hint="docs-slash-search" data-max="5" role="note"><span class="ic" aria-hidden="true">search</span><span>Press <span class="kbd">/</span> to search services from any page.</span><button class="hint__close" data-lds-hint-close aria-label="Hide this hint"><span class="ic ic--sm" aria-hidden="true">close</span></button></div></div></div>
+  <div class="control search"><span class="ic" aria-hidden="true">search</span><input aria-label="Search services" placeholder="Search services"></div>
   <button class="btn btn--plain btn--sm" style="align-self: flex-start; margin-left: -10px;" onclick="import('../../js/lds.js').then((m) => { m.resetHints(['docs-slash-search']); const box = this.closest('.docs-col'); const h = box.querySelector('.hint'); h.hidden = false; box.querySelector('.collapse').classList.remove('is-closed'); });"><span class="ic" aria-hidden="true">refresh</span>Show the hint again</button>
 </div>
 ```

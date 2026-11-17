@@ -5,8 +5,8 @@ Group: Feedback. Docs page: `docs/components/progress-bar.html`.
 A 6 px track that fills as a task with a known size advances. Show the number next to it; use the indeterminate bar only when you truly cannot measure.
 
 ## Use it when
-- A task with a measurable amount runs: an upload, an import, a report export, questions answered in a tryout.
-- Progress through a course or a module, shown with its number ("12 of 20 lessons").
+- A task with a measurable amount runs: an upload, an import, a report export, fields completed in a permit application.
+- Progress through a training or a module, shown with its number ("12 of 20 sessions").
 - A short, unmeasurable preparation step where a line fits better than a spinner (`.progress--indeterminate`).
 
 ## Use something else when
@@ -21,7 +21,7 @@ A 6 px track that fills as a task with a known size advances. Show the number ne
 - A page is loading after navigation: use [Nav progress](nav-progress.md).
 
 ## Where it goes
-Directly under what it measures: in an upload row, in a course card, under the header of a running job. With `.progress-meta` above it for the label and the number. Full width of its container on every screen size; never as a page-wide strip (that is [navigation progress](nav-progress.md)).
+Directly under what it measures: in an upload row, in a training card, under the header of a running job. With `.progress-meta` above it for the label and the number. Full width of its container on every screen size; never as a page-wide strip (that is [navigation progress](nav-progress.md)).
 
 ## Anatomy
 | Part | What it is |
@@ -34,20 +34,20 @@ Directly under what it measures: in an upload row, in a course card, under the h
 
 **Determinate with its number.** The label says what is happening, the number says how far. Press the button to advance it.
 ```html
-<div class="progress-meta"><span id="up-l">Uploading thesis.pdf</span><b>64%</b></div>
+<div class="progress-meta"><span id="up-l">Uploading business-site-plan.pdf</span><b>64%</b></div>
 <div class="progress" role="progressbar" aria-labelledby="up-l" aria-valuemin="0" aria-valuemax="100" aria-valuenow="64">
   <div class="progress__fill" style="transform: scaleX(0.64);"></div>
 </div>
 ```
 
-**Course progress.** Counted things read better as "12 of 20" than as a percentage. The thin bar fits inside cards and list rows.
+**Training progress.** Counted things read better as "12 of 20" than as a percentage. The thin bar fits inside cards and list rows.
 ```html
 <div class="card" style="max-width: 360px;">
-  <div class="card__title">Statistics for beginners</div>
-  <div class="card__sub">Module 3: sampling</div>
+  <div class="card__title">Simple bookkeeping for UMKM</div>
+  <div class="card__sub">Module 3: recording cash flow</div>
   <div style="margin-top: 16px;">
-    <div class="progress-meta"><span>Lessons</span><b>12 of 20</b></div>
-    <div class="progress progress--thin" role="progressbar" aria-label="Lessons done" aria-valuemin="0" aria-valuemax="20" aria-valuenow="12" aria-valuetext="12 of 20 lessons"><div class="progress__fill" style="transform: scaleX(0.6);"></div></div>
+    <div class="progress-meta"><span>Sessions</span><b>12 of 20</b></div>
+    <div class="progress progress--thin" role="progressbar" aria-label="Sessions done" aria-valuemin="0" aria-valuemax="20" aria-valuenow="12" aria-valuetext="12 of 20 sessions"><div class="progress__fill" style="transform: scaleX(0.6);"></div></div>
   </div>
 </div>
 ```
@@ -55,8 +55,8 @@ Directly under what it measures: in an upload row, in a course card, under the h
 **Indeterminate.** A segment sweeps across while the length is unknown. Pair it with words that set expectations.
 ```html
 <div style="max-width: 420px; width: 100%;">
-  <div class="progress-meta"><span>Preparing your transcript</span><span>Usually under a minute</span></div>
-  <div class="progress progress--thin progress--indeterminate" role="progressbar" aria-label="Preparing your transcript"><div class="progress__fill"></div></div>
+  <div class="progress-meta"><span>Preparing your certificate letter</span><span>Usually under a minute</span></div>
+  <div class="progress progress--thin progress--indeterminate" role="progressbar" aria-label="Preparing your certificate letter"><div class="progress__fill"></div></div>
 </div>
 ```
 
@@ -92,7 +92,7 @@ Directly under what it measures: in an upload row, in a course card, under the h
 
 ## Accessibility
 - `role="progressbar"` with `aria-valuemin`, `aria-valuemax` and `aria-valuenow`; name it with `aria-labelledby` pointing at the meta label, or `aria-label`.
-- Use `aria-valuetext` when the raw number is not the clearest reading ("12 of 20 lessons", "About 2 minutes left").
+- Use `aria-valuetext` when the raw number is not the clearest reading ("12 of 20 sessions", "About 2 minutes left").
 - Indeterminate bars omit `aria-valuenow`.
 - Do not announce every tick. Announce the end once, with a [toast](toast.md) or a `role="status"` line.
 

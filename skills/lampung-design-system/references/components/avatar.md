@@ -10,7 +10,7 @@ A circle with a person's initials on a tint, sized with `--size`. Initials until
 - Whether a person is online (`.avatar__presence`).
 
 ## Use something else when
-- An icon for a thing (a course, a file type): use [List](list.md). Use `.lrow__icon` in a list row.
+- An icon for a thing (a service, a file type): use [List](list.md). Use `.lrow__icon` in a list row.
 - The state of a system or connection: use [Status dot](status-dot.md).
 - A large picture someone can open: use [Thumbnail](thumbnail.md).
 - A count of waiting items: use [Count](count.md).
@@ -36,7 +36,7 @@ At the start of a row or a message, in the top bar for the signed-in person (32 
   <span class="avatar" style="--size: 32px;" aria-hidden="true">AR</span>
   <span class="avatar" role="img" aria-label="Ayu Rahma, online">AR<span class="avatar__presence"></span></span>
   <span class="avatar avatar--gray" style="--size: 56px;" aria-hidden="true">NS</span>
-  <span class="avatar avatar--sq" style="--size: 56px;" role="img" aria-label="Debate club">DC</span>
+  <span class="avatar avatar--sq" style="--size: 56px;" role="img" aria-label="Karang taruna youth group">KT</span>
 </div>
 ```
 
@@ -51,8 +51,8 @@ At the start of a row or a message, in the top bar for the signed-in person (32 
 **In a list row.** The name next to the avatar is the accessible name, so the avatar is hidden.
 ```html
 <div class="list" style="max-width: 420px;">
-  <div class="lrow"><span class="avatar" aria-hidden="true">AR</span><div class="lrow__body"><div class="lrow__title">Ayu Rahma</div><div class="lrow__sub">Class representative</div></div></div>
-  <div class="lrow"><span class="avatar avatar--gray" aria-hidden="true">BW</span><div class="lrow__body"><div class="lrow__title">Budi Wicaksono</div><div class="lrow__sub">Guest lecturer</div></div></div>
+  <div class="lrow"><span class="avatar" aria-hidden="true">AR</span><div class="lrow__body"><div class="lrow__title">Ayu Rahma</div><div class="lrow__sub">Head of RT 04</div></div></div>
+  <div class="lrow"><span class="avatar avatar--gray" aria-hidden="true">BW</span><div class="lrow__body"><div class="lrow__title">Budi Wicaksono</div><div class="lrow__sub">Visiting officer</div></div></div>
 </div>
 ```
 

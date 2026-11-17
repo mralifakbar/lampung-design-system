@@ -5,7 +5,7 @@ Group: Overlays. Docs page: `docs/components/sheet.html`.
 A panel that rises from the bottom for a task that keeps its context: the page behind recedes but stays visible. Drag the grabber to dismiss with momentum. The phone answer to most dialogs.
 
 ## Use it when
-- On phones, a focused task related to the current screen: mark attendance, choose a class, set filters, share.
+- On phones, a focused task related to the current screen: mark attendance, choose a time slot, set filters, share.
 - A short list of options with more detail than a menu can hold.
 - Anything people may want to flick away with a thumb.
 
@@ -52,12 +52,12 @@ Docked to the bottom of its positioned container (`.viewport`, or a `position: f
 ```html
 <div class="viewport docs-box">
   <div class="viewport__content">
-    <button class="btn btn--secondary btn--md" data-lds-open="sh-share" aria-haspopup="dialog"><span class="ic" aria-hidden="true">ios_share</span>Share result</button>
+    <button class="btn btn--secondary btn--md" data-lds-open="sh-share" aria-haspopup="dialog"><span class="ic" aria-hidden="true">ios_share</span>Share receipt</button>
   </div>
   <div class="scrim" data-lds-scrim="sh-share"></div>
   <div class="sheet" id="sh-share" role="dialog" aria-modal="true" aria-labelledby="sh-share-t" data-lds-layer>
     <div class="sheet__grabber" aria-hidden="true"></div>
-    <div class="sheet__head"><h3 class="sheet__title" id="sh-share-t">Share your tryout result</h3></div>
+    <div class="sheet__head"><h3 class="sheet__title" id="sh-share-t">Share your registration receipt</h3></div>
     <div class="list list--fill">
       <button class="lrow" data-lds-close><span class="ic" aria-hidden="true">link</span><span class="lrow__body"><span class="lrow__title">Copy link</span></span></button>
       <button class="lrow" data-lds-close><span class="ic" aria-hidden="true">download</span><span class="lrow__body"><span class="lrow__title">Save as image</span></span></button>

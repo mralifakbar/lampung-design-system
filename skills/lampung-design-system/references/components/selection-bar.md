@@ -5,7 +5,7 @@ Group: Overlays. Docs page: `docs/components/selection-bar.html`.
 A dark bar that floats up from the bottom while items in a list are selected, holding the count and the actions for all of them. It leaves when the selection is empty.
 
 ## Use it when
-- Bulk actions on a list or table people select from: archive 12 messages, grade 5 submissions, export 30 students.
+- Bulk actions on a list or table people select from: archive 12 messages, verify 5 applications, export 30 applicant records.
 - Selection mode on phones, where a toolbar at the top would be out of reach.
 
 ## Use something else when
@@ -29,11 +29,11 @@ Fixed at the bottom center of the window, 20 px from the bottom (more on phones 
 
 ## Markup
 
-**Bulk grading.** Select a submission or two: the bar rises from the bottom of this box. Clear the selection and it leaves. In a page it is fixed to the bottom of the window.
+**Bulk verification.** Select an application or two: the bar rises from the bottom of this box. Clear the selection and it leaves. In a page it is fixed to the bottom of the window.
 ```html
-<div class="selbar" role="toolbar" aria-label="Selected submissions">
+<div class="selbar" role="toolbar" aria-label="Selected applications">
   <span class="selbar__count" aria-live="polite">3 selected</span>
-  <button class="btn btn--md"><span class="ic" aria-hidden="true">edit</span>Grade</button>
+  <button class="btn btn--md"><span class="ic" aria-hidden="true">edit</span>Verify</button>
   <button class="btn btn--md"><span class="ic" aria-hidden="true">download</span>Export</button>
   <button class="icon-btn" aria-label="Clear selection"><span class="ic" aria-hidden="true">close</span></button>
 </div>

@@ -34,25 +34,25 @@ Stacked in `<main>` under the [hero](hero.md). 1200 px wide at most with a 20 to
 ```html
 <section class="msec" aria-labelledby="ms-t" style="width: 100%; padding-block: 8px;">
   <div class="msec__head msec__head--row" style="margin-bottom: 24px;">
-    <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">grid_view</span>Templates</span>
-    <h2 class="msec__title" id="ms-t">Start from a course that already works.</h2>
-    <p class="msec__lede">Twelve course templates with lessons, quizzes and a grading scheme in place.</p>
-    <a class="btn btn--secondary msec__aside" href="#ms-t">See all templates</a>
+    <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">grid_view</span>Services</span>
+    <h2 class="msec__title" id="ms-t">Start with the services people use most.</h2>
+    <p class="msec__lede">Twelve population record services can be requested from home, each with its list of documents.</p>
+    <a class="btn btn--secondary msec__aside" href="#ms-t">See all services</a>
   </div>
   <div class="link-grid">
-    <a class="link-card" href="#ms-t"><span class="link-card__title">Intro to statistics</span><span class="link-card__body">14 lessons, 6 quizzes</span></a>
-    <a class="link-card" href="#ms-t"><span class="link-card__title">Academic writing</span><span class="link-card__body">10 lessons, 3 essays</span></a>
+    <a class="link-card" href="#ms-t"><span class="link-card__title">New family card (KK)</span><span class="link-card__body">5 documents, done in 3 working days</span></a>
+    <a class="link-card" href="#ms-t"><span class="link-card__title">Birth certificate</span><span class="link-card__body">4 documents, done in 1 working day</span></a>
   </div>
 </section>
 ```
 
-**Centered head.** For a section whose content is centered too, such as pricing.
+**Centered head.** For a section whose content is centered too, such as fees.
 ```html
 <section class="msec" aria-labelledby="ms2-t" style="width: 100%; padding-block: 8px;">
   <div class="msec__head msec__head--center" style="margin-bottom: 0;">
-    <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">wallet</span>Pricing</span>
-    <h2 class="msec__title" id="ms2-t">One price per teacher.</h2>
-    <p class="msec__lede">Students never pay. Schools get one invoice for every teacher.</p>
+    <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">wallet</span>Fees</span>
+    <h2 class="msec__title" id="ms2-t">Every one of these services is free.</h2>
+    <p class="msec__lede">You pay nothing. If anyone asks you for a fee, report it through the complaints channel.</p>
   </div>
 </section>
 ```

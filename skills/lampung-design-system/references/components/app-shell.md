@@ -5,8 +5,8 @@ Group: Navigation. Docs page: `docs/components/app-shell.html`.
 The frame of an app: a sticky sidebar beside the content on wide screens, a top bar with a drawer below 960 px. One per app, at the root; one highlight glides to the current page.
 
 ## Use it when
-- An app or documentation site with more than five destinations that people move between all day: a course hub, an admin panel, a docs site.
-- Navigation needs groups (`shell__group`) or collapsible sections with numbered children, such as modules and lessons.
+- An app or documentation site with more than five destinations that people move between all day: a citizen services portal, an admin panel, a guide site.
+- Navigation needs groups (`shell__group`) or collapsible sections with numbered children, such as modules and topics.
 - The same frame must work from a 1440 px monitor down to a phone without a second navigation component.
 
 ## Use something else when
@@ -14,7 +14,7 @@ The frame of an app: a sticky sidebar beside the content on wide screens, a top 
 - A secondary list of sections inside one page, such as the parts of a settings page: use [Sidebar](sidebar.md). The sidebar is a panel that sits in the content; the shell is the frame around everything.
 - A native-feeling phone app with three to five destinations: use [Phone bars](phone-bars.md). Use the tab bar at the bottom instead of a drawer.
 - Jumping between headings of one long page: use [Outline](outline.md).
-- Switching sibling sections of one record (Overview, Assignments, Grades): use [Tabs](tabs.md).
+- Switching sibling sections of one record (Overview, Applications, History): use [Tabs](tabs.md).
 
 ## Where it goes
 The outermost element of the page, directly inside `<body>`. Wide screens: a 264 px column on the left, sticky to the full viewport height, content to its right. Below 960 px: the sidebar becomes a drawer (at most 300 px or 86 % of the width) behind a scrim, opened from a translucent 56 px top bar that pads itself for the notch. This documentation page is an app shell: narrow the window to see the drawer.
@@ -46,18 +46,18 @@ The outermost element of the page, directly inside `<body>`. Wide screens: a 264
 
 ## Markup
 
-**A course hub frame.** Flat links, a group caption, a badge and a foot. Pick a link: the highlight glides to it. Below 960 px the sidebar becomes a drawer behind the menu button. The demo is boxed to 460 px; a real shell fills the viewport.
+**A service portal frame.** Flat links, a group caption, a badge and a foot. Pick a link: the highlight glides to it. Below 960 px the sidebar becomes a drawer behind the menu button. The demo is boxed to 460 px; a real shell fills the viewport.
 ```html
 <div class="shell" data-lds-shell>
   <aside class="shell__side" id="side">
-    <a class="shell__brand" href="/">Course hub</a>
+    <a class="shell__brand" href="/">Layanan Warga</a>
     <nav class="shell__nav" aria-label="Main">
       <span class="shell__hl" aria-hidden="true"></span>
       <a class="shell__link" href="/"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Home</span></a>
       <a class="shell__link" href="/schedule"><span class="ic" aria-hidden="true">calendar_month</span><span class="shell__label">Schedule</span></a>
-      <a class="shell__link" href="/assignments" aria-current="page"><span class="ic" aria-hidden="true">assignment</span><span class="shell__label">Assignments</span><span class="badge badge--accent shell__badge">3</span></a>
-      <p class="shell__group">Courses</p>
-      <a class="shell__link" href="/courses/db"><span class="ic" aria-hidden="true">menu_book</span><span class="shell__label">Database Systems</span></a>
+      <a class="shell__link" href="/applications" aria-current="page"><span class="ic" aria-hidden="true">assignment</span><span class="shell__label">Applications</span><span class="badge badge--accent shell__badge">3</span></a>
+      <p class="shell__group">Services</p>
+      <a class="shell__link" href="/services/micro-business"><span class="ic" aria-hidden="true">menu_book</span><span class="shell__label">Micro business permit</span></a>
     </nav>
     <div class="shell__foot">
       <a class="shell__link" href="/settings"><span class="ic" aria-hidden="true">settings</span><span class="shell__label">Settings</span></a>
@@ -67,7 +67,7 @@ The outermost element of the page, directly inside `<body>`. Wide screens: a 264
   <div class="shell__main">
     <header class="shell__top">
       <button class="icon-btn" data-lds-shell-toggle aria-controls="side" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
-      <span class="shell__toptitle">Assignments</span>
+      <span class="shell__toptitle">Applications</span>
       <span style="width: 44px;"></span>
     </header>
     <main id="main">…</main>
@@ -75,19 +75,19 @@ The outermost element of the page, directly inside `<body>`. Wide screens: a 264
 </div>
 ```
 
-**Nested sections with numbered lessons.** Sections fold open on a spring; the one holding the current page opens by itself. A parent link carries numbered children on a rail; finished ones get a done mark. Open and close Statistics.
+**Nested sections with numbered topics.** Sections fold open on a spring; the one holding the current page opens by itself. A parent link carries numbered children on a rail; finished ones get a done mark. Open and close Family health.
 ```html
-<nav class="shell__nav" aria-label="Lessons">
+<nav class="shell__nav" aria-label="Topics">
   <span class="shell__hl" aria-hidden="true"></span>
   <div class="shell__section">
-    <button class="shell__section-btn" aria-expanded="false" aria-controls="sec-math">
-      <span class="shell__section-label">Discrete math</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span>
+    <button class="shell__section-btn" aria-expanded="false" aria-controls="sec-books">
+      <span class="shell__section-label">Business bookkeeping</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span>
     </button>
-    <div class="shell__panel" id="sec-math"><div>
-      <a class="shell__link is-parent" href="/math/sets">Module 1: Sets</a>
+    <div class="shell__panel" id="sec-books"><div>
+      <a class="shell__link is-parent" href="/umkm/cash-flow">Module 1: Cash flow</a>
       <div class="shell__children">
-        <a class="shell__link shell__link--child" href="/math/sets/1"><span class="shell__num">1</span><span class="shell__label">Sets and subsets</span><span class="shell__done"><span class="ic" aria-hidden="true">check_circle</span><span class="sr-only">Done</span></span></a>
-        <a class="shell__link shell__link--child" href="/math/sets/3" aria-current="page"><span class="shell__num">3</span><span class="shell__label">Functions and their inverses</span></a>
+        <a class="shell__link shell__link--child" href="/umkm/cash-flow/1"><span class="shell__num">1</span><span class="shell__label">Recording income</span><span class="shell__done"><span class="ic" aria-hidden="true">check_circle</span><span class="sr-only">Done</span></span></a>
+        <a class="shell__link shell__link--child" href="/umkm/cash-flow/3" aria-current="page"><span class="shell__num">3</span><span class="shell__label">Separating business and personal money</span></a>
       </div>
     </div></div>
   </div>
@@ -190,7 +190,7 @@ The outermost element of the page, directly inside `<body>`. Wide screens: a 264
 
 ## Do
 - Keep one shell per app and mark the current page with `aria-current="page"`.
-- Use sections with numbered children for ordered content (modules and lessons), groups for unordered areas.
+- Use sections with numbered children for ordered content (modules and topics), groups for unordered areas.
 - Keep labels to a few words; long names wrap rather than truncate.
 
 ## Don't

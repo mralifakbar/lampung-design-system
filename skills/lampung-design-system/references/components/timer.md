@@ -5,18 +5,18 @@ Group: Feedback. Docs page: `docs/components/timer.html`.
 A countdown pill in tabular mono figures that turns amber when time runs low and red at zero, then fires `lds:timeup`. For real deadlines the person is working against.
 
 ## Use it when
-- A timed exam or tryout: time left for the whole test or for one section.
-- A short hold the person must act within: a reserved seat, a payment window, a code that expires.
-- Counting up against a target people work to: a kitchen ticket since it was fired, a support chat waiting for a reply, a call on hold (`data-lds-elapsed`).
+- A timed online session: time left to finish an application form, or one step of it, before the session closes.
+- A short hold the person must act within: a reserved queue number, a payment window, a code that expires.
+- Counting up against a target people work to: a queue number waiting at the counter, a complaint chat waiting for a reply, an emergency call on hold (`data-lds-elapsed`).
 
 ## Use something else when
 - Showing how long ongoing work has taken: use [Thinking](thinking.md).
 - When something happened or is due, in words ("in 3 days", "5 minutes ago"): use [Timestamp](timestamp.md).
 - A deadline to undo an action in a toast: use [Toast](toast.md). The toast has its own draining bar.
-- Progress through a fixed number of questions: use [Progress bar](progress-bar.md).
+- Progress through a fixed number of form steps: use [Progress bar](progress-bar.md).
 
 ## Where it goes
-In a fixed place the person can glance at without searching: the top bar of an exam screen (right side), the header of a payment step, next to the code field. On phones keep it in the top bar; never inside scrolling content where it can leave the screen.
+In a fixed place the person can glance at without searching: the top bar of a timed form (right side), the header of a payment step, next to the code field. On phones keep it in the top bar; never inside scrolling content where it can leave the screen.
 
 ## Anatomy
 | Part | What it is |
@@ -30,23 +30,23 @@ In a fixed place the person can glance at without searching: the top bar of an e
 
 ## Markup
 
-**Counting up against a target.** Kitchen tickets since they were fired, with a 12 minute target. The first is fine, the second is close, the third is late. Words beside the pill say the same thing.
+**Counting up against a target.** Waiting time of queue numbers at a puskesmas counter, with a 12 minute target. The first is fine, the second is close, the third is late. Words beside the pill say the same thing.
 ```html
 <div class="docs-col" style="max-width: 360px;">
-  <div class="docs-row"><span class="timer" data-lds-elapsed="185" data-target="720" aria-label="Table 4, time since fired"><span class="ic" aria-hidden="true">schedule</span><span class="timer__t"></span></span><span class="docs-note">Table 4 · on time</span></div>
-  <div class="docs-row"><span class="timer" data-lds-elapsed="610" data-target="720" aria-label="Table 9, time since fired"><span class="ic" aria-hidden="true">schedule</span><span class="timer__t"></span></span><span class="docs-note">Table 9 · close to target</span></div>
-  <div class="docs-row"><span class="timer" data-lds-elapsed="905" data-target="720" aria-label="Table 12, time since fired"><span class="ic" aria-hidden="true">schedule</span><span class="timer__t"></span></span><span class="docs-note">Table 12 · late</span></div>
+  <div class="docs-row"><span class="timer" data-lds-elapsed="185" data-target="720" aria-label="Queue A-04, waiting time"><span class="ic" aria-hidden="true">schedule</span><span class="timer__t"></span></span><span class="docs-note">Queue A-04 · on target</span></div>
+  <div class="docs-row"><span class="timer" data-lds-elapsed="610" data-target="720" aria-label="Queue A-09, waiting time"><span class="ic" aria-hidden="true">schedule</span><span class="timer__t"></span></span><span class="docs-note">Queue A-09 · close to target</span></div>
+  <div class="docs-row"><span class="timer" data-lds-elapsed="905" data-target="720" aria-label="Queue A-12, waiting time"><span class="ic" aria-hidden="true">schedule</span><span class="timer__t"></span></span><span class="docs-note">Queue A-12 · late</span></div>
 </div>
 ```
 
-**Exam time left.** 1 h 30 min shows as h:mm:ss; under an hour as m:ss.
+**Time left to finish a form.** 1 h 30 min shows as h:mm:ss; under an hour as m:ss.
 ```html
-<div class="docs-row"><span class="timer" data-lds-timer="5400" data-low="300" aria-label="Time left"></span><span class="docs-note">Section 2 of 3</span></div>
+<div class="docs-row"><span class="timer" data-lds-timer="5400" data-low="300" aria-label="Time left"></span><span class="docs-note">Step 2 of 3, surat pindah application</span></div>
 ```
 
 **Running low, then up.** A 20 second timer that goes low at 10 and reaches zero. Press Replay to run it again.
 ```html
-<span class="timer" data-lds-timer="20" data-low="10" aria-label="Seat held for"></span>
+<span class="timer" data-lds-timer="20" data-low="10" aria-label="Queue number held for"></span>
 ```
 
 **States at rest.** What the three states look like.
@@ -77,7 +77,7 @@ In a fixed place the person can glance at without searching: the top bar of an e
 
 ## Do
 - Tell people before the timer starts how long they have and what happens at zero.
-- Set `data-low` to a useful warning: 5 minutes for an exam, 60 seconds for a hold.
+- Set `data-low` to a useful warning: 5 minutes for a timed form, 60 seconds for a hold.
 - Listen for `lds:timeup` and save the person's work first.
 
 ## Don't

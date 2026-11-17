@@ -36,11 +36,11 @@ In toolbars and page or card headers, aligned with other medium (36 px) controls
 </div>
 ```
 
-**Previous and next.** Stepping through questions in a review screen, next to the question count.
+**Previous and next.** Stepping through files on an application review screen, next to the file count.
 ```html
 <div class="cluster" style="--gap: 12px;">
-  <span class="card__sub" style="margin: 0;">Question 4 of 40</span>
-  <div class="btn-group" role="group" aria-label="Question">
+  <span class="card__sub" style="margin: 0;">File 4 of 40</span>
+  <div class="btn-group" role="group" aria-label="File">
     <button class="btn btn--md"><span class="ic" aria-hidden="true">chevron_left</span>Previous</button>
     <button class="btn btn--md">Next<span class="ic" aria-hidden="true">chevron_right</span></button>
   </div>

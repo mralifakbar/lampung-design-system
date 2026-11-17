@@ -50,8 +50,8 @@ On rows of a `.list`, one `.swipe` per row. Two or three actions, the destructiv
 **One action.** A task list with only Delete. A short swipe shows it; a long one deletes.
 ```html
 <div class="list" style="width: 100%; max-width: 420px;">
-  <div class="swipe" data-lds-swipe><div class="swipe__actions"><button class="swipe__act swipe__act--danger" data-swipe="delete" data-swipe-commit><span class="ic" aria-hidden="true">delete</span>Delete</button></div><div class="swipe__row lrow" tabindex="0"><span class="lrow__body"><span class="lrow__title">Read chapter 4</span><span class="lrow__sub">Biology 101</span></span><span class="lrow__value">Today</span></div></div>
-  <div class="swipe" data-lds-swipe><div class="swipe__actions"><button class="swipe__act swipe__act--danger" data-swipe="delete" data-swipe-commit><span class="ic" aria-hidden="true">delete</span>Delete</button></div><div class="swipe__row lrow" tabindex="0"><span class="lrow__body"><span class="lrow__title">Print the lab worksheet</span><span class="lrow__sub">Biology 101</span></span><span class="lrow__value">Tomorrow</span></div></div>
+  <div class="swipe" data-lds-swipe><div class="swipe__actions"><button class="swipe__act swipe__act--danger" data-swipe="delete" data-swipe-commit><span class="ic" aria-hidden="true">delete</span>Delete</button></div><div class="swipe__row lrow" tabindex="0"><span class="lrow__body"><span class="lrow__title">Photocopy the family card (KK)</span><span class="lrow__sub">Business permit requirement</span></span><span class="lrow__value">Today</span></div></div>
+  <div class="swipe" data-lds-swipe><div class="swipe__actions"><button class="swipe__act swipe__act--danger" data-swipe="delete" data-swipe-commit><span class="ic" aria-hidden="true">delete</span>Delete</button></div><div class="swipe__row lrow" tabindex="0"><span class="lrow__body"><span class="lrow__title">Pay motor vehicle tax</span><span class="lrow__sub">Rp 450.000</span></span><span class="lrow__value">Tomorrow</span></div></div>
 </div>
 ```
 

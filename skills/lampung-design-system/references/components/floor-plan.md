@@ -2,10 +2,10 @@
 
 Group: Data display. Docs page: `docs/components/floor-plan.html`.
 
-Bookable things drawn where they are: tables in a dining room, rooms on a floor, desks in a study centre. Each one is a button colored by its state, and the state is always in words too, so people find a free one by place and by name.
+Bookable things drawn where they are: tables in a dining room, rooms on a floor, desks in a regional library. Each one is a button colored by its state, and the state is always in words too, so people find a free one by place and by name.
 
 ## Use it when
-- Where something is matters as much as its state: tables in a restaurant, desks or study rooms people book, beds on a ward.
+- Where something is matters as much as its state: tables in a restaurant, desks or study rooms people book, beds on a puskesmas ward.
 - Rooms of a building by floor, where staff scan for the ones that need them (cleaning, inspection, out of order).
 - A front desk or host stand that seats, moves and joins things all day and needs to see the whole room at once.
 
@@ -31,10 +31,10 @@ A full card width or eight of twelve columns, with its legend under it. A placed
 
 ## Markup
 
-**Placed: a study centre.** Desks and booths where they stand. Booked, in use, cleaning and out of order each have a tone and a word; the selected booth has the accent ring. Narrow the window: the plan keeps its shape and scrolls inside its box.
+**Placed: a regional library.** Desks and booths where they stand. Booked, in use, cleaning and out of order each have a tone and a word; the selected booth has the accent ring. Narrow the window: the plan keeps its shape and scrolls inside its box.
 ```html
 <div class="stack" style="--gap: 12px;">
-<div class="floor" tabindex="0" role="region" aria-label="Study centre, ground floor, scrolls sideways" style="--cols: 10; --row: 56px; --min: 560px;">
+<div class="floor" tabindex="0" role="region" aria-label="Regional library, ground floor, scrolls sideways" style="--cols: 10; --row: 56px; --min: 560px;">
   <div class="floor__plan">
     <span class="floor__zone" style="grid-area: 1 / 8 / 5 / 11;">Quiet room</span>
     <button class="floor__unit floor__unit--round" type="button" aria-pressed="false" style="grid-area: 1 / 1 / 3 / 3;"><span class="floor__name">A1</span><span class="floor__meta">Free</span></button>

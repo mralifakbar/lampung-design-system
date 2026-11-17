@@ -30,9 +30,9 @@ In meta lines: a list row value or second line, a message header, a card subtitl
 **In list rows.** Past and future dates in relative words. Hover a time to see the exact date.
 ```html
 <div class="list" style="max-width: 460px;">
-  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Lab report feedback</div><div class="lrow__sub">Two comments on section 3</div></div><time class="timestamp lrow__value" data-lds-time="2026-11-16T08:05:00+07:00">16 Nov 2026, 08:05</time></div>
-  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Seminar room changed</div><div class="lrow__sub">Now in building C, room 204</div></div><time class="timestamp lrow__value" data-lds-time="2026-11-13T15:20:00+07:00">13 Nov 2026, 15:20</time></div>
-  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Scholarship deadline</div><div class="lrow__sub">Upload your transcript</div></div><time class="timestamp lrow__value" data-lds-time="2026-12-01T17:00:00+07:00">1 Dec 2026, 17:00</time></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Reply to your road damage report</div><div class="lrow__sub">Two comments from the officer</div></div><time class="timestamp lrow__value" data-lds-time="2026-11-16T08:05:00+07:00">16 Nov 2026, 08:05</time></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Outreach session room changed</div><div class="lrow__sub">Now in building C, room 204</div></div><time class="timestamp lrow__value" data-lds-time="2026-11-13T15:20:00+07:00">13 Nov 2026, 15:20</time></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Regional scholarship deadline</div><div class="lrow__sub">Upload your school report</div></div><time class="timestamp lrow__value" data-lds-time="2026-12-01T17:00:00+07:00">1 Dec 2026, 17:00</time></div>
 </div>
 ```
 

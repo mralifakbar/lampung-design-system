@@ -6,7 +6,7 @@ A button that shows the current span and opens presets beside a two-month calend
 
 ## Use it when
 - The period of a dashboard, a report or an export: last 30 days, this month, a custom span.
-- Filtering records by when they happened: orders between two dates, sign-ups this quarter.
+- Filtering records by when they happened: applications between two dates, registrations this quarter.
 
 ## Use something else when
 - One date in a form: use [Date field](date-field.md).

@@ -5,7 +5,7 @@ Group: Data display. Docs page: `docs/components/kanban.html`.
 Columns of cards that people move between stages by dragging or by keyboard. The picked card lifts and follows the pointer, the others make room on a spring, and it settles into its slot; the counts roll.
 
 ## Use it when
-- Work that moves through a few stages and people rearrange it often: tasks of a launch, applications in review, support tickets, content in production.
+- Work that moves through a few stages and people rearrange it often: tasks of a service launch, applications in review, citizen complaints, content in production.
 - Seeing how much sits in each stage matters as much as the items themselves (work in progress limits).
 
 ## Use something else when
@@ -32,27 +32,27 @@ Full width of the content column, under the page header and a toolbar (search, f
 
 **Launch board.** Drag a card to another column (on touch, hold it first): the others make room, the count rolls. "In progress" warns past three cards. By keyboard: Tab to a card, Space to pick up, arrows to move, Space to drop, Escape to put it back.
 ```html
-<div class="kanban" data-lds-kanban aria-label="November cohort launch">
+<div class="kanban" data-lds-kanban aria-label="Online permit service launch">
     <section class="kanban__col" data-col="todo" aria-labelledby="kb-todo">
       <header class="kanban__head"><h2 class="kanban__title" id="kb-todo">To do</h2><span class="kanban__count"><span class="roll" data-lds-roll="3"></span></span>
         <span class="kanban__head-end"><button class="icon-btn" aria-label="Add a card to To do"><span class="ic" aria-hidden="true">add</span></button></span></header>
       <div class="kanban__list" role="list" aria-labelledby="kb-todo">
         <article class="kanban__card" role="listitem" tabindex="0" data-id="k1" aria-describedby="kb-help">
           <div class="kanban__top"><span class="badge badge--accent">Content</span></div>
-          <h3 class="kanban__card-title">Write the welcome email</h3>
-          <p class="kanban__card-body">Three short paragraphs and the link to week 1.</p>
+          <h3 class="kanban__card-title">Write the applicant welcome email</h3>
+          <p class="kanban__card-body">Three short paragraphs and the link to the application guide.</p>
           <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>18 Nov</span><span><span class="ic" aria-hidden="true">chat</span>4</span><span class="avatar avatar--gray" title="Dewi Lestari">DL</span></div>
         </article>
         <article class="kanban__card" role="listitem" tabindex="0" data-id="k2" aria-describedby="kb-help">
           <div class="kanban__top"><span class="badge">Operations</span></div>
-          <h3 class="kanban__card-title">Book the venue for the kickoff</h3>
+          <h3 class="kanban__card-title">Book the hall for the public briefing</h3>
           
           <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>20 Nov</span><span><span class="ic" aria-hidden="true">chat</span>1</span><span class="avatar avatar--gray" title="Arif Santoso">AS</span></div>
         </article>
         <article class="kanban__card" role="listitem" tabindex="0" data-id="k3" aria-describedby="kb-help">
           <div class="kanban__top"><span class="badge badge--warning">Finance</span></div>
-          <h3 class="kanban__card-title">Price the early bird seats</h3>
-          <p class="kanban__card-body">Compare with last cohort and the waitlist size.</p>
+          <h3 class="kanban__card-title">Calculate the new levy rates</h3>
+          <p class="kanban__card-body">Compare with last year and the applicant queue size.</p>
           <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>21 Nov</span><span><span class="ic" aria-hidden="true">chat</span>7</span><span class="avatar avatar--gray" title="Sari Handayani">SH</span></div>
         </article>
         <div class="kanban__empty">Drop a card here</div>
@@ -64,7 +64,7 @@ Full width of the content column, under the page header and a toolbar (search, f
       <div class="kanban__list" role="list" aria-labelledby="kb-doing">
         <article class="kanban__card" role="listitem" tabindex="0" data-id="k4" aria-describedby="kb-help">
           <div class="kanban__top"><span class="badge badge--accent">Content</span></div>
-          <h3 class="kanban__card-title">Record lesson 1 videos</h3>
+          <h3 class="kanban__card-title">Record the registration guide video</h3>
           
           <div class="kanban__foot"><span><span class="ic" aria-hidden="true">calendar_month</span>19 Nov</span><span><span class="ic" aria-hidden="true">chat</span>2</span><span class="avatar avatar--gray" title="Rina Wijaya">RW</span></div>
         </article>
@@ -109,7 +109,7 @@ Full width of the content column, under the page header and a toolbar (search, f
 
 ## Accessibility
 - Every card is focusable; Space picks it up, arrow keys move it (left and right change column), Space or Enter drops it, Escape puts it back, Tab drops it where it is.
-- Each step is announced: "Picked up Write the welcome email, To do, position 1 of 3", "In progress, position 2 of 3", "Dropped…".
+- Each step is announced: "Picked up Write the applicant welcome email, To do, position 1 of 3", "In progress, position 2 of 3", "Dropped…".
 - Mouse drags start after 5 px, so a click still works; touch drags start after a 260 ms hold, so the board still scrolls.
 - Buttons and links inside a card never start a drag.
 

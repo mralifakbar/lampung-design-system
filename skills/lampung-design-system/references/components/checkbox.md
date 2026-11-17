@@ -5,8 +5,8 @@ Group: Selection. Docs page: `docs/components/checkbox.html`.
 A native checkbox with a drawn tick, for independent yes or no choices that are saved with a form. Several can be on at once; each label says what turning it on means.
 
 ## Use it when
-- Several independent options in a form, any number of which can be on: which notifications to receive, which subjects to include.
-- One agreement before submitting: "I have read the exam rules".
+- Several independent options in a form, any number of which can be on: which notifications to receive, which documents to attach.
+- One agreement before submitting: "I have read the service terms".
 - Selecting rows in a list or table to act on them together (with a "select all" that can be mixed).
 
 ## Use something else when
@@ -34,27 +34,27 @@ In a [form](form-layout.md), stacked in a column 12 px apart, inside a `<fieldse
 ```html
 <fieldset class="stack" style="border: 0;">
   <legend class="field__label" style="margin-bottom: 12px;">Email me when</legend>
-  <label class="check"><input type="checkbox" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span><span class="check__text">New grades are posted<small>As soon as a lecturer publishes them</small></span></label>
+  <label class="check"><input type="checkbox" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span><span class="check__text">My application status changes<small>As soon as an officer updates it</small></span></label>
   <label class="check"><input type="checkbox" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span><span class="check__text">A deadline is 24 hours away</span></label>
-  <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span><span class="check__text">Someone replies to my question<small>At most one email a day</small></span></label>
+  <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span><span class="check__text">Someone replies to my report<small>At most one email a day</small></span></label>
 </fieldset>
 ```
 
 **Select all, with a mixed state.** When some but not all are on, the parent shows a dash and reports "mixed". Toggle the children to see it.
 ```html
 <label class="check is-mixed">
-  <input type="checkbox" id="all-subjects">
+  <input type="checkbox" id="all-documents">
   <span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span>
-  <span class="check__text">All subjects</span>
+  <span class="check__text">All documents</span>
 </label>
-<script>document.getElementById('all-subjects').indeterminate = true;</script>
+<script>document.getElementById('all-documents').indeterminate = true;</script>
 ```
 
 **Agreement and disabled.** A single checkbox before an important submit. A disabled option says why in its second line.
 ```html
 <div class="stack">
-  <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span><span class="check__text">I have read the exam rules<small>Phones must stay off for the whole session</small></span></label>
-  <label class="check"><input type="checkbox" disabled><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span><span class="check__text">Include questions from last year<small>Available after you finish 3 tryouts</small></span></label>
+  <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span><span class="check__text">I have read the service terms<small>The data I send must match the original documents</small></span></label>
+  <label class="check"><input type="checkbox" disabled><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span><span class="check__text">Fill in from my previous application<small>Available once one of your applications is complete</small></span></label>
 </div>
 ```
 

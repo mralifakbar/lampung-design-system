@@ -40,15 +40,15 @@ In its own scrolling pane, full width of that pane: beside the reading pane on w
     <span class="avatar" style="--size: 40px;" aria-hidden="true">NP</span>
     <span class="inbox__body">
       <span class="inbox__line"><span class="inbox__from">Nadia Putri</span><span class="ic inbox__flag" aria-label="Flagged">flag</span><time class="inbox__time">09:12</time></span>
-      <span class="inbox__subject">Q4 budget: two lines need your sign-off</span>
-      <span class="inbox__preview">I moved the design tools into opex as we agreed. The travel line is still 8% over, can you look before Friday?</span>
+      <span class="inbox__subject">Q4 budget: two lines need your approval</span>
+      <span class="inbox__preview">I moved the software costs into operating spend as we agreed. The official travel line is still 8% over, can you check before Friday?</span>
     </span>
   </button>
   <button class="inbox__row" type="button" aria-current="true">
     <span class="avatar avatar--gray" style="--size: 40px;" aria-hidden="true">GR</span>
     <span class="inbox__body">
       <span class="inbox__line"><span class="inbox__from">Galih Ramadhan</span><span class="ic" aria-label="Has attachments">attach_file</span><time class="inbox__time">08:40</time></span>
-      <span class="inbox__subject">Payment page is ready for review</span>
+      <span class="inbox__subject">Retribution payment page is ready for review</span>
       <span class="inbox__preview">Virtual account and card both work in staging. Receipts go out by email within a minute.</span>
     </span>
   </button>
@@ -56,7 +56,7 @@ In its own scrolling pane, full width of that pane: beside the reading pane on w
     <span class="avatar avatar--gray" style="--size: 40px;" aria-hidden="true">SH</span>
     <span class="inbox__body">
       <span class="inbox__line"><span class="inbox__from">Sari Handayani</span><time class="inbox__time">Yesterday</time></span>
-      <span class="inbox__subject">Invoice reminders schedule</span>
+      <span class="inbox__subject">Tax bill reminder schedule</span>
       <span class="inbox__preview">Three days before and on the due date, as discussed. I left the copy in the doc.</span>
     </span>
   </button>
@@ -66,7 +66,7 @@ In its own scrolling pane, full width of that pane: beside the reading pane on w
 **Conversations.** A chat list: name and time on the first line, the last message and an unread [count](count.md) on the second. The current conversation is on the tint.
 ```html
 <div class="inbox inbox--avatars card" data-lds-inbox style="padding: 0; overflow: hidden; max-width: 380px;" aria-label="Conversations">
-  <button class="inbox__row is-unread" type="button"><span class="avatar" style="--size: 40px;" aria-hidden="true">LT</span><span class="inbox__body"><span class="inbox__line"><span class="inbox__from">Launch team</span><time class="inbox__time">10:02</time></span><span class="inbox__line"><span class="inbox__preview">Bima: the release notes are in the doc</span><span class="count">3<span class="sr-only"> unread</span></span></span></span></button>
+  <button class="inbox__row is-unread" type="button"><span class="avatar" style="--size: 40px;" aria-hidden="true">PB</span><span class="inbox__body"><span class="inbox__line"><span class="inbox__from">Kedaton flood post</span><time class="inbox__time">10:02</time></span><span class="inbox__line"><span class="inbox__preview">Bima: the rubber boat has reached RT 05</span><span class="count">3<span class="sr-only"> unread</span></span></span></span></button>
   <button class="inbox__row" type="button" aria-current="true"><span class="avatar avatar--gray" style="--size: 40px;" aria-hidden="true">DL</span><span class="inbox__body"><span class="inbox__line"><span class="inbox__from">Dewi Lestari</span><time class="inbox__time">09:47</time></span><span class="inbox__line"><span class="inbox__preview">Sounds good, see you at 14:00</span></span></span></button>
 </div>
 ```
@@ -75,9 +75,9 @@ In its own scrolling pane, full width of that pane: beside the reading pane on w
 ```html
 <div class="inbox card" data-lds-inbox style="padding: 0; overflow: hidden; max-width: 420px;" aria-label="Inbox">
   <div class="swipe" data-lds-swipe><div class="swipe__actions"><button class="swipe__act swipe__act--accent" type="button" data-swipe="archive"><span class="ic" aria-hidden="true">archive</span>Archive</button><button class="swipe__act swipe__act--danger" type="button" data-swipe="delete" data-swipe-commit><span class="ic" aria-hidden="true">delete</span>Delete</button></div>
-    <button class="inbox__row swipe__row is-unread" type="button"><span class="inbox__body"><span class="inbox__line"><span class="inbox__from">Arif Santoso</span><time class="inbox__time">07:55</time></span><span class="inbox__subject">Bulk invites are live</span><span class="inbox__preview">Paste up to 50 emails, pick a role, send.</span></span></button></div>
+    <button class="inbox__row swipe__row is-unread" type="button"><span class="inbox__body"><span class="inbox__line"><span class="inbox__from">Arif Santoso</span><time class="inbox__time">07:55</time></span><span class="inbox__subject">Street light out on Jl. Teuku Umar</span><span class="inbox__preview">An officer is scheduled to check it tomorrow morning.</span></span></button></div>
   <div class="swipe" data-lds-swipe><div class="swipe__actions"><button class="swipe__act swipe__act--accent" type="button" data-swipe="archive"><span class="ic" aria-hidden="true">archive</span>Archive</button><button class="swipe__act swipe__act--danger" type="button" data-swipe="delete" data-swipe-commit><span class="ic" aria-hidden="true">delete</span>Delete</button></div>
-    <button class="inbox__row swipe__row" type="button"><span class="inbox__body"><span class="inbox__line"><span class="inbox__from">Dewi Lestari</span><time class="inbox__time">Mon</time></span><span class="inbox__subject">Dark mode for charts</span><span class="inbox__preview">Series colors pass in both themes now.</span></span></button></div>
+    <button class="inbox__row swipe__row" type="button"><span class="inbox__body"><span class="inbox__line"><span class="inbox__from">Dewi Lestari</span><time class="inbox__time">Mon</time></span><span class="inbox__subject">Mobile Samsat schedule next week</span><span class="inbox__preview">Monday at the Way Halim district office, Wednesday at Pasar Kemiling.</span></span></button></div>
 </div>
 ```
 

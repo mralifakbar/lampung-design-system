@@ -7,11 +7,11 @@ Six cells for a verification code, backed by one real input, so paste, SMS autof
 ## Use it when
 - Verifying a phone number or email with a code sent by SMS or email.
 - Two-step sign in, or confirming a sensitive change with a code.
-- Joining something by a short numeric code read out loud (a class check-in code).
+- Joining something by a short numeric code read out loud (an event check-in code).
 
 ## Use something else when
 - A password or PIN people choose themselves: use [Password field](password-field.md).
-- A long code with letters (a voucher, a class invite): use [Text field](text-field.md). Use a normal field with `autocapitalize="characters"`.
+- A long code with letters (a voucher, a registration number): use [Text field](text-field.md). Use a normal field with `autocapitalize="characters"`.
 - A number with a meaning (amount, count): use [Amount field](amount-field.md).
 
 ## Where it goes

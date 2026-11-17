@@ -5,7 +5,7 @@ Group: Overlays. Docs page: `docs/components/lightbox.html`.
 Shows one picture large over a dim page: it grows out of its thumbnail and shrinks back into it. A link around a thumbnail, so without the script it still opens the full image.
 
 ## Use it when
-- A thumbnail of a photo, diagram or scanned page people need to see in full: a lab setup, a whiteboard photo, an answer sheet.
+- A thumbnail of a photo, diagram or scanned page people need to see in full: a photo of a reported location, a notice board photo, a scanned form.
 - A gallery of images where each one opens on its own.
 
 ## Use something else when
@@ -28,10 +28,10 @@ Over the whole window (fixed, z-index 90), the picture centered with 24 px aroun
 
 ## Markup
 
-**Photos from a field trip.** Open a thumbnail: the picture grows out of it. Escape, the close button or a click outside shrinks it back and returns focus to the thumbnail.
+**Photos of service facilities.** Open a thumbnail: the picture grows out of it. Escape, the close button or a click outside shrinks it back and returns focus to the thumbnail.
 ```html
-<a class="thumb" href="/photos/library-large.jpg" data-lds-lightbox data-caption="The campus library reading room, second floor">
-  <img src="/photos/library-small.jpg" alt="Campus library reading room">
+<a class="thumb" href="/photos/library-large.jpg" data-lds-lightbox data-caption="Regional library reading room, second floor">
+  <img src="/photos/library-small.jpg" alt="Regional library reading room">
 </a>
 ```
 

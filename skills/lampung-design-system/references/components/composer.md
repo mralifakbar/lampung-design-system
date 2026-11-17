@@ -5,11 +5,11 @@ Group: Chat. Docs page: `docs/components/composer.html`.
 The reply box under a conversation: a rounded field that grows with the text, Enter to send, Shift+Enter for a new line, and one round send button that stays disabled until there is something to send.
 
 ## Use it when
-- The person writes the next message in a [chat layout](chat-layout.md): to a tutor, an assistant, a support thread.
+- The person writes the next message in a [chat layout](chat-layout.md): to a city services assistant, a help desk, a complaint thread.
 - A single prompt box at the top of an empty assistant page, before any conversation exists.
 
 ## Use something else when
-- A form field for a long answer that is saved, not sent (an essay, a description): use [Textarea](textarea.md). Enter must add a line there, not submit.
+- A form field for a long answer that is saved, not sent (a complaint description, a statement): use [Textarea](textarea.md). Enter must add a line there, not submit.
 - Searching or filtering a list: use [Search field](search-field.md).
 - A one-line value such as a name or an email: use [Text field](text-field.md).
 - Jumping to a command or a page: use [Command palette](command-palette.md).
@@ -30,7 +30,7 @@ Directly under the message scroller, the width of the conversation column, outsi
 **Send a question.** Type and press Enter (or the button). Your message joins the column and the answer streams in. Shift+Enter adds a line instead of sending.
 ```html
 <form class="composer" data-lds-composer>
-  <textarea rows="1" aria-label="Message" placeholder="Ask about this lesson"></textarea>
+  <textarea rows="1" aria-label="Message" placeholder="Ask about Disdukcapil services"></textarea>
   <button class="composer__send" type="submit" aria-label="Send"><span class="ic" aria-hidden="true">arrow_upward</span></button>
 </form>
 <script type="module">
@@ -47,16 +47,16 @@ Directly under the message scroller, the width of the conversation column, outsi
 ```html
 <form class="composer" data-lds-composer style="max-width: 520px; width: 100%;">
   <button class="icon-btn" type="button" aria-label="Attach a file"><span class="ic" aria-hidden="true">attach_file</span></button>
-  <textarea rows="1" aria-label="Message" placeholder="Describe the mistake you found"></textarea><button class="composer__send" type="submit" aria-label="Send"><span class="ic" aria-hidden="true">arrow_upward</span></button>
+  <textarea rows="1" aria-label="Message" placeholder="Describe the problem you found"></textarea><button class="composer__send" type="submit" aria-label="Send"><span class="ic" aria-hidden="true">arrow_upward</span></button>
 </form>
 ```
 
 **Grows with the text.** A long draft grows the box line by line up to 200 px, then scrolls inside. The button stays at the bottom, next to the last line.
 ```html
 <form class="composer" data-lds-composer style="max-width: 520px; width: 100%;">
-  <textarea rows="1" aria-label="Message">I read chapter 4 twice but I still do not understand why the enzyme stops working above 40 degrees.
-Is it the same reason fever is dangerous?
-Could you give me an example with numbers?</textarea><button class="composer__send" type="submit" aria-label="Send"><span class="ic" aria-hidden="true">arrow_upward</span></button>
+  <textarea rows="1" aria-label="Message">I moved from Metro to Kedaton, Bandar Lampung last month and my KK still shows the old address.
+Do I need a surat pindah from Metro first, or can the kelurahan in Kedaton handle it?
+Which documents should I bring?</textarea><button class="composer__send" type="submit" aria-label="Send"><span class="ic" aria-hidden="true">arrow_upward</span></button>
 </form>
 ```
 

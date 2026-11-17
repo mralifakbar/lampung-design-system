@@ -38,10 +38,10 @@ At the top of the region it is about: under the [page header](page-header.md), a
 **Tones.** Info for something good to know, success for a result that stays relevant, warning for a problem the person can still fix, danger for something that failed.
 ```html
 <div class="docs-col" style="max-width: 560px;">
-  <div class="alert alert--info"><span class="ic" aria-hidden="true">info</span><div><div class="alert__title">Registration opens Monday at 08:00</div><div class="alert__body">Seats are given in the order requests arrive.</div></div></div>
-  <div class="alert alert--success"><span class="ic" aria-hidden="true">check_circle</span><div><div class="alert__title">Your leave request was sent</div><div class="alert__body">Your adviser usually replies within two working days.</div></div></div>
-  <div class="alert alert--warning"><span class="ic" aria-hidden="true">warning</span><div><div class="alert__title">Two courses overlap on Thursday</div><div class="alert__body">Pick one before you submit your plan.</div></div></div>
-  <div class="alert alert--danger" role="alert"><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Your card was declined</div><div class="alert__body">Use another card or pay by bank transfer.</div></div></div>
+  <div class="alert alert--info"><span class="ic" aria-hidden="true">info</span><div><div class="alert__title">Registration opens Monday at 08:00</div><div class="alert__body">Quota is given in the order applications arrive.</div></div></div>
+  <div class="alert alert--success"><span class="ic" aria-hidden="true">check_circle</span><div><div class="alert__title">Your business permit application was sent</div><div class="alert__body">An officer usually replies within two working days.</div></div></div>
+  <div class="alert alert--warning"><span class="ic" aria-hidden="true">warning</span><div><div class="alert__title">Two service appointments overlap on Thursday</div><div class="alert__body">Pick one before you submit your plan.</div></div></div>
+  <div class="alert alert--danger" role="alert"><span class="ic" aria-hidden="true">error</span><div><div class="alert__title">Your vehicle tax payment was declined</div><div class="alert__body">Use another card or pay by bank transfer.</div></div></div>
 </div>
 ```
 
@@ -50,8 +50,8 @@ At the top of the region it is about: under the [page header](page-header.md), a
 <div class="alert alert--warning" style="max-width: 560px;">
   <span class="ic" aria-hidden="true">warning</span>
   <div>
-    <div class="alert__title">Your ID photo is missing</div>
-    <div class="alert__body">Upload it before 20 November to keep your exam seat.</div>
+    <div class="alert__title">Your ID card photo is missing</div>
+    <div class="alert__body">Upload it before 20 November so your interview slot is not cancelled.</div>
     <div class="alert__actions"><button class="btn btn--secondary btn--sm">Upload photo</button><button class="btn btn--plain btn--sm">Remind me tomorrow</button></div>
   </div>
 </div>
@@ -62,7 +62,7 @@ At the top of the region it is about: under the [page header](page-header.md), a
 <div style="max-width: 560px;">
   <div class="collapse"><div><div class="alert alert--info">
     <span class="ic" aria-hidden="true">info</span>
-    <div style="flex: 1;"><div class="alert__title">New: practice tests now save your progress</div><div class="alert__body">Close a test and continue later from the same question.</div></div>
+    <div style="flex: 1;"><div class="alert__title">New: application forms now save your answers</div><div class="alert__body">Close a form and continue later from the same section.</div></div>
     <button class="icon-btn alert__close" aria-label="Dismiss" data-lds-dismiss><span class="ic" style="font-size: 18px;" aria-hidden="true">close</span></button>
   </div></div></div>
   <p class="docs-note" style="margin-top: 12px;">Content under the alert moves up as it closes.</p>
@@ -92,12 +92,12 @@ At the top of the region it is about: under the [page header](page-header.md), a
 
 ## Accessibility
 - Use `role="alert"` only for a danger alert that appears after an action (it interrupts the screen reader). Use `role="status"` for info or success that appears later. An alert present on page load needs no role.
-- The icon is decoration (`aria-hidden="true"`); the title must state the tone in words ("Your card was declined", not "Error").
+- The icon is decoration (`aria-hidden="true"`); the title must state the tone in words ("Your vehicle tax payment was declined", not "Error").
 - The close button is an [icon button](icon-button.md) with `aria-label="Dismiss"`. After it closes, move focus to the next logical element; a collapsed alert stays in the DOM, so remove it or set `hidden` on `lds:dismiss` once the 560 ms collapse ends, or its button stays reachable by Tab.
 - Never rely on the tint alone; text contrast stays at body level on every tint.
 
 ## Do
-- Write the title as the fact ("Two courses overlap on Thursday") and the body as the next step.
+- Write the title as the fact ("Two service appointments overlap on Thursday") and the body as the next step.
 - Put the one fix inside the alert as a button.
 - Remove the alert as soon as the condition is fixed.
 
@@ -114,7 +114,7 @@ Optional. A close button with `data-lds-dismiss` inside a `.collapse` adds `is-c
 ```tsx
 import { Alert } from 'lampung-design-system/react';
 
-<Alert tone="warning" title="Two courses overlap on Thursday"
+<Alert tone="warning" title="Two service appointments overlap on Thursday"
   actions={<button className="btn btn--secondary btn--sm">Resolve conflict</button>}>
   Pick one before you submit your plan.
 </Alert>

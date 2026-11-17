@@ -25,7 +25,7 @@ One per app, fixed to the top of the viewport (`position: fixed`, z-index 90), a
 
 ## Markup
 
-**Opening the next lesson.** The bar runs along the top edge of this box while the "page" loads, then leaves. In an app it sits at the top of the window.
+**Opening the next step of a permit application.** The bar runs along the top edge of this box while the "page" loads, then leaves. In an app it sits at the top of the window.
 ```html
 <div class="navprogress" aria-hidden="true"></div>
 

@@ -5,7 +5,7 @@ Group: Inputs. Docs page: `docs/components/text-field.html`.
 A single line of free text with its label above and a helper line below. The helper turns into the error message, so the layout never jumps.
 
 ## Use it when
-- People type a short free value: a name, an email, a student ID, a school name.
+- People type a short free value: a name, an email, a NIK, a kelurahan name.
 - A form needs a field that validates (after the first blur, then live) and says what to fix in words.
 - A value needs a leading icon, a unit, or one trailing action such as clear (`.control__btn`).
 
@@ -29,7 +29,7 @@ Inside a [form](form-layout.md): fields stack 20 px apart in `.form`, short pair
 | `.field__label` | Required. A `<label for>` above the control. A `<span>` inside it is the quiet right-hand note ("Optional", a counter). |
 | `.control` | Required. The 44 px box with the border, focus ring and states. Holds the `<input>`, which fills the rest of the row. |
 | `.control > .ic` | Optional leading icon, 19 px, muted; turns accent while the field has focus. |
-| `.control__suffix` | Optional unit or prefix text (Rp, kg, %, @campus.ac.id). |
+| `.control__suffix` | Optional unit or prefix text (Rp, kg, %, m²). |
 | `.control__btn` | Optional trailing 30 px icon button (clear, reveal, open calendar). Needs an `aria-label`. |
 | `.field__help` | Helper text under the control. Add `--error` (with an `error` icon) or `--ok` (with `check_circle`) to turn it into feedback in the same place. |
 
@@ -44,8 +44,8 @@ Inside a [form](form-layout.md): fields stack 20 px apart in `.form`, short pair
     <span class="field__help" id="tf-name-help">As written on your ID card.</span>
   </div>
   <div class="field">
-    <label class="field__label" for="tf-school">School <span>Optional</span></label>
-    <div class="control"><span class="ic" aria-hidden="true">school</span><input id="tf-school" autocomplete="organization" placeholder="SMA Negeri 3 Bandung"></div>
+    <label class="field__label" for="tf-school">Kelurahan <span>Optional</span></label>
+    <div class="control"><span class="ic" aria-hidden="true">location_on</span><input id="tf-school" autocomplete="address-level4" placeholder="Kelurahan Way Halim Permai"></div>
   </div>
 </div>
 ```
@@ -58,24 +58,24 @@ Inside a [form](form-layout.md): fields stack 20 px apart in `.form`, short pair
     <span class="ic" aria-hidden="true">mail</span>
     <input id="email" type="email" autocomplete="email" aria-invalid="true" aria-describedby="email-help">
   </div>
-  <span class="field__help field__help--error" id="email-help"><span class="ic" aria-hidden="true">error</span>This address is missing a domain, like siti@campus.ac.id.</span>
+  <span class="field__help field__help--error" id="email-help"><span class="ic" aria-hidden="true">error</span>This address is missing a domain, like siti@example.id.</span>
 </div>
 
 <!-- Valid -->
-<span class="field__help field__help--ok" id="email-help"><span class="ic" aria-hidden="true">check_circle</span>We will send the receipt here.</span>
+<span class="field__help field__help--ok" id="email-help"><span class="ic" aria-hidden="true">check_circle</span>We will send the application receipt here.</span>
 ```
 
 **Trailing action and disabled.** A clear button appears once there is text. A disabled field says who can change it, in the helper.
 ```html
 <div class="form" style="max-width: 420px;">
   <div class="field">
-    <label class="field__label" for="tf-course">Course name</label>
-    <div class="control"><input id="tf-course" value="Database Systems" oninput="this.nextElementSibling.hidden = !this.value"><button type="button" class="control__btn" aria-label="Clear course name" onclick="const i = this.previousElementSibling; i.value = ''; this.hidden = true; i.focus();"><span class="ic" aria-hidden="true">close</span></button></div>
+    <label class="field__label" for="tf-course">Business name</label>
+    <div class="control"><input id="tf-course" value="Keripik Pisang Bu Rina" oninput="this.nextElementSibling.hidden = !this.value"><button type="button" class="control__btn" aria-label="Clear business name" onclick="const i = this.previousElementSibling; i.value = ''; this.hidden = true; i.focus();"><span class="ic" aria-hidden="true">close</span></button></div>
   </div>
   <div class="field">
-    <label class="field__label" for="tf-sid">Student ID</label>
-    <div class="control is-disabled"><span class="ic" aria-hidden="true">lock</span><input id="tf-sid" value="2207112045" disabled aria-describedby="tf-sid-help"></div>
-    <span class="field__help" id="tf-sid-help">Set by the registrar. Ask them to change it.</span>
+    <label class="field__label" for="tf-sid">NIK</label>
+    <div class="control is-disabled"><span class="ic" aria-hidden="true">lock</span><input id="tf-sid" value="1871 •••• •••• 0003" disabled aria-describedby="tf-sid-help"></div>
+    <span class="field__help" id="tf-sid-help">Taken from the civil registry. Ask for a change at the kelurahan office.</span>
   </div>
 </div>
 ```
@@ -87,7 +87,7 @@ Inside a [form](form-layout.md): fields stack 20 px apart in `.form`, short pair
     <div class="field"><label class="field__label" for="tf-first">First name</label><div class="control"><input id="tf-first" autocomplete="given-name"></div></div>
     <div class="field"><label class="field__label" for="tf-last">Last name</label><div class="control"><input id="tf-last" autocomplete="family-name"></div></div>
   </div>
-  <div class="field"><label class="field__label" for="tf-phone">Phone</label><div class="control"><span class="ic" aria-hidden="true">call</span><input id="tf-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0812 3456 7890"></div></div>
+  <div class="field"><label class="field__label" for="tf-phone">Phone</label><div class="control"><span class="ic" aria-hidden="true">call</span><input id="tf-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="08xx xxxx xxxx"></div></div>
   <div class="form__actions"><button type="button" class="btn btn--secondary">Cancel</button><button type="submit" class="btn btn--primary">Save profile</button></div>
 </form>
 ```
@@ -95,7 +95,7 @@ Inside a [form](form-layout.md): fields stack 20 px apart in `.form`, short pair
 ## Variants and sizes
 | Class or attribute | When |
 |---|---|
-| `.control > .ic` | Leading icon for a field whose kind is not obvious from the label (mail, phone, school). |
+| `.control > .ic` | Leading icon for a field whose kind is not obvious from the label (mail, phone, location). |
 | `.control__suffix` | Unit or prefix text; see [amount field](amount-field.md). |
 | `.control__btn` | One trailing action: clear, reveal ([password field](password-field.md)), open a calendar ([date field](date-field.md)). |
 | `.field__help--error / --ok` | The helper line as feedback, with an `error` or `check_circle` icon. |
@@ -121,7 +121,7 @@ Inside a [form](form-layout.md): fields stack 20 px apart in `.form`, short pair
 - Point `aria-describedby` at the helper so the format hint and later the error are read with the field. Set `aria-invalid="true"` together with `.is-invalid`.
 - Use the right `type`, `inputmode` and `autocomplete` (`email`, `tel`, `name`, `given-name`, `organization`) so phones show the right keyboard and browsers can fill it.
 - On touch screens the input renders at 16 px or larger (the system does this under `pointer: coarse`), so iOS never zooms the page on focus. Do not set a smaller font on `.control input`.
-- A `.control__btn` is a real `<button type="button">` with an `aria-label` naming its effect ("Clear course name").
+- A `.control__btn` is a real `<button type="button">` with an `aria-label` naming its effect ("Clear business name").
 
 ## Do
 - Write the label as a noun ("Email"), the helper as the format or why you ask ("We send receipts here").

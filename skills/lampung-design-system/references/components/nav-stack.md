@@ -5,7 +5,7 @@ Group: Navigation. Docs page: `docs/components/nav-stack.html`.
 Push a detail screen in from the right over the one you came from, and go back with the back button or by dragging the screen away from the left edge. The screen underneath slides at 30 % and dims, so people always know where back leads.
 
 ## Use it when
-- A phone app where a row opens its detail: a course from a list, a payment from activity, a project from projects.
+- A phone app where a row opens its detail: a service from a list, a payment from activity, a report from reports.
 - Drilling two or three levels into one area of an app while the tab bar stays put.
 - A settings area on a phone where each row opens its own screen.
 
@@ -31,21 +31,21 @@ Fills a tab of a [phone screen](phone-screen.md): `.navstack` absolute over the 
 
 ## Markup
 
-**Courses to a course.** Open a course: it slides in over the list. Press back, or drag the screen from its left edge and let go past halfway (a quick flick counts its speed).
+**From the services list to one service.** Open a service: it slides in over the list. Press back, or drag the screen from its left edge and let go past halfway (a quick flick counts its speed).
 ```html
 <div class="navstack" data-lds-navstack>
-  <section class="navstack__view" aria-label="Courses">
+  <section class="navstack__view" aria-label="Services">
     <div class="navbar" id="courses-bar">…</div>
     <div class="phone__scroll" data-lds-navbar="courses-bar">
       <div class="navbar-gap"></div>
-      <h1 class="large-title">Courses</h1>
-      <button class="lrow" data-lds-nav="course">…Database Systems…</button>
+      <h1 class="large-title">Services</h1>
+      <button class="lrow" data-lds-nav="course">…Micro business permit…</button>
     </div>
   </section>
-  <section class="navstack__view" id="course" aria-label="Database Systems" hidden>
+  <section class="navstack__view" id="course" aria-label="Micro business permit" hidden>
     <div class="navbar navbar--inline" id="course-bar">
-      <span><button class="navbar__back" data-lds-back aria-label="Back to Courses"><span class="ic" aria-hidden="true">arrow_back_ios_new</span><span>Courses</span></button></span>
-      <h1 class="navbar__title">Database Systems</h1>
+      <span><button class="navbar__back" data-lds-back aria-label="Back to Services"><span class="ic" aria-hidden="true">arrow_back_ios_new</span><span>Services</span></button></span>
+      <h1 class="navbar__title">Micro business permit</h1>
       <span></span>
     </div>
     <div class="phone__scroll" data-lds-navbar="course-bar">…</div>
@@ -70,7 +70,7 @@ Fills a tab of a [phone screen](phone-screen.md): `.navstack` absolute over the 
 ## Accessibility
 - On push, focus moves to the pushed screen's heading (or `[data-lds-autofocus]`); on pop, it returns to the row that opened the screen.
 - Covered screens are `inert`, so neither Tab nor a screen reader reaches them.
-- The back button is a real button with `aria-label="Back to Courses"`; the drag is only a shortcut.
+- The back button is a real button with `aria-label="Back to Services"`; the drag is only a shortcut.
 - Give each view an `aria-label` with its title.
 
 ## Do

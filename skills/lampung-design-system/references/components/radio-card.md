@@ -5,8 +5,8 @@ Group: Selection. Docs page: `docs/components/radio-card.html`.
 A selectable card for one choice among two to four options that each need a title, a line of detail and often a price. The whole card is the target; the chosen one gets an accent edge and tint.
 
 ## Use it when
-- Choosing a plan, package or class type where each option has a description and a price: Free, Monthly, Semester.
-- Choosing a path that deserves explanation: "Practice mode" versus "Exam mode".
+- Choosing a package, service or delivery type where each option has a description and a price: Counter pickup, Post, Express courier.
+- Choosing a path that deserves explanation: "Collect it yourself" versus "Delivered to your home".
 - Two to four options, all of which fit on screen.
 
 ## Use something else when
@@ -32,12 +32,12 @@ In a [form](form-layout.md) or a checkout step, stacked full width on phones; on
 
 ## Markup
 
-**Choose a plan.** Click a card, or focus the group and use the arrow keys: focus and selection move together, as with native radios.
+**Choose how to collect a document.** Click a card, or focus the group and use the arrow keys: focus and selection move together, as with native radios.
 ```html
-<div class="stack" role="radiogroup" aria-label="Plan">
+<div class="stack" role="radiogroup" aria-label="Pickup method">
   <button type="button" class="rcard" role="radio" aria-checked="false" tabindex="-1">
     <span class="radio__dot" aria-hidden="true"></span>
-    <span><span class="rcard__title" style="display: block;">Free</span><span class="rcard__sub" style="display: block;">Five tryouts a month, basic scores</span></span>
+    <span><span class="rcard__title" style="display: block;">Counter pickup</span><span class="rcard__sub" style="display: block;">Ready in 3 working days, bring your receipt</span></span>
     <span class="rcard__price">Rp 0</span>
   </button>
   <button type="button" class="rcard" role="radio" aria-checked="true" tabindex="0">…</button>
@@ -45,11 +45,11 @@ In a [form](form-layout.md) or a checkout step, stacked full width on phones; on
 <!-- Your code: a click sets aria-checked on that card only; arrow keys move focus and selection; only the checked card has tabindex 0. -->
 ```
 
-**Side by side, without prices.** Two modes with an explanation each, in an auto grid that stacks on phones.
+**Side by side, without prices.** Two ways to be served with an explanation each, in an auto grid that stacks on phones.
 ```html
-<div class="auto-grid" role="radiogroup" aria-label="Mode" style="--min: 220px; max-width: 560px; width: 100%;" onclick="const c = event.target.closest('.rcard'); if (!c) return; this.querySelectorAll('.rcard').forEach((r) => { const on = r === c; r.setAttribute('aria-checked', String(on)); r.tabIndex = on ? 0 : -1; });" onkeydown="const cards = [...this.querySelectorAll('.rcard')], i = cards.indexOf(document.activeElement), d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[event.key]; if (d === undefined || i < 0) return; event.preventDefault(); const n = cards[(i + d + cards.length) % cards.length]; n.focus(); n.click();">
-  <button type="button" class="rcard" role="radio" aria-checked="true" tabindex="0"><span class="radio__dot" aria-hidden="true"></span><span><span class="rcard__title" style="display: block;">Practice mode</span><span class="rcard__sub" style="display: block;">See the answer after each question</span></span></button>
-  <button type="button" class="rcard" role="radio" aria-checked="false" tabindex="-1"><span class="radio__dot" aria-hidden="true"></span><span><span class="rcard__title" style="display: block;">Exam mode</span><span class="rcard__sub" style="display: block;">Timed, answers shown at the end</span></span></button>
+<div class="auto-grid" role="radiogroup" aria-label="Service channel" style="--min: 220px; max-width: 560px; width: 100%;" onclick="const c = event.target.closest('.rcard'); if (!c) return; this.querySelectorAll('.rcard').forEach((r) => { const on = r === c; r.setAttribute('aria-checked', String(on)); r.tabIndex = on ? 0 : -1; });" onkeydown="const cards = [...this.querySelectorAll('.rcard')], i = cards.indexOf(document.activeElement), d = { ArrowDown: 1, ArrowRight: 1, ArrowUp: -1, ArrowLeft: -1 }[event.key]; if (d === undefined || i < 0) return; event.preventDefault(); const n = cards[(i + d + cards.length) % cards.length]; n.focus(); n.click();">
+  <button type="button" class="rcard" role="radio" aria-checked="true" tabindex="0"><span class="radio__dot" aria-hidden="true"></span><span><span class="rcard__title" style="display: block;">Visit the office</span><span class="rcard__sub" style="display: block;">Pick a visiting hour and take a queue number</span></span></button>
+  <button type="button" class="rcard" role="radio" aria-checked="false" tabindex="-1"><span class="radio__dot" aria-hidden="true"></span><span><span class="rcard__title" style="display: block;">Online service</span><span class="rcard__sub" style="display: block;">Upload your files, the result comes by email</span></span></button>
 </div>
 ```
 

@@ -32,18 +32,18 @@ Inside a button: an [icon button](icon-button.md), a small plain button next to 
 **Copy, then copied.** Press copy: the icon becomes a check and the label says Copied, then both come back after 1.6 s.
 ```html
 <div class="codeblock" style="width: 100%; max-width: 420px;"><div class="codeblock__bar"><span>Install</span><button class="btn btn--plain btn--sm" data-lds-copy="npm install lampung-design-system"><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span><span data-lds-copy-label="Copied">Copy</span></button></div><pre>npm install lampung-design-system</pre></div>
-<button class="icon-btn" aria-label="Copy the class link" data-lds-copy="https://campus.ac.id/join/BIO101"><span class="swap" aria-hidden="true"><span class="ic swap__a">link</span><span class="ic swap__b">check</span></span></button>
+<button class="icon-btn" aria-label="Copy the invitation link" data-lds-copy="https://example.id/musrenbang/way-halim"><span class="swap" aria-hidden="true"><span class="ic swap__a">link</span><span class="ic swap__b">check</span></span></button>
 ```
 
-**Play and pause.** A lecture recording. The icon is the state, so it swaps; the label follows for screen readers.
+**Play and pause.** A public briefing recording. The icon is the state, so it swaps; the label follows for screen readers.
 ```html
-<button class="icon-btn icon-btn--accent" aria-pressed="false" aria-label="Play lecture" onclick="this.querySelector('.swap').classList.toggle('is-swapped'); const p = this.getAttribute('aria-pressed') !== 'true'; this.setAttribute('aria-pressed', String(p)); this.setAttribute('aria-label', p ? 'Pause lecture' : 'Play lecture');"><span class="swap" aria-hidden="true"><span class="ic swap__a">play_arrow</span><span class="ic swap__b">pause</span></span></button>
-<span class="card__sub">Lecture 6: Cell membranes, 48 min</span>
+<button class="icon-btn icon-btn--accent" aria-pressed="false" aria-label="Play recording" onclick="this.querySelector('.swap').classList.toggle('is-swapped'); const p = this.getAttribute('aria-pressed') !== 'true'; this.setAttribute('aria-pressed', String(p)); this.setAttribute('aria-label', p ? 'Pause recording' : 'Play recording');"><span class="swap" aria-hidden="true"><span class="ic swap__a">play_arrow</span><span class="ic swap__b">pause</span></span></button>
+<span class="card__sub">Regional tax briefing, 48 min</span>
 ```
 
-**Save for later.** Bookmarking a lesson: the outline swaps to the filled icon. Quiet on purpose; there is no count and no burst.
+**Save for later.** Bookmarking a service: the outline swaps to the filled icon. Quiet on purpose; there is no count and no burst.
 ```html
-<button class="icon-btn" aria-pressed="false" aria-label="Save lesson" onclick="this.querySelector('.swap').classList.toggle('is-swapped'); const p = this.getAttribute('aria-pressed') !== 'true'; this.setAttribute('aria-pressed', String(p)); this.setAttribute('aria-label', p ? 'Saved lesson' : 'Save lesson');"><span class="swap" aria-hidden="true"><span class="ic swap__a">bookmark</span><span class="ic ic--fill swap__b">bookmark</span></span></button>
+<button class="icon-btn" aria-pressed="false" aria-label="Save service" onclick="this.querySelector('.swap').classList.toggle('is-swapped'); const p = this.getAttribute('aria-pressed') !== 'true'; this.setAttribute('aria-pressed', String(p)); this.setAttribute('aria-label', p ? 'Saved service' : 'Save service');"><span class="swap" aria-hidden="true"><span class="ic swap__a">bookmark</span><span class="ic ic--fill swap__b">bookmark</span></span></button>
 <button class="icon-btn" aria-pressed="false" aria-label="Show password" onclick="this.querySelector('.swap').classList.toggle('is-swapped'); const p = this.getAttribute('aria-pressed') !== 'true'; this.setAttribute('aria-pressed', String(p)); this.setAttribute('aria-label', p ? 'Hide password' : 'Show password');"><span class="swap" aria-hidden="true"><span class="ic swap__a">visibility</span><span class="ic swap__b">visibility_off</span></span></button>
 ```
 
@@ -54,7 +54,7 @@ Inside a button: an [icon button](icon-button.md), a small plain button next to 
 - Reduced motion: a 120 ms cross-fade with no scale.
 
 ## Accessibility
-- The swap is `aria-hidden`. The button carries the meaning: `aria-pressed` for toggles, and an `aria-label` that names the action now available ("Pause lecture").
+- The swap is `aria-hidden`. The button carries the meaning: `aria-pressed` for toggles, and an `aria-label` that names the action now available ("Pause recording").
 - Copy announces nothing by itself; when it matters, keep a visible label that changes (`data-lds-copy-label`) or add a polite status.
 
 ## Do

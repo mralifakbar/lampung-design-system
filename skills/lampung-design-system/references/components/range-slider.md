@@ -5,7 +5,7 @@ Group: Selection. Docs page: `docs/components/range-slider.html`.
 Two thumbs on one track for a minimum and a maximum, with the accent fill between them. The thumbs can never cross; each is a native range input.
 
 ## Use it when
-- Filtering by a span: price from and to, credits per term, score between, duration.
+- Filtering by a span: fee from and to, age, score between, duration.
 - Both ends matter and an approximate position is good enough while browsing.
 
 ## Use something else when
@@ -27,26 +27,26 @@ In filter panels ([drawer](drawer.md) on wide screens, [sheet](sheet.md) on phon
 
 ## Markup
 
-**Credits per term.** Drag either thumb, or Tab to it and use the arrow keys. The lower thumb stops one step below the upper one.
+**Participant age.** Age range for a youth job training. Drag either thumb, or Tab to it and use the arrow keys. The lower thumb stops one step below the upper one.
 ```html
 <div class="field" style="max-width: 420px; width: 100%;">
-  <span class="field__label">Credits per term <span id="rs-credits">16 to 21</span></span>
+  <span class="field__label">Participant age <span id="rs-credits">16 to 21</span></span>
   <div class="range" data-lds-range oninput="const [lo, hi] = this.querySelectorAll('input'); document.getElementById('rs-credits').textContent = lo.value + ' to ' + hi.value;">
     <div class="range__track"><div class="range__fill"></div></div>
-    <input type="range" min="12" max="24" value="16" aria-label="Minimum credits">
-    <input type="range" min="12" max="24" value="21" aria-label="Maximum credits">
+    <input type="range" min="12" max="24" value="16" aria-label="Minimum age">
+    <input type="range" min="12" max="24" value="21" aria-label="Maximum age">
   </div>
 </div>
 ```
 
-**Price filter.** Larger steps for money; the label shows formatted values.
+**Fee filter.** Filtering public halls by daily rental fee. Larger steps for money; the label shows formatted values.
 ```html
 <div class="field" style="max-width: 420px; width: 100%;">
-  <span class="field__label">Price <span id="rs-price">Rp 50.000 to Rp 250.000</span></span>
+  <span class="field__label">Daily rental fee <span id="rs-price">Rp 50.000 to Rp 250.000</span></span>
   <div class="range" data-lds-range oninput="const [lo, hi] = this.querySelectorAll('input'), f = (v) => 'Rp ' + Number(v).toLocaleString('id-ID'); document.getElementById('rs-price').textContent = f(lo.value) + ' to ' + f(hi.value);">
     <div class="range__track"><div class="range__fill"></div></div>
-    <input type="range" min="0" max="500000" step="25000" value="50000" aria-label="Minimum price">
-    <input type="range" min="0" max="500000" step="25000" value="250000" aria-label="Maximum price">
+    <input type="range" min="0" max="500000" step="25000" value="50000" aria-label="Minimum fee">
+    <input type="range" min="0" max="500000" step="25000" value="250000" aria-label="Maximum fee">
   </div>
 </div>
 ```
@@ -65,7 +65,7 @@ In filter panels ([drawer](drawer.md) on wide screens, [sheet](sheet.md) on phon
 - Reduced motion: the press scale becomes 120 ms linear.
 
 ## Accessibility
-- Two native range inputs: each is focusable, keyboard operable and announced with its own `aria-label` ("Minimum credits", "Maximum credits").
+- Two native range inputs: each is focusable, keyboard operable and announced with its own `aria-label` ("Minimum age", "Maximum age").
 - Show the current span as text (in the label row) so it is visible and readable without dragging.
 - As with the single [slider](slider.md), Firefox shows no focus ring on the thumbs; check keyboard focus there.
 

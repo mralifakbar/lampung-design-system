@@ -5,7 +5,7 @@ Group: Data display. Docs page: `docs/components/carousel.html`.
 A horizontal row of cards that snaps per card under the finger or trackpad, with dots that stretch toward the current page. For browsing optional items, never for content everyone must see.
 
 ## Use it when
-- A row of optional, similar items to browse: featured courses, new practice sets, upcoming events.
+- A row of optional, similar items to browse: featured services, new training programs, upcoming events.
 - A phone section where a vertical list would push the main content too far down.
 
 ## Use something else when
@@ -28,9 +28,9 @@ In a page section under its heading, full width of the content column. Three car
 
 ## Markup
 
-**Featured practice sets.** Scroll or swipe the row; it snaps per card. The dots jump to a page and follow the scroll.
+**Featured training programs.** Scroll or swipe the row; it snaps per card. The dots jump to a page and follow the scroll.
 ```html
-<div class="carousel" role="region" aria-label="Featured practice sets" tabindex="0">
+<div class="carousel" role="region" aria-label="Featured training programs" tabindex="0">
   <div class="card card--fill">…</div>
   <div class="card card--fill">…</div>
 </div>
@@ -61,7 +61,7 @@ In a page section under its heading, full width of the content column. Three car
 ## Do
 - Show part of the next card so people know they can scroll.
 - Keep items the same size and kind.
-- Link to a full list ("See all practice sets") for people who prefer it.
+- Link to a full list ("See all training programs") for people who prefer it.
 
 ## Don't
 - Autoplay or loop.

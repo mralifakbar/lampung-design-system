@@ -5,8 +5,8 @@ Group: Motion. Docs page: `docs/components/number-count.html`.
 When a number changes in front of someone, each digit column rolls to its new value on the smooth spring, and bars and rings glide to their new length on the in-out curve. The change is visible, the new value is readable at once, and the width never jumps.
 
 ## Use it when
-- A count the person just changed: a stepper, a like count, items in a cart, seats reserved.
-- A live figure updating while watched: submissions coming in, people online, a score being totalled.
+- A count the person just changed: a stepper, a like count, items in a request, seats reserved.
+- A live figure updating while watched: reports coming in, people online, a score being totalled.
 - A progress value moving: a [progress bar](progress-bar.md), a [progress ring](progress-ring.md), a [meter](meter.md).
 
 ## Use something else when
@@ -23,7 +23,7 @@ Wherever the number lives: inside a [number stepper](number-stepper.md), a [like
 **A stepper the person drives.** Each press rolls only the digits that change; going from 19 to 20 rolls both columns at once.
 ```html
 <div class="field">
-  <span class="field__label" id="nc-seat">Seats to reserve</span>
+  <span class="field__label" id="nc-seat">Bus seats to reserve</span>
   <div class="stepper-field" role="group" aria-labelledby="nc-seat" data-lds-stepper data-min="1" data-max="40" data-value="18">
     <button aria-label="Fewer seats"><span class="ic" aria-hidden="true">remove</span></button>
     <span class="stepper-field__value"><span class="roll" aria-live="polite"></span></span>
@@ -32,7 +32,7 @@ Wherever the number lives: inside a [number stepper](number-stepper.md), a [like
 </div>
 ```
 
-**A live count.** Submissions arriving during an exam. The figure rolls each time; the label stays put.
+**A live count.** Patients seen at a puskesmas through the morning. The figure rolls each time; the label stays put.
 ```html
 <span class="roll" data-lds-roll="27"></span>
 <script type="module">
@@ -44,9 +44,9 @@ Wherever the number lives: inside a [number stepper](number-stepper.md), a [like
 **Progress that moves.** The bar and the ring glide to the new value on the in-out curve (480 ms): something already on screen moving, not arriving.
 ```html
 <div class="docs-col" style="max-width: 360px;" data-p="60">
-  <div class="progress-meta"><span>Course progress</span><b>12 of 20 lessons</b></div>
-  <div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Course progress"><div class="progress__fill" style="transform: scaleX(0.6);"></div></div>
-  <div class="docs-row"><div class="ring" role="img" aria-label="Course progress 60 percent"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="67.8"></circle></svg><span class="ring__label">60%</span></div><button class="btn btn--secondary btn--sm" onclick="const box = this.closest('.docs-col'); let p = Number(box.dataset.p || 60); p = p >= 100 ? 20 : p + 20; box.dataset.p = p; box.querySelector('.progress__fill').style.transform = 'scaleX(' + p / 100 + ')'; box.querySelector('.progress').setAttribute('aria-valuenow', p); box.querySelector('.ring__val').setAttribute('stroke-dashoffset', (169.6 * (1 - p / 100)).toFixed(1)); box.querySelector('.ring__label').textContent = p + '%'; box.querySelector('.ring').setAttribute('aria-label', 'Course progress ' + p + ' percent');">Finish a lesson</button></div>
+  <div class="progress-meta"><span>Documents complete</span><b>12 of 20 files</b></div>
+  <div class="progress" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" aria-label="Documents complete"><div class="progress__fill" style="transform: scaleX(0.6);"></div></div>
+  <div class="docs-row"><div class="ring" role="img" aria-label="Documents complete 60 percent"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="67.8"></circle></svg><span class="ring__label">60%</span></div><button class="btn btn--secondary btn--sm" onclick="const box = this.closest('.docs-col'); let p = Number(box.dataset.p || 60); p = p >= 100 ? 20 : p + 20; box.dataset.p = p; box.querySelector('.progress__fill').style.transform = 'scaleX(' + p / 100 + ')'; box.querySelector('.progress').setAttribute('aria-valuenow', p); box.querySelector('.ring__val').setAttribute('stroke-dashoffset', (169.6 * (1 - p / 100)).toFixed(1)); box.querySelector('.ring__label').textContent = p + '%'; box.querySelector('.ring').setAttribute('aria-label', 'Documents complete ' + p + ' percent');">Upload a file</button></div>
 </div>
 ```
 

@@ -5,8 +5,8 @@ Group: Page patterns. Docs page: `docs/components/link-card.html`.
 A grid of destinations on the quiet fill: each card is one link with an eyebrow, a title, a line of detail and a foot whose chevron leans toward where it goes.
 
 ## Use it when
-- A hub page that sends people to a few places of equal weight: my courses, the question bank, transcripts, settings.
-- Each destination deserves a sentence or a status ("3 tasks open", "Updated today").
+- A hub page that sends people to a few places of equal weight: my applications, citizen reports, payment history, settings.
+- Each destination deserves a sentence or a status ("3 files to complete", "Updated today").
 - Two to about nine destinations; the grid fills columns of at least 300 px.
 
 ## Use something else when
@@ -35,18 +35,18 @@ Inside a [section](sections.md) on hub and dashboard pages, full width of the co
 **Where to go.** Hover (with a mouse) tints the card and moves the chevron 3 px toward the destination; pressing sinks it slightly.
 ```html
 <div class="link-grid" style="width: 100%;">
-  <a class="link-card" href="#"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">menu_book</span>Course</span><span class="link-card__title">Database Systems</span><span class="link-card__body">Week 9: indexing and query plans</span><span class="link-card__foot">3 tasks open<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
-  <a class="link-card" href="#"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">school</span>Grades</span><span class="link-card__title">Transcript</span><span class="link-card__body">Every course and grade so far</span><span class="link-card__foot">Updated today<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
-  <a class="link-card" href="#"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">assignment</span>Practice</span><span class="link-card__title">Question bank</span><span class="link-card__body">Over 2,000 questions with explanations</span><span class="link-card__foot">18 saved<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
+  <a class="link-card" href="#"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">assignment</span>Licensing</span><span class="link-card__title">Micro business permit</span><span class="link-card__body">Stage 2: document check by an officer</span><span class="link-card__foot">3 files to complete<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
+  <a class="link-card" href="#"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">receipt_long</span>Payments</span><span class="link-card__title">Regional tax</span><span class="link-card__body">Every bill and receipt so far</span><span class="link-card__foot">Updated today<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
+  <a class="link-card" href="#"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">campaign</span>Complaints</span><span class="link-card__title">Citizen reports</span><span class="link-card__body">Over 2,000 reports with their follow-up</span><span class="link-card__foot">18 followed<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
 </div>
 ```
 
 **Short cards.** Title and foot only, for a settings hub.
 ```html
 <div class="link-grid" style="width: 100%;">
-  <a class="link-card" href="#"><span class="link-card__title">Profile</span><span class="link-card__foot">Name, photo, school<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
+  <a class="link-card" href="#"><span class="link-card__title">Profile</span><span class="link-card__foot">Name, photo, address<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
   <a class="link-card" href="#"><span class="link-card__title">Notifications</span><span class="link-card__foot">Email and push<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
-  <a class="link-card" href="#"><span class="link-card__title">Billing</span><span class="link-card__foot">Plan until exam day<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
+  <a class="link-card" href="#"><span class="link-card__title">Bills</span><span class="link-card__foot">Due 31 December<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></span></a>
 </div>
 ```
 

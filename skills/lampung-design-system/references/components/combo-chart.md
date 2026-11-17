@@ -5,9 +5,9 @@ Group: Charts. Docs page: `docs/components/combo-chart.html`.
 Bars for what happened in each period and a line for what was expected (a plan, a forecast, last year), on one shared scale, with optional dashed reference lines for fixed thresholds. Drawn from data like the area chart.
 
 ## Use it when
-- Actual against plan per month or week: sales against plan, hours against a goal, sign-ups against forecast.
+- Actual against plan per month or week: regional tax against plan, waste collected against a target, registrations against forecast.
 - Discrete periods (bars) with a continuous expectation running through them (a line).
-- A fixed threshold the reader checks every period: break-even, a limit, a pass mark (a reference line).
+- A fixed threshold the reader checks every period: a safe level, a maximum, a minimum standard (a reference line).
 
 ## Use something else when
 - Two measures in different units on two axes: use [Line chart](line-chart.md). Two y axes invite false comparisons. Split them into two charts that share the x axis, or index both to 100.
@@ -29,19 +29,19 @@ In a [chart card](chart-card.md), full width for 12 months, half width for a wee
 
 ## Markup
 
-**Sales against plan.** Bars grow from the baseline on first view; the plan line fades in. Point at a month: the whole column is tinted and the tooltip gives both values. Switch the plan off in the legend.
+**Collected against plan.** Bars grow from the baseline on first view; the plan line fades in. Point at a month: the whole column is tinted and the tooltip gives both values. Switch the plan off in the legend.
 ```html
 <section class="chart-card" aria-labelledby="cb-q">
-  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="cb-q">Are sales ahead of plan?</div><div class="chart-card__sub">Course sales per month, 2026</div></div></div>
-  <div class="chart" data-lds-chart='{"label":"Monthly course sales against plan, 2026. Ahead of plan since July; November $56,000 against $52,000 planned. December still open.","x":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"xFull":["Jan 2026","Feb 2026","Mar 2026","Apr 2026","May 2026","Jun 2026","Jul 2026","Aug 2026","Sep 2026","Oct 2026","Nov 2026","Dec 2026"],"xName":"Month","format":{"prefix":"$","compact":true},"series":[{"name":"Sales","values":[31000,34000,29000,38000,41000,37000,44000,47000,43000,52000,56000,0],"kind":"bar"},{"name":"Plan","values":[32000,33000,34000,36000,38000,40000,42000,44000,46000,49000,52000,55000],"kind":"line","dashed":true,"color":4}],"refs":[{"value":50000,"label":"Break-even $50k"}],"height":240}'></div>
+  <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="cb-q">Is tax collection ahead of plan?</div><div class="chart-card__sub">Regional tax collected per month, in billion rupiah, 2026</div></div></div>
+  <div class="chart" data-lds-chart='{"label":"Regional tax collected per month against plan, 2026. Ahead of plan since July; November Rp 56 B against Rp 52 B planned. December still open.","x":["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],"xFull":["Jan 2026","Feb 2026","Mar 2026","Apr 2026","May 2026","Jun 2026","Jul 2026","Aug 2026","Sep 2026","Oct 2026","Nov 2026","Dec 2026"],"xName":"Month","format":{"prefix":"Rp ","suffix":" B"},"series":[{"name":"Collected","values":[31,34,29,38,41,37,44,47,43,52,56,0],"kind":"bar"},{"name":"Plan","values":[32,33,34,36,38,40,42,44,46,49,52,55],"kind":"line","dashed":true,"color":4}],"refs":[{"value":50,"label":"Threshold Rp 50 B"}],"height":240}'></div>
 </section>
 ```
 
-**A week against a daily goal.** A flat goal line in the neutral color: days above it are easy to count.
+**A week against a daily target.** A flat target line in the neutral color: days above it are easy to count.
 ```html
 <section class="chart-card" style="max-width: 520px;" aria-labelledby="cb-w">
-  <div><div class="chart-card__q" id="cb-w">Did I keep my daily goal?</div><div class="chart-card__sub">Hours studied per day, this week</div></div>
-  <div class="chart" data-lds-chart='{"label":"Hours studied per day this week with the average score of that day&#39;s quizzes. More hours, higher scores, except Saturday.","x":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],"xName":"Day","format":{"decimals":1},"series":[{"name":"Hours studied","values":[1.5,2,2.5,1,3,4,0.5],"kind":"bar","color":3},{"name":"Goal per day","values":[2,2,2,2,2,2,2],"kind":"line","dashed":true,"color":"neutral"}],"height":200}'></div>
+  <div><div class="chart-card__q" id="cb-w">Was the waste collection target met?</div><div class="chart-card__sub">Waste collected per day in tonnes, this week</div></div>
+  <div class="chart" data-lds-chart='{"label":"Waste collected per day this week against a daily target of 2 tonnes. Target met on Wednesday, Friday and Saturday.","x":["Mon","Tue","Wed","Thu","Fri","Sat","Sun"],"xName":"Day","format":{"decimals":1,"suffix":" t"},"series":[{"name":"Waste collected","values":[1.5,2,2.5,1,3,4,0.5],"kind":"bar","color":3},{"name":"Daily target","values":[2,2,2,2,2,2,2],"kind":"line","dashed":true,"color":"neutral"}],"height":200}'></div>
 </section>
 ```
 
@@ -51,7 +51,7 @@ In a [chart card](chart-card.md), full width for 12 months, half width for a wee
 | `series[].kind: "bar"` | One bar series per period; two or three bar series group side by side. |
 | `series[].kind: "line", dashed: true` | The expectation through the bar centers. |
 | `refs` | Fixed thresholds with their words. |
-| `format: { prefix: "$", compact: true }` | Ticks read $40k, tooltips $41,000. |
+| `format: { prefix: "$", compact: true }` | Ticks read $40k, tooltips $41,000. For rupiah use `prefix: "Rp "` and put the unit in `suffix`. |
 
 ## States
 | State | How |

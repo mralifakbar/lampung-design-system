@@ -21,8 +21,8 @@ Global: one `@media (prefers-reduced-motion: reduce)` block in `css/components.c
 **What keeps moving.** Turn on Reduce motion in your system settings and come back. The spinner still turns and the bar still fills, because they report work in progress. The shimmer stops and becomes plain text.
 ```html
 <div class="docs-row">
-  <span class="docs-row" style="gap: 8px;"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">Grading your answers</span></span>
-  <div style="width: 200px;"><div class="progress progress--indeterminate" role="progressbar" aria-label="Preparing your transcript"><div class="progress__fill"></div></div></div>
+  <span class="docs-row" style="gap: 8px;"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">Checking your documents</span></span>
+  <div style="width: 200px;"><div class="progress progress--indeterminate" role="progressbar" aria-label="Preparing your tax receipt"><div class="progress__fill"></div></div></div>
 </div>
 ```
 
@@ -31,16 +31,16 @@ Global: one `@media (prefers-reduced-motion: reduce)` block in `css/components.c
 <div class="viewport docs-box" style="height: 300px;">
   <div class="viewport__content">
     <div class="docs-row">
-      <button class="btn btn--secondary btn--md" data-lds-open="rm-dialog" aria-haspopup="dialog">Leave the course</button>
+      <button class="btn btn--secondary btn--md" data-lds-open="rm-dialog" aria-haspopup="dialog">Cancel the visit</button>
       <label class="switch"><input type="checkbox" role="switch"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span>Reminders</label>
       <button class="like" aria-pressed="false" data-lds-like aria-label="Like"><span class="like__heart"><span class="ic" aria-hidden="true">favorite</span></span><span class="roll" data-lds-roll="12"></span></button>
     </div>
   </div>
   <div class="scrim" data-lds-scrim="rm-dialog"></div>
   <div class="dialog" id="rm-dialog" role="alertdialog" aria-modal="true" aria-labelledby="rm-dialog-t" data-lds-layer>
-    <h3 class="dialog__title" id="rm-dialog-t">Leave Biology 101?</h3>
-    <p class="dialog__body">Your submitted work stays; you can join again before the second week.</p>
-    <div class="dialog__actions"><button class="btn btn--secondary btn--md" data-lds-close data-lds-autofocus>Stay</button><button class="btn btn--danger btn--md" data-lds-close>Leave</button></div>
+    <h3 class="dialog__title" id="rm-dialog-t">Cancel your puskesmas visit?</h3>
+    <p class="dialog__body">Your queue number is released; you can book again for another day.</p>
+    <div class="dialog__actions"><button class="btn btn--secondary btn--md" data-lds-close data-lds-autofocus>Keep the visit</button><button class="btn btn--danger btn--md" data-lds-close>Cancel visit</button></div>
   </div>
 </div>
 ```

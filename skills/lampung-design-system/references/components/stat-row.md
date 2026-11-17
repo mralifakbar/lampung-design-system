@@ -5,9 +5,9 @@ Group: Data display. Docs page: `docs/components/stat-row.html`.
 A row of key figures without cards: big tabular numbers with their labels underneath, divided by hairlines. Its columns follow the width of the content column, not the screen.
 
 ## Use it when
-- Two to four figures that summarize a page or a section: credits taken, average grade, tasks due.
+- Two to four figures that summarize a page or a section: applications received, average processing time, items due.
 - The top of a report or a dashboard section, before the details.
-- Results after an exam: score, rank, time used.
+- Results after a service period: reports received, waiting, response time.
 
 ## Use something else when
 - Figures that each need their own card, an icon or a change: use [KPI card](kpi-card.md).
@@ -28,35 +28,35 @@ At the top of a page section, full width of the content column, right under the 
 | `.stat-row__item` | Required. One figure: a `div` holding the `dt` and `dd`s. |
 | `dt.stat-row__label` | Required. The label. First in the DOM, shown under the figure. |
 | `dd.stat-row__value` | Required. The figure: 30 px narrow, 34 to 40 px wide, tabular. |
-| `dd.stat-row__sub` | Optional context under the label ("Of 24 allowed"). |
+| `dd.stat-row__sub` | Optional context under the label ("Of a 24-a-day quota"). |
 
 ## Markup
 
 **Three figures.** Resize the window: under 600 px of width it turns into two columns, with the third spanning both.
 ```html
 <div class="stat-row-wrap"><dl class="stat-row" style="--n: 3">
-  <div class="stat-row__item"><dt class="stat-row__label">Credits taken</dt><dd class="stat-row__value">21</dd><dd class="stat-row__sub">Of 24 allowed</dd></div>
-  <div class="stat-row__item"><dt class="stat-row__label">Average grade</dt><dd class="stat-row__value">3.62</dd><dd class="stat-row__sub">Up 0.1 from last term</dd></div>
-  <div class="stat-row__item"><dt class="stat-row__label">Tasks due this week</dt><dd class="stat-row__value">4</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Applications processed</dt><dd class="stat-row__value">21</dd><dd class="stat-row__sub">Of a 24-a-day quota</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Average processing time</dt><dd class="stat-row__value">3.6 days</dd><dd class="stat-row__sub">0.4 days faster than last month</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Due this week</dt><dd class="stat-row__value">4</dd></div>
 </dl></div>
 ```
 
 **Four figures.** `stat-row--four` with `--n: 4` keeps the figures smaller so they fit one row.
 ```html
 <div class="stat-row-wrap"><dl class="stat-row stat-row--four" style="--n: 4">
-  <div class="stat-row__item"><dt class="stat-row__label">Score</dt><dd class="stat-row__value">412</dd></div>
-  <div class="stat-row__item"><dt class="stat-row__label">Rank</dt><dd class="stat-row__value">38</dd><dd class="stat-row__sub">Of 1,204</dd></div>
-  <div class="stat-row__item"><dt class="stat-row__label">Correct</dt><dd class="stat-row__value">86%</dd></div>
-  <div class="stat-row__item"><dt class="stat-row__label">Time used</dt><dd class="stat-row__value">1:42</dd><dd class="stat-row__sub">Of 2:00</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Reports received</dt><dd class="stat-row__value">412</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Waiting</dt><dd class="stat-row__value">38</dd><dd class="stat-row__sub">Of 412</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Closed on time</dt><dd class="stat-row__value">86%</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Response time</dt><dd class="stat-row__value">1:42</dd><dd class="stat-row__sub">Target 2:00 hours</dd></div>
 </dl></div>
 ```
 
 **In a narrow column.** The same markup in a 340 px column: two per row.
 ```html
 <div class="stat-row-wrap" style="max-width: 340px;"><dl class="stat-row" style="--n: 3">
-  <div class="stat-row__item"><dt class="stat-row__label">Students</dt><dd class="stat-row__value">128</dd></div>
-  <div class="stat-row__item"><dt class="stat-row__label">Submitted</dt><dd class="stat-row__value">97</dd></div>
-  <div class="stat-row__item"><dt class="stat-row__label">Average score</dt><dd class="stat-row__value">74.5</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Registered recipients</dt><dd class="stat-row__value">128</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Aid collected</dt><dd class="stat-row__value">97</dd></div>
+  <div class="stat-row__item"><dt class="stat-row__label">Satisfaction score</dt><dd class="stat-row__value">74.5</dd></div>
 </dl></div>
 ```
 
@@ -77,12 +77,12 @@ At the top of a page section, full width of the content column, right under the 
 - A figure that changes while visible rolls with a [rolling number](rolling-number.md) on `--spring-smooth`.
 
 ## Accessibility
-- It is a `<dl>`: each label is the term, the figure and the sub line are its values. The label comes first in the DOM, so screen readers read "Credits taken, 21, of 24 allowed" even though the figure is shown first.
+- It is a `<dl>`: each label is the term, the figure and the sub line are its values. The label comes first in the DOM, so screen readers read "Applications processed, 21, of a 24-a-day quota" even though the figure is shown first.
 - Units belong in the value or the sub line, not only in a color or icon.
 
 ## Do
 - Keep it to two to four figures that matter most.
-- Write context in the sub line ("Of 24 allowed", "Up 0.1").
+- Write context in the sub line ("Of a 24-a-day quota", "0.4 days faster").
 - Set `--n` to the number of figures.
 
 ## Don't

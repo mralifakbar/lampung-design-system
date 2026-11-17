@@ -6,7 +6,7 @@ A text field for secrets, with a reveal button that swaps its eye icon in place.
 
 ## Use it when
 - Signing in (current password) or creating and changing one (new password with strength).
-- Any secret people type and may want to check: a PIN, an exam room password.
+- Any secret people type and may want to check: a PIN, a one-time service counter code.
 
 ## Use something else when
 - A one-time code sent by SMS or email: use [One-time code](otp.md). Cells, numeric keyboard, paste and autofill of the whole code.
@@ -58,7 +58,7 @@ In the sign-in or account [form](form-layout.md), under the email or username fi
 ```html
 <div class="field" style="max-width: 380px;">
   <label class="field__label" for="pf-bad">Password</label>
-  <div class="control is-invalid"><input id="pf-bad" type="password" value="tryout" aria-invalid="true" aria-describedby="pf-bad-help"></div>
+  <div class="control is-invalid"><input id="pf-bad" type="password" value="wayhalim" aria-invalid="true" aria-describedby="pf-bad-help"></div>
   <span class="field__help field__help--error" id="pf-bad-help"><span class="ic" aria-hidden="true">error</span>That password does not match this account. Check Caps Lock or reset it.</span>
   <a class="link" href="#">Reset password</a>
 </div>

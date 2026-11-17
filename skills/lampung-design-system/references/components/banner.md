@@ -6,7 +6,7 @@ One inverse line about the whole app: offline, maintenance, viewing as someone e
 
 ## Use it when
 - A condition that affects every page until it changes: the connection dropped, the service is in read-only maintenance, the trial ends in three days.
-- The person is in a mode that changes what they see: previewing as a student, editing a draft term.
+- The person is in a mode that changes what they see: previewing as a resident, editing a draft schedule.
 
 ## Use something else when
 - The message is about this page or this form only: use [Alert](alert.md).
@@ -35,12 +35,12 @@ At the top of the content area, under the [top nav](top-nav.md) or the app shell
 
 **Mode the person is in.** A preview or impersonation mode needs a way out on every page.
 ```html
-<div class="banner" style="max-width: 640px;"><span class="ic" aria-hidden="true">visibility</span><span>You are viewing this course as a student.</span><button class="btn btn--sm">Exit preview</button></div>
+<div class="banner" style="max-width: 640px;"><span class="ic" aria-hidden="true">visibility</span><span>You are viewing this service as a resident.</span><button class="btn btn--sm">Exit preview</button></div>
 ```
 
 **Scheduled maintenance, dismissible.** Wrap it in `.collapse` with a `data-lds-dismiss` button when the person may hide it. The close button inherits the inverse text color.
 ```html
-<div class="collapse" style="max-width: 640px;"><div><div class="banner"><span class="ic" aria-hidden="true">schedule</span><span>Grades are read-only on Saturday from 22:00 to 23:00.</span><button class="icon-btn" style="margin: -8px -6px -8px auto; color: inherit;" aria-label="Dismiss" data-lds-dismiss><span class="ic" style="font-size: 18px;" aria-hidden="true">close</span></button></div></div></div>
+<div class="collapse" style="max-width: 640px;"><div><div class="banner"><span class="ic" aria-hidden="true">schedule</span><span>Local tax payments are view-only on Saturday from 22:00 to 23:00.</span><button class="icon-btn" style="margin: -8px -6px -8px auto; color: inherit;" aria-label="Dismiss" data-lds-dismiss><span class="ic" style="font-size: 18px;" aria-hidden="true">close</span></button></div></div></div>
 ```
 
 ## States

@@ -50,7 +50,7 @@ Where the primary would be: the end of a page header, the toolbar of an editor, 
     <button class="btn btn--primary" aria-haspopup="menu" aria-expanded="false" aria-label="Other export formats" data-lds-menu="split-export"><span class="ic" aria-hidden="true">expand_more</span></button>
     <div class="menu menu--right" id="split-export" role="menu" style="top: calc(100% + 6px); right: 0;">
       <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">description</span>Export CSV</button>
-      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">receipt_long</span>Print transcript</button>
+      <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">receipt_long</span>Print payment receipt</button>
     </div>
   </div>
 </div>
