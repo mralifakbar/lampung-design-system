@@ -13,7 +13,13 @@
 library;
 
 export 'src/aksara_glyphs.g.dart' show LdsAksaraGlyphs;
+export 'src/charts.dart';
+export 'src/data.dart';
+export 'src/expressive.dart';
+export 'src/forms.dart';
 export 'src/motion.dart';
+export 'src/navigation.dart';
+export 'src/overlays.dart';
 export 'src/theme.dart';
 export 'src/tokens.g.dart';
 export 'src/widgets/aksara.dart';
