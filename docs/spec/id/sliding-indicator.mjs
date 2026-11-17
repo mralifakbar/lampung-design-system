@@ -54,7 +54,7 @@ export default {
       code: `<nav class="sidebar" aria-label="Layanan">
   <span class="sidebar__hl" aria-hidden="true"></span>
   <a class="sidebar__item" href="overview" aria-current="page"><span class="ic" aria-hidden="true">home</span>Ringkasan</a>
-  <a class="sidebar__item" href="assignments"><span class="ic" aria-hidden="true">assignment</span>Permohonan</a>
+  <a class="sidebar__item" href="applications"><span class="ic" aria-hidden="true">assignment</span>Permohonan</a>
 </nav>
 <!-- Saat berganti: pindahkan aria-current, lalu setel transform .sidebar__hl ke translateY(<offsetTop butir>px).
      Di layout penuh pakai app shell (.shell__hl), yang ditempatkan oleh data-lds-shell untuk Anda. -->`,

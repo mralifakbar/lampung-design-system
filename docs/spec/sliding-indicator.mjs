@@ -22,11 +22,11 @@ export default {
     {
       title: 'Segmented thumb',
       desc: 'Pick a range. The thumb slides on the smooth spring; click quickly and it redirects mid-way. Arrow keys move it too.',
-      html: `<div class="seg seg--lg" role="group" aria-label="Show grades for" data-lds-segmented style="width: 360px;">
+      html: `<div class="seg seg--lg" role="group" aria-label="Show reports for" data-lds-segmented style="width: 360px;">
   <span class="seg__thumb"></span>
   <button class="seg__btn" aria-pressed="true">This week</button>
   <button class="seg__btn" aria-pressed="false">Month</button>
-  <button class="seg__btn" aria-pressed="false">Term</button>
+  <button class="seg__btn" aria-pressed="false">Year</button>
 </div>`,
     },
     {
@@ -34,32 +34,32 @@ export default {
       desc: 'The ink slides to the new tab while the panel swaps (see [view swap](view-swap)). The tab label changes weight at once; only the ink travels.',
       stage: 'block',
       html: `<div style="max-width: 460px;">
-  <div class="tabs" role="tablist" aria-label="Course sections" data-lds-tabs>
+  <div class="tabs" role="tablist" aria-label="Service sections" data-lds-tabs>
     <span class="tabs__ink"></span>
     <button class="tabs__btn" role="tab" aria-selected="true" aria-controls="si-1">Overview</button>
-    <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="si-2">Assignments <span class="tabs__count">3</span></button>
-    <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="si-3">Materials</button>
+    <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="si-2">Applications <span class="tabs__count">3</span></button>
+    <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="si-3">Documents</button>
   </div>
-  <div class="tab-panel" role="tabpanel" id="si-1">Course goals, grading weights and office hours.</div>
-  <div class="tab-panel" role="tabpanel" id="si-2" hidden>Three assignments open. The nearest is due Friday at 23:59.</div>
-  <div class="tab-panel" role="tabpanel" id="si-3" hidden>Slides and readings, newest first.</div>
+  <div class="tab-panel" role="tabpanel" id="si-1">Requirements, fees and opening hours for business permits.</div>
+  <div class="tab-panel" role="tabpanel" id="si-2" hidden>Three applications in progress. The nearest is ready Friday at 15:00.</div>
+  <div class="tab-panel" role="tabpanel" id="si-3" hidden>Forms and sample documents, newest first.</div>
 </div>`,
     },
     {
       title: 'Sidebar highlight',
       desc: 'Choose a page. The tinted highlight glides behind the items; the icon and label change color at once. In the [app shell](app-shell) the same highlight is placed by `data-lds-shell` whenever `aria-current` moves.',
       stage: 'fill',
-      html: `<nav class="sidebar" aria-label="Course" onclick="${SIDE}">
+      html: `<nav class="sidebar" aria-label="Service" onclick="${SIDE}">
   <span class="sidebar__hl" aria-hidden="true" style="transform: translateY(10px);"></span>
   <button class="sidebar__item" aria-current="page"><span class="ic" aria-hidden="true">home</span>Overview</button>
-  <button class="sidebar__item"><span class="ic" aria-hidden="true">assignment</span>Assignments<span class="sidebar__badge">3</span></button>
-  <button class="sidebar__item"><span class="ic" aria-hidden="true">menu_book</span>Materials</button>
-  <button class="sidebar__item"><span class="ic" aria-hidden="true">group</span>Classmates</button>
+  <button class="sidebar__item"><span class="ic" aria-hidden="true">assignment</span>Applications<span class="sidebar__badge">3</span></button>
+  <button class="sidebar__item"><span class="ic" aria-hidden="true">menu_book</span>Documents</button>
+  <button class="sidebar__item"><span class="ic" aria-hidden="true">group</span>Officers</button>
 </nav>`,
-      code: `<nav class="sidebar" aria-label="Course">
+      code: `<nav class="sidebar" aria-label="Service">
   <span class="sidebar__hl" aria-hidden="true"></span>
   <a class="sidebar__item" href="overview" aria-current="page"><span class="ic" aria-hidden="true">home</span>Overview</a>
-  <a class="sidebar__item" href="assignments"><span class="ic" aria-hidden="true">assignment</span>Assignments</a>
+  <a class="sidebar__item" href="applications"><span class="ic" aria-hidden="true">assignment</span>Applications</a>
 </nav>
 <!-- On change: move aria-current, then set .sidebar__hl transform to translateY(<item offsetTop>px).
      In a full layout use the app shell (.shell__hl), which data-lds-shell places for you. -->`,
@@ -98,9 +98,9 @@ export default {
   js: '`data-lds-segmented` and `data-lds-tabs` size and move the marker, handle arrow keys and emit `lds:change` with `{ index, item }`. `data-lds-shell` places `.shell__hl` whenever `aria-current` changes. `data-lds-toc` moves `.toc__ink` as sections scroll. `.sidebar__hl` has no binding of its own: move it yourself or use the app shell.',
   react: `import { Segmented, Tabs } from 'lampung-design-system/react';
 
-<Segmented label="Show grades for" value={range} onChange={setRange}
-  options={[{ value: 'week', label: 'This week' }, { value: 'month', label: 'Month' }, { value: 'term', label: 'Term' }]} />
-<Tabs label="Course sections" value={tab} onChange={setTab}
-  items={[{ value: 'overview', label: 'Overview' }, { value: 'tasks', label: 'Assignments', count: 3 }]} />`,
+<Segmented label="Show reports for" value={range} onChange={setRange}
+  options={[{ value: 'week', label: 'This week' }, { value: 'month', label: 'Month' }, { value: 'year', label: 'Year' }]} />
+<Tabs label="Service sections" value={tab} onChange={setTab}
+  items={[{ value: 'overview', label: 'Overview' }, { value: 'applications', label: 'Applications', count: 3 }]} />`,
   related: ['segmented-control', 'tabs', 'sidebar', 'outline'],
 };
