@@ -164,7 +164,12 @@ class _StepItem extends StatelessWidget {
                 Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 6),
-                    child: bar,
+                    // A floor so a one-line label still leaves a visible
+                    // connector; taller labels stretch it further.
+                    child: ConstrainedBox(
+                      constraints: const BoxConstraints(minHeight: 16),
+                      child: bar,
+                    ),
                   ),
                 ),
             ]),
@@ -206,6 +211,10 @@ class _StepItem extends StatelessWidget {
   }
 }
 
+/// The connector between two dots. Painted rather than built from
+/// fractional boxes, so it has no intrinsic size of its own: a vertical
+/// [LdsSteps] measures its height with [IntrinsicHeight], and a
+/// zero-height fraction there would report an infinite height.
 class _Bar extends StatelessWidget {
   const _Bar({required this.filled, required this.vertical});
 
@@ -215,28 +224,70 @@ class _Bar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(1),
-      child: SizedBox(
-        width: vertical ? 2 : null,
-        height: vertical ? null : 2,
-        child: ColoredBox(
-          color: c.lineStrong,
-          child: TweenAnimationBuilder<double>(
-            tween: Tween<double>(end: filled ? 1 : 0),
-            duration: context.ldsDuration(LdsMotion.considered),
-            curve: LdsMotion.inoutCurve,
-            builder: (context, t, _) => FractionallySizedBox(
-              alignment: vertical
-                  ? Alignment.topCenter
-                  : AlignmentDirectional.centerStart,
-              widthFactor: vertical ? 1 : t,
-              heightFactor: vertical ? t : 1,
-              child: ColoredBox(color: c.accent),
-            ),
+    return SizedBox(
+      width: vertical ? 2 : null,
+      height: vertical ? null : 2,
+      child: TweenAnimationBuilder<double>(
+        tween: Tween<double>(end: filled ? 1 : 0),
+        duration: context.ldsDuration(LdsMotion.considered),
+        curve: LdsMotion.inoutCurve,
+        builder: (context, t, _) => CustomPaint(
+          painter: _BarPainter(
+            track: c.lineStrong,
+            fill: c.accent,
+            progress: t,
+            vertical: vertical,
+            rtl: Directionality.of(context) == TextDirection.rtl,
           ),
         ),
       ),
     );
   }
+}
+
+class _BarPainter extends CustomPainter {
+  _BarPainter({
+    required this.track,
+    required this.fill,
+    required this.progress,
+    required this.vertical,
+    required this.rtl,
+  });
+
+  final Color track;
+  final Color fill;
+  final double progress;
+  final bool vertical;
+  final bool rtl;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final bounds = Offset.zero & size;
+    final clip = RRect.fromRectAndRadius(bounds, const Radius.circular(1));
+    canvas.save();
+    canvas.clipRRect(clip);
+    canvas.drawRect(bounds, Paint()..color = track);
+    final t = progress.clamp(0.0, 1.0);
+    if (t > 0) {
+      final Rect filled;
+      if (vertical) {
+        filled = Rect.fromLTWH(0, 0, size.width, size.height * t);
+      } else {
+        final w = size.width * t;
+        filled = rtl
+            ? Rect.fromLTWH(size.width - w, 0, w, size.height)
+            : Rect.fromLTWH(0, 0, w, size.height);
+      }
+      canvas.drawRect(filled, Paint()..color = fill);
+    }
+    canvas.restore();
+  }
+
+  @override
+  bool shouldRepaint(_BarPainter old) =>
+      old.track != track ||
+      old.fill != fill ||
+      old.progress != progress ||
+      old.vertical != vertical ||
+      old.rtl != rtl;
 }
