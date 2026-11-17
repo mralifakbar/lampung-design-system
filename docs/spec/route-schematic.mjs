@@ -6,7 +6,7 @@ export default {
   order: 23,
   summary: 'The stops of one trip on a line: the part already travelled in the accent, the vehicle where it is now, and the place and time under each stop. A diagram, not a map, so it stays honest and readable at any width.',
   when: [
-    'Tracking one shipment, delivery or trip through a few known stops: warehouse, hub, port, customer.',
+    'Tracking one shipment, delivery or trip through a few known stops: warehouse, command post, port, recipient.',
     'The detail of a transfer or a booking with a layover: where it left, where it is, what comes next.',
     'A route people need at a glance beside the details, where a street map would add noise and loading time.',
   ],
@@ -25,24 +25,24 @@ export default {
   examples: [
     {
       title: 'A flight under way',
-      desc: 'Air freight from Jakarta to Singapore, 65 % of the way. The arc draws in once, then the plane settles on it, turned along the curve.',
+      desc: 'A vaccine shipment flying from Jakarta to Radin Inten II airport, 65 % of the way. The arc draws in once, then the plane settles on it, turned along the curve.',
       stage: 'block',
       replay: true,
-      html: `<div class="route" style="max-width: 560px;" data-lds-route='${cfg({ label: 'Air freight from Jakarta to Singapore, 65 percent of the way, landing at 08:45.', mode: 'flight', position: 0.65, stops: [{ name: 'Jakarta CGK', sub: 'Left 06:10' }, { name: 'Singapore SIN', sub: 'Lands 08:45' }] })}'></div>`,
+      html: `<div class="route" style="max-width: 560px;" data-lds-route='${cfg({ label: 'Vaccine shipment by air from Jakarta to Radin Inten II, 65 percent of the way, landing at 08:45.', mode: 'flight', position: 0.65, stops: [{ name: 'Jakarta CGK', sub: 'Left 08:00' }, { name: 'Radin Inten II TKG', sub: 'Lands 08:45' }] })}'></div>`,
     },
     {
       title: 'A road trip with stops',
-      desc: 'Four stops by truck. Passed stops fill, the next one is marked in the accent, and the words under each say when.',
+      desc: 'A BPBD aid truck with four stops. Passed stops fill, the next one is marked in the accent, and the words under each say when.',
       stage: 'block',
       replay: true,
-      html: `<div class="route" style="max-width: 640px;" data-lds-route='${cfg({ label: 'Road freight from Bandung to Yogyakarta, past Tasikmalaya, next stop Purwokerto.', mode: 'road', position: 1.4, stops: [{ name: 'Bandung', sub: 'Loaded 15 Nov, 21:00' }, { name: 'Tasikmalaya', sub: 'Passed 16 Nov, 01:40' }, { name: 'Purwokerto', sub: 'Due 06:30' }, { name: 'Yogyakarta', sub: 'Due 10:15' }] })}'></div>`,
+      html: `<div class="route" style="max-width: 640px;" data-lds-route='${cfg({ label: 'BPBD aid truck from Bandar Lampung to Kota Agung, past Pringsewu, next stop Gisting.', mode: 'road', position: 1.4, stops: [{ name: 'BPBD warehouse, Bandar Lampung', sub: 'Loaded 15 Nov, 21:00' }, { name: 'Pringsewu', sub: 'Passed 15 Nov, 22:40' }, { name: 'Gisting', sub: 'Due 23:50' }, { name: 'Kota Agung', sub: 'Due 16 Nov, 00:45' }] })}'></div>`,
     },
     {
       title: 'Narrow: vertical',
       desc: 'In a narrow column the same route runs down the left, so long place names never squeeze. A delivered route has no vehicle; every stop is filled.',
       stage: 'block',
-      html: `<div class="route" style="max-width: 300px;" data-lds-route='${cfg({ label: 'Sea freight from Tanjung Priok to Singapore, delivered.', mode: 'sea', position: 2, stops: [{ name: 'Tanjung Priok, Jakarta', sub: 'Sailed 13 Nov, 18:00' }, { name: 'Batam anchorage', sub: 'Passed 15 Nov, 07:20' }, { name: 'Port of Singapore', sub: 'Delivered 15 Nov, 21:15' }] })}'></div>`,
-      code: `<div class="route" data-lds-route='{"label":"Sea freight from Tanjung Priok to Singapore, delivered.","mode":"sea","position":2,"stops":[{"name":"Tanjung Priok, Jakarta","sub":"Sailed 13 Nov, 18:00"},{"name":"Batam anchorage","sub":"Passed 15 Nov, 07:20"},{"name":"Port of Singapore","sub":"Delivered 15 Nov, 21:15"}]}'></div>
+      html: `<div class="route" style="max-width: 300px;" data-lds-route='${cfg({ label: 'Supply boat from Panjang port to Legundi island, delivered.', mode: 'sea', position: 2, stops: [{ name: 'Pelabuhan Panjang, Bandar Lampung', sub: 'Sailed 13 Nov, 06:00' }, { name: 'Pahawang island', sub: 'Passed 13 Nov, 08:20' }, { name: 'Legundi island, Pesawaran', sub: 'Delivered 13 Nov, 10:15' }] })}'></div>`,
+      code: `<div class="route" data-lds-route='{"label":"Supply boat from Panjang port to Legundi island, delivered.","mode":"sea","position":2,"stops":[{"name":"Pelabuhan Panjang, Bandar Lampung","sub":"Sailed 13 Nov, 06:00"},{"name":"Pahawang island","sub":"Passed 13 Nov, 08:20"},{"name":"Legundi island, Pesawaran","sub":"Delivered 13 Nov, 10:15"}]}'></div>
 
 <script type="module">
   import { drawRoute } from 'lampung-design-system/js';

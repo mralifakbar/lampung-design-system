@@ -3,7 +3,7 @@ const cfg = (o) => JSON.stringify(o).replace(/'/g, '&#39;');
 export default {
   summary: 'Pemberhentian satu perjalanan di sebuah garis: bagian yang sudah ditempuh berwarna aksen, kendaraan di posisinya sekarang, dan tempat serta waktu di bawah setiap pemberhentian. Diagram, bukan peta, sehingga tetap jujur dan terbaca di lebar berapa pun.',
   when: [
-    'Melacak satu kiriman, pengantaran, atau perjalanan melewati beberapa pemberhentian yang diketahui: gudang, hub, pelabuhan, penerima.',
+    'Melacak satu kiriman, pengantaran, atau perjalanan melewati beberapa pemberhentian yang diketahui: gudang, posko, pelabuhan, penerima.',
     'Detail perpindahan atau pemesanan dengan transit: dari mana berangkat, di mana sekarang, apa berikutnya.',
     'Rute yang perlu dilihat sekilas di samping detailnya, ketika peta jalan hanya menambah gangguan dan waktu muat.',
   ],
@@ -22,19 +22,19 @@ export default {
   examples: [
     {
       title: 'Penerbangan yang sedang berjalan',
-      desc: 'Kargo udara dari Jakarta ke Singapura, 65 % perjalanan. Lengkungnya tergambar sekali, lalu pesawat mengendap di atasnya, menghadap sepanjang kurva.',
-      html: `<div class="route" style="max-width: 560px;" data-lds-route='${cfg({ label: 'Kargo udara dari Jakarta ke Singapura, 65 persen perjalanan, mendarat pukul 08.45.', mode: 'flight', position: 0.65, stops: [{ name: 'Jakarta CGK', sub: 'Berangkat 06.10' }, { name: 'Singapura SIN', sub: 'Mendarat 08.45' }] })}'></div>`,
+      desc: 'Kiriman vaksin lewat udara dari Jakarta ke Bandara Radin Inten II, 65 % perjalanan. Lengkungnya tergambar sekali, lalu pesawat mengendap di atasnya, menghadap sepanjang kurva.',
+      html: `<div class="route" style="max-width: 560px;" data-lds-route='${cfg({ label: 'Kiriman vaksin lewat udara dari Jakarta ke Radin Inten II, 65 persen perjalanan, mendarat pukul 08.45.', mode: 'flight', position: 0.65, stops: [{ name: 'Jakarta CGK', sub: 'Berangkat 08.00' }, { name: 'Radin Inten II TKG', sub: 'Mendarat 08.45' }] })}'></div>`,
     },
     {
       title: 'Perjalanan darat dengan pemberhentian',
-      desc: 'Empat pemberhentian dengan truk. Pemberhentian yang sudah dilewati terisi, yang berikutnya ditandai aksen, dan keterangan di bawah masing-masing menyebut waktunya.',
-      html: `<div class="route" style="max-width: 640px;" data-lds-route='${cfg({ label: 'Angkutan darat dari Bandung ke Yogyakarta, sudah melewati Tasikmalaya, pemberhentian berikutnya Purwokerto.', mode: 'road', position: 1.4, stops: [{ name: 'Bandung', sub: 'Dimuat 15 Nov, 21.00' }, { name: 'Tasikmalaya', sub: 'Dilewati 16 Nov, 01.40' }, { name: 'Purwokerto', sub: 'Perkiraan 06.30' }, { name: 'Yogyakarta', sub: 'Perkiraan 10.15' }] })}'></div>`,
+      desc: 'Truk bantuan BPBD dengan empat pemberhentian. Pemberhentian yang sudah dilewati terisi, yang berikutnya ditandai aksen, dan keterangan di bawah masing-masing menyebut waktunya.',
+      html: `<div class="route" style="max-width: 640px;" data-lds-route='${cfg({ label: 'Truk bantuan BPBD dari Bandar Lampung ke Kota Agung, sudah melewati Pringsewu, pemberhentian berikutnya Gisting.', mode: 'road', position: 1.4, stops: [{ name: 'Gudang BPBD, Bandar Lampung', sub: 'Dimuat 15 Nov, 21.00' }, { name: 'Pringsewu', sub: 'Dilewati 15 Nov, 22.40' }, { name: 'Gisting', sub: 'Perkiraan 23.50' }, { name: 'Kota Agung', sub: 'Perkiraan 16 Nov, 00.45' }] })}'></div>`,
     },
     {
       title: 'Sempit: vertikal',
       desc: 'Di kolom sempit rute yang sama berjalan ke bawah di kiri, sehingga nama tempat yang panjang tidak pernah terjepit. Rute yang sudah tiba tidak punya kendaraan; semua pemberhentian terisi.',
-      html: `<div class="route" style="max-width: 300px;" data-lds-route='${cfg({ label: 'Kargo laut dari Panjang ke Tanjung Priok, sudah tiba.', mode: 'sea', position: 2, stops: [{ name: 'Pelabuhan Panjang, Bandar Lampung', sub: 'Berlayar 13 Nov, 18.00' }, { name: 'Selat Sunda', sub: 'Dilewati 14 Nov, 02.20' }, { name: 'Tanjung Priok, Jakarta', sub: 'Tiba 14 Nov, 09.15' }] })}'></div>`,
-      code: `<div class="route" data-lds-route='{"label":"Kargo laut dari Panjang ke Tanjung Priok, sudah tiba.","mode":"sea","position":2,"stops":[{"name":"Pelabuhan Panjang, Bandar Lampung","sub":"Berlayar 13 Nov, 18.00"},{"name":"Selat Sunda","sub":"Dilewati 14 Nov, 02.20"},{"name":"Tanjung Priok, Jakarta","sub":"Tiba 14 Nov, 09.15"}]}'></div>
+      html: `<div class="route" style="max-width: 300px;" data-lds-route='${cfg({ label: 'Kapal logistik dari Pelabuhan Panjang ke Pulau Legundi, sudah tiba.', mode: 'sea', position: 2, stops: [{ name: 'Pelabuhan Panjang, Bandar Lampung', sub: 'Berlayar 13 Nov, 06.00' }, { name: 'Pulau Pahawang', sub: 'Dilewati 13 Nov, 08.20' }, { name: 'Pulau Legundi, Pesawaran', sub: 'Tiba 13 Nov, 10.15' }] })}'></div>`,
+      code: `<div class="route" data-lds-route='{"label":"Kapal logistik dari Pelabuhan Panjang ke Pulau Legundi, sudah tiba.","mode":"sea","position":2,"stops":[{"name":"Pelabuhan Panjang, Bandar Lampung","sub":"Berlayar 13 Nov, 06.00"},{"name":"Pulau Pahawang","sub":"Dilewati 13 Nov, 08.20"},{"name":"Pulau Legundi, Pesawaran","sub":"Tiba 13 Nov, 10.15"}]}'></div>
 
 <script type="module">
   import { drawRoute } from 'lampung-design-system/js';
