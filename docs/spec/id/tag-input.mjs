@@ -5,7 +5,7 @@ const ADD = `if ((event.key === 'Enter' || event.key === ',') && this.value.trim
 export default {
   summary: 'Kolom yang mengubah teks ketikan menjadi tag yang bisa dihapus: Enter atau koma menambah satu, Backspace di kolom kosong menghapus yang terakhir. Untuk beberapa nilai bebas yang pendek.',
   when: [
-    'Orang memasukkan beberapa nilai pendek yang tidak berasal dari daftar tetap: topik minat, kata kunci laporan, email yang diundang.',
+    'Orang memasukkan beberapa nilai pendek yang tidak berasal dari daftar tetap: kata kunci laporan warga, bidang minat, email yang diundang.',
     'Nilainya dibuat sendiri oleh orang tersebut, sehingga daftar opsi tidak bisa mencakupnya.',
   ],
   whenNot: [
@@ -24,21 +24,21 @@ export default {
   ],
   examples: [
     {
-      title: 'Topik',
-      desc: 'Ketik topik lalu tekan Enter atau koma. Backspace di kolom kosong menghapus tag terakhir.',
+      title: 'Kata kunci laporan',
+      desc: 'Ketik kata kunci lalu tekan Enter atau koma. Backspace di kolom kosong menghapus tag terakhir.',
       html: `<div class="field" style="max-width: 520px; width: 100%;">
-  <label class="field__label" for="ti-in">Topik yang ingin dipelajari</label>
-  <div class="control tags">${tag('Deret angka')}${tag('Pemahaman bacaan')}${tag('Pancasila')}<input id="ti-in" placeholder="Tambah topik" enterkeyhint="enter" aria-describedby="ti-help" onkeydown="${ADD}"></div>
-  <span class="field__help" id="ti-help">Paling banyak 8 topik. Tekan Enter setelah setiap topik.</span>
+  <label class="field__label" for="ti-in">Kata kunci laporan</label>
+  <div class="control tags">${tag('Jalan berlubang')}${tag('Drainase tersumbat')}${tag('Lampu jalan')}<input id="ti-in" placeholder="Tambah kata kunci" enterkeyhint="enter" aria-describedby="ti-help" onkeydown="${ADD}"></div>
+  <span class="field__help" id="ti-help">Paling banyak 8 kata kunci. Tekan Enter setelah setiap kata kunci.</span>
 </div>`,
       code: `<div class="field">
-  <label class="field__label" for="topics">Topik yang ingin dipelajari</label>
+  <label class="field__label" for="topics">Kata kunci laporan</label>
   <div class="control tags">
-    <span class="tag">Deret angka<button type="button" aria-label="Hapus Deret angka"><span class="ic" aria-hidden="true">close</span></button></span>
-    <span class="tag">Pancasila<button type="button" aria-label="Hapus Pancasila"><span class="ic" aria-hidden="true">close</span></button></span>
-    <input id="topics" placeholder="Tambah topik" aria-describedby="topics-help">
+    <span class="tag">Jalan berlubang<button type="button" aria-label="Hapus Jalan berlubang"><span class="ic" aria-hidden="true">close</span></button></span>
+    <span class="tag">Lampu jalan<button type="button" aria-label="Hapus Lampu jalan"><span class="ic" aria-hidden="true">close</span></button></span>
+    <input id="topics" placeholder="Tambah kata kunci" aria-describedby="topics-help">
   </div>
-  <span class="field__help" id="topics-help">Paling banyak 8 topik. Tekan Enter setelah setiap topik.</span>
+  <span class="field__help" id="topics-help">Paling banyak 8 kata kunci. Tekan Enter setelah setiap kata kunci.</span>
 </div>
 <!-- Your code: Enter or comma inserts a .tag before the input; Backspace on an empty input removes the last; each tag's button removes it. -->`,
     },
@@ -55,7 +55,7 @@ export default {
   states: [
     ['focus', 'Tepi aksen dan halo pada seluruh kotak (`:focus-within`), seperti `.control` lainnya.'],
     ['.is-invalid', 'Tepi danger saat nilai ketikan ditolak; teks tetap di input.'],
-    ['at the limit', 'Nonaktifkan input dan sebutkan di teks bantuan ("8 dari 8 topik").'],
+    ['at the limit', 'Nonaktifkan input dan sebutkan di teks bantuan ("8 dari 8 kata kunci").'],
     ['tag hover', 'Tombol hapus berwarna saat hover.'],
   ],
   motion: [
@@ -65,8 +65,8 @@ export default {
   ],
   a11y: [
     'Input dilabeli oleh label kolom; teks bantuan menyebut cara menambah (Enter) dan batasnya.',
-    'Setiap tombol hapus adalah `<button type="button">` bernama "Hapus Deret angka". Setelah menghapus, kembalikan fokus ke input.',
-    'Umumkan penambahan dan penghapusan di area `aria-live="polite"` jika daftarnya panjang ("Pancasila ditambahkan, 3 topik").',
+    'Setiap tombol hapus adalah `<button type="button">` bernama "Hapus Jalan berlubang". Setelah menghapus, kembalikan fokus ke input.',
+    'Umumkan penambahan dan penghapusan di area `aria-live="polite"` jika daftarnya panjang ("Lampu jalan ditambahkan, 3 kata kunci").',
     'Enter tidak boleh mengirim formulir selama input berisi teks; cegah hanya dalam kasus itu.',
   ],
   do: [

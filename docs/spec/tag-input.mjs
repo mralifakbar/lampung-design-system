@@ -8,7 +8,7 @@ export default {
   order: 10,
   summary: 'A field that turns typed text into removable tags: Enter or comma adds one, Backspace on an empty field removes the last. For several short free values.',
   when: [
-    'People enter several short values that are not from a fixed list: topics of interest, keywords for a question, emails to invite.',
+    'People enter several short values that are not from a fixed list: keywords for a citizen report, areas of interest, emails to invite.',
     'The values are made up by the person, so a list of options cannot cover them.',
   ],
   whenNot: [
@@ -27,21 +27,21 @@ export default {
   ],
   examples: [
     {
-      title: 'Topics',
-      desc: 'Type a topic and press Enter or comma. Backspace in the empty field removes the last tag.',
+      title: 'Report keywords',
+      desc: 'Type a keyword and press Enter or comma. Backspace in the empty field removes the last tag.',
       html: `<div class="field" style="max-width: 520px; width: 100%;">
-  <label class="field__label" for="ti-in">Topics to practise</label>
-  <div class="control tags">${tag('Number series')}${tag('Reading comprehension')}${tag('Pancasila')}<input id="ti-in" placeholder="Add a topic" enterkeyhint="enter" aria-describedby="ti-help" onkeydown="${ADD}"></div>
-  <span class="field__help" id="ti-help">Up to 8 topics. Press Enter after each one.</span>
+  <label class="field__label" for="ti-in">Keywords for the report</label>
+  <div class="control tags">${tag('Pothole')}${tag('Blocked drain')}${tag('Street light')}<input id="ti-in" placeholder="Add a keyword" enterkeyhint="enter" aria-describedby="ti-help" onkeydown="${ADD}"></div>
+  <span class="field__help" id="ti-help">Up to 8 keywords. Press Enter after each one.</span>
 </div>`,
       code: `<div class="field">
-  <label class="field__label" for="topics">Topics to practise</label>
+  <label class="field__label" for="topics">Keywords for the report</label>
   <div class="control tags">
-    <span class="tag">Number series<button type="button" aria-label="Remove Number series"><span class="ic" aria-hidden="true">close</span></button></span>
-    <span class="tag">Pancasila<button type="button" aria-label="Remove Pancasila"><span class="ic" aria-hidden="true">close</span></button></span>
-    <input id="topics" placeholder="Add a topic" aria-describedby="topics-help">
+    <span class="tag">Pothole<button type="button" aria-label="Remove Pothole"><span class="ic" aria-hidden="true">close</span></button></span>
+    <span class="tag">Street light<button type="button" aria-label="Remove Street light"><span class="ic" aria-hidden="true">close</span></button></span>
+    <input id="topics" placeholder="Add a keyword" aria-describedby="topics-help">
   </div>
-  <span class="field__help" id="topics-help">Up to 8 topics. Press Enter after each one.</span>
+  <span class="field__help" id="topics-help">Up to 8 keywords. Press Enter after each one.</span>
 </div>
 <!-- Your code: Enter or comma adds a .tag before the input; Backspace on an empty input removes the last; each tag's button removes it. -->`,
     },
@@ -49,16 +49,16 @@ export default {
       title: 'Invite by email, with a rejected value',
       desc: 'Validate each value as it becomes a tag; keep the bad text in the input and explain.',
       html: `<div class="field" style="max-width: 520px; width: 100%;">
-  <label class="field__label" for="ti-mail">Invite classmates</label>
-  <div class="control tags is-invalid">${tag('rani@campus.ac.id')}${tag('dimas@campus.ac.id')}<input id="ti-mail" type="email" value="budi@campus" aria-invalid="true" aria-describedby="ti-mail-help"></div>
-  <span class="field__help field__help--error" id="ti-mail-help"><span class="ic" aria-hidden="true">error</span>budi@campus is missing a domain, like budi@campus.ac.id.</span>
+  <label class="field__label" for="ti-mail">Invite fellow officers</label>
+  <div class="control tags is-invalid">${tag('rani@example.go.id')}${tag('dimas@example.go.id')}<input id="ti-mail" type="email" value="budi@example" aria-invalid="true" aria-describedby="ti-mail-help"></div>
+  <span class="field__help field__help--error" id="ti-mail-help"><span class="ic" aria-hidden="true">error</span>budi@example is missing a domain, like budi@example.go.id.</span>
 </div>`,
     },
   ],
   states: [
     ['focus', 'Accent edge and halo on the whole box (`:focus-within`), as any `.control`.'],
     ['.is-invalid', 'Danger edge when the typed value is rejected; the text stays in the input.'],
-    ['at the limit', 'Disable the input and say so in the helper ("8 of 8 topics").'],
+    ['at the limit', 'Disable the input and say so in the helper ("8 of 8 keywords").'],
     ['tag hover', 'The remove button tints on hover.'],
   ],
   motion: [
@@ -68,8 +68,8 @@ export default {
   ],
   a11y: [
     'The input is labelled by the field label; the helper says how to add (Enter) and the limit.',
-    'Each remove button is a `<button type="button">` named "Remove Number series". After removing, move focus back to the input.',
-    'Announce adds and removes in an `aria-live="polite"` region if the list is long ("Pancasila added, 3 topics").',
+    'Each remove button is a `<button type="button">` named "Remove Pothole". After removing, move focus back to the input.',
+    'Announce adds and removes in an `aria-live="polite"` region if the list is long ("Street light added, 3 keywords").',
     'Enter must not submit the form while the input has text; prevent it only in that case.',
   ],
   do: [
