@@ -2,10 +2,10 @@ export default {
   title: 'Card',
   group: 'Data display',
   order: 4,
-  summary: 'A surface that holds one subject: an event, a payment, a course. White with a hairline ring on the canvas, or the quiet fill on white. Never a shadow.',
+  summary: 'A surface that holds one subject: an event, a bill, a service. White with a hairline ring on the canvas, or the quiet fill on white. Never a shadow.',
   when: [
     'A self-contained subject with several parts (title, meta, a figure, an action) that sits beside other subjects in a grid.',
-    'A panel that groups one topic on a dashboard ("Tuition", "Next exam").',
+    'A panel that groups one topic on a dashboard ("Local tax", "Next schedule").',
     'A whole surface that opens one thing (`.card--link`).',
   ],
   whenNot: [
@@ -31,10 +31,10 @@ export default {
       desc: 'Title, meta, the figure that matters, and one action.',
       stage: 'fill',
       html: `<div class="card" style="max-width: 340px; width: 100%;">
-  <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;"><div><div class="card__title">Tuition</div><div class="card__sub">Odd semester 2026/2027</div></div><span class="badge badge--warning">Due in 5 days</span></div>
-  <div style="font: 600 28px/34px var(--font); letter-spacing: -0.022em; color: var(--text-strong); margin: 18px 0 2px; font-variant-numeric: tabular-nums;">Rp 7.500.000</div>
+  <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;"><div><div class="card__title">Land and building tax</div><div class="card__sub">Tax year 2026</div></div><span class="badge badge--warning">Due in 5 days</span></div>
+  <div style="font: 600 28px/34px var(--font); letter-spacing: -0.022em; color: var(--text-strong); margin: 18px 0 2px; font-variant-numeric: tabular-nums;">Rp 1.250.000</div>
   <div class="card__sub">Pay by bank transfer or virtual account.</div>
-  <button class="btn btn--primary btn--md btn--block" style="margin-top: 16px;">Pay tuition</button>
+  <button class="btn btn--primary btn--md btn--block" style="margin-top: 16px;">Pay tax</button>
 </div>`,
     },
     {
@@ -42,8 +42,8 @@ export default {
       desc: 'The whole card is one link; it sinks on press.',
       stage: 'block',
       html: `<div class="auto-grid" style="--min: 220px;">
-  <a class="card card--link" href="#seminar"><div class="card__media"><span class="ic" style="font-size: 28px;" aria-hidden="true">image</span></div><span class="badge badge--accent">Seminar</span><div class="card__title" style="margin-top: 10px;">Designing for slow networks</div><div class="card__sub">Thursday, 13:00 · Hall B</div></a>
-  <a class="card card--link" href="#workshop"><div class="card__media"><span class="ic" style="font-size: 28px;" aria-hidden="true">image</span></div><span class="badge badge--outline">Workshop</span><div class="card__title" style="margin-top: 10px;">Writing a strong cover letter</div><div class="card__sub">Friday, 10:00 · Room B2</div></a>
+  <a class="card card--link" href="#seminar"><div class="card__media"><span class="ic" style="font-size: 28px;" aria-hidden="true">image</span></div><span class="badge badge--accent">Seminar</span><div class="card__title" style="margin-top: 10px;">Designing services for slow networks</div><div class="card__sub">Thursday, 13:00 · Hall B</div></a>
+  <a class="card card--link" href="#workshop"><div class="card__media"><span class="ic" style="font-size: 28px;" aria-hidden="true">image</span></div><span class="badge badge--outline">Training</span><div class="card__title" style="margin-top: 10px;">Writing a UMKM business proposal</div><div class="card__sub">Friday, 10:00 · Room B2</div></a>
 </div>`,
     },
     {
@@ -52,7 +52,7 @@ export default {
       stage: 'block',
       html: `<div class="card" style="max-width: 420px;">
   <div class="card__title">This week</div>
-  <div class="card card--fill" style="margin-top: 12px;"><div class="card__title">Statistics quiz</div><div class="card__sub">Opens Wednesday at 09:00 · 30 minutes</div></div>
+  <div class="card card--fill" style="margin-top: 12px;"><div class="card__title">Toddler posyandu</div><div class="card__sub">Opens Wednesday at 09:00 · 2 hours</div></div>
 </div>`,
     },
   ],
