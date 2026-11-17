@@ -1,5 +1,5 @@
 // Landing page behavior. Components come from /js/lds.js; this file only wires the page.
-import { init, setTheme, setLoading, morphText, shake } from '/js/lds.js';
+import { init, setTheme, setLoading, morphText, shake, toast, announce, setRoll } from '/js/lds.js';
 
 const html = document.documentElement;
 const $ = (s, r = document) => r.querySelector(s);
@@ -91,6 +91,69 @@ if (demo) {
       setTimeout(() => morphText($('#demo-send-label'), t.msgSend), 3200);
     }, 900);
   });
+}
+
+/* Live example: a citizen report moves Diterima -> Diproses -> Selesai, one press at a time.
+   With the switch on, each change raises a toast (which is also the screen reader message);
+   with it off, the change is announced quietly. */
+const track = $('#track');
+if (track) {
+  const d = track.dataset;
+  const states = d.states.split('|');
+  const next = d.next.split('|');
+  const look = [['badge--accent', 'inbox'], ['badge--warning', 'schedule'], ['badge--success', 'check_circle']];
+  const steps = [...track.querySelectorAll('.step')];
+  const badge = $('#track-badge');
+  const icon = badge.querySelector('.ic');
+  const last = states.length - 1;
+  let s = 0;
+  let touched = false;
+  const render = (n, quiet) => {
+    s = n;
+    steps.forEach((li, i) => {
+      const done = i < s || (s === last && i === s);
+      const dot = li.querySelector('.step__dot');
+      if (done && !li.classList.contains('is-done')) dot.innerHTML = '<span class="ic" aria-hidden="true">check</span>';
+      if (!done && li.classList.contains('is-done')) dot.textContent = i + 1;
+      li.classList.toggle('is-done', done);
+      li.classList.toggle('is-current', i === s && !done);
+      if (i === s && !done) li.setAttribute('aria-current', 'step'); else li.removeAttribute('aria-current');
+    });
+    badge.classList.remove(...look.map((l) => l[0]));
+    badge.classList.add(look[s][0]);
+    icon.textContent = look[s][1];
+    if (!reduced()) icon.animate([{ transform: 'scale(0.6)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 360, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' });
+    morphText($('#track-badge-label'), states[s]);
+    morphText($('#track-next-label'), next[s]);
+    if (quiet) return;
+    if ($('#track-notify').checked) toast({ title: d.toast.replace('{s}', states[s]), body: d.toastSub, icon: 'sms' });
+    else announce(d.announce.replace('{s}', states[s]));
+  };
+  $('#track-next').addEventListener('click', () => { touched = true; render(s === last ? 0 : s + 1); });
+  // One quiet step on first sight shows the bar and badge move; it never repeats and yields to the visitor.
+  if (!reduced() && typeof IntersectionObserver === 'function') {
+    const io = new IntersectionObserver(([e]) => {
+      if (!e.isIntersecting) return;
+      io.disconnect();
+      setTimeout(() => { if (!touched && s === 0) render(1, true); }, 1400);
+    }, { threshold: 0.6 });
+    io.observe(track);
+  }
+}
+
+/* Component total: the digits roll up once when the number scrolls into view. Its accessible name stays the real total. */
+const count = $('.lp-count');
+if (count && !reduced() && typeof IntersectionObserver === 'function') {
+  const target = count.dataset.count;
+  count.classList.add('roll');
+  count.setAttribute('data-lds-roll-label', target);
+  setRoll(count, '0'.repeat(target.length));
+  const io = new IntersectionObserver(([e]) => {
+    if (!e.isIntersecting) return;
+    io.disconnect();
+    setTimeout(() => setRoll(count, target), 200);
+  }, { threshold: 0.5 });
+  io.observe(count);
 }
 
 /* Clipboard blocked (insecure origin, permissions): select the text so Ctrl+C or a long press still works. */
