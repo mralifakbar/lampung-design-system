@@ -74,7 +74,7 @@ export default {
       desc: '`center` menaruh satu blok di tengah areanya. `sr-only` menambahkan kata yang hanya didengar pembaca layar.',
       html: `<div class="center" style="min-height: 180px;">
   <div class="stack" style="--gap: 8px; align-items: center;">
-    <span class="ic ic--lg" aria-hidden="true">school</span>
+    <span class="ic ic--lg" aria-hidden="true">checklist</span>
     <p class="card__title">Semua berkas minggu ini sudah diperiksa</p>
     <a class="link link--external" href="https://example.com" target="_blank" rel="noreferrer">Lihat jadwal minggu depan<span class="sr-only"> (terbuka di tab baru)</span></a>
   </div>

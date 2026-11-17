@@ -34,17 +34,17 @@ export default {
       stage: 'block',
       html: `<div class="stack" style="--gap: 16px; max-width: 520px;">
   <div class="stack" style="--gap: 4px;">
-    <h3 class="section__title-sm">Linear Algebra, week 6</h3>
-    <p class="card__sub">Eigenvalues and diagonalization. 4 lessons, 1 quiz.</p>
+    <h3 class="section__title-sm">Micro business permit, stage 2</h3>
+    <p class="card__sub">File check and site survey. 4 steps, 1 visit.</p>
   </div>
   <div class="cluster">
     <span class="badge badge--accent">In progress</span>
-    <span class="badge">4 of 6 lessons</span>
-    <span class="badge badge--warning">Quiz due Friday</span>
+    <span class="badge">4 of 6 steps</span>
+    <span class="badge badge--warning">Survey on Friday</span>
   </div>
   <div class="cluster" style="--gap: 10px;">
-    <button class="btn btn--primary">Continue lesson 5</button>
-    <button class="btn btn--secondary">Open notes</button>
+    <button class="btn btn--primary">Continue step 5</button>
+    <button class="btn btn--secondary">Open officer notes</button>
   </div>
 </div>`,
     },
@@ -53,10 +53,10 @@ export default {
       desc: 'Cards at least 200 px wide: four across on a wide screen, two on a tablet, one on a phone, with no media query. Resize the window to see it reflow.',
       stage: 'block',
       html: `<div class="auto-grid" style="--min: 200px;">
-  <div class="card"><div class="card__title">Database Systems</div><div class="card__sub">CS 2104 · 3 credits</div></div>
-  <div class="card"><div class="card__title">Computer Networks</div><div class="card__sub">CS 3102 · 3 credits</div></div>
-  <div class="card"><div class="card__title">Operating Systems</div><div class="card__sub">CS 3001 · 4 credits</div></div>
-  <div class="card"><div class="card__title">Linear Algebra</div><div class="card__sub">MA 2201 · 3 credits</div></div>
+  <div class="card"><div class="card__title">Identity card (KTP)</div><div class="card__sub">Disdukcapil · 3 working days</div></div>
+  <div class="card"><div class="card__title">Micro business permit</div><div class="card__sub">Licensing · 5 working days</div></div>
+  <div class="card"><div class="card__title">Vehicle tax</div><div class="card__sub">Samsat · 1 working day</div></div>
+  <div class="card"><div class="card__title">Puskesmas referral</div><div class="card__sub">Health · same day</div></div>
 </div>`,
     },
     {
@@ -65,13 +65,13 @@ export default {
       stage: 'block',
       html: `<div class="split-2" style="--side: 240px;">
   <div class="card card--fill stack" style="--gap: 6px;">
-    <div class="card__title">Your progress</div>
-    <div class="card__sub">12 of 20 lessons done</div>
+    <div class="card__title">Application progress</div>
+    <div class="card__sub">12 of 20 files checked</div>
     <div class="progress"><span class="progress__fill" style="transform: scaleX(0.6);"></span></div>
   </div>
   <div class="stack measure">
-    <h3 class="section__title-sm">Lesson 13: Normal forms</h3>
-    <p class="card__sub">Why splitting a table removes update anomalies, and how to tell when a schema is in third normal form.</p>
+    <h3 class="section__title-sm">Step 13: Site inspection</h3>
+    <p class="card__sub">An officer visits the business address to match the floor sketch with the conditions on site, then uploads the result.</p>
   </div>
 </div>`,
     },
@@ -81,9 +81,9 @@ export default {
       stage: 'block',
       html: `<div class="center" style="min-height: 180px;">
   <div class="stack" style="--gap: 8px; align-items: center;">
-    <span class="ic ic--lg" aria-hidden="true">school</span>
-    <p class="card__title">You finished every lesson this week</p>
-    <a class="link link--external" href="https://example.com" target="_blank" rel="noreferrer">See next week's plan<span class="sr-only"> (opens in a new tab)</span></a>
+    <span class="ic ic--lg" aria-hidden="true">checklist</span>
+    <p class="card__title">Every file this week has been checked</p>
+    <a class="link link--external" href="https://example.com" target="_blank" rel="noreferrer">See next week's schedule<span class="sr-only"> (opens in a new tab)</span></a>
   </div>
 </div>`,
     },
