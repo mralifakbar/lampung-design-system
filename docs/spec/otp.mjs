@@ -6,11 +6,11 @@ export default {
   when: [
     'Verifying a phone number or email with a code sent by SMS or email.',
     'Two-step sign in, or confirming a sensitive change with a code.',
-    'Joining something by a short numeric code read out loud (a class check-in code).',
+    'Joining something by a short numeric code read out loud (an event check-in code).',
   ],
   whenNot: [
     ['A password or PIN people choose themselves', 'password-field'],
-    ['A long code with letters (a voucher, a class invite)', 'text-field', 'Use a normal field with `autocapitalize="characters"`'],
+    ['A long code with letters (a voucher, a registration number)', 'text-field', 'Use a normal field with `autocapitalize="characters"`'],
     ['A number with a meaning (amount, count)', 'amount-field'],
   ],
   where: 'Alone on its step: a verification screen, a [sheet](sheet) on phones, a [dialog](dialog) on wide screens. Put the label above, the helper (where the code was sent, resend timer) below. Centered on phones.',
