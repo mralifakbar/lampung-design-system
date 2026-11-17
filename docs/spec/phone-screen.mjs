@@ -1,6 +1,6 @@
 const row = (icon, tile, title, sub) => `<button type="button" class="lrow lrow--icon" style="min-height: 60px;"><span class="lrow__icon"${tile ? ` style="background: var(${tile});"` : ''}><span class="ic" aria-hidden="true">${icon}</span></span><span class="lrow__body"><span class="lrow__title" style="display: block; font-weight: 500;">${title}</span><span class="lrow__sub" style="display: block;">${sub}</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>`;
 const tabbar = (cur) => `<nav class="tabbar" style="height: 76px; padding-bottom: 22px;" aria-label="Main">
-    ${[['today', 'Today'], ['calendar_month', 'Schedule'], ['school', 'Courses'], ['person', 'Profile']].map(([ic, l]) => `<button type="button" class="tabbar__item"${l === cur ? ' aria-current="page"' : ''}><span class="ic" aria-hidden="true">${ic}</span>${l}</button>`).join('')}
+    ${[['today', 'Today'], ['calendar_month', 'Schedule'], ['account_balance', 'Services'], ['person', 'Profile']].map(([ic, l]) => `<button type="button" class="tabbar__item"${l === cur ? ' aria-current="page"' : ''}><span class="ic" aria-hidden="true">${ic}</span>${l}</button>`).join('')}
   </nav>`;
 
 export default {
@@ -9,7 +9,7 @@ export default {
   order: 5,
   summary: 'The standard phone layout: a large title that collapses into a translucent nav bar as content scrolls under it, grouped lists in the middle, and a translucent tab bar at the bottom. The bars are the only blurred surfaces.',
   when: [
-    'Designing or prototyping a phone app screen in the system: a home "Today" screen, a settings screen, a course list.',
+    'Designing or prototyping a phone app screen in the system: a home "Today" screen, a settings screen, a list of services.',
     'Showing a phone layout inside a desktop page (docs, previews, onboarding) with `.phone.phone--inline`.',
     'A top-level screen that is one of three to five main areas reached from the tab bar.',
   ],
@@ -42,18 +42,18 @@ export default {
     <h1 class="large-title">Today</h1>
     <div class="stack" style="padding: 12px 16px 110px;">
       <div class="list list--fill">
-        ${row('code', '--tile-blue', 'Database Systems', '08:00 · Room H 2.14')}
-        ${row('grid_view', '', 'Linear Algebra', '10:00 · Room A 1.02')}
-        ${row('lan', '--tile-orange', 'Computer Networks', '13:00 · Room H 3.01')}
+        ${row('groups', '--tile-blue', 'Posyandu Melati', '08:00 · RT 03 community hall')}
+        ${row('stethoscope', '', 'Prenatal check-up', '10:00 · Puskesmas Kedaton')}
+        ${row('medical_services', '--tile-orange', 'Child immunization', '13:00 · Puskesmas Kedaton')}
       </div>
       <div class="auto-grid" style="--min: 120px;">
-        <article class="kpi"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">event_available</span></span><span class="kpi__label">Attendance</span></div><div class="kpi__value">92<small>%</small></div></article>
-        <article class="kpi"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">assignment</span></span><span class="kpi__label">Tasks due</span></div><div class="kpi__value">3</div></article>
+        <article class="kpi"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">event_available</span></span><span class="kpi__label">Files complete</span></div><div class="kpi__value">92<small>%</small></div></article>
+        <article class="kpi"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">assignment</span></span><span class="kpi__label">Errands due</span></div><div class="kpi__value">3</div></article>
       </div>
       <div class="list list--fill">
-        <div class="lrow" style="min-height: 56px;"><span class="lrow__body"><span class="lrow__title" style="display: block;">Lab report 3</span><span class="lrow__sub" style="display: block;">Computer Networks · due tomorrow</span></span><span class="badge badge--warning">Tomorrow</span></div>
-        <div class="lrow" style="min-height: 56px;"><span class="lrow__body"><span class="lrow__title" style="display: block;">Problem set 7</span><span class="lrow__sub" style="display: block;">Linear Algebra · due Thursday</span></span><span class="badge">Thu</span></div>
-        <div class="lrow" style="min-height: 56px;"><span class="lrow__body"><span class="lrow__title" style="display: block;">Reading: chapter 9</span><span class="lrow__sub" style="display: block;">Operating Systems · due Friday</span></span><span class="badge">Fri</span></div>
+        <div class="lrow" style="min-height: 56px;"><span class="lrow__body"><span class="lrow__title" style="display: block;">Complete domicile letter</span><span class="lrow__sub" style="display: block;">Micro business permit · due tomorrow</span></span><span class="badge badge--warning">Tomorrow</span></div>
+        <div class="lrow" style="min-height: 56px;"><span class="lrow__body"><span class="lrow__title" style="display: block;">Pay vehicle tax</span><span class="lrow__sub" style="display: block;">Regional tax · due Thursday</span></span><span class="badge">Thu</span></div>
+        <div class="lrow" style="min-height: 56px;"><span class="lrow__body"><span class="lrow__title" style="display: block;">Business site survey</span><span class="lrow__sub" style="display: block;">UMKM mentoring · Friday</span></span><span class="badge">Fri</span></div>
       </div>
     </div>
   </div>
@@ -72,7 +72,7 @@ export default {
     <div class="stack" style="--gap: 24px; padding: 12px 16px 110px;">
       <div class="search-wrap" data-lds-search><div class="control search" style="flex: 1;"><span class="ic" aria-hidden="true">search</span><input placeholder="Search settings" aria-label="Search settings"></div><button type="button" class="search__cancel">Cancel</button></div>
       <div class="list list--fill">
-        <label class="lrow lrow--icon" style="min-height: 52px;"><span class="lrow__icon" style="background: var(--tile-red);"><span class="ic" aria-hidden="true">notifications</span></span><span class="lrow__body"><span class="lrow__title">Class reminders</span></span><span class="switch switch--sm"><input type="checkbox" role="switch" checked><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span></span></label>
+        <label class="lrow lrow--icon" style="min-height: 52px;"><span class="lrow__icon" style="background: var(--tile-red);"><span class="ic" aria-hidden="true">notifications</span></span><span class="lrow__body"><span class="lrow__title">Due date reminders</span></span><span class="switch switch--sm"><input type="checkbox" role="switch" checked><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span></span></label>
         <button type="button" class="lrow lrow--icon" style="min-height: 52px;"><span class="lrow__icon" style="background: var(--tile-green);"><span class="ic" aria-hidden="true">lock</span></span><span class="lrow__body"><span class="lrow__title">Privacy</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
       </div>
       <div class="list list--fill"><button type="button" class="lrow" style="min-height: 52px; justify-content: center;"><span class="lrow__title" style="color: var(--danger-text); font-weight: 500;">Sign out</span></button></div>

@@ -1,6 +1,6 @@
 const row = (icon, tile, title, sub) => `<button type="button" class="lrow lrow--icon" style="min-height: 60px;"><span class="lrow__icon"${tile ? ` style="background: var(${tile});"` : ''}><span class="ic" aria-hidden="true">${icon}</span></span><span class="lrow__body"><span class="lrow__title" style="display: block; font-weight: 500;">${title}</span><span class="lrow__sub" style="display: block;">${sub}</span></span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>`;
 const tabbar = (cur) => `<nav class="tabbar" style="height: 76px; padding-bottom: 22px;" aria-label="Utama">
-    ${[['today', 'Hari ini'], ['calendar_month', 'Jadwal'], ['school', 'Layanan'], ['person', 'Profil']].map(([ic, l]) => `<button type="button" class="tabbar__item"${l === cur ? ' aria-current="page"' : ''}><span class="ic" aria-hidden="true">${ic}</span>${l}</button>`).join('')}
+    ${[['today', 'Hari ini'], ['calendar_month', 'Jadwal'], ['account_balance', 'Layanan'], ['person', 'Profil']].map(([ic, l]) => `<button type="button" class="tabbar__item"${l === cur ? ' aria-current="page"' : ''}><span class="ic" aria-hidden="true">${ic}</span>${l}</button>`).join('')}
   </nav>`;
 
 export default {
@@ -38,13 +38,13 @@ export default {
     <h1 class="large-title">Hari ini</h1>
     <div class="stack" style="padding: 12px 16px 110px;">
       <div class="list list--fill">
-        ${row('code', '--tile-blue', 'Posyandu Melati', '08.00 · Balai warga RT 03')}
-        ${row('grid_view', '', 'Pemeriksaan ibu hamil', '10.00 · Puskesmas Kedaton')}
-        ${row('lan', '--tile-orange', 'Imunisasi anak', '13.00 · Puskesmas Kedaton')}
+        ${row('groups', '--tile-blue', 'Posyandu Melati', '08.00 · Balai warga RT 03')}
+        ${row('stethoscope', '', 'Pemeriksaan ibu hamil', '10.00 · Puskesmas Kedaton')}
+        ${row('medical_services', '--tile-orange', 'Imunisasi anak', '13.00 · Puskesmas Kedaton')}
       </div>
       <div class="auto-grid" style="--min: 120px;">
-        <article class="kpi"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">event_available</span></span><span class="kpi__label">Kehadiran</span></div><div class="kpi__value">92<small>%</small></div></article>
-        <article class="kpi"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">assignment</span></span><span class="kpi__label">Tugas tertunda</span></div><div class="kpi__value">3</div></article>
+        <article class="kpi"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">event_available</span></span><span class="kpi__label">Berkas lengkap</span></div><div class="kpi__value">92<small>%</small></div></article>
+        <article class="kpi"><div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">assignment</span></span><span class="kpi__label">Urusan tertunda</span></div><div class="kpi__value">3</div></article>
       </div>
       <div class="list list--fill">
         <div class="lrow" style="min-height: 56px;"><span class="lrow__body"><span class="lrow__title" style="display: block;">Lengkapi surat domisili</span><span class="lrow__sub" style="display: block;">Izin usaha mikro · batas besok</span></span><span class="badge badge--warning">Besok</span></div>
