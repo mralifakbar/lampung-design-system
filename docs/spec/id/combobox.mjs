@@ -3,7 +3,7 @@ const opt = (v, label) => `<li class="menu__item" role="option" data-value="${v}
 export default {
   summary: 'Text field yang menyaring daftar opsi saat Anda mengetik dan menyimpan satu yang dipilih. Untuk daftar panjang dan opsi dari server; ia memberi tahu saat tidak ada yang cocok.',
   when: [
-    'Satu nilai dari daftar panjang yang dikenal orang lewat namanya: provinsi, kota, sekolah, kelurahan, jurusan.',
+    'Satu nilai dari daftar panjang yang dikenal orang lewat namanya: kabupaten atau kota, kecamatan, kelurahan, puskesmas, kantor layanan.',
     'Opsi datang dari server saat mengetik (React `Combobox` dengan `loadOptions`).',
     'Orang tahu yang mereka mau dan mengetik tiga huruf lebih cepat daripada menggulir.',
   ],
@@ -25,21 +25,21 @@ export default {
   ],
   examples: [
     {
-      title: 'Provinsi',
-      desc: 'Fokus memilih teks dan membuka daftar; mengetik menyaring bagian mana pun dari nama; Enter memilih baris yang disorot. Coba "jawa" atau "kal".',
+      title: 'Kabupaten atau kota',
+      desc: 'Fokus memilih teks dan membuka daftar; mengetik menyaring bagian mana pun dari nama; Enter memilih baris yang disorot. Coba "lampung" atau "me".',
       html: `<div class="field" style="max-width: 360px; width: 100%;">
-  <label class="field__label" for="cb-prov">Provinsi</label>
+  <label class="field__label" for="cb-prov">Kabupaten atau kota</label>
   <div class="select combobox" data-lds-combobox>
-    <div class="control combobox__control"><span class="ic" aria-hidden="true">location_on</span><input id="cb-prov" role="combobox" placeholder="Semua provinsi"><span class="control__btn combobox__arrow" aria-hidden="true"><span class="ic">expand_more</span></span></div>
-    <ul class="menu select__menu" role="listbox" aria-label="Provinsi">
-      ${opt('jabar', 'Jawa Barat')}
-      ${opt('jateng', 'Jawa Tengah')}
-      ${opt('jatim', 'Jawa Timur')}
-      ${opt('bali', 'Bali')}
-      ${opt('kalbar', 'Kalimantan Barat')}
-      ${opt('kaltim', 'Kalimantan Timur')}
-      ${opt('sulsel', 'Sulawesi Selatan')}
-      ${opt('papua', 'Papua')}
+    <div class="control combobox__control"><span class="ic" aria-hidden="true">location_on</span><input id="cb-prov" role="combobox" placeholder="Semua kabupaten dan kota"><span class="control__btn combobox__arrow" aria-hidden="true"><span class="ic">expand_more</span></span></div>
+    <ul class="menu select__menu" role="listbox" aria-label="Kabupaten atau kota">
+      ${opt('bdl', 'Kota Bandar Lampung')}
+      ${opt('metro', 'Kota Metro')}
+      ${opt('lamsel', 'Kabupaten Lampung Selatan')}
+      ${opt('lamteng', 'Kabupaten Lampung Tengah')}
+      ${opt('lampura', 'Kabupaten Lampung Utara')}
+      ${opt('pringsewu', 'Kabupaten Pringsewu')}
+      ${opt('pesawaran', 'Kabupaten Pesawaran')}
+      ${opt('tanggamus', 'Kabupaten Tanggamus')}
       <li class="select__empty" role="presentation" hidden>Tidak ada yang cocok. Coba kata lain.</li>
     </ul>
   </div>
@@ -49,23 +49,23 @@ export default {
       title: 'Opsi dari server (React)',
       desc: 'Dengan `loadOptions` kueri ditunda (debounce 180 ms) dan permintaan sebelumnya dibatalkan saat teks berubah; spinner tampil di kolom selama memuat. `minChars` menunggu sampai hurufnya cukup.',
       html: `<div class="field" style="max-width: 360px; width: 100%;">
-  <label class="field__label" for="cb-uni">Sekolah</label>
+  <label class="field__label" for="cb-uni">Puskesmas</label>
   <div class="select combobox">
-    <div class="control combobox__control is-open"><span class="ic" aria-hidden="true">school</span><input id="cb-uni" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-controls="cb-uni-list" value="sma"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
-    <ul class="menu select__menu is-open" role="listbox" id="cb-uni-list" aria-label="Sekolah">
-      <li class="menu__item" role="option" aria-selected="false"><span class="select__text">SMA Negeri 3 Kotabumi<small>Kotabumi, Lampung Utara</small></span></li>
-      <li class="menu__item is-hover" role="option" aria-selected="false"><span class="select__text">SMA Negeri 1 Pringsewu<small>Pringsewu, Kabupaten Pringsewu</small></span></li>
+    <div class="control combobox__control is-open"><span class="ic" aria-hidden="true">local_hospital</span><input id="cb-uni" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-controls="cb-uni-list" value="way"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+    <ul class="menu select__menu is-open" role="listbox" id="cb-uni-list" aria-label="Puskesmas">
+      <li class="menu__item" role="option" aria-selected="false"><span class="select__text">Puskesmas Way Halim<small>Way Halim, Bandar Lampung</small></span></li>
+      <li class="menu__item is-hover" role="option" aria-selected="false"><span class="select__text">Puskesmas Way Kandis<small>Tanjung Senang, Bandar Lampung</small></span></li>
     </ul>
   </div>
 </div>`,
       code: `<Combobox
-  label="Sekolah"
-  icon="school"
+  label="Puskesmas"
+  icon="local_hospital"
   value={uni}
   onChange={setUni}
   minChars={3}
   loadOptions={(q, signal) =>
-    fetch(\`/api/universities?q=\${encodeURIComponent(q)}\`, { signal }).then((r) => r.json())
+    fetch(\`/api/puskesmas?q=\${encodeURIComponent(q)}\`, { signal }).then((r) => r.json())
   }
 />`,
     },
@@ -76,7 +76,7 @@ export default {
     ['filtering', 'Baris yang tidak mengandung teks diberi `hidden`; baris pertama yang terlihat disorot.'],
     ['no match', '`.select__empty` menampilkan "Tidak ada yang cocok. Coba kata lain."'],
     ['loading (React)', '[Spinner](spinner) di kolom menggantikan chevron.'],
-    ['chosen (React)', 'Tombol hapus `.control__btn` (ikon tutup, berlabel "Hapus Provinsi") menggantikan chevron.'],
+    ['chosen (React)', 'Tombol hapus `.control__btn` (ikon tutup, berlabel "Hapus Kabupaten atau kota") menggantikan chevron.'],
   ],
   motion: [
     'Daftar memakai gerak menu: masuk dengan `--spring-smooth` (560 ms) dari `scale(0.96) translateY(-4px)` dengan opacity dalam `--d-fast`; keluar dalam `--d-exit` (180 ms) dengan `--ease-exit`.',
@@ -103,11 +103,11 @@ export default {
   react: `import { Combobox } from 'lampung-design-system/react';
 
 // Local options, filtered in the browser
-<Combobox label="Provinsi" icon="location_on" value={prov} onChange={setProv}
-  options={[{ value: 'jabar', label: 'Jawa Barat' }, { value: 'bali', label: 'Bali' }]} />
+<Combobox label="Kabupaten atau kota" icon="location_on" value={prov} onChange={setProv}
+  options={[{ value: 'bdl', label: 'Kota Bandar Lampung' }, { value: 'metro', label: 'Kota Metro' }]} />
 
 // From a server: debounced 180 ms, aborted when the query changes
-<Combobox label="Sekolah" icon="school" value={uni} onChange={setUni} minChars={3}
-  loadOptions={(q, signal) => fetch(\`/api/universities?q=\${q}\`, { signal }).then((r) => r.json())}
-  emptyText="Tidak ada sekolah dengan nama itu. Periksa ejaannya." />`,
+<Combobox label="Puskesmas" icon="local_hospital" value={uni} onChange={setUni} minChars={3}
+  loadOptions={(q, signal) => fetch(\`/api/puskesmas?q=\${q}\`, { signal }).then((r) => r.json())}
+  emptyText="Tidak ada puskesmas dengan nama itu. Periksa ejaannya." />`,
 };
