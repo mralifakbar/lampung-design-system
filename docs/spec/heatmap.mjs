@@ -1,7 +1,7 @@
 // 7 rows (Mon to Sun) by 20 columns (weeks). Mid-week is busiest; the pattern is deterministic.
 const days = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 const base = [2, 2.6, 3.2, 2.8, 2, 0.9, 0.4];
-const hours = ['no study', '1 hour', '2 hours', '3 hours', '4 or more hours'];
+const hours = ['no patients', 'under 25 patients', '25 to 49 patients', '50 to 74 patients', '75 patients or more'];
 const cells = days.map((d, r) => Array.from({ length: 20 }, (_, w) => {
   const l = Math.max(0, Math.min(4, Math.round(base[r] + (((w * 7 + r * 3) % 5) - 2) * 0.55 + (w > 13 ? 0.6 : 0))));
   return `<i${l ? ` class="l${l}"` : ''} title="Week ${w + 1}, ${d}: ${hours[l]}"></i>`;
@@ -12,9 +12,9 @@ export default {
   title: 'Heatmap',
   group: 'Charts',
   order: 7,
-  summary: 'A grid of small squares, one per day or slot, shaded in five steps of one hue from empty to most. Shows patterns over many periods (busy weekdays, study streaks) rather than exact values.',
+  summary: 'A grid of small squares, one per day or slot, shaded in five steps of one hue from empty to most. Shows patterns over many periods (busy weekdays, weekly habits) rather than exact values.',
   when: [
-    'Activity per day over weeks or months: study hours, submissions, logins.',
+    'Activity per day over weeks or months: patient visits, reports received, permit applications.',
     'Spotting a pattern in two dimensions (weekday by week, hour by weekday) where the exact value of each cell matters less.',
   ],
   whenNot: [
@@ -32,12 +32,12 @@ export default {
   ],
   examples: [
     {
-      title: 'Study activity',
+      title: 'Puskesmas visits',
       desc: 'Rows are weekdays, columns are weeks. Hover a cell to see it grow and its title.',
       stage: 'block',
       html: `<div class="chart-card">
-  <div><div class="chart-card__q">When do I study?</div><div class="chart-card__sub">Hours logged per day, last 20 weeks</div></div>
-  <div class="hm" role="img" aria-label="Study activity over 20 weeks. Wednesdays are busiest, weekends quiet, and the last 6 weeks are busier than before.">
+  <div><div class="chart-card__q">When is the puskesmas busiest?</div><div class="chart-card__sub">Patient visits per day, last 20 weeks</div></div>
+  <div class="hm" role="img" aria-label="Patient visits over 20 weeks. Wednesdays are busiest, weekends quiet, and the last 6 weeks are busier than before.">
     ${cells}
   </div>
   ${scale}
@@ -45,11 +45,11 @@ export default {
     },
   ],
   variants: [
-    ['l1 to l4', 'Four filled steps plus empty: five in all. Map your values to steps with fixed thresholds (1, 2, 3, 4+ hours), not by percentile, so the scale means the same every week.'],
+    ['l1 to l4', 'Four filled steps plus empty: five in all. Map your values to steps with fixed thresholds (under 25, 25, 50, 75 or more patients), not by percentile, so the scale means the same every week.'],
   ],
   states: [
     ['hover', 'A cell scales to 1.25 on `--spring-snappy`; its `title` shows the value.'],
-    ['empty period', 'All cells empty is a valid state; say so in the subtitle ("No study logged yet") rather than hiding the grid.'],
+    ['empty period', 'All cells empty is a valid state; say so in the subtitle ("No visits recorded yet") rather than hiding the grid.'],
     ['loading, error', 'See [chart states](chart-states).'],
   ],
   motion: [
