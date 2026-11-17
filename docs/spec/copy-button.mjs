@@ -6,7 +6,7 @@ export default {
   order: 8,
   summary: 'A button that copies a value to the clipboard and confirms in place: the copy icon blurs into a check and the label says "Copied" for 1.6 s. One attribute, `data-lds-copy`, holds the text.',
   when: [
-    'A value people paste somewhere else: an invite code, a referral link, a payment reference, an API key, a code sample.',
+    'A value people paste somewhere else: an application number, a tracking link, a payment reference (kode bayar), an API key, a code sample.',
     'Next to a read-only field or code block whose content is hard to select by hand on a phone.',
   ],
   whenNot: [
@@ -26,15 +26,15 @@ export default {
       title: 'Inside a field',
       desc: 'Press Copy: the icon blurs into a check and the label changes, then both return.',
       html: `<div class="control" style="width: 380px; max-width: 100%; padding-right: 6px;">
-  <span style="flex: 1; min-width: 0; font: 400 14px/1 var(--mono); color: var(--text-default); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">TRYOUT-7Q4K-2026</span>
-  <button type="button" class="btn btn--gray btn--sm" data-lds-copy="TRYOUT-7Q4K-2026" style="min-width: 84px;">${swap}<span data-lds-copy-label="Copied" aria-live="polite">Copy</span></button>
+  <span style="flex: 1; min-width: 0; font: 400 14px/1 var(--mono); color: var(--text-default); overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">IZIN-7Q4K-2026</span>
+  <button type="button" class="btn btn--gray btn--sm" data-lds-copy="IZIN-7Q4K-2026" style="min-width: 84px;">${swap}<span data-lds-copy-label="Copied" aria-live="polite">Copy</span></button>
 </div>`,
     },
     {
       title: 'Icon only',
       desc: 'Where space is tight (a message action row). The name stays "Copy message"; a hidden live span announces "Copied".',
       html: `<div class="docs-row">
-  <span class="tip-host"><button type="button" class="icon-btn" aria-label="Copy message" data-lds-copy="Room B204, 09:00. Bring your student card."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b" style="color: var(--success-text);">check</span></span><span class="sr-only" data-lds-copy-label="Copied" aria-live="polite"></span></button><span class="tip" role="tooltip">Copy message</span></span>
+  <span class="tip-host"><button type="button" class="icon-btn" aria-label="Copy message" data-lds-copy="Counter 3, 09:00. Bring your original KTP."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b" style="color: var(--success-text);">check</span></span><span class="sr-only" data-lds-copy-label="Copied" aria-live="polite"></span></button><span class="tip" role="tooltip">Copy message</span></span>
 </div>`,
     },
   ],

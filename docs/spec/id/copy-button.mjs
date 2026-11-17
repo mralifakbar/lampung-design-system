@@ -3,7 +3,7 @@ const swap = `<span class="swap" aria-hidden="true" style="width: 16px; height: 
 export default {
   summary: 'Tombol yang menyalin nilai ke clipboard dan mengonfirmasi di tempat: ikon salin memudar menjadi centang dan labelnya berbunyi "Disalin" selama 1,6 detik. Satu atribut, `data-lds-copy`, menyimpan teksnya.',
   when: [
-    'Nilai yang akan ditempel orang di tempat lain: kode undangan, tautan rujukan, nomor referensi pembayaran, API key, contoh kode.',
+    'Nilai yang akan ditempel orang di tempat lain: nomor permohonan, tautan lacak berkas, kode bayar retribusi, API key, contoh kode.',
     'Di samping kolom baca saja atau blok kode yang isinya sulit dipilih manual di ponsel.',
   ],
   whenNot: [
