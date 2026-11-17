@@ -25,11 +25,11 @@ export default {
   <span class="badge">Konten contoh</span>
   <figure class="testimonial testimonial--lg">
     <blockquote class="testimonial__quote">Dulu mengurus izin usaha butuh tiga kali datang ke kantor. Sekarang berkas saya lengkap dalam satu malam, dari rumah.</blockquote>
-    <figcaption class="testimonial__by"><span class="avatar" aria-hidden="true">DA</span><span class="testimonial__who"><span class="testimonial__name">Dewi Anggraini</span><span class="testimonial__role">Pemilik warung makan, contoh</span></span></figcaption>
+    <figcaption class="testimonial__by"><span class="avatar" aria-hidden="true">DA</span><span class="testimonial__who"><span class="testimonial__name">Dewi Anggraini</span><span class="testimonial__role">Pemilik warung makan di Kedaton, contoh</span></span></figcaption>
   </figure>
   <figure class="testimonial">
     <blockquote class="testimonial__quote">Warga kami bisa melihat sendiri laporan lampu jalan sudah sampai tahap mana.</blockquote>
-    <figcaption class="testimonial__by"><span class="avatar avatar--gray" aria-hidden="true">AH</span><span class="testimonial__who"><span class="testimonial__name">Arif Hakim</span><span class="testimonial__role">Ketua RT, contoh</span></span></figcaption>
+    <figcaption class="testimonial__by"><span class="avatar avatar--gray" aria-hidden="true">AH</span><span class="testimonial__who"><span class="testimonial__name">Arif Hakim</span><span class="testimonial__role">Ketua RT di Way Halim, contoh</span></span></figcaption>
   </figure>
 </div>`,
     },
