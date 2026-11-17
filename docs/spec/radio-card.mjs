@@ -8,8 +8,8 @@ export default {
   order: 3,
   summary: 'A selectable card for one choice among two to four options that each need a title, a line of detail and often a price. The whole card is the target; the chosen one gets an accent edge and tint.',
   when: [
-    'Choosing a plan, package or class type where each option has a description and a price: Free, Monthly, Semester.',
-    'Choosing a path that deserves explanation: "Practice mode" versus "Exam mode".',
+    'Choosing a package, service or delivery type where each option has a description and a price: Counter pickup, Post, Express courier.',
+    'Choosing a path that deserves explanation: "Collect it yourself" versus "Delivered to your home".',
     'Two to four options, all of which fit on screen.',
   ],
   whenNot: [
@@ -31,17 +31,17 @@ export default {
   ],
   examples: [
     {
-      title: 'Choose a plan',
+      title: 'Choose how to collect a document',
       desc: 'Click a card, or focus the group and use the arrow keys: focus and selection move together, as with native radios.',
-      html: `<div class="stack" role="radiogroup" aria-label="Plan" style="max-width: 460px; width: 100%;" onclick="${PICK}" onkeydown="${KEYS}">
-  ${card('Free', 'Five tryouts a month, basic scores', 'Rp 0', false)}
-  ${card('Monthly', 'Unlimited tryouts and explanations', 'Rp 49.000', true)}
-  ${card('Until exam day', 'Everything, plus a study plan', 'Rp 199.000', false)}
+      html: `<div class="stack" role="radiogroup" aria-label="Pickup method" style="max-width: 460px; width: 100%;" onclick="${PICK}" onkeydown="${KEYS}">
+  ${card('Counter pickup', 'Ready in 3 working days, bring your receipt', 'Rp 0', false)}
+  ${card('By post', 'Arrives in 5 to 7 working days', 'Rp 15.000', true)}
+  ${card('Express courier', 'Next day within the city', 'Rp 35.000', false)}
 </div>`,
-      code: `<div class="stack" role="radiogroup" aria-label="Plan">
+      code: `<div class="stack" role="radiogroup" aria-label="Pickup method">
   <button type="button" class="rcard" role="radio" aria-checked="false" tabindex="-1">
     <span class="radio__dot" aria-hidden="true"></span>
-    <span><span class="rcard__title" style="display: block;">Free</span><span class="rcard__sub" style="display: block;">Five tryouts a month, basic scores</span></span>
+    <span><span class="rcard__title" style="display: block;">Counter pickup</span><span class="rcard__sub" style="display: block;">Ready in 3 working days, bring your receipt</span></span>
     <span class="rcard__price">Rp 0</span>
   </button>
   <button type="button" class="rcard" role="radio" aria-checked="true" tabindex="0">…</button>
@@ -50,10 +50,10 @@ export default {
     },
     {
       title: 'Side by side, without prices',
-      desc: 'Two modes with an explanation each, in an auto grid that stacks on phones.',
-      html: `<div class="auto-grid" role="radiogroup" aria-label="Mode" style="--min: 220px; max-width: 560px; width: 100%;" onclick="${PICK}" onkeydown="${KEYS}">
-  ${card('Practice mode', 'See the answer after each question', '', true)}
-  ${card('Exam mode', 'Timed, answers shown at the end', '', false)}
+      desc: 'Two ways to be served with an explanation each, in an auto grid that stacks on phones.',
+      html: `<div class="auto-grid" role="radiogroup" aria-label="Service channel" style="--min: 220px; max-width: 560px; width: 100%;" onclick="${PICK}" onkeydown="${KEYS}">
+  ${card('Visit the office', 'Pick a visiting hour and take a queue number', '', true)}
+  ${card('Online service', 'Upload your files, the result comes by email', '', false)}
 </div>`,
     },
   ],
