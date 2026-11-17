@@ -9,7 +9,7 @@ export default {
     'Whether a person is online (`.avatar__presence`).',
   ],
   whenNot: [
-    ['An icon for a thing (a course, a file type)', 'list', 'Use `.lrow__icon` in a list row'],
+    ['An icon for a thing (a service, a file type)', 'list', 'Use `.lrow__icon` in a list row'],
     ['The state of a system or connection', 'status-dot'],
     ['A large picture someone can open', 'thumbnail'],
     ['A count of waiting items', 'count'],
@@ -31,7 +31,7 @@ export default {
   <span class="avatar" style="--size: 32px;" aria-hidden="true">AR</span>
   <span class="avatar" role="img" aria-label="Ayu Rahma, online">AR<span class="avatar__presence"></span></span>
   <span class="avatar avatar--gray" style="--size: 56px;" aria-hidden="true">NS</span>
-  <span class="avatar avatar--sq" style="--size: 56px;" role="img" aria-label="Debate club">DC</span>
+  <span class="avatar avatar--sq" style="--size: 56px;" role="img" aria-label="Karang taruna youth group">KT</span>
 </div>`,
     },
     {
@@ -47,8 +47,8 @@ export default {
       desc: 'The name next to the avatar is the accessible name, so the avatar is hidden.',
       stage: 'block',
       html: `<div class="list" style="max-width: 420px;">
-  <div class="lrow"><span class="avatar" aria-hidden="true">AR</span><div class="lrow__body"><div class="lrow__title">Ayu Rahma</div><div class="lrow__sub">Class representative</div></div></div>
-  <div class="lrow"><span class="avatar avatar--gray" aria-hidden="true">BW</span><div class="lrow__body"><div class="lrow__title">Budi Wicaksono</div><div class="lrow__sub">Guest lecturer</div></div></div>
+  <div class="lrow"><span class="avatar" aria-hidden="true">AR</span><div class="lrow__body"><div class="lrow__title">Ayu Rahma</div><div class="lrow__sub">Head of RT 04</div></div></div>
+  <div class="lrow"><span class="avatar avatar--gray" aria-hidden="true">BW</span><div class="lrow__body"><div class="lrow__title">Budi Wicaksono</div><div class="lrow__sub">Visiting officer</div></div></div>
 </div>`,
     },
   ],
