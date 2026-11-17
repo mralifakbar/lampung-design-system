@@ -22,14 +22,14 @@ export default {
     {
       title: 'Di dalam kalimat',
       desc: 'Tautan terbaca sebagai bagian dari teks. Sorot untuk melihat garis bawah muncul.',
-      html: `<p class="measure" style="font: var(--type-body); color: var(--text-default);">Permohonan Anda sudah dikirim ke petugas verifikasi. <a class="link" href="#status">Lacak statusnya</a> atau <a class="link link--external" href="https://example.com/exam-rules" target="_blank" rel="noreferrer">baca syarat layanan<span class="sr-only"> (terbuka di tab baru)</span></a>.</p>`,
+      html: `<p class="measure" style="font: var(--type-body); color: var(--text-default);">Permohonan Anda sudah dikirim ke petugas verifikasi. <a class="link" href="#status">Lacak statusnya</a> atau <a class="link link--external" href="https://example.com/service-requirements" target="_blank" rel="noreferrer">baca syarat layanan<span class="sr-only"> (terbuka di tab baru)</span></a>.</p>`,
     },
     {
       title: 'Di bawah kolom',
       desc: 'Jalur kedua yang tenang dan meninggalkan formulir.',
       html: `<div class="field" style="max-width: 360px;">
   <label class="field__label" for="lk-pw">Kata sandi</label>
-  <div class="control"><input id="lk-pw" type="password" value="studyhard"></div>
+  <div class="control"><input id="lk-pw" type="password" value="warga2026"></div>
   <span class="field__help"><a class="link" href="#reset">Lupa kata sandi?</a></span>
 </div>`,
     },

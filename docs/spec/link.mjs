@@ -4,7 +4,7 @@ export default {
   order: 7,
   summary: 'Text that takes you somewhere: an `<a href>` with `.link`, medium weight in the accent text color, the underline fading in on hover. `.link--external` adds an arrow for other sites.',
   when: [
-    'Going to another page, section or site from inside a sentence or a short line of text: "Track its status", "Read the exam rules".',
+    'Going to another page, section or site from inside a sentence or a short line of text: "Track its status", "Read the service requirements".',
     'A quiet secondary path next to a form or card that does not change anything ("Forgot your password?").',
     'Pointing to another website or a document that opens in a new tab (`link--external`).',
   ],
@@ -26,7 +26,7 @@ export default {
       title: 'In a sentence',
       desc: 'Links read as part of the text. Hover to see the underline fade in.',
       stage: 'block',
-      html: `<p class="measure" style="font: var(--type-body); color: var(--text-default);">Your request was sent to your adviser. <a class="link" href="#status">Track its status</a> or <a class="link link--external" href="https://example.com/exam-rules" target="_blank" rel="noreferrer">read the exam rules<span class="sr-only"> (opens in a new tab)</span></a>.</p>`,
+      html: `<p class="measure" style="font: var(--type-body); color: var(--text-default);">Your application was sent to the verification officer. <a class="link" href="#status">Track its status</a> or <a class="link link--external" href="https://example.com/service-requirements" target="_blank" rel="noreferrer">read the service requirements<span class="sr-only"> (opens in a new tab)</span></a>.</p>`,
     },
     {
       title: 'Under a field',
@@ -34,7 +34,7 @@ export default {
       stage: 'block',
       html: `<div class="field" style="max-width: 360px;">
   <label class="field__label" for="lk-pw">Password</label>
-  <div class="control"><input id="lk-pw" type="password" value="studyhard"></div>
+  <div class="control"><input id="lk-pw" type="password" value="warga2026"></div>
   <span class="field__help"><a class="link" href="#reset">Forgot your password?</a></span>
 </div>`,
     },
