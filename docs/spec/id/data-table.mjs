@@ -1,13 +1,13 @@
 const BOX = '<span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span>';
 const people = [
-  ['Rina Wijaya', 'rina@kelola.id', 'admin', 'active', 'Perizinan', '2024-06-24', 'RW'],
-  ['Arif Santoso', 'arif@kelola.id', 'editor', 'active', 'Pengaduan', '2023-03-15', 'AS'],
-  ['Dewi Lestari', 'dewi@kelola.id', 'viewer', 'invited', 'Keuangan', '2026-11-12', 'DL'],
-  ['Bima Prasetyo', 'bima@kelola.id', 'editor', 'suspended', 'Layanan', '2022-04-10', 'BP'],
-  ['Sari Handayani', 'sari@kelola.id', 'admin', 'active', 'Keuangan', '2021-09-02', 'SH'],
-  ['Yusuf Hakim', 'yusuf@kelola.id', 'viewer', 'active', 'Layanan', '2025-01-20', 'YH'],
-  ['Nadia Putri', 'nadia@kelola.id', 'editor', 'invited', 'Pengaduan', '2026-11-14', 'NP'],
-  ['Galih Ramadhan', 'galih@kelola.id', 'viewer', 'active', 'Perizinan', '2024-12-01', 'GR'],
+  ['Rina Wijaya', 'rina@contoh.id', 'admin', 'active', 'Perizinan', '2024-06-24', 'RW'],
+  ['Arif Santoso', 'arif@contoh.id', 'editor', 'active', 'Pengaduan', '2023-03-15', 'AS'],
+  ['Dewi Lestari', 'dewi@contoh.id', 'viewer', 'invited', 'Keuangan', '2026-11-12', 'DL'],
+  ['Bima Prasetyo', 'bima@contoh.id', 'editor', 'suspended', 'Layanan', '2022-04-10', 'BP'],
+  ['Sari Handayani', 'sari@contoh.id', 'admin', 'active', 'Keuangan', '2021-09-02', 'SH'],
+  ['Yusuf Hakim', 'yusuf@contoh.id', 'viewer', 'active', 'Layanan', '2025-01-20', 'YH'],
+  ['Nadia Putri', 'nadia@contoh.id', 'editor', 'invited', 'Pengaduan', '2026-11-14', 'NP'],
+  ['Galih Ramadhan', 'galih@contoh.id', 'viewer', 'active', 'Perizinan', '2024-12-01', 'GR'],
 ];
 const roleName = { admin: 'Admin', editor: 'Penyunting', viewer: 'Pembaca' };
 const label = { active: ['Aktif', 'success'], invited: ['Diundang', 'accent'], suspended: ['Ditangguhkan', 'danger'] };
@@ -88,7 +88,7 @@ ${people.map(row).join('\n')}
 export default {
   summary: 'Tabel tempat orang bekerja: pencarian, chip dan menu filter, header yang bisa diurutkan, menu kolom, kerapatan baris, pemilihan baris dengan selection bar, dan pagination dengan ukuran halaman, semuanya di atas `.table` biasa dan dipasang oleh satu hook. Setiap kontrol langsung mengubah baris dan menyebutkan apa yang dilakukannya.',
   when: [
-    'Daftar catatan yang dicari, dipersempit, diurutkan, dan ditindaklanjuti sekaligus: anggota ruang kerja, pemohon, permohonan izin, tagihan.',
+    'Daftar catatan yang dicari, dipersempit, diurutkan, dan ditindaklanjuti sekaligus: petugas portal layanan, pemohon, permohonan izin, tagihan.',
     'Lebih dari sekitar 20 baris, sehingga halaman dan ukuran halaman membantu, dan kolomnya cukup banyak sehingga sebagian orang ingin lebih sedikit.',
   ],
   whenNot: [
@@ -113,7 +113,7 @@ export default {
   ],
   examples: [
     {
-      title: 'Anggota ruang kerja',
+      title: 'Petugas portal layanan',
       desc: 'Cari "keu", centang chip status, filter peran dari menu (menu tetap terbuka selama Anda mencentang), urutkan dari header mana pun, sembunyikan kolom, pindah ke baris rapat, centang baris (Shift-klik untuk satu rentang), dan pindah halaman. Setiap perubahan langsung memfilter; hitungan dan pager mengikuti.',
       html: `<div class="viewport docs-box" style="height: 620px; width: 100%;"><div class="viewport__content" style="overflow: auto; align-items: stretch;">${demo}</div></div>`,
       code: demo,

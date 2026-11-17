@@ -1,13 +1,13 @@
 const BOX = '<span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span>';
 const people = [
-  ['Rina Wijaya', 'rina@kelola.id', 'Admin', 'active', 'Platform', '2024-06-24', 'RW'],
-  ['Arif Santoso', 'arif@kelola.id', 'Editor', 'active', 'Growth', '2023-03-15', 'AS'],
-  ['Dewi Lestari', 'dewi@kelola.id', 'Viewer', 'invited', 'Finance', '2026-11-12', 'DL'],
-  ['Bima Prasetyo', 'bima@kelola.id', 'Editor', 'suspended', 'Support', '2022-04-10', 'BP'],
-  ['Sari Handayani', 'sari@kelola.id', 'Admin', 'active', 'Finance', '2021-09-02', 'SH'],
-  ['Yusuf Hakim', 'yusuf@kelola.id', 'Viewer', 'active', 'Support', '2025-01-20', 'YH'],
-  ['Nadia Putri', 'nadia@kelola.id', 'Editor', 'invited', 'Growth', '2026-11-14', 'NP'],
-  ['Galih Ramadhan', 'galih@kelola.id', 'Viewer', 'active', 'Platform', '2024-12-01', 'GR'],
+  ['Rina Wijaya', 'rina@contoh.id', 'Admin', 'active', 'Permits', '2024-06-24', 'RW'],
+  ['Arif Santoso', 'arif@contoh.id', 'Editor', 'active', 'Complaints', '2023-03-15', 'AS'],
+  ['Dewi Lestari', 'dewi@contoh.id', 'Viewer', 'invited', 'Finance', '2026-11-12', 'DL'],
+  ['Bima Prasetyo', 'bima@contoh.id', 'Editor', 'suspended', 'Services', '2022-04-10', 'BP'],
+  ['Sari Handayani', 'sari@contoh.id', 'Admin', 'active', 'Finance', '2021-09-02', 'SH'],
+  ['Yusuf Hakim', 'yusuf@contoh.id', 'Viewer', 'active', 'Services', '2025-01-20', 'YH'],
+  ['Nadia Putri', 'nadia@contoh.id', 'Editor', 'invited', 'Complaints', '2026-11-14', 'NP'],
+  ['Galih Ramadhan', 'galih@contoh.id', 'Viewer', 'active', 'Permits', '2024-12-01', 'GR'],
 ];
 const label = { active: ['Active', 'success'], invited: ['Invited', 'accent'], suspended: ['Suspended', 'danger'] };
 const date = (s) => new Date(s).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
@@ -42,7 +42,7 @@ const demo = `<div class="dtable" data-lds-table="demo-members" data-lds-selecti
           <p class="menu__label">Show columns</p>
           <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="role">Role<span class="ic menu__check" aria-hidden="true">check</span></button>
           <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="status">Status<span class="ic menu__check" aria-hidden="true">check</span></button>
-          <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="team">Team<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="team">Division<span class="ic menu__check" aria-hidden="true">check</span></button>
           <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="joined">Joined<span class="ic menu__check" aria-hidden="true">check</span></button>
         </div>
       </div>
@@ -59,7 +59,7 @@ const demo = `<div class="dtable" data-lds-table="demo-members" data-lds-selecti
         <th data-col="name"><button>Name<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
         <th data-col="role"><button>Role<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
         <th data-col="status">Status</th>
-        <th data-col="team"><button>Team<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+        <th data-col="team"><button>Division<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
         <th data-col="joined" aria-sort="descending"><button>Joined<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
       </tr></thead>
       <tbody>
@@ -90,7 +90,7 @@ export default {
   order: 18,
   summary: 'A table people work in: search, filter chips and menus, sortable headers, a column menu, row density, row selection with a selection bar, and pagination with a page size, all on a plain `.table` and wired by one hook. Every control changes the rows at once and says what it did.',
   when: [
-    'A list of records people search, narrow, sort and act on in bulk: members of a workspace, customers, orders, invoices.',
+    'A list of records people search, narrow, sort and act on in bulk: staff of a service portal, applicants, permit applications, bills.',
     'More than about 20 rows, so paging and a page size help, and enough columns that some people want fewer.',
   ],
   whenNot: [
@@ -115,7 +115,7 @@ export default {
   ],
   examples: [
     {
-      title: 'Members of a workspace',
+      title: 'Staff of a service portal',
       desc: 'Search "fin", tick a status chip, filter by role from the menu (it stays open while you tick), sort by any header, hide a column, switch to compact rows, tick rows (Shift-click for a run) and page through. Every change filters at once; the count and the pager follow.',
       stage: 'block',
       html: `<div class="viewport docs-box" style="height: 620px; width: 100%;"><div class="viewport__content" style="overflow: auto; align-items: stretch;">${demo}</div></div>`,
