@@ -4,7 +4,7 @@ export default {
   order: 6,
   summary: 'Numbered page buttons under a long list or table. Show the first page, the last page and the neighbors of the current one; gaps become an ellipsis.',
   when: [
-    'A table or list of records that is too long for one page and people need to reach a specific page or come back to one: students, invoices, submissions.',
+    'A table or list of records that is too long for one page and people need to reach a specific page or come back to one: citizen reports, permit applications, aid recipients.',
     'The total is known, so "Page 5 of 12" is honest.',
   ],
   whenNot: [
