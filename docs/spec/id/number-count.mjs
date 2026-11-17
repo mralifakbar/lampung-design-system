@@ -4,7 +4,7 @@ const STEP = "const box = this.closest('.docs-col'); let p = Number(box.dataset.
 export default {
   summary: 'Saat angka berubah di depan seseorang, setiap kolom digit bergulir ke nilai barunya dengan smooth spring, dan bar serta ring meluncur ke panjang barunya dengan kurva in-out. Perubahannya terlihat, nilai barunya langsung terbaca, dan lebarnya tidak pernah melompat.',
   when: [
-    'Hitungan yang baru diubah orang: stepper, jumlah suka, isi keranjang, kursi yang dipesan.',
+    'Hitungan yang baru diubah orang: stepper, jumlah suka, berkas dalam permohonan, kursi yang dipesan.',
     'Angka langsung yang diperbarui saat sedang dilihat: laporan yang masuk, orang yang sedang daring, skor yang sedang dijumlahkan.',
     'Nilai progres yang bergerak: [progress bar](progress-bar), [progress ring](progress-ring), [meter](meter).',
   ],
