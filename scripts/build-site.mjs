@@ -7,6 +7,8 @@
 import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { transformSync } from 'esbuild';
+import { brokenLinks, llms, seo } from './site-seo.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const out = join(root, 'site');
@@ -35,6 +37,20 @@ copy('LICENSE', 'LICENSE.txt');
 
 // Documentation and examples. Spec and guide sources stay out; only built pages ship.
 copy('docs', 'docs', skip('/docs/spec', '/docs/guides', '/examples/src', '/examples/README.md'));
+
+// Minify what the pages load (the npm package keeps the readable sources). Cuts css/ and js/ by about half
+// before compression; Cloudflare then serves them with Brotli.
+for (const dir of ['css', 'js', 'docs', '.']) {
+  const abs = join(out, dir);
+  for (const f of readdirSync(abs)) {
+    const p = join(abs, f);
+    if (statSync(p).isDirectory()) continue;
+    const loader = f.endsWith('.css') ? 'css' : f.endsWith('.js') && !f.endsWith('.d.ts') ? 'js' : null;
+    if (!loader) continue;
+    const src = readFileSync(p, 'utf8');
+    writeFileSync(p, transformSync(src, { loader, minify: true, legalComments: 'none', ...(loader === 'js' ? { format: 'esm', target: 'es2020' } : { target: ['chrome100', 'safari15', 'firefox100'] }) }).code);
+  }
+}
 
 // Registries under /r: shadcn items and one JSON per component for `lampung-ds add`.
 mkdirSync(join(out, 'r'), { recursive: true });
@@ -86,6 +102,7 @@ writeFileSync(join(out, '404.html'), `<!doctype html>
 // Headers: long cache for fingerprint-free but stable assets is risky, so assets get a short cache with
 // revalidation; fonts and glyphs (rarely change) get a week. Registries are readable from anywhere.
 writeFileSync(join(out, '_headers'), `/*
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=(self)
@@ -111,26 +128,55 @@ writeFileSync(join(out, '_headers'), `/*
   Cache-Control: public, max-age=600
   Access-Control-Allow-Origin: *
   Content-Type: application/json; charset=utf-8
+
+/*.md
+  Content-Type: text/markdown; charset=utf-8
+  Access-Control-Allow-Origin: *
+  X-Robots-Tag: noindex
+
+/llms.txt
+  Content-Type: text/plain; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/llms-full.txt
+  Content-Type: text/plain; charset=utf-8
+  Access-Control-Allow-Origin: *
+
+/brand/*
+  Cache-Control: public, max-age=604800
 `);
 
-// robots and sitemap from the HTML that actually shipped.
-const pages = [];
-const walk = (dir) => {
-  for (const f of readdirSync(dir)) {
-    const p = join(dir, f);
-    if (statSync(p).isDirectory()) walk(p);
-    else if (f.endsWith('.html') && f !== '404.html' && !p.includes(`${join('docs', 'boards')}`)) pages.push(relative(out, p).split('\\').join('/'));
-  }
-};
-walk(out);
-const url = (p) => `${ORIGIN}/${p.replace(/(^|\/)index\.html$/, '$1')}`;
-writeFileSync(join(out, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.sort().map((p) => `  <url><loc>${url(p)}</loc></url>`).join('\n')}\n</urlset>\n`);
-writeFileSync(join(out, 'robots.txt'), `User-agent: *\nAllow: /\nSitemap: ${ORIGIN}/sitemap.xml\n`);
+// Web app manifest and a /favicon.ico (browsers ask for it even with an SVG icon declared).
+writeFileSync(join(out, 'site.webmanifest'), JSON.stringify({
+  name: 'Lampung Design System', short_name: 'LDS', start_url: '/', display: 'browser',
+  background_color: '#FFFFFF', theme_color: '#0B6E4F',
+  icons: [
+    { src: '/brand/icon-192.png', sizes: '192x192', type: 'image/png' },
+    { src: '/brand/icon-512.png', sizes: '512x512', type: 'image/png' },
+    { src: '/brand/mark.svg', sizes: 'any', type: 'image/svg+xml' },
+  ],
+}, null, 2) + '\n');
+{
+  // An ICO holding one 32 px PNG (valid since Windows Vista and in every current browser).
+  const png = readFileSync(join(root, 'brand/icon-32.png'));
+  const head = Buffer.alloc(22);
+  head.writeUInt16LE(0, 0); head.writeUInt16LE(1, 2); head.writeUInt16LE(1, 4);
+  head.writeUInt8(32, 6); head.writeUInt8(32, 7); head.writeUInt16LE(1, 10); head.writeUInt16LE(32, 12);
+  head.writeUInt32LE(png.length, 14); head.writeUInt32LE(22, 18);
+  writeFileSync(join(out, 'favicon.ico'), Buffer.concat([head, png]));
+}
+
+// Canonical URLs, hreflang, social tags, structured data, clean links, sitemap, robots and llms.txt.
+// LDS_CF_BEACON: Cloudflare Web Analytics site token (dashboard > Analytics & Logs > Web Analytics).
+const pageCount = seo(out, ORIGIN, { beacon: process.env.LDS_CF_BEACON });
+const llmsCount = llms(out, ORIGIN);
+const broken = brokenLinks(out);
+if (broken.length) throw new Error(`build-site: ${broken.length} broken internal link(s)\n  ${broken.slice(0, 40).join('\n  ')}`);
 
 // Sanity: the pages the landing links to must exist.
 for (const must of ['index.html', 'en/index.html', 'docs/index.html', 'docs/en/index.html', 'docs/components/button.html', 'docs/en/components/button.html', 'docs/guide/instalasi.html', 'css/lds.css', 'js/lds.js', 'js/aksara.js', 'r/lds.json']) {
   if (!existsSync(join(out, must))) throw new Error(`build-site: ${must} is missing from site/`);
 }
 const size = (dir) => readdirSync(dir).reduce((n, f) => { const p = join(dir, f); return n + (statSync(p).isDirectory() ? size(p) : statSync(p).size); }, 0);
-console.log(`build-site: ${pages.length} pages, ${(size(out) / 1048576).toFixed(1)} MB in site/`);
+console.log(`build-site: ${pageCount} indexed pages, ${llmsCount} in llms.txt, ${(size(out) / 1048576).toFixed(1)} MB in site/`);
 JSON.parse(readFileSync(join(out, 'r/lds.json'), 'utf8'));
