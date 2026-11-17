@@ -1,7 +1,7 @@
 export default {
   summary: 'Angka yang setiap digitnya bergeser ke nilai barunya dengan spring yang halus, seperti odometer. Untuk hitungan yang berubah saat orang sedang melihatnya.',
   when: [
-    'Hitungan yang berubah di depan orang: suka, kursi terisi, nilai stepper, butir di keranjang.',
+    'Hitungan yang berubah di depan orang: suka, nomor antrean terambil, nilai stepper, kursi bus kota yang dipesan.',
     'Angka langsung yang naik atau turun selama halaman terbuka.',
   ],
   whenNot: [
@@ -10,7 +10,7 @@ export default {
     ['Angka statis', 'stat-row', 'Tulis sebagai teks dengan angka tabular'],
     ['Angka yang diketik atau dinaik-turunkan orang', 'number-stepper', 'Stepper sudah memakai rolling number untuk nilainya'],
   ],
-  where: 'Sebaris di dalam teks atau kontrol pemilik angka itu: tombol suka, stepper, nilai statistik, badge keranjang. Mewarisi font, ukuran, dan warna dari induknya.',
+  where: 'Sebaris di dalam teks atau kontrol pemilik angka itu: tombol suka, stepper, nilai statistik, badge antrean. Mewarisi font, ukuran, dan warna dari induknya.',
   anatomy: [
     ['.roll', 'Wajib. Kotak sebaris setinggi 1,2 em yang memotong kolomnya. Angka tabular.'],
     ['[data-lds-roll]', 'Nilai awal. `init()` membangun kolom darinya.'],
@@ -18,8 +18,8 @@ export default {
   ],
   examples: [
     {
-      title: 'Kursi terisi',
-      desc: 'Setiap digit bergeser ke tempat barunya. Tekan tombolnya.',
+      title: 'Nomor antrean terambil',
+      desc: 'Tiket antrean yang terambil hari ini di loket layanan kecamatan. Setiap digit bergeser ke tempat barunya. Tekan tombolnya.',
       html: `<div class="docs-row" style="gap: 20px;">
   <span style="font: 600 40px/1 var(--font); letter-spacing: -0.03em; color: var(--text-strong);"><span class="roll" id="rn" role="img" data-lds-roll="128"></span></span>
   <button class="btn btn--secondary btn--sm" onclick="const el = document.getElementById('rn'); import('../../js/lds.js').then((m) => m.setRoll(el, Number(el.getAttribute('aria-label')) + 1));"><span class="ic" aria-hidden="true">add</span>Tambah satu</button>

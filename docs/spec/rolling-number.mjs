@@ -4,7 +4,7 @@ export default {
   order: 14,
   summary: 'A number whose digits each slide to their new value on the smooth spring, like an odometer. For a count that changes while the person watches.',
   when: [
-    'A count that changes in front of the person: likes, seats taken, a stepper value, items in a cart.',
+    'A count that changes in front of the person: likes, queue numbers taken, a stepper value, seats booked on a city bus.',
     'A live figure that ticks up or down while the page is open.',
   ],
   whenNot: [
@@ -13,7 +13,7 @@ export default {
     ['A static figure', 'stat-row', 'Write it as text with tabular figures'],
     ['A number the person types or steps', 'number-stepper', 'The stepper already uses a rolling number for its value'],
   ],
-  where: 'Inline in the text or control that owns the number: a like button, a stepper, a stat value, a cart badge. It inherits font, size and color from its parent.',
+  where: 'Inline in the text or control that owns the number: a like button, a stepper, a stat value, a queue badge. It inherits font, size and color from its parent.',
   anatomy: [
     ['.roll', 'Required. An inline box 1.2 em tall that clips the columns. Tabular figures.'],
     ['[data-lds-roll]', 'The starting value. `init()` builds the columns from it.'],
@@ -21,8 +21,8 @@ export default {
   ],
   examples: [
     {
-      title: 'Seats taken',
-      desc: 'Each digit slides to its new place. Press the buttons.',
+      title: 'Queue numbers taken',
+      desc: 'Queue tickets taken today at a district service counter. Each digit slides to its new place. Press the buttons.',
       html: `<div class="docs-row" style="gap: 20px;">
   <span style="font: 600 40px/1 var(--font); letter-spacing: -0.03em; color: var(--text-strong);"><span class="roll" id="rn" role="img" data-lds-roll="128"></span></span>
   <button class="btn btn--secondary btn--sm" onclick="const el = document.getElementById('rn'); import('../../js/lds.js').then((m) => m.setRoll(el, Number(el.getAttribute('aria-label')) + 1));"><span class="ic" aria-hidden="true">add</span>One more</button>
