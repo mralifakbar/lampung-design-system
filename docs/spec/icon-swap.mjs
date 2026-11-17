@@ -30,18 +30,18 @@ export default {
       title: 'Copy, then copied',
       desc: 'Press copy: the icon becomes a check and the label says Copied, then both come back after 1.6 s.',
       html: `<div class="codeblock" style="width: 100%; max-width: 420px;"><div class="codeblock__bar"><span>Install</span><button class="btn btn--plain btn--sm" data-lds-copy="npm install lampung-design-system">${SWAP('content_copy', 'check')}<span data-lds-copy-label="Copied">Copy</span></button></div><pre>npm install lampung-design-system</pre></div>
-<button class="icon-btn" aria-label="Copy the class link" data-lds-copy="https://campus.ac.id/join/BIO101">${SWAP('link', 'check')}</button>`,
+<button class="icon-btn" aria-label="Copy the invitation link" data-lds-copy="https://example.id/musrenbang/way-halim">${SWAP('link', 'check')}</button>`,
     },
     {
       title: 'Play and pause',
-      desc: 'A lecture recording. The icon is the state, so it swaps; the label follows for screen readers.',
-      html: `<button class="icon-btn icon-btn--accent" aria-pressed="false" aria-label="Play lecture" onclick="${TOGGLE('Pause lecture', 'Play lecture')}">${SWAP('play_arrow', 'pause')}</button>
-<span class="card__sub">Lecture 6: Cell membranes, 48 min</span>`,
+      desc: 'A public briefing recording. The icon is the state, so it swaps; the label follows for screen readers.',
+      html: `<button class="icon-btn icon-btn--accent" aria-pressed="false" aria-label="Play recording" onclick="${TOGGLE('Pause recording', 'Play recording')}">${SWAP('play_arrow', 'pause')}</button>
+<span class="card__sub">Regional tax briefing, 48 min</span>`,
     },
     {
       title: 'Save for later',
-      desc: 'Bookmarking a lesson: the outline swaps to the filled icon. Quiet on purpose; there is no count and no burst.',
-      html: `<button class="icon-btn" aria-pressed="false" aria-label="Save lesson" onclick="${TOGGLE('Saved lesson', 'Save lesson')}">${SWAP('bookmark', 'bookmark', true)}</button>
+      desc: 'Bookmarking a service: the outline swaps to the filled icon. Quiet on purpose; there is no count and no burst.',
+      html: `<button class="icon-btn" aria-pressed="false" aria-label="Save service" onclick="${TOGGLE('Saved service', 'Save service')}">${SWAP('bookmark', 'bookmark', true)}</button>
 <button class="icon-btn" aria-pressed="false" aria-label="Show password" onclick="${TOGGLE('Hide password', 'Show password')}">${SWAP('visibility', 'visibility_off')}</button>`,
     },
   ],
@@ -52,7 +52,7 @@ export default {
     'Reduced motion: a 120 ms cross-fade with no scale.',
   ],
   a11y: [
-    'The swap is `aria-hidden`. The button carries the meaning: `aria-pressed` for toggles, and an `aria-label` that names the action now available ("Pause lecture").',
+    'The swap is `aria-hidden`. The button carries the meaning: `aria-pressed` for toggles, and an `aria-label` that names the action now available ("Pause recording").',
     'Copy announces nothing by itself; when it matters, keep a visible label that changes (`data-lds-copy-label`) or add a polite status.',
   ],
   do: [
