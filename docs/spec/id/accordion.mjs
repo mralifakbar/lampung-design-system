@@ -2,7 +2,7 @@ export default {
   summary: 'Tumpukan pertanyaan atau bagian yang masing-masing membuka panelnya dengan spring. Untuk isi yang dibaca sebagian saja; jangan pernah untuk menyembunyikan hal yang dibutuhkan semua orang.',
   when: [
     'Pertanyaan yang sering diajukan, ketika setiap orang hanya butuh satu atau dua jawaban.',
-    'Detail tambahan di bawah setiap butir halaman: isi tiap jenis layanan, aturan tiap bagian ujian.',
+    'Detail tambahan di bawah setiap butir halaman: isi tiap jenis layanan, syarat tiap jenis izin.',
     'Halaman pengaturan atau rujukan yang panjang, yang bagiannya bisa dibaca satu per satu (`data-lds-accordion="single"` menjaga hanya satu yang terbuka).',
   ],
   whenNot: [
@@ -29,17 +29,17 @@ export default {
       title: 'Pertanyaan, satu terbuka sekaligus',
       desc: 'Dengan `data-lds-accordion="single"`, membuka satu butir menutup butir lain.',
       html: `<div class="acc" data-lds-accordion="single" style="max-width: 560px;">
-  <div class="acc__item"><button class="acc__btn" id="faq1-b" aria-expanded="true" aria-controls="faq1">Bisakah saya mengubah jadwal setelah mendaftar?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel is-open" id="faq1" role="region" aria-labelledby="faq1-b"><div><p>Bisa, sampai akhir minggu kedua. Setelah itu, perubahan perlu persetujuan wali kelas.</p></div></div></div>
-  <div class="acc__item"><button class="acc__btn" id="faq2-b" aria-expanded="false" aria-controls="faq2">Di mana saya menemukan rapor saya?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="faq2" role="region" aria-labelledby="faq2-b"><div><p>Di menu Akademik, lalu Riwayat. Anda bisa mengunduhnya sebagai PDF.</p></div></div></div>
-  <div class="acc__item"><button class="acc__btn" id="faq3-b" aria-expanded="false" aria-controls="faq3">Bagaimana jika saya tidak ikut ujian?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="faq3" role="region" aria-labelledby="faq3-b"><div><p>Ajukan ujian susulan paling lambat tiga hari dengan surat yang menjelaskan alasannya.</p></div></div></div>
+  <div class="acc__item"><button class="acc__btn" id="faq1-b" aria-expanded="true" aria-controls="faq1">Bisakah saya mengubah jadwal antrean setelah mendaftar?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel is-open" id="faq1" role="region" aria-labelledby="faq1-b"><div><p>Bisa, paling lambat sehari sebelum kedatangan. Pada hari itu, tanyakan ke loket Disdukcapil di Way Halim.</p></div></div></div>
+  <div class="acc__item"><button class="acc__btn" id="faq2-b" aria-expanded="false" aria-controls="faq2">Di mana saya menemukan KK baru saya?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="faq2" role="region" aria-labelledby="faq2-b"><div><p>Di menu Dokumen, lalu Data kependudukan. Anda bisa mengunduhnya sebagai PDF ber-QR code.</p></div></div></div>
+  <div class="acc__item"><button class="acc__btn" id="faq3-b" aria-expanded="false" aria-controls="faq3">Bagaimana jika saya terlewat jadwal perekaman e-KTP?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="faq3" role="region" aria-labelledby="faq3-b"><div><p>Pesan jadwal baru. Perekaman juga dibuka setiap Sabtu di kantor Kecamatan Kedaton.</p></div></div></div>
 </div>`,
     },
     {
       title: 'Judul dua baris dan isi kaya',
       desc: '`.acc__title` dengan `.acc__sub`, dan `.acc__content` untuk daftar dan aksi. Beberapa butir bisa terbuka bersamaan.',
       html: `<div class="acc acc--fill" style="max-width: 560px;">
-  <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="sec1"><span class="acc__title">Bagian 1: penalaran verbal<span class="acc__sub">35 soal · 40 menit</span></span><span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="sec1" role="region"><div><div class="acc__content"><p>Soal menguji kosakata, analogi, dan pemahaman bacaan.</p><ul><li>Setiap jawaban benar bernilai 5.</li><li>Jawaban salah dan kosong bernilai 0.</li></ul><button class="btn btn--secondary btn--sm" style="align-self: flex-start;">Coba 5 contoh soal</button></div></div></div></div>
-  <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="sec2"><span class="acc__title">Bagian 2: penalaran numerik<span class="acc__sub">30 soal · 30 menit</span></span><span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="sec2" role="region"><div><div class="acc__content"><p>Deret angka, aritmetika, dan soal cerita. Kalkulator tidak boleh dipakai.</p></div></div></div></div>
+  <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="sec1"><span class="acc__title">Langkah 1: dokumen yang dibawa<span class="acc__sub">4 dokumen · diperiksa di loket</span></span><span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="sec1" role="region"><div><div class="acc__content"><p>Bawa dokumen asli; fotokopi dibuat di loket.</p><ul><li>Surat pengantar RT/RW.</li><li>KK dan KTP lama.</li></ul><button class="btn btn--secondary btn--sm" style="align-self: flex-start;">Lihat daftar lengkap</button></div></div></div></div>
+  <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="sec2"><span class="acc__title">Langkah 2: biaya<span class="acc__sub">Gratis · tanpa bayar di loket</span></span><span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="sec2" role="region"><div><div class="acc__content"><p>Dokumen kependudukan tidak dipungut biaya. Laporkan permintaan uang lewat kanal pengaduan.</p></div></div></div></div>
 </div>`,
     },
   ],
