@@ -1,12 +1,12 @@
 const events = [
-  { id: 'e1', title: 'Rapat perencanaan bulanan', start: '2026-11-02T09:30', end: '2026-11-02T10:30', tone: 1, where: 'Ruang 4' },
-  { id: 'e2', title: 'Tinjauan desain layanan', start: '2026-11-04T11:00', end: '2026-11-04T12:00', tone: 4 },
-  { id: 'e3', title: 'Lokakarya pelayanan publik', start: '2026-11-09', end: '2026-11-11', allDay: true, tone: 2, where: 'Kantor Metro' },
-  { id: 'e4', title: 'Rapat pagi tim', start: '2026-11-16T09:00', end: '2026-11-16T09:15', tone: 3 },
-  { id: 'e5', title: 'Koordinasi dengan kelurahan', start: '2026-11-16T14:00', end: '2026-11-16T14:45', tone: 1, where: 'Panggilan video' },
-  { id: 'e6', title: 'Sinkronisasi anggaran', start: '2026-11-16T16:00', end: '2026-11-16T16:30', tone: 2 },
-  { id: 'e7', title: 'Perencanaan sprint', start: '2026-11-17T10:00', end: '2026-11-17T11:30', tone: 1 },
-  { id: 'e8', title: 'Wawancara: analis data', start: '2026-11-18T13:00', end: '2026-11-18T14:00', tone: 4, where: 'Ruang 2' },
+  { id: 'e1', title: 'Musrenbang kelurahan', start: '2026-11-02T09:30', end: '2026-11-02T10:30', tone: 1, where: 'Aula Kelurahan Way Halim' },
+  { id: 'e2', title: 'Posyandu Melati', start: '2026-11-04T08:00', end: '2026-11-04T11:00', tone: 4, where: 'Balai warga RT 03' },
+  { id: 'e3', title: 'Samsat keliling', start: '2026-11-09', end: '2026-11-11', allDay: true, tone: 2, where: 'Lapangan Merdeka Metro' },
+  { id: 'e4', title: 'Arahan petugas loket', start: '2026-11-16T09:00', end: '2026-11-16T09:15', tone: 3 },
+  { id: 'e5', title: 'Koordinasi siaga banjir dengan BPBD', start: '2026-11-16T14:00', end: '2026-11-16T14:45', tone: 1, where: 'Panggilan video' },
+  { id: 'e6', title: 'Pemeriksaan data bantuan sosial', start: '2026-11-16T16:00', end: '2026-11-16T16:30', tone: 2 },
+  { id: 'e7', title: 'Perekaman KTP-el keliling', start: '2026-11-17T10:00', end: '2026-11-17T11:30', tone: 1, where: 'Kantor Kecamatan Kedaton' },
+  { id: 'e8', title: 'Cek kesehatan gratis lansia', start: '2026-11-18T13:00', end: '2026-11-18T14:00', tone: 4, where: 'Puskesmas Kedaton' },
   { id: 'e9', title: 'Tenggat laporan triwulan', start: '2026-11-24', allDay: true, tone: 2 },
   { id: 'e10', title: 'Pembukaan pelatihan UMKM', start: '2026-11-26T18:30', end: '2026-11-26T20:00', tone: 3, where: 'Aula B' },
 ];
@@ -15,7 +15,7 @@ const json = JSON.stringify(events, null, 0);
 export default {
   summary: 'Kalender acara dengan tiga tampilan: grid bulan dengan chip acara, satu minggu berisi blok berjam dengan garis waktu sekarang, dan daftar agenda yang dikelompokkan per hari. Dirender dari JSON dan berubah menjadi titik ditambah daftar hari terpilih bila lebarnya kurang dari 640 px.',
   when: [
-    'Orang merencanakan sesuatu menurut tanggal dan jam: kalender tim, jadwal kelas, pemesanan, tenggat lintas proyek.',
+    'Orang merencanakan sesuatu menurut tanggal dan jam: kalender kegiatan kelurahan, jadwal puskesmas, pemesanan layanan, tenggat laporan.',
     'Melihat apa lagi yang terjadi pada hari atau minggu itu penting: mencari slot kosong, mengenali minggu yang padat.',
   ],
   whenNot: [
@@ -34,7 +34,7 @@ export default {
   ],
   examples: [
     {
-      title: 'Kalender tim',
+      title: 'Kalender kegiatan kelurahan',
       desc: 'Pindah antara Bulan, Minggu, dan Agenda; telusuri bulan; Hari ini membawa kembali. Tombol panah berpindah antar hari di tampilan bulan. Persempit jendela sampai lebar kalender di bawah 640 px: tampilan bulan berubah menjadi titik dan daftar untuk hari terpilih.',
       html: `<div class="evcal" data-lds-events data-date="2026-11-16" data-today="2026-11-16" data-now="10:20" data-view="month"><script type="application/json">${json}</script></div>`,
     },
