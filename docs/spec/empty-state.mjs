@@ -4,7 +4,7 @@ export default {
   order: 11,
   summary: 'What a region shows when it has nothing to show yet: an icon, why it is empty, and the one action that fills it.',
   when: [
-    'A list, table or dashboard section loaded and has no items: no courses yet, nothing due this week.',
+    'A list, table or dashboard section loaded and has no items: no applications yet, no bills this week.',
     'A search or filter returned nothing on a full page of results (say what to change).',
     'A first-run screen before the person has created anything.',
   ],
@@ -19,7 +19,7 @@ export default {
   anatomy: [
     ['.empty', 'Required. Centred column with 32/24 px padding and a 6 px gap.'],
     ['.empty__icon > .ic', 'A 56 px rounded square with a hairline and a 28 px icon that names the content.'],
-    ['.empty__title', 'Required. Why it is empty, as a fact ("Nothing due this week").'],
+    ['.empty__title', 'Required. Why it is empty, as a fact ("No bills this week").'],
     ['.empty__body', 'One sentence: what will appear here, or what to change. Max 280 px wide.'],
     ['.btn', 'The one action that fills it. Secondary by default; primary only on a first-run screen.'],
   ],
@@ -29,7 +29,7 @@ export default {
       desc: 'Say why and what will appear. The action goes somewhere useful.',
       stage: 'fill',
       html: `<div class="card" style="max-width: 420px; width: 100%;">
-  <div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">event_available</span></div><div class="empty__title">Nothing due this week</div><div class="empty__body">New assignments appear here as soon as your lecturers post them.</div><button class="btn btn--secondary btn--md">Open full calendar</button></div>
+  <div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">event_available</span></div><div class="empty__title">No schedule this week</div><div class="empty__body">Posyandu schedules appear here as soon as the puskesmas announces them.</div><button class="btn btn--secondary btn--md">Open full calendar</button></div>
 </div>`,
     },
     {
@@ -37,7 +37,7 @@ export default {
       desc: 'The primary action is allowed here because it is the only thing to do.',
       stage: 'fill',
       html: `<div class="card" style="max-width: 420px; width: 100%;">
-  <div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">menu_book</span></div><div class="empty__title">No study plans yet</div><div class="empty__body">Pick the exam date and the subjects, and we lay out a week-by-week plan.</div><button class="btn btn--primary btn--md"><span class="ic" aria-hidden="true">add</span>Create a study plan</button></div>
+  <div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">menu_book</span></div><div class="empty__title">No permit applications yet</div><div class="empty__body">Pick the type of business and its location, and we show the documents to prepare.</div><button class="btn btn--primary btn--md"><span class="ic" aria-hidden="true">add</span>Create a permit application</button></div>
 </div>`,
     },
     {
@@ -45,7 +45,7 @@ export default {
       desc: 'Name the search and offer the way out.',
       stage: 'fill',
       html: `<div class="card" style="max-width: 420px; width: 100%;">
-  <div class="empty" role="status"><div class="empty__icon"><span class="ic" aria-hidden="true">search</span></div><div class="empty__title">No courses match "statistcs"</div><div class="empty__body">Check the spelling or clear the filters to see every course.</div><button class="btn btn--secondary btn--md">Clear filters</button></div>
+  <div class="empty" role="status"><div class="empty__icon"><span class="ic" aria-hidden="true">search</span></div><div class="empty__title">No services match "birth certifcate"</div><div class="empty__body">Check the spelling or clear the filters to see every service.</div><button class="btn btn--secondary btn--md">Clear filters</button></div>
 </div>`,
     },
   ],
@@ -62,7 +62,7 @@ export default {
     'The icon is decoration (`aria-hidden="true"`).',
     'The title is plain text, not a heading, unless the region has no other heading.',
     'When it appears in response to a search or filter, give it `role="status"` so the result is announced.',
-    'The button names the outcome ("Create a study plan", not "Get started").',
+    'The button names the outcome ("Create a permit application", not "Get started").',
   ],
   do: [
     'Say why it is empty in the title, and what will appear in the body.',
