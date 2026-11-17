@@ -1,5 +1,5 @@
 import { cfg } from './_chart-data.mjs';
-// Weekly quiz scores, plotted in a 1000 x 260 viewBox: plot from x 44 to 900, y 12 (90) to 232 (50).
+// Weekly patient satisfaction scores, plotted in a 1000 x 260 viewBox: plot from x 44 to 900, y 12 (90) to 232 (50).
 const you = [62, 68, 65, 71, 74, 70, 78, 81, 79, 84];
 const cls = [64, 66, 67, 68, 70, 69, 72, 73, 74, 75];
 const X = (i) => +(44 + i * (856 / 9)).toFixed(1);
@@ -17,24 +17,24 @@ s.querySelector('[data-cross]').setAttribute('x1', x); s.querySelector('[data-cr
 s.querySelector('[data-p1]').setAttribute('cx', x); s.querySelector('[data-p1]').setAttribute('cy', y(d[i][0]));
 s.querySelector('[data-p2]').setAttribute('cx', x); s.querySelector('[data-p2]').setAttribute('cy', y(d[i][1]));
 s.querySelectorAll('[data-hover]').forEach((e) => e.style.opacity = 1);
-const t = this.querySelector('.ctip'); t.textContent = 'Week ' + (i + 1) + ': you ' + d[i][0] + ', class ' + d[i][1];
+const t = this.querySelector('.ctip'); t.textContent = 'Week ' + (i + 1) + ': this puskesmas ' + d[i][0] + ', city average ' + d[i][1];
 t.style.opacity = 1; t.style.left = Math.max(0, Math.min(r.width - t.offsetWidth, x / 1000 * r.width - t.offsetWidth / 2)) + 'px';`.replace(/\n/g, ' ');
 const leave = `this.querySelector('.ctip').style.opacity = 0; this.querySelectorAll('[data-hover]').forEach((e) => e.style.opacity = 0);`;
 
 const chart = (interactive) => `<div class="chart-card">
   <div class="cluster" style="justify-content: space-between; align-items: flex-start;">
-    <div><div class="chart-card__q">Am I keeping up with the class?</div><div class="chart-card__sub">Quiz score per week, mine against the class average</div></div>
-    <div class="legend"><span><i style="background: var(--series-1); height: 3px; border-radius: 2px;"></i>Your score</span><span><i style="background: var(--series-4); height: 3px; border-radius: 2px;"></i>Class average</span></div>
+    <div><div class="chart-card__q">Is our service on par with other puskesmas?</div><div class="chart-card__sub">Patient satisfaction score per week, this puskesmas against the city average</div></div>
+    <div class="legend"><span><i style="background: var(--series-1); height: 3px; border-radius: 2px;"></i>This puskesmas</span><span><i style="background: var(--series-4); height: 3px; border-radius: 2px;"></i>City average</span></div>
   </div>
   <div style="position: relative; padding-top: 44px;"${interactive ? ` data-pts='${pts}' onmousemove="${move}" onmouseleave="${leave}"` : ''}>
-    <svg viewBox="0 0 1000 260" style="width: 100%; height: auto; display: block;" role="img" aria-label="Weekly quiz scores over 10 weeks. Yours rose from 62 to 84; the class average rose from 64 to 75.">
+    <svg viewBox="0 0 1000 260" style="width: 100%; height: auto; display: block;" role="img" aria-label="Weekly patient satisfaction scores over 10 weeks. This puskesmas rose from 62 to 84; the city average rose from 64 to 75.">
       ${ticks}
       ${xt}
       <path class="series-area" d="${area}"></path>
       <path class="series-line series-line--2" d="${path(cls)}"></path>
       <path class="series-line draw" pathLength="1200" d="${path(you)}"></path>
-      <text x="1000" y="${Y(84) + 4}" text-anchor="end" style="font: 500 12px var(--font); fill: var(--text-strong);">You 84</text>
-      <text x="1000" y="${Y(75) + 4}" text-anchor="end" style="font: 500 12px var(--font); fill: var(--text-subtle);">Class 75</text>${interactive ? `
+      <text x="1000" y="${Y(84) + 4}" text-anchor="end" style="font: 500 12px var(--font); fill: var(--text-strong);">Us 84</text>
+      <text x="1000" y="${Y(75) + 4}" text-anchor="end" style="font: 500 12px var(--font); fill: var(--text-subtle);">City 75</text>${interactive ? `
       <line data-cross data-hover class="axis-line" x1="0" x2="0" y1="12" y2="232" style="opacity: 0; stroke: var(--line-strong);"></line>
       <circle data-p2 data-hover r="5" cx="0" cy="0" fill="var(--series-4)" stroke="var(--bg-base)" stroke-width="2" style="opacity: 0;"></circle>
       <circle data-p1 data-hover r="5" cx="0" cy="0" fill="var(--series-1)" stroke="var(--bg-base)" stroke-width="2" style="opacity: 0;"></circle>` : ''}
@@ -44,9 +44,9 @@ const chart = (interactive) => `<div class="chart-card">
 </div>`;
 
 const trio = {
-  label: 'Average score per week for three classes over 10 weeks. Class A rose from 61 to 82; B and C ended near 74.',
+  label: 'Average satisfaction score per week at three puskesmas over 10 weeks. Puskesmas A rose from 61 to 82; B and C ended near 74.',
   x: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8', 'W9', 'W10'], xFull: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7', 'Week 8', 'Week 9', 'Week 10'], xName: 'Week', kind: 'line',
-  series: [{ name: 'Class A', values: [61, 64, 66, 70, 71, 74, 77, 78, 80, 82] }, { name: 'Class B', values: [66, 67, 69, 68, 70, 72, 71, 73, 74, 74] }, { name: 'Class C', values: [70, 69, 71, 72, 71, 73, 72, 74, 73, 75] }, { name: 'Pass mark', values: Array(10).fill(65), dashed: true, color: 'neutral' }],
+  series: [{ name: 'Puskesmas A', values: [61, 64, 66, 70, 71, 74, 77, 78, 80, 82] }, { name: 'Puskesmas B', values: [66, 67, 69, 68, 70, 72, 71, 73, 74, 74] }, { name: 'Puskesmas C', values: [70, 69, 71, 72, 71, 73, 72, 74, 73, 75] }, { name: 'Minimum standard', values: Array(10).fill(65), dashed: true, color: 'neutral' }],
   y: { min: 50, max: 90 }, height: 220,
 };
 
@@ -56,7 +56,7 @@ export default {
   order: 4,
   summary: 'A line per series over time, on an SVG with receding gridlines and labels at the line ends. For trends across many points; at most four series, the second one dashed.',
   when: [
-    'Showing how a value changes over time and comparing up to four series: your score against the class average, enrolments per month this year and last.',
+    'Showing how a value changes over time and comparing up to four series: the score of this puskesmas against the city average, bus riders per month this year and last.',
     'Ten or more points where the shape of the trend matters more than any single value.',
   ],
   whenNot: [
@@ -87,10 +87,10 @@ export default {
     },
     {
       title: 'Drawn from data',
-      desc: 'Three classes and a dashed pass mark from one config: lines draw in once, the crosshair reads every class, arrow keys work on focus, the legend switches classes off, and a hidden table carries every value.',
+      desc: 'Three puskesmas and a dashed minimum standard from one config: lines draw in once, the crosshair reads every puskesmas, arrow keys work on focus, the legend switches puskesmas off, and a hidden table carries every value.',
       stage: 'block',
       replay: true,
-      html: `<section class="chart-card" aria-labelledby="lc-trio"><div><div class="chart-card__q" id="lc-trio">Which class is improving fastest?</div><div class="chart-card__sub">Average quiz score per week, out of 100</div></div><div class="chart" data-lds-chart='${cfg(trio)}'></div></section>`,
+      html: `<section class="chart-card" aria-labelledby="lc-trio"><div><div class="chart-card__q" id="lc-trio">Which puskesmas is improving fastest?</div><div class="chart-card__sub">Average patient satisfaction score per week, out of 100</div></div><div class="chart" data-lds-chart='${cfg(trio)}'></div></section>`,
     },
   ],
   variants: [
