@@ -1,5 +1,5 @@
-const THINK = `<div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Reading your notes</span><span class="thinking__time"></span></div>`;
-const ANSWER = 'Photosynthesis turns light, water and carbon dioxide into sugar and oxygen. It happens in the chloroplasts, mostly in the leaves, and the sugar feeds the whole plant.';
+const THINK = `<div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Reading the service guide</span><span class="thinking__time"></span></div>`;
+const ANSWER = 'For a first electronic ID card (KTP-el), bring your Kartu Keluarga and a letter from your RT/RW to the Disdukcapil desk. Recording takes about 15 minutes, and the card is usually ready within 14 working days.';
 
 export default {
   title: 'Streaming text',
@@ -28,7 +28,7 @@ export default {
       desc: 'Press Ask again. Words appear at the pace they arrive; the caret marks that more is coming and disappears when the answer is complete. The actions row appears only at the end.',
       stage: 'block',
       html: `<div class="chat" style="max-width: 560px;">
-  <div class="msg msg--me"><div class="bubble">What is photosynthesis, in two sentences?</div></div>
+  <div class="msg msg--me"><div class="bubble">How do I get a KTP-el, in two sentences?</div></div>
   <div class="msg msg--ai"><div class="bubble" id="st-a">${ANSWER}</div><div class="msg__actions"><button class="icon-btn" aria-label="Copy answer" data-lds-copy="${ANSWER}"><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button></div></div>
   <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="const b = document.getElementById('st-a'); const acts = b.nextElementSibling; acts.hidden = true; b.setAttribute('aria-busy', 'true'); import('../../js/lds.js').then((m) => m.streamText(b, '${ANSWER}')).then(() => { acts.hidden = false; b.removeAttribute('aria-busy'); });"><span class="ic" aria-hidden="true">refresh</span>Ask again</button>
 </div>`,
@@ -48,16 +48,16 @@ actions.hidden = false;`,
       html: `<div class="msg msg--ai" style="max-width: 560px;">
   ${THINK}
   <div class="bubble" id="st-b"></div>
-  <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="this.hidden = true; const msg = this.closest('.msg'); import('../../js/lds.js').then((m) => { m.thinkingDone(msg.querySelector('.thinking'), 'Read 3 pages of your notes'); return m.streamText(document.getElementById('st-b'), 'Your notes define osmosis as water moving through a membrane toward the side with more dissolved salt. Page 12 has the potato experiment that shows it.'); });">Finish thinking</button>
+  <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="this.hidden = true; const msg = this.closest('.msg'); import('../../js/lds.js').then((m) => { m.thinkingDone(msg.querySelector('.thinking'), 'Read 3 pages of the service guide'); return m.streamText(document.getElementById('st-b'), 'The guide says a moving letter (surat pindah) needs your KK, your KTP-el and a letter from the kelurahan. Page 12 lists the Disdukcapil desks in Bandar Lampung that issue it on the same day.'); });">Finish thinking</button>
 </div>`,
       code: `<div class="msg msg--ai">
-  <div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Reading your notes</span><span class="thinking__time"></span></div>
+  <div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Reading the service guide</span><span class="thinking__time"></span></div>
   <div class="bubble"></div>
 </div>
 <script type="module">
   import { thinkingDone, streamText } from 'lampung-design-system/js';
   // when the first token arrives:
-  thinkingDone(msg.querySelector('.thinking'), 'Read 3 pages of your notes');
+  thinkingDone(msg.querySelector('.thinking'), 'Read 3 pages of the service guide');
   await streamText(msg.querySelector('.bubble'), text);
 </script>`,
     },
@@ -67,9 +67,9 @@ actions.hidden = false;`,
       stage: 'block',
       replay: true,
       html: `<div class="card" style="max-width: 560px;">
-  <p class="card__title">Class summary</p>
+  <p class="card__title">This week in citizen reports</p>
   <p class="card__sub stream is-streaming" id="st-c" style="margin-top: 8px;"></p>
-  <button class="btn btn--plain btn--sm" style="margin-top: 8px; margin-left: -10px;" onclick="this.hidden = true; import('../../js/lds.js').then((m) => m.streamText(document.getElementById('st-c'), 'Most students finished the quiz in under 20 minutes. Question 7 was missed by 18 of 30, so it is worth reviewing on Monday.'));">Generate summary</button>
+  <button class="btn btn--plain btn--sm" style="margin-top: 8px; margin-left: -10px;" onclick="this.hidden = true; import('../../js/lds.js').then((m) => m.streamText(document.getElementById('st-c'), 'Most reports this week were about street lights in Way Halim and Kedaton. 18 of 30 reports of uncollected rubbish came from Rajabasa, so the Monday pickup route is worth checking.'));">Generate summary</button>
 </div>`,
     },
   ],
@@ -103,7 +103,7 @@ actions.hidden = false;`,
   js: '`streamText(el, text, { wordMs = 40 })` from `js/lds.js` adds `stream is-streaming` to `el`, clears it, appends each word as a `.stream__w` span, and resolves its promise when done (removing `is-streaming`). With live tokens, add `stream is-streaming` yourself, append `<span class="stream__w">word</span>` per word, and remove `is-streaming` at the end.',
   react: `import { Thinking } from 'lampung-design-system/react';
 
-{phase === 'thinking' && <Thinking label="Reading your notes" startedAt={startedAt} />}
+{phase === 'thinking' && <Thinking label="Reading the service guide" startedAt={startedAt} />}
 <div className={\`bubble stream\${phase === 'streaming' ? ' is-streaming' : ''}\`} aria-busy={phase === 'streaming'}>
   {words.map((w, i) => <span key={i} className="stream__w">{w} </span>)}
 </div>`,

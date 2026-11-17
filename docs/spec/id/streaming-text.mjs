@@ -1,5 +1,5 @@
-const THINK = `<div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Membaca catatan Anda</span><span class="thinking__time"></span></div>`;
-const ANSWER = 'Fotosintesis mengubah cahaya, air dan karbon dioksida menjadi gula dan oksigen. Prosesnya terjadi di kloroplas, terutama di daun, dan gulanya menjadi makanan bagi seluruh tumbuhan.';
+const THINK = `<div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Membaca panduan layanan</span><span class="thinking__time"></span></div>`;
+const ANSWER = 'Untuk KTP elektronik pertama, bawa Kartu Keluarga dan surat pengantar RT/RW ke loket Disdukcapil. Perekaman memakan waktu sekitar 15 menit, dan kartu biasanya jadi dalam 14 hari kerja.';
 
 export default {
   summary: 'Jawaban yang datang kata demi kata, setiap kata memudar masuk dari blur 3 px, dengan caret bulat di ujung selama masih ada yang datang. Ini menunjukkan kemajuan nyata; jangan pernah memalsukannya untuk teks yang sudah Anda miliki.',
@@ -24,7 +24,7 @@ export default {
       title: 'Jawaban yang sedang datang',
       desc: 'Tekan Tanya lagi. Kata muncul sesuai kecepatan datangnya; caret menandakan masih ada yang datang dan hilang saat jawaban lengkap. Baris aksi baru muncul di akhir.',
       html: `<div class="chat" style="max-width: 560px;">
-  <div class="msg msg--me"><div class="bubble">Apa itu fotosintesis, dalam dua kalimat?</div></div>
+  <div class="msg msg--me"><div class="bubble">Bagaimana cara mengurus KTP elektronik, dalam dua kalimat?</div></div>
   <div class="msg msg--ai"><div class="bubble" id="st-a">${ANSWER}</div><div class="msg__actions"><button class="icon-btn" aria-label="Salin jawaban" data-lds-copy="${ANSWER}"><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button></div></div>
   <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="const b = document.getElementById('st-a'); const acts = b.nextElementSibling; acts.hidden = true; b.setAttribute('aria-busy', 'true'); import('../../js/lds.js').then((m) => m.streamText(b, '${ANSWER}')).then(() => { acts.hidden = false; b.removeAttribute('aria-busy'); });"><span class="ic" aria-hidden="true">refresh</span>Tanya lagi</button>
 </div>`,
@@ -35,16 +35,16 @@ export default {
       html: `<div class="msg msg--ai" style="max-width: 560px;">
   ${THINK}
   <div class="bubble" id="st-b"></div>
-  <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="this.hidden = true; const msg = this.closest('.msg'); import('../../js/lds.js').then((m) => { m.thinkingDone(msg.querySelector('.thinking'), 'Membaca 3 halaman catatan Anda'); return m.streamText(document.getElementById('st-b'), 'Catatan Anda mendefinisikan osmosis sebagai perpindahan air melalui membran ke sisi yang kadar garamnya lebih tinggi. Halaman 12 memuat percobaan kentang yang membuktikannya.'); });">Selesaikan thinking</button>
+  <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="this.hidden = true; const msg = this.closest('.msg'); import('../../js/lds.js').then((m) => { m.thinkingDone(msg.querySelector('.thinking'), 'Membaca 3 halaman panduan layanan'); return m.streamText(document.getElementById('st-b'), 'Panduan menyebutkan surat pindah memerlukan KK, KTP elektronik dan surat pengantar kelurahan. Halaman 12 memuat daftar loket Disdukcapil di Bandar Lampung yang menerbitkannya di hari yang sama.'); });">Selesaikan thinking</button>
 </div>`,
       code: `<div class="msg msg--ai">
-  <div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Membaca catatan Anda</span><span class="thinking__time"></span></div>
+  <div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Membaca panduan layanan</span><span class="thinking__time"></span></div>
   <div class="bubble"></div>
 </div>
 <script type="module">
   import { thinkingDone, streamText } from 'lampung-design-system/js';
   // when the first token arrives:
-  thinkingDone(msg.querySelector('.thinking'), 'Membaca 3 halaman catatan Anda');
+  thinkingDone(msg.querySelector('.thinking'), 'Membaca 3 halaman panduan layanan');
   await streamText(msg.querySelector('.bubble'), text);
 </script>`,
     },
@@ -52,9 +52,9 @@ export default {
       title: 'Ringkasan yang dibuat di halaman',
       desc: 'Streaming tidak hanya untuk chat. Ringkasan laporan bisa datang dengan cara yang sama di atas halaman sementara bagian lain halaman sudah bisa dipakai.',
       html: `<div class="card" style="max-width: 560px;">
-  <p class="card__title">Ringkasan kelas</p>
+  <p class="card__title">Ringkasan pengaduan pekan ini</p>
   <p class="card__sub stream is-streaming" id="st-c" style="margin-top: 8px;"></p>
-  <button class="btn btn--plain btn--sm" style="margin-top: 8px; margin-left: -10px;" onclick="this.hidden = true; import('../../js/lds.js').then((m) => m.streamText(document.getElementById('st-c'), 'Sebagian besar siswa menyelesaikan kuis dalam waktu kurang dari 20 menit. Soal nomor 7 salah dijawab oleh 18 dari 30 siswa, jadi perlu dibahas ulang hari Senin.'));">Buat ringkasan</button>
+  <button class="btn btn--plain btn--sm" style="margin-top: 8px; margin-left: -10px;" onclick="this.hidden = true; import('../../js/lds.js').then((m) => m.streamText(document.getElementById('st-c'), 'Sebagian besar laporan pekan ini tentang lampu jalan di Way Halim dan Kedaton. 18 dari 30 laporan sampah tidak terangkut berasal dari Rajabasa, jadi rute angkut hari Senin perlu dicek.'));">Buat ringkasan</button>
 </div>`,
     },
   ],
