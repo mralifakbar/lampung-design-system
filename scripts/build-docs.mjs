@@ -192,7 +192,7 @@ const pageUrl = (slug) => `${ORIGIN}/docs/${LANG === 'en' ? 'en/' : ''}${SECTION
 // "Copy for LLM" and "View as Markdown": every page has a .md twin next to it.
 const agentBar = (file) => `<div class="cdoc__agent" role="group" aria-label="${T.agentLabel}">
             <button class="btn btn--gray btn--sm" type="button" data-md-copy="${file}" data-done="${T.copiedLlm}" data-fail="${T.copyFail}"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>${T.copyLlm}</span></button>
-            <a class="btn btn--gray btn--sm" href="${file}" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">open_in_new</span><span>${T.viewMd}</span></a>
+            <a class="btn btn--gray btn--sm" href="${file}" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>${T.viewMd}</span></a>
           </div>`;
 const linkHtml = (h) => (/^(https?:|#|\.|\/)/.test(h) ? h : `${h}.html`);
 const nav = (current) => {
