@@ -1,7 +1,7 @@
 export default {
   summary: 'Pil hitung mundur dengan angka mono tabular yang berubah kuning saat waktu hampir habis dan merah di nol, lalu memicu `lds:timeup`. Untuk tenggat sungguhan yang sedang dikejar orang.',
   when: [
-    'Ujian atau tryout berwaktu: sisa waktu untuk seluruh tes atau untuk satu bagian.',
+    'Sesi daring berwaktu: sisa waktu untuk menyelesaikan formulir permohonan, atau satu langkahnya, sebelum sesi ditutup.',
     'Masa tahan singkat yang harus segera ditindaklanjuti: nomor antrean yang dipesan, batas waktu pembayaran, kode yang akan kedaluwarsa.',
     'Menghitung naik terhadap target kerja: waktu tunggu nomor antrean di loket, chat pengaduan yang menunggu balasan, panggilan darurat yang sedang ditahan (`data-lds-elapsed`).',
   ],
@@ -9,9 +9,9 @@ export default {
     ['Menampilkan berapa lama pekerjaan yang sedang berjalan', 'thinking'],
     ['Kapan sesuatu terjadi atau jatuh tempo, dalam kata-kata ("3 hari lagi", "5 menit lalu")', 'timestamp'],
     ['Batas waktu untuk membatalkan aksi di toast', 'toast', 'Toast punya bar menyusut sendiri'],
-    ['Kemajuan melewati sejumlah soal yang tetap', 'progress-bar'],
+    ['Kemajuan melewati sejumlah langkah formulir yang tetap', 'progress-bar'],
   ],
-  where: 'Di tempat tetap yang bisa dilirik tanpa mencari: bar atas layar ujian (sisi kanan), header langkah pembayaran, di samping kolom kode. Di ponsel letakkan di bar atas; jangan pernah di dalam konten yang bergulir, karena bisa keluar dari layar.',
+  where: 'Di tempat tetap yang bisa dilirik tanpa mencari: bar atas formulir berwaktu (sisi kanan), header langkah pembayaran, di samping kolom kode. Di ponsel letakkan di bar atas; jangan pernah di dalam konten yang bergulir, karena bisa keluar dari layar.',
   anatomy: [
     ['.timer', 'Wajib. Pil 32 px di atas isian tenang, angka mono tabular semibold 15 px.'],
     ['[data-lds-timer]', 'Wajib untuk perilakunya. Jumlah detik untuk dihitung mundur.'],
@@ -31,9 +31,9 @@ export default {
 </div>`,
     },
     {
-      title: 'Sisa waktu ujian',
+      title: 'Sisa waktu mengisi formulir',
       desc: '1 jam 30 menit ditampilkan sebagai h:mm:ss; di bawah satu jam sebagai m:ss.',
-      html: `<div class="docs-row"><span class="timer" data-lds-timer="5400" data-low="300" aria-label="Sisa waktu"></span><span class="docs-note">Bagian 2 dari 3</span></div>`,
+      html: `<div class="docs-row"><span class="timer" data-lds-timer="5400" data-low="300" aria-label="Sisa waktu"></span><span class="docs-note">Langkah 2 dari 3, permohonan surat pindah</span></div>`,
     },
     {
       title: 'Hampir habis, lalu habis',
@@ -67,7 +67,7 @@ export default {
   ],
   do: [
     'Beri tahu orang sebelum timer dimulai berapa lama waktunya dan apa yang terjadi di nol.',
-    'Atur `data-low` ke peringatan yang berguna: 5 menit untuk ujian, 60 detik untuk masa tahan.',
+    'Atur `data-low` ke peringatan yang berguna: 5 menit untuk formulir berwaktu, 60 detik untuk masa tahan.',
     'Dengarkan `lds:timeup` dan simpan pekerjaan orang terlebih dahulu.',
   ],
   dont: [

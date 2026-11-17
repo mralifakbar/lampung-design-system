@@ -4,17 +4,17 @@ export default {
   order: 14,
   summary: 'A countdown pill in tabular mono figures that turns amber when time runs low and red at zero, then fires `lds:timeup`. For real deadlines the person is working against.',
   when: [
-    'A timed exam or tryout: time left for the whole test or for one section.',
-    'A short hold the person must act within: a reserved seat, a payment window, a code that expires.',
-    'Counting up against a target people work to: a kitchen ticket since it was fired, a support chat waiting for a reply, a call on hold (`data-lds-elapsed`).',
+    'A timed online session: time left to finish an application form, or one step of it, before the session closes.',
+    'A short hold the person must act within: a reserved queue number, a payment window, a code that expires.',
+    'Counting up against a target people work to: a queue number waiting at the counter, a complaint chat waiting for a reply, an emergency call on hold (`data-lds-elapsed`).',
   ],
   whenNot: [
     ['Showing how long ongoing work has taken', 'thinking'],
     ['When something happened or is due, in words ("in 3 days", "5 minutes ago")', 'timestamp'],
     ['A deadline to undo an action in a toast', 'toast', 'The toast has its own draining bar'],
-    ['Progress through a fixed number of questions', 'progress-bar'],
+    ['Progress through a fixed number of form steps', 'progress-bar'],
   ],
-  where: 'In a fixed place the person can glance at without searching: the top bar of an exam screen (right side), the header of a payment step, next to the code field. On phones keep it in the top bar; never inside scrolling content where it can leave the screen.',
+  where: 'In a fixed place the person can glance at without searching: the top bar of a timed form (right side), the header of a payment step, next to the code field. On phones keep it in the top bar; never inside scrolling content where it can leave the screen.',
   anatomy: [
     ['.timer', 'Required. A 32 px pill on the quiet fill, 15 px semibold mono tabular figures.'],
     ['[data-lds-timer]', 'Required for behavior. Seconds to count down from.'],
@@ -26,23 +26,23 @@ export default {
   examples: [
     {
       title: 'Counting up against a target',
-      desc: 'Kitchen tickets since they were fired, with a 12 minute target. The first is fine, the second is close, the third is late. Words beside the pill say the same thing.',
+      desc: 'Waiting time of queue numbers at a puskesmas counter, with a 12 minute target. The first is fine, the second is close, the third is late. Words beside the pill say the same thing.',
       html: `<div class="docs-col" style="max-width: 360px;">
-  <div class="docs-row"><span class="timer" data-lds-elapsed="185" data-target="720" aria-label="Table 4, time since fired"><span class="ic" aria-hidden="true">schedule</span><span class="timer__t"></span></span><span class="docs-note">Table 4 · on time</span></div>
-  <div class="docs-row"><span class="timer" data-lds-elapsed="610" data-target="720" aria-label="Table 9, time since fired"><span class="ic" aria-hidden="true">schedule</span><span class="timer__t"></span></span><span class="docs-note">Table 9 · close to target</span></div>
-  <div class="docs-row"><span class="timer" data-lds-elapsed="905" data-target="720" aria-label="Table 12, time since fired"><span class="ic" aria-hidden="true">schedule</span><span class="timer__t"></span></span><span class="docs-note">Table 12 · late</span></div>
+  <div class="docs-row"><span class="timer" data-lds-elapsed="185" data-target="720" aria-label="Queue A-04, waiting time"><span class="ic" aria-hidden="true">schedule</span><span class="timer__t"></span></span><span class="docs-note">Queue A-04 · on target</span></div>
+  <div class="docs-row"><span class="timer" data-lds-elapsed="610" data-target="720" aria-label="Queue A-09, waiting time"><span class="ic" aria-hidden="true">schedule</span><span class="timer__t"></span></span><span class="docs-note">Queue A-09 · close to target</span></div>
+  <div class="docs-row"><span class="timer" data-lds-elapsed="905" data-target="720" aria-label="Queue A-12, waiting time"><span class="ic" aria-hidden="true">schedule</span><span class="timer__t"></span></span><span class="docs-note">Queue A-12 · late</span></div>
 </div>`,
     },
     {
-      title: 'Exam time left',
+      title: 'Time left to finish a form',
       desc: '1 h 30 min shows as h:mm:ss; under an hour as m:ss.',
-      html: `<div class="docs-row"><span class="timer" data-lds-timer="5400" data-low="300" aria-label="Time left"></span><span class="docs-note">Section 2 of 3</span></div>`,
+      html: `<div class="docs-row"><span class="timer" data-lds-timer="5400" data-low="300" aria-label="Time left"></span><span class="docs-note">Step 2 of 3, surat pindah application</span></div>`,
     },
     {
       title: 'Running low, then up',
       desc: 'A 20 second timer that goes low at 10 and reaches zero. Press Replay to run it again.',
       replay: true,
-      html: `<span class="timer" data-lds-timer="20" data-low="10" aria-label="Seat held for"></span>`,
+      html: `<span class="timer" data-lds-timer="20" data-low="10" aria-label="Queue number held for"></span>`,
     },
     {
       title: 'States at rest',
@@ -71,7 +71,7 @@ export default {
   ],
   do: [
     'Tell people before the timer starts how long they have and what happens at zero.',
-    'Set `data-low` to a useful warning: 5 minutes for an exam, 60 seconds for a hold.',
+    'Set `data-low` to a useful warning: 5 minutes for a timed form, 60 seconds for a hold.',
     'Listen for `lds:timeup` and save the person\'s work first.',
   ],
   dont: [
