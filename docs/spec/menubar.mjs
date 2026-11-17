@@ -4,7 +4,7 @@ export default {
   order: 10,
   summary: 'A row of command menus (File, Edit, View) for a desktop-style editor. Each button opens a dropdown menu of commands with their shortcuts.',
   when: [
-    'A document or content editor on wide screens with many commands people learn by shortcut: a lesson editor, a question bank, a report builder.',
+    'A document or content editor on wide screens with many commands people learn by shortcut: an announcement editor, a form library, a report builder.',
     'Commands group naturally into four to six menus.',
   ],
   whenNot: [
@@ -22,15 +22,15 @@ export default {
   ],
   examples: [
     {
-      title: 'Lesson editor',
+      title: 'Announcement editor',
       desc: 'Click File or Edit; arrow keys move inside the open menu, Escape closes it and returns focus to the button.',
       stage: 'block',
       height: 260,
-      html: `<div class="menubar" role="menubar" aria-label="Lesson editor" style="width: max-content;">
+      html: `<div class="menubar" role="menubar" aria-label="Announcement editor" style="width: max-content;">
   <div style="position: relative;">
     <button class="menubar__btn" role="menuitem" aria-haspopup="menu" aria-expanded="false" data-lds-menu="mb-file">File</button>
     <div class="menu" id="mb-file" role="menu" aria-label="File" style="top: calc(100% + 8px); left: 0;">
-      <button class="menu__item" role="menuitem">New lesson<kbd>⌘N</kbd></button>
+      <button class="menu__item" role="menuitem">New announcement<kbd>⌘N</kbd></button>
       <button class="menu__item" role="menuitem">Duplicate<kbd>⌘D</kbd></button>
       <div class="menu__sep"></div>
       <button class="menu__item" role="menuitem">Export as PDF<kbd>⇧⌘E</kbd></button>
@@ -48,7 +48,7 @@ export default {
     <button class="menubar__btn" role="menuitem" aria-haspopup="menu" aria-expanded="false" data-lds-menu="mb-view">View</button>
     <div class="menu" id="mb-view" role="menu" aria-label="View" style="top: calc(100% + 8px); left: 0;">
       <button class="menu__item is-selected" role="menuitemcheckbox" aria-checked="true">Show outline<span class="ic menu__check" aria-hidden="true">check</span></button>
-      <button class="menu__item" role="menuitemcheckbox" aria-checked="false">Show answer key</button>
+      <button class="menu__item" role="menuitemcheckbox" aria-checked="false">Show officer notes</button>
     </div>
   </div>
 </div>`,
