@@ -5,7 +5,7 @@ export default {
   summary: 'Perubahan di samping sebuah angka: panah untuk arah, warna untuk artinya, jumlah dalam angka tabular, dan kalimat untuk pembaca layar. Arah dan arti dipisahkan, karena angka yang turun bisa jadi kabar baik.',
   when: [
     'Angka kunci di dasbor yang dibandingkan dengan periode sebelumnya: penerimaan naik 12,5 %, pengaduan turun 3 %, pendaftaran tetap.',
-    'Baris di tabel atau daftar ketika perubahannya sama penting dengan nilainya: penjualan UMKM minggu ini, tingkat kelulusan sekolah.',
+    'Baris di tabel atau daftar ketika perubahannya sama penting dengan nilainya: penjualan UMKM minggu ini, tingkat imunisasi posyandu.',
     'Stat row atau sparkline stat yang butuh satu kata jujur tentang trennya.',
   ],
   whenNot: [
@@ -29,7 +29,7 @@ export default {
   <div class="stack" style="--gap: 4px;"><span class="section__sub">Penerimaan retribusi</span><span class="chart-card__big">Rp 128,4 jt</span>${d('up', 'good', '+12,5%', 'dari bulan lalu')}</div>
   <div class="stack" style="--gap: 4px;"><span class="section__sub">Pemohon baru</span><span class="chart-card__big">1.234</span>${d('down', 'bad', '−20%', 'dari bulan lalu')}</div>
   <div class="stack" style="--gap: 4px;"><span class="section__sub">Pengaduan</span><span class="chart-card__big">18</span>${d('down', 'good', '−3', 'dari bulan lalu')}</div>
-  <div class="stack" style="--gap: 4px;"><span class="section__sub">Tingkat penyelesaian</span><span class="chart-card__big">3,4%</span>${d('flat', 'neutral', '0,0 poin', 'dari bulan lalu')}</div>
+  <div class="stack" style="--gap: 4px;"><span class="section__sub">Selesai sesuai SLA</span><span class="chart-card__big">94,6%</span>${d('flat', 'neutral', '0,0 poin', 'dari bulan lalu')}</div>
 </div>`,
     },
     {

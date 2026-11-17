@@ -6,8 +6,8 @@ export default {
   order: 19,
   summary: 'The change next to a figure: an arrow for the direction, a color for what it means, the amount in tabular figures and a sentence for screen readers. Direction and meaning are separate, because a falling number can be good news.',
   when: [
-    'A key figure on a dashboard compared with the previous period: revenue up 12.5 %, refunds down 3 %, sign-ups flat.',
-    'A row in a table or list where the change matters as much as the value: a product\'s sales this week, a course\'s pass rate.',
+    'A key figure on a dashboard compared with the previous period: levy income up 12.5 %, complaints down 3 %, registrations flat.',
+    'A row in a table or list where the change matters as much as the value: UMKM sales this week, a posyandu\'s immunisation rate.',
     'A stat row or sparkline stat that needs one honest word about the trend.',
   ],
   whenNot: [
@@ -26,13 +26,13 @@ export default {
   examples: [
     {
       title: 'Next to key figures',
-      desc: 'Revenue rose (good), new customers fell (bad), refunds fell (good, because fewer refunds is better), the conversion rate stayed flat.',
+      desc: 'Levy income rose (good), new applicants fell (bad), complaints fell (good, because fewer complaints is better), the completion rate stayed flat.',
       stage: 'block',
       html: `<div class="auto-grid" style="--min: 180px;">
-  <div class="stack" style="--gap: 4px;"><span class="section__sub">Revenue</span><span class="chart-card__big">$128,430</span>${d('up', 'good', '+12.5%', 'from last month')}</div>
-  <div class="stack" style="--gap: 4px;"><span class="section__sub">New customers</span><span class="chart-card__big">1,234</span>${d('down', 'bad', '−20%', 'from last month')}</div>
-  <div class="stack" style="--gap: 4px;"><span class="section__sub">Refunds</span><span class="chart-card__big">18</span>${d('down', 'good', '−3', 'from last month')}</div>
-  <div class="stack" style="--gap: 4px;"><span class="section__sub">Conversion</span><span class="chart-card__big">3.4%</span>${d('flat', 'neutral', '0.0 pt', 'from last month')}</div>
+  <div class="stack" style="--gap: 4px;"><span class="section__sub">Levy income</span><span class="chart-card__big">Rp 128.4 m</span>${d('up', 'good', '+12.5%', 'from last month')}</div>
+  <div class="stack" style="--gap: 4px;"><span class="section__sub">New applicants</span><span class="chart-card__big">1,234</span>${d('down', 'bad', '−20%', 'from last month')}</div>
+  <div class="stack" style="--gap: 4px;"><span class="section__sub">Complaints</span><span class="chart-card__big">18</span>${d('down', 'good', '−3', 'from last month')}</div>
+  <div class="stack" style="--gap: 4px;"><span class="section__sub">Completed within SLA</span><span class="chart-card__big">94.6%</span>${d('flat', 'neutral', '0.0 pt', 'from last month')}</div>
 </div>`,
     },
     {
@@ -73,7 +73,7 @@ export default {
     'Success and danger text tokens hold 4.5:1 on the canvas, the fill and their tints in both themes.',
   ],
   do: [
-    'Color by meaning: fewer refunds, faster response times and lower costs are good when they go down.',
+    'Color by meaning: fewer complaints, faster response times and lower costs are good when they go down.',
     'Say once on the page what the comparison is (last month, last week); repeat it only in the `.sr-only` text.',
   ],
   dont: [
