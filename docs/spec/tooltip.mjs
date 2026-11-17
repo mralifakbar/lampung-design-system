@@ -9,7 +9,7 @@ export default {
   ],
   whenNot: [
     ['Content with links, buttons or fields inside', 'popover', 'Tooltips disappear when the pointer leaves; nothing inside can be clicked'],
-    ['A preview of a person, course or link', 'hover-card'],
+    ['A preview of a person, service or link', 'hover-card'],
     ['Information people need to complete a task', 'text-field', 'Put it in the field help text, always visible'],
     ['Guiding people through a new feature', 'coachmark'],
     ['Confirming that something happened', 'toast'],
@@ -38,7 +38,7 @@ export default {
       desc: 'An `.infotip` explains a term in a wide tip. It is a real button, so keyboard and screen reader users reach it too.',
       html: `<div class="docs-row" style="padding-top: 72px;">
   <span class="field__label">Weighted score
-    <span class="tip-host"><button class="infotip" type="button" aria-label="What is the weighted score?" aria-describedby="tt-w"><span class="ic" aria-hidden="true">info</span></button><span class="tip tip--wide" role="tooltip" id="tt-w">Each section counts by its weight: verbal 35 %, numeric 35 %, character 30 %.</span></span>
+    <span class="tip-host"><button class="infotip" type="button" aria-label="What is the weighted score?" aria-describedby="tt-w"><span class="ic" aria-hidden="true">info</span></button><span class="tip tip--wide" role="tooltip" id="tt-w">Each aspect counts by its weight: complete documents 35 %, fitting location 35 %, business history 30 %.</span></span>
   </span>
   <span class="section__sub">412 of 550</span>
 </div>`,
