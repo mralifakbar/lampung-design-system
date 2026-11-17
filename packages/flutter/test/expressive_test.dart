@@ -261,7 +261,7 @@ void main() {
     });
 
     testWidgets('reduced motion stops the dots at 60 %', (tester) async {
-      await tester.pumpWidget(wrap(const LdsThinking(label: 'Menilai esai'),
+      await tester.pumpWidget(wrap(const LdsThinking(label: 'Memeriksa berkas'),
           reduceMotion: true));
       await tester.pump(const Duration(milliseconds: 500));
       final dots = tester

@@ -719,8 +719,8 @@ void main() {
       await expectBothThemes(
         tester,
         LdsSlideToConfirm(
-          label: 'Geser untuk mengirim nilai',
-          knobLabel: 'Kirim nilai, tekan Enter',
+          label: 'Geser untuk mengirim laporan',
+          knobLabel: 'Kirim laporan, tekan Enter',
           onConfirmed: () {},
         ),
       );
@@ -729,27 +729,27 @@ void main() {
     testWidgets('commits past the end', (tester) async {
       var done = false;
       await tester.pumpWidget(wrap(LdsSlideToConfirm(
-        label: 'Geser untuk mengirim nilai',
-        doneLabel: 'Nilai terkirim',
-        knobLabel: 'Kirim nilai, tekan Enter',
+        label: 'Geser untuk mengirim laporan',
+        doneLabel: 'Laporan terkirim',
+        knobLabel: 'Kirim laporan, tekan Enter',
         onConfirmed: () => done = true,
       )));
-      await tester.drag(find.bySemanticsLabel('Kirim nilai, tekan Enter'),
+      await tester.drag(find.bySemanticsLabel('Kirim laporan, tekan Enter'),
           const Offset(320, 0));
       await tester.pumpAndSettle();
       expect(done, isTrue);
-      expect(find.text('Nilai terkirim'), findsOneWidget);
+      expect(find.text('Laporan terkirim'), findsOneWidget);
     });
 
     testWidgets('springs back when short', (tester) async {
       var done = false;
       await tester.pumpWidget(wrap(LdsSlideToConfirm(
-        label: 'Geser untuk mengirim nilai',
-        knobLabel: 'Kirim nilai',
+        label: 'Geser untuk mengirim laporan',
+        knobLabel: 'Kirim laporan',
         onConfirmed: () => done = true,
       )));
       final g = await tester
-          .startGesture(tester.getCenter(find.bySemanticsLabel('Kirim nilai')));
+          .startGesture(tester.getCenter(find.bySemanticsLabel('Kirim laporan')));
       for (var i = 0; i < 8; i++) {
         await g.moveBy(const Offset(10, 0));
         await tester.pump(const Duration(milliseconds: 50));

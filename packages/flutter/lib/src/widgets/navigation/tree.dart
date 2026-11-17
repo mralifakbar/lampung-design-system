@@ -31,7 +31,7 @@ class LdsTreeNode<T> {
   final List<LdsTreeNode<T>> children;
 }
 
-/// Nested rows that open and close: folders and files, units and lessons.
+/// Nested rows that open and close: folders and files, offices and their services.
 ///
 /// A parent row toggles its children, which open on the smooth spring while
 /// the chevron turns 90 degrees. Choosing a leaf calls [onSelected];
