@@ -1,6 +1,6 @@
-const CYCLE = "const el = document.getElementById('tm-status'); const list = ['Submitted', 'In review', 'Approved', 'Enrolled']; const i = (Number(el.dataset.i || 0) + 1) % list.length; el.dataset.i = i; import('../../js/lds.js').then((m) => m.morphText(el, list[i]));";
+const CYCLE = "const el = document.getElementById('tm-status'); const list = ['Submitted', 'In review', 'Approved', 'Issued']; const i = (Number(el.dataset.i || 0) + 1) % list.length; el.dataset.i = i; import('../../js/lds.js').then((m) => m.morphText(el, list[i]));";
 const SAVE = "const el = this.querySelector('.morph'); if (this.dataset.busy) return; this.dataset.busy = '1'; import('../../js/lds.js').then((m) => { m.morphText(el, 'Saving'); setTimeout(() => m.morphText(el, 'Saved'), 900); setTimeout(() => { m.morphText(el, 'Save draft'); delete this.dataset.busy; }, 2600); });";
-const SEAT = "const el = document.getElementById('tm-seats'); const n = Number(el.dataset.n || 3) - 1; if (n < 0) return; el.dataset.n = n; import('../../js/lds.js').then((m) => m.morphText(el, n === 0 ? 'Class full' : n === 1 ? '1 seat left' : n + ' seats left')); if (n === 0) this.disabled = true;";
+const SEAT = "const el = document.getElementById('tm-seats'); const n = Number(el.dataset.n || 3) - 1; if (n < 0) return; el.dataset.n = n; import('../../js/lds.js').then((m) => m.morphText(el, n === 0 ? 'Quota full' : n === 1 ? '1 slot left' : n + ' slots left')); if (n === 0) this.disabled = true;";
 
 export default {
   title: 'Text morph',
@@ -10,7 +10,7 @@ export default {
   when: [
     'A button says what it is doing and what happened: Save draft, Saving, Saved.',
     'A status changes in front of the person: Submitted, In review, Approved.',
-    'A short count in words changes: 3 seats left, 2 seats left, Class full.',
+    'A short count in words changes: 3 slots left, 2 slots left, Quota full.',
     'A toast that changes its own text after Undo (Deleted, Restored); `toast()` already does this.',
   ],
   whenNot: [
@@ -48,9 +48,9 @@ export default {
     },
     {
       title: 'A count in words',
-      desc: 'Reserve seats until the class is full. Only the digit changes until the sentence itself changes.',
-      html: `<span class="badge badge--warning"><span class="morph" data-lds-morph id="tm-seats" aria-live="polite">3 seats left</span></span>
-<button class="btn btn--primary btn--md" onclick="${SEAT}">Reserve a seat</button>`,
+      desc: 'Take queue numbers until the quota runs out. Only the digit changes until the sentence itself changes.',
+      html: `<span class="badge badge--warning"><span class="morph" data-lds-morph id="tm-seats" aria-live="polite">3 slots left</span></span>
+<button class="btn btn--primary btn--md" onclick="${SEAT}">Take a queue number</button>`,
     },
   ],
   motion: [
