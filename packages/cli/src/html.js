@@ -158,6 +158,13 @@ export function toHtml(node) {
 /** Markup to copy for an example: the clean `code` when it is markup, else the live `html`. */
 export function exampleMarkup(ex) {
   const code = ex.code && ex.code.trim();
+  // Page-level setup (<html>, <head>, <body>) only shows how to wire a document; rendered inside a
+  // component it would fight the real document (React 19 treats <html> and <head> as singletons).
+  // Use the example's rendered code block as markup and keep the snippet as usage.
+  if (code && /<!doctype\b|<(?:html|head|body)[\s>]/i.test(code)) return { markup: ex.html, usage: code };
+  // A snippet that points at local image files (library-small.jpg) uses placeholders the project
+  // does not have; the rendered demo carries working images.
+  if (code && /\b(?:src|href|poster)="(?![a-z][\w+.-]*:|\/\/|#)[^"]*\.(?:jpe?g|png|gif|webp|avif|svg)"/i.test(code)) return { markup: ex.html, usage: code };
   if (code && code.startsWith('<') && !/\bclassName=|\{\s*\w+\s*&&|<[A-Z]\w*[\s/>]|=\{/.test(code)) return { markup: ex.code, usage: null };
   return { markup: ex.html, usage: code || null };
 }

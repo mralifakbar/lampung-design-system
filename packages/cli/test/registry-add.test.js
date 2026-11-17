@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import { readdirSync, existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import { buildRegistry } from '../../../scripts/build-registry.mjs';
-import { fixture, cli, read, readTree, cleanup, tempDir, writeTree, REPO } from './helpers.js';
+import { exampleMarkup } from '../src/html.js';
+import { fixture, cli, read, readTree, cleanup, tempDir, writeTree, REPO, REGISTRY } from './helpers.js';
 
 const SPEC = {
   'chip-demo.mjs': `export default {
@@ -206,4 +207,28 @@ test('doctor passes after init and fails before', async () => {
   assert.match(after.out, /ok +Behaviors wired in src\/main\.tsx/);
   assert.match(after.out, /Everything looks good\./);
   cleanup(dir);
+});
+
+test('no example in the registry renders <html>, <head> or <body> as markup', async () => {
+  const { readdirSync, readFileSync } = await import('node:fs');
+  const bad = [];
+  for (const f of readdirSync(REGISTRY).filter((n) => n.endsWith('.json') && n !== 'index.json')) {
+    const item = JSON.parse(readFileSync(join(REGISTRY, f), 'utf8'));
+    for (const [lang, list] of Object.entries(item.examples || {}))
+      for (const ex of list) if (/<!doctype\b|<(?:html|head|body)[\s>]/i.test(exampleMarkup(ex).markup)) bad.push(`${f} ${lang} ${ex.title}`);
+  }
+  assert.deepEqual(bad, []);
+});
+
+test('no example in the registry points at a relative image file', () => {
+  const bad = [];
+  for (const f of readdirSync(REGISTRY).filter((n) => n.endsWith('.json') && n !== 'index.json')) {
+    const item = JSON.parse(readFileSync(join(REGISTRY, f), 'utf8'));
+    for (const [lang, list] of Object.entries(item.examples || {}))
+      for (const ex of list) {
+        const m = exampleMarkup(ex).markup.match(/\b(?:src|href|poster)="(?![a-z][\w+.-]*:|\/\/|#)[^"]*\.(?:jpe?g|png|gif|webp|avif|svg)"/i);
+        if (m) bad.push(`${f} ${lang} ${ex.title}: ${m[0]}`);
+      }
+  }
+  assert.deepEqual(bad, []);
 });

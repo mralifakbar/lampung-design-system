@@ -4,7 +4,7 @@ import { join } from 'node:path';
 import { mkdirSync } from 'node:fs';
 import { detectFramework, detectPm, detectTypescript } from '../src/detect.js';
 import { htmlToJsx, htmlToAstro, htmlToBlade, styleObject, exampleMarkup } from '../src/html.js';
-import { addCssImport, addJsImport, patchHtmlTag, importLine } from '../src/edit.js';
+import { addCssImport, addJsImport, patchHtmlTag, importLine, isViteStarterCss } from '../src/edit.js';
 import { detectLang, createT, STRINGS } from '../src/i18n.js';
 import { patchFlutterMain } from '../src/frameworks.js';
 import { creatorCommand } from '../src/create.js';
@@ -249,4 +249,27 @@ test('--version, --help, unknown command and flag', async () => {
   assert.equal(u.code, 1);
   assert.match(u.err, /Unknown command "deploy"/);
   assert.equal((await cli(['init', '--frobnicate'])).code, 1);
+});
+
+test('isViteStarterCss spots the create-vite global CSS, old and new', () => {
+  const next = ':root {\n  --text: #6b6375;\n  --accent: #aa3bff;\n}\n#root {\n  width: 1126px;\n  text-align: center;\n}\n';
+  const old = ':root {\n  font-family: Inter, system-ui;\n}\na {\n  color: #646cff;\n}\n#root {\n  max-width: 1280px;\n}\n';
+  assert.equal(isViteStarterCss(next), true);
+  assert.equal(isViteStarterCss(old), true);
+  assert.equal(isViteStarterCss(':root { --accent: #aa3bff; }\n.app {}\n'), false);
+  assert.equal(isViteStarterCss(`@import "lampung-design-system/css";\n${next}`), false);
+});
+
+test('exampleMarkup never turns a page-level snippet into markup', () => {
+  const code = '<html lang="en" class="lds">\n<head>\n  <link rel="stylesheet" href="css/lds.css">\n</head>';
+  const html = '<div class="codeblock"><pre>&lt;html&gt;</pre></div>';
+  assert.deepEqual(exampleMarkup({ html, code }), { markup: html, usage: code });
+  // <header> is a normal element, not <head>
+  assert.deepEqual(exampleMarkup({ html: '<i>x</i>', code: '<header class="topnav"></header>' }), { markup: '<header class="topnav"></header>', usage: null });
+});
+
+test('exampleMarkup skips snippets that point at placeholder image files', () => {
+  const html = '<a class="thumb"><img src="https://lampung.kartadinata.app/docs/examples/a.svg" alt=""></a>';
+  assert.deepEqual(exampleMarkup({ html, code: '<a class="thumb" href="big.jpg"><img src="small.jpg" alt=""></a>' }).markup, html);
+  assert.equal(exampleMarkup({ html, code: '<img src="https://cdn.example/x.jpg" alt="">' }).markup, '<img src="https://cdn.example/x.jpg" alt="">');
 });
