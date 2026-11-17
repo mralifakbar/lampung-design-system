@@ -1,7 +1,7 @@
 export default {
   summary: 'Satu baris teks bebas dengan label di atasnya dan baris bantuan di bawahnya. Baris bantuan berubah menjadi pesan galat, sehingga tata letak tidak pernah melompat.',
   when: [
-    'Orang mengetik nilai bebas yang pendek: nama, email, NIK, nama sekolah.',
+    'Orang mengetik nilai bebas yang pendek: nama, email, NIK, nama kelurahan.',
     'Formulir butuh kolom yang memvalidasi (setelah blur pertama, lalu secara langsung) dan menyebut apa yang perlu diperbaiki dengan kata-kata.',
     'Nilai butuh ikon di depan, satuan, atau satu aksi di belakang seperti hapus (`.control__btn`).',
   ],
@@ -36,8 +36,8 @@ export default {
     <span class="field__help" id="tf-name-help">Sesuai yang tertulis di KTP.</span>
   </div>
   <div class="field">
-    <label class="field__label" for="tf-school">Sekolah <span>Opsional</span></label>
-    <div class="control"><span class="ic" aria-hidden="true">school</span><input id="tf-school" autocomplete="organization" placeholder="SMA Negeri 2 Metro"></div>
+    <label class="field__label" for="tf-school">Kelurahan <span>Opsional</span></label>
+    <div class="control"><span class="ic" aria-hidden="true">location_on</span><input id="tf-school" autocomplete="address-level4" placeholder="Kelurahan Way Halim Permai"></div>
   </div>
 </div>`,
     },
@@ -74,7 +74,7 @@ export default {
   </div>
   <div class="field">
     <label class="field__label" for="tf-sid">NIK</label>
-    <div class="control is-disabled"><span class="ic" aria-hidden="true">lock</span><input id="tf-sid" value="1871024508900003" disabled aria-describedby="tf-sid-help"></div>
+    <div class="control is-disabled"><span class="ic" aria-hidden="true">lock</span><input id="tf-sid" value="1871 •••• •••• 0003" disabled aria-describedby="tf-sid-help"></div>
     <span class="field__help" id="tf-sid-help">Diambil dari data kependudukan. Ajukan perubahan di kantor kelurahan.</span>
   </div>
 </div>`,
@@ -87,13 +87,13 @@ export default {
     <div class="field"><label class="field__label" for="tf-first">Nama depan</label><div class="control"><input id="tf-first" autocomplete="given-name"></div></div>
     <div class="field"><label class="field__label" for="tf-last">Nama belakang</label><div class="control"><input id="tf-last" autocomplete="family-name"></div></div>
   </div>
-  <div class="field"><label class="field__label" for="tf-phone">Nomor ponsel</label><div class="control"><span class="ic" aria-hidden="true">call</span><input id="tf-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="0812 3456 7890"></div></div>
+  <div class="field"><label class="field__label" for="tf-phone">Nomor ponsel</label><div class="control"><span class="ic" aria-hidden="true">call</span><input id="tf-phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="08xx xxxx xxxx"></div></div>
   <div class="form__actions"><button type="button" class="btn btn--secondary">Batal</button><button type="submit" class="btn btn--primary">Simpan profil</button></div>
 </form>`,
     },
   ],
   variants: [
-    ['.control > .ic', 'Ikon di depan untuk kolom yang jenisnya tidak jelas dari label (surat, telepon, sekolah).'],
+    ['.control > .ic', 'Ikon di depan untuk kolom yang jenisnya tidak jelas dari label (surat, telepon, lokasi).'],
     ['.control__suffix', 'Teks satuan atau awalan; lihat [amount field](amount-field).'],
     ['.control__btn', 'Satu aksi di belakang: hapus, tampilkan ([password field](password-field)), buka kalender ([date field](date-field)).'],
     ['.field__help--error / --ok', 'Baris bantuan sebagai umpan balik, dengan ikon `error` atau `check_circle`.'],
