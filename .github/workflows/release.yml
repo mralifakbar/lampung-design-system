@@ -30,16 +30,34 @@ jobs:
           test "$(node -p "require('./package.json').version")" = "$TAG"
           test "$(node -p "require('./packages/cli/package.json').version")" = "$TAG"
           grep -q "^version: $TAG$" packages/flutter/pubspec.yaml
-      - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      - run: npm publish --provenance --access public -w lampung-ds
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      # npm trusted publishing (OIDC): no token; needs npm 11.5+ and each package's Trusted Publisher
+      # set to this repository and release.yml on npmjs.com. Versions already on npm are skipped,
+      # so re-running a tag (or tagging a version published by hand) does not fail.
+      - run: npm install -g npm@latest
+      - name: Publish lampung-design-system
+        run: |
+          V="$(node -p "require('./package.json').version")"
+          if npm view "lampung-design-system@$V" version >/dev/null 2>&1; then echo "lampung-design-system@$V is already on npm"; else npm publish --provenance --access public; fi
+      - name: Publish lampung-ds
+        run: |
+          V="$(node -p "require('./packages/cli/package.json').version")"
+          if npm view "lampung-ds@$V" version >/dev/null 2>&1; then echo "lampung-ds@$V is already on npm"; else npm publish --provenance --access public -w lampung-ds; fi
+
+  pub-check:
+    name: Is this version on pub.dev?
+    runs-on: ubuntu-latest
+    outputs:
+      published: ${{ steps.check.outputs.published }}
+    steps:
+      - id: check
+        run: |
+          V="${GITHUB_REF_NAME#v}"
+          if curl -sf "https://pub.dev/api/packages/lampung_design_system/versions/$V" >/dev/null; then echo "published=true" >> "$GITHUB_OUTPUT"; else echo "published=false" >> "$GITHUB_OUTPUT"; fi
 
   pub:
     name: Publish to pub.dev
-    needs: npm
+    needs: [npm, pub-check]
+    if: needs.pub-check.outputs.published != 'true'
     # pub.dev automated publishing: enable it for this repository and the tag pattern v{{version}}
     # in the package admin page, then this job authenticates with GitHub OIDC (no secret needed).
     uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
@@ -51,6 +69,8 @@ jobs:
   github:
     name: GitHub release
     needs: [npm, pub]
+    # Runs when pub.dev was published now or skipped because the version was already there.
+    if: ${{ !failure() && !cancelled() }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
