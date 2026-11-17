@@ -4,9 +4,9 @@ export default {
   order: 2,
   summary: 'The one thing on the page worth doing next, on the accent tint: an eyebrow, a title, a sentence and one or two actions. At most one per page.',
   when: [
-    'There is a clear next step for this person: register before a deadline, finish an unfinished tryout, complete the profile.',
+    'There is a clear next step for this person: register before a deadline, finish an unfinished application, complete the profile.',
     'A dashboard needs a single focal call to action above the regular sections.',
-    'A small form that is the point of the page (join a class with a code) can live inside it; fields switch to the base color automatically.',
+    'A small form that is the point of the page (join a group with a code) can live inside it; fields switch to the base color automatically.',
   ],
   whenNot: [
     ['Telling people about a problem or a change (a warning, an outage)', 'alert', 'Or a [banner](banner) across the page'],
@@ -30,8 +30,8 @@ export default {
       desc: 'Say what, by when, and why it matters; the primary button names the outcome.',
       html: `<div class="spotlight" style="width: 100%;">
   <span class="spotlight__eyebrow"><span class="ic" aria-hidden="true">event</span>Next step</span>
-  <h3 class="spotlight__title">Register for next term before 30 November</h3>
-  <p class="spotlight__body">Seats in elective courses go to the earliest registrations.</p>
+  <h3 class="spotlight__title">Renew your business registration before 30 November</h3>
+  <p class="spotlight__body">UMKM mentoring places go to the earliest registrations.</p>
   <div class="spotlight__actions"><button type="button" class="btn btn--primary">Register now</button><button type="button" class="btn btn--secondary">See the schedule</button></div>
 </div>`,
     },
@@ -39,11 +39,11 @@ export default {
       title: 'With a small form',
       desc: 'A field inside the spotlight keeps the base color, never fill on fill.',
       html: `<div class="spotlight" style="width: 100%;">
-  <span class="spotlight__eyebrow"><span class="ic" aria-hidden="true">group</span>Join a class</span>
-  <h3 class="spotlight__title">Got a code from your teacher?</h3>
+  <span class="spotlight__eyebrow"><span class="ic" aria-hidden="true">group</span>Join a group</span>
+  <h3 class="spotlight__title">Got a code from your mentor?</h3>
   <div class="spotlight__actions" style="align-items: flex-end;">
-    <div class="field" style="flex: 1; min-width: 200px;"><label class="sr-only" for="sp-code">Class code</label><div class="control"><input id="sp-code" placeholder="e.g. DB-2026-A" autocapitalize="characters"></div></div>
-    <button type="button" class="btn btn--primary">Join class</button>
+    <div class="field" style="flex: 1; min-width: 200px;"><label class="sr-only" for="sp-code">Group code</label><div class="control"><input id="sp-code" placeholder="e.g. UMKM-2026-A" autocapitalize="characters"></div></div>
+    <button type="button" class="btn btn--primary">Join group</button>
   </div>
 </div>`,
     },
