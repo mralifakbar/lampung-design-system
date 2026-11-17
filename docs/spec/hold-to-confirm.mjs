@@ -6,33 +6,33 @@ export default {
   order: 9,
   summary: 'A button you press and hold for 1.2 s to confirm something costly but not dangerous enough for a dialog. A fill sweeps across while you hold and drains if you let go early.',
   when: [
-    'A costly, deliberate action that should not happen by a stray tap but does not need a separate question: submit an exam, end a live session, delete a local draft archive.',
-    'Inside a flow where a confirm dialog would break concentration (the last screen of a tryout).',
+    'A costly, deliberate action that should not happen by a stray tap but does not need a separate question: submit a social aid application, end a live public hearing, delete a local draft archive.',
+    'Inside a flow where a confirm dialog would break concentration (the last screen of a long application form).',
   ],
   whenNot: [
-    ['Destroying shared or unrecoverable data (delete a course, remove a member)', 'alert-dialog', 'Name the consequence in words and ask.'],
-    ['A confirm on a phone where a deliberate gesture fits better (send payment, submit grades)', 'slide-to-confirm'],
+    ['Destroying shared or unrecoverable data (delete a service, remove an officer)', 'alert-dialog', 'Name the consequence in words and ask.'],
+    ['A confirm on a phone where a deliberate gesture fits better (send payment, approve aid disbursement)', 'slide-to-confirm'],
     ['An action that is easy to undo', 'button', 'Do it at once and offer Undo in a [toast](toast).'],
     ['A two-step "Are you sure?" inside the same control', 'confirm-in-place'],
   ],
-  where: 'Where the primary action of the flow would be: the end of an exam, the footer of a sheet. Full width on phones (`btn--block`). Add a one-line hint under or inside it ("Hold to submit"), because the gesture is not obvious.',
+  where: 'Where the primary action of the flow would be: the end of an application form, the footer of a sheet. Full width on phones (`btn--block`). Add a one-line hint under or inside it ("Hold to submit"), because the gesture is not obvious.',
   anatomy: [
     ['.btn.hold[data-lds-hold]', 'Required. A button with any filled variant (`btn--primary` or `btn--danger`). `.hold` clips the fill.'],
     ['.hold__fill', 'Required. First child, `aria-hidden`. A dark layer that scales from the left while held.'],
-    ['label text', 'The last child. Say the gesture in it: "Hold to submit answers".'],
+    ['label text', 'The last child. Say the gesture in it: "Hold to submit application".'],
   ],
   examples: [
     {
-      title: 'Submit an exam',
+      title: 'Submit an application',
       desc: 'Press and hold for 1.2 s, or focus it and hold Space or Enter. Let go early and the fill drains.',
       replay: true,
-      html: `<button class="btn btn--primary hold" data-lds-hold style="min-width: 240px;" onpointerenter="${wire('Answers submitted')}" onfocus="${wire('Answers submitted')}"><span class="hold__fill" aria-hidden="true"></span><span class="ic" aria-hidden="true">touch_app</span>Hold to submit answers</button>`,
-      code: `<button class="btn btn--primary hold" data-lds-hold id="submit-exam">
+      html: `<button class="btn btn--primary hold" data-lds-hold style="min-width: 240px;" onpointerenter="${wire('Application submitted')}" onfocus="${wire('Application submitted')}"><span class="hold__fill" aria-hidden="true"></span><span class="ic" aria-hidden="true">touch_app</span>Hold to submit application</button>`,
+      code: `<button class="btn btn--primary hold" data-lds-hold id="submit-application">
   <span class="hold__fill" aria-hidden="true"></span>
-  <span class="ic" aria-hidden="true">touch_app</span>Hold to submit answers
+  <span class="ic" aria-hidden="true">touch_app</span>Hold to submit application
 </button>
 <script type="module">
-  document.getElementById('submit-exam').addEventListener('lds:confirm', submitAnswers);
+  document.getElementById('submit-application').addEventListener('lds:confirm', submitApplication);
 </script>`,
     },
     {

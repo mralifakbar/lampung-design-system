@@ -3,32 +3,32 @@ const wire = (text) => `if (!this.dataset.wired) { this.dataset.wired = '1'; thi
 export default {
   summary: 'Tombol yang ditekan dan ditahan selama 1,2 detik untuk mengonfirmasi sesuatu yang mahal tetapi tidak cukup berbahaya untuk dialog. Isian menyapu tombol selama ditahan dan surut jika dilepas lebih awal.',
   when: [
-    'Aksi mahal dan disengaja yang tidak boleh terjadi karena ketukan tak sengaja, tetapi tidak perlu pertanyaan terpisah: mengirim ujian, mengakhiri sesi siaran langsung, menghapus arsip draf lokal.',
-    'Di dalam alur yang akan terganggu oleh dialog konfirmasi (layar terakhir ujian seleksi).',
+    'Aksi mahal dan disengaja yang tidak boleh terjadi karena ketukan tak sengaja, tetapi tidak perlu pertanyaan terpisah: mengirim permohonan bantuan sosial, mengakhiri siaran langsung musyawarah warga, menghapus arsip draf lokal.',
+    'Di dalam alur yang akan terganggu oleh dialog konfirmasi (layar terakhir formulir permohonan yang panjang).',
   ],
   whenNot: [
-    ['Menghapus data bersama atau yang tidak bisa dipulihkan (hapus layanan, keluarkan anggota)', 'alert-dialog', 'Sebut akibatnya dengan kata-kata dan tanyakan.'],
-    ['Konfirmasi di ponsel yang lebih cocok dengan gerakan disengaja (kirim pembayaran, kirim nilai)', 'slide-to-confirm'],
+    ['Menghapus data bersama atau yang tidak bisa dipulihkan (hapus layanan, keluarkan petugas)', 'alert-dialog', 'Sebut akibatnya dengan kata-kata dan tanyakan.'],
+    ['Konfirmasi di ponsel yang lebih cocok dengan gerakan disengaja (kirim pembayaran, setujui penyaluran bantuan)', 'slide-to-confirm'],
     ['Aksi yang mudah dibatalkan', 'button', 'Langsung jalankan dan tawarkan Urungkan di [toast](toast).'],
     ['"Anda yakin?" dua langkah di dalam kontrol yang sama', 'confirm-in-place'],
   ],
-  where: 'Di tempat aksi utama alur berada: akhir ujian, footer sheet. Selebar layar di ponsel (`btn--block`). Tambahkan petunjuk satu baris di bawah atau di dalamnya ("Tahan untuk mengirim"), karena gerakan ini tidak langsung jelas.',
+  where: 'Di tempat aksi utama alur berada: akhir formulir permohonan, footer sheet. Selebar layar di ponsel (`btn--block`). Tambahkan petunjuk satu baris di bawah atau di dalamnya ("Tahan untuk mengirim"), karena gerakan ini tidak langsung jelas.',
   anatomy: [
     ['.btn.hold[data-lds-hold]', 'Wajib. Tombol dengan varian berisi apa pun (`btn--primary` atau `btn--danger`). `.hold` memotong isiannya.'],
     ['.hold__fill', 'Wajib. Anak pertama, `aria-hidden`. Lapisan gelap yang membesar dari kiri selama ditahan.'],
-    ['label text', 'Anak terakhir. Sebut gerakannya di sini: "Tahan untuk mengirim jawaban".'],
+    ['label text', 'Anak terakhir. Sebut gerakannya di sini: "Tahan untuk mengirim permohonan".'],
   ],
   examples: [
     {
-      title: 'Mengirim ujian',
+      title: 'Mengirim permohonan',
       desc: 'Tekan dan tahan selama 1,2 detik, atau fokuskan lalu tahan Spasi atau Enter. Lepas lebih awal dan isiannya surut.',
-      html: `<button class="btn btn--primary hold" data-lds-hold style="min-width: 240px;" onpointerenter="${wire('Jawaban terkirim')}" onfocus="${wire('Jawaban terkirim')}"><span class="hold__fill" aria-hidden="true"></span><span class="ic" aria-hidden="true">touch_app</span>Tahan untuk mengirim jawaban</button>`,
-      code: `<button class="btn btn--primary hold" data-lds-hold id="submit-exam">
+      html: `<button class="btn btn--primary hold" data-lds-hold style="min-width: 240px;" onpointerenter="${wire('Permohonan terkirim')}" onfocus="${wire('Permohonan terkirim')}"><span class="hold__fill" aria-hidden="true"></span><span class="ic" aria-hidden="true">touch_app</span>Tahan untuk mengirim permohonan</button>`,
+      code: `<button class="btn btn--primary hold" data-lds-hold id="submit-application">
   <span class="hold__fill" aria-hidden="true"></span>
-  <span class="ic" aria-hidden="true">touch_app</span>Tahan untuk mengirim jawaban
+  <span class="ic" aria-hidden="true">touch_app</span>Tahan untuk mengirim permohonan
 </button>
 <script type="module">
-  document.getElementById('submit-exam').addEventListener('lds:confirm', submitAnswers);
+  document.getElementById('submit-application').addEventListener('lds:confirm', submitApplication);
 </script>`,
     },
     {
