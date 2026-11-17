@@ -142,7 +142,15 @@ def build_ttf(family, glyph_order, cmap, advances, outlines, fea, path):
     fb.setupGlyphOrder(glyph_order)
     fb.setupCharacterMap(cmap)
     fb.setupGlyf(glyphs)
-    fb.setupHorizontalMetrics(advances)
+    # TrueType rasterizers (CoreText on iOS) place a glyph so its xMin sits at the left side
+    # bearing, so lsb must be the real xMin; 0 would push every icon flush left in its box.
+    glyf = fb.font["glyf"]
+    metrics = {}
+    for g, (adv, _) in advances.items():
+        gl = glyf[g]
+        gl.recalcBounds(glyf)
+        metrics[g] = (adv, getattr(gl, "xMin", 0) if gl.numberOfContours else 0)
+    fb.setupHorizontalMetrics(metrics)
     fb.setupHorizontalHeader(ascent=1000, descent=0)
     fb.setupNameTable({"familyName": family, "styleName": "Regular"})
     fb.setupOS2(sTypoAscender=1000, sTypoDescender=0, sTypoLineGap=0, usWinAscent=1000, usWinDescent=0)
