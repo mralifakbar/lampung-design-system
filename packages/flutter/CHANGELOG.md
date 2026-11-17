@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.1
+
+- `LdsSwipeActions` collapses its row with `Align` instead of the deprecated
+  `SizeTransition.axisAlignment` (deprecated after Flutter 3.41).
+- Development: flutter_lints 6.
+
 ## 0.1.0
 
 First release of the Flutter package of Lampung Design System (unofficial).

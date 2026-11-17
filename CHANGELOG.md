@@ -4,6 +4,18 @@ All notable changes to Lampung Design System are documented here. The format fol
 
 ## [Unreleased]
 
+## [0.1.1] - 2026-11-17
+
+### Fixed
+
+- Phones: centered heroes center their actions and note, and hero and page header actions stack at full width under 560 px.
+- Phones: the masthead keeps its mark beside the text, with the toggle under it.
+- Flutter: `LdsSwipeActions` no longer uses `SizeTransition.axisAlignment`, deprecated after Flutter 3.41.
+
+### Changed
+
+- Development dependencies: esbuild 0.28, TypeScript 7, flutter_lints 6.
+
 ## [0.1.0] - 2026-11-17
 
 First public release.
@@ -22,5 +34,6 @@ First public release.
 - Examples: a city operations dashboard, a citizen super app and a public service portal.
 - Landing page and documentation site, deployed to Cloudflare. Every docs page has a Markdown twin with Copy for LLM, plus `llms.txt` and `llms-full.txt` for agents.
 
-[Unreleased]: https://github.com/mralifakbar/lampung-design-system/compare/v0.1.0...HEAD
+[Unreleased]: https://github.com/mralifakbar/lampung-design-system/compare/v0.1.1...HEAD
+[0.1.1]: https://github.com/mralifakbar/lampung-design-system/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/mralifakbar/lampung-design-system/releases/tag/v0.1.0
