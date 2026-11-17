@@ -117,11 +117,11 @@ writeFileSync(join(out, '_headers'), `/*
   Access-Control-Allow-Origin: *
 
 /css/*
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: public, max-age=0, must-revalidate
   Access-Control-Allow-Origin: *
 
 /js/*
-  Cache-Control: public, max-age=3600, must-revalidate
+  Cache-Control: public, max-age=0, must-revalidate
   Access-Control-Allow-Origin: *
 
 /r/*
