@@ -1,23 +1,23 @@
 import { cfg } from './_chart-data.mjs';
 
-const capacity = { type: 'gauge', label: 'Exam hall capacity booked: 78 of 120 seats.', value: 78, max: 120, center: '65%', unit: '78 of 120 seats', minLabel: '0', maxLabel: '120',
-  sets: { sat: { value: 78, center: '65%', unit: '78 of 120 seats', label: 'Saturday: 78 of 120 seats booked.', tone: null }, sun: { value: 112, center: '93%', unit: '112 of 120 seats', label: 'Sunday: 112 of 120 seats booked, nearly full.', tone: 'warning' } } };
+const capacity = { type: 'gauge', label: 'Vaccination quota filled: 78 of 120 places.', value: 78, max: 120, center: '65%', unit: '78 of 120 places', minLabel: '0', maxLabel: '120',
+  sets: { sat: { value: 78, center: '65%', unit: '78 of 120 places', label: 'Saturday: 78 of 120 places booked.', tone: null }, sun: { value: 112, center: '93%', unit: '112 of 120 places', label: 'Sunday: 112 of 120 places booked, nearly full.', tone: 'warning' } } };
 const g = (o) => `<div data-lds-chart='${cfg({ type: 'gauge', ...o })}' style="--size: 180px;"></div>`;
-const stock = { type: 'gauge', label: 'Stock of 240 products: 186 in stock, 38 running low, 16 sold out.', segments: [{ name: 'In stock', value: 186, color: 3 }, { name: 'Running low', value: 38, color: 2 }, { name: 'Sold out', value: 16, color: 'neutral' }], center: '78%', unit: 'in stock' };
+const stock = { type: 'gauge', label: 'Stock of 240 medicines: 186 available, 38 running low, 16 out of stock.', segments: [{ name: 'Available', value: 186, color: 3 }, { name: 'Running low', value: 38, color: 2 }, { name: 'Out of stock', value: 16, color: 'neutral' }], center: '78%', unit: 'available' };
 
 export default {
   title: 'Gauge',
   group: 'Charts',
   order: 5.5,
-  summary: 'A half ring with the value in its opening: one figure against its known range (seats booked, a score, a load), or a row of ticks shared out between a few states (in stock, low, sold out). Reads at a glance; the words under the number carry the detail.',
+  summary: 'A half ring with the value in its opening: one figure against its known range (quota booked, a score, a load), or a row of ticks shared out between a few states (available, low, out of stock). Reads at a glance; the words under the number carry the detail.',
   when: [
     'One value against a fixed range where "how full" is the question: capacity booked, quota used, a health score, a server\'s load.',
-    'A small set of states that share one total and the main share matters most: stock in, low, out; tickets open, waiting, closed.',
+    'A small set of states that share one total and the main share matters most: medicine stock available, low, out; reports open, waiting, closed.',
     'A dashboard tile with room for a shape but not for a chart.',
   ],
   whenNot: [
     ['A score in a small square (a card corner, a list row)', 'progress-ring'],
-    ['Storage or seats in a narrow row', 'meter'],
+    ['Storage or quota in a narrow row', 'meter'],
     ['Progress toward a goal with a deadline', 'target-bar'],
     ['Parts of a whole where every part matters', 'donut'],
     ['Change over time', 'area-chart'],
@@ -34,11 +34,11 @@ export default {
   examples: [
     {
       title: 'Capacity, switching days',
-      desc: 'Switch the day: the arc moves over 480 ms from where it is, and turns to warning when the hall is nearly full. The arc sweeps in on first view.',
+      desc: 'Switch the day: the arc moves over 480 ms from where it is, and turns to warning when the quota is nearly full. The arc sweeps in on first view.',
       stage: 'block',
       replay: true,
       html: `<section class="chart-card" style="max-width: 380px; align-items: center;" aria-labelledby="ga-q">
-  <div class="chart-card__head" style="width: 100%;"><div class="chart-card__titles"><div class="chart-card__q" id="ga-q">How full is the exam hall?</div><div class="chart-card__sub">Seats booked for the mock exam</div></div>
+  <div class="chart-card__head" style="width: 100%;"><div class="chart-card__titles"><div class="chart-card__q" id="ga-q">How full is the vaccination quota?</div><div class="chart-card__sub">Places booked at the kelurahan hall</div></div>
     <div class="chart-card__actions"><div class="seg chart-card__range" role="group" aria-label="Day" data-lds-segmented data-lds-chart-for="ga-hall" style="width: 180px;"><span class="seg__thumb"></span><button type="button" class="seg__btn" aria-pressed="true" data-set="sat">Saturday</button><button type="button" class="seg__btn" aria-pressed="false" data-set="sun">Sunday</button></div></div>
   </div>
   <div id="ga-hall" data-lds-chart='${cfg(capacity)}' style="--size: 220px;"></div>
@@ -49,7 +49,7 @@ export default {
       desc: 'Plain for a neutral level, success for good, warning for close to a limit. The tone repeats what the words say.',
       replay: true,
       html: `<div class="docs-row" style="gap: 32px;">
-  ${g({ label: 'Average quiz score 82 of 100.', value: 82, max: 100, tone: 'success', unit: 'average score' })}
+  ${g({ label: 'Average satisfaction score 82 of 100.', value: 82, max: 100, tone: 'success', unit: 'satisfaction score' })}
   ${g({ label: 'Server load at 64 percent.', value: 64, max: 100, center: '64%', unit: 'server load' })}
   ${g({ label: 'Storage 91 percent used.', value: 91, max: 100, center: '91%', tone: 'warning', unit: 'storage used' })}
 </div>`,
@@ -60,9 +60,9 @@ export default {
       stage: 'block',
       replay: true,
       html: `<section class="chart-card" style="max-width: 380px; align-items: center;" aria-labelledby="ga-stock">
-  <div style="width: 100%;"><div class="chart-card__q" id="ga-stock">Is the shop well stocked?</div><div class="chart-card__sub">240 products, today</div></div>
+  <div style="width: 100%;"><div class="chart-card__q" id="ga-stock">Does the puskesmas have enough medicine?</div><div class="chart-card__sub">240 medicines, today</div></div>
   <div data-lds-chart='${cfg(stock)}' style="--size: 220px;"></div>
-  <div class="legend" style="justify-content: center;"><span><i style="background: var(--series-3);"></i>In stock 186</span><span><i style="background: var(--series-2);"></i>Running low 38</span><span><i style="background: var(--neutral);"></i>Sold out 16</span></div>
+  <div class="legend" style="justify-content: center;"><span><i style="background: var(--series-3);"></i>Available 186</span><span><i style="background: var(--series-2);"></i>Running low 38</span><span><i style="background: var(--neutral);"></i>Out of stock 16</span></div>
 </section>`,
     },
   ],
@@ -89,7 +89,7 @@ export default {
   ],
   do: [
     'Use it for one figure with a meaningful maximum.',
-    'Write the unit line as words people would say ("78 of 120 seats").',
+    'Write the unit line as words people would say ("78 of 120 places").',
   ],
   dont: [
     'Add a needle, colored zones or tick numbers around the ring.',
