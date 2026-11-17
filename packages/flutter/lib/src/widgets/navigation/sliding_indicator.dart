@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -168,15 +169,86 @@ class _LdsSlidingIndicatorState extends State<LdsSlidingIndicator> {
               ),
             ),
           SizeChangedLayoutNotifier(
-            child: Flex(
-              direction: widget.direction,
-              mainAxisSize: widget.expand ? MainAxisSize.max : MainAxisSize.min,
-              crossAxisAlignment: widget.crossAxisAlignment,
-              children: items,
+            child: _BoundedCrossAxis(
+              axis: widget.direction,
+              child: Flex(
+                direction: widget.direction,
+                mainAxisSize:
+                    widget.expand ? MainAxisSize.max : MainAxisSize.min,
+                crossAxisAlignment: widget.crossAxisAlignment,
+                children: items,
+              ),
             ),
           ),
         ],
       ),
     );
+  }
+}
+
+/// Gives a [Flex] a bounded cross axis when its parent does not, using the
+/// children's intrinsic size.
+///
+/// A row with [CrossAxisAlignment.stretch] inside a vertical list (or a
+/// column inside a horizontal one) would otherwise be asked to stretch to an
+/// infinite size. When the cross axis is already bounded the constraints
+/// pass through untouched, so the row still fills a bounded slot.
+class _BoundedCrossAxis extends SingleChildRenderObjectWidget {
+  const _BoundedCrossAxis({required this.axis, required Widget super.child});
+
+  /// The main axis of the child flex.
+  final Axis axis;
+
+  @override
+  RenderObject createRenderObject(BuildContext context) =>
+      _RenderBoundedCrossAxis(axis);
+
+  @override
+  void updateRenderObject(
+      BuildContext context, _RenderBoundedCrossAxis renderObject) {
+    renderObject.axis = axis;
+  }
+}
+
+class _RenderBoundedCrossAxis extends RenderProxyBox {
+  _RenderBoundedCrossAxis(this._axis);
+
+  Axis _axis;
+  set axis(Axis value) {
+    if (value == _axis) return;
+    _axis = value;
+    markNeedsLayout();
+  }
+
+  BoxConstraints _bound(BoxConstraints constraints) {
+    final c = child;
+    if (c == null) return constraints;
+    if (_axis == Axis.horizontal && !constraints.hasBoundedHeight) {
+      final h = c.getMaxIntrinsicHeight(constraints.maxWidth);
+      return constraints.copyWith(
+          maxHeight: h < constraints.minHeight ? constraints.minHeight : h);
+    }
+    if (_axis == Axis.vertical && !constraints.hasBoundedWidth) {
+      final w = c.getMaxIntrinsicWidth(constraints.maxHeight);
+      return constraints.copyWith(
+          maxWidth: w < constraints.minWidth ? constraints.minWidth : w);
+    }
+    return constraints;
+  }
+
+  @override
+  Size computeDryLayout(BoxConstraints constraints) =>
+      child?.getDryLayout(_bound(constraints)) ??
+      constraints.constrain(Size.zero);
+
+  @override
+  void performLayout() {
+    final c = child;
+    if (c == null) {
+      size = constraints.constrain(Size.zero);
+      return;
+    }
+    c.layout(_bound(constraints), parentUsesSize: true);
+    size = constraints.constrain(c.size);
   }
 }
