@@ -4,7 +4,7 @@ export default {
   order: 12,
   summary: 'A scrolling area fades an edge only while more content waits beyond it: the top edge appears once you leave the start, the bottom edge disappears when you reach the end. A fade always means "there is more this way".',
   when: [
-    'A fixed-height area inside a page that scrolls on its own: course rules in a card, a long list in a panel, terms in a dialog.',
+    'A fixed-height area inside a page that scrolls on its own: service terms in a card, a long list in a panel, terms in a dialog.',
     'A horizontal row that scrolls sideways: filter chips, a tab row on phones.',
   ],
   whenNot: [
@@ -20,13 +20,13 @@ export default {
   ],
   examples: [
     {
-      title: 'Course rules in a card',
-      desc: 'Scroll the rules. At the start only the bottom edge fades; in the middle both do; at the end only the top.',
+      title: 'Service terms in a card',
+      desc: 'Scroll the terms. At the start only the bottom edge fades; in the middle both do; at the end only the top.',
       stage: 'fill',
       html: `<div class="card" style="max-width: 420px;">
-  <p class="card__title">Course rules</p>
+  <p class="card__title">Business permit service terms</p>
   <div class="fade-edges" data-lds-fade style="max-height: 150px; overflow: auto; margin-top: 8px;">
-    <p class="card__sub">Grading opens on the first of the month. Late work loses five percent a day for up to five days, then counts as missing. Office hours move to Thursday afternoons while the building is renovated. Group projects need one shared folder and a short note on who did what. Phones stay in bags during quizzes. If you are sick on a quiz day, send a note within three days and you can take it the following week. Lab coats are required in the lab from week 3. The final exam covers every chapter, with extra weight on chapters 6 to 9.</p>
+    <p class="card__sub">Applications are processed from the first of each month. Incomplete files are returned and must be completed within five working days, after which the application lapses. The help desk moves to Thursday afternoons while the service building is renovated. A jointly owned business needs one shared folder of documents and a short note on each owner's role. Photos of the business site are taken in daylight and show the sign board. If you cannot attend the site check, send a notice within three days and you get a new slot the following week. From week 3 a letter of domicile must be attached. The final check covers every document, especially the environmental and zoning ones.</p>
   </div>
 </div>`,
     },
@@ -35,12 +35,12 @@ export default {
       desc: 'On narrow screens the chips scroll sideways; the right edge fades while more chips wait, the left once you have scrolled.',
       html: `<div class="fade-edges fade-edges--x" data-lds-fade style="overflow-x: auto; max-width: 340px; scrollbar-width: none;">
   <div class="chip-row" style="flex-wrap: nowrap; width: max-content; padding: 2px;">
-    <button class="chip" aria-pressed="true"><span class="ic chip__check" aria-hidden="true">check</span>All subjects</button>
-    <button class="chip" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Biology</button>
-    <button class="chip" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Chemistry</button>
-    <button class="chip" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Physics</button>
-    <button class="chip" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Mathematics</button>
-    <button class="chip" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>History</button>
+    <button class="chip" aria-pressed="true"><span class="ic chip__check" aria-hidden="true">check</span>All services</button>
+    <button class="chip" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Health</button>
+    <button class="chip" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Permits</button>
+    <button class="chip" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Civil registry</button>
+    <button class="chip" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Local tax</button>
+    <button class="chip" aria-pressed="false"><span class="ic chip__check" aria-hidden="true">check</span>Transport</button>
   </div>
 </div>`,
     },
