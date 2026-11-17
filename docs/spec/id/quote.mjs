@@ -1,8 +1,8 @@
 export default {
   summary: 'Kata-kata yang diucapkan atau ditulis orang lain, dipisahkan oleh garis aksen 3 px di kiri, 17/28 dengan `--text-strong`, dengan sumber di footer di bawahnya. Hanya untuk kutipan sungguhan.',
   when: [
-    'Mengutip orang, aturan atau sumber di dalam artikel, materi atau laporan: ucapan dosen, pasal dari tata tertib ujian.',
-    'Menampilkan umpan balik yang ditulis seseorang, dengan menyebut penulisnya (komentar penilai pada tugas).',
+    'Mengutip orang, aturan atau sumber di dalam artikel, panduan atau laporan: ucapan lurah, pasal dari tata tertib layanan.',
+    'Menampilkan umpan balik yang ditulis seseorang, dengan menyebut penulisnya (komentar verifikator pada permohonan).',
   ],
   whenNot: [
     ['Menarik perhatian pada peringatan, tips atau syarat penting', 'alert', 'Garis kutipan bukan callout.'],
@@ -19,19 +19,19 @@ export default {
   ],
   examples: [
     {
-      title: 'Di dalam materi',
+      title: 'Di dalam panduan layanan',
       desc: 'Kutipan pendek dengan sumbernya.',
       html: `<blockquote class="quote measure">
-  <p>Peserta ujian boleh membawa satu halaman catatan tulisan tangan, bolak-balik, ke ujian akhir.</p>
-  <footer>Tata tertib ujian, Fakultas Ilmu Komputer, pasal 12</footer>
+  <p>Pemohon wajib datang sendiri untuk perekaman KTP elektronik; perekaman tidak dapat diwakilkan.</p>
+  <footer>Tata tertib loket pelayanan, Kantor Kecamatan Kedaton, pasal 12</footer>
 </blockquote>`,
     },
     {
-      title: 'Umpan balik pada tugas',
+      title: 'Umpan balik pada permohonan',
       desc: 'Kata-kata dari seseorang dengan nama penulisnya, dan tanggal di footer.',
       html: `<figure class="quote measure">
-  <p>Diagramnya jelas dan analisisnya kuat. Lain kali, jelaskan kenapa Anda memilih UDP untuk data sensor.</p>
-  <figcaption>Dr. Sari Wulandari, pada laporan praktikum 2 · 3 November</figcaption>
+  <p>Denah lokasinya jelas dan berkasnya lengkap. Lain kali, tambahkan foto papan nama usaha yang diambil dari depan.</p>
+  <figcaption>Sari Wulandari, verifikator, pada permohonan IUM 2104 · 3 November</figcaption>
 </figure>`,
     },
   ],

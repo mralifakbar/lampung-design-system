@@ -4,8 +4,8 @@ export default {
   order: 2,
   summary: 'Words someone else said or wrote, set off by a 3 px accent bar on the left, 17/28 in `--text-strong`, with the source in a footer below. Only for real quotations.',
   when: [
-    'Quoting a person, a rule or a source inside an article, lesson or report: a lecturer\'s remark, a clause from exam regulations.',
-    'Showing feedback someone wrote, attributed to them (a reviewer\'s comment on an assignment).',
+    'Quoting a person, a rule or a source inside an article, guide or report: a village head\'s remark, a clause from service rules.',
+    'Showing feedback someone wrote, attributed to them (a verifier\'s comment on an application).',
   ],
   whenNot: [
     ['Drawing attention to a warning, tip or important condition', 'alert', 'A quote bar is not a callout.'],
@@ -22,21 +22,21 @@ export default {
   ],
   examples: [
     {
-      title: 'In a lesson',
+      title: 'In a service guide',
       desc: 'A short quote with its source.',
       stage: 'block',
       html: `<blockquote class="quote measure">
-  <p>Students may bring one handwritten page of notes, both sides, to the final exam.</p>
-  <footer>Exam regulations, Faculty of Computer Science, article 12</footer>
+  <p>Applicants must come in person for e-KTP recording; recording cannot be done on someone else's behalf.</p>
+  <footer>Service counter rules, Kedaton district office, article 12</footer>
 </blockquote>`,
     },
     {
-      title: 'Feedback on an assignment',
+      title: 'Feedback on an application',
       desc: 'Attributed words from a person, with the date in the footer.',
       stage: 'block',
       html: `<figure class="quote measure">
-  <p>Clear diagrams and a solid analysis. Next time, explain why you chose UDP for the sensor data.</p>
-  <figcaption>Dr. Sari Wulandari, on Lab report 2 · 3 November</figcaption>
+  <p>The site plan is clear and the files are complete. Next time, add a photo of the shop sign taken from the street.</p>
+  <figcaption>Sari Wulandari, verifier, on application IUM 2104 · 3 November</figcaption>
 </figure>`,
     },
   ],
