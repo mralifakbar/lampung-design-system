@@ -50,7 +50,7 @@ export default {
       title: 'Di atas isian tenang, dan bertumpuk untuk nilai panjang',
       desc: '`--base` membuat kotak putih di panel berisi isian; `--stack` menaruh nilai panjang di bawah labelnya.',
       html: `<dl class="kv-list kv-list--base kv-list--stack" style="max-width: 420px; width: 100%;">
-  <div class="kv"><dt>Nama usaha</dt><dd>Usaha Keripik Pisang Ibu Sumarni, Desa Way Halim Permai</dd></div>
+  <div class="kv"><dt>Nama usaha</dt><dd>Usaha Keripik Pisang Ibu Sumarni, Kelurahan Way Halim Permai</dd></div>
   <div class="kv"><dt>Pendamping</dt><dd>Ayu Rahmawati, petugas pendamping UMKM Kecamatan Kedaton</dd></div>
   <div class="kv"><dt>Tanggal verifikasi</dt><dd>Kamis, 10 Desember 2026</dd></div>
 </dl>`,

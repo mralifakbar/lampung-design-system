@@ -31,7 +31,7 @@ export default {
       desc: 'The quiet fill box with strong, right-aligned values.',
       stage: 'block',
       html: `<dl class="kv-list" style="max-width: 420px;">
-  <div class="kv"><dt>Term fee</dt><dd>Rp 4.200.000</dd></div>
+  <div class="kv"><dt>Permit levy</dt><dd>Rp 420.000</dd></div>
   <div class="kv"><dt>Due</dt><dd>28 Nov 2026</dd></div>
   <div class="kv"><dt>Payment method</dt><dd>Virtual account</dd></div>
   <div class="kv"><dt>Status</dt><dd><span class="badge badge--warning">Not paid</span></dd></div>
@@ -56,9 +56,9 @@ export default {
       desc: '`--base` makes the box white on a filled panel; `--stack` puts long values under their labels.',
       stage: 'fill',
       html: `<dl class="kv-list kv-list--base kv-list--stack" style="max-width: 420px; width: 100%;">
-  <div class="kv"><dt>Thesis title</dt><dd>Measuring reading fluency in early grades with short spoken passages</dd></div>
-  <div class="kv"><dt>Supervisor</dt><dd>Dr. Ayu Rahmawati, Faculty of Education</dd></div>
-  <div class="kv"><dt>Defense date</dt><dd>Thursday, 10 December 2026</dd></div>
+  <div class="kv"><dt>Business name</dt><dd>Usaha Keripik Pisang Ibu Sumarni, Kelurahan Way Halim Permai</dd></div>
+  <div class="kv"><dt>Assistant</dt><dd>Ayu Rahmawati, MSME assistant officer, Kecamatan Kedaton</dd></div>
+  <div class="kv"><dt>Verification date</dt><dd>Thursday, 10 December 2026</dd></div>
 </dl>`,
     },
   ],
