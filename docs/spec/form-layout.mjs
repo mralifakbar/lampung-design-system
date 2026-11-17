@@ -10,7 +10,7 @@ export default {
   order: 2,
   summary: 'The frame every form uses: `form` stacks fields 20 px apart, `form__row` puts short fields side by side when there is room, and `form__actions` ends the form with its buttons. Fields inside are always `.field`.',
   when: [
-    'Any form with more than one field: sign up, profile, checkout, a course settings page, the body of a dialog or sheet.',
+    'Any form with more than one field: registration, profile, payment, a service settings page, the body of a dialog or sheet.',
     'Two or three short fields belong together on one line on wide screens (first and last name, city and postal code, start and end date) and must stack on phones.',
     'A form needs its buttons at the end, primary on the right on wide screens and full width on top on phones.',
   ],
@@ -39,8 +39,8 @@ export default {
     ${field('pf-first', 'First name', 'text', 'Rina', '')}
     ${field('pf-last', 'Last name', 'text', 'Kusuma', '')}
   </div>
-  ${field('pf-email', 'Email', 'email', 'rina.kusuma@example.com', 'Grades and receipts go here.')}
-  ${field('pf-phone', 'Phone', 'tel', '', 'Only for exam day reminders.', ' <span>Optional</span>')}
+  ${field('pf-email', 'Email', 'email', 'rina.kusuma@example.com', 'Application receipts and payment slips go here.')}
+  ${field('pf-phone', 'Mobile number', 'tel', '', 'Only for service appointment reminders.', ' <span>Optional</span>')}
   <div class="form__actions">
     <button type="button" class="btn btn--secondary">Cancel</button>
     <button type="submit" class="btn btn--primary">Save profile</button>
@@ -52,19 +52,19 @@ export default {
       desc: 'A fieldset with a legend names a group of related choices; the form keeps the same rhythm around it.',
       stage: 'block',
       html: `<form class="form" style="max-width: 560px;" onsubmit="event.preventDefault()">
-  ${field('ex-name', 'Exam name', 'text', 'Midterm, Database Systems', '')}
+  ${field('ex-name', 'Activity name', 'text', 'Child immunization, Puskesmas Kedaton', '')}
   <div class="form__row">
     ${field('ex-date', 'Date', 'date', '2026-12-04', '')}
     ${field('ex-time', 'Start time', 'time', '09:00', '')}
   </div>
   <fieldset class="stack" style="--gap: 12px; border: 0;">
-    <legend class="field__label" style="margin-bottom: 12px;">Notify students</legend>
+    <legend class="field__label" style="margin-bottom: 12px;">Remind residents</legend>
     <label class="check"><input type="checkbox" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">One week before</span></label>
     <label class="check"><input type="checkbox" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">The evening before</span></label>
   </fieldset>
   <div class="form__actions">
     <button type="button" class="btn btn--plain">Save as draft</button>
-    <button type="submit" class="btn btn--primary">Schedule exam</button>
+    <button type="submit" class="btn btn--primary">Schedule activity</button>
   </div>
 </form>`,
     },
@@ -72,11 +72,11 @@ export default {
       title: 'Error after submit',
       desc: 'The helper line becomes the error in place, so nothing below it moves. Focus moves to the first invalid field.',
       stage: 'block',
-      html: `<form class="form" style="max-width: 400px;" onsubmit="event.preventDefault(); const c = this.querySelector('.control'); c.classList.add('is-invalid'); const i = c.querySelector('input'); i.setAttribute('aria-invalid', 'true'); const h = this.querySelector('.field__help'); h.classList.add('field__help--error'); h.innerHTML = '<span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>error</span>Enter the 10 digit student number on your card.'; i.focus();">
+      html: `<form class="form" style="max-width: 400px;" onsubmit="event.preventDefault(); const c = this.querySelector('.control'); c.classList.add('is-invalid'); const i = c.querySelector('input'); i.setAttribute('aria-invalid', 'true'); const h = this.querySelector('.field__help'); h.classList.add('field__help--error'); h.innerHTML = '<span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>error</span>Enter the 16 digit NIK shown on your KTP.'; i.focus();">
   <div class="field">
-    <label class="field__label" for="sn">Student number</label>
-    <div class="control"><input id="sn" inputmode="numeric" value="21045" aria-describedby="sn-help"></div>
-    <span class="field__help" id="sn-help">It is on the front of your student card.</span>
+    <label class="field__label" for="sn">NIK</label>
+    <div class="control"><input id="sn" inputmode="numeric" value="18710" aria-describedby="sn-help"></div>
+    <span class="field__help" id="sn-help">It is printed at the top of your KTP.</span>
   </div>
   <div class="form__actions">
     <button type="submit" class="btn btn--primary">Link my account</button>
@@ -84,9 +84,9 @@ export default {
 </form>`,
       code: `<form class="form">
   <div class="field">
-    <label class="field__label" for="sn">Student number</label>
+    <label class="field__label" for="sn">NIK</label>
     <div class="control is-invalid"><input id="sn" inputmode="numeric" aria-invalid="true" aria-describedby="sn-help"></div>
-    <span class="field__help field__help--error" id="sn-help"><span class="ic" aria-hidden="true">error</span>Enter the 10 digit student number on your card.</span>
+    <span class="field__help field__help--error" id="sn-help"><span class="ic" aria-hidden="true">error</span>Enter the 16 digit NIK shown on your KTP.</span>
   </div>
   <div class="form__actions">
     <button type="submit" class="btn btn--primary">Link my account</button>
@@ -114,7 +114,7 @@ export default {
   do: [
     'Cap single-column forms near 560 px; long inputs across a wide screen are hard to scan.',
     'Pair only short, related fields in a `form__row`; keep one idea per row.',
-    'Name the primary for its outcome ("Save profile", "Schedule exam").',
+    'Name the primary for its outcome ("Save profile", "Schedule activity").',
   ],
   dont: [
     'Lay out fields with `auto-grid` or hand-written flex; error lines and labels stop lining up.',
