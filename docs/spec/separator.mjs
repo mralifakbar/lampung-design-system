@@ -26,10 +26,10 @@ export default {
       desc: 'The hairline splits the summary from its footer. Margin comes from the layout, not the separator.',
       stage: 'fill',
       html: `<div class="card" style="max-width: 360px; width: 100%;">
-  <div class="card__title">Study streak</div>
-  <div class="card__sub">You practised 5 days in a row.</div>
+  <div class="card__title">Posyandu visits</div>
+  <div class="card__sub">Your child has been weighed 5 months in a row.</div>
   <hr class="sep" style="margin: 16px 0 12px;">
-  <div class="card__sub">Next session: today at 19:00</div>
+  <div class="card__sub">Next session: today at 09:00</div>
 </div>`,
     },
     {
@@ -38,10 +38,10 @@ export default {
       stage: 'block',
       html: `<div class="stack" style="--gap: 4px; max-width: 460px;">
   <h3 class="sep-label sep-label--start">Today, 16 Nov</h3>
-  <div class="lrow"><span class="lrow__body"><span class="lrow__title">Invoice 1042 paid</span><span class="lrow__sub">09:12 · Northwind Studio</span></span></div>
-  <div class="lrow"><span class="lrow__body"><span class="lrow__title">Rina Wijaya joined Platform</span><span class="lrow__sub">08:40 · Invited by Arif</span></span></div>
+  <div class="lrow"><span class="lrow__body"><span class="lrow__title">Waste levy bill 1042 paid</span><span class="lrow__sub">09:12 · Usaha Kopi Way Kanan</span></span></div>
+  <div class="lrow"><span class="lrow__body"><span class="lrow__title">Rina Wijaya joined the Permits unit</span><span class="lrow__sub">08:40 · Invited by Arif</span></span></div>
   <h3 class="sep-label sep-label--start">Yesterday, 15 Nov</h3>
-  <div class="lrow"><span class="lrow__body"><span class="lrow__title">Export of 1,204 customers finished</span><span class="lrow__sub">17:05 · CSV, 2.1 MB</span></span></div>
+  <div class="lrow"><span class="lrow__body"><span class="lrow__title">Export of 1,204 applicant records finished</span><span class="lrow__sub">17:05 · CSV, 2.1 MB</span></span></div>
 </div>`,
     },
     {
@@ -49,7 +49,7 @@ export default {
       desc: 'Centered words between two hairlines.',
       stage: 'block',
       html: `<div class="stack" style="--gap: 16px; max-width: 360px;">
-  <button class="btn btn--secondary btn--block">Continue with work email</button>
+  <button class="btn btn--secondary btn--block">Continue with agency email</button>
   <p class="sep-label">or</p>
   <button class="btn btn--plain btn--block">Use a one-time code</button>
 </div>`,
