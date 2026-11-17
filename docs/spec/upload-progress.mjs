@@ -7,13 +7,13 @@ export default {
   summary: 'An upload traces its progress around the edge of the drop zone it was dropped on, with a percent pill in the corner. The line turns green at 100 %. The number is real; it never crawls toward 90 % and waits.',
   when: [
     'A file is uploading into a drop zone ([file input](file-input)) and the size is known, so a real percentage exists.',
-    'One large file where the wait is long enough to matter: a thesis, a recorded lecture, a scanned answer sheet.',
+    'One large file where the wait is long enough to matter: an environmental permit document, a recorded meeting, a scanned application file.',
   ],
   whenNot: [
     ['Several files at once', 'file-input', 'Show a progress bar inside each `.file-row` instead.'],
     ['Progress that is not an upload', 'progress-bar'],
     ['Work with no known length', 'thinking'],
-    ['A course or task completion figure', 'progress-ring'],
+    ['A program or task completion figure', 'progress-ring'],
   ],
   where: 'On the `.drop` zone the file went into. The pill sits in its top right corner; the trace follows its rounded edge.',
   anatomy: [
@@ -24,10 +24,10 @@ export default {
   ],
   examples: [
     {
-      title: 'Upload a thesis',
+      title: 'Upload a permit document',
       desc: 'Press Upload. The line runs around the edge as bytes arrive and the pill counts; at 100 % both turn green.',
       stage: 'block',
-      html: `<div class="drop" style="max-width: 420px;"><span class="ic" aria-hidden="true">cloud_upload</span><span class="card__title">thesis-final.pdf</span><span class="card__sub">4.2 MB</span><button class="btn btn--secondary btn--sm" style="margin-top: 6px;" onclick="${RUN(false)}">Upload</button></div>`,
+      html: `<div class="drop" style="max-width: 420px;"><span class="ic" aria-hidden="true">cloud_upload</span><span class="card__title">environmental-permit.pdf</span><span class="card__sub">4.2 MB</span><button class="btn btn--secondary btn--sm" style="margin-top: 6px;" onclick="${RUN(false)}">Upload</button></div>`,
       code: `import { uploadProgress, uploadReset } from 'lampung-design-system/js';
 
 xhr.upload.onprogress = (e) => uploadProgress(drop, (e.loaded / e.total) * 100);
@@ -37,7 +37,7 @@ xhr.upload.onprogress = (e) => uploadProgress(drop, (e.loaded / e.total) * 100);
       title: 'An upload that stops',
       desc: 'This one fails halfway: the trace disappears, the zone shakes, and the reason replaces the size in words, with a way to try again.',
       stage: 'block',
-      html: `<div class="drop" style="max-width: 420px;"><span class="ic" aria-hidden="true">cloud_upload</span><span class="card__title">lecture-6.mp4</span><span class="card__sub">4.2 MB</span><button class="btn btn--secondary btn--sm" style="margin-top: 6px;" onclick="${RUN(true)}">Upload</button></div>`,
+      html: `<div class="drop" style="max-width: 420px;"><span class="ic" aria-hidden="true">cloud_upload</span><span class="card__title">musrenbang-recording.mp4</span><span class="card__sub">4.2 MB</span><button class="btn btn--secondary btn--sm" style="margin-top: 6px;" onclick="${RUN(true)}">Upload</button></div>`,
     },
   ],
   motion: [
