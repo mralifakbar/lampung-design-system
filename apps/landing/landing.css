@@ -94,3 +94,14 @@ main { display: block; }
 
 /* Closing band: the address stays readable at any width */
 .cta-band .codeblock pre { overflow-wrap: anywhere; white-space: pre-wrap; }
+
+/* Label roll (landing.js rollText): two copies in one grid cell, clipped to one line. */
+.lp-roll { display: inline-grid; overflow: hidden; vertical-align: bottom; white-space: nowrap; transition: width 320ms var(--spring-snappy); }
+.lp-roll > span { grid-area: 1 / 1; }
+/* Both copies ride the same spring, one line apart, like a counter wheel: they never overlap. */
+.lp-roll__out, .lp-roll__in { animation: 360ms var(--spring-snappy) both; }
+.lp-roll__out { animation-name: lp-roll-out; }
+.lp-roll__in { animation-name: lp-roll-in; }
+@keyframes lp-roll-out { to { transform: translateY(-100%); } }
+@keyframes lp-roll-in { from { transform: translateY(100%); } }
+.lp-track__badge { transition: background-color 240ms var(--ease-standard), color 240ms var(--ease-standard); }

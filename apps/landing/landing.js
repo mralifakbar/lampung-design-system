@@ -1,9 +1,33 @@
 // Landing page behavior. Components come from /js/lds.js; this file only wires the page.
-import { init, setTheme, setLoading, morphText, shake, toast, announce, setRoll } from '/js/lds.js';
+import { init, setTheme, setLoading, shake, toast, announce, setRoll } from '/js/lds.js';
 
 const html = document.documentElement;
 const $ = (s, r = document) => r.querySelector(s);
 const reduced = () => matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* Label swap: the old words roll up out of view while the new ones roll up into place, and the
+   label's width eases between the two lengths. No crossfade, so a word is never half drawn. */
+const rollText = (el, text) => {
+  if (el.textContent === text) return;
+  if (reduced() || !el.isConnected) { el.textContent = text; return; }
+  const from = el.offsetWidth;
+  const out = document.createElement('span');
+  out.className = 'lp-roll__out';
+  out.setAttribute('aria-hidden', 'true');
+  out.textContent = el.textContent;
+  const inn = document.createElement('span');
+  inn.className = 'lp-roll__in';
+  inn.textContent = text;
+  el.classList.add('lp-roll');
+  el.replaceChildren(inn);
+  const to = el.offsetWidth;
+  el.prepend(out);
+  el.style.width = `${from}px`;
+  void el.offsetWidth;
+  el.style.width = `${to}px`;
+  clearTimeout(el._roll);
+  el._roll = setTimeout(() => { el.style.width = ''; el.textContent = text; el.classList.remove('lp-roll'); }, 420);
+};
 
 /* Theme toggle: flips between light and dark; a saved "system" resolves to what the OS shows now. */
 const themeBtn = $('#theme-btn');
@@ -64,8 +88,8 @@ if (demo) {
 
   $('#demo-save').addEventListener('click', () => {
     const label = $('#demo-save-label');
-    morphText(label, t.msgSaved);
-    setTimeout(() => morphText(label, t.msgSave), 2400);
+    rollText(label, t.msgSaved);
+    setTimeout(() => rollText(label, t.msgSave), 2400);
   });
 
   demo.addEventListener('submit', (e) => {
@@ -83,12 +107,12 @@ if (demo) {
     setLoading(send, true);
     setTimeout(() => {
       setLoading(send, false);
-      morphText($('#demo-send-label'), t.msgSent);
+      rollText($('#demo-send-label'), t.msgSent);
       const badge = $('#demo-badge');
       badge.className = 'badge badge--success';
       badge.querySelector('.ic').textContent = 'check_circle';
       $('#demo-badge-label').textContent = t.badgeDone;
-      setTimeout(() => morphText($('#demo-send-label'), t.msgSend), 3200);
+      setTimeout(() => rollText($('#demo-send-label'), t.msgSend), 3200);
     }, 900);
   });
 }
@@ -122,9 +146,10 @@ if (track) {
     badge.classList.remove(...look.map((l) => l[0]));
     badge.classList.add(look[s][0]);
     icon.textContent = look[s][1];
-    if (!reduced()) icon.animate([{ transform: 'scale(0.6)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 360, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' });
-    morphText($('#track-badge-label'), states[s]);
-    morphText($('#track-next-label'), next[s]);
+    // The new status icon pops from small with a slight overshoot; the badge color eases via CSS.
+    if (!reduced()) icon.animate([{ transform: 'scale(0.4)' }, { transform: 'none' }], { duration: 420, easing: 'linear(0, 0.0634, 0.2044, 0.3705, 0.5308, 0.6696, 0.7812, 0.8655, 0.9257, 0.9661, 0.9915, 1.0059, 1.0129, 1.0151, 1.0146, 1.0126, 1.0101, 1.0076, 1.0054, 1.0037, 1.0023, 1.0013, 1.0006, 1.0002, 1)' });
+    rollText($('#track-badge-label'), states[s]);
+    rollText($('#track-next-label'), next[s]);
     if (quiet) return;
     if ($('#track-notify').checked) toast({ title: d.toast.replace('{s}', states[s]), body: d.toastSub, icon: 'sms' });
     else announce(d.announce.replace('{s}', states[s]));
