@@ -1,7 +1,7 @@
 const row = (t, s, b) => `<div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">${t}</span><span class="lrow__sub" style="display: block;">${s}</span></span>${b}</div>`;
 const skelRow = (w) => `<div class="lrow"><span class="lrow__body"><span class="skel" style="display: block; height: 14px; width: ${w}%;"></span><span class="skel" style="display: block; height: 11px; width: ${w - 25}%; margin-top: 8px;"></span></span><span class="skel" style="width: 64px; height: 22px; border-radius: 6px;"></span></div>`;
 
-const loading = `<div class="list" role="status" aria-busy="true" aria-label="Loading assignments">
+const loading = `<div class="list" role="status" aria-busy="true" aria-label="Loading applications">
   ${skelRow(62)}
   ${skelRow(48)}
   ${skelRow(55)}
@@ -9,23 +9,23 @@ const loading = `<div class="list" role="status" aria-busy="true" aria-label="Lo
 const empty = `<div class="list list--fill">
   <div class="empty">
     <div class="empty__icon"><span class="ic" aria-hidden="true">event_available</span></div>
-    <div class="empty__title">Nothing due this week</div>
-    <div class="empty__body">New assignments appear here as soon as your lecturers post them.</div>
+    <div class="empty__title">No files due this week</div>
+    <div class="empty__body">New applications appear here as soon as residents submit them.</div>
     <button class="btn btn--secondary btn--md">Open full calendar</button>
   </div>
 </div>`;
 const error = `<div class="alert alert--danger" role="alert">
   <span class="ic" aria-hidden="true">error</span>
   <div>
-    <div class="alert__title">Assignments did not load</div>
-    <div class="alert__body">The course service did not answer in time. Your work is safe.</div>
+    <div class="alert__title">Applications did not load</div>
+    <div class="alert__body">The permit service did not answer in time. Your data is safe.</div>
     <div class="alert__actions"><button class="btn btn--secondary btn--sm"><span class="ic" aria-hidden="true">refresh</span>Try again</button></div>
   </div>
 </div>`;
 const loaded = `<div class="list">
-  ${row('Lab report 3', 'Computer Networks · due tomorrow', '<span class="badge badge--warning">Tomorrow</span>')}
-  ${row('Problem set 7', 'Linear Algebra · due Thursday', '<span class="badge">Thu</span>')}
-  ${row('Reading: chapter 9', 'Operating Systems · due Friday', '<span class="badge">Fri</span>')}
+  ${row('Micro business permit', 'UMKM Sukarame · due tomorrow', '<span class="badge badge--warning">Tomorrow</span>')}
+  ${row('Public event permit', 'Kelurahan Kedaton · due Thursday', '<span class="badge">Thu</span>')}
+  ${row('Domicile certificate', 'Kecamatan Way Halim · due Friday', '<span class="badge">Fri</span>')}
 </div>`;
 
 export default {
@@ -56,7 +56,7 @@ export default {
   examples: [
     {
       title: 'All four states',
-      desc: 'The same assignment list in each state. Switch between them: the box keeps its place and the controls above it stay usable.',
+      desc: 'The same application list in each state. Switch between them: the box keeps its place and the controls above it stay usable.',
       stage: 'block',
       html: `<div class="stack" style="--gap: 16px; max-width: 520px;">
   <div class="seg" role="group" aria-label="State" data-lds-segmented style="max-width: 360px;">
@@ -90,8 +90,8 @@ ${loaded}`,
       html: `<div class="list list--fill" style="max-width: 520px;">
   <div class="empty">
     <div class="empty__icon"><span class="ic" aria-hidden="true">filter_list</span></div>
-    <div class="empty__title">No courses match these filters</div>
-    <div class="empty__body">Nothing is open in semester 3 with fewer than 3 credits.</div>
+    <div class="empty__title">No services match these filters</div>
+    <div class="empty__body">No service in Kecamatan Rajabasa is processed in under 3 days.</div>
     <button class="btn btn--secondary btn--md">Clear filters</button>
   </div>
 </div>`,
@@ -104,8 +104,8 @@ ${loaded}`,
   <div class="alert alert--warning" role="status">
     <span class="ic" aria-hidden="true">sync_problem</span>
     <div>
-      <div class="alert__title">Showing results from 09:40</div>
-      <div class="alert__body">We could not refresh your grades. Check your connection and try again.</div>
+      <div class="alert__title">Showing data from 09:40</div>
+      <div class="alert__body">We could not refresh the application list. Check your connection and try again.</div>
       <div class="alert__actions"><button class="btn btn--secondary btn--sm"><span class="ic" aria-hidden="true">refresh</span>Refresh</button></div>
     </div>
   </div>
@@ -125,7 +125,7 @@ ${loaded}`,
     'Errors and empty states appear without motion; they are answers, not events.',
   ],
   a11y: [
-    'Loading region: `role="status"`, `aria-busy="true"` and an `aria-label` ("Loading assignments"). Skeleton blocks are empty elements, so nothing else is read.',
+    'Loading region: `role="status"`, `aria-busy="true"` and an `aria-label` ("Loading applications"). Skeleton blocks are empty elements, so nothing else is read.',
     'Errors that block the task use `role="alert"` so they are announced once; a stale-data warning uses `role="status"`.',
     'After Try again, move focus back into the region (the first row or the alert) so keyboard users are not left on a removed button.',
     'Empty state titles are plain text, not headings, unless the region is a page section with its own heading.',
@@ -143,8 +143,8 @@ ${loaded}`,
   js: 'None required. Toggle the states from your data layer. `toast()` is for results of actions, not for load errors.',
   react: `import { Alert } from 'lampung-design-system/react';
 
-if (status === 'loading') return <div className="list" role="status" aria-busy="true" aria-label="Loading assignments">{/* .skel rows */}</div>;
-if (status === 'error') return <Alert tone="danger" title="Assignments did not load" actions={<button className="btn btn--secondary btn--sm" onClick={retry}>Try again</button>}>The course service did not answer in time.</Alert>;
+if (status === 'loading') return <div className="list" role="status" aria-busy="true" aria-label="Loading applications">{/* .skel rows */}</div>;
+if (status === 'error') return <Alert tone="danger" title="Applications did not load" actions={<button className="btn btn--secondary btn--sm" onClick={retry}>Try again</button>}>The permit service did not answer in time.</Alert>;
 if (items.length === 0) return <div className="empty">{/* icon, title, body, one action */}</div>;`,
   related: ['skeleton', 'empty-state', 'alert', 'chart-states'],
 };
