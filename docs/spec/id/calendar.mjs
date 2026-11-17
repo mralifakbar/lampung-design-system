@@ -1,7 +1,7 @@
 export default {
   summary: 'Grid satu bulan berisi tombol hari yang bulat: hari ini dengan teks aksen, pilihan dengan isian aksen; rentang terisi di antara kedua ujungnya. Markup dan state saja; logika memilih ada di aplikasi Anda.',
   when: [
-    'Memilih satu hari atau rentang ketika melihat minggunya penting: memesan jadwal konsultasi, memilih hari ujian, menentukan tanggal cuti.',
+    'Memilih satu hari atau rentang ketika melihat minggunya penting: memesan jadwal konsultasi, memilih hari Samsat keliling, menentukan tanggal cuti.',
     'Menunjukkan hari mana dalam sebulan yang ditandai (tenggat, sesi layanan) di panel samping.',
   ],
   whenNot: [
