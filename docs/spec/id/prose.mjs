@@ -1,5 +1,5 @@
 export default {
-  summary: 'Pembungkus untuk teks panjang yang tidak Anda atur baris per baris: artikel, halaman bantuan, catatan pelajaran, Markdown yang dirender. `.prose` memberi gaya pada heading, paragraf, daftar, tautan, tabel dan kode inline polos di dalamnya dan membatasi panjang baris sampai 680 px.',
+  summary: 'Pembungkus untuk teks panjang yang tidak Anda atur baris per baris: artikel, halaman bantuan, panduan layanan, Markdown yang dirender. `.prose` memberi gaya pada heading, paragraf, daftar, tautan, tabel dan kode inline polos di dalamnya dan membatasi panjang baris sampai 680 px.',
   when: [
     'Merender Markdown atau teks kaya dari CMS, editor atau jawaban asisten, ketika HTML-nya tidak punya kelas.',
     'Artikel bantuan, halaman materi, syarat dan kebijakan: teks yang dibaca dari atas ke bawah.',
@@ -21,25 +21,25 @@ export default {
   ],
   examples: [
     {
-      title: 'Halaman materi',
+      title: 'Panduan layanan',
       desc: 'HTML polos tanpa kelas, kecuali kode inline, kutipan dan sitasi, yang merupakan komponen sendiri.',
       html: `<article class="prose">
-  <h2>Bentuk normal ketiga</h2>
-  <p>Sebuah tabel berada dalam <strong>bentuk normal ketiga</strong> jika setiap kolom bergantung pada kunci, seluruh kunci, dan hanya pada kunci. Dalam praktiknya, pisahkan kolom yang sebenarnya menjelaskan kolom lain.</p>
-  <h3>Cara memeriksa tabel</h3>
+  <h2>Pindah ke kota lain</h2>
+  <p>Anda memerlukan <strong>surat keterangan pindah</strong> jika memindahkan domisili ke luar Kota Bandar Lampung. Urus sebelum pindah, karena KK dan KTP di alamat baru dibuat dari surat ini.</p>
+  <h3>Cara mengajukan</h3>
   <ol>
-    <li>Temukan kunci primernya, misalnya <code class="code">student_id</code>.</li>
-    <li>Untuk setiap kolom lain, tanyakan apakah kolom itu menjelaskan kunci atau hal lain.</li>
-    <li>Pindahkan kolom yang menjelaskan hal lain ke tabelnya sendiri.</li>
+    <li>Isi formulir perpindahan, <code class="code">F-1.03</code>, lalu tanda tangani.</li>
+    <li>Lampirkan KK asli dan surat pengantar RT/RW.</li>
+    <li>Serahkan ke kantor kelurahan atau kirim lewat layanan daring.</li>
   </ol>
-  <blockquote class="quote"><p>Normalisasi sampai terasa sakit, lalu denormalisasi sampai berfungsi.</p><footer>Ungkapan di kalangan pengajar basis data</footer></blockquote>
-  <p>Sebagian besar sistem akademik berhenti di bentuk normal ketiga; lebih jauh dari itu jarang menguntungkan untuk data yang lebih sering dibaca <a class="cite" href="#src-1" aria-label="Sumber 1">1</a>. Lihat <a href="#lesson-14">materi berikutnya</a> tentang indeks.</p>
+  <blockquote class="quote"><p>Bawa KK asli saat mengambil surat; fotokopi tidak diterima.</p><footer>Pengumuman loket kependudukan, Kecamatan Kedaton</footer></blockquote>
+  <p>Sebagian besar permohonan selesai dalam tiga hari kerja; permohonan yang tidak lengkap dikembalikan <a class="cite" href="#src-1" aria-label="Sumber 1">1</a>. Lihat <a href="#lesson-14">langkah berikutnya</a> untuk membuat KK di alamat baru.</p>
   <table>
-    <thead><tr><th>Bentuk</th><th>Menghilangkan</th></tr></thead>
+    <thead><tr><th>Jenis pindah</th><th>Dokumen tambahan</th></tr></thead>
     <tbody>
-      <tr><td>Pertama</td><td>Grup berulang</td></tr>
-      <tr><td>Kedua</td><td>Ketergantungan parsial</td></tr>
-      <tr><td>Ketiga</td><td>Ketergantungan transitif</td></tr>
+      <tr><td>Dalam satu kecamatan</td><td>Surat pengantar RT/RW</td></tr>
+      <tr><td>Antarkecamatan</td><td>Surat keterangan pindah</td></tr>
+      <tr><td>Antarkota</td><td>Surat keterangan pindah dari kota asal</td></tr>
     </tbody>
   </table>
 </article>`,

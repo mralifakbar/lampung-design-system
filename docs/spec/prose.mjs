@@ -2,10 +2,10 @@ export default {
   title: 'Prose',
   group: 'Content',
   order: 1,
-  summary: 'A wrapper for long-form text you do not control line by line: articles, help pages, lesson notes, rendered Markdown. `.prose` styles plain headings, paragraphs, lists, links, tables and inline code inside it and caps the line length at 680 px.',
+  summary: 'A wrapper for long-form text you do not control line by line: articles, help pages, service guides, rendered Markdown. `.prose` styles plain headings, paragraphs, lists, links, tables and inline code inside it and caps the line length at 680 px.',
   when: [
     'Rendering Markdown or rich text from a CMS, an editor or an assistant answer, where the HTML has no classes.',
-    'A help article, a lesson page, terms and policies: text that is read top to bottom.',
+    'A help article, a service guide, terms and policies: text that is read top to bottom.',
   ],
   whenNot: [
     ['Interface copy: card descriptions, helper text, empty states', 'card', 'Components set their own type; do not wrap UI in `.prose`.'],
@@ -24,26 +24,26 @@ export default {
   ],
   examples: [
     {
-      title: 'A lesson page',
+      title: 'A service guide',
       desc: 'Plain HTML with no classes, except the inline code, a quote and a citation, which are their own components.',
       stage: 'block',
       html: `<article class="prose">
-  <h2>Third normal form</h2>
-  <p>A table is in <strong>third normal form</strong> when every column depends on the key, the whole key, and nothing but the key. In practice that means splitting out any column that really describes another column.</p>
-  <h3>How to check a table</h3>
+  <h2>Moving to another city</h2>
+  <p>You need a <strong>certificate of moving</strong> when you move your domicile out of Bandar Lampung. Get it before you move: the family card and KTP at your new address are made from it.</p>
+  <h3>How to apply</h3>
   <ol>
-    <li>Find the primary key, for example <code class="code">student_id</code>.</li>
-    <li>For each other column, ask whether it describes the key or something else.</li>
-    <li>Move columns that describe something else into their own table.</li>
+    <li>Fill in the moving form, <code class="code">F-1.03</code>, and sign it.</li>
+    <li>Attach the original family card and a cover letter from your RT and RW.</li>
+    <li>Hand it in at the kelurahan office or send it through the online service.</li>
   </ol>
-  <blockquote class="quote"><p>Normalize until it hurts, then denormalize until it works.</p><footer>A saying among database teachers</footer></blockquote>
-  <p>Most course systems stop at third normal form; going further rarely pays off for read-heavy data <a class="cite" href="#src-1" aria-label="Source 1">1</a>. See the <a href="#lesson-14">next lesson</a> for indexes.</p>
+  <blockquote class="quote"><p>Bring the original family card when you collect the letter; photocopies are not accepted.</p><footer>Counter notice, population services, Kedaton district</footer></blockquote>
+  <p>Most applications are done in three working days; incomplete ones are sent back <a class="cite" href="#src-1" aria-label="Source 1">1</a>. See the <a href="#lesson-14">next step</a> for a new family card at your new address.</p>
   <table>
-    <thead><tr><th>Form</th><th>Removes</th></tr></thead>
+    <thead><tr><th>Move</th><th>Extra document</th></tr></thead>
     <tbody>
-      <tr><td>First</td><td>Repeating groups</td></tr>
-      <tr><td>Second</td><td>Partial dependencies</td></tr>
-      <tr><td>Third</td><td>Transitive dependencies</td></tr>
+      <tr><td>Within a district</td><td>RT and RW cover letter</td></tr>
+      <tr><td>To another district</td><td>Certificate of moving</td></tr>
+      <tr><td>To another city</td><td>Certificate of moving, signed by the city</td></tr>
     </tbody>
   </table>
 </article>`,
@@ -53,13 +53,13 @@ export default {
       desc: 'Rendered Markdown from an answer: short paragraphs and a bulleted list.',
       stage: 'block',
       html: `<div class="prose">
-  <p>You have three things due this week:</p>
+  <p>You have three documents to complete this week:</p>
   <ul>
-    <li><strong>Lab report 3</strong>, Computer Networks, due tomorrow at 23:59.</li>
-    <li><strong>Problem set 7</strong>, Linear Algebra, due Thursday.</li>
-    <li>Reading chapter 9 for Operating Systems before Friday's class.</li>
+    <li><strong>Domicile letter</strong>, for your business permit, due tomorrow at 23:59.</li>
+    <li><strong>Photos of the business site</strong>, uploaded before Thursday.</li>
+    <li>Reading the market levy rules before Friday's verification.</li>
   </ul>
-  <p>Start with the lab report; it is worth 15 % of the course grade.</p>
+  <p>Start with the domicile letter; without it the application cannot be processed.</p>
 </div>`,
     },
   ],
