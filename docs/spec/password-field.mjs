@@ -5,7 +5,7 @@ export default {
   summary: 'A text field for secrets, with a reveal button that swaps its eye icon in place. When creating a password, a four-step strength meter and a helper say what would make it stronger.',
   when: [
     'Signing in (current password) or creating and changing one (new password with strength).',
-    'Any secret people type and may want to check: a PIN, an exam room password.',
+    'Any secret people type and may want to check: a PIN, a one-time service counter code.',
   ],
   whenNot: [
     ['A one-time code sent by SMS or email', 'otp', 'Cells, numeric keyboard, paste and autofill of the whole code'],
@@ -26,7 +26,7 @@ export default {
       desc: 'The eye swaps to the crossed eye with a blur crossfade; focus stays in the field.',
       html: `<div class="field" style="max-width: 380px;">
   <label class="field__label" for="pf-pw">Password</label>
-  <div class="control"><span class="ic" aria-hidden="true">key</span><input id="pf-pw" type="password" autocomplete="current-password" value="tryout2026">
+  <div class="control"><span class="ic" aria-hidden="true">key</span><input id="pf-pw" type="password" autocomplete="current-password" value="wayhalim2026">
     <button type="button" class="control__btn" aria-label="Show password" aria-pressed="false" onclick="const i = this.previousElementSibling, on = i.type === 'password'; i.type = on ? 'text' : 'password'; this.setAttribute('aria-pressed', String(on)); this.setAttribute('aria-label', on ? 'Hide password' : 'Show password'); this.firstElementChild.classList.toggle('is-swapped', on);"><span class="swap" aria-hidden="true"><span class="ic swap__a">visibility</span><span class="ic swap__b">visibility_off</span></span></button></div>
 </div>`,
       code: `<div class="field">
@@ -65,7 +65,7 @@ export default {
       desc: 'Say what failed and offer the way out in the same place.',
       html: `<div class="field" style="max-width: 380px;">
   <label class="field__label" for="pf-bad">Password</label>
-  <div class="control is-invalid"><input id="pf-bad" type="password" value="tryout" aria-invalid="true" aria-describedby="pf-bad-help"></div>
+  <div class="control is-invalid"><input id="pf-bad" type="password" value="wayhalim" aria-invalid="true" aria-describedby="pf-bad-help"></div>
   <span class="field__help field__help--error" id="pf-bad-help"><span class="ic" aria-hidden="true">error</span>That password does not match this account. Check Caps Lock or reset it.</span>
   <a class="link" href="#">Reset password</a>
 </div>`,
