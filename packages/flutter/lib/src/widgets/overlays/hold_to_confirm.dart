@@ -134,6 +134,9 @@ class _LdsHoldToConfirmState extends State<LdsHoldToConfirm>
               : null,
         ),
         child: Stack(
+          // Centers the label row in the button height; the fill below is
+          // positioned and unaffected.
+          alignment: AlignmentDirectional.center,
           children: [
             Positioned.fill(
               child: AnimatedBuilder(
