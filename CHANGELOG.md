@@ -4,6 +4,17 @@ All notable changes to Lampung Design System are documented here. The format fol
 
 ## [Unreleased]
 
+### Added
+
+- Flutter example: a Komponen tab with a searchable gallery of every widget, grouped like the docs.
+- Docs home: Copy for LLM and View as Markdown, backed by `docs/index.md`.
+
+### Fixed
+
+- Flutter: vertical `LdsSteps` no longer throws inside scrolling lists; `LdsTabs` and `LdsSlidingIndicator` size to their content; `LdsPagination`, `LdsKbd` and `LdsCitation.span` hug their content; `LdsHoldToConfirm` centers its label; `LdsPaper` keeps numbers on one line; `LdsEventCalendar` fits 375 pt screens.
+- Switches have a 44 px tap height.
+- CLI: `create -t start` uses `@tanstack/cli create` instead of the deprecated `@tanstack/start` creator.
+
 ## [0.1.1] - 2026-11-17
 
 ### Fixed
