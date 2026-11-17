@@ -4,7 +4,7 @@ export default {
   order: 3,
   summary: 'Underlined tabs that switch between sibling sections of one page, each with its own panel. One ink line glides to the selected tab.',
   when: [
-    'One record or page has sibling sections people visit one at a time: Overview, Assignments, Materials, Discussion.',
+    'One record or page has sibling sections people visit one at a time: Overview, Applications, Documents, Discussion.',
     'The sections hold different kinds of content, so each needs its own panel.',
     'Four or more sections, or long labels: start-aligned tabs (`.tabs--start`) sized to their labels.',
   ],
@@ -25,36 +25,36 @@ export default {
   ],
   examples: [
     {
-      title: 'Course sections',
+      title: 'Service sections',
       desc: 'Equal-width tabs with a count. Click or use the arrow keys: the ink glides and the new panel rises in.',
       stage: 'block',
-      html: `<div class="tabs" role="tablist" aria-label="Course sections" data-lds-tabs>
+      html: `<div class="tabs" role="tablist" aria-label="Service sections" data-lds-tabs>
   <span class="tabs__ink" aria-hidden="true"></span>
   <button class="tabs__btn" role="tab" aria-selected="true" aria-controls="tb-p1" id="tb-t1">Overview</button>
-  <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="tb-p2" id="tb-t2">Assignments <span class="tabs__count">3</span></button>
-  <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="tb-p3" id="tb-t3">Materials</button>
+  <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="tb-p2" id="tb-t2">Applications <span class="tabs__count">3</span></button>
+  <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="tb-p3" id="tb-t3">Documents</button>
   <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="tb-p4" id="tb-t4">Discussion <span class="tabs__count">12</span></button>
 </div>
-<div class="tab-panel" role="tabpanel" id="tb-p1" aria-labelledby="tb-t1" tabindex="0">Course goals, grading weights and the lecturer's office hours.</div>
-<div class="tab-panel" role="tabpanel" id="tb-p2" aria-labelledby="tb-t2" tabindex="0" hidden>Three assignments are open. The nearest deadline is Friday at 23:59.</div>
-<div class="tab-panel" role="tabpanel" id="tb-p3" aria-labelledby="tb-t3" tabindex="0" hidden>Slides and readings, newest first.</div>
+<div class="tab-panel" role="tabpanel" id="tb-p1" aria-labelledby="tb-t1" tabindex="0">What the service is for, its requirements and the counter's opening hours.</div>
+<div class="tab-panel" role="tabpanel" id="tb-p2" aria-labelledby="tb-t2" tabindex="0" hidden>Three applications are still open. The nearest deadline is Friday at 23:59.</div>
+<div class="tab-panel" role="tabpanel" id="tb-p3" aria-labelledby="tb-t3" tabindex="0" hidden>Forms and guides, newest first.</div>
 <div class="tab-panel" role="tabpanel" id="tb-p4" aria-labelledby="tb-t4" tabindex="0" hidden>Twelve unread replies in threads you follow.</div>`,
     },
     {
       title: 'Start-aligned for many sections',
       desc: 'Each tab sizes to its label and the row starts on the left. In plain HTML leave out the ink here: the script sizes it for equal-width tabs. The selected tab still reads by weight and color; the React `Tabs` with `align="start"` measures and shows the ink.',
       stage: 'block',
-      html: `<div class="tabs tabs--start" role="tablist" aria-label="Student record" data-lds-tabs>
+      html: `<div class="tabs tabs--start" role="tablist" aria-label="Applicant record" data-lds-tabs>
   <button class="tabs__btn" role="tab" aria-selected="true" aria-controls="tb2-p1" id="tb2-t1">Profile</button>
-  <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="tb2-p2" id="tb2-t2">Grades</button>
+  <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="tb2-p2" id="tb2-t2">Applications</button>
   <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="tb2-p3" id="tb2-t3">Attendance</button>
   <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="tb2-p4" id="tb2-t4">Billing</button>
-  <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="tb2-p5" id="tb2-t5">Notes from advisors</button>
+  <button class="tabs__btn" role="tab" aria-selected="false" aria-controls="tb2-p5" id="tb2-t5">Notes from officers</button>
 </div>
-<div class="tab-panel" role="tabpanel" id="tb2-p1" aria-labelledby="tb2-t1" tabindex="0">Name, student number and contact details.</div>
-<div class="tab-panel" role="tabpanel" id="tb2-p2" aria-labelledby="tb2-t2" tabindex="0" hidden>Grades for this semester, by course.</div>
-<div class="tab-panel" role="tabpanel" id="tb2-p3" aria-labelledby="tb2-t3" tabindex="0" hidden>92 % attendance across six courses.</div>
-<div class="tab-panel" role="tabpanel" id="tb2-p4" aria-labelledby="tb2-t4" tabindex="0" hidden>Tuition is paid until the end of the semester.</div>
+<div class="tab-panel" role="tabpanel" id="tb2-p1" aria-labelledby="tb2-t1" tabindex="0">Name, NIK and contact details.</div>
+<div class="tab-panel" role="tabpanel" id="tb2-p2" aria-labelledby="tb2-t2" tabindex="0" hidden>Applications this year, by service.</div>
+<div class="tab-panel" role="tabpanel" id="tb2-p3" aria-labelledby="tb2-t3" tabindex="0" hidden>Attended 92 % of six mentoring sessions.</div>
+<div class="tab-panel" role="tabpanel" id="tb2-p4" aria-labelledby="tb2-t4" tabindex="0" hidden>Levies are paid until the end of the year.</div>
 <div class="tab-panel" role="tabpanel" id="tb2-p5" aria-labelledby="tb2-t5" tabindex="0" hidden>No notes yet.</div>`,
     },
   ],
@@ -76,10 +76,10 @@ export default {
   a11y: [
     '`role="tablist"` with `aria-label`, `role="tab"` buttons with `aria-selected` and `aria-controls`, `role="tabpanel"` panels with `aria-labelledby` and `tabindex="0"` when they hold no focusable content.',
     'Roving tabindex: only the selected tab is in the Tab order. Left/Right (and Up/Down) move selection and focus, wrapping at the ends. The React binding also supports Home and End.',
-    'Counts are part of the tab name ("Assignments 3"); keep them meaningful.',
+    'Counts are part of the tab name ("Applications 3"); keep them meaningful.',
   ],
   do: [
-    'Name tabs with nouns for what is inside: "Assignments", not "View assignments".',
+    'Name tabs with nouns for what is inside: "Applications", not "View applications".',
     'Keep the selected tab when people come back to the page (put it in the URL or state).',
     'Use `.tabs--start` once the labels stop fitting equally.',
   ],
@@ -91,10 +91,10 @@ export default {
   js: '`data-lds-tabs` on `.tabs` selects a tab on click or arrow key, sets `aria-selected` and roving `tabindex`, moves and sizes `.tabs__ink` (equal widths), shows the panel named by `aria-controls` and hides the rest, and fires `lds:change` with `{ index, item }`.',
   react: `import { Tabs } from 'lampung-design-system/react';
 
-const [tab, setTab] = useState<'overview' | 'assignments'>('overview');
+const [tab, setTab] = useState<'overview' | 'applications'>('overview');
 
-<Tabs label="Course sections" value={tab} onChange={setTab} align="fill"
-  items={[{ value: 'overview', label: 'Overview' }, { value: 'assignments', label: 'Assignments', count: 3 }]} />
+<Tabs label="Service sections" value={tab} onChange={setTab} align="fill"
+  items={[{ value: 'overview', label: 'Overview' }, { value: 'applications', label: 'Applications', count: 3 }]} />
 {tab === 'overview' ? <div className="tab-panel" role="tabpanel">…</div> : <div className="tab-panel" role="tabpanel">…</div>}`,
   related: ['segmented-control', 'page-header', 'sliding-indicator', 'accordion'],
 };

@@ -86,9 +86,9 @@ export default {
   js: '`data-lds-tabs` pada `.tabs` memilih tab saat diklik atau dengan tombol panah, mengatur `aria-selected` dan roving `tabindex`, menggeser dan mengukur `.tabs__ink` (lebar sama), menampilkan panel yang disebut `aria-controls` dan menyembunyikan sisanya, lalu memicu `lds:change` dengan `{ index, item }`.',
   react: `import { Tabs } from 'lampung-design-system/react';
 
-const [tab, setTab] = useState<'overview' | 'assignments'>('overview');
+const [tab, setTab] = useState<'overview' | 'applications'>('overview');
 
 <Tabs label="Bagian layanan" value={tab} onChange={setTab} align="fill"
-  items={[{ value: 'overview', label: 'Ringkasan' }, { value: 'assignments', label: 'Permohonan', count: 3 }]} />
+  items={[{ value: 'overview', label: 'Ringkasan' }, { value: 'applications', label: 'Permohonan', count: 3 }]} />
 {tab === 'overview' ? <div className="tab-panel" role="tabpanel">…</div> : <div className="tab-panel" role="tabpanel">…</div>}`,
 };
