@@ -14,8 +14,14 @@ async function load(file) {
   return (await import(pathToFileURL(file).href + `?t=${Date.now()}`)).default;
 }
 
+// Demo markup is written for docs/components/<slug>.html; relative asset paths (../examples/…)
+// break once the markup is copied into a project, so they point at the published docs instead.
+const DOCS_COMPONENTS = 'https://lampung.kartadinata.app/docs/components/';
+const absoluteAssets = (html) =>
+  html.replace(/\b(src|href|poster)="(\.\.?\/[^"]+\.(?:jpe?g|png|gif|webp|avif|svg))"/gi, (_, a, p) => `${a}="${new URL(p, DOCS_COMPONENTS).href}"`);
+
 function example(e) {
-  return { title: e.title || '', desc: strip(e.desc), html: e.html || '', ...(e.code ? { code: e.code } : {}) };
+  return { title: e.title || '', desc: strip(e.desc), html: absoluteAssets(e.html || ''), ...(e.code ? { code: e.code } : {}) };
 }
 
 export async function buildRegistry({ specDir = join(root, 'docs/spec'), outDir = join(root, 'dist/registry') } = {}) {
