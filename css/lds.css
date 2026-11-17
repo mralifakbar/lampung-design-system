@@ -1,6 +1,8 @@
 /* Lampung Design System: one import for everything.
    Order matters: tokens first, then components. Fonts load Geist from Google
-   Fonts; drop fonts.css and self-host Geist if a project needs to work offline. */
-@import url("./fonts.css");
-@import url("./tokens.css");
-@import url("./components.css");
+   Fonts; drop fonts.css and self-host Geist if a project needs to work offline.
+   Plain string imports (not url()) so bundlers that inline @import, Tailwind v4
+   among them, resolve these files next to this one. */
+@import "./fonts.css";
+@import "./tokens.css";
+@import "./components.css";
