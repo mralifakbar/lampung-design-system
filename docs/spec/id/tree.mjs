@@ -24,13 +24,13 @@ export default {
       html: `<nav class="tree" aria-label="Berkas layanan" style="max-width: 300px;">
   <button class="tree__row" aria-expanded="true" aria-controls="tk1"><span class="ic tree__chev" aria-hidden="true">chevron_right</span><span class="ic" aria-hidden="true">folder_open</span>Izin usaha mikro</button>
   <div class="tree__kids is-open" id="tk1"><div>
-    <a class="tree__row is-selected" href="#syllabus" aria-current="page"><span class="ic" aria-hidden="true">description</span>Persyaratan</a>
-    <a class="tree__row" href="#slides"><span class="ic" aria-hidden="true">description</span>Alur pengajuan</a>
+    <a class="tree__row is-selected" href="#requirements" aria-current="page"><span class="ic" aria-hidden="true">description</span>Persyaratan</a>
+    <a class="tree__row" href="#flow"><span class="ic" aria-hidden="true">description</span>Alur pengajuan</a>
   </div></div>
   <button class="tree__row" aria-expanded="false" aria-controls="tk2"><span class="ic tree__chev" aria-hidden="true">chevron_right</span><span class="ic" aria-hidden="true">folder</span>Persetujuan bangunan gedung</button>
   <div class="tree__kids" id="tk2"><div>
-    <a class="tree__row" href="#reading"><span class="ic" aria-hidden="true">description</span>Daftar dokumen</a>
-    <a class="tree__row" href="#quiz"><span class="ic" aria-hidden="true">assignment</span>Formulir permohonan</a>
+    <a class="tree__row" href="#documents"><span class="ic" aria-hidden="true">description</span>Daftar dokumen</a>
+    <a class="tree__row" href="#form"><span class="ic" aria-hidden="true">assignment</span>Formulir permohonan</a>
   </div></div>
 </nav>`,
     },
