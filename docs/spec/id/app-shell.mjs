@@ -80,9 +80,9 @@ export default {
       <span class="shell__hl" aria-hidden="true"></span>
       <a class="shell__link" href="/"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Beranda</span></a>
       <a class="shell__link" href="/schedule"><span class="ic" aria-hidden="true">calendar_month</span><span class="shell__label">Jadwal</span></a>
-      <a class="shell__link" href="/assignments" aria-current="page"><span class="ic" aria-hidden="true">assignment</span><span class="shell__label">Permohonan</span><span class="badge badge--accent shell__badge">3</span></a>
+      <a class="shell__link" href="/applications" aria-current="page"><span class="ic" aria-hidden="true">assignment</span><span class="shell__label">Permohonan</span><span class="badge badge--accent shell__badge">3</span></a>
       <p class="shell__group">Layanan</p>
-      <a class="shell__link" href="/courses/db"><span class="ic" aria-hidden="true">menu_book</span><span class="shell__label">Izin usaha mikro</span></a>
+      <a class="shell__link" href="/services/micro-business"><span class="ic" aria-hidden="true">menu_book</span><span class="shell__label">Izin usaha mikro</span></a>
     </nav>
     <div class="shell__foot">
       <a class="shell__link" href="/settings"><span class="ic" aria-hidden="true">settings</span><span class="shell__label">Pengaturan</span></a>
@@ -151,14 +151,14 @@ export default {
       code: `<nav class="shell__nav" aria-label="Materi">
   <span class="shell__hl" aria-hidden="true"></span>
   <div class="shell__section">
-    <button class="shell__section-btn" aria-expanded="false" aria-controls="sec-math">
+    <button class="shell__section-btn" aria-expanded="false" aria-controls="sec-books">
       <span class="shell__section-label">Pembukuan usaha</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span>
     </button>
-    <div class="shell__panel" id="sec-math"><div>
-      <a class="shell__link is-parent" href="/math/sets">Modul 1: Arus kas</a>
+    <div class="shell__panel" id="sec-books"><div>
+      <a class="shell__link is-parent" href="/umkm/cash-flow">Modul 1: Arus kas</a>
       <div class="shell__children">
-        <a class="shell__link shell__link--child" href="/math/sets/1"><span class="shell__num">1</span><span class="shell__label">Mencatat pemasukan</span><span class="shell__done"><span class="ic" aria-hidden="true">check_circle</span><span class="sr-only">Selesai</span></span></a>
-        <a class="shell__link shell__link--child" href="/math/sets/3" aria-current="page"><span class="shell__num">3</span><span class="shell__label">Memisahkan uang usaha dan pribadi</span></a>
+        <a class="shell__link shell__link--child" href="/umkm/cash-flow/1"><span class="shell__num">1</span><span class="shell__label">Mencatat pemasukan</span><span class="shell__done"><span class="ic" aria-hidden="true">check_circle</span><span class="sr-only">Selesai</span></span></a>
+        <a class="shell__link shell__link--child" href="/umkm/cash-flow/3" aria-current="page"><span class="shell__num">3</span><span class="shell__label">Memisahkan uang usaha dan pribadi</span></a>
       </div>
     </div></div>
   </div>

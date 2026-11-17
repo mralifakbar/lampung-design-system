@@ -8,8 +8,8 @@ export default {
   order: 1,
   summary: 'The frame of an app: a sticky sidebar beside the content on wide screens, a top bar with a drawer below 960 px. One per app, at the root; one highlight glides to the current page.',
   when: [
-    'An app or documentation site with more than five destinations that people move between all day: a course hub, an admin panel, a docs site.',
-    'Navigation needs groups (`shell__group`) or collapsible sections with numbered children, such as modules and lessons.',
+    'An app or documentation site with more than five destinations that people move between all day: a citizen services portal, an admin panel, a guide site.',
+    'Navigation needs groups (`shell__group`) or collapsible sections with numbered children, such as modules and topics.',
     'The same frame must work from a 1440 px monitor down to a phone without a second navigation component.',
   ],
   whenNot: [
@@ -17,7 +17,7 @@ export default {
     ['A secondary list of sections inside one page, such as the parts of a settings page', 'sidebar', 'The sidebar is a panel that sits in the content; the shell is the frame around everything'],
     ['A native-feeling phone app with three to five destinations', 'phone-bars', 'Use the tab bar at the bottom instead of a drawer'],
     ['Jumping between headings of one long page', 'outline'],
-    ['Switching sibling sections of one record (Overview, Assignments, Grades)', 'tabs'],
+    ['Switching sibling sections of one record (Overview, Applications, History)', 'tabs'],
   ],
   where: 'The outermost element of the page, directly inside `<body>`. Wide screens: a 264 px column on the left, sticky to the full viewport height, content to its right. Below 960 px: the sidebar becomes a drawer (at most 300 px or 86 % of the width) behind a scrim, opened from a translucent 56 px top bar that pads itself for the notch. This documentation page is an app shell: narrow the window to see the drawer.',
   anatomy: [
@@ -45,20 +45,20 @@ export default {
   ],
   examples: [
     {
-      title: 'A course hub frame',
+      title: 'A service portal frame',
       desc: 'Flat links, a group caption, a badge and a foot. Pick a link: the highlight glides to it. Below 960 px the sidebar becomes a drawer behind the menu button. The demo is boxed to 460 px; a real shell fills the viewport.',
       stage: 'flush',
       html: `<div class="shell" data-lds-shell style="min-height: 0; height: 460px;" onclick="${sync}" onkeyup="${sync}">
   <aside class="shell__side" id="as1-side" style="height: 100%;">
-    <a class="shell__brand" href="#as1-main">Course hub</a>
+    <a class="shell__brand" href="#as1-main">Layanan Warga</a>
     <nav class="shell__nav" aria-label="Main" onclick="${pick}">
       <span class="shell__hl" aria-hidden="true"></span>
       <a class="shell__link" href="#as1-main"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Home</span></a>
       <a class="shell__link" href="#as1-main"><span class="ic" aria-hidden="true">calendar_month</span><span class="shell__label">Schedule</span></a>
-      <a class="shell__link" href="#as1-main" aria-current="page"><span class="ic" aria-hidden="true">assignment</span><span class="shell__label">Assignments</span><span class="badge badge--accent shell__badge">3</span></a>
-      <p class="shell__group">Courses</p>
-      <a class="shell__link" href="#as1-main"><span class="ic" aria-hidden="true">menu_book</span><span class="shell__label">Database Systems</span></a>
-      <a class="shell__link" href="#as1-main"><span class="ic" aria-hidden="true">menu_book</span><span class="shell__label">Linear Algebra</span></a>
+      <a class="shell__link" href="#as1-main" aria-current="page"><span class="ic" aria-hidden="true">assignment</span><span class="shell__label">Applications</span><span class="badge badge--accent shell__badge">3</span></a>
+      <p class="shell__group">Services</p>
+      <a class="shell__link" href="#as1-main"><span class="ic" aria-hidden="true">menu_book</span><span class="shell__label">Micro business permit</span></a>
+      <a class="shell__link" href="#as1-main"><span class="ic" aria-hidden="true">menu_book</span><span class="shell__label">Domicile letter</span></a>
     </nav>
     <div class="shell__foot">
       <button class="shell__link"><span class="ic" aria-hidden="true">settings</span><span class="shell__label">Settings</span></button>
@@ -68,25 +68,25 @@ export default {
   <div class="shell__main">
     <header class="shell__top">
       <button class="icon-btn" aria-controls="as1-side" aria-expanded="false" aria-label="Menu" onclick="${toggle}"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
-      <span class="shell__toptitle">Assignments</span>
+      <span class="shell__toptitle">Applications</span>
       <span style="width: 44px;"></span>
     </header>
     <div class="stack" id="as1-main" style="padding: 24px;">
-      <h2 class="section__title-sm">Assignments</h2>
-      <p class="section__sub">Three are open. The nearest deadline is Friday at 23:59.</p>
+      <h2 class="section__title-sm">Applications</h2>
+      <p class="section__sub">Three are still open. The nearest deadline is Friday at 23:59.</p>
     </div>
   </div>
 </div>`,
       code: `<div class="shell" data-lds-shell>
   <aside class="shell__side" id="side">
-    <a class="shell__brand" href="/">Course hub</a>
+    <a class="shell__brand" href="/">Layanan Warga</a>
     <nav class="shell__nav" aria-label="Main">
       <span class="shell__hl" aria-hidden="true"></span>
       <a class="shell__link" href="/"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Home</span></a>
       <a class="shell__link" href="/schedule"><span class="ic" aria-hidden="true">calendar_month</span><span class="shell__label">Schedule</span></a>
-      <a class="shell__link" href="/assignments" aria-current="page"><span class="ic" aria-hidden="true">assignment</span><span class="shell__label">Assignments</span><span class="badge badge--accent shell__badge">3</span></a>
-      <p class="shell__group">Courses</p>
-      <a class="shell__link" href="/courses/db"><span class="ic" aria-hidden="true">menu_book</span><span class="shell__label">Database Systems</span></a>
+      <a class="shell__link" href="/applications" aria-current="page"><span class="ic" aria-hidden="true">assignment</span><span class="shell__label">Applications</span><span class="badge badge--accent shell__badge">3</span></a>
+      <p class="shell__group">Services</p>
+      <a class="shell__link" href="/services/micro-business"><span class="ic" aria-hidden="true">menu_book</span><span class="shell__label">Micro business permit</span></a>
     </nav>
     <div class="shell__foot">
       <a class="shell__link" href="/settings"><span class="ic" aria-hidden="true">settings</span><span class="shell__label">Settings</span></a>
@@ -96,7 +96,7 @@ export default {
   <div class="shell__main">
     <header class="shell__top">
       <button class="icon-btn" data-lds-shell-toggle aria-controls="side" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
-      <span class="shell__toptitle">Assignments</span>
+      <span class="shell__toptitle">Applications</span>
       <span style="width: 44px;"></span>
     </header>
     <main id="main">…</main>
@@ -104,38 +104,38 @@ export default {
 </div>`,
     },
     {
-      title: 'Nested sections with numbered lessons',
-      desc: 'Sections fold open on a spring; the one holding the current page opens by itself. A parent link carries numbered children on a rail; finished ones get a done mark. Open and close Statistics.',
+      title: 'Nested sections with numbered topics',
+      desc: 'Sections fold open on a spring; the one holding the current page opens by itself. A parent link carries numbered children on a rail; finished ones get a done mark. Open and close Family health.',
       stage: 'flush',
       html: `<div class="shell" data-lds-shell style="min-height: 0; height: 520px;" onclick="${sync}" onkeyup="${sync}">
   <aside class="shell__side" id="as2-side" style="height: 100%;">
-    <a class="shell__brand" href="#as2-main">Exam prep</a>
-    <nav class="shell__nav" aria-label="Lessons" onclick="${pick}">
+    <a class="shell__brand" href="#as2-main">Kelas UMKM</a>
+    <nav class="shell__nav" aria-label="Topics" onclick="${pick}">
       <span class="shell__hl" aria-hidden="true"></span>
       <a class="shell__link" href="#as2-main"><span class="ic" aria-hidden="true">home</span><span class="shell__label">Overview</span></a>
-      <p class="shell__group">Subjects</p>
+      <p class="shell__group">Topics</p>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="as2-s1"><span class="shell__section-label">Discrete math</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="as2-s1"><span class="shell__section-label">Business bookkeeping</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="as2-s1"><div>
-          <a class="shell__link is-parent" href="#as2-main">Module 1: Sets</a>
+          <a class="shell__link is-parent" href="#as2-main">Module 1: Cash flow</a>
           <div class="shell__children">
-            <a class="shell__link shell__link--child" href="#as2-main"><span class="shell__num">1</span><span class="shell__label">Sets and subsets</span><span class="shell__done"><span class="ic" aria-hidden="true">check_circle</span><span class="sr-only">Done</span></span></a>
-            <a class="shell__link shell__link--child" href="#as2-main"><span class="shell__num">2</span><span class="shell__label">Relations</span><span class="shell__done"><span class="ic" aria-hidden="true">check_circle</span><span class="sr-only">Done</span></span></a>
-            <a class="shell__link shell__link--child" href="#as2-main" aria-current="page"><span class="shell__num">3</span><span class="shell__label">Functions and their inverses</span></a>
+            <a class="shell__link shell__link--child" href="#as2-main"><span class="shell__num">1</span><span class="shell__label">Recording income</span><span class="shell__done"><span class="ic" aria-hidden="true">check_circle</span><span class="sr-only">Done</span></span></a>
+            <a class="shell__link shell__link--child" href="#as2-main"><span class="shell__num">2</span><span class="shell__label">Recording expenses</span><span class="shell__done"><span class="ic" aria-hidden="true">check_circle</span><span class="sr-only">Done</span></span></a>
+            <a class="shell__link shell__link--child" href="#as2-main" aria-current="page"><span class="shell__num">3</span><span class="shell__label">Separating business and personal money</span></a>
           </div>
-          <a class="shell__link is-parent" href="#as2-main">Module 2: Logic</a>
+          <a class="shell__link is-parent" href="#as2-main">Module 2: Permits</a>
           <div class="shell__children">
-            <a class="shell__link shell__link--child" href="#as2-main"><span class="shell__num">1</span><span class="shell__label">Propositions</span></a>
-            <a class="shell__link shell__link--child" href="#as2-main"><span class="shell__num">2</span><span class="shell__label">Proof by induction</span></a>
+            <a class="shell__link shell__link--child" href="#as2-main"><span class="shell__num">1</span><span class="shell__label">Business ID number (NIB)</span></a>
+            <a class="shell__link shell__link--child" href="#as2-main"><span class="shell__num">2</span><span class="shell__label">Halal certificate</span></a>
           </div>
         </div></div>
       </div>
       <div class="shell__section">
-        <button class="shell__section-btn" aria-expanded="false" aria-controls="as2-s2"><span class="shell__section-label">Statistics</span><span class="shell__section-count">3</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <button class="shell__section-btn" aria-expanded="false" aria-controls="as2-s2"><span class="shell__section-label">Family health</span><span class="shell__section-count">3</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel" id="as2-s2"><div><div class="shell__children">
-          <a class="shell__link shell__link--child" href="#as2-main"><span class="shell__num">1</span><span class="shell__label">Mean, median and mode</span></a>
-          <a class="shell__link shell__link--child" href="#as2-main"><span class="shell__num">2</span><span class="shell__label">Spread and deviation</span></a>
-          <a class="shell__link shell__link--child" href="#as2-main"><span class="shell__num">3</span><span class="shell__label">Probability basics</span></a>
+          <a class="shell__link shell__link--child" href="#as2-main"><span class="shell__num">1</span><span class="shell__label">Balanced nutrition</span></a>
+          <a class="shell__link shell__link--child" href="#as2-main"><span class="shell__num">2</span><span class="shell__label">Immunization schedule</span></a>
+          <a class="shell__link shell__link--child" href="#as2-main"><span class="shell__num">3</span><span class="shell__label">Clean water at home</span></a>
         </div></div></div>
       </div>
     </nav>
@@ -144,26 +144,26 @@ export default {
   <div class="shell__main">
     <header class="shell__top">
       <button class="icon-btn" aria-controls="as2-side" aria-expanded="false" aria-label="Menu" onclick="${toggle}"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
-      <span class="shell__toptitle">Functions and their inverses</span>
+      <span class="shell__toptitle">Separating business and personal money</span>
       <span style="width: 44px;"></span>
     </header>
     <div class="stack" id="as2-main" style="padding: 24px;">
-      <h2 class="section__title-sm">Functions and their inverses</h2>
-      <p class="section__sub">Lesson 3 of Module 1. Two of three lessons in this module are done.</p>
+      <h2 class="section__title-sm">Separating business and personal money</h2>
+      <p class="section__sub">Topic 3 of Module 1. Two of three topics in this module are done.</p>
     </div>
   </div>
 </div>`,
-      code: `<nav class="shell__nav" aria-label="Lessons">
+      code: `<nav class="shell__nav" aria-label="Topics">
   <span class="shell__hl" aria-hidden="true"></span>
   <div class="shell__section">
-    <button class="shell__section-btn" aria-expanded="false" aria-controls="sec-math">
-      <span class="shell__section-label">Discrete math</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span>
+    <button class="shell__section-btn" aria-expanded="false" aria-controls="sec-books">
+      <span class="shell__section-label">Business bookkeeping</span><span class="shell__section-count">5</span><span class="ic" aria-hidden="true">expand_more</span>
     </button>
-    <div class="shell__panel" id="sec-math"><div>
-      <a class="shell__link is-parent" href="/math/sets">Module 1: Sets</a>
+    <div class="shell__panel" id="sec-books"><div>
+      <a class="shell__link is-parent" href="/umkm/cash-flow">Module 1: Cash flow</a>
       <div class="shell__children">
-        <a class="shell__link shell__link--child" href="/math/sets/1"><span class="shell__num">1</span><span class="shell__label">Sets and subsets</span><span class="shell__done"><span class="ic" aria-hidden="true">check_circle</span><span class="sr-only">Done</span></span></a>
-        <a class="shell__link shell__link--child" href="/math/sets/3" aria-current="page"><span class="shell__num">3</span><span class="shell__label">Functions and their inverses</span></a>
+        <a class="shell__link shell__link--child" href="/umkm/cash-flow/1"><span class="shell__num">1</span><span class="shell__label">Recording income</span><span class="shell__done"><span class="ic" aria-hidden="true">check_circle</span><span class="sr-only">Done</span></span></a>
+        <a class="shell__link shell__link--child" href="/umkm/cash-flow/3" aria-current="page"><span class="shell__num">3</span><span class="shell__label">Separating business and personal money</span></a>
       </div>
     </div></div>
   </div>
@@ -264,7 +264,7 @@ export default {
   ],
   do: [
     'Keep one shell per app and mark the current page with `aria-current="page"`.',
-    'Use sections with numbered children for ordered content (modules and lessons), groups for unordered areas.',
+    'Use sections with numbered children for ordered content (modules and topics), groups for unordered areas.',
     'Keep labels to a few words; long names wrap rather than truncate.',
   ],
   dont: [
