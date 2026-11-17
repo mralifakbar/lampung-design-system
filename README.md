@@ -43,7 +43,7 @@
     <td align="center" width="25%"><img src=".github/assets/preview-app-home.png" alt="Beranda aplikasi warga" width="200"><br><sub>Beranda aplikasi warga</sub></td>
     <td align="center" width="25%"><img src=".github/assets/preview-app-report.png" alt="Formulir laporan warga" width="200"><br><sub>Formulir laporan warga</sub></td>
     <td align="center" width="25%"><img src=".github/assets/preview-app-dark.png" alt="Mode gelap" width="200"><br><sub>Mode gelap</sub></td>
-    <td align="center" width="25%"><img src=".github/assets/preview-mobile-web.png" alt="Aplikasi warga versi web di ponsel" width="200"><br><sub>Aplikasi warga versi web di ponsel</sub></td>
+    <td align="center" width="25%"><img src=".github/assets/preview-app-gallery.png" alt="Galeri 203 komponen di aplikasi contoh" width="200"><br><sub>Galeri 203 komponen di aplikasi contoh</sub></td>
   </tr>
 </table>
 

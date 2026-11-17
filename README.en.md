@@ -43,7 +43,7 @@
     <td align="center" width="25%"><img src=".github/assets/preview-app-home.png" alt="Citizen app home" width="200"><br><sub>Citizen app home</sub></td>
     <td align="center" width="25%"><img src=".github/assets/preview-app-report.png" alt="Citizen report form" width="200"><br><sub>Citizen report form</sub></td>
     <td align="center" width="25%"><img src=".github/assets/preview-app-dark.png" alt="Dark mode" width="200"><br><sub>Dark mode</sub></td>
-    <td align="center" width="25%"><img src=".github/assets/preview-mobile-web.png" alt="The citizen app as a mobile web page" width="200"><br><sub>The citizen app as a mobile web page</sub></td>
+    <td align="center" width="25%"><img src=".github/assets/preview-app-gallery.png" alt="Gallery of 203 components in the example app" width="200"><br><sub>Gallery of 203 components in the example app</sub></td>
   </tr>
 </table>
 
