@@ -1,25 +1,25 @@
 const head = (q, sub) => `<div><div class="chart-card__q">${q}</div><div class="chart-card__sub">${sub}</div></div>`;
-const loading = `<div class="chart-card" style="min-height: 240px;" role="status" aria-busy="true" aria-label="Loading submissions chart">
+const loading = `<div class="chart-card" style="min-height: 240px;" role="status" aria-busy="true" aria-label="Loading citizen reports chart">
   <div class="stack" style="--gap: 8px;"><div class="skel" style="height: 14px; width: 55%;"></div><div class="skel" style="height: 12px; width: 35%;"></div></div>
   <div style="display: flex; align-items: flex-end; gap: 8px; height: 140px;">
     <div class="skel" style="flex: 1; height: 40%;"></div><div class="skel" style="flex: 1; height: 70%;"></div><div class="skel" style="flex: 1; height: 55%;"></div><div class="skel" style="flex: 1; height: 85%;"></div><div class="skel" style="flex: 1; height: 30%;"></div><div class="skel" style="flex: 1; height: 20%;"></div><div class="skel" style="flex: 1; height: 12%;"></div>
   </div>
 </div>`;
 const empty = `<div class="chart-card" style="min-height: 240px;">
-  ${head('Which days are busiest?', 'Assignments submitted per weekday, this week')}
+  ${head('Which days are busiest?', 'Citizen reports received per weekday, this week')}
   <div class="empty" style="padding: 16px 8px;">
-    <div class="empty__title">No submissions this week</div>
-    <div class="empty__body">The chart fills in as assignments come in.</div>
+    <div class="empty__title">No reports this week</div>
+    <div class="empty__body">The chart fills in as reports come in.</div>
     <button class="btn btn--secondary btn--sm">Show last week</button>
   </div>
 </div>`;
 const error = `<div class="chart-card" style="min-height: 240px;">
-  ${head('Which days are busiest?', 'Assignments submitted per weekday, this week')}
+  ${head('Which days are busiest?', 'Citizen reports received per weekday, this week')}
   <div class="alert alert--danger" role="alert">
     <span class="ic" aria-hidden="true">error</span>
     <div>
       <div class="alert__title">Chart data did not load</div>
-      <div class="alert__body">The grades service timed out.</div>
+      <div class="alert__body">The complaints service did not respond in time.</div>
       <div class="alert__actions"><button class="btn btn--secondary btn--sm"><span class="ic" aria-hidden="true">refresh</span>Try again</button></div>
     </div>
   </div>
@@ -63,15 +63,15 @@ ${error}
       desc: 'A line chart loads as its gridlines, a donut as a ring, a percentage bar as one strip.',
       stage: 'block',
       html: `<div class="auto-grid" style="--min: 220px;">
-  <div class="chart-card" role="status" aria-busy="true" aria-label="Loading quiz scores">
+  <div class="chart-card" role="status" aria-busy="true" aria-label="Loading puskesmas visits">
     <div class="skel" style="height: 14px; width: 60%;"></div>
     <div class="stack" style="--gap: 30px; padding-top: 12px;"><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div><div class="skel" style="height: 2px;"></div></div>
   </div>
-  <div class="chart-card" role="status" aria-busy="true" aria-label="Loading grade distribution">
+  <div class="chart-card" role="status" aria-busy="true" aria-label="Loading report categories">
     <div class="skel" style="height: 14px; width: 60%;"></div>
     <div class="cluster" style="--gap: 20px;"><div class="skel" style="width: 120px; height: 120px; border-radius: 50%;"></div><div class="stack" style="--gap: 10px; flex: 1;"><div class="skel" style="height: 12px;"></div><div class="skel" style="height: 12px; width: 70%;"></div><div class="skel" style="height: 12px; width: 50%;"></div></div></div>
   </div>
-  <div class="chart-card" role="status" aria-busy="true" aria-label="Loading credit split">
+  <div class="chart-card" role="status" aria-busy="true" aria-label="Loading local tax split">
     <div class="skel" style="height: 14px; width: 60%;"></div>
     <div class="skel" style="height: 14px; border-radius: 4px;"></div>
     <div class="skel" style="height: 12px; width: 80%;"></div>
