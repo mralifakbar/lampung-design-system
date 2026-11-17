@@ -45,7 +45,7 @@ export default {
       title: 'Mengeluarkan anggota di sebuah baris',
       desc: 'Di dalam daftar, pil melebar ke arah isi baris; nama dan email tetap di tempatnya.',
       html: `<div class="list" style="width: 100%; max-width: 560px;">
-  <div class="lrow" style="flex-wrap: wrap;"><span class="avatar" style="--size: 36px;">RS</span><span class="lrow__body"><span class="lrow__title">Rizal Siregar</span><span class="lrow__sub">rizal.siregar@contoh.go.id</span></span>${CONFIRM({ icon: 'person', arm: 'Keluarkan', ask: 'Keluarkan Rizal?', cancel: 'Batal', yes: 'Keluarkan', busy: 'Mengeluarkan', done: 'Dikeluarkan' })}</div>
+  <div class="lrow" style="flex-wrap: wrap;"><span class="avatar" style="--size: 36px;">RS</span><span class="lrow__body"><span class="lrow__title">Rizal Siregar</span><span class="lrow__sub">rizal.siregar@contoh.id</span></span>${CONFIRM({ icon: 'person', arm: 'Keluarkan', ask: 'Keluarkan Rizal?', cancel: 'Batal', yes: 'Keluarkan', busy: 'Mengeluarkan', done: 'Dikeluarkan' })}</div>
 </div>`,
     },
   ],

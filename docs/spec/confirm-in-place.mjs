@@ -16,8 +16,8 @@ export default {
     'The action sits in a toolbar, a card header or a row, and a dialog would feel heavier than the action.',
   ],
   whenNot: [
-    ['The action cannot be undone or affects many people (delete a course for every student)', 'alert-dialog'],
-    ['A costly but not dangerous commit (submit an exam, pay)', 'hold-to-confirm', 'Or [slide to confirm](slide-to-confirm) on phones.'],
+    ['The action cannot be undone or affects many people (delete a service for every resident)', 'alert-dialog'],
+    ['A costly but not dangerous commit (submit an application, pay)', 'hold-to-confirm', 'Or [slide to confirm](slide-to-confirm) on phones.'],
     ['Removing a row by gesture', 'swipe-actions'],
     ['The result happened somewhere else on the page', 'toast', 'Offer Undo there.'],
   ],
@@ -40,9 +40,9 @@ export default {
       desc: 'The same walk with words for this action. Escape backs out of the question.',
       stage: 'fill',
       html: `<div class="card" style="display: flex; align-items: center; gap: 12px; width: 100%; max-width: 560px; flex-wrap: wrap;">
-  <span class="avatar avatar--sq">TL</span>
-  <span style="flex: 1; min-width: 140px;"><span class="card__title" style="display: block;">Thesis Lab</span><span class="card__sub" style="display: block;">12 members, meets on Thursdays</span></span>
-  ${CONFIRM({ icon: 'logout', arm: 'Leave group', ask: 'Leave Thesis Lab?', cancel: 'Stay', yes: 'Leave', busy: 'Leaving', done: 'You left Thesis Lab' })}
+  <span class="avatar avatar--sq">KS</span>
+  <span style="flex: 1; min-width: 140px;"><span class="card__title" style="display: block;">Kader Posyandu Sukarame</span><span class="card__sub" style="display: block;">12 members, meets on Thursdays</span></span>
+  ${CONFIRM({ icon: 'logout', arm: 'Leave group', ask: 'Leave Kader Posyandu Sukarame?', cancel: 'Stay', yes: 'Leave', busy: 'Leaving', done: 'You left the group' })}
 </div>`,
     },
     {
@@ -50,7 +50,7 @@ export default {
       desc: 'In a list the pill grows toward the row content; the name and email keep their place.',
       stage: 'fill',
       html: `<div class="list" style="width: 100%; max-width: 560px;">
-  <div class="lrow" style="flex-wrap: wrap;"><span class="avatar" style="--size: 36px;">RS</span><span class="lrow__body"><span class="lrow__title">Rizal Siregar</span><span class="lrow__sub">rizal@campus.ac.id</span></span>${CONFIRM({ icon: 'person', arm: 'Remove', ask: 'Remove Rizal?', cancel: 'Cancel', yes: 'Remove', busy: 'Removing', done: 'Removed' })}</div>
+  <div class="lrow" style="flex-wrap: wrap;"><span class="avatar" style="--size: 36px;">RS</span><span class="lrow__body"><span class="lrow__title">Rizal Siregar</span><span class="lrow__sub">rizal.siregar@contoh.id</span></span>${CONFIRM({ icon: 'person', arm: 'Remove', ask: 'Remove Rizal?', cancel: 'Cancel', yes: 'Remove', busy: 'Removing', done: 'Removed' })}</div>
 </div>`,
     },
   ],
