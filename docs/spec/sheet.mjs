@@ -4,7 +4,7 @@ export default {
   order: 4,
   summary: 'A panel that rises from the bottom for a task that keeps its context: the page behind recedes but stays visible. Drag the grabber to dismiss with momentum. The phone answer to most dialogs.',
   when: [
-    'On phones, a focused task related to the current screen: mark attendance, choose a class, set filters, share.',
+    'On phones, a focused task related to the current screen: mark attendance, choose a time slot, set filters, share.',
     'A short list of options with more detail than a menu can hold.',
     'Anything people may want to flick away with a thumb.',
   ],
@@ -32,7 +32,7 @@ export default {
       html: `<div class="viewport docs-box" data-lds-push="sh-att">
   <div class="viewport__content">
     <button class="btn btn--secondary btn--md" data-lds-open="sh-att" aria-haspopup="dialog">Mark attendance</button>
-    <p class="section__sub">Database Systems · Monday 08:00</p>
+    <p class="section__sub">Posyandu Melati · Monday 08:00</p>
   </div>
   <div class="scrim" data-lds-scrim="sh-att"></div>
   <div class="sheet" id="sh-att" role="dialog" aria-modal="true" aria-labelledby="sh-att-t" data-lds-layer>
@@ -44,7 +44,7 @@ export default {
     <div class="list list--fill">
       <button class="lrow"><span class="lrow__body"><span class="lrow__title">Present</span></span><span class="ic" style="color: var(--accent-text);" aria-hidden="true">check</span></button>
       <button class="lrow"><span class="lrow__body"><span class="lrow__title">Late, with reason</span></span></button>
-      <button class="lrow"><span class="lrow__body"><span class="lrow__title">Excused absence</span></span></button>
+      <button class="lrow"><span class="lrow__body"><span class="lrow__title">Absent with permission</span></span></button>
     </div>
     <button class="btn btn--primary btn--block" style="margin-top: 16px;" data-lds-close>Save attendance</button>
   </div>
@@ -69,12 +69,12 @@ export default {
       stage: 'block',
       html: `<div class="viewport docs-box">
   <div class="viewport__content">
-    <button class="btn btn--secondary btn--md" data-lds-open="sh-share" aria-haspopup="dialog"><span class="ic" aria-hidden="true">ios_share</span>Share result</button>
+    <button class="btn btn--secondary btn--md" data-lds-open="sh-share" aria-haspopup="dialog"><span class="ic" aria-hidden="true">ios_share</span>Share receipt</button>
   </div>
   <div class="scrim" data-lds-scrim="sh-share"></div>
   <div class="sheet" id="sh-share" role="dialog" aria-modal="true" aria-labelledby="sh-share-t" data-lds-layer>
     <div class="sheet__grabber" aria-hidden="true"></div>
-    <div class="sheet__head"><h3 class="sheet__title" id="sh-share-t">Share your tryout result</h3></div>
+    <div class="sheet__head"><h3 class="sheet__title" id="sh-share-t">Share your registration receipt</h3></div>
     <div class="list list--fill">
       <button class="lrow" data-lds-close><span class="ic" aria-hidden="true">link</span><span class="lrow__body"><span class="lrow__title">Copy link</span></span></button>
       <button class="lrow" data-lds-close><span class="ic" aria-hidden="true">download</span><span class="lrow__body"><span class="lrow__title">Save as image</span></span></button>
