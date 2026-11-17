@@ -17,7 +17,7 @@ Situs lampung.kartadinata.app dikelola oleh para kontributor Lampung Design Syst
 ## Layanan pihak ketiga
 
 - **Cloudflare** menyajikan situs ini. Seperti semua server web, Cloudflare menerima alamat IP, jenis peramban, dan halaman yang diminta untuk mengirim halaman dan menangkal serangan. Lihat [kebijakan privasi Cloudflare](https://www.cloudflare.com/privacypolicy/).
-- **Statistik kunjungan.** Bila diaktifkan, kami memakai Cloudflare Web Analytics, yang menghitung kunjungan tanpa cookie dan tanpa sidik jari peramban. Kami hanya melihat angka gabungan, misalnya jumlah kunjungan per halaman.
+- **Statistik kunjungan.** Kami memakai Cloudflare Web Analytics, yang menghitung kunjungan tanpa cookie dan tanpa sidik jari peramban. Kami hanya melihat angka gabungan, misalnya jumlah kunjungan per halaman.
 - **Google Fonts** menyajikan huruf Geist. Peramban Anda mengambil berkas huruf dari fonts.googleapis.com dan fonts.gstatic.com, sehingga Google menerima alamat IP Anda. Lihat [penjelasan privasi Google Fonts](https://developers.google.com/fonts/faq/privacy).
 - **OpenStreetMap.** Contoh komponen peta memuat ubin peta dari tile.openstreetmap.org, sehingga server OpenStreetMap menerima alamat IP Anda saat halaman itu dibuka. Lihat [kebijakan privasi OSMF](https://osmfoundation.org/wiki/Privacy_Policy).
 - **Tautan keluar** ke GitHub, npm, dan pub.dev mengikuti kebijakan situs masing-masing setelah Anda membukanya.

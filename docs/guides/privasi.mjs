@@ -22,7 +22,7 @@ export default {
 <h2 id="pihak-ketiga">Layanan pihak ketiga</h2>
 <ul class="cdoc__list">
   <li><strong>Cloudflare</strong> menyajikan situs ini. Seperti semua server web, Cloudflare menerima alamat IP, jenis peramban, dan halaman yang diminta untuk mengirim halaman dan menangkal serangan. Lihat <a class="link" href="https://www.cloudflare.com/privacypolicy/">kebijakan privasi Cloudflare</a>.</li>
-  <li><strong>Statistik kunjungan.</strong> Bila diaktifkan, kami memakai Cloudflare Web Analytics, yang menghitung kunjungan tanpa cookie dan tanpa sidik jari peramban. Kami hanya melihat angka gabungan, misalnya jumlah kunjungan per halaman.</li>
+  <li><strong>Statistik kunjungan.</strong> Kami memakai Cloudflare Web Analytics, yang menghitung kunjungan tanpa cookie dan tanpa sidik jari peramban. Kami hanya melihat angka gabungan, misalnya jumlah kunjungan per halaman.</li>
   <li><strong>Google Fonts</strong> menyajikan huruf Geist. Peramban Anda mengambil berkas huruf dari fonts.googleapis.com dan fonts.gstatic.com, sehingga Google menerima alamat IP Anda. Lihat <a class="link" href="https://developers.google.com/fonts/faq/privacy">penjelasan privasi Google Fonts</a>.</li>
   <li><strong>OpenStreetMap.</strong> Contoh komponen peta memuat ubin peta dari tile.openstreetmap.org, sehingga server OpenStreetMap menerima alamat IP Anda saat halaman itu dibuka. Lihat <a class="link" href="https://osmfoundation.org/wiki/Privacy_Policy">kebijakan privasi OSMF</a>.</li>
   <li><strong>Tautan keluar</strong> ke GitHub, npm, dan pub.dev mengikuti kebijakan situs masing-masing setelah Anda membukanya.</li>
@@ -55,7 +55,7 @@ export default {
 <h2 id="pihak-ketiga">Third-party services</h2>
 <ul class="cdoc__list">
   <li><strong>Cloudflare</strong> serves this site. Like any web server, it receives your IP address, browser type and the page requested in order to deliver pages and block attacks. See the <a class="link" href="https://www.cloudflare.com/privacypolicy/">Cloudflare privacy policy</a>.</li>
-  <li><strong>Visit statistics.</strong> When enabled, we use Cloudflare Web Analytics, which counts visits without cookies or browser fingerprinting. We only see totals, such as visits per page.</li>
+  <li><strong>Visit statistics.</strong> We use Cloudflare Web Analytics, which counts visits without cookies or browser fingerprinting. We only see totals, such as visits per page.</li>
   <li><strong>Google Fonts</strong> serves the Geist typeface. Your browser fetches font files from fonts.googleapis.com and fonts.gstatic.com, so Google receives your IP address. See the <a class="link" href="https://developers.google.com/fonts/faq/privacy">Google Fonts privacy FAQ</a>.</li>
   <li><strong>OpenStreetMap.</strong> The map component examples load tiles from tile.openstreetmap.org, so OpenStreetMap's servers receive your IP address when you open those pages. See the <a class="link" href="https://osmfoundation.org/wiki/Privacy_Policy">OSMF privacy policy</a>.</li>
   <li><strong>Outbound links</strong> to GitHub, npm and pub.dev follow those sites' own policies once you open them.</li>

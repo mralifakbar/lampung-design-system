@@ -17,7 +17,7 @@ lampung.kartadinata.app is run by the contributors of Lampung Design System, a c
 ## Third-party services
 
 - **Cloudflare** serves this site. Like any web server, it receives your IP address, browser type and the page requested in order to deliver pages and block attacks. See the [Cloudflare privacy policy](https://www.cloudflare.com/privacypolicy/).
-- **Visit statistics.** When enabled, we use Cloudflare Web Analytics, which counts visits without cookies or browser fingerprinting. We only see totals, such as visits per page.
+- **Visit statistics.** We use Cloudflare Web Analytics, which counts visits without cookies or browser fingerprinting. We only see totals, such as visits per page.
 - **Google Fonts** serves the Geist typeface. Your browser fetches font files from fonts.googleapis.com and fonts.gstatic.com, so Google receives your IP address. See the [Google Fonts privacy FAQ](https://developers.google.com/fonts/faq/privacy).
 - **OpenStreetMap.** The map component examples load tiles from tile.openstreetmap.org, so OpenStreetMap's servers receive your IP address when you open those pages. See the [OSMF privacy policy](https://osmfoundation.org/wiki/Privacy_Policy).
 - **Outbound links** to GitHub, npm and pub.dev follow those sites' own policies once you open them.
