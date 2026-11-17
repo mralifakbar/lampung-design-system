@@ -11,10 +11,10 @@ export default {
   summary: 'The picture you tap grows out of its own thumbnail into the full view and shrinks back into the same spot when closed (a FLIP transition). Because the object never disappears, people keep their place: the large view is visibly the same thing, not a new page.',
   when: [
     'Opening a photo, diagram or scan from a grid or an article into a [lightbox](lightbox).',
-    'Any thumbnail whose large version is the same picture: campus photos, lab results, a scanned answer sheet.',
+    'Any thumbnail whose large version is the same picture: photos of service buildings, test results, a scanned application form.',
   ],
   whenNot: [
-    ['Opening details that are not the same picture (a course card to its page)', 'nav-progress', 'There is no generic shared-element transition for arbitrary elements yet; navigate normally.'],
+    ['Opening details that are not the same picture (a service card to its page)', 'nav-progress', 'There is no generic shared-element transition for arbitrary elements yet; navigate normally.'],
     ['A form or a question over the page', 'dialog'],
     ['Browsing a row of pictures in place', 'carousel'],
     ['Content opening below its trigger', 'height-expand'],
@@ -23,28 +23,28 @@ export default {
   where: 'On a `.thumb` link (`<a class="thumb" href="large.jpg" data-lds-lightbox>`) around an `<img>`, anywhere: an `auto-grid` of photos, a figure inside [prose](prose), a card. The lightbox is appended to `<body>` as a fixed layer.',
   examples: [
     {
-      title: 'A grid of campus photos',
+      title: 'A grid of service building photos',
       desc: 'Open a photo: it grows from its exact place in the grid to the center while the backdrop fades in. Close it (Escape, the close button or the backdrop) and it shrinks back into the same tile.',
       html: `<div class="auto-grid" style="--min: 150px; width: 100%;">
-  ${THUMB(LIB, 'Central library, east entrance', 'The central library with its tall windows')}
-  ${THUMB(LAB, 'Biology lab, building C', 'The biology lab building among trees')}
-  ${THUMB(HALL, 'Main hall, graduation day', 'The main hall in warm evening light')}
+  ${THUMB(LIB, 'Public service mall, east entrance', 'The public service mall with its tall windows')}
+  ${THUMB(LAB, 'Puskesmas, outpatient building', 'The puskesmas outpatient building among trees')}
+  ${THUMB(HALL, 'Community hall, opening day', 'The community hall in warm evening light')}
 </div>`,
       code: `<div class="auto-grid" style="--min: 150px;">
-  <a class="thumb" href="library-large.jpg" data-lds-lightbox data-caption="Central library, east entrance">
-    <img src="library-small.jpg" alt="The central library with its tall windows">
+  <a class="thumb" href="library-large.jpg" data-lds-lightbox data-caption="Public service mall, east entrance">
+    <img src="library-small.jpg" alt="The public service mall with its tall windows">
   </a>
   …
 </div>`,
     },
     {
-      title: 'A figure in a lesson',
+      title: 'A figure in a guide',
       desc: 'Inside an article the figure stays small enough to keep reading; tapping it grows it without losing the place in the text.',
       stage: 'block',
       html: `<div class="prose">
-  <p>Plant cells keep their shape because the cell wall pushes back when water flows in. The photo below shows the lab building where you will run the experiment in week 6.</p>
-  <div style="max-width: 280px;">${THUMB(LAB, 'Biology lab, building C, room 2.14', 'The biology lab building among trees')}</div>
-  <p>Bring a lab coat and your printed worksheet. The room opens 15 minutes before the session.</p>
+  <p>Antenatal check-ups are held in the outpatient building every Monday and Thursday. The photo below shows the building where you register.</p>
+  <div style="max-width: 280px;">${THUMB(LAB, 'Puskesmas, outpatient building, room 2', 'The puskesmas outpatient building among trees')}</div>
+  <p>Bring your KIA book and your KTP. The registration desk opens 15 minutes before the service starts.</p>
 </div>`,
     },
   ],
