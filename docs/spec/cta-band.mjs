@@ -4,7 +4,7 @@ export default {
   order: 7,
   summary: 'The last ask on a landing page: a short title, one line, and the same primary action as the hero, on the quiet fill. It may hold the one line people copy to start.',
   when: [
-    'The end of a landing or product page, before the footer.',
+    'The end of a landing or program page, before the footer.',
     'The end of a long article or guide that leads to one action.',
   ],
   whenNot: [
@@ -22,14 +22,14 @@ export default {
   ],
   examples: [
     {
-      title: 'Closing ask with an install line',
-      desc: 'The copy button confirms in place.',
+      title: 'Closing ask with a copied code',
+      desc: 'A city MSME registration program as the example. The copy button confirms in place.',
       stage: 'block',
       html: `<div class="cta-band" style="width: 100%;">
-  <h2 class="cta-band__title">Mark your next class in half the time.</h2>
-  <p class="cta-band__body">Bring one class over for free and keep it as long as you like.</p>
-  <div class="codeblock"><div class="codeblock__bar"><span>Your class code</span><button class="btn btn--plain btn--sm" data-lds-copy="BIO-2026-A"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Copied">Copy</span></button></div><pre>BIO-2026-A</pre></div>
-  <div class="cta-band__actions"><a class="btn btn--primary btn--lg" href="#">Start with one class</a><a class="btn btn--secondary btn--lg" href="#">See pricing</a></div>
+  <h2 class="cta-band__title">Register your business in 15 minutes.</h2>
+  <p class="cta-band__body">Registration is free, and you can update your business data at any time.</p>
+  <div class="codeblock"><div class="codeblock__bar"><span>Your kelurahan code</span><button class="btn btn--plain btn--sm" data-lds-copy="UMKM-KDT-2026"><span class="swap" style="width: 16px; height: 16px;" aria-hidden="true"><span class="ic swap__a" style="font-size: 16px;">content_copy</span><span class="ic swap__b" style="font-size: 16px;">check</span></span><span data-lds-copy-label="Copied">Copy</span></button></div><pre>UMKM-KDT-2026</pre></div>
+  <div class="cta-band__actions"><a class="btn btn--primary btn--lg" href="#">Register your business</a><a class="btn btn--secondary btn--lg" href="#">See requirements</a></div>
 </div>`,
     },
   ],
