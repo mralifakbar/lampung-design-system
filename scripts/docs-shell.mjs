@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs';
+import { htmlToMd } from './html-to-md.mjs';
 
 // The siger mark drawn by scripts/build-brand.mjs.
 const SIGER = readFileSync(new URL('../brand/siger.inline.txt', import.meta.url), 'utf8').trim();
@@ -54,7 +55,7 @@ const S = {
     lang: 'id', skip: 'Langsung ke konten', docs: 'Dokumentasi', pages: 'Halaman', start: 'Memulai', foundations: 'Landasan', components: 'Komponen',
     boards: 'Papan komponen', patterns: 'Pola', all: 'Semua komponen', gallery: 'Galeri HTML', examples: 'Contoh', aksara: 'Aksara Lampung',
     appearance: 'Tampilan', light: 'Terang', dark: 'Gelap', other: 'English', otherHref: 'en/', openMenu: 'Buka menu', prev: 'Sebelumnya', next: 'Berikutnya', pager: 'Halaman sebelumnya dan berikutnya',
-    home: 'Beranda proyek', privacy: 'Privasi', terms: 'Ketentuan',
+    home: 'Beranda proyek', privacy: 'Privasi', terms: 'Ketentuan', agentLabel: 'Untuk agen AI', copyLlm: 'Salin untuk LLM', viewMd: 'Lihat sebagai Markdown', copied: 'Disalin', copyFail: 'Gagal menyalin',
     title: 'Pengenalan',
     lede: 'Lampung Design System (LDS) adalah design system terbuka untuk membangun situs dan aplikasi layanan publik dengan cepat dan tampilan yang konsisten. Satu berkas token untuk CSS, JavaScript, shadcn/ui, dan Flutter; komponen berupa kelas CSS biasa; perilaku interaktif dalam satu modul JavaScript opsional.',
   },
@@ -62,7 +63,7 @@ const S = {
     lang: 'en', skip: 'Skip to content', docs: 'Documentation', pages: 'Pages', start: 'Getting started', foundations: 'Foundations', components: 'Components',
     boards: 'Component boards', patterns: 'Patterns', all: 'All components', gallery: 'Plain HTML gallery', examples: 'Examples', aksara: 'Aksara Lampung',
     appearance: 'Appearance', light: 'Light', dark: 'Dark', other: 'Bahasa Indonesia', otherHref: '../', openMenu: 'Open menu', prev: 'Previous', next: 'Next', pager: 'Previous and next page',
-    home: 'Project home', privacy: 'Privacy', terms: 'Terms',
+    home: 'Project home', privacy: 'Privacy', terms: 'Terms', agentLabel: 'For AI agents', copyLlm: 'Copy for LLM', viewMd: 'View as Markdown', copied: 'Copied', copyFail: 'Copy failed',
     title: 'Introduction',
     lede: 'Lampung Design System (LDS) is an open design system for building public-service websites and apps quickly, with a consistent look. One token file feeds CSS, JavaScript, shadcn/ui and Flutter; components are plain CSS classes; interactive behaviors live in one optional JavaScript module.',
   },
@@ -192,6 +193,10 @@ ${ctx.masthead}
         <div class="page-head__crumb"><span class="page-head__mark">${SIGER}</span>${s.start}</div>
         <h1>${s.title}</h1>
         <p class="page-head__lede">${s.lede}</p>
+        <div class="cdoc__agent" role="group" aria-label="${s.agentLabel}">
+          <button class="btn btn--gray btn--sm" type="button" data-md-copy="index.md" data-done="${s.copied}" data-fail="${s.copyFail}"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>${s.copyLlm}</span></button>
+          <a class="btn btn--gray btn--sm" href="index.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>${s.viewMd}</span></a>
+        </div>
       </div>
     </header>${intro(lang, ctx.count, guides)}
     <div class="aksara-band" aria-hidden="true" style="margin-top: 48px;"></div>
@@ -286,6 +291,20 @@ ${ctx.masthead}
     if (!first) host.focus({ preventScroll: true });
   }
 
+  // Copy for LLM: the start page is cloned from a template, so listen on the document.
+  document.addEventListener('click', async (e) => {
+    const b = e.target.closest('[data-md-copy]');
+    if (!b) return;
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(String(res.status));
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
+  });
+
   const slugFromHash = () => (location.hash.match(/^#\\/([\\w-]+)/) || [])[1] || 'start';
   window.addEventListener('hashchange', () => show(slugFromHash()));
   show(slugFromHash(), true);
@@ -293,4 +312,11 @@ ${ctx.masthead}
 </body>
 </html>
 `;
+}
+
+/** The docs home as Markdown (docs/index.md, docs/en/index.md), for Copy for LLM and agents. */
+export function homeMarkdown(lang, ctx) {
+  const s = S[lang];
+  const url = `https://lampung.kartadinata.app/docs/${lang === 'en' ? 'en/' : ''}`;
+  return htmlToMd(`<h1>${s.title}</h1><p>${url}</p><p>${s.lede}</p>${intro(lang, ctx.count, ctx.guides.filter((g) => !g.hidden))}`);
 }

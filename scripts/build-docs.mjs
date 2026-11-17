@@ -12,7 +12,7 @@
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { shell, ROUTES as BOARD_ROUTES, ICONS as BOARD_ICONS } from './docs-shell.mjs';
+import { shell, homeMarkdown, ROUTES as BOARD_ROUTES, ICONS as BOARD_ICONS } from './docs-shell.mjs';
 import { htmlToMd } from './html-to-md.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -500,5 +500,7 @@ for (const lang of ['en', 'id']) {
 mkdirSync(join(root, 'docs/en'), { recursive: true });
 writeFileSync(join(root, 'docs/index.html'), shell('id', { count: specsEn.length, guides: GUIDES, masthead: mastheadHtml(STRINGS.id), side: homeNav.id }));
 writeFileSync(join(root, 'docs/en/index.html'), shell('en', { count: specsEn.length, guides: GUIDES, masthead: mastheadHtml(STRINGS.en), side: homeNav.en }));
+writeFileSync(join(root, 'docs/index.md'), homeMarkdown('id', { count: specsEn.length, guides: GUIDES }));
+writeFileSync(join(root, 'docs/en/index.md'), homeMarkdown('en', { count: specsEn.length, guides: GUIDES }));
 const missing = specsEn.filter((s) => !overrides.has(s.slug)).map((s) => s.slug);
 console.log(`build-docs: ${ordered.length} components in ${groupsWith.length} groups, ${GUIDES.length} guides, ${overrides.size} in Indonesian${missing.length ? ` (${missing.length} still English on the Indonesian site)` : ''}`);
