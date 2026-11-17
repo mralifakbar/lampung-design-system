@@ -3,7 +3,7 @@ const TRACK = '<span class="switch__track" aria-hidden="true"><span class="switc
 export default {
   summary: 'Kontrol nyala dan mati untuk pengaturan yang berlaku saat itu juga ketika diubah, tanpa tombol Simpan. Thumb meregang selama ditahan dan berpindah dengan spring.',
   when: [
-    'Pengaturan yang langsung berlaku: notifikasi, suara, dark mode, tampilkan timer saat ujian.',
+    'Pengaturan yang langsung berlaku: notifikasi, suara, dark mode, tampilkan nomor antrean di layar kunci.',
     'Daftar pengaturan di ponsel (switch kecil di akhir baris daftar).',
     'Menyalakan fitur dengan penjelasan singkat di bawah label (`.switch__text` dengan `small`).',
   ],
