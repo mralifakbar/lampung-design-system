@@ -1,7 +1,7 @@
 export default {
   summary: 'Kontrol yang ditekan untuk menjalankan sesuatu: simpan, kirim, mulai, hapus. Satu tombol utama per tampilan; labelnya menyebut hasilnya.',
   when: [
-    'Sebuah aksi terjadi di halaman atau formulir ini: kirim, simpan, mulai tugas, buka dialog.',
+    'Sebuah aksi terjadi di halaman atau formulir ini: kirim, simpan, mulai permohonan, buka dialog.',
     'Anda butuh status memuat yang menjaga lebar tombol selama aksi berjalan (`.is-loading` dengan `btn__label` dan `btn__spin`).',
   ],
   whenNot: [
@@ -9,7 +9,7 @@ export default {
     ['Kontrol hanya menampilkan ikon', 'icon-button'],
     ['Menyalakan atau mematikan pengaturan yang langsung berlaku', 'switch'],
     ['Memilih satu tampilan dari konten yang sama', 'segmented-control'],
-    ['Konfirmasi yang mahal tetapi tidak berbahaya (kirim ujian, kirim pembayaran)', 'hold-to-confirm'],
+    ['Konfirmasi yang mahal tetapi tidak berbahaya (kirim permohonan, kirim pembayaran)', 'hold-to-confirm'],
   ],
   where: 'Di ujung hal yang ditindaklanjuti: di bawah formulir (`form__actions`), di bagian bawah dialog (`dialog__actions`), di footer kartu, atau di bilah lengket pada ponsel. Tombol utama ada di kanan pada layar lebar dan di atas (lebar penuh) pada ponsel.',
   anatomy: [

@@ -12,7 +12,7 @@ export default {
     ['The control only shows an icon', 'icon-button'],
     ['Turning a setting on or off that applies at once', 'switch'],
     ['Picking one view of the same content', 'segmented-control'],
-    ['A costly but not dangerous confirm (submit an exam, send payment)', 'hold-to-confirm'],
+    ['A costly but not dangerous confirm (submit an application, send payment)', 'hold-to-confirm'],
   ],
   where: 'At the end of the thing it acts on: under a form (`form__actions`), at the bottom of a dialog (`dialog__actions`), in a card footer, or in a sticky bar on phones. The primary sits on the right on wide screens and on top (full width) on phones.',
   anatomy: [
@@ -39,8 +39,8 @@ export default {
       title: 'Sizes and icons',
       desc: '52 for the one big call to action on a landing page, 44 by default, 36 in toolbars and dense rows, 28 inside rows and chips. Small sizes keep a 44 px hit area through the space around them.',
       html: `<div class="docs-row">
-  <button class="btn btn--primary btn--lg"><span class="ic" aria-hidden="true">play_arrow</span>Start the tryout</button>
-  <button class="btn btn--secondary"><span class="ic" aria-hidden="true">add</span>Add course</button>
+  <button class="btn btn--primary btn--lg"><span class="ic" aria-hidden="true">play_arrow</span>Start application</button>
+  <button class="btn btn--secondary"><span class="ic" aria-hidden="true">add</span>Add service</button>
   <button class="btn btn--secondary btn--md"><span class="ic" aria-hidden="true">download</span>Export</button>
   <button class="btn btn--plain btn--sm">Edit</button>
 </div>`,
@@ -49,11 +49,11 @@ export default {
       title: 'Loading without a jump',
       desc: 'The label blurs out, the spinner scales in, the width stays. Press it.',
       html: `<button class="btn btn--primary" onclick="this.classList.add('is-loading'); this.setAttribute('aria-busy','true'); setTimeout(() => { this.classList.remove('is-loading'); this.removeAttribute('aria-busy'); }, 1600)">
-  <span class="btn__label"><span class="ic" aria-hidden="true">check</span>Submit answers</span>
+  <span class="btn__label"><span class="ic" aria-hidden="true">check</span>Submit application</span>
   <span class="btn__spin" aria-hidden="true"><span class="spinner"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
 </button>`,
       code: `<button class="btn btn--primary is-loading" aria-busy="true">
-  <span class="btn__label">Submit answers</span>
+  <span class="btn__label">Submit application</span>
   <span class="btn__spin" aria-hidden="true"><span class="spinner"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
 </button>`,
     },
@@ -62,7 +62,7 @@ export default {
       desc: 'Prefer an enabled button that explains what is missing when pressed. Disable only when the reason is visible next to it.',
       html: `<div class="docs-col" style="max-width: 360px;">
   <button class="btn btn--primary" disabled>Send report</button>
-  <span class="field__help">Choose what kind of mistake it is to send the report.</span>
+  <span class="field__help">Choose the kind of problem to send the report.</span>
 </div>`,
     },
   ],
@@ -97,7 +97,7 @@ export default {
     'The focus ring comes from the system (`:focus-visible`); never remove it.',
   ],
   do: [
-    'Name the outcome: "Save changes", "Send report", "Start the tryout".',
+    'Name the outcome: "Save changes", "Send report", "Start application".',
     'Keep one primary per view; demote the rest to secondary, tinted or plain.',
     'Make the primary full width in phone layouts (`btn--block`).',
   ],
