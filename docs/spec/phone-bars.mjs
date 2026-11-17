@@ -4,7 +4,7 @@ export default {
   order: 12,
   summary: 'The chrome of a phone screen: a nav bar at the top whose large title collapses into it on scroll, and a tab bar of three to five destinations at the bottom. Both are translucent so content scrolls visibly under them.',
   when: [
-    'A phone-first app or installed web app with three to five top-level destinations people switch between all day: Today, Schedule, Courses, Profile.',
+    'A phone-first app or installed web app with three to five top-level destinations people switch between all day: Today, Schedule, Services, Profile.',
     'A phone screen that needs a title, a back button and one or two actions at the top.',
   ],
   whenNot: [
@@ -40,22 +40,22 @@ export default {
     <h3 class="large-title">Today</h3>
     <div class="stack" style="padding: 12px 16px 110px;">
       <div class="list list--fill">
-        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Database Systems</span><span class="lrow__sub" style="display: block;">08:00 · H 2.14</span></span></div>
-        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Linear Algebra</span><span class="lrow__sub" style="display: block;">10:00 · A 1.02</span></span></div>
-        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Computer Networks</span><span class="lrow__sub" style="display: block;">13:00 · H 3.01</span></span></div>
+        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Posyandu Melati</span><span class="lrow__sub" style="display: block;">08:00 · RT 03 community hall</span></span></div>
+        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Prenatal check-up</span><span class="lrow__sub" style="display: block;">10:00 · Puskesmas Kedaton</span></span></div>
+        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Child immunization</span><span class="lrow__sub" style="display: block;">13:00 · Puskesmas Kedaton</span></span></div>
       </div>
       <div class="list list--fill">
-        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Lab report 3</span><span class="lrow__sub" style="display: block;">Due tomorrow</span></span><span class="badge badge--warning">Tomorrow</span></div>
-        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Problem set 7</span><span class="lrow__sub" style="display: block;">Due Thursday</span></span><span class="badge">Thu</span></div>
-        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Reading: chapter 9</span><span class="lrow__sub" style="display: block;">Due Friday</span></span><span class="badge">Fri</span></div>
-        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Quiz 4</span><span class="lrow__sub" style="display: block;">Next Monday</span></span><span class="badge">Mon</span></div>
+        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Complete domicile letter</span><span class="lrow__sub" style="display: block;">Due tomorrow</span></span><span class="badge badge--warning">Tomorrow</span></div>
+        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Pay vehicle tax</span><span class="lrow__sub" style="display: block;">Due Thursday</span></span><span class="badge">Thu</span></div>
+        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Business site survey</span><span class="lrow__sub" style="display: block;">Scheduled Friday</span></span><span class="badge">Fri</span></div>
+        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Collect e-KTP</span><span class="lrow__sub" style="display: block;">Next Monday</span></span><span class="badge">Mon</span></div>
       </div>
     </div>
   </div>
   <nav class="tabbar" style="height: 76px; padding-bottom: 22px;" aria-label="Main" onclick="const b = event.target.closest('.tabbar__item'); if (!b) return; this.querySelectorAll('.tabbar__item').forEach((x) => x.removeAttribute('aria-current')); b.setAttribute('aria-current', 'page');">
     <button class="tabbar__item" aria-current="page"><span class="ic" aria-hidden="true">today</span>Today</button>
     <button class="tabbar__item"><span class="ic" aria-hidden="true">calendar_month</span>Schedule</button>
-    <button class="tabbar__item"><span class="ic" aria-hidden="true">school</span>Courses</button>
+    <button class="tabbar__item"><span class="ic" aria-hidden="true">account_balance</span>Services</button>
     <button class="tabbar__item"><span class="ic" aria-hidden="true">person</span>Profile</button>
   </nav>
   <span class="home-ind" style="bottom: 7px; width: 108px;" aria-hidden="true"></span>
@@ -72,7 +72,7 @@ export default {
 <nav class="tabbar" aria-label="Main">
   <a class="tabbar__item" href="/today" aria-current="page"><span class="ic" aria-hidden="true">today</span>Today</a>
   <a class="tabbar__item" href="/schedule"><span class="ic" aria-hidden="true">calendar_month</span>Schedule</a>
-  <a class="tabbar__item" href="/courses"><span class="ic" aria-hidden="true">school</span>Courses</a>
+  <a class="tabbar__item" href="/services"><span class="ic" aria-hidden="true">account_balance</span>Services</a>
   <a class="tabbar__item" href="/profile"><span class="ic" aria-hidden="true">person</span>Profile</a>
 </nav>`,
     },
@@ -82,12 +82,12 @@ export default {
       stage: 'phone',
       html: `<div class="phone phone--inline" style="height: 300px;">
   <div class="navbar is-scrolled" style="height: 56px; padding-top: 8px;">
-    <span><button class="icon-btn" aria-label="Back to courses"><span class="ic" aria-hidden="true">arrow_back_ios_new</span></button></span>
-    <span class="navbar__title">Database Systems</span>
-    <div class="navbar__end"><button class="icon-btn" aria-label="Share course"><span class="ic" aria-hidden="true">ios_share</span></button></div>
+    <span><button class="icon-btn" aria-label="Back to services"><span class="ic" aria-hidden="true">arrow_back_ios_new</span></button></span>
+    <span class="navbar__title">Micro business permit</span>
+    <div class="navbar__end"><button class="icon-btn" aria-label="Share service"><span class="ic" aria-hidden="true">ios_share</span></button></div>
   </div>
   <div class="phone__scroll" style="padding: 72px 16px 24px;">
-    <p class="section__sub">CS 2104 · 3 credits · Mon and Thu, 08:00</p>
+    <p class="section__sub">IUM 2104 · done in 3 working days · Mon and Thu, 08:00</p>
   </div>
 </div>`,
     },
@@ -105,7 +105,7 @@ export default {
   ],
   a11y: [
     'The tab bar is a `<nav aria-label>`; items are links (or buttons in a single-page app) with `aria-current="page"`. Labels are always visible.',
-    'Icon-only bar buttons need `aria-label`s that name the destination ("Back to courses").',
+    'Icon-only bar buttons need `aria-label`s that name the destination ("Back to services").',
     'The large title is the screen\'s `<h1>`; the inline bar title is a visual repeat and can be `aria-hidden`.',
     'Tab items are full-height, at least 44 px tall and a quarter of the width each.',
   ],

@@ -51,7 +51,7 @@ export default {
   <nav class="tabbar" style="height: 76px; padding-bottom: 22px;" aria-label="Utama" onclick="const b = event.target.closest('.tabbar__item'); if (!b) return; this.querySelectorAll('.tabbar__item').forEach((x) => x.removeAttribute('aria-current')); b.setAttribute('aria-current', 'page');">
     <button class="tabbar__item" aria-current="page"><span class="ic" aria-hidden="true">today</span>Hari ini</button>
     <button class="tabbar__item"><span class="ic" aria-hidden="true">calendar_month</span>Jadwal</button>
-    <button class="tabbar__item"><span class="ic" aria-hidden="true">school</span>Layanan</button>
+    <button class="tabbar__item"><span class="ic" aria-hidden="true">account_balance</span>Layanan</button>
     <button class="tabbar__item"><span class="ic" aria-hidden="true">person</span>Profil</button>
   </nav>
   <span class="home-ind" style="bottom: 7px; width: 108px;" aria-hidden="true"></span>
@@ -68,7 +68,7 @@ export default {
 <nav class="tabbar" aria-label="Utama">
   <a class="tabbar__item" href="/today" aria-current="page"><span class="ic" aria-hidden="true">today</span>Hari ini</a>
   <a class="tabbar__item" href="/schedule"><span class="ic" aria-hidden="true">calendar_month</span>Jadwal</a>
-  <a class="tabbar__item" href="/courses"><span class="ic" aria-hidden="true">school</span>Layanan</a>
+  <a class="tabbar__item" href="/services"><span class="ic" aria-hidden="true">account_balance</span>Layanan</a>
   <a class="tabbar__item" href="/profile"><span class="ic" aria-hidden="true">person</span>Profil</a>
 </nav>`,
     },
