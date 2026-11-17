@@ -24,7 +24,7 @@ export default {
       html: `<div class="list" style="max-width: 460px;">
   <div class="lrow"><div class="lrow__body"><div class="lrow__title">Tanggapan atas laporan jalan rusak</div><div class="lrow__sub">Dua komentar dari petugas</div></div><time class="timestamp lrow__value" data-lds-time="2026-11-16T08:05:00+07:00">16 Nov 2026, 08.05</time></div>
   <div class="lrow"><div class="lrow__body"><div class="lrow__title">Ruang sosialisasi dipindah</div><div class="lrow__sub">Sekarang di gedung C, ruang 204</div></div><time class="timestamp lrow__value" data-lds-time="2026-11-13T15:20:00+07:00">13 Nov 2026, 15.20</time></div>
-  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Batas pendaftaran beasiswa</div><div class="lrow__sub">Unggah rapor Anda</div></div><time class="timestamp lrow__value" data-lds-time="2026-12-01T17:00:00+07:00">1 Des 2026, 17.00</time></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Batas pendaftaran beasiswa daerah</div><div class="lrow__sub">Unggah rapor Anda</div></div><time class="timestamp lrow__value" data-lds-time="2026-12-01T17:00:00+07:00">1 Des 2026, 17.00</time></div>
 </div>`,
     },
     {
