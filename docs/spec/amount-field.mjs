@@ -4,14 +4,14 @@ export default {
   order: 2,
   summary: 'A text field for money and other numbers with a unit: the currency or unit sits inside the control as text, the keyboard is numeric. Type the number, never the symbol.',
   when: [
-    'People type an amount of money: a monthly fee, a payment, a scholarship amount, a price.',
-    'A number has a unit that should stay visible while typing: %, kg, minutes, credits.',
+    'People type an amount of money: a monthly fee, a payment, an aid amount, a price.',
+    'A number has a unit that should stay visible while typing: %, kg, minutes, days.',
     'The value can be any size, so buttons to count up would be too slow.',
   ],
   whenNot: [
     ['A small whole number changed by one or two (seats, tickets, people)', 'number-stepper'],
     ['A value on a known scale where the exact number matters less than the position (volume, difficulty)', 'slider'],
-    ['A minimum and maximum (price range, credits per term)', 'range-slider'],
+    ['A minimum and maximum (price range, age range)', 'range-slider'],
     ['Picking one of a few fixed amounts (Rp 50.000, Rp 100.000, Rp 200.000)', 'chips', 'Or [radio cards](radio-card) when each amount needs a line of detail'],
     ['Free text without a unit', 'text-field'],
   ],
@@ -48,7 +48,7 @@ export default {
       title: 'Over the limit',
       desc: 'The error names the limit and the current balance, so the fix is obvious.',
       html: `<div class="field" style="max-width: 320px;">
-  <label class="field__label" for="af-pay">Amount to withdraw</label>
+  <label class="field__label" for="af-pay">Amount to disburse</label>
   <div class="control is-invalid"><span class="control__suffix">Rp</span><input id="af-pay" inputmode="numeric" value="2.500.000" aria-invalid="true" aria-describedby="af-pay-help"></div>
   <span class="field__help field__help--error" id="af-pay-help"><span class="ic" aria-hidden="true">error</span>Your balance is Rp 1.840.000. Enter that amount or less.</span>
 </div>`,
@@ -57,8 +57,8 @@ export default {
       title: 'Units other than money',
       desc: 'Percent and weight follow the same shape. Decimals use `inputmode="decimal"`.',
       html: `<div class="form__row" style="max-width: 520px;">
-  <div class="field"><label class="field__label" for="af-disc">Discount</label><div class="control"><input id="af-disc" inputmode="decimal" value="12,5"><span class="control__suffix">%</span></div></div>
-  <div class="field"><label class="field__label" for="af-time">Time per question</label><div class="control"><input id="af-time" inputmode="numeric" value="90"><span class="control__suffix">seconds</span></div></div>
+  <div class="field"><label class="field__label" for="af-disc">Fee relief</label><div class="control"><input id="af-disc" inputmode="decimal" value="12,5"><span class="control__suffix">%</span></div></div>
+  <div class="field"><label class="field__label" for="af-time">Service time per resident</label><div class="control"><input id="af-time" inputmode="numeric" value="90"><span class="control__suffix">seconds</span></div></div>
 </div>`,
     },
   ],
