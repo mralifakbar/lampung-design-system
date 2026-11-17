@@ -24,9 +24,9 @@ export default {
       desc: 'Open a question: the panel grows on the smooth spring and the answer fades in 80 ms later, rising 4 px. With `data-lds-accordion="single"` the open one closes as the next opens; both springs run together.',
       stage: 'block',
       html: `<div class="acc" data-lds-accordion="single" style="max-width: 520px;">
-  <div class="acc__item"><button class="acc__btn" aria-expanded="true" aria-controls="he-1">Can I change my schedule?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel is-open" id="he-1" role="region"><div><p>Yes, until the end of the second week. After that, ask your academic advisor.</p></div></div></div>
-  <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="he-2">Where is my transcript?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="he-2" role="region"><div><p>Under Academics, then Records. It updates two days after grades are published.</p></div></div></div>
-  <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="he-3">What if I miss an exam?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="he-3" role="region"><div><p>Send the medical note within three days and the faculty schedules a make-up.</p></div></div></div>
+  <div class="acc__item"><button class="acc__btn" aria-expanded="true" aria-controls="he-1">Can I change my visit schedule?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel is-open" id="he-1" role="region"><div><p>Yes, up to one day before the appointment. After that, call the puskesmas registration desk.</p></div></div></div>
+  <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="he-2">Where can I see my checkup results?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="he-2" role="region"><div><p>Under History, then Checkup results. Results appear two days after the visit.</p></div></div></div>
+  <div class="acc__item"><button class="acc__btn" aria-expanded="false" aria-controls="he-3">What if I don't show up?<span class="ic" aria-hidden="true">expand_more</span></button><div class="acc__panel" id="he-3" role="region"><div><p>Your queue number is cancelled. Register again to get a new appointment.</p></div></div></div>
 </div>`,
     },
     {
@@ -35,8 +35,8 @@ export default {
       stage: 'block',
       replay: true,
       html: `<div class="docs-col" style="max-width: 520px;">
-  <div class="collapse"><div><div class="alert alert--info" role="status"><span class="ic" aria-hidden="true">info</span><div style="flex: 1;"><div class="alert__title">Registration opens Monday at 08:00</div><div class="alert__body">Seats are assigned in the order requests arrive.</div></div><button class="icon-btn alert__close" aria-label="Dismiss" data-lds-dismiss><span class="ic" aria-hidden="true">close</span></button></div></div></div>
-  <div class="card"><p class="card__title">Your courses</p><p class="card__sub">4 courses, 14 credits this term</p></div>
+  <div class="collapse"><div><div class="alert alert--info" role="status"><span class="ic" aria-hidden="true">info</span><div style="flex: 1;"><div class="alert__title">Business permit registration opens Monday at 08:00</div><div class="alert__body">Applications are processed in the order they arrive.</div></div><button class="icon-btn alert__close" aria-label="Dismiss" data-lds-dismiss><span class="ic" aria-hidden="true">close</span></button></div></div></div>
+  <div class="card"><p class="card__title">Your applications</p><p class="card__sub">2 applications, 1 waiting for verification</p></div>
 </div>`,
     },
     {
@@ -45,13 +45,13 @@ export default {
       stage: 'fill',
       html: `<div class="more" data-lds-more data-more="Show 3 more" data-less="Show less" style="width: 100%; max-width: 420px;">
   <div class="list">
-    ${ROW('Lab report', 'Friday, 23:59')}
-    ${ROW('Reading response', 'Saturday, 12:00')}
-    ${ROW('Quiz 4', 'Monday, 08:00')}
+    ${ROW('Vehicle tax', 'Friday, 23:59')}
+    ${ROW('Waste collection fee', 'Saturday, 12:00')}
+    ${ROW('Business permit renewal', 'Monday, 08:00')}
     <div class="more__rest"><div>
-      ${ROW('Group presentation', 'Wednesday, 10:00')}
-      ${ROW('Problem set 5', 'Thursday, 23:59')}
-      ${ROW('Midterm review', 'Next Friday')}
+      ${ROW('Land and building tax', 'Wednesday, 10:00')}
+      ${ROW('Market stall fee', 'Thursday, 23:59')}
+      ${ROW('Annual business report', 'Next Friday')}
     </div></div>
   </div>
   <button class="btn btn--plain btn--sm more__btn"></button>
@@ -61,11 +61,11 @@ export default {
       title: 'Folders in a tree',
       desc: 'A folder opens its children on the spring while its chevron turns 90 degrees on the same spring, so both finish together.',
       stage: 'block',
-      html: `<div class="tree" role="tree" aria-label="Course files" style="max-width: 320px;">
-  <button class="tree__row" aria-expanded="true" aria-controls="he-t1"><span class="ic tree__chev" aria-hidden="true">chevron_right</span><span class="ic" aria-hidden="true">folder</span>Week 1</button>
-  <div class="tree__kids is-open" id="he-t1"><div><button class="tree__row"><span class="ic" aria-hidden="true">description</span>Syllabus.pdf</button><button class="tree__row"><span class="ic" aria-hidden="true">description</span>Lecture 1 slides</button></div></div>
-  <button class="tree__row" aria-expanded="false" aria-controls="he-t2"><span class="ic tree__chev" aria-hidden="true">chevron_right</span><span class="ic" aria-hidden="true">folder</span>Week 2</button>
-  <div class="tree__kids" id="he-t2"><div><button class="tree__row"><span class="ic" aria-hidden="true">description</span>Lecture 2 slides</button><button class="tree__row"><span class="ic" aria-hidden="true">description</span>Problem set 1</button></div></div>
+      html: `<div class="tree" role="tree" aria-label="Application files" style="max-width: 320px;">
+  <button class="tree__row" aria-expanded="true" aria-controls="he-t1"><span class="ic tree__chev" aria-hidden="true">chevron_right</span><span class="ic" aria-hidden="true">folder</span>Applicant details</button>
+  <div class="tree__kids is-open" id="he-t1"><div><button class="tree__row"><span class="ic" aria-hidden="true">description</span>KTP.pdf</button><button class="tree__row"><span class="ic" aria-hidden="true">description</span>Family card</button></div></div>
+  <button class="tree__row" aria-expanded="false" aria-controls="he-t2"><span class="ic tree__chev" aria-hidden="true">chevron_right</span><span class="ic" aria-hidden="true">folder</span>Business details</button>
+  <div class="tree__kids" id="he-t2"><div><button class="tree__row"><span class="ic" aria-hidden="true">description</span>Photo of business premises</button><button class="tree__row"><span class="ic" aria-hidden="true">description</span>Proof of domicile letter</button></div></div>
 </div>`,
     },
   ],
@@ -103,8 +103,8 @@ export default {
   react: `import { AccordionItem } from 'lampung-design-system/react';
 
 <div className="acc">
-  <AccordionItem title="Can I change my schedule?">Yes, until the end of the second week.</AccordionItem>
-  <AccordionItem title="Where is my transcript?">Under Academics, then Records.</AccordionItem>
+  <AccordionItem title="Can I change my visit schedule?">Yes, up to one day before the appointment.</AccordionItem>
+  <AccordionItem title="Where can I see my checkup results?">Under History, then Checkup results.</AccordionItem>
 </div>`,
   related: ['accordion', 'show-more', 'alert', 'tree'],
 };
