@@ -9,13 +9,13 @@ export default {
   order: 1,
   summary: 'The conversation column: messages stacked 20 px apart in `.chat`, the history scrolling above a composer that never scrolls away, and a Latest button that appears only when the reader has scrolled up. Newest at the bottom, always.',
   when: [
-    'A conversation with an assistant or a tutor: the person asks on the right, answers fill the reading column, newest at the bottom.',
+    'A conversation with a city services assistant: the person asks on the right, answers fill the reading column, newest at the bottom.',
     'A support or feedback thread where order and time matter and the person replies from the same screen.',
     'A history long enough to scroll, where people read back and need a way to return to the latest message.',
   ],
   whenNot: [
-    ['A history of events with no reply box (grade changes, status updates)', 'timeline'],
-    ['Comments that each belong to a place in a document or submission', 'list', 'Put them next to what they discuss, not in one column.'],
+    ['A history of events with no reply box (application status changes, officer notes)', 'timeline'],
+    ['Comments that each belong to a place in a document or application file', 'list', 'Put them next to what they discuss, not in one column.'],
     ['One generated answer placed inside a page with no back and forth', 'prose', 'Show [thinking](thinking) while it works and [streaming text](streaming-text) as it arrives.'],
     ['A feed of notifications', 'list'],
     ['A quick explanation of one question, in place', 'popover'],
@@ -30,56 +30,56 @@ export default {
   ],
   examples: [
     {
-      title: 'A tutoring conversation',
+      title: 'Asking the city services assistant',
       desc: 'Scroll the history up and the Latest button rises in; press it to glide back. Type a question and press Enter: your message joins the column.',
       stage: 'block',
       html: `<div class="docs-col" style="max-width: 560px;">
   <div class="docs-scroll" id="cl-scroll" style="height: 320px;">
-    <div class="chat" id="cl-chat" role="log" aria-label="Conversation with your tutor">
+    <div class="chat" id="cl-chat" role="log" aria-label="Conversation with the city services assistant">
       <p class="msg msg--system">Today, 09:12</p>
-      <div class="msg msg--me"><div class="bubble">Why was my answer to question 4 marked wrong?</div><span class="msg__meta">09:12</span></div>
-      <div class="msg msg--ai"><div class="bubble">Question 4 asks for the net force, not the applied force. You added the 20 N push but left out friction, which acts against it with 6 N. The net force is 14 N, so the acceleration is 14 N divided by 7 kg, which is 2 m/s².</div>${ACTIONS('The net force is 14 N, so the acceleration is 2 m/s².')}</div>
-      <div class="msg msg--me"><div class="bubble">So friction always points against the motion?</div><span class="msg__meta">09:14</span></div>
-      <div class="msg msg--ai"><div class="bubble">Against the motion, or against the direction it would move if nothing held it. A book resting on a tilted table has friction pointing up the slope even though it is not moving yet.</div>${ACTIONS('Friction points against the motion or the motion it would have.')}</div>
-      <div class="msg msg--me"><div class="bubble">Can I try a similar question?</div><span class="msg__meta">09:15</span></div>
-      <div class="msg msg--ai"><div class="bubble">Here is one. A 5 kg crate is pushed with 30 N across a floor that resists with 10 N of friction. What is its acceleration?</div>${ACTIONS('A 5 kg crate is pushed with 30 N against 10 N of friction. What is its acceleration?')}</div>
+      <div class="msg msg--me"><div class="bubble">Why was my family card change for Kedaton sent back?</div><span class="msg__meta">09:12</span></div>
+      <div class="msg msg--ai"><div class="bubble">The surat pengantar from your RT/RW was not attached. Disdukcapil needs it to confirm your new address in Kedaton. Upload the letter on the same application and it goes back in the queue with the same number.</div>${ACTIONS('Attach the surat pengantar RT/RW to the same application; it keeps its queue number.')}</div>
+      <div class="msg msg--me"><div class="bubble">Do I need to bring the original letter too?</div><span class="msg__meta">09:14</span></div>
+      <div class="msg msg--ai"><div class="bubble">Only at the counter. Online, a clear photo of the stamped letter is enough. Bring the original when you collect the new family card at the Kedaton district office.</div>${ACTIONS('Online, a photo of the stamped letter is enough; bring the original when you collect the card.')}</div>
+      <div class="msg msg--me"><div class="bubble">When can I collect it?</div><span class="msg__meta">09:15</span></div>
+      <div class="msg msg--ai"><div class="bubble">Family card changes in Bandar Lampung are usually ready 3 working days after the documents are complete. You will get a message when it is ready to collect.</div>${ACTIONS('Family card changes are usually ready 3 working days after the documents are complete.')}</div>
       <button class="btn btn--secondary btn--sm chat__jump" data-lds-jump="cl-scroll"><span class="ic" aria-hidden="true">arrow_downward</span>Latest</button>
     </div>
   </div>
-  <form class="composer" data-lds-composer onsubmit="${APPEND('cl-chat', 'cl-scroll')}"><textarea rows="1" aria-label="Message your tutor" placeholder="Ask about this lesson"></textarea>${SEND}</form>
+  <form class="composer" data-lds-composer onsubmit="${APPEND('cl-chat', 'cl-scroll')}"><textarea rows="1" aria-label="Message the assistant" placeholder="Ask about this application"></textarea>${SEND}</form>
 </div>`,
       code: `<div class="chat-scroll" id="chat-scroll"><!-- your scroller: overflow-y: auto, flex: 1 -->
-  <div class="chat" role="log" aria-label="Conversation with your tutor">
+  <div class="chat" role="log" aria-label="Conversation with the city services assistant">
     <p class="msg msg--system">Today, 09:12</p>
-    <div class="msg msg--me"><div class="bubble">Why was my answer to question 4 marked wrong?</div><span class="msg__meta">09:12</span></div>
-    <div class="msg msg--ai"><div class="bubble">Question 4 asks for the net force…</div>
+    <div class="msg msg--me"><div class="bubble">Why was my family card change for Kedaton sent back?</div><span class="msg__meta">09:12</span></div>
+    <div class="msg msg--ai"><div class="bubble">The surat pengantar from your RT/RW was not attached…</div>
       <div class="msg__actions">…</div>
     </div>
     <button class="btn btn--secondary btn--sm chat__jump" data-lds-jump="chat-scroll"><span class="ic" aria-hidden="true">arrow_downward</span>Latest</button>
   </div>
 </div>
 <form class="composer" data-lds-composer>
-  <textarea rows="1" aria-label="Message your tutor" placeholder="Ask about this lesson"></textarea>
+  <textarea rows="1" aria-label="Message the assistant" placeholder="Ask about this application"></textarea>
   <button class="composer__send" type="submit" aria-label="Send"><span class="ic" aria-hidden="true">arrow_upward</span></button>
 </form>
 <script type="module">
   import { init } from 'lampung-design-system/js';
   init();
-  document.querySelector('.composer').addEventListener('lds:send', (e) => sendToTutor(e.detail.text));
+  document.querySelector('.composer').addEventListener('lds:send', (e) => sendToAssistant(e.detail.text));
 </script>`,
     },
     {
       title: 'System lines mark what changed',
       desc: 'Day breaks, a mode switching on, a file joining the conversation: centered footnote lines, no bubble, no actions. They are part of the history, so they scroll with it.',
       stage: 'block',
-      html: `<div class="chat" role="log" aria-label="Exam practice" style="max-width: 560px;">
+      html: `<div class="chat" role="log" aria-label="Business permit help" style="max-width: 560px;">
   <p class="msg msg--system">Yesterday</p>
-  <div class="msg msg--me"><div class="bubble">Quiz me on chapter 3, ten questions.</div></div>
-  <div class="msg msg--ai"><div class="bubble">Ready when you are. Each question has four choices; answer with the letter.</div></div>
-  <p class="msg msg--system">Exam mode is on. Hints stay hidden until you submit.</p>
-  <p class="msg msg--system">You attached lab-report-draft.pdf</p>
+  <div class="msg msg--me"><div class="bubble">Check my UMKM business permit documents, one by one.</div></div>
+  <div class="msg msg--ai"><div class="bubble">Ready. I will go through the five documents in order; answer yes when each one is ready to upload.</div></div>
+  <p class="msg msg--system">Guided mode is on. The form stays locked until every document is checked.</p>
+  <p class="msg msg--system">You attached surat-keterangan-domisili.pdf</p>
   <p class="msg msg--system">Today</p>
-  <div class="msg msg--me"><div class="bubble">Submit my answers.</div></div>
+  <div class="msg msg--me"><div class="bubble">Submit my application.</div></div>
 </div>`,
     },
     {
@@ -88,25 +88,25 @@ export default {
       stage: 'block',
       html: `<div class="docs-col" style="max-width: 560px;">
   <div class="empty">
-    <div class="empty__icon"><span class="ic" aria-hidden="true">school</span></div>
-    <p class="empty__title">Ask about Biology 101</p>
-    <p class="empty__body">Answers use your course notes and say which page they come from.</p>
+    <div class="empty__icon"><span class="ic" aria-hidden="true">id_card</span></div>
+    <p class="empty__title">Ask about Disdukcapil services</p>
+    <p class="empty__body">Answers use the published service requirements and say which page they come from.</p>
   </div>
   <div class="chip-row" style="justify-content: center;">
-    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Explain osmosis simply</button>
-    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Quiz me on cell parts</button>
-    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Summarize chapter 2</button>
+    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">How to get an electronic KTP</button>
+    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Requirements for a moving letter</button>
+    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Samsat keliling schedule</button>
   </div>
   <form class="composer" data-lds-composer><textarea rows="1" aria-label="Message" placeholder="Ask a question"></textarea>${SEND}</form>
 </div>`,
       code: `<div class="empty">
-  <div class="empty__icon"><span class="ic" aria-hidden="true">school</span></div>
-  <p class="empty__title">Ask about Biology 101</p>
-  <p class="empty__body">Answers use your course notes and say which page they come from.</p>
+  <div class="empty__icon"><span class="ic" aria-hidden="true">id_card</span></div>
+  <p class="empty__title">Ask about Disdukcapil services</p>
+  <p class="empty__body">Answers use the published service requirements and say which page they come from.</p>
 </div>
 <div class="chip-row">
-  <button class="chip">Explain osmosis simply</button>
-  <button class="chip">Quiz me on cell parts</button>
+  <button class="chip">How to get an electronic KTP</button>
+  <button class="chip">Requirements for a moving letter</button>
 </div>
 <form class="composer" data-lds-composer>…</form>
 <!-- On a chip click: put its text in the textarea, dispatch 'input' (enables send), focus it. -->`,

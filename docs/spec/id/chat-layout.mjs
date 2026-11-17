@@ -6,12 +6,12 @@ const APPEND = (chat, scroll) => `event.preventDefault(); const t = this.querySe
 export default {
   summary: 'Kolom percakapan: pesan bertumpuk dengan jarak 20 px di `.chat`, riwayat bergulir di atas composer yang tidak ikut tergulir, dan tombol Terbaru yang muncul hanya saat pembaca menggulir ke atas. Pesan terbaru selalu di bawah.',
   when: [
-    'Percakapan dengan asisten atau tutor: orang bertanya di kanan, jawaban mengisi kolom baca, pesan terbaru di bawah.',
+    'Percakapan dengan asisten layanan kota: orang bertanya di kanan, jawaban mengisi kolom baca, pesan terbaru di bawah.',
     'Utas layanan pengaduan atau umpan balik yang urutan dan waktunya penting, dan orang membalas dari layar yang sama.',
     'Riwayat yang cukup panjang untuk digulir, saat orang membaca ke belakang dan butuh cara kembali ke pesan terbaru.',
   ],
   whenNot: [
-    ['Riwayat kejadian tanpa kotak balasan (perubahan nilai, pembaruan status)', 'timeline'],
+    ['Riwayat kejadian tanpa kotak balasan (perubahan status permohonan, catatan petugas)', 'timeline'],
     ['Komentar yang masing-masing melekat pada bagian dokumen atau berkas permohonan', 'list', 'Letakkan di samping hal yang dibahas, bukan dalam satu kolom.'],
     ['Satu jawaban yang dibuat di dalam halaman tanpa tanya jawab', 'prose', 'Tampilkan [thinking](thinking) selama proses dan [streaming text](streaming-text) saat jawaban datang.'],
     ['Daftar notifikasi', 'list'],
@@ -27,54 +27,54 @@ export default {
   ],
   examples: [
     {
-      title: 'Percakapan bimbingan belajar',
+      title: 'Bertanya ke asisten layanan kota',
       desc: 'Gulir riwayat ke atas dan tombol Terbaru muncul; tekan untuk meluncur kembali. Ketik pertanyaan lalu tekan Enter: pesan Anda masuk ke kolom.',
       html: `<div class="docs-col" style="max-width: 560px;">
   <div class="docs-scroll" id="cl-scroll" style="height: 320px;">
-    <div class="chat" id="cl-chat" role="log" aria-label="Percakapan dengan tutor Anda">
+    <div class="chat" id="cl-chat" role="log" aria-label="Percakapan dengan asisten layanan kota">
       <p class="msg msg--system">Hari ini, 09.12</p>
-      <div class="msg msg--me"><div class="bubble">Kenapa jawaban saya untuk soal nomor 4 disalahkan?</div><span class="msg__meta">09.12</span></div>
-      <div class="msg msg--ai"><div class="bubble">Soal nomor 4 menanyakan gaya total, bukan gaya dorong. Anda menghitung dorongan 20 N tetapi tidak memasukkan gesekan yang melawannya sebesar 6 N. Gaya totalnya 14 N, jadi percepatannya 14 N dibagi 7 kg, yaitu 2 m/s².</div>${ACTIONS('Gaya totalnya 14 N, jadi percepatannya 2 m/s².')}</div>
-      <div class="msg msg--me"><div class="bubble">Jadi gesekan selalu berlawanan dengan arah gerak?</div><span class="msg__meta">09.14</span></div>
-      <div class="msg msg--ai"><div class="bubble">Berlawanan dengan arah gerak, atau dengan arah benda akan bergerak jika tidak ada yang menahan. Buku yang diam di atas meja miring mendapat gesekan ke arah atas lereng walaupun belum bergerak.</div>${ACTIONS('Gesekan berlawanan dengan arah gerak atau arah gerak yang akan terjadi.')}</div>
-      <div class="msg msg--me"><div class="bubble">Boleh saya coba soal yang mirip?</div><span class="msg__meta">09.15</span></div>
-      <div class="msg msg--ai"><div class="bubble">Ini soalnya. Peti 5 kg didorong dengan gaya 30 N di lantai yang memberi gesekan 10 N. Berapa percepatannya?</div>${ACTIONS('Peti 5 kg didorong 30 N melawan gesekan 10 N. Berapa percepatannya?')}</div>
+      <div class="msg msg--me"><div class="bubble">Kenapa permohonan perubahan KK saya untuk Kedaton dikembalikan?</div><span class="msg__meta">09.12</span></div>
+      <div class="msg msg--ai"><div class="bubble">Surat pengantar dari RT/RW belum dilampirkan. Disdukcapil memerlukannya untuk memastikan alamat baru Anda di Kedaton. Unggah suratnya pada permohonan yang sama, lalu permohonan kembali masuk antrean dengan nomor yang sama.</div>${ACTIONS('Lampirkan surat pengantar RT/RW pada permohonan yang sama; nomor antreannya tetap.')}</div>
+      <div class="msg msg--me"><div class="bubble">Apakah surat aslinya juga perlu dibawa?</div><span class="msg__meta">09.14</span></div>
+      <div class="msg msg--ai"><div class="bubble">Hanya bila Anda mengurus di loket. Secara daring, foto surat yang sudah dicap dan terbaca jelas sudah cukup. Bawa aslinya saat mengambil KK baru di kantor Kecamatan Kedaton.</div>${ACTIONS('Secara daring, foto surat yang sudah dicap sudah cukup; bawa aslinya saat mengambil KK.')}</div>
+      <div class="msg msg--me"><div class="bubble">Kapan KK-nya bisa diambil?</div><span class="msg__meta">09.15</span></div>
+      <div class="msg msg--ai"><div class="bubble">Perubahan KK di Bandar Lampung biasanya selesai 3 hari kerja setelah berkas lengkap. Anda akan menerima pesan saat KK siap diambil.</div>${ACTIONS('Perubahan KK biasanya selesai 3 hari kerja setelah berkas lengkap.')}</div>
       <button class="btn btn--secondary btn--sm chat__jump" data-lds-jump="cl-scroll"><span class="ic" aria-hidden="true">arrow_downward</span>Terbaru</button>
     </div>
   </div>
-  <form class="composer" data-lds-composer onsubmit="${APPEND('cl-chat', 'cl-scroll')}"><textarea rows="1" aria-label="Kirim pesan ke tutor" placeholder="Tanyakan tentang materi ini"></textarea>${SEND}</form>
+  <form class="composer" data-lds-composer onsubmit="${APPEND('cl-chat', 'cl-scroll')}"><textarea rows="1" aria-label="Kirim pesan ke asisten" placeholder="Tanyakan tentang permohonan ini"></textarea>${SEND}</form>
 </div>`,
       code: `<div class="chat-scroll" id="chat-scroll"><!-- your scroller: overflow-y: auto, flex: 1 -->
-  <div class="chat" role="log" aria-label="Percakapan dengan tutor Anda">
+  <div class="chat" role="log" aria-label="Percakapan dengan asisten layanan kota">
     <p class="msg msg--system">Hari ini, 09.12</p>
-    <div class="msg msg--me"><div class="bubble">Kenapa jawaban saya untuk soal nomor 4 disalahkan?</div><span class="msg__meta">09.12</span></div>
-    <div class="msg msg--ai"><div class="bubble">Soal nomor 4 menanyakan gaya total…</div>
+    <div class="msg msg--me"><div class="bubble">Kenapa permohonan perubahan KK saya untuk Kedaton dikembalikan?</div><span class="msg__meta">09.12</span></div>
+    <div class="msg msg--ai"><div class="bubble">Surat pengantar dari RT/RW belum dilampirkan…</div>
       <div class="msg__actions">…</div>
     </div>
     <button class="btn btn--secondary btn--sm chat__jump" data-lds-jump="chat-scroll"><span class="ic" aria-hidden="true">arrow_downward</span>Terbaru</button>
   </div>
 </div>
 <form class="composer" data-lds-composer>
-  <textarea rows="1" aria-label="Kirim pesan ke tutor" placeholder="Tanyakan tentang materi ini"></textarea>
+  <textarea rows="1" aria-label="Kirim pesan ke asisten" placeholder="Tanyakan tentang permohonan ini"></textarea>
   <button class="composer__send" type="submit" aria-label="Kirim"><span class="ic" aria-hidden="true">arrow_upward</span></button>
 </form>
 <script type="module">
   import { init } from 'lampung-design-system/js';
   init();
-  document.querySelector('.composer').addEventListener('lds:send', (e) => sendToTutor(e.detail.text));
+  document.querySelector('.composer').addEventListener('lds:send', (e) => sendToAssistant(e.detail.text));
 </script>`,
     },
     {
       title: 'Baris sistem menandai perubahan',
       desc: 'Pergantian hari, mode yang dinyalakan, berkas yang ditambahkan ke percakapan: baris footnote di tengah, tanpa bubble, tanpa aksi. Baris ini bagian dari riwayat, jadi ikut tergulir.',
-      html: `<div class="chat" role="log" aria-label="Latihan ujian" style="max-width: 560px;">
+      html: `<div class="chat" role="log" aria-label="Bantuan izin usaha" style="max-width: 560px;">
   <p class="msg msg--system">Kemarin</p>
-  <div class="msg msg--me"><div class="bubble">Uji saya tentang bab 3, sepuluh soal.</div></div>
-  <div class="msg msg--ai"><div class="bubble">Silakan mulai kapan saja. Setiap soal punya empat pilihan; jawab dengan hurufnya.</div></div>
-  <p class="msg msg--system">Mode ujian aktif. Petunjuk disembunyikan sampai Anda mengumpulkan jawaban.</p>
-  <p class="msg msg--system">Anda melampirkan draf-laporan-praktikum.pdf</p>
+  <div class="msg msg--me"><div class="bubble">Periksa berkas izin usaha UMKM saya, satu per satu.</div></div>
+  <div class="msg msg--ai"><div class="bubble">Siap. Saya periksa lima berkas secara berurutan; jawab ya bila tiap berkas siap diunggah.</div></div>
+  <p class="msg msg--system">Mode terpandu aktif. Formulir terkunci sampai semua berkas diperiksa.</p>
+  <p class="msg msg--system">Anda melampirkan surat-keterangan-domisili.pdf</p>
   <p class="msg msg--system">Hari ini</p>
-  <div class="msg msg--me"><div class="bubble">Kumpulkan jawaban saya.</div></div>
+  <div class="msg msg--me"><div class="bubble">Ajukan permohonan saya.</div></div>
 </div>`,
     },
     {
@@ -82,25 +82,25 @@ export default {
       desc: 'Percakapan kosong menjelaskan apa yang bisa dilakukan asisten dan menawarkan dua atau tiga pertanyaan pembuka sebagai chip. Chip mengisi composer; orang tetap menekan kirim.',
       html: `<div class="docs-col" style="max-width: 560px;">
   <div class="empty">
-    <div class="empty__icon"><span class="ic" aria-hidden="true">school</span></div>
-    <p class="empty__title">Tanya tentang Biologi kelas X</p>
-    <p class="empty__body">Jawaban memakai catatan pelajaran Anda dan menyebut halaman sumbernya.</p>
+    <div class="empty__icon"><span class="ic" aria-hidden="true">id_card</span></div>
+    <p class="empty__title">Tanya tentang layanan Disdukcapil</p>
+    <p class="empty__body">Jawaban memakai persyaratan layanan yang sudah diumumkan dan menyebut halaman sumbernya.</p>
   </div>
   <div class="chip-row" style="justify-content: center;">
-    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Jelaskan osmosis dengan sederhana</button>
-    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Uji saya tentang bagian sel</button>
-    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Ringkas bab 2</button>
+    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Cara mengurus KTP elektronik</button>
+    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Syarat surat pindah</button>
+    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Jadwal Samsat keliling</button>
   </div>
   <form class="composer" data-lds-composer><textarea rows="1" aria-label="Pesan" placeholder="Ajukan pertanyaan"></textarea>${SEND}</form>
 </div>`,
       code: `<div class="empty">
-  <div class="empty__icon"><span class="ic" aria-hidden="true">school</span></div>
-  <p class="empty__title">Tanya tentang Biologi kelas X</p>
-  <p class="empty__body">Jawaban memakai catatan pelajaran Anda dan menyebut halaman sumbernya.</p>
+  <div class="empty__icon"><span class="ic" aria-hidden="true">id_card</span></div>
+  <p class="empty__title">Tanya tentang layanan Disdukcapil</p>
+  <p class="empty__body">Jawaban memakai persyaratan layanan yang sudah diumumkan dan menyebut halaman sumbernya.</p>
 </div>
 <div class="chip-row">
-  <button class="chip">Jelaskan osmosis dengan sederhana</button>
-  <button class="chip">Uji saya tentang bagian sel</button>
+  <button class="chip">Cara mengurus KTP elektronik</button>
+  <button class="chip">Syarat surat pindah</button>
 </div>
 <form class="composer" data-lds-composer>…</form>
 <!-- On a chip click: put its text in the textarea, dispatch 'input' (enables send), focus it. -->`,
