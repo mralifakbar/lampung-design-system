@@ -1,7 +1,7 @@
 import { days } from './_chart-data.mjs';
 
 const d = days(90);
-const incidents = { 12: ['warn', 'Slow video playback for 40 minutes'], 37: ['down', 'Sign-in unavailable for 18 minutes'], 38: ['warn', 'Slow sign-in for 25 minutes'], 71: ['warn', 'Delayed emails for 1 hour'], 84: ['down', 'Quiz submissions failed for 9 minutes'] };
+const incidents = { 12: ['warn', 'Slow photo uploads for 40 minutes'], 37: ['down', 'Sign-in unavailable for 18 minutes'], 38: ['warn', 'Slow sign-in for 25 minutes'], 71: ['warn', 'Notification emails delayed 1 hour'], 84: ['down', 'Report submissions failed for 9 minutes'] };
 const bars = (offset = 0) => d.long.map((day, i) => {
   const hit = incidents[(i + offset) % 90];
   const cls = hit ? (hit[0] === 'down' ? 'is-down' : 'is-warn') : 'is-ok';
@@ -43,11 +43,11 @@ export default {
       desc: 'Point at a bar or focus a row and use the arrow keys: the line under it says the day and the incident. Narrow the window: the last 30 days remain.',
       stage: 'block',
       html: `<section class="chart-card" style="max-width: 720px;" aria-labelledby="up-q">
-  <div><div class="chart-card__q" id="up-q">Has the learning platform been reliable?</div><div class="chart-card__sub">Daily status of each service, last 90 days</div></div>
+  <div><div class="chart-card__q" id="up-q">Has the citizen complaint service been reliable?</div><div class="chart-card__sub">Daily status of each service, last 90 days</div></div>
   <div class="stack" style="--gap: 24px;">
   ${service('Website', '99.97%', 0, ['ok', 'Working normally'])}
   ${service('Sign-in', '99.91%', 20, ['ok', 'Working normally'])}
-  ${service('Quiz submissions', '99.86%', 47, ['warn', 'Slower than usual since 09:10'])}
+  ${service('Report submissions', '99.86%', 47, ['warn', 'Slower than usual since 09:10'])}
   </div>
 </section>`,
     },
