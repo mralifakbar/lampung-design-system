@@ -17,6 +17,7 @@ First public release.
 - The siger mark (`brand/`): a siger with seven flame-shaped lekuk curling toward the center above an arched base, white on a Lampung green tile, used as logo and favicon.
 - 53 icons for public services and smart city screens.
 - `lampung-ds` CLI: `init`, `create`, `add`, `list` and `doctor` for Next.js, Vite, TanStack Start, React Router, Astro, Laravel, plain HTML and Flutter.
+- React bindings (`lampung-design-system/react`) compiled to ESM with type declarations, so Next.js and other React frameworks import them with no extra config.
 - `lampung_design_system` Flutter package: theme, tokens, widgets and aksara.
 - Examples: a city operations dashboard, a citizen super app and a public service portal.
 - Landing page and documentation site, deployed to Cloudflare.
