@@ -4,7 +4,11 @@
    <html> or <body> (or any subtree) to get the base type, colors and resets.
    ========================================================================== */
 
-.lds {
+/* Also on body (and with :root.lds), so a starter's `body { font-family }` or
+   `:root { font }` cannot take the LDS type and colors away. */
+.lds,
+:root.lds,
+.lds body {
   font-family: var(--font);
   color: var(--text-default);
   background: var(--bg-canvas);
