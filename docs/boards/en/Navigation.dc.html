@@ -47,7 +47,7 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
       <ul class="spec"><li><b>Count</b><span>Only when the number helps decide where to go.</span></li></ul>
     </div>
     <div class="stage stage--white" style="gap: 0; padding: 8px 24px 24px;">
-      <div class="tabs" role="tablist" aria-label="Course sections" onKeyDown="{{tabKey}}">
+      <div class="tabs" role="tablist" aria-label="Application sections" onKeyDown="{{tabKey}}">
         <span class="tabs__ink" style="width: calc(100% / 4); transform: translateX({{inkX}});"></span>
         <sc-for list="{{tabs}}" as="t" hint-placeholder-count="4">
           <button class="tabs__btn" role="tab" aria-selected="{{t.on}}" tabindex="{{t.tab}}" onClick="{{t.pick}}">{{t.label}}<sc-if value="{{t.hasCount}}" hint-placeholder-val="{{false}}"><span class="tabs__count">{{t.count}}</span></sc-if></button>
@@ -68,21 +68,21 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
     <div class="stage stage--white" style="gap: 14px;">
       <nav aria-label="Breadcrumb">
         <ol class="crumbs">
-          <li><a href="#nav-ph">Academics</a></li>
+          <li><a href="#nav-ph">Services</a></li>
           <li><span class="ic" aria-hidden="true">chevron_right</span></li>
-          <li><a href="#nav-ph">Courses</a></li>
+          <li><a href="#nav-ph">Permits</a></li>
           <li><span class="ic" aria-hidden="true">chevron_right</span></li>
-          <li><span aria-current="page">Database Systems</span></li>
+          <li><span aria-current="page">Micro business permit</span></li>
         </ol>
       </nav>
       <div class="ph" id="nav-ph">
         <div>
-          <h3 style="font: 600 28px/34px var(--font); letter-spacing: -0.022em; color: var(--text-strong);">Database Systems</h3>
-          <p style="font: 400 14px/20px var(--font); color: var(--text-subtle); margin-top: 4px;">CS 2104 · 3 credits · Mon and Thu, 08:00</p>
+          <h3 style="font: 600 28px/34px var(--font); letter-spacing: -0.022em; color: var(--text-strong);">Micro business permit</h3>
+          <p style="font: 400 14px/20px var(--font); color: var(--text-subtle); margin-top: 4px;">IZN-2026-0412 · Dinas Layanan Kota Contoh · Submitted 12 Nov 2026</p>
         </div>
         <div class="row" style="gap: 8px;">
           <button class="btn btn--secondary btn--md"><span class="ic" aria-hidden="true">ios_share</span>Share</button>
-          <button class="btn btn--primary btn--md"><span class="ic" aria-hidden="true">add</span>New assignment</button>
+          <button class="btn btn--primary btn--md"><span class="ic" aria-hidden="true">add</span>Submit application</button>
         </div>
       </div>
     </div>
@@ -107,7 +107,7 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
       </nav>
       <div class="sep"></div>
       <div class="col" style="gap: 20px;">
-        <ol class="steps" aria-label="Registration progress">
+        <ol class="steps" aria-label="Application steps">
           <sc-for list="{{steps}}" as="st" hint-placeholder-count="4">
             <li class="step {{st.cls}}" aria-current="{{st.cur}}">
               <div class="step__head">
@@ -135,7 +135,7 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
     <div class="stage" style="flex-direction: row; gap: 40px; align-items: flex-start;">
       <nav class="sidebar" aria-label="Main">
         <span class="sidebar__hl" style="transform: translateY({{hlY}});" aria-hidden="true"></span>
-        <span class="sidebar__head">Workspace</span>
+        <span class="sidebar__head">Resident services</span>
         <sc-for list="{{side}}" as="it" hint-placeholder-count="6">
           <button class="sidebar__item" aria-current="{{it.cur}}" onClick="{{it.pick}}"><span class="ic" aria-hidden="true">{{it.icon}}</span>{{it.label}}<sc-if value="{{it.hasBadge}}" hint-placeholder-val="{{false}}"><span class="sidebar__badge">{{it.badge}}</span></sc-if></button>
         </sc-for>
@@ -211,10 +211,10 @@ class Component extends DCLogic {
     const dark = theme === 'dark';
 
     const tabDefs = [
-      { label: 'Overview', count: 0, title: 'Overview', body: 'Course goals, grading weights and the lecturer\'s office hours.' },
-      { label: 'Assignments', count: 3, title: 'Three assignments open', body: 'The nearest deadline is on Friday at 23:59.' },
-      { label: 'Materials', count: 0, title: 'Materials', body: 'Slides and readings, newest first.' },
-      { label: 'Discussion', count: 12, title: 'Twelve unread replies', body: 'Replies to threads you started or follow.' }
+      { label: 'Overview', count: 0, title: 'Overview', body: 'Requirements, levy fees and the expected processing time.' },
+      { label: 'Files', count: 3, title: 'Three files need completing', body: 'The nearest upload deadline is Friday at 23:59.' },
+      { label: 'History', count: 0, title: 'History', body: 'Every status change, newest first.' },
+      { label: 'Messages', count: 12, title: 'Twelve unread replies', body: 'Officer replies on applications you submitted or follow.' }
     ];
     const ti = s.tab || 0;
 
@@ -228,17 +228,17 @@ class Component extends DCLogic {
       pages.push({ gap: false, num: true, n, cur: n === page ? 'page' : 'false', go: () => this.setState({ page: n }) });
     });
 
-    const stepDefs = [['Personal details', 'Name and contact'], ['Courses', 'Pick up to 24 credits'], ['Payment', 'Tuition and fees'], ['Review', 'Check and submit']];
+    const stepDefs = [['Personal details', 'Name and contact'], ['Business type', 'Field and location'], ['Levy', 'Fees and payment'], ['Review', 'Check and submit']];
     const si = s.step == null ? 1 : s.step;
     const steps = stepDefs.map(([label, sub], i) => ({
       label, sub, n: i + 1, done: i < si, notDone: !(i < si), bar: i < stepDefs.length - 1,
       cls: i < si ? 'is-done' : (i === si ? 'is-current' : ''), cur: i === si ? 'step' : 'false'
     }));
 
-    const sideDefs = [['home', 'Home', ''], ['calendar_month', 'Schedule', ''], ['menu_book', 'Courses', '6'], ['assignment', 'Assignments', '3'], ['receipt_long', 'Billing', ''], ['settings', 'Settings', '']];
+    const sideDefs = [['home', 'Home', ''], ['calendar_month', 'Queue schedule', ''], ['menu_book', 'Applications', '6'], ['assignment', 'Resident reports', '3'], ['receipt_long', 'Regional tax', ''], ['settings', 'Settings', '']];
     const sideI = s.side == null ? 2 : s.side;
 
-    const tocDefs = ['Introduction', 'Grading', 'Office hours', 'Policies', 'Contacts'];
+    const tocDefs = ['Introduction', 'Requirements', 'Service hours', 'Terms', 'Contacts'];
     const tocI = s.toc || 0;
 
     const menuDefs = [
@@ -249,7 +249,7 @@ class Component extends DCLogic {
     ];
     const mOpen = s.menu == null ? -1 : s.menu;
 
-    const tbDefs = [['today', 'Today'], ['calendar_month', 'Schedule'], ['school', 'Courses'], ['person', 'Profile']];
+    const tbDefs = [['today', 'Today'], ['calendar_month', 'Agenda'], ['assignment', 'Services'], ['person', 'Profile']];
     const tb = s.tb || 0;
 
     return {
@@ -274,7 +274,7 @@ class Component extends DCLogic {
 
       steps,
       backOff: si <= 0,
-      nextLabel: si >= stepDefs.length - 1 ? 'Submit' : (si >= stepDefs.length ? 'Done' : 'Continue'),
+      nextLabel: si >= stepDefs.length - 1 ? 'Submit application' : (si >= stepDefs.length ? 'Done' : 'Continue'),
       stepBack: () => this.setState({ step: Math.max(0, si - 1) }),
       stepNext: () => this.setState({ step: si >= stepDefs.length ? 0 : si + 1 }),
 
