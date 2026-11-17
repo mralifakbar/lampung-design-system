@@ -17,11 +17,11 @@ export default {
   ],
   examples: [
     {
-      title: 'Membuka tahap berikutnya',
+      title: 'Membuka tahap berikutnya permohonan izin',
       desc: 'Bilah berjalan di tepi atas kotak ini selama "halaman" dimuat, lalu hilang. Di aplikasi, bilah berada di atas jendela.',
       html: `<div class="navprogress" aria-hidden="true" id="np-bar"></div>
 <div class="docs-col">
-  <button class="btn btn--primary btn--md" style="align-self: flex-start;" onclick="const b = document.getElementById('np-bar'); const s = document.getElementById('np-status'); b.classList.add('is-running'); s.textContent = 'Memuat tahap 4'; this.disabled = true; setTimeout(() => { b.classList.remove('is-running'); s.textContent = 'Tahap 4 terbuka'; this.disabled = false; }, 1800);">Buka tahap 4</button>
+  <button class="btn btn--primary btn--md" style="align-self: flex-start;" onclick="const b = document.getElementById('np-bar'); const s = document.getElementById('np-status'); b.classList.add('is-running'); s.textContent = 'Memuat tahap 4'; this.disabled = true; setTimeout(() => { b.classList.remove('is-running'); s.textContent = 'Tahap 4 terbuka'; this.disabled = false; }, 1800);">Buka tahap 4: dokumen lokasi</button>
   <p class="section__sub" id="np-status" role="status">Tahap 3 terbuka</p>
 </div>`,
       code: `<div class="navprogress" aria-hidden="true"></div>

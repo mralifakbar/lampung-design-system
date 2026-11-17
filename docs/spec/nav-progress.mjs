@@ -20,13 +20,13 @@ export default {
   ],
   examples: [
     {
-      title: 'Opening the next lesson',
+      title: 'Opening the next step of a permit application',
       desc: 'The bar runs along the top edge of this box while the "page" loads, then leaves. In an app it sits at the top of the window.',
       height: 180,
       html: `<div class="navprogress" aria-hidden="true" id="np-bar"></div>
 <div class="docs-col">
-  <button class="btn btn--primary btn--md" style="align-self: flex-start;" onclick="const b = document.getElementById('np-bar'); const s = document.getElementById('np-status'); b.classList.add('is-running'); s.textContent = 'Loading lesson 4'; this.disabled = true; setTimeout(() => { b.classList.remove('is-running'); s.textContent = 'Lesson 4 is open'; this.disabled = false; }, 1800);">Open lesson 4</button>
-  <p class="section__sub" id="np-status" role="status">Lesson 3 is open</p>
+  <button class="btn btn--primary btn--md" style="align-self: flex-start;" onclick="const b = document.getElementById('np-bar'); const s = document.getElementById('np-status'); b.classList.add('is-running'); s.textContent = 'Loading step 4'; this.disabled = true; setTimeout(() => { b.classList.remove('is-running'); s.textContent = 'Step 4 is open'; this.disabled = false; }, 1800);">Open step 4: site documents</button>
+  <p class="section__sub" id="np-status" role="status">Step 3 is open</p>
 </div>`,
       code: `<div class="navprogress" aria-hidden="true"></div>
 
