@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Foundations">Landasan</a></li></ol></nav>
           <h1>Theming</h1>
           <p class="cdoc__lede">Terang dan gelap berasal dari satu atribut: <code class="code">data-theme=&quot;light|dark|system&quot;</code> pada <code class="code">&lt;html&gt;</code> atau subtree mana pun. Komponen hanya membaca token, jadi mereka berganti sendiri; Anda tidak pernah menulis CSS dark mode untuk sebuah komponen.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="theming.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="theming.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Menyiapkan halaman: pasang <code class="code">class=&quot;lds&quot;</code> dan <code class="code">data-theme</code> pada <code class="code">&lt;html&gt;</code>, lalu panggil <code class="code">restoreTheme()</code> sebelum tampilan pertama agar pilihan yang tersimpan langsung dipakai tanpa kedipan.</li><li>Menyediakan pengalih tampilan (Terang, Gelap, Sistem) di pengaturan atau footer sidebar.</li><li>Sebuah area harus tetap gelap (atau terang) apa pun tema halamannya: pratinjau kode, pemutar media, pita promosi. Pasang <code class="code">data-theme</code> hanya pada elemen itu.</li><li>Menulis CSS proyek di atas sistem: pakai token (<code class="code">--bg-fill</code>, <code class="code">--text-subtle</code>, <code class="code">--line</code>, <code class="code">--accent</code>) agar tambahan Anda ikut berganti dengan tema.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Menunjukkan status (disetujui, terlambat) dengan warna: pakai <a class="link" href="badge.html">Badge</a>. Warna status datang bersama kata dan ikon; jangan pernah memberi tema pada area untuk menandai status.</li><li>Memilih tampilan dari konten yang sama (bukan penampilan): pakai <a class="link" href="segmented-control.html">Segmented control</a>.</li><li>Pengaturan yang menyalakan atau mematikan fitur: pakai <a class="link" href="switch.html">Switch</a>. Penampilan punya tiga nilai, jadi ia segmented control, bukan switch.</li><li>Warna untuk seri data: pakai <a class="link" href="chart-principles.html">Chart principles</a>. <code class="code">--series-1..4</code> sudah disesuaikan per tema dan urutannya tetap.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> <code class="code">data-theme</code> dipasang pada <code class="code">&lt;html&gt;</code> untuk halaman. Pengalihnya ada di pengaturan, menu akun, atau footer sidebar, tidak pernah di toolbar utama. Tema terbatas dipasang pada elemen terluar dari area yang harus berbeda.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -466,6 +471,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

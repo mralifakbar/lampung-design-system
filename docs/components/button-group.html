@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Actions">Aksi</a></li></ol></nav>
           <h1>Button group</h1>
           <p class="cdoc__lede">Dua sampai empat tombol yang menyatu dalam satu kotak bergaris, untuk aksi terpisah pada objek yang sama (urungkan, ulangi, riwayat). Setiap tombol menjalankan sesuatu; tidak ada yang tetap terpilih.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="button-group.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="button-group.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Beberapa aksi milik satu objek yang dipakai bersamaan: urungkan dan ulangi, perkecil dan perbesar, sebelumnya dan berikutnya.</li><li>Toolbar yang menyatukan tombol untuk menunjukkan bahwa mereka satu set dan menghemat ruang.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Salah satu tombol tetap terpilih untuk menunjukkan tampilan saat ini: pakai <a class="link" href="segmented-control.html">Segmented control</a>. Grup menjalankan aksi; segmented control menyimpan pilihan.</li><li>Setiap tombol menyalakan atau mematikan sebuah mode (tebal, miring): pakai <a class="link" href="toggle.html">Toggle</a>. Pakai toggle group: ia menunjukkan status tertekan.</li><li>Satu aksi utama dengan beberapa variannya: pakai <a class="link" href="split-button.html">Split button</a>.</li><li>Aksi yang tidak berhubungan dan hanya kebetulan berdekatan: pakai <a class="link" href="layout-primitives.html">Layout primitives</a>. Beri jarak antartombol dengan <code class="code">cluster</code>.</li><li>Lebih dari empat aksi: pakai <a class="link" href="dropdown-menu.html">Dropdown menu</a>. Simpan dua yang paling sering dipakai di grup dan pindahkan sisanya ke menu lainnya.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di toolbar dan header halaman atau kartu, sejajar dengan kontrol ukuran sedang (36 px) lainnya. Di ponsel batasi paling banyak tiga, atau pindahkan ke menu lainnya; grup tidak turun baris.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -398,6 +403,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

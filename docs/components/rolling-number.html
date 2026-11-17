@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,10 +321,14 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Data%20display">Tampilan data</a></li></ol></nav>
           <h1>Rolling number</h1>
           <p class="cdoc__lede">Angka yang setiap digitnya bergeser ke nilai barunya dengan spring yang halus, seperti odometer. Untuk hitungan yang berubah saat orang sedang melihatnya.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="rolling-number.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="rolling-number.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Hitungan yang berubah di depan orang: suka, kursi terisi, nilai stepper, butir di keranjang.</li><li>Angka langsung yang naik atau turun selama halaman terbuka.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Angka yang menghitung naik dari nol sekali saat pertama muncul: pakai <a class="link" href="number-count.html">Number count</a>.</li><li>Hitung mundur ke tenggat: pakai <a class="link" href="timer.html">Timer</a>.</li><li>Angka statis: pakai <a class="link" href="stat-row.html">Stat row</a>. Tulis sebagai teks dengan angka tabular.</li><li>Angka yang diketik atau dinaik-turunkan orang: pakai <a class="link" href="number-stepper.html">Number stepper</a>. Stepper sudah memakai rolling number untuk nilainya.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Sebaris di dalam teks atau kontrol pemilik angka itu: tombol suka, stepper, nilai statistik, badge keranjang. Mewarisi font, ukuran, dan warna dari induknya.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Hitungan yang berubah di depan orang: suka, nomor antrean terambil, nilai stepper, kursi bus kota yang dipesan.</li><li>Angka langsung yang naik atau turun selama halaman terbuka.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Angka yang menghitung naik dari nol sekali saat pertama muncul: pakai <a class="link" href="number-count.html">Number count</a>.</li><li>Hitung mundur ke tenggat: pakai <a class="link" href="timer.html">Timer</a>.</li><li>Angka statis: pakai <a class="link" href="stat-row.html">Stat row</a>. Tulis sebagai teks dengan angka tabular.</li><li>Angka yang diketik atau dinaik-turunkan orang: pakai <a class="link" href="number-stepper.html">Number stepper</a>. Stepper sudah memakai rolling number untuk nilainya.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Sebaris di dalam teks atau kontrol pemilik angka itu: tombol suka, stepper, nilai statistik, badge antrean. Mewarisi font, ukuran, dan warna dari induknya.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Kursi terisi</span><span class="cdoc__ex-d">Setiap digit bergeser ke tempat barunya. Tekan tombolnya.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Nomor antrean terambil</span><span class="cdoc__ex-d">Tiket antrean yang terambil hari ini di loket layanan kecamatan. Setiap digit bergeser ke tempat barunya. Tekan tombolnya.</span></figcaption>
           <div class="cdoc__stage" id="ex-1-stage"><div class="docs-row" style="gap: 20px;">
   <span style="font: 600 40px/1 var(--font); letter-spacing: -0.03em; color: var(--text-strong);"><span class="roll" id="rn" role="img" data-lds-roll="128"></span></span>
   <button class="btn btn--secondary btn--sm" onclick="const el = document.getElementById('rn'); import('../../js/lds.js').then((m) => m.setRoll(el, Number(el.getAttribute('aria-label')) + 1));"><span class="ic" aria-hidden="true">add</span>Tambah satu</button>
@@ -381,6 +386,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Charts">Grafik</a></li></ol></nav>
           <h1>Target bar</h1>
           <p class="cdoc__lede">Batang horizontal untuk kemajuan menuju target: isian menunjukkan posisi sekarang, penanda menunjukkan posisi yang seharusnya (target, atau laju hari ini), dan tint opsional di depan isian menunjukkan prakiraan. Kata-kata di atasnya menyebut nilai terhadap target.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="target-bar.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="target-bar.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Angka yang diukur terhadap target: penerimaan pajak terhadap target triwulan, peserta terhadap kuota yang direncanakan, dosis vaksin terhadap rencana mingguan.</li><li>Membandingkan laju nyata dan laju yang diharapkan: penanda berada di posisi yang seharusnya hari ini, jadi ketertinggalan terlihat sebelum tenggat.</li><li>Daftar pendek target yang berdampingan (satu per puskesmas, per tim, per bulan).</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Tugas yang berjalan menuju selesai (unggah, impor): pakai <a class="link" href="progress-bar.html">Progress bar</a>.</li><li>Jumlah terhadap batas mutlak (penyimpanan, kursi): pakai <a class="link" href="meter.html">Meter</a>.</li><li>Skor di ruang persegi: pakai <a class="link" href="progress-ring.html">Progress ring</a>.</li><li>Membandingkan banyak kategori satu sama lain: pakai <a class="link" href="ranked-bars.html">Ranked bars</a>.</li><li>Bagian dari satu keseluruhan: pakai <a class="link" href="percentage-bar.html">Percentage bar</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di <a class="link" href="chart-card.html">kartu grafik</a> atau <a class="link" href="kpi-card.html">KPI card</a> di bawah angkanya; beberapa sekaligus di <code class="code">.target-list</code>, berjarak 20 px. Selebar wadahnya; kata-kata turun ke atas batang di ponsel.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -367,18 +372,18 @@
   <div><div class="chart-card__q" id="tb-pace">Puskesmas mana yang sesuai rencana?</div><div class="chart-card__sub">Dosis vaksin yang diberikan minggu ini terhadap rencana tiap puskesmas</div></div>
   <div class="target-list" data-lds-grow>
   <div class="target target--success" style="--v: 87.5%; --t: 62%;">
-    <div class="target__meta"><span class="target__label">Puskesmas Kota</span><span class="target__val"><b>175</b> dari 200 dosis</span></div>
-    <div class="target__track" role="img" aria-label="Puskesmas Kota: 175 dari 200 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
+    <div class="target__meta"><span class="target__label">Puskesmas Kedaton</span><span class="target__val"><b>175</b> dari 200 dosis</span></div>
+    <div class="target__track" role="img" aria-label="Puskesmas Kedaton: 175 dari 200 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
     <div class="target__foot"><span>Di depan rencana</span></div>
   </div>
   <div class="target target--warning" style="--v: 33%; --t: 62%;">
-    <div class="target__meta"><span class="target__label">Puskesmas Pesisir</span><span class="target__val"><b>60</b> dari 180 dosis</span></div>
-    <div class="target__track" role="img" aria-label="Puskesmas Pesisir: 60 dari 180 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
+    <div class="target__meta"><span class="target__label">Puskesmas Panjang</span><span class="target__val"><b>60</b> dari 180 dosis</span></div>
+    <div class="target__track" role="img" aria-label="Puskesmas Panjang: 60 dari 180 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
     <div class="target__foot"><span>52 dosis di belakang rencana</span></div>
   </div>
   <div class="target" style="--v: 60%; --t: 62%;">
-    <div class="target__meta"><span class="target__label">Puskesmas Bukit</span><span class="target__val"><b>90</b> dari 150 dosis</span></div>
-    <div class="target__track" role="img" aria-label="Puskesmas Bukit: 90 dari 150 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
+    <div class="target__meta"><span class="target__label">Puskesmas Way Halim</span><span class="target__val"><b>90</b> dari 150 dosis</span></div>
+    <div class="target__track" role="img" aria-label="Puskesmas Way Halim: 90 dari 150 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
     <div class="target__foot"><span>Sesuai rencana</span></div>
   </div>
   </div>
@@ -387,18 +392,18 @@
   <div><div class="chart-card__q" id="tb-pace">Puskesmas mana yang sesuai rencana?</div><div class="chart-card__sub">Dosis vaksin yang diberikan minggu ini terhadap rencana tiap puskesmas</div></div>
   <div class="target-list" data-lds-grow>
   <div class="target target--success" style="--v: 87.5%; --t: 62%;">
-    <div class="target__meta"><span class="target__label">Puskesmas Kota</span><span class="target__val"><b>175</b> dari 200 dosis</span></div>
-    <div class="target__track" role="img" aria-label="Puskesmas Kota: 175 dari 200 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
+    <div class="target__meta"><span class="target__label">Puskesmas Kedaton</span><span class="target__val"><b>175</b> dari 200 dosis</span></div>
+    <div class="target__track" role="img" aria-label="Puskesmas Kedaton: 175 dari 200 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
     <div class="target__foot"><span>Di depan rencana</span></div>
   </div>
   <div class="target target--warning" style="--v: 33%; --t: 62%;">
-    <div class="target__meta"><span class="target__label">Puskesmas Pesisir</span><span class="target__val"><b>60</b> dari 180 dosis</span></div>
-    <div class="target__track" role="img" aria-label="Puskesmas Pesisir: 60 dari 180 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
+    <div class="target__meta"><span class="target__label">Puskesmas Panjang</span><span class="target__val"><b>60</b> dari 180 dosis</span></div>
+    <div class="target__track" role="img" aria-label="Puskesmas Panjang: 60 dari 180 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
     <div class="target__foot"><span>52 dosis di belakang rencana</span></div>
   </div>
   <div class="target" style="--v: 60%; --t: 62%;">
-    <div class="target__meta"><span class="target__label">Puskesmas Bukit</span><span class="target__val"><b>90</b> dari 150 dosis</span></div>
-    <div class="target__track" role="img" aria-label="Puskesmas Bukit: 90 dari 150 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
+    <div class="target__meta"><span class="target__label">Puskesmas Way Halim</span><span class="target__val"><b>90</b> dari 150 dosis</span></div>
+    <div class="target__track" role="img" aria-label="Puskesmas Way Halim: 90 dari 150 dosis, target ditandai di 62 persen"><span class="target__fill"></span><span class="target__mark"><span class="target__mark-label">Hari ini</span></span></div>
     <div class="target__foot"><span>Sesuai rencana</span></div>
   </div>
   </div>
@@ -410,18 +415,18 @@
   &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;tb-pace&quot;&gt;Puskesmas mana yang sesuai rencana?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Dosis vaksin yang diberikan minggu ini terhadap rencana tiap puskesmas&lt;/div&gt;&lt;/div&gt;
   &lt;div class=&quot;target-list&quot; data-lds-grow&gt;
   &lt;div class=&quot;target target--success&quot; style=&quot;--v: 87.5%; --t: 62%;&quot;&gt;
-    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Kota&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;175&lt;/b&gt; dari 200 dosis&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Kota: 175 dari 200 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Kedaton&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;175&lt;/b&gt; dari 200 dosis&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Kedaton: 175 dari 200 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;Di depan rencana&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;target target--warning&quot; style=&quot;--v: 33%; --t: 62%;&quot;&gt;
-    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Pesisir&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;60&lt;/b&gt; dari 180 dosis&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Pesisir: 60 dari 180 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Panjang&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;60&lt;/b&gt; dari 180 dosis&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Panjang: 60 dari 180 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;52 dosis di belakang rencana&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;target&quot; style=&quot;--v: 60%; --t: 62%;&quot;&gt;
-    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Bukit&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;90&lt;/b&gt; dari 150 dosis&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Bukit: 90 dari 150 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Way Halim&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;90&lt;/b&gt; dari 150 dosis&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Way Halim: 90 dari 150 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;Sesuai rencana&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;/div&gt;
@@ -431,18 +436,18 @@
   &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;tb-pace&quot;&gt;Puskesmas mana yang sesuai rencana?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Dosis vaksin yang diberikan minggu ini terhadap rencana tiap puskesmas&lt;/div&gt;&lt;/div&gt;
   &lt;div class=&quot;target-list&quot; data-lds-grow&gt;
   &lt;div class=&quot;target target--success&quot; style=&quot;--v: 87.5%; --t: 62%;&quot;&gt;
-    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Kota&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;175&lt;/b&gt; dari 200 dosis&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Kota: 175 dari 200 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Kedaton&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;175&lt;/b&gt; dari 200 dosis&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Kedaton: 175 dari 200 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;Di depan rencana&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;target target--warning&quot; style=&quot;--v: 33%; --t: 62%;&quot;&gt;
-    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Pesisir&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;60&lt;/b&gt; dari 180 dosis&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Pesisir: 60 dari 180 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Panjang&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;60&lt;/b&gt; dari 180 dosis&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Panjang: 60 dari 180 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;52 dosis di belakang rencana&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;target&quot; style=&quot;--v: 60%; --t: 62%;&quot;&gt;
-    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Bukit&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;90&lt;/b&gt; dari 150 dosis&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Bukit: 90 dari 150 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__meta&quot;&gt;&lt;span class=&quot;target__label&quot;&gt;Puskesmas Way Halim&lt;/span&gt;&lt;span class=&quot;target__val&quot;&gt;&lt;b&gt;90&lt;/b&gt; dari 150 dosis&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;target__track&quot; role=&quot;img&quot; aria-label=&quot;Puskesmas Way Halim: 90 dari 150 dosis, target ditandai di 62 persen&quot;&gt;&lt;span class=&quot;target__fill&quot;&gt;&lt;/span&gt;&lt;span class=&quot;target__mark&quot;&gt;&lt;span class=&quot;target__mark-label&quot;&gt;Hari ini&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;target__foot&quot;&gt;&lt;span&gt;Sesuai rencana&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;/div&gt;
@@ -474,6 +479,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

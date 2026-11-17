@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,26 +321,30 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Motion">Motion</a></li></ol></nav>
           <h1>Reduced motion</h1>
           <p class="cdoc__lede">When people ask their device for less motion, the system keeps every state change and drops the travel: transitions become 120 ms linear changes, keyframe animations play once in 1 ms, dialogs and menus stop scaling, shimmer and sparks stop, flights and scroll reveals are skipped. Spinners keep turning because they report work.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="reduced-motion.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="reduced-motion.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>Always: it is built into the CSS and JS. Check it whenever you add motion to the system.</li><li>Testing a screen: turn on Reduce motion (macOS: Accessibility, Display; iOS: Accessibility, Motion; Windows: Animation effects off; Android: Remove animations) or emulate it in the browser dev tools.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Deciding which motion to use in the first place: use <a class="link" href="motion-principles.html">Motion principles</a>.</li><li>People who want no haptics: use <a class="link" href="haptics.html">Haptics</a>. Set <code class="code">data-lds-haptics=&quot;off&quot;</code> on <code class="code">&lt;html&gt;</code>.</li><li>Dark or high-contrast appearance: use <a class="link" href="theming.html">Theming</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Global: one <code class="code">@media (prefers-reduced-motion: reduce)</code> block in <code class="code">css/components.css</code> covers everything under <code class="code">.lds</code>, plus a few component blocks; <code class="code">js/lds.js</code> checks the same media query before flights, throws, morphs and smooth scrolling.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">What keeps moving</span><span class="cdoc__ex-d">Turn on Reduce motion in your system settings and come back. The spinner still turns and the bar still fills, because they report work in progress. The shimmer stops and becomes plain text.</span></figcaption>
           <div class="cdoc__stage" id="ex-1-stage"><div class="docs-row">
-  <span class="docs-row" style="gap: 8px;"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">Grading your answers</span></span>
-  <div style="width: 200px;"><div class="progress progress--indeterminate" role="progressbar" aria-label="Preparing your transcript"><div class="progress__fill"></div></div></div>
+  <span class="docs-row" style="gap: 8px;"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer">Checking your documents</span></span>
+  <div style="width: 200px;"><div class="progress progress--indeterminate" role="progressbar" aria-label="Preparing your tax receipt"><div class="progress__fill"></div></div></div>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;docs-row&quot;&gt;
-  &lt;span class=&quot;docs-row&quot; style=&quot;gap: 8px;&quot;&gt;&lt;span class=&quot;spinner&quot; aria-hidden=&quot;true&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class=&quot;shimmer&quot;&gt;Grading your answers&lt;/span&gt;&lt;/span&gt;
-  &lt;div style=&quot;width: 200px;&quot;&gt;&lt;div class=&quot;progress progress--indeterminate&quot; role=&quot;progressbar&quot; aria-label=&quot;Preparing your transcript&quot;&gt;&lt;div class=&quot;progress__fill&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;span class=&quot;docs-row&quot; style=&quot;gap: 8px;&quot;&gt;&lt;span class=&quot;spinner&quot; aria-hidden=&quot;true&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class=&quot;shimmer&quot;&gt;Checking your documents&lt;/span&gt;&lt;/span&gt;
+  &lt;div style=&quot;width: 200px;&quot;&gt;&lt;div class=&quot;progress progress--indeterminate&quot; role=&quot;progressbar&quot; aria-label=&quot;Preparing your tax receipt&quot;&gt;&lt;div class=&quot;progress__fill&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;docs-row&quot;&gt;
-  &lt;span class=&quot;docs-row&quot; style=&quot;gap: 8px;&quot;&gt;&lt;span class=&quot;spinner&quot; aria-hidden=&quot;true&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class=&quot;shimmer&quot;&gt;Grading your answers&lt;/span&gt;&lt;/span&gt;
-  &lt;div style=&quot;width: 200px;&quot;&gt;&lt;div class=&quot;progress progress--indeterminate&quot; role=&quot;progressbar&quot; aria-label=&quot;Preparing your transcript&quot;&gt;&lt;div class=&quot;progress__fill&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
+  &lt;span class=&quot;docs-row&quot; style=&quot;gap: 8px;&quot;&gt;&lt;span class=&quot;spinner&quot; aria-hidden=&quot;true&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;span class=&quot;shimmer&quot;&gt;Checking your documents&lt;/span&gt;&lt;/span&gt;
+  &lt;div style=&quot;width: 200px;&quot;&gt;&lt;div class=&quot;progress progress--indeterminate&quot; role=&quot;progressbar&quot; aria-label=&quot;Preparing your tax receipt&quot;&gt;&lt;div class=&quot;progress__fill&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
@@ -347,16 +352,16 @@
           <div class="cdoc__stage cdoc__stage--flush" id="ex-2-stage"><div class="viewport docs-box" style="height: 300px;">
   <div class="viewport__content">
     <div class="docs-row">
-      <button class="btn btn--secondary btn--md" data-lds-open="rm-dialog" aria-haspopup="dialog">Leave the course</button>
+      <button class="btn btn--secondary btn--md" data-lds-open="rm-dialog" aria-haspopup="dialog">Cancel the visit</button>
       <label class="switch"><input type="checkbox" role="switch"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span>Reminders</label>
       <button class="like" aria-pressed="false" data-lds-like aria-label="Like"><span class="like__heart"><span class="ic" aria-hidden="true">favorite</span></span><span class="roll" data-lds-roll="12"></span></button>
     </div>
   </div>
   <div class="scrim" data-lds-scrim="rm-dialog"></div>
   <div class="dialog" id="rm-dialog" role="alertdialog" aria-modal="true" aria-labelledby="rm-dialog-t" data-lds-layer>
-    <h3 class="dialog__title" id="rm-dialog-t">Leave Biology 101?</h3>
-    <p class="dialog__body">Your submitted work stays; you can join again before the second week.</p>
-    <div class="dialog__actions"><button class="btn btn--secondary btn--md" data-lds-close data-lds-autofocus>Stay</button><button class="btn btn--danger btn--md" data-lds-close>Leave</button></div>
+    <h3 class="dialog__title" id="rm-dialog-t">Cancel your puskesmas visit?</h3>
+    <p class="dialog__body">Your queue number is released; you can book again for another day.</p>
+    <div class="dialog__actions"><button class="btn btn--secondary btn--md" data-lds-close data-lds-autofocus>Keep the visit</button><button class="btn btn--danger btn--md" data-lds-close>Cancel visit</button></div>
   </div>
 </div></div>
           
@@ -366,32 +371,32 @@
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;viewport docs-box&quot; style=&quot;height: 300px;&quot;&gt;
   &lt;div class=&quot;viewport__content&quot;&gt;
     &lt;div class=&quot;docs-row&quot;&gt;
-      &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-open=&quot;rm-dialog&quot; aria-haspopup=&quot;dialog&quot;&gt;Leave the course&lt;/button&gt;
+      &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-open=&quot;rm-dialog&quot; aria-haspopup=&quot;dialog&quot;&gt;Cancel the visit&lt;/button&gt;
       &lt;label class=&quot;switch&quot;&gt;&lt;input type=&quot;checkbox&quot; role=&quot;switch&quot;&gt;&lt;span class=&quot;switch__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;switch__thumb&quot;&gt;&lt;/span&gt;&lt;/span&gt;Reminders&lt;/label&gt;
       &lt;button class=&quot;like&quot; aria-pressed=&quot;false&quot; data-lds-like aria-label=&quot;Like&quot;&gt;&lt;span class=&quot;like__heart&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;favorite&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;roll&quot; data-lds-roll=&quot;12&quot;&gt;&lt;/span&gt;&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;scrim&quot; data-lds-scrim=&quot;rm-dialog&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;dialog&quot; id=&quot;rm-dialog&quot; role=&quot;alertdialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;rm-dialog-t&quot; data-lds-layer&gt;
-    &lt;h3 class=&quot;dialog__title&quot; id=&quot;rm-dialog-t&quot;&gt;Leave Biology 101?&lt;/h3&gt;
-    &lt;p class=&quot;dialog__body&quot;&gt;Your submitted work stays; you can join again before the second week.&lt;/p&gt;
-    &lt;div class=&quot;dialog__actions&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-close data-lds-autofocus&gt;Stay&lt;/button&gt;&lt;button class=&quot;btn btn--danger btn--md&quot; data-lds-close&gt;Leave&lt;/button&gt;&lt;/div&gt;
+    &lt;h3 class=&quot;dialog__title&quot; id=&quot;rm-dialog-t&quot;&gt;Cancel your puskesmas visit?&lt;/h3&gt;
+    &lt;p class=&quot;dialog__body&quot;&gt;Your queue number is released; you can book again for another day.&lt;/p&gt;
+    &lt;div class=&quot;dialog__actions&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-close data-lds-autofocus&gt;Keep the visit&lt;/button&gt;&lt;button class=&quot;btn btn--danger btn--md&quot; data-lds-close&gt;Cancel visit&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;viewport docs-box&quot; style=&quot;height: 300px;&quot;&gt;
   &lt;div class=&quot;viewport__content&quot;&gt;
     &lt;div class=&quot;docs-row&quot;&gt;
-      &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-open=&quot;rm-dialog&quot; aria-haspopup=&quot;dialog&quot;&gt;Leave the course&lt;/button&gt;
+      &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-open=&quot;rm-dialog&quot; aria-haspopup=&quot;dialog&quot;&gt;Cancel the visit&lt;/button&gt;
       &lt;label class=&quot;switch&quot;&gt;&lt;input type=&quot;checkbox&quot; role=&quot;switch&quot;&gt;&lt;span class=&quot;switch__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;switch__thumb&quot;&gt;&lt;/span&gt;&lt;/span&gt;Reminders&lt;/label&gt;
       &lt;button class=&quot;like&quot; aria-pressed=&quot;false&quot; data-lds-like aria-label=&quot;Like&quot;&gt;&lt;span class=&quot;like__heart&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;favorite&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;roll&quot; data-lds-roll=&quot;12&quot;&gt;&lt;/span&gt;&lt;/button&gt;
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;scrim&quot; data-lds-scrim=&quot;rm-dialog&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;dialog&quot; id=&quot;rm-dialog&quot; role=&quot;alertdialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;rm-dialog-t&quot; data-lds-layer&gt;
-    &lt;h3 class=&quot;dialog__title&quot; id=&quot;rm-dialog-t&quot;&gt;Leave Biology 101?&lt;/h3&gt;
-    &lt;p class=&quot;dialog__body&quot;&gt;Your submitted work stays; you can join again before the second week.&lt;/p&gt;
-    &lt;div class=&quot;dialog__actions&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-close data-lds-autofocus&gt;Stay&lt;/button&gt;&lt;button class=&quot;btn btn--danger btn--md&quot; data-lds-close&gt;Leave&lt;/button&gt;&lt;/div&gt;
+    &lt;h3 class=&quot;dialog__title&quot; id=&quot;rm-dialog-t&quot;&gt;Cancel your puskesmas visit?&lt;/h3&gt;
+    &lt;p class=&quot;dialog__body&quot;&gt;Your queue number is released; you can book again for another day.&lt;/p&gt;
+    &lt;div class=&quot;dialog__actions&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-close data-lds-autofocus&gt;Keep the visit&lt;/button&gt;&lt;button class=&quot;btn btn--danger btn--md&quot; data-lds-close&gt;Cancel visit&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
@@ -419,6 +424,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

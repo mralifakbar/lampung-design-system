@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,13 +321,17 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Navigation">Navigasi</a></li></ol></nav>
           <h1>Nav progress</h1>
           <p class="cdoc__lede">Bilah aksen setinggi 3 px di tepi atas jendela yang berjalan selama halaman berikutnya dimuat. Tambahkan <code class="code">.is-running</code> saat navigasi dimulai, hapus saat halaman sudah tampil.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="nav-progress.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="nav-progress.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Navigasi sisi klien (single-page app atau router framework) yang halaman berikutnya bisa butuh lebih dari sekitar 300 ms untuk tiba.</li><li>Pergantian halaman penuh yang halaman lamanya tetap terlihat sampai halaman baru siap.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Kemajuan tugas dengan persentase yang diketahui (unggah, impor): pakai <a class="link" href="progress-bar.html">Progress bar</a>.</li><li>Satu area halaman yang sedang memuat isinya: pakai <a class="link" href="skeleton.html">Skeleton</a>. Tampilkan bentuk konten yang akan datang di tempatnya.</li><li>Tombol yang menunggu aksinya selesai: pakai <a class="link" href="button.html">Button</a>. Pakai status loading pada tombol.</li><li>Menunggu balasan asisten: pakai <a class="link" href="thinking.html">Thinking</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Satu per aplikasi, menempel di atas viewport (<code class="code">position: fixed</code>, z-index 90), di atas top bar atau app shell. Render sekali di root dan ubah kelasnya dari router.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Membuka tahap berikutnya</span><span class="cdoc__ex-d">Bilah berjalan di tepi atas kotak ini selama &quot;halaman&quot; dimuat, lalu hilang. Di aplikasi, bilah berada di atas jendela.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Membuka tahap berikutnya permohonan izin</span><span class="cdoc__ex-d">Bilah berjalan di tepi atas kotak ini selama &quot;halaman&quot; dimuat, lalu hilang. Di aplikasi, bilah berada di atas jendela.</span></figcaption>
           <div class="cdoc__stage" id="ex-1-stage" style="min-height: 180px;"><div class="navprogress" aria-hidden="true" id="np-bar"></div>
 <div class="docs-col">
-  <button class="btn btn--primary btn--md" style="align-self: flex-start;" onclick="const b = document.getElementById('np-bar'); const s = document.getElementById('np-status'); b.classList.add('is-running'); s.textContent = 'Memuat tahap 4'; this.disabled = true; setTimeout(() => { b.classList.remove('is-running'); s.textContent = 'Tahap 4 terbuka'; this.disabled = false; }, 1800);">Buka tahap 4</button>
+  <button class="btn btn--primary btn--md" style="align-self: flex-start;" onclick="const b = document.getElementById('np-bar'); const s = document.getElementById('np-status'); b.classList.add('is-running'); s.textContent = 'Memuat tahap 4'; this.disabled = true; setTimeout(() => { b.classList.remove('is-running'); s.textContent = 'Tahap 4 terbuka'; this.disabled = false; }, 1800);">Buka tahap 4: dokumen lokasi</button>
   <p class="section__sub" id="np-status" role="status">Tahap 3 terbuka</p>
 </div></div>
           
@@ -374,6 +379,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

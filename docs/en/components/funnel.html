@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,130 +321,134 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Charts">Charts</a></li></ol></nav>
           <h1>Funnel</h1>
           <p class="cdoc__lede">The steps of a flow, each with how many reached it and what share of the step before moved on. Centered bars narrow with the count, so the biggest drop is visible at a glance; the words carry the exact numbers.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="funnel.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="funnel.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A sequence where each step is a subset of the one before: visit, try, sign up, pay; apply, screen, interview, offer.</li><li>Finding the step that loses the most people, to decide what to fix first.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Categories that are not nested steps: use <a class="link" href="ranked-bars.html">Ranked bars</a>.</li><li>Change of one count over time: use <a class="link" href="area-chart.html">Area chart</a>.</li><li>Parts of one whole: use <a class="link" href="percentage-bar.html">Percentage bar</a>.</li><li>The status of one record moving through steps: use <a class="link" href="steps.html">Steps</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In a <a class="link" href="chart-card.html">chart card</a>, half or full width. Three to six steps. Words sit above each bar, so it works at 320 px without change.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A sequence where each step is a subset of the one before: open, fill in, submit, issued; register, screen, interview, accept.</li><li>Finding the step that loses the most people, to decide what to fix first.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Categories that are not nested steps: use <a class="link" href="ranked-bars.html">Ranked bars</a>.</li><li>Change of one count over time: use <a class="link" href="area-chart.html">Area chart</a>.</li><li>Parts of one whole: use <a class="link" href="percentage-bar.html">Percentage bar</a>.</li><li>The status of one record moving through steps: use <a class="link" href="steps.html">Steps</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In a <a class="link" href="chart-card.html">chart card</a>, half or full width. Three to six steps. Words sit above each bar, so it works at 320 px without change.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">From visit to payment</span><span class="cdoc__ex-d">Under 40 % moving on marks the step red in words. Bars grow from the center on first view, one after another.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">From opening the page to permit issued</span><span class="cdoc__ex-d">Under 40 % moving on marks the step red in words. Bars grow from the center on first view, one after another.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><section class="chart-card" style="max-width: 560px;" aria-labelledby="fn-q">
-  <div><div class="chart-card__q" id="fn-q">Where do learners drop off?</div><div class="chart-card__sub">People at each step, 1 to 16 November</div></div>
-  <ol class="funnel" data-lds-grow aria-label="Sign-up funnel, 1 to 16 November">
+  <div><div class="chart-card__q" id="fn-q">At which step do applicants stop?</div><div class="chart-card__sub">People at each step, 1 to 16 November</div></div>
+  <ol class="funnel" data-lds-grow aria-label="Business permit application flow, 1 to 16 November">
   <li class="funnel__row" style="--v: 100.0%;">
-    <div class="funnel__meta"><span class="funnel__label">Visited the course page</span><span><span class="funnel__val">12,480</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Opened the business permit page</span><span><span class="funnel__val">12,480</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 42.0%;">
-    <div class="funnel__meta"><span class="funnel__label">Started the free lesson</span><span><span class="funnel__val">5,240</span><span class="funnel__conv">42% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Started the form</span><span><span class="funnel__val">5,240</span><span class="funnel__conv">42% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 24.9%;">
-    <div class="funnel__meta"><span class="funnel__label">Finished the free lesson</span><span><span class="funnel__val">3,110</span><span class="funnel__conv">59% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Uploaded documents</span><span><span class="funnel__val">3,110</span><span class="funnel__conv">59% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 18.3%;">
-    <div class="funnel__meta"><span class="funnel__label">Created an account</span><span><span class="funnel__val">2,290</span><span class="funnel__conv">74% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Submitted the application</span><span><span class="funnel__val">2,290</span><span class="funnel__conv">74% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row is-drop" style="--v: 4.9%;">
-    <div class="funnel__meta"><span class="funnel__label">Paid for the course</span><span><span class="funnel__val">610</span><span class="funnel__conv">27% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Permit issued</span><span><span class="funnel__val">610</span><span class="funnel__conv">27% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
 </ol>
-  <div class="chart-card__foot"><span>Biggest loss: account to payment, 27% move on</span></div>
+  <div class="chart-card__foot"><span>Biggest loss: application to permit issued, 27% move on</span></div>
 </section></div>
           <template id="ex-1-stage-tpl"><section class="chart-card" style="max-width: 560px;" aria-labelledby="fn-q">
-  <div><div class="chart-card__q" id="fn-q">Where do learners drop off?</div><div class="chart-card__sub">People at each step, 1 to 16 November</div></div>
-  <ol class="funnel" data-lds-grow aria-label="Sign-up funnel, 1 to 16 November">
+  <div><div class="chart-card__q" id="fn-q">At which step do applicants stop?</div><div class="chart-card__sub">People at each step, 1 to 16 November</div></div>
+  <ol class="funnel" data-lds-grow aria-label="Business permit application flow, 1 to 16 November">
   <li class="funnel__row" style="--v: 100.0%;">
-    <div class="funnel__meta"><span class="funnel__label">Visited the course page</span><span><span class="funnel__val">12,480</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Opened the business permit page</span><span><span class="funnel__val">12,480</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 42.0%;">
-    <div class="funnel__meta"><span class="funnel__label">Started the free lesson</span><span><span class="funnel__val">5,240</span><span class="funnel__conv">42% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Started the form</span><span><span class="funnel__val">5,240</span><span class="funnel__conv">42% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 24.9%;">
-    <div class="funnel__meta"><span class="funnel__label">Finished the free lesson</span><span><span class="funnel__val">3,110</span><span class="funnel__conv">59% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Uploaded documents</span><span><span class="funnel__val">3,110</span><span class="funnel__conv">59% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 18.3%;">
-    <div class="funnel__meta"><span class="funnel__label">Created an account</span><span><span class="funnel__val">2,290</span><span class="funnel__conv">74% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Submitted the application</span><span><span class="funnel__val">2,290</span><span class="funnel__conv">74% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row is-drop" style="--v: 4.9%;">
-    <div class="funnel__meta"><span class="funnel__label">Paid for the course</span><span><span class="funnel__val">610</span><span class="funnel__conv">27% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Permit issued</span><span><span class="funnel__val">610</span><span class="funnel__conv">27% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
 </ol>
-  <div class="chart-card__foot"><span>Biggest loss: account to payment, 27% move on</span></div>
+  <div class="chart-card__foot"><span>Biggest loss: application to permit issued, 27% move on</span></div>
 </section></template>
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             <button class="btn btn--plain btn--sm" data-replay="ex-1-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>Replay</button>
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;section class=&quot;chart-card&quot; style=&quot;max-width: 560px;&quot; aria-labelledby=&quot;fn-q&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;fn-q&quot;&gt;Where do learners drop off?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;People at each step, 1 to 16 November&lt;/div&gt;&lt;/div&gt;
-  &lt;ol class=&quot;funnel&quot; data-lds-grow aria-label=&quot;Sign-up funnel, 1 to 16 November&quot;&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;fn-q&quot;&gt;At which step do applicants stop?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;People at each step, 1 to 16 November&lt;/div&gt;&lt;/div&gt;
+  &lt;ol class=&quot;funnel&quot; data-lds-grow aria-label=&quot;Business permit application flow, 1 to 16 November&quot;&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 100.0%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Visited the course page&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;12,480&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Opened the business permit page&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;12,480&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 42.0%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Started the free lesson&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;5,240&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;42% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Started the form&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;5,240&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;42% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 24.9%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Finished the free lesson&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;3,110&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;59% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Uploaded documents&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;3,110&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;59% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 18.3%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Created an account&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;2,290&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;74% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Submitted the application&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;2,290&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;74% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row is-drop&quot; style=&quot;--v: 4.9%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Paid for the course&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;610&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;27% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Permit issued&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;610&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;27% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
-  &lt;div class=&quot;chart-card__foot&quot;&gt;&lt;span&gt;Biggest loss: account to payment, 27% move on&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;chart-card__foot&quot;&gt;&lt;span&gt;Biggest loss: application to permit issued, 27% move on&lt;/span&gt;&lt;/div&gt;
 &lt;/section&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;section class=&quot;chart-card&quot; style=&quot;max-width: 560px;&quot; aria-labelledby=&quot;fn-q&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;fn-q&quot;&gt;Where do learners drop off?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;People at each step, 1 to 16 November&lt;/div&gt;&lt;/div&gt;
-  &lt;ol class=&quot;funnel&quot; data-lds-grow aria-label=&quot;Sign-up funnel, 1 to 16 November&quot;&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;fn-q&quot;&gt;At which step do applicants stop?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;People at each step, 1 to 16 November&lt;/div&gt;&lt;/div&gt;
+  &lt;ol class=&quot;funnel&quot; data-lds-grow aria-label=&quot;Business permit application flow, 1 to 16 November&quot;&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 100.0%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Visited the course page&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;12,480&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Opened the business permit page&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;12,480&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 42.0%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Started the free lesson&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;5,240&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;42% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Started the form&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;5,240&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;42% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 24.9%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Finished the free lesson&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;3,110&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;59% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Uploaded documents&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;3,110&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;59% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 18.3%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Created an account&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;2,290&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;74% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Submitted the application&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;2,290&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;74% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row is-drop&quot; style=&quot;--v: 4.9%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Paid for the course&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;610&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;27% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Permit issued&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;610&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;27% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
-  &lt;div class=&quot;chart-card__foot&quot;&gt;&lt;span&gt;Biggest loss: account to payment, 27% move on&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;chart-card__foot&quot;&gt;&lt;span&gt;Biggest loss: application to permit issued, 27% move on&lt;/span&gt;&lt;/div&gt;
 &lt;/section&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
-          <figcaption><span class="cdoc__ex-t">A short funnel</span><span class="cdoc__ex-d">Four steps of a hiring round.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">A short funnel</span><span class="cdoc__ex-d">Four steps of recruiting posyandu volunteers.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><section class="chart-card" style="max-width: 420px;" aria-labelledby="fn-h">
-  <div><div class="chart-card__q" id="fn-h">How many tutors make it through?</div><div class="chart-card__sub">Tutor applications, autumn round</div></div>
-  <ol class="funnel" data-lds-grow aria-label="Tutor hiring funnel, autumn round">
+  <div><div class="chart-card__q" id="fn-h">How many volunteer candidates make it through?</div><div class="chart-card__sub">Posyandu volunteer registration, second round</div></div>
+  <ol class="funnel" data-lds-grow aria-label="Posyandu volunteer recruitment, second round">
   <li class="funnel__row" style="--v: 100.0%;">
-    <div class="funnel__meta"><span class="funnel__label">Applied</span><span><span class="funnel__val">214</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Registered</span><span><span class="funnel__val">214</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 44.9%;">
-    <div class="funnel__meta"><span class="funnel__label">Passed screening</span><span><span class="funnel__val">96</span><span class="funnel__conv">45% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Passed document check</span><span><span class="funnel__val">96</span><span class="funnel__conv">45% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row is-drop" style="--v: 14.5%;">
@@ -451,20 +456,20 @@
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row is-drop" style="--v: 2.8%;">
-    <div class="funnel__meta"><span class="funnel__label">Offered</span><span><span class="funnel__val">6</span><span class="funnel__conv">19% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Accepted</span><span><span class="funnel__val">6</span><span class="funnel__conv">19% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
 </ol>
 </section></div>
           <template id="ex-2-stage-tpl"><section class="chart-card" style="max-width: 420px;" aria-labelledby="fn-h">
-  <div><div class="chart-card__q" id="fn-h">How many tutors make it through?</div><div class="chart-card__sub">Tutor applications, autumn round</div></div>
-  <ol class="funnel" data-lds-grow aria-label="Tutor hiring funnel, autumn round">
+  <div><div class="chart-card__q" id="fn-h">How many volunteer candidates make it through?</div><div class="chart-card__sub">Posyandu volunteer registration, second round</div></div>
+  <ol class="funnel" data-lds-grow aria-label="Posyandu volunteer recruitment, second round">
   <li class="funnel__row" style="--v: 100.0%;">
-    <div class="funnel__meta"><span class="funnel__label">Applied</span><span><span class="funnel__val">214</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Registered</span><span><span class="funnel__val">214</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row" style="--v: 44.9%;">
-    <div class="funnel__meta"><span class="funnel__label">Passed screening</span><span><span class="funnel__val">96</span><span class="funnel__conv">45% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Passed document check</span><span><span class="funnel__val">96</span><span class="funnel__conv">45% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row is-drop" style="--v: 14.5%;">
@@ -472,7 +477,7 @@
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
   <li class="funnel__row is-drop" style="--v: 2.8%;">
-    <div class="funnel__meta"><span class="funnel__label">Offered</span><span><span class="funnel__val">6</span><span class="funnel__conv">19% of the step before</span></span></div>
+    <div class="funnel__meta"><span class="funnel__label">Accepted</span><span><span class="funnel__val">6</span><span class="funnel__conv">19% of the step before</span></span></div>
     <div class="funnel__track" aria-hidden="true"><span class="funnel__bar"></span></div>
   </li>
 </ol>
@@ -481,14 +486,14 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             <button class="btn btn--plain btn--sm" data-replay="ex-2-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>Replay</button>
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;section class=&quot;chart-card&quot; style=&quot;max-width: 420px;&quot; aria-labelledby=&quot;fn-h&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;fn-h&quot;&gt;How many tutors make it through?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Tutor applications, autumn round&lt;/div&gt;&lt;/div&gt;
-  &lt;ol class=&quot;funnel&quot; data-lds-grow aria-label=&quot;Tutor hiring funnel, autumn round&quot;&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;fn-h&quot;&gt;How many volunteer candidates make it through?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Posyandu volunteer registration, second round&lt;/div&gt;&lt;/div&gt;
+  &lt;ol class=&quot;funnel&quot; data-lds-grow aria-label=&quot;Posyandu volunteer recruitment, second round&quot;&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 100.0%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Applied&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;214&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Registered&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;214&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 44.9%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Passed screening&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;96&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;45% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Passed document check&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;96&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;45% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row is-drop&quot; style=&quot;--v: 14.5%;&quot;&gt;
@@ -496,21 +501,21 @@
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row is-drop&quot; style=&quot;--v: 2.8%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Offered&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;19% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Accepted&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;19% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
 &lt;/section&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;section class=&quot;chart-card&quot; style=&quot;max-width: 420px;&quot; aria-labelledby=&quot;fn-h&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;fn-h&quot;&gt;How many tutors make it through?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Tutor applications, autumn round&lt;/div&gt;&lt;/div&gt;
-  &lt;ol class=&quot;funnel&quot; data-lds-grow aria-label=&quot;Tutor hiring funnel, autumn round&quot;&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot; id=&quot;fn-h&quot;&gt;How many volunteer candidates make it through?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Posyandu volunteer registration, second round&lt;/div&gt;&lt;/div&gt;
+  &lt;ol class=&quot;funnel&quot; data-lds-grow aria-label=&quot;Posyandu volunteer recruitment, second round&quot;&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 100.0%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Applied&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;214&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Registered&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;214&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row&quot; style=&quot;--v: 44.9%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Passed screening&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;96&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;45% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Passed document check&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;96&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;45% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row is-drop&quot; style=&quot;--v: 14.5%;&quot;&gt;
@@ -518,7 +523,7 @@
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
   &lt;li class=&quot;funnel__row is-drop&quot; style=&quot;--v: 2.8%;&quot;&gt;
-    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Offered&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;19% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;funnel__meta&quot;&gt;&lt;span class=&quot;funnel__label&quot;&gt;Accepted&lt;/span&gt;&lt;span&gt;&lt;span class=&quot;funnel__val&quot;&gt;6&lt;/span&gt;&lt;span class=&quot;funnel__conv&quot;&gt;19% of the step before&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;funnel__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;funnel__bar&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/li&gt;
 &lt;/ol&gt;
@@ -529,7 +534,7 @@
         <section class="cdoc__sec" id="states"><h2>States</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>State</th><th>How</th></tr></thead><tbody><tr><td><code class="code">data change</code></td><td>Set new <code class="code">--v</code> and words: bars move over 480 ms on <code class="code">--ease-inout</code>.</td></tr><tr><td><code class="code">empty</code></td><td>Keep the step names; counts at 0 and one line: &quot;No visits in this period&quot;.</td></tr><tr><td><code class="code">loading</code></td><td>A <code class="code">.skel</code> line and a 28 px <code class="code">.skel</code> strip per step.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="motion"><h2>Motion and microinteractions</h2><ul class="cdoc__list"><li>First view (<code class="code">data-lds-grow</code>): bars grow outward from the center on <code class="code">--spring-smooth</code>, 35 ms apart top to bottom.</li><li>Later changes: width over <code class="code">--d-considered</code> on <code class="code">--ease-inout</code>. Hover fades other bars over <code class="code">--d-fast</code>.</li><li>Reduced motion: drawn at once.</li></ul></section>
         <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li>An <code class="code">ol</code> with <code class="code">aria-label</code>, so the steps are announced in order with their counts and shares as text.</li><li>The bars are <code class="code">aria-hidden</code>; they repeat the numbers.</li><li>The weakest step is named in words in the footer, not only by color.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Name steps as what people did (&quot;Created an account&quot;).</li><li>Show the share of the step before, not of the first step; that is where the decision is.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Draw trapezoids or 3D cones; centered bars are exact.</li><li>Use a funnel for steps people can skip or repeat.</li></ul></div></div></section>
+        <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Name steps as what people did (&quot;Submitted the application&quot;).</li><li>Show the share of the step before, not of the first step; that is where the decision is.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Draw trapezoids or 3D cones; centered bars are exact.</li><li>Use a funnel for steps people can skip or repeat.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Behavior and code</h2><p class="cdoc__p"><strong>Plain HTML.</strong> Optional: <code class="code">data-lds-grow</code> on the list plays the first-view entrance.</p></section>
         <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="ranked-bars.html"><span class="link-card__eyebrow">Charts</span><span class="link-card__title">Ranked bars</span><span class="link-card__body">Rows of a label, a horizontal bar and its value, sorted longest first: top sources, top pages, best scores. Long labels stay readable because they sit beside (or inside) the bar instead of under it, and every row shares one grid so bars and values line up.</span></a><a class="link-card" href="percentage-bar.html"><span class="link-card__eyebrow">Charts</span><span class="link-card__title">Percentage bar</span><span class="link-card__body">One horizontal bar split into up to four colored parts that add up to 100 %, with a legend that names each part and its share. The compact way to show composition.</span></a><a class="link-card" href="chart-card.html"><span class="link-card__eyebrow">Charts</span><span class="link-card__title">Chart card</span><span class="link-card__body">The frame every dashboard chart sits in: the question as its title, what is measured under it, then optional actions (a range control, a menu), the headline figure with its change, the chart, and a footer with the source time or a link to the full report.</span></a><a class="link-card" href="steps.html"><span class="link-card__eyebrow">Navigation</span><span class="link-card__title">Steps</span><span class="link-card__body">Numbered steps of a fixed sequence with a bar that fills as each one completes. Shows where people are in a flow and how much is left.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Previous and next component">
@@ -550,6 +555,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Marketing">Marketing</a></li></ol></nav>
           <h1>Feature row</h1>
           <p class="cdoc__lede">One feature told beside its proof: a short title, a paragraph and a few points on one side, a live stage with the feature working on the other. Rows alternate sides with <code class="code">feature--reverse</code>.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="feature-row.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="feature-row.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>Explaining one feature of a product on a landing page, next to the feature running.</li><li>Two to four features in a row of sections, where each needs its own demo.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Many small features of equal weight: use <a class="link" href="layout-primitives.html">Layout primitives</a>. Use an <code class="code">auto-grid</code> of short text blocks; not every feature needs a stage.</li><li>Destinations people can open: use <a class="link" href="link-card.html">Link card</a>.</li><li>The first screen of the page: use <a class="link" href="hero.html">Hero</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Inside a <a class="link" href="marketing-section.html">marketing section</a>. From 900 px the copy takes 5 of 12 columns and the stage 7 (reversed with <code class="code">feature--reverse</code>); below that the copy comes first and the stage follows. Consecutive rows are 56 to 112 px apart.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
@@ -327,8 +332,8 @@
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="feature" style="width: 100%;">
   <div class="feature__copy">
     <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">code</span>Exports</span>
-    <h3 class="feature__title">Your grades, in the format the office asks for.</h3>
-    <p class="feature__body">Export a term as a spreadsheet, a PDF report or a file for the national records system.</p>
+    <h3 class="feature__title">Social aid recipients, in the format the agency asks for.</h3>
+    <p class="feature__body">Export a distribution round as a spreadsheet, a PDF report or a file for the regional welfare data system.</p>
     <ul class="feature__points">
       <li><span class="ic" aria-hidden="true">check_circle</span><span>Columns match the official template.</span></li>
       <li><span class="ic" aria-hidden="true">check_circle</span><span>Exports run in the background.</span></li>
@@ -336,9 +341,9 @@
   </div>
   <div class="feature__stage">
     <div class="seg" role="group" aria-label="Format" data-lds-segmented style="width: 240px;"><span class="seg__thumb"></span><button class="seg__btn" aria-pressed="true">CSV</button><button class="seg__btn" aria-pressed="false">PDF</button></div>
-    <div class="codeblock"><div class="codeblock__bar"><span>grades-term-1.csv</span></div><pre>student_id,name,grade
-2026001,Siti Rahmawati,A
-2026002,Budi Santoso,B+</pre></div>
+    <div class="codeblock"><div class="codeblock__bar"><span>aid-recipients-round-1.csv</span></div><pre>nik,name,kelurahan,status
+1871 •••• •••• 0042,Siti Rahmawati,Way Halim,verified
+1871 •••• •••• 0317,Budi Santoso,Kedaton,pending</pre></div>
     <span class="feature__caption">Example data.</span>
   </div>
 </div></div>
@@ -349,8 +354,8 @@
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;feature&quot; style=&quot;width: 100%;&quot;&gt;
   &lt;div class=&quot;feature__copy&quot;&gt;
     &lt;span class=&quot;msec__eyebrow&quot;&gt;&lt;span class=&quot;ic ic--sm&quot; aria-hidden=&quot;true&quot;&gt;code&lt;/span&gt;Exports&lt;/span&gt;
-    &lt;h3 class=&quot;feature__title&quot;&gt;Your grades, in the format the office asks for.&lt;/h3&gt;
-    &lt;p class=&quot;feature__body&quot;&gt;Export a term as a spreadsheet, a PDF report or a file for the national records system.&lt;/p&gt;
+    &lt;h3 class=&quot;feature__title&quot;&gt;Social aid recipients, in the format the agency asks for.&lt;/h3&gt;
+    &lt;p class=&quot;feature__body&quot;&gt;Export a distribution round as a spreadsheet, a PDF report or a file for the regional welfare data system.&lt;/p&gt;
     &lt;ul class=&quot;feature__points&quot;&gt;
       &lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check_circle&lt;/span&gt;&lt;span&gt;Columns match the official template.&lt;/span&gt;&lt;/li&gt;
       &lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check_circle&lt;/span&gt;&lt;span&gt;Exports run in the background.&lt;/span&gt;&lt;/li&gt;
@@ -358,9 +363,9 @@
   &lt;/div&gt;
   &lt;div class=&quot;feature__stage&quot;&gt;
     &lt;div class=&quot;seg&quot; role=&quot;group&quot; aria-label=&quot;Format&quot; data-lds-segmented style=&quot;width: 240px;&quot;&gt;&lt;span class=&quot;seg__thumb&quot;&gt;&lt;/span&gt;&lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;true&quot;&gt;CSV&lt;/button&gt;&lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;false&quot;&gt;PDF&lt;/button&gt;&lt;/div&gt;
-    &lt;div class=&quot;codeblock&quot;&gt;&lt;div class=&quot;codeblock__bar&quot;&gt;&lt;span&gt;grades-term-1.csv&lt;/span&gt;&lt;/div&gt;&lt;pre&gt;student_id,name,grade
-2026001,Siti Rahmawati,A
-2026002,Budi Santoso,B+&lt;/pre&gt;&lt;/div&gt;
+    &lt;div class=&quot;codeblock&quot;&gt;&lt;div class=&quot;codeblock__bar&quot;&gt;&lt;span&gt;aid-recipients-round-1.csv&lt;/span&gt;&lt;/div&gt;&lt;pre&gt;nik,name,kelurahan,status
+1871 •••• •••• 0042,Siti Rahmawati,Way Halim,verified
+1871 •••• •••• 0317,Budi Santoso,Kedaton,pending&lt;/pre&gt;&lt;/div&gt;
     &lt;span class=&quot;feature__caption&quot;&gt;Example data.&lt;/span&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
@@ -368,8 +373,8 @@
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;feature&quot; style=&quot;width: 100%;&quot;&gt;
   &lt;div class=&quot;feature__copy&quot;&gt;
     &lt;span class=&quot;msec__eyebrow&quot;&gt;&lt;span class=&quot;ic ic--sm&quot; aria-hidden=&quot;true&quot;&gt;code&lt;/span&gt;Exports&lt;/span&gt;
-    &lt;h3 class=&quot;feature__title&quot;&gt;Your grades, in the format the office asks for.&lt;/h3&gt;
-    &lt;p class=&quot;feature__body&quot;&gt;Export a term as a spreadsheet, a PDF report or a file for the national records system.&lt;/p&gt;
+    &lt;h3 class=&quot;feature__title&quot;&gt;Social aid recipients, in the format the agency asks for.&lt;/h3&gt;
+    &lt;p class=&quot;feature__body&quot;&gt;Export a distribution round as a spreadsheet, a PDF report or a file for the regional welfare data system.&lt;/p&gt;
     &lt;ul class=&quot;feature__points&quot;&gt;
       &lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check_circle&lt;/span&gt;&lt;span&gt;Columns match the official template.&lt;/span&gt;&lt;/li&gt;
       &lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check_circle&lt;/span&gt;&lt;span&gt;Exports run in the background.&lt;/span&gt;&lt;/li&gt;
@@ -377,9 +382,9 @@
   &lt;/div&gt;
   &lt;div class=&quot;feature__stage&quot;&gt;
     &lt;div class=&quot;seg&quot; role=&quot;group&quot; aria-label=&quot;Format&quot; data-lds-segmented style=&quot;width: 240px;&quot;&gt;&lt;span class=&quot;seg__thumb&quot;&gt;&lt;/span&gt;&lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;true&quot;&gt;CSV&lt;/button&gt;&lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;false&quot;&gt;PDF&lt;/button&gt;&lt;/div&gt;
-    &lt;div class=&quot;codeblock&quot;&gt;&lt;div class=&quot;codeblock__bar&quot;&gt;&lt;span&gt;grades-term-1.csv&lt;/span&gt;&lt;/div&gt;&lt;pre&gt;student_id,name,grade
-2026001,Siti Rahmawati,A
-2026002,Budi Santoso,B+&lt;/pre&gt;&lt;/div&gt;
+    &lt;div class=&quot;codeblock&quot;&gt;&lt;div class=&quot;codeblock__bar&quot;&gt;&lt;span&gt;aid-recipients-round-1.csv&lt;/span&gt;&lt;/div&gt;&lt;pre&gt;nik,name,kelurahan,status
+1871 •••• •••• 0042,Siti Rahmawati,Way Halim,verified
+1871 •••• •••• 0317,Budi Santoso,Kedaton,pending&lt;/pre&gt;&lt;/div&gt;
     &lt;span class=&quot;feature__caption&quot;&gt;Example data.&lt;/span&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
@@ -388,8 +393,8 @@
           <figcaption><span class="cdoc__ex-t">Reversed</span><span class="cdoc__ex-d">Stage first on wide screens; the copy still comes first for screen readers and on phones.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="feature feature--reverse" style="width: 100%;">
   <div class="feature__copy">
-    <h3 class="feature__title">Reminders that stop when the work is in.</h3>
-    <p class="feature__body">Students get one reminder a day before the deadline, and none once they submit.</p>
+    <h3 class="feature__title">Reminders that stop once the tax is paid.</h3>
+    <p class="feature__body">Taxpayers get one reminder a day before the due date, and none once they pay.</p>
   </div>
   <div class="feature__stage">
     <label class="switch"><input type="checkbox" role="switch" checked><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="bell ic" aria-hidden="true">notifications</span>Daily reminder</label>
@@ -401,8 +406,8 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;feature feature--reverse&quot; style=&quot;width: 100%;&quot;&gt;
   &lt;div class=&quot;feature__copy&quot;&gt;
-    &lt;h3 class=&quot;feature__title&quot;&gt;Reminders that stop when the work is in.&lt;/h3&gt;
-    &lt;p class=&quot;feature__body&quot;&gt;Students get one reminder a day before the deadline, and none once they submit.&lt;/p&gt;
+    &lt;h3 class=&quot;feature__title&quot;&gt;Reminders that stop once the tax is paid.&lt;/h3&gt;
+    &lt;p class=&quot;feature__body&quot;&gt;Taxpayers get one reminder a day before the due date, and none once they pay.&lt;/p&gt;
   &lt;/div&gt;
   &lt;div class=&quot;feature__stage&quot;&gt;
     &lt;label class=&quot;switch&quot;&gt;&lt;input type=&quot;checkbox&quot; role=&quot;switch&quot; checked&gt;&lt;span class=&quot;switch__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;switch__thumb&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bell ic&quot; aria-hidden=&quot;true&quot;&gt;notifications&lt;/span&gt;Daily reminder&lt;/label&gt;
@@ -411,8 +416,8 @@
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;feature feature--reverse&quot; style=&quot;width: 100%;&quot;&gt;
   &lt;div class=&quot;feature__copy&quot;&gt;
-    &lt;h3 class=&quot;feature__title&quot;&gt;Reminders that stop when the work is in.&lt;/h3&gt;
-    &lt;p class=&quot;feature__body&quot;&gt;Students get one reminder a day before the deadline, and none once they submit.&lt;/p&gt;
+    &lt;h3 class=&quot;feature__title&quot;&gt;Reminders that stop once the tax is paid.&lt;/h3&gt;
+    &lt;p class=&quot;feature__body&quot;&gt;Taxpayers get one reminder a day before the due date, and none once they pay.&lt;/p&gt;
   &lt;/div&gt;
   &lt;div class=&quot;feature__stage&quot;&gt;
     &lt;label class=&quot;switch&quot;&gt;&lt;input type=&quot;checkbox&quot; role=&quot;switch&quot; checked&gt;&lt;span class=&quot;switch__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;switch__thumb&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bell ic&quot; aria-hidden=&quot;true&quot;&gt;notifications&lt;/span&gt;Daily reminder&lt;/label&gt;
@@ -443,6 +448,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

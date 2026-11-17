@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Charts">Grafik</a></li></ol></nav>
           <h1>Area chart</h1>
           <p class="cdoc__lede">Garis berisi isian sepanjang waktu, digambar dari data: satu seri dengan pembanding putus-putus, sampai empat seri bertumpuk menjadi total, atau anak tangga untuk nilai yang berubah dengan lompatan. Item legenda menyalakan dan mematikan seri; crosshair membaca semua seri sekaligus.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="area-chart.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="area-chart.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Volume sepanjang waktu ketika jumlah di bawah garis itu penting: kunjungan, penumpang, pengaduan, permohonan.</li><li>Bagian dari total sepanjang waktu, bertumpuk: pengaduan menurut saluran, permohonan menurut jenis, penumpang menurut koridor.</li><li>Level yang berubah bertahap lalu bertahan: sisa kuota, stok obat, golongan tarif, peserta terdaftar.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Membandingkan tren yang totalnya tidak bisa dijumlahkan: pakai <a class="link" href="line-chart.html">Line chart</a>. Isian yang bertumpuk saling menutupi; garis tidak.</li><li>Beberapa kelompok terpisah (hari, kecamatan): pakai <a class="link" href="bar-chart.html">Bar chart</a>.</li><li>Bagian dari satu keseluruhan pada satu waktu: pakai <a class="link" href="donut.html">Donut</a>.</li><li>Tren kecil di bawah satu angka utama: pakai <a class="link" href="kpi-card.html">KPI card</a>.</li><li>Aktivitas harian selama berbulan-bulan: pakai <a class="link" href="heatmap.html">Heatmap</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di dalam <a class="link" href="chart-card.html">kartu grafik</a>, selebar kartu. svg digambar pada lebar kartu yang sebenarnya, jadi tick tetap 11 px dan label x menjarang di ponsel, bukan mengecil. Tinggi plot default 220 px; 180 sampai 200 di kartu setengah lebar.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -402,10 +407,10 @@
 const [period, setPeriod] = useState&lt;'7d' | '30d'&gt;('30d');
 &lt;section className=&quot;chart-card&quot; aria-labelledby=&quot;orders-q&quot;&gt;
   &lt;div className=&quot;chart-card__head&quot;&gt;
-    &lt;div className=&quot;chart-card__titles&quot;&gt;&lt;div className=&quot;chart-card__q&quot; id=&quot;orders-q&quot;&gt;Where do orders come from?&lt;/div&gt;&lt;/div&gt;
+    &lt;div className=&quot;chart-card__titles&quot;&gt;&lt;div className=&quot;chart-card__q&quot; id=&quot;orders-q&quot;&gt;How do residents send complaints?&lt;/div&gt;&lt;/div&gt;
     &lt;div className=&quot;chart-card__actions&quot;&gt;&lt;Segmented className=&quot;chart-card__range&quot; label=&quot;Period&quot; value={period} onChange={setPeriod} options={[{ value: '7d', label: '7 days' }, { value: '30d', label: '30 days' }]} /&gt;&lt;/div&gt;
   &lt;/div&gt;
-  &lt;Chart config={{ label: 'Orders per day by channel', stacked: true, x: data[period].x, series: data[period].series }} /&gt;
+  &lt;Chart config={{ label: 'Complaints per day by channel', stacked: true, x: data[period].x, series: data[period].series }} /&gt;
 &lt;/section&gt;</pre></div></section>
         <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="chart-card.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Chart card</span><span class="link-card__body">Bingkai untuk setiap grafik di dasbor: pertanyaan sebagai judul, apa yang diukur di bawahnya, lalu aksi opsional (kontrol periode, menu), angka utama beserta perubahannya, grafik, dan footer berisi waktu data atau tautan ke laporan lengkap.</span></a><a class="link-card" href="line-chart.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Line chart</span><span class="link-card__body">Satu garis per seri sepanjang waktu, pada SVG dengan garis grid yang samar dan label di ujung garis. Untuk tren dengan banyak titik; paling banyak empat seri, seri kedua putus-putus.</span></a><a class="link-card" href="bar-chart.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Bar chart</span><span class="link-card__body">Batang vertikal yang membandingkan satu nilai di beberapa kategori atau periode (hari, kecamatan, jenis layanan). Batang dimulai dari nol, jawabannya disorot, sisanya memudar.</span></a><a class="link-card" href="chart-principles.html"><span class="link-card__eyebrow">Grafik</span><span class="link-card__title">Chart principles</span><span class="link-card__body">Aturan yang diikuti setiap grafik di sistem ini: satu pertanyaan per grafik, ditulis sebagai judulnya; tanda tipis di atas grid yang samar; empat warna seri dengan urutan tetap; label langsung, bukan legenda; dan alternatif teks untuk setiap grafik.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
@@ -426,6 +431,17 @@ const [period, setPeriod] = useState&lt;'7d' | '30d'&gt;('30d');
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,10 +321,14 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Data%20display">Data display</a></li></ol></nav>
           <h1>Rolling number</h1>
           <p class="cdoc__lede">A number whose digits each slide to their new value on the smooth spring, like an odometer. For a count that changes while the person watches.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="rolling-number.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="rolling-number.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A count that changes in front of the person: likes, seats taken, a stepper value, items in a cart.</li><li>A live figure that ticks up or down while the page is open.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>A figure counting up from zero once when it first appears: use <a class="link" href="number-count.html">Number count</a>.</li><li>A countdown to a deadline: use <a class="link" href="timer.html">Timer</a>.</li><li>A static figure: use <a class="link" href="stat-row.html">Stat row</a>. Write it as text with tabular figures.</li><li>A number the person types or steps: use <a class="link" href="number-stepper.html">Number stepper</a>. The stepper already uses a rolling number for its value.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Inline in the text or control that owns the number: a like button, a stepper, a stat value, a cart badge. It inherits font, size and color from its parent.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A count that changes in front of the person: likes, queue numbers taken, a stepper value, seats booked on a city bus.</li><li>A live figure that ticks up or down while the page is open.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>A figure counting up from zero once when it first appears: use <a class="link" href="number-count.html">Number count</a>.</li><li>A countdown to a deadline: use <a class="link" href="timer.html">Timer</a>.</li><li>A static figure: use <a class="link" href="stat-row.html">Stat row</a>. Write it as text with tabular figures.</li><li>A number the person types or steps: use <a class="link" href="number-stepper.html">Number stepper</a>. The stepper already uses a rolling number for its value.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Inline in the text or control that owns the number: a like button, a stepper, a stat value, a queue badge. It inherits font, size and color from its parent.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Seats taken</span><span class="cdoc__ex-d">Each digit slides to its new place. Press the buttons.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Queue numbers taken</span><span class="cdoc__ex-d">Queue tickets taken today at a district service counter. Each digit slides to its new place. Press the buttons.</span></figcaption>
           <div class="cdoc__stage" id="ex-1-stage"><div class="docs-row" style="gap: 20px;">
   <span style="font: 600 40px/1 var(--font); letter-spacing: -0.03em; color: var(--text-strong);"><span class="roll" id="rn" role="img" data-lds-roll="128"></span></span>
   <button class="btn btn--secondary btn--sm" onclick="const el = document.getElementById('rn'); import('../../js/lds.js').then((m) => m.setRoll(el, Number(el.getAttribute('aria-label')) + 1));"><span class="ic" aria-hidden="true">add</span>One more</button>
@@ -381,6 +386,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

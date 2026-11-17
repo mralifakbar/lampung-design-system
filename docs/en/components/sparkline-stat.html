@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,16 +321,20 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Charts">Charts</a></li></ol></nav>
           <h1>Sparkline stat</h1>
           <p class="cdoc__lede">One headline number with a word on its direction and a tiny line of its recent history, in a chart card. The number is the point; the sparkline only shows the shape of the trend.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="sparkline-stat.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="sparkline-stat.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A dashboard tile for one metric people check often, where the trend matters as much as the value: attendance rate, study hours, average score.</li><li>A row of two to four such tiles at the top of a report.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Several key figures with no history to show: use <a class="link" href="stat-row.html">Stat row</a>. It needs no cards; a row of plain figures is quieter.</li><li>The reader needs to read values at specific times: use <a class="link" href="line-chart.html">Line chart</a>.</li><li>Progress toward a target: use <a class="link" href="progress-ring.html">Progress ring</a>.</li><li>A number that ticks up live: use <a class="link" href="rolling-number.html">Rolling number</a>.</li><li>Comparing the metric across categories: use <a class="link" href="bar-chart.html">Bar chart</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> At the top of a dashboard or report, in an <code class="code">auto-grid</code> with <code class="code">--min: 300px</code>. On phones tiles stack full width; the sparkline keeps its 64 px height and shrinks in width.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A dashboard tile for one metric people check often, where the trend matters as much as the value: reports closed on time, average waiting time, satisfaction score.</li><li>A row of two to four such tiles at the top of a report.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Several key figures with no history to show: use <a class="link" href="stat-row.html">Stat row</a>. It needs no cards; a row of plain figures is quieter.</li><li>The reader needs to read values at specific times: use <a class="link" href="line-chart.html">Line chart</a>.</li><li>Progress toward a target: use <a class="link" href="progress-ring.html">Progress ring</a>.</li><li>A number that ticks up live: use <a class="link" href="rolling-number.html">Rolling number</a>.</li><li>Comparing the metric across categories: use <a class="link" href="bar-chart.html">Bar chart</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> At the top of a dashboard or report, in an <code class="code">auto-grid</code> with <code class="code">--min: 300px</code>. On phones tiles stack full width; the sparkline keeps its 64 px height and shrinks in width.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">Rising and good</span><span class="cdoc__ex-d">The line draws in once; the end dot marks the value shown.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="auto-grid" style="--min: 300px;">
 <div class="chart-card">
-  <div><div class="chart-card__q">How often do I attend?</div><div class="chart-card__sub">Attendance rate, last 12 weeks</div></div>
+  <div><div class="chart-card__q">How fast are citizen reports closed?</div><div class="chart-card__sub">Reports closed on time, last 12 weeks</div></div>
   <div class="cluster" style="justify-content: space-between; align-items: flex-end; --gap: 20px;">
-    <div><div class="chart-card__big">92%</div><div class="badge badge--success" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_up</span>4 points above term start</div></div>
-    <svg viewBox="0 0 220 64" style="width: 220px; max-width: 100%; height: 64px;" role="img" aria-label="Attendance rising from 88 to 92 percent over 12 weeks">
+    <div><div class="chart-card__big">92%</div><div class="badge badge--success" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_up</span>4 points above the start of the year</div></div>
+    <svg viewBox="0 0 220 64" style="width: 220px; max-width: 100%; height: 64px;" role="img" aria-label="Reports closed on time rising from 88 to 92 percent over 12 weeks">
       <path class="series-area" d="M4 42.7 L23.3 48.4 L42.5 36.9 L61.8 42.7 L81.1 31.1 L100.4 36.9 L119.6 25.3 L138.9 31.1 L158.2 19.6 L177.5 25.3 L196.7 13.8 L216 19.6 L216 64 L4 64 Z"></path>
       <path class="series-line draw" pathLength="1200" d="M4 42.7 L23.3 48.4 L42.5 36.9 L61.8 42.7 L81.1 31.1 L100.4 36.9 L119.6 25.3 L138.9 31.1 L158.2 19.6 L177.5 25.3 L196.7 13.8 L216 19.6"></path>
       <circle cx="216" cy="19.6" r="4" fill="var(--series-1)" stroke="var(--bg-base)" stroke-width="2"></circle>
@@ -337,10 +342,10 @@
   </div>
 </div>
 <div class="chart-card">
-  <div><div class="chart-card__q">How much am I studying?</div><div class="chart-card__sub">Hours logged per week, last 12 weeks</div></div>
+  <div><div class="chart-card__q">How long is the queue at the desk?</div><div class="chart-card__sub">Average waiting time per week, last 12 weeks</div></div>
   <div class="cluster" style="justify-content: space-between; align-items: flex-end; --gap: 20px;">
-    <div><div class="chart-card__big">7 h</div><div class="badge badge--warning" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_down</span>Half of week 1</div></div>
-    <svg viewBox="0 0 220 64" style="width: 220px; max-width: 100%; height: 64px;" role="img" aria-label="Study hours falling from 14 to 7 per week over 12 weeks">
+    <div><div class="chart-card__big">7 min</div><div class="badge badge--warning" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_down</span>Half of week 1</div></div>
+    <svg viewBox="0 0 220 64" style="width: 220px; max-width: 100%; height: 64px;" role="img" aria-label="Waiting time falling from 14 to 7 minutes over 12 weeks">
       <path class="series-area" d="M4 13.2 L23.3 23.6 L42.5 28.8 L61.8 23.6 L81.1 34 L100.4 39.2 L119.6 34 L138.9 44.4 L158.2 39.2 L177.5 49.6 L196.7 44.4 L216 49.6 L216 64 L4 64 Z"></path>
       <path class="series-line draw" pathLength="1200" d="M4 13.2 L23.3 23.6 L42.5 28.8 L61.8 23.6 L81.1 34 L100.4 39.2 L119.6 34 L138.9 44.4 L158.2 39.2 L177.5 49.6 L196.7 44.4 L216 49.6"></path>
       <circle cx="216" cy="49.6" r="4" fill="var(--series-1)" stroke="var(--bg-base)" stroke-width="2"></circle>
@@ -350,10 +355,10 @@
 </div></div>
           <template id="ex-1-stage-tpl"><div class="auto-grid" style="--min: 300px;">
 <div class="chart-card">
-  <div><div class="chart-card__q">How often do I attend?</div><div class="chart-card__sub">Attendance rate, last 12 weeks</div></div>
+  <div><div class="chart-card__q">How fast are citizen reports closed?</div><div class="chart-card__sub">Reports closed on time, last 12 weeks</div></div>
   <div class="cluster" style="justify-content: space-between; align-items: flex-end; --gap: 20px;">
-    <div><div class="chart-card__big">92%</div><div class="badge badge--success" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_up</span>4 points above term start</div></div>
-    <svg viewBox="0 0 220 64" style="width: 220px; max-width: 100%; height: 64px;" role="img" aria-label="Attendance rising from 88 to 92 percent over 12 weeks">
+    <div><div class="chart-card__big">92%</div><div class="badge badge--success" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_up</span>4 points above the start of the year</div></div>
+    <svg viewBox="0 0 220 64" style="width: 220px; max-width: 100%; height: 64px;" role="img" aria-label="Reports closed on time rising from 88 to 92 percent over 12 weeks">
       <path class="series-area" d="M4 42.7 L23.3 48.4 L42.5 36.9 L61.8 42.7 L81.1 31.1 L100.4 36.9 L119.6 25.3 L138.9 31.1 L158.2 19.6 L177.5 25.3 L196.7 13.8 L216 19.6 L216 64 L4 64 Z"></path>
       <path class="series-line draw" pathLength="1200" d="M4 42.7 L23.3 48.4 L42.5 36.9 L61.8 42.7 L81.1 31.1 L100.4 36.9 L119.6 25.3 L138.9 31.1 L158.2 19.6 L177.5 25.3 L196.7 13.8 L216 19.6"></path>
       <circle cx="216" cy="19.6" r="4" fill="var(--series-1)" stroke="var(--bg-base)" stroke-width="2"></circle>
@@ -361,10 +366,10 @@
   </div>
 </div>
 <div class="chart-card">
-  <div><div class="chart-card__q">How much am I studying?</div><div class="chart-card__sub">Hours logged per week, last 12 weeks</div></div>
+  <div><div class="chart-card__q">How long is the queue at the desk?</div><div class="chart-card__sub">Average waiting time per week, last 12 weeks</div></div>
   <div class="cluster" style="justify-content: space-between; align-items: flex-end; --gap: 20px;">
-    <div><div class="chart-card__big">7 h</div><div class="badge badge--warning" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_down</span>Half of week 1</div></div>
-    <svg viewBox="0 0 220 64" style="width: 220px; max-width: 100%; height: 64px;" role="img" aria-label="Study hours falling from 14 to 7 per week over 12 weeks">
+    <div><div class="chart-card__big">7 min</div><div class="badge badge--warning" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_down</span>Half of week 1</div></div>
+    <svg viewBox="0 0 220 64" style="width: 220px; max-width: 100%; height: 64px;" role="img" aria-label="Waiting time falling from 14 to 7 minutes over 12 weeks">
       <path class="series-area" d="M4 13.2 L23.3 23.6 L42.5 28.8 L61.8 23.6 L81.1 34 L100.4 39.2 L119.6 34 L138.9 44.4 L158.2 39.2 L177.5 49.6 L196.7 44.4 L216 49.6 L216 64 L4 64 Z"></path>
       <path class="series-line draw" pathLength="1200" d="M4 13.2 L23.3 23.6 L42.5 28.8 L61.8 23.6 L81.1 34 L100.4 39.2 L119.6 34 L138.9 44.4 L158.2 39.2 L177.5 49.6 L196.7 44.4 L216 49.6"></path>
       <circle cx="216" cy="49.6" r="4" fill="var(--series-1)" stroke="var(--bg-base)" stroke-width="2"></circle>
@@ -377,10 +382,10 @@
             <button class="btn btn--plain btn--sm" data-replay="ex-1-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>Replay</button>
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;auto-grid&quot; style=&quot;--min: 300px;&quot;&gt;
 &lt;div class=&quot;chart-card&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot;&gt;How often do I attend?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Attendance rate, last 12 weeks&lt;/div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot;&gt;How fast are citizen reports closed?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Reports closed on time, last 12 weeks&lt;/div&gt;&lt;/div&gt;
   &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between; align-items: flex-end; --gap: 20px;&quot;&gt;
-    &lt;div&gt;&lt;div class=&quot;chart-card__big&quot;&gt;92%&lt;/div&gt;&lt;div class=&quot;badge badge--success&quot; style=&quot;margin-top: 8px;&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;trending_up&lt;/span&gt;4 points above term start&lt;/div&gt;&lt;/div&gt;
-    &lt;svg viewBox=&quot;0 0 220 64&quot; style=&quot;width: 220px; max-width: 100%; height: 64px;&quot; role=&quot;img&quot; aria-label=&quot;Attendance rising from 88 to 92 percent over 12 weeks&quot;&gt;
+    &lt;div&gt;&lt;div class=&quot;chart-card__big&quot;&gt;92%&lt;/div&gt;&lt;div class=&quot;badge badge--success&quot; style=&quot;margin-top: 8px;&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;trending_up&lt;/span&gt;4 points above the start of the year&lt;/div&gt;&lt;/div&gt;
+    &lt;svg viewBox=&quot;0 0 220 64&quot; style=&quot;width: 220px; max-width: 100%; height: 64px;&quot; role=&quot;img&quot; aria-label=&quot;Reports closed on time rising from 88 to 92 percent over 12 weeks&quot;&gt;
       &lt;path class=&quot;series-area&quot; d=&quot;M4 42.7 L23.3 48.4 L42.5 36.9 L61.8 42.7 L81.1 31.1 L100.4 36.9 L119.6 25.3 L138.9 31.1 L158.2 19.6 L177.5 25.3 L196.7 13.8 L216 19.6 L216 64 L4 64 Z&quot;&gt;&lt;/path&gt;
       &lt;path class=&quot;series-line draw&quot; pathLength=&quot;1200&quot; d=&quot;M4 42.7 L23.3 48.4 L42.5 36.9 L61.8 42.7 L81.1 31.1 L100.4 36.9 L119.6 25.3 L138.9 31.1 L158.2 19.6 L177.5 25.3 L196.7 13.8 L216 19.6&quot;&gt;&lt;/path&gt;
       &lt;circle cx=&quot;216&quot; cy=&quot;19.6&quot; r=&quot;4&quot; fill=&quot;var(--series-1)&quot; stroke=&quot;var(--bg-base)&quot; stroke-width=&quot;2&quot;&gt;&lt;/circle&gt;
@@ -388,10 +393,10 @@
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;chart-card&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot;&gt;How much am I studying?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Hours logged per week, last 12 weeks&lt;/div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot;&gt;How long is the queue at the desk?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Average waiting time per week, last 12 weeks&lt;/div&gt;&lt;/div&gt;
   &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between; align-items: flex-end; --gap: 20px;&quot;&gt;
-    &lt;div&gt;&lt;div class=&quot;chart-card__big&quot;&gt;7 h&lt;/div&gt;&lt;div class=&quot;badge badge--warning&quot; style=&quot;margin-top: 8px;&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;trending_down&lt;/span&gt;Half of week 1&lt;/div&gt;&lt;/div&gt;
-    &lt;svg viewBox=&quot;0 0 220 64&quot; style=&quot;width: 220px; max-width: 100%; height: 64px;&quot; role=&quot;img&quot; aria-label=&quot;Study hours falling from 14 to 7 per week over 12 weeks&quot;&gt;
+    &lt;div&gt;&lt;div class=&quot;chart-card__big&quot;&gt;7 min&lt;/div&gt;&lt;div class=&quot;badge badge--warning&quot; style=&quot;margin-top: 8px;&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;trending_down&lt;/span&gt;Half of week 1&lt;/div&gt;&lt;/div&gt;
+    &lt;svg viewBox=&quot;0 0 220 64&quot; style=&quot;width: 220px; max-width: 100%; height: 64px;&quot; role=&quot;img&quot; aria-label=&quot;Waiting time falling from 14 to 7 minutes over 12 weeks&quot;&gt;
       &lt;path class=&quot;series-area&quot; d=&quot;M4 13.2 L23.3 23.6 L42.5 28.8 L61.8 23.6 L81.1 34 L100.4 39.2 L119.6 34 L138.9 44.4 L158.2 39.2 L177.5 49.6 L196.7 44.4 L216 49.6 L216 64 L4 64 Z&quot;&gt;&lt;/path&gt;
       &lt;path class=&quot;series-line draw&quot; pathLength=&quot;1200&quot; d=&quot;M4 13.2 L23.3 23.6 L42.5 28.8 L61.8 23.6 L81.1 34 L100.4 39.2 L119.6 34 L138.9 44.4 L158.2 39.2 L177.5 49.6 L196.7 44.4 L216 49.6&quot;&gt;&lt;/path&gt;
       &lt;circle cx=&quot;216&quot; cy=&quot;49.6&quot; r=&quot;4&quot; fill=&quot;var(--series-1)&quot; stroke=&quot;var(--bg-base)&quot; stroke-width=&quot;2&quot;&gt;&lt;/circle&gt;
@@ -402,10 +407,10 @@
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;auto-grid&quot; style=&quot;--min: 300px;&quot;&gt;
 &lt;div class=&quot;chart-card&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot;&gt;How often do I attend?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Attendance rate, last 12 weeks&lt;/div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot;&gt;How fast are citizen reports closed?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Reports closed on time, last 12 weeks&lt;/div&gt;&lt;/div&gt;
   &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between; align-items: flex-end; --gap: 20px;&quot;&gt;
-    &lt;div&gt;&lt;div class=&quot;chart-card__big&quot;&gt;92%&lt;/div&gt;&lt;div class=&quot;badge badge--success&quot; style=&quot;margin-top: 8px;&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;trending_up&lt;/span&gt;4 points above term start&lt;/div&gt;&lt;/div&gt;
-    &lt;svg viewBox=&quot;0 0 220 64&quot; style=&quot;width: 220px; max-width: 100%; height: 64px;&quot; role=&quot;img&quot; aria-label=&quot;Attendance rising from 88 to 92 percent over 12 weeks&quot;&gt;
+    &lt;div&gt;&lt;div class=&quot;chart-card__big&quot;&gt;92%&lt;/div&gt;&lt;div class=&quot;badge badge--success&quot; style=&quot;margin-top: 8px;&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;trending_up&lt;/span&gt;4 points above the start of the year&lt;/div&gt;&lt;/div&gt;
+    &lt;svg viewBox=&quot;0 0 220 64&quot; style=&quot;width: 220px; max-width: 100%; height: 64px;&quot; role=&quot;img&quot; aria-label=&quot;Reports closed on time rising from 88 to 92 percent over 12 weeks&quot;&gt;
       &lt;path class=&quot;series-area&quot; d=&quot;M4 42.7 L23.3 48.4 L42.5 36.9 L61.8 42.7 L81.1 31.1 L100.4 36.9 L119.6 25.3 L138.9 31.1 L158.2 19.6 L177.5 25.3 L196.7 13.8 L216 19.6 L216 64 L4 64 Z&quot;&gt;&lt;/path&gt;
       &lt;path class=&quot;series-line draw&quot; pathLength=&quot;1200&quot; d=&quot;M4 42.7 L23.3 48.4 L42.5 36.9 L61.8 42.7 L81.1 31.1 L100.4 36.9 L119.6 25.3 L138.9 31.1 L158.2 19.6 L177.5 25.3 L196.7 13.8 L216 19.6&quot;&gt;&lt;/path&gt;
       &lt;circle cx=&quot;216&quot; cy=&quot;19.6&quot; r=&quot;4&quot; fill=&quot;var(--series-1)&quot; stroke=&quot;var(--bg-base)&quot; stroke-width=&quot;2&quot;&gt;&lt;/circle&gt;
@@ -413,10 +418,10 @@
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class=&quot;chart-card&quot;&gt;
-  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot;&gt;How much am I studying?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Hours logged per week, last 12 weeks&lt;/div&gt;&lt;/div&gt;
+  &lt;div&gt;&lt;div class=&quot;chart-card__q&quot;&gt;How long is the queue at the desk?&lt;/div&gt;&lt;div class=&quot;chart-card__sub&quot;&gt;Average waiting time per week, last 12 weeks&lt;/div&gt;&lt;/div&gt;
   &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between; align-items: flex-end; --gap: 20px;&quot;&gt;
-    &lt;div&gt;&lt;div class=&quot;chart-card__big&quot;&gt;7 h&lt;/div&gt;&lt;div class=&quot;badge badge--warning&quot; style=&quot;margin-top: 8px;&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;trending_down&lt;/span&gt;Half of week 1&lt;/div&gt;&lt;/div&gt;
-    &lt;svg viewBox=&quot;0 0 220 64&quot; style=&quot;width: 220px; max-width: 100%; height: 64px;&quot; role=&quot;img&quot; aria-label=&quot;Study hours falling from 14 to 7 per week over 12 weeks&quot;&gt;
+    &lt;div&gt;&lt;div class=&quot;chart-card__big&quot;&gt;7 min&lt;/div&gt;&lt;div class=&quot;badge badge--warning&quot; style=&quot;margin-top: 8px;&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;trending_down&lt;/span&gt;Half of week 1&lt;/div&gt;&lt;/div&gt;
+    &lt;svg viewBox=&quot;0 0 220 64&quot; style=&quot;width: 220px; max-width: 100%; height: 64px;&quot; role=&quot;img&quot; aria-label=&quot;Waiting time falling from 14 to 7 minutes over 12 weeks&quot;&gt;
       &lt;path class=&quot;series-area&quot; d=&quot;M4 13.2 L23.3 23.6 L42.5 28.8 L61.8 23.6 L81.1 34 L100.4 39.2 L119.6 34 L138.9 44.4 L158.2 39.2 L177.5 49.6 L196.7 44.4 L216 49.6 L216 64 L4 64 Z&quot;&gt;&lt;/path&gt;
       &lt;path class=&quot;series-line draw&quot; pathLength=&quot;1200&quot; d=&quot;M4 13.2 L23.3 23.6 L42.5 28.8 L61.8 23.6 L81.1 34 L100.4 39.2 L119.6 34 L138.9 44.4 L158.2 39.2 L177.5 49.6 L196.7 44.4 L216 49.6&quot;&gt;&lt;/path&gt;
       &lt;circle cx=&quot;216&quot; cy=&quot;49.6&quot; r=&quot;4&quot; fill=&quot;var(--series-1)&quot; stroke=&quot;var(--bg-base)&quot; stroke-width=&quot;2&quot;&gt;&lt;/circle&gt;
@@ -429,7 +434,7 @@
         <section class="cdoc__sec" id="states"><h2>States</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>State</th><th>How</th></tr></thead><tbody><tr><td><code class="code">loading</code></td><td>Skeleton blocks for the number and the line; see <a class="link" href="chart-states.html">chart states</a>.</td></tr><tr><td><code class="code">no history</code></td><td>With fewer than three points, drop the sparkline and show the number alone.</td></tr><tr><td><code class="code">bad trend</code></td><td><code class="code">badge--warning</code> or <code class="code">badge--danger</code> with the direction icon; falling can be good (fewer late submissions), so color by meaning.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="motion"><h2>Motion and microinteractions</h2><ul class="cdoc__list"><li>First view: the line draws in with <code class="code">.draw</code> (stroke dash offset to 0 over 1.2 s on <code class="code">--ease-inout</code>). Give the path <code class="code">pathLength=&quot;1200&quot;</code> so the dash matches its length exactly.</li><li>Value updates do not redraw; swap the number with <a class="link" href="number-count.html">number count</a> or <a class="link" href="rolling-number.html">rolling number</a>.</li><li>Reduced motion: the line appears drawn.</li></ul></section>
         <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li>The svg is <code class="code">role=&quot;img&quot;</code> with an <code class="code">aria-label</code> that states start, end and period. The number and badge are real text.</li><li>The badge says the direction in words; the icon is decorative.</li><li>Do not make the tile a link unless it opens the full chart; then the whole card is the link with the question as its name.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Lead with the number; keep the line small and unlabelled.</li><li>Say what the change is relative to (&quot;above term start&quot;).</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Add axes, ticks or tooltips to a sparkline.</li><li>Color the badge green just because the line goes up.</li><li>Show more than four tiles in a row.</li></ul></div></div></section>
+        <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Lead with the number; keep the line small and unlabelled.</li><li>Say what the change is relative to (&quot;above the start of the year&quot;).</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Add axes, ticks or tooltips to a sparkline.</li><li>Color the badge green just because the line goes up.</li><li>Show more than four tiles in a row.</li></ul></div></div></section>
         <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="stat-row.html"><span class="link-card__eyebrow">Data display</span><span class="link-card__title">Stat row</span><span class="link-card__body">A row of key figures without cards: big tabular numbers with their labels underneath, divided by hairlines. Its columns follow the width of the content column, not the screen.</span></a><a class="link-card" href="line-chart.html"><span class="link-card__eyebrow">Charts</span><span class="link-card__title">Line chart</span><span class="link-card__body">A line per series over time, on an SVG with receding gridlines and labels at the line ends. For trends across many points; at most four series, the second one dashed.</span></a><a class="link-card" href="chart-principles.html"><span class="link-card__eyebrow">Charts</span><span class="link-card__title">Chart principles</span><span class="link-card__body">The rules every chart in the system follows: one question per chart, written as its title; thin marks on receding grids; four series colors in a fixed order; direct labels over legends; and a text alternative for every chart.</span></a><a class="link-card" href="badge.html"><span class="link-card__eyebrow">Feedback</span><span class="link-card__title">Badge</span><span class="link-card__body">A small, non-interactive label for the state or type of a thing: Draft, Overdue, Approved. Human words, one or two at most per item.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Previous and next component">
           <a class="link-card cdoc__prev" href="chart-card.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Previous</span><span class="link-card__title">Chart card</span></a>
@@ -449,6 +454,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

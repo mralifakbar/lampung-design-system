@@ -1,0 +1,68 @@
+# Site footer
+
+Group: Marketing. https://lampung.kartadinata.app/docs/en/components/site-footer
+
+The bottom of a marketing or content site: the product name and one line about it, link groups that exist, and a bottom row for the small print and the appearance control.
+
+## Use it when
+- Every page of a marketing, landing or documentation site that uses a [top nav](top-nav.md).
+
+## Use something else when
+- Inside an app with a sidebar: use [App shell](app-shell.md). Settings and legal links live in the sidebar footer or the account menu.
+- A closing ask: use [CTA band](cta-band.md).
+
+## Where it goes
+The last element in `<body>`, after `<main>`. Same width and gutter as the [marketing sections](marketing-section.md). The brand takes 2 of 5 columns from 760 px; the link groups wrap at 104 px each, so three fit on a phone.
+
+## Anatomy
+| Part | What it is |
+|---|---|
+| `footer.site-footer` | Required. Hairline on top. |
+| `.site-footer__top` | Brand and the link groups. |
+| `.site-footer__brand` | `.site-footer__name` and `p.site-footer__about`. |
+| `nav.site-footer__nav` | A `nav` with `aria-label="Footer"`. |
+| `.site-footer__group` | A small `h2` and a `ul` of links. Only groups the site really has. |
+| `.site-footer__bottom` | The small print (copyright, example notice, legal) and the appearance control. |
+
+## Markup
+
+**Three groups and the appearance control.** Links are 32 px tall with a pointer and 44 px on touch screens.
+```html
+<footer class="site-footer" style="width: 100%;">
+  <div class="site-footer__top">
+    <div class="site-footer__brand"><span class="site-footer__name">Layanan Warga</span><p class="site-footer__about">Permits, local tax and citizen reports in one place.</p></div>
+    <nav class="site-footer__nav" aria-label="Footer">
+      <div class="site-footer__group"><h2>Services</h2><ul><li><a href="#">Permits</a></li><li><a href="#">Local tax</a></li></ul></div>
+      <div class="site-footer__group"><h2>Help</h2><ul><li><a href="#">Guides</a></li><li><a href="#">Contact</a></li></ul></div>
+      <div class="site-footer__group"><h2>Legal</h2><ul><li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li></ul></div>
+    </nav>
+  </div>
+  <div class="site-footer__bottom">
+    <p>© 2026 Layanan Warga. Example content.</p>
+    <div class="seg" role="group" aria-label="Appearance" data-lds-segmented style="width: 200px;"><span class="seg__thumb"></span><button class="seg__btn" aria-pressed="true" data-lds-theme="light"><span class="ic ic--sm" aria-hidden="true">light_mode</span>&nbsp;Light</button><button class="seg__btn" aria-pressed="false" data-lds-theme="dark"><span class="ic ic--sm" aria-hidden="true">dark_mode</span>&nbsp;Dark</button></div>
+  </div>
+</footer>
+```
+
+## States
+| State | How |
+|---|---|
+| `hover` | Link text turns strong, only where hover exists. |
+
+## Motion and microinteractions
+- Color only, over `--d-fast`.
+
+## Accessibility
+- A `footer` landmark with a labelled `nav`; group headings are `h2` so they appear in the outline.
+- Links are 44 px tall on touch screens.
+
+## Do
+- List only pages that exist.
+- Put an example notice in the small print on demo pages.
+
+## Don't
+- Fill four columns because templates have four.
+- Repeat the whole top nav and every section anchor.
+
+## Related
+[Top nav](top-nav.md) · [CTA band](cta-band.md) · [Marketing section](marketing-section.md) · [Theming](theming.md)

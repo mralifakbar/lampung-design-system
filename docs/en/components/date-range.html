@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,8 +321,12 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Inputs">Inputs</a></li></ol></nav>
           <h1>Date range</h1>
           <p class="cdoc__lede">A button that shows the current span and opens presets beside a two-month calendar (one month on phones). A preset applies at once; picking a start previews the span as you move, picking an end waits for Apply.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="date-range.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="date-range.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>The period of a dashboard, a report or an export: last 30 days, this month, a custom span.</li><li>Filtering records by when they happened: orders between two dates, sign-ups this quarter.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>One date in a form: use <a class="link" href="date-field.html">Date field</a>.</li><li>Picking days where seeing the week matters and the calendar is the page: use <a class="link" href="calendar.html">Calendar</a>.</li><li>Two to five fixed periods only (7 days, 30 days, 90 days): use <a class="link" href="segmented-control.html">Segmented control</a>. Faster than opening a picker.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In the page header actions or a toolbar, usually at the end of the row; its popover opens under it and keeps itself on screen. Below 720 px the presets become a scrolling row of pills above one month.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>The period of a dashboard, a report or an export: last 30 days, this month, a custom span.</li><li>Filtering records by when they happened: applications between two dates, registrations this quarter.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>One date in a form: use <a class="link" href="date-field.html">Date field</a>.</li><li>Picking days where seeing the week matters and the calendar is the page: use <a class="link" href="calendar.html">Calendar</a>.</li><li>Two to five fixed periods only (7 days, 30 days, 90 days): use <a class="link" href="segmented-control.html">Segmented control</a>. Faster than opening a picker.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In the page header actions or a toolbar, usually at the end of the row; its popover opens under it and keeps itself on screen. Below 720 px the presets become a scrolling row of pills above one month.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">Report period</span><span class="cdoc__ex-d">Open it: pick a preset to apply at once, or pick a first day, move over the calendar to see the span, pick the last day and Apply. Days after today are not available.</span></figcaption>
           <div class="cdoc__stage" id="ex-1-stage" style="min-height: 520px;"><div class="daterange" data-lds-daterange data-start="2026-10-18" data-end="2026-11-16" data-today="2026-11-16">
@@ -367,6 +372,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

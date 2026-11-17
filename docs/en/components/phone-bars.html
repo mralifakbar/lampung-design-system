@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,8 +321,12 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Navigation">Navigation</a></li></ol></nav>
           <h1>Phone bars</h1>
           <p class="cdoc__lede">The chrome of a phone screen: a nav bar at the top whose large title collapses into it on scroll, and a tab bar of three to five destinations at the bottom. Both are translucent so content scrolls visibly under them.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="phone-bars.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="phone-bars.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A phone-first app or installed web app with three to five top-level destinations people switch between all day: Today, Schedule, Courses, Profile.</li><li>A phone screen that needs a title, a back button and one or two actions at the top.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>A responsive web app that also runs on desktops: use <a class="link" href="app-shell.html">App shell</a>. The shell turns into a top bar and drawer on phones by itself.</li><li>A website with a few pages: use <a class="link" href="top-nav.html">Top nav</a>.</li><li>Sections inside one screen: use <a class="link" href="segmented-control.html">Segmented control</a>. Put a segmented control under the large title.</li><li>More than five destinations: use <a class="link" href="app-shell.html">App shell</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Inside a full-height phone screen (<a class="link" href="phone-screen.html">phone screen</a>): <code class="code">.navbar</code> absolute at the top over the scroller, <code class="code">.large-title</code> as the first content in the scroller, <code class="code">.tabbar</code> absolute at the bottom. Both bars pad themselves for the notch and home indicator in a real app; the docs frame <code class="code">.phone</code> is only for showing them.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A phone-first app or installed web app with three to five top-level destinations people switch between all day: Today, Schedule, Services, Profile.</li><li>A phone screen that needs a title, a back button and one or two actions at the top.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>A responsive web app that also runs on desktops: use <a class="link" href="app-shell.html">App shell</a>. The shell turns into a top bar and drawer on phones by itself.</li><li>A website with a few pages: use <a class="link" href="top-nav.html">Top nav</a>.</li><li>Sections inside one screen: use <a class="link" href="segmented-control.html">Segmented control</a>. Put a segmented control under the large title.</li><li>More than five destinations: use <a class="link" href="app-shell.html">App shell</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Inside a full-height phone screen (<a class="link" href="phone-screen.html">phone screen</a>): <code class="code">.navbar</code> absolute at the top over the scroller, <code class="code">.large-title</code> as the first content in the scroller, <code class="code">.tabbar</code> absolute at the bottom. Both bars pad themselves for the notch and home indicator in a real app; the docs frame <code class="code">.phone</code> is only for showing them.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">Today screen</span><span class="cdoc__ex-d">Scroll the screen: past 44 px the bar gains its material and the inline title rises in. Tap a tab: its glyph fills and pops once.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--phone" id="ex-1-stage"><div class="phone phone--inline" style="height: 560px;">
@@ -335,22 +340,22 @@
     <h3 class="large-title">Today</h3>
     <div class="stack" style="padding: 12px 16px 110px;">
       <div class="list list--fill">
-        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Database Systems</span><span class="lrow__sub" style="display: block;">08:00 · H 2.14</span></span></div>
-        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Linear Algebra</span><span class="lrow__sub" style="display: block;">10:00 · A 1.02</span></span></div>
-        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Computer Networks</span><span class="lrow__sub" style="display: block;">13:00 · H 3.01</span></span></div>
+        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Posyandu Melati</span><span class="lrow__sub" style="display: block;">08:00 · RT 03 community hall</span></span></div>
+        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Prenatal check-up</span><span class="lrow__sub" style="display: block;">10:00 · Puskesmas Kedaton</span></span></div>
+        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Child immunization</span><span class="lrow__sub" style="display: block;">13:00 · Puskesmas Kedaton</span></span></div>
       </div>
       <div class="list list--fill">
-        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Lab report 3</span><span class="lrow__sub" style="display: block;">Due tomorrow</span></span><span class="badge badge--warning">Tomorrow</span></div>
-        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Problem set 7</span><span class="lrow__sub" style="display: block;">Due Thursday</span></span><span class="badge">Thu</span></div>
-        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Reading: chapter 9</span><span class="lrow__sub" style="display: block;">Due Friday</span></span><span class="badge">Fri</span></div>
-        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Quiz 4</span><span class="lrow__sub" style="display: block;">Next Monday</span></span><span class="badge">Mon</span></div>
+        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Complete domicile letter</span><span class="lrow__sub" style="display: block;">Due tomorrow</span></span><span class="badge badge--warning">Tomorrow</span></div>
+        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Pay vehicle tax</span><span class="lrow__sub" style="display: block;">Due Thursday</span></span><span class="badge">Thu</span></div>
+        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Business site survey</span><span class="lrow__sub" style="display: block;">Scheduled Friday</span></span><span class="badge">Fri</span></div>
+        <div class="lrow"><span class="lrow__body"><span class="lrow__title" style="display: block;">Collect e-KTP</span><span class="lrow__sub" style="display: block;">Next Monday</span></span><span class="badge">Mon</span></div>
       </div>
     </div>
   </div>
   <nav class="tabbar" style="height: 76px; padding-bottom: 22px;" aria-label="Main" onclick="const b = event.target.closest('.tabbar__item'); if (!b) return; this.querySelectorAll('.tabbar__item').forEach((x) => x.removeAttribute('aria-current')); b.setAttribute('aria-current', 'page');">
     <button class="tabbar__item" aria-current="page"><span class="ic" aria-hidden="true">today</span>Today</button>
     <button class="tabbar__item"><span class="ic" aria-hidden="true">calendar_month</span>Schedule</button>
-    <button class="tabbar__item"><span class="ic" aria-hidden="true">school</span>Courses</button>
+    <button class="tabbar__item"><span class="ic" aria-hidden="true">account_balance</span>Services</button>
     <button class="tabbar__item"><span class="ic" aria-hidden="true">person</span>Profile</button>
   </nav>
   <span class="home-ind" style="bottom: 7px; width: 108px;" aria-hidden="true"></span>
@@ -371,7 +376,7 @@
 &lt;nav class=&quot;tabbar&quot; aria-label=&quot;Main&quot;&gt;
   &lt;a class=&quot;tabbar__item&quot; href=&quot;/today&quot; aria-current=&quot;page&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;today&lt;/span&gt;Today&lt;/a&gt;
   &lt;a class=&quot;tabbar__item&quot; href=&quot;/schedule&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;calendar_month&lt;/span&gt;Schedule&lt;/a&gt;
-  &lt;a class=&quot;tabbar__item&quot; href=&quot;/courses&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;school&lt;/span&gt;Courses&lt;/a&gt;
+  &lt;a class=&quot;tabbar__item&quot; href=&quot;/services&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;account_balance&lt;/span&gt;Services&lt;/a&gt;
   &lt;a class=&quot;tabbar__item&quot; href=&quot;/profile&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;person&lt;/span&gt;Profile&lt;/a&gt;
 &lt;/nav&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
@@ -387,7 +392,7 @@
 &lt;nav class=&quot;tabbar&quot; aria-label=&quot;Main&quot;&gt;
   &lt;a class=&quot;tabbar__item&quot; href=&quot;/today&quot; aria-current=&quot;page&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;today&lt;/span&gt;Today&lt;/a&gt;
   &lt;a class=&quot;tabbar__item&quot; href=&quot;/schedule&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;calendar_month&lt;/span&gt;Schedule&lt;/a&gt;
-  &lt;a class=&quot;tabbar__item&quot; href=&quot;/courses&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;school&lt;/span&gt;Courses&lt;/a&gt;
+  &lt;a class=&quot;tabbar__item&quot; href=&quot;/services&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;account_balance&lt;/span&gt;Services&lt;/a&gt;
   &lt;a class=&quot;tabbar__item&quot; href=&quot;/profile&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;person&lt;/span&gt;Profile&lt;/a&gt;
 &lt;/nav&gt;</pre></div></div></div>
         </figure>
@@ -395,12 +400,12 @@
           <figcaption><span class="cdoc__ex-t">Pushed screen with a back button</span><span class="cdoc__ex-d">A detail screen: back on the leading side, the title always shown in the bar (<code class="code">.is-scrolled</code>), one action on the trailing side.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--phone" id="ex-2-stage"><div class="phone phone--inline" style="height: 300px;">
   <div class="navbar is-scrolled" style="height: 56px; padding-top: 8px;">
-    <span><button class="icon-btn" aria-label="Back to courses"><span class="ic" aria-hidden="true">arrow_back_ios_new</span></button></span>
-    <span class="navbar__title">Database Systems</span>
-    <div class="navbar__end"><button class="icon-btn" aria-label="Share course"><span class="ic" aria-hidden="true">ios_share</span></button></div>
+    <span><button class="icon-btn" aria-label="Back to services"><span class="ic" aria-hidden="true">arrow_back_ios_new</span></button></span>
+    <span class="navbar__title">Micro business permit</span>
+    <div class="navbar__end"><button class="icon-btn" aria-label="Share service"><span class="ic" aria-hidden="true">ios_share</span></button></div>
   </div>
   <div class="phone__scroll" style="padding: 72px 16px 24px;">
-    <p class="section__sub">CS 2104 · 3 credits · Mon and Thu, 08:00</p>
+    <p class="section__sub">IUM 2104 · done in 3 working days · Mon and Thu, 08:00</p>
   </div>
 </div></div>
           
@@ -409,30 +414,30 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;phone phone--inline&quot; style=&quot;height: 300px;&quot;&gt;
   &lt;div class=&quot;navbar is-scrolled&quot; style=&quot;height: 56px; padding-top: 8px;&quot;&gt;
-    &lt;span&gt;&lt;button class=&quot;icon-btn&quot; aria-label=&quot;Back to courses&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_back_ios_new&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;
-    &lt;span class=&quot;navbar__title&quot;&gt;Database Systems&lt;/span&gt;
-    &lt;div class=&quot;navbar__end&quot;&gt;&lt;button class=&quot;icon-btn&quot; aria-label=&quot;Share course&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;ios_share&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+    &lt;span&gt;&lt;button class=&quot;icon-btn&quot; aria-label=&quot;Back to services&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_back_ios_new&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;
+    &lt;span class=&quot;navbar__title&quot;&gt;Micro business permit&lt;/span&gt;
+    &lt;div class=&quot;navbar__end&quot;&gt;&lt;button class=&quot;icon-btn&quot; aria-label=&quot;Share service&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;ios_share&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;phone__scroll&quot; style=&quot;padding: 72px 16px 24px;&quot;&gt;
-    &lt;p class=&quot;section__sub&quot;&gt;CS 2104 · 3 credits · Mon and Thu, 08:00&lt;/p&gt;
+    &lt;p class=&quot;section__sub&quot;&gt;IUM 2104 · done in 3 working days · Mon and Thu, 08:00&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;phone phone--inline&quot; style=&quot;height: 300px;&quot;&gt;
   &lt;div class=&quot;navbar is-scrolled&quot; style=&quot;height: 56px; padding-top: 8px;&quot;&gt;
-    &lt;span&gt;&lt;button class=&quot;icon-btn&quot; aria-label=&quot;Back to courses&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_back_ios_new&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;
-    &lt;span class=&quot;navbar__title&quot;&gt;Database Systems&lt;/span&gt;
-    &lt;div class=&quot;navbar__end&quot;&gt;&lt;button class=&quot;icon-btn&quot; aria-label=&quot;Share course&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;ios_share&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
+    &lt;span&gt;&lt;button class=&quot;icon-btn&quot; aria-label=&quot;Back to services&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_back_ios_new&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;
+    &lt;span class=&quot;navbar__title&quot;&gt;Micro business permit&lt;/span&gt;
+    &lt;div class=&quot;navbar__end&quot;&gt;&lt;button class=&quot;icon-btn&quot; aria-label=&quot;Share service&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;ios_share&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;phone__scroll&quot; style=&quot;padding: 72px 16px 24px;&quot;&gt;
-    &lt;p class=&quot;section__sub&quot;&gt;CS 2104 · 3 credits · Mon and Thu, 08:00&lt;/p&gt;
+    &lt;p class=&quot;section__sub&quot;&gt;IUM 2104 · done in 3 working days · Mon and Thu, 08:00&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
         <section class="cdoc__sec" id="anatomy"><h2>Anatomy</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Part</th><th>What it is</th></tr></thead><tbody><tr><td><code class="code">.navbar</code></td><td>The top bar: three columns (leading, title, trailing). Transparent until content scrolls under it.</td></tr><tr><td><code class="code">.navbar__title</code></td><td>The inline title; appears once the large title has scrolled away.</td></tr><tr><td><code class="code">.navbar__end</code></td><td>Trailing actions, right-aligned <a class="link" href="icon-button.html">icon buttons</a>.</td></tr><tr><td><code class="code">.large-title</code></td><td>The 34 px title at the top of the scrolling content.</td></tr><tr><td><code class="code">.phone__scroll[data-lds-navbar]</code></td><td>The scroller; <code class="code">data-lds-navbar</code> names the nav bar id to update.</td></tr><tr><td><code class="code">nav.tabbar</code></td><td>The bottom bar with <code class="code">aria-label</code>.</td></tr><tr><td><code class="code">.tabbar__item</code></td><td>A destination: icon above a label (10.5 px, always shown). <code class="code">aria-current=&quot;page&quot;</code> on the current one.</td></tr><tr><td><code class="code">.home-ind</code></td><td>The home indicator, only in the docs phone frame.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="states"><h2>States</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>State</th><th>How</th></tr></thead><tbody><tr><td><code class="code">.navbar.is-scrolled</code></td><td>Material and hairline shown, inline title faded and risen in. Set by <code class="code">data-lds-navbar</code> once the scroller passes 44 px.</td></tr><tr><td><code class="code">.tabbar__item[aria-current=&quot;page&quot;]</code></td><td>Accent color and the filled glyph, which pops once.</td></tr><tr><td><code class="code">:active (tab)</code></td><td>The glyph sinks to 0.86 and springs back.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="motion"><h2>Motion and microinteractions</h2><ul class="cdoc__list"><li>Nav bar: the material fades in over <code class="code">--d-fast</code> (160 ms) linear; the inline title fades over <code class="code">--d-fast</code> and rises 6 px over <code class="code">--d-standard</code> on <code class="code">--ease-enter</code>. Scrolling back reverses both.</li><li>Tab bar: pressing scales the glyph to 0.86 on <code class="code">--spring-snappy</code>; the new current glyph plays <code class="code">lds-pop</code> once over <code class="code">--d-snappy</code> (360 ms).</li><li>When the destination changes, the new content can stagger in at 35 ms per row (<a class="link" href="list-stagger.html">list stagger</a>); never slide whole screens sideways between tabs.</li><li>Reduced motion: pops and fades drop to 120 ms linear; reduced transparency swaps the blur for a solid material.</li></ul></section>
-        <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li>The tab bar is a <code class="code">&lt;nav aria-label&gt;</code>; items are links (or buttons in a single-page app) with <code class="code">aria-current=&quot;page&quot;</code>. Labels are always visible.</li><li>Icon-only bar buttons need <code class="code">aria-label</code>s that name the destination (&quot;Back to courses&quot;).</li><li>The large title is the screen's <code class="code">&lt;h1&gt;</code>; the inline bar title is a visual repeat and can be <code class="code">aria-hidden</code>.</li><li>Tab items are full-height, at least 44 px tall and a quarter of the width each.</li></ul></section>
+        <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li>The tab bar is a <code class="code">&lt;nav aria-label&gt;</code>; items are links (or buttons in a single-page app) with <code class="code">aria-current=&quot;page&quot;</code>. Labels are always visible.</li><li>Icon-only bar buttons need <code class="code">aria-label</code>s that name the destination (&quot;Back to services&quot;).</li><li>The large title is the screen's <code class="code">&lt;h1&gt;</code>; the inline bar title is a visual repeat and can be <code class="code">aria-hidden</code>.</li><li>Tab items are full-height, at least 44 px tall and a quarter of the width each.</li></ul></section>
         <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Keep three to five tabs with one-word labels and filled glyphs for the current one.</li><li>Return to the top of a tab when its current item is tapped again.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Hide labels or show only icons in the tab bar.</li><li>Put actions (New, Compose) in the tab bar; use a <a class="link" href="floating-action.html">floating action</a> button.</li><li>Add a second blurred surface; the two bars are the only translucent ones.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Behavior and code</h2><p class="cdoc__p"><strong>Plain HTML.</strong> <code class="code">data-lds-navbar=&quot;navbarId&quot;</code> on the scroller toggles <code class="code">.is-scrolled</code> on that nav bar once <code class="code">scrollTop</code> passes 44 px, and sets <code class="code">--collapse</code> (0 to 1 over the first 40 px) on the scroller so the large title fades as it slides under the bar. The tab bar needs no script; move <code class="code">aria-current</code> from your router. Bar heights follow <code class="code">--phone-top</code> (status bar inset, default 54 px) and <code class="code">--phone-bottom</code> (home indicator inset, default 30 px); <code class="code">.navbar-gap</code> is a spacer with the bar's height. Pushed screens use <code class="code">.navbar--inline</code> and <code class="code">.navbar__back</code> (<a class="link" href="nav-stack.html">navigation stack</a>).</p></section>
         <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="phone-screen.html"><span class="link-card__eyebrow">Page patterns</span><span class="link-card__title">Phone screen</span><span class="link-card__body">The standard phone layout: a large title that collapses into a translucent nav bar as content scrolls under it, grouped lists in the middle, and a translucent tab bar at the bottom. The bars are the only blurred surfaces.</span></a><a class="link-card" href="app-shell.html"><span class="link-card__eyebrow">Navigation</span><span class="link-card__title">App shell</span><span class="link-card__body">The frame of an app: a sticky sidebar beside the content on wide screens, a top bar with a drawer below 960 px. One per app, at the root; one highlight glides to the current page.</span></a><a class="link-card" href="segmented-control.html"><span class="link-card__eyebrow">Selection</span><span class="link-card__title">Segmented control</span><span class="link-card__body">Two to five equal segments with one thumb that slides to the chosen one. For switching the view or mode of what is on screen right now; the change applies at once.</span></a><a class="link-card" href="floating-action.html"><span class="link-card__eyebrow">Actions</span><span class="link-card__title">Floating action</span><span class="link-card__body">One round accent button that floats over the content of a phone screen for the action people come to that screen to do (new message, add expense). It is the only resting control that casts a shadow.</span></a></div></section>
@@ -454,6 +459,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

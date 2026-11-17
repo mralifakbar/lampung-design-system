@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Page%20patterns">Pola halaman</a></li></ol></nav>
           <h1>Spotlight</h1>
           <p class="cdoc__lede">Satu hal di halaman yang paling layak dikerjakan berikutnya, di atas tint aksen: eyebrow, judul, satu kalimat, dan satu atau dua aksi. Paling banyak satu per halaman.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="spotlight.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="spotlight.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Ada langkah berikutnya yang jelas untuk orang ini: mendaftar sebelum tenggat, melanjutkan permohonan yang belum selesai, melengkapi profil.</li><li>Dasbor butuh satu ajakan bertindak utama di atas bagian-bagian biasa.</li><li>Formulir kecil yang menjadi inti halaman (bergabung dengan kode) boleh berada di dalamnya; field otomatis memakai warna dasar.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Memberi tahu tentang masalah atau perubahan (peringatan, gangguan layanan): pakai <a class="link" href="alert.html">Alert</a>. Atau <a class="link" href="banner.html">banner</a> selebar halaman.</li><li>Beberapa tujuan dengan bobot setara: pakai <a class="link" href="link-card.html">Link card</a>.</li><li>Belum ada apa-apa dan halaman menjelaskan cara memulai: pakai <a class="link" href="empty-state.html">Empty state</a>.</li><li>Angka-angka penting: pakai <a class="link" href="stat-row.html">Stat row</a>.</li><li>Menunjuk satu kontrol untuk tips pertama kali: pakai <a class="link" href="coachmark.html">Coachmark</a>.</li><li>Notifikasi yang hilang sendiri: pakai <a class="link" href="toast.html">Toast</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Dekat bagian atas kolom utama, di dalam <a class="link" href="sections.html">section</a> pertama atau tepat di bawah <a class="link" href="page-header.html">page header</a>, selebar kolom. Di ponsel tetap di atas dengan padding 20 px.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -403,6 +408,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

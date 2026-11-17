@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Card · Lampung Design System</title>
-<meta name="description" content="A surface that holds one subject: an event, a payment, a course. White with a hairline ring on the canvas, or the quiet fill on white. Never a shadow.">
+<meta name="description" content="A surface that holds one subject: an event, a bill, a service. White with a hairline ring on the canvas, or the quiet fill on white. Never a shadow.">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
 <link rel="icon" href="../../../brand/mark.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../../css/lds.css">
@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -319,60 +320,64 @@
         <header class="cdoc__head">
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Data%20display">Data display</a></li></ol></nav>
           <h1>Card</h1>
-          <p class="cdoc__lede">A surface that holds one subject: an event, a payment, a course. White with a hairline ring on the canvas, or the quiet fill on white. Never a shadow.</p>
+          <p class="cdoc__lede">A surface that holds one subject: an event, a bill, a service. White with a hairline ring on the canvas, or the quiet fill on white. Never a shadow.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="card.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="card.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A self-contained subject with several parts (title, meta, a figure, an action) that sits beside other subjects in a grid.</li><li>A panel that groups one topic on a dashboard (&quot;Tuition&quot;, &quot;Next exam&quot;).</li><li>A whole surface that opens one thing (<code class="code">.card--link</code>).</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>A list of similar items: use <a class="link" href="list.html">List</a>. Stacked cards for a list is the most common sign of a hand-made page.</li><li>A grid of destinations on an overview page: use <a class="link" href="link-card.html">Link card</a>.</li><li>A few key figures for a page: use <a class="link" href="stat-row.html">Stat row</a>.</li><li>A big number with its label, and maybe a trend: use <a class="link" href="kpi-card.html">KPI card</a>.</li><li>The one next step on a page: use <a class="link" href="spotlight.html">Spotlight</a>.</li><li>Label and value details: use <a class="link" href="key-value.html">Key-value</a>. Put the <code class="code">dl</code> inside the card when the card needs a title.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In an <a class="link" href="layout-primitives.html">auto grid</a> (<code class="code">.auto-grid</code>) on overview pages, two or three across on wide screens and one per row on phones; or as a single panel in a column. Cards on the canvas are white; cards inside a white panel use <code class="code">.card--fill</code>.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A self-contained subject with several parts (title, meta, a figure, an action) that sits beside other subjects in a grid.</li><li>A panel that groups one topic on a dashboard (&quot;Local tax&quot;, &quot;Next schedule&quot;).</li><li>A whole surface that opens one thing (<code class="code">.card--link</code>).</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>A list of similar items: use <a class="link" href="list.html">List</a>. Stacked cards for a list is the most common sign of a hand-made page.</li><li>A grid of destinations on an overview page: use <a class="link" href="link-card.html">Link card</a>.</li><li>A few key figures for a page: use <a class="link" href="stat-row.html">Stat row</a>.</li><li>A big number with its label, and maybe a trend: use <a class="link" href="kpi-card.html">KPI card</a>.</li><li>The one next step on a page: use <a class="link" href="spotlight.html">Spotlight</a>.</li><li>Label and value details: use <a class="link" href="key-value.html">Key-value</a>. Put the <code class="code">dl</code> inside the card when the card needs a title.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In an <a class="link" href="layout-primitives.html">auto grid</a> (<code class="code">.auto-grid</code>) on overview pages, two or three across on wide screens and one per row on phones; or as a single panel in a column. Cards on the canvas are white; cards inside a white panel use <code class="code">.card--fill</code>.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">A panel with a figure and an action</span><span class="cdoc__ex-d">Title, meta, the figure that matters, and one action.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--fill" id="ex-1-stage"><div class="card" style="max-width: 340px; width: 100%;">
-  <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;"><div><div class="card__title">Tuition</div><div class="card__sub">Odd semester 2026/2027</div></div><span class="badge badge--warning">Due in 5 days</span></div>
-  <div style="font: 600 28px/34px var(--font); letter-spacing: -0.022em; color: var(--text-strong); margin: 18px 0 2px; font-variant-numeric: tabular-nums;">Rp 7.500.000</div>
+  <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;"><div><div class="card__title">Land and building tax</div><div class="card__sub">Tax year 2026</div></div><span class="badge badge--warning">Due in 5 days</span></div>
+  <div style="font: 600 28px/34px var(--font); letter-spacing: -0.022em; color: var(--text-strong); margin: 18px 0 2px; font-variant-numeric: tabular-nums;">Rp 1.250.000</div>
   <div class="card__sub">Pay by bank transfer or virtual account.</div>
-  <button class="btn btn--primary btn--md btn--block" style="margin-top: 16px;">Pay tuition</button>
+  <button class="btn btn--primary btn--md btn--block" style="margin-top: 16px;">Pay tax</button>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;card&quot; style=&quot;max-width: 340px; width: 100%;&quot;&gt;
-  &lt;div style=&quot;display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;&quot;&gt;&lt;div&gt;&lt;div class=&quot;card__title&quot;&gt;Tuition&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Odd semester 2026/2027&lt;/div&gt;&lt;/div&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Due in 5 days&lt;/span&gt;&lt;/div&gt;
-  &lt;div style=&quot;font: 600 28px/34px var(--font); letter-spacing: -0.022em; color: var(--text-strong); margin: 18px 0 2px; font-variant-numeric: tabular-nums;&quot;&gt;Rp 7.500.000&lt;/div&gt;
+  &lt;div style=&quot;display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;&quot;&gt;&lt;div&gt;&lt;div class=&quot;card__title&quot;&gt;Land and building tax&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Tax year 2026&lt;/div&gt;&lt;/div&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Due in 5 days&lt;/span&gt;&lt;/div&gt;
+  &lt;div style=&quot;font: 600 28px/34px var(--font); letter-spacing: -0.022em; color: var(--text-strong); margin: 18px 0 2px; font-variant-numeric: tabular-nums;&quot;&gt;Rp 1.250.000&lt;/div&gt;
   &lt;div class=&quot;card__sub&quot;&gt;Pay by bank transfer or virtual account.&lt;/div&gt;
-  &lt;button class=&quot;btn btn--primary btn--md btn--block&quot; style=&quot;margin-top: 16px;&quot;&gt;Pay tuition&lt;/button&gt;
+  &lt;button class=&quot;btn btn--primary btn--md btn--block&quot; style=&quot;margin-top: 16px;&quot;&gt;Pay tax&lt;/button&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;card&quot; style=&quot;max-width: 340px; width: 100%;&quot;&gt;
-  &lt;div style=&quot;display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;&quot;&gt;&lt;div&gt;&lt;div class=&quot;card__title&quot;&gt;Tuition&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Odd semester 2026/2027&lt;/div&gt;&lt;/div&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Due in 5 days&lt;/span&gt;&lt;/div&gt;
-  &lt;div style=&quot;font: 600 28px/34px var(--font); letter-spacing: -0.022em; color: var(--text-strong); margin: 18px 0 2px; font-variant-numeric: tabular-nums;&quot;&gt;Rp 7.500.000&lt;/div&gt;
+  &lt;div style=&quot;display: flex; justify-content: space-between; align-items: flex-start; gap: 12px;&quot;&gt;&lt;div&gt;&lt;div class=&quot;card__title&quot;&gt;Land and building tax&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Tax year 2026&lt;/div&gt;&lt;/div&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Due in 5 days&lt;/span&gt;&lt;/div&gt;
+  &lt;div style=&quot;font: 600 28px/34px var(--font); letter-spacing: -0.022em; color: var(--text-strong); margin: 18px 0 2px; font-variant-numeric: tabular-nums;&quot;&gt;Rp 1.250.000&lt;/div&gt;
   &lt;div class=&quot;card__sub&quot;&gt;Pay by bank transfer or virtual account.&lt;/div&gt;
-  &lt;button class=&quot;btn btn--primary btn--md btn--block&quot; style=&quot;margin-top: 16px;&quot;&gt;Pay tuition&lt;/button&gt;
+  &lt;button class=&quot;btn btn--primary btn--md btn--block&quot; style=&quot;margin-top: 16px;&quot;&gt;Pay tax&lt;/button&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
           <figcaption><span class="cdoc__ex-t">Linked cards in a grid</span><span class="cdoc__ex-d">The whole card is one link; it sinks on press.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="auto-grid" style="--min: 220px;">
-  <a class="card card--link" href="#seminar"><div class="card__media"><span class="ic" style="font-size: 28px;" aria-hidden="true">image</span></div><span class="badge badge--accent">Seminar</span><div class="card__title" style="margin-top: 10px;">Designing for slow networks</div><div class="card__sub">Thursday, 13:00 · Hall B</div></a>
-  <a class="card card--link" href="#workshop"><div class="card__media"><span class="ic" style="font-size: 28px;" aria-hidden="true">image</span></div><span class="badge badge--outline">Workshop</span><div class="card__title" style="margin-top: 10px;">Writing a strong cover letter</div><div class="card__sub">Friday, 10:00 · Room B2</div></a>
+  <a class="card card--link" href="#seminar"><div class="card__media"><span class="ic" style="font-size: 28px;" aria-hidden="true">image</span></div><span class="badge badge--accent">Seminar</span><div class="card__title" style="margin-top: 10px;">Designing services for slow networks</div><div class="card__sub">Thursday, 13:00 · Hall B</div></a>
+  <a class="card card--link" href="#workshop"><div class="card__media"><span class="ic" style="font-size: 28px;" aria-hidden="true">image</span></div><span class="badge badge--outline">Training</span><div class="card__title" style="margin-top: 10px;">Writing a UMKM business proposal</div><div class="card__sub">Friday, 10:00 · Room B2</div></a>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;auto-grid&quot; style=&quot;--min: 220px;&quot;&gt;
-  &lt;a class=&quot;card card--link&quot; href=&quot;#seminar&quot;&gt;&lt;div class=&quot;card__media&quot;&gt;&lt;span class=&quot;ic&quot; style=&quot;font-size: 28px;&quot; aria-hidden=&quot;true&quot;&gt;image&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;badge badge--accent&quot;&gt;Seminar&lt;/span&gt;&lt;div class=&quot;card__title&quot; style=&quot;margin-top: 10px;&quot;&gt;Designing for slow networks&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Thursday, 13:00 · Hall B&lt;/div&gt;&lt;/a&gt;
-  &lt;a class=&quot;card card--link&quot; href=&quot;#workshop&quot;&gt;&lt;div class=&quot;card__media&quot;&gt;&lt;span class=&quot;ic&quot; style=&quot;font-size: 28px;&quot; aria-hidden=&quot;true&quot;&gt;image&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;badge badge--outline&quot;&gt;Workshop&lt;/span&gt;&lt;div class=&quot;card__title&quot; style=&quot;margin-top: 10px;&quot;&gt;Writing a strong cover letter&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Friday, 10:00 · Room B2&lt;/div&gt;&lt;/a&gt;
+  &lt;a class=&quot;card card--link&quot; href=&quot;#seminar&quot;&gt;&lt;div class=&quot;card__media&quot;&gt;&lt;span class=&quot;ic&quot; style=&quot;font-size: 28px;&quot; aria-hidden=&quot;true&quot;&gt;image&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;badge badge--accent&quot;&gt;Seminar&lt;/span&gt;&lt;div class=&quot;card__title&quot; style=&quot;margin-top: 10px;&quot;&gt;Designing services for slow networks&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Thursday, 13:00 · Hall B&lt;/div&gt;&lt;/a&gt;
+  &lt;a class=&quot;card card--link&quot; href=&quot;#workshop&quot;&gt;&lt;div class=&quot;card__media&quot;&gt;&lt;span class=&quot;ic&quot; style=&quot;font-size: 28px;&quot; aria-hidden=&quot;true&quot;&gt;image&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;badge badge--outline&quot;&gt;Training&lt;/span&gt;&lt;div class=&quot;card__title&quot; style=&quot;margin-top: 10px;&quot;&gt;Writing a UMKM business proposal&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Friday, 10:00 · Room B2&lt;/div&gt;&lt;/a&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;auto-grid&quot; style=&quot;--min: 220px;&quot;&gt;
-  &lt;a class=&quot;card card--link&quot; href=&quot;#seminar&quot;&gt;&lt;div class=&quot;card__media&quot;&gt;&lt;span class=&quot;ic&quot; style=&quot;font-size: 28px;&quot; aria-hidden=&quot;true&quot;&gt;image&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;badge badge--accent&quot;&gt;Seminar&lt;/span&gt;&lt;div class=&quot;card__title&quot; style=&quot;margin-top: 10px;&quot;&gt;Designing for slow networks&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Thursday, 13:00 · Hall B&lt;/div&gt;&lt;/a&gt;
-  &lt;a class=&quot;card card--link&quot; href=&quot;#workshop&quot;&gt;&lt;div class=&quot;card__media&quot;&gt;&lt;span class=&quot;ic&quot; style=&quot;font-size: 28px;&quot; aria-hidden=&quot;true&quot;&gt;image&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;badge badge--outline&quot;&gt;Workshop&lt;/span&gt;&lt;div class=&quot;card__title&quot; style=&quot;margin-top: 10px;&quot;&gt;Writing a strong cover letter&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Friday, 10:00 · Room B2&lt;/div&gt;&lt;/a&gt;
+  &lt;a class=&quot;card card--link&quot; href=&quot;#seminar&quot;&gt;&lt;div class=&quot;card__media&quot;&gt;&lt;span class=&quot;ic&quot; style=&quot;font-size: 28px;&quot; aria-hidden=&quot;true&quot;&gt;image&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;badge badge--accent&quot;&gt;Seminar&lt;/span&gt;&lt;div class=&quot;card__title&quot; style=&quot;margin-top: 10px;&quot;&gt;Designing services for slow networks&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Thursday, 13:00 · Hall B&lt;/div&gt;&lt;/a&gt;
+  &lt;a class=&quot;card card--link&quot; href=&quot;#workshop&quot;&gt;&lt;div class=&quot;card__media&quot;&gt;&lt;span class=&quot;ic&quot; style=&quot;font-size: 28px;&quot; aria-hidden=&quot;true&quot;&gt;image&lt;/span&gt;&lt;/div&gt;&lt;span class=&quot;badge badge--outline&quot;&gt;Training&lt;/span&gt;&lt;div class=&quot;card__title&quot; style=&quot;margin-top: 10px;&quot;&gt;Writing a UMKM business proposal&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Friday, 10:00 · Room B2&lt;/div&gt;&lt;/a&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-3">
           <figcaption><span class="cdoc__ex-t">Fill on white</span><span class="cdoc__ex-d">Inside a white panel, use the fill so you never get a ring inside a ring.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-3-stage"><div class="card" style="max-width: 420px;">
   <div class="card__title">This week</div>
-  <div class="card card--fill" style="margin-top: 12px;"><div class="card__title">Statistics quiz</div><div class="card__sub">Opens Wednesday at 09:00 · 30 minutes</div></div>
+  <div class="card card--fill" style="margin-top: 12px;"><div class="card__title">Toddler posyandu</div><div class="card__sub">Opens Wednesday at 09:00 · 2 hours</div></div>
 </div></div>
           
           <div class="cdoc__bar">
@@ -380,12 +385,12 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;card&quot; style=&quot;max-width: 420px;&quot;&gt;
   &lt;div class=&quot;card__title&quot;&gt;This week&lt;/div&gt;
-  &lt;div class=&quot;card card--fill&quot; style=&quot;margin-top: 12px;&quot;&gt;&lt;div class=&quot;card__title&quot;&gt;Statistics quiz&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Opens Wednesday at 09:00 · 30 minutes&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;card card--fill&quot; style=&quot;margin-top: 12px;&quot;&gt;&lt;div class=&quot;card__title&quot;&gt;Toddler posyandu&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Opens Wednesday at 09:00 · 2 hours&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;card&quot; style=&quot;max-width: 420px;&quot;&gt;
   &lt;div class=&quot;card__title&quot;&gt;This week&lt;/div&gt;
-  &lt;div class=&quot;card card--fill&quot; style=&quot;margin-top: 12px;&quot;&gt;&lt;div class=&quot;card__title&quot;&gt;Statistics quiz&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Opens Wednesday at 09:00 · 30 minutes&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;card card--fill&quot; style=&quot;margin-top: 12px;&quot;&gt;&lt;div class=&quot;card__title&quot;&gt;Toddler posyandu&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Opens Wednesday at 09:00 · 2 hours&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
         <section class="cdoc__sec" id="anatomy"><h2>Anatomy</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Part</th><th>What it is</th></tr></thead><tbody><tr><td><code class="code">.card</code></td><td>Required. White, large radius, hairline ring, 16 px padding.</td></tr><tr><td><code class="code">.card--fill</code></td><td>Quiet fill, no ring.</td></tr><tr><td><code class="code">.card--link</code></td><td>On an <code class="code">&lt;a&gt;</code>: the whole card opens one thing and sinks to 98.5 % on press.</td></tr><tr><td><code class="code">.card__media</code></td><td>Optional 132 px media area flush with the top edge.</td></tr><tr><td><code class="code">.card__title</code></td><td>The subject, 16 px semibold.</td></tr><tr><td><code class="code">.card__sub</code></td><td>Meta under the title, 13 px subtle.</td></tr></tbody></table></div></section>
@@ -413,6 +418,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

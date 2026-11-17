@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,8 +321,12 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Overlays">Overlays</a></li></ol></nav>
           <h1>Command palette</h1>
           <p class="cdoc__lede">A search box over the page that finds and runs any command or destination by typing. A fast path for people who know what they want; never the only path.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="command-palette.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="command-palette.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>An app with many destinations and commands where frequent users want keyboard speed: jump to a course, create an assignment, switch theme.</li><li>A global search across kinds of things (pages, people, actions) with results as you type.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Filtering one list on the page: use <a class="link" href="search-field.html">Search field</a>.</li><li>Picking one value for a form field from many: use <a class="link" href="combobox.html">Combobox</a>.</li><li>A handful of commands on one object: use <a class="link" href="dropdown-menu.html">Dropdown menu</a>.</li><li>The main navigation: use <a class="link" href="app-shell.html">App shell</a>. Every command in the palette must also exist in the visible interface.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> 48 px from the top of its positioned container (or of the window, in a <code class="code">position: fixed; inset: 0</code> wrapper), centered, 520 px wide (16 px from the edges when narrower), above a scrim. Opened by a search button in the top bar and by a keyboard shortcut you wire (usually Cmd or Ctrl+K).</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>An app with many destinations and commands where frequent users want keyboard speed: jump to a service, start a new application, switch theme.</li><li>A global search across kinds of things (pages, people, actions) with results as you type.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Filtering one list on the page: use <a class="link" href="search-field.html">Search field</a>.</li><li>Picking one value for a form field from many: use <a class="link" href="combobox.html">Combobox</a>.</li><li>A handful of commands on one object: use <a class="link" href="dropdown-menu.html">Dropdown menu</a>.</li><li>The main navigation: use <a class="link" href="app-shell.html">App shell</a>. Every command in the palette must also exist in the visible interface.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> 48 px from the top of its positioned container (or of the window, in a <code class="code">position: fixed; inset: 0</code> wrapper), centered, 520 px wide (16 px from the edges when narrower), above a scrim. Opened by a search button in the top bar and by a keyboard shortcut you wire (usually Cmd or Ctrl+K).</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">Jump and run</span><span class="cdoc__ex-d">Open it and type &quot;new&quot; or &quot;sched&quot;. Up and Down move the highlight, Enter runs it, Escape closes; type &quot;xyz&quot; to see the empty state.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="viewport docs-box">
@@ -332,11 +337,11 @@
   <div class="cmdk" id="ck-pal" role="dialog" aria-modal="true" aria-label="Command palette" data-lds-layer>
     <div class="cmdk__search"><span class="ic" aria-hidden="true">search</span><input placeholder="Type a command or search" aria-label="Command or search" data-lds-filter="ck-list" data-lds-autofocus role="combobox" aria-expanded="true" aria-controls="ck-list"></div>
     <div class="cmdk__list" id="ck-list" role="listbox" aria-label="Results">
-      <button class="cmdk__item" role="option" id="ck-1" data-lds-close><span class="ic" aria-hidden="true">add_circle</span>New assignment<kbd>⌘N</kbd></button>
-      <button class="cmdk__item" role="option" id="ck-2" data-lds-close><span class="ic" aria-hidden="true">calendar_month</span>Open schedule</button>
-      <button class="cmdk__item" role="option" id="ck-3" data-lds-close><span class="ic" aria-hidden="true">menu_book</span>Go to Database Systems</button>
+      <button class="cmdk__item" role="option" id="ck-1" data-lds-close><span class="ic" aria-hidden="true">add_circle</span>New application<kbd>⌘N</kbd></button>
+      <button class="cmdk__item" role="option" id="ck-2" data-lds-close><span class="ic" aria-hidden="true">calendar_month</span>Open service schedule</button>
+      <button class="cmdk__item" role="option" id="ck-3" data-lds-close><span class="ic" aria-hidden="true">menu_book</span>Go to Micro business permit</button>
       <button class="cmdk__item" role="option" id="ck-4" data-lds-close><span class="ic" aria-hidden="true">dark_mode</span>Switch to dark appearance</button>
-      <div class="cmdk__empty" data-lds-empty hidden>Nothing matches. Try a course name or "new".</div>
+      <div class="cmdk__empty" data-lds-empty hidden>Nothing matches. Try a service name or "new".</div>
     </div>
     <div class="cmdk__foot"><span class="kbd-row"><span class="kbd">↑</span><span class="kbd">↓</span> move</span><span class="kbd-row"><span class="kbd">↵</span> run</span><span class="kbd-row"><span class="kbd">esc</span> close</span></div>
   </div>
@@ -352,8 +357,8 @@
   &lt;div class=&quot;cmdk__search&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;search&lt;/span&gt;
     &lt;input placeholder=&quot;Type a command or search&quot; aria-label=&quot;Command or search&quot; role=&quot;combobox&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;palette-list&quot; data-lds-filter=&quot;palette-list&quot; data-lds-autofocus&gt;&lt;/div&gt;
   &lt;div class=&quot;cmdk__list&quot; id=&quot;palette-list&quot; role=&quot;listbox&quot; aria-label=&quot;Results&quot;&gt;
-    &lt;button class=&quot;cmdk__item&quot; role=&quot;option&quot; id=&quot;cmd-new&quot; data-lds-close&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;add_circle&lt;/span&gt;New assignment&lt;kbd&gt;⌘N&lt;/kbd&gt;&lt;/button&gt;
-    &lt;div class=&quot;cmdk__empty&quot; data-lds-empty hidden&gt;Nothing matches. Try a course name or &quot;new&quot;.&lt;/div&gt;
+    &lt;button class=&quot;cmdk__item&quot; role=&quot;option&quot; id=&quot;cmd-new&quot; data-lds-close&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;add_circle&lt;/span&gt;New application&lt;kbd&gt;⌘N&lt;/kbd&gt;&lt;/button&gt;
+    &lt;div class=&quot;cmdk__empty&quot; data-lds-empty hidden&gt;Nothing matches. Try a service name or &quot;new&quot;.&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 
@@ -371,8 +376,8 @@
   &lt;div class=&quot;cmdk__search&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;search&lt;/span&gt;
     &lt;input placeholder=&quot;Type a command or search&quot; aria-label=&quot;Command or search&quot; role=&quot;combobox&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;palette-list&quot; data-lds-filter=&quot;palette-list&quot; data-lds-autofocus&gt;&lt;/div&gt;
   &lt;div class=&quot;cmdk__list&quot; id=&quot;palette-list&quot; role=&quot;listbox&quot; aria-label=&quot;Results&quot;&gt;
-    &lt;button class=&quot;cmdk__item&quot; role=&quot;option&quot; id=&quot;cmd-new&quot; data-lds-close&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;add_circle&lt;/span&gt;New assignment&lt;kbd&gt;⌘N&lt;/kbd&gt;&lt;/button&gt;
-    &lt;div class=&quot;cmdk__empty&quot; data-lds-empty hidden&gt;Nothing matches. Try a course name or &quot;new&quot;.&lt;/div&gt;
+    &lt;button class=&quot;cmdk__item&quot; role=&quot;option&quot; id=&quot;cmd-new&quot; data-lds-close&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;add_circle&lt;/span&gt;New application&lt;kbd&gt;⌘N&lt;/kbd&gt;&lt;/button&gt;
+    &lt;div class=&quot;cmdk__empty&quot; data-lds-empty hidden&gt;Nothing matches. Try a service name or &quot;new&quot;.&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 
@@ -389,7 +394,7 @@
         <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li><code class="code">role=&quot;dialog&quot;</code>, <code class="code">aria-modal=&quot;true&quot;</code>, <code class="code">aria-label</code>. Focus starts in the input (<code class="code">data-lds-autofocus</code>) and is trapped; Escape closes and returns focus to the trigger.</li><li>The input is <code class="code">role=&quot;combobox&quot;</code> with <code class="code">aria-controls</code> the listbox; the script keeps <code class="code">aria-activedescendant</code> on the active option and <code class="code">aria-selected</code> on the options, so focus never leaves the input.</li><li>Up and Down move the active result; Enter clicks it.</li><li>Show the shortcut on the trigger so people discover it.</li></ul></section>
         <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Name results as verbs or destinations people would type.</li><li>Mirror every palette command somewhere visible.</li><li>Close the palette after running a result (<code class="code">data-lds-close</code> on the items).</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Make the palette the only way to reach a feature.</li><li>Animate results in as they filter.</li><li>Show an empty list with no message.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Behavior and code</h2><p class="cdoc__p"><strong>Plain HTML.</strong> The layer hooks open and close it (<code class="code">data-lds-open</code>, <code class="code">data-lds-close</code>, <code class="code">data-lds-scrim</code>, <code class="code">openLayer</code>, <code class="code">closeLayer</code>). <code class="code">input[data-lds-filter=&quot;listId&quot;]</code> hides <code class="code">[role=option]</code> children whose text does not contain the query, shows <code class="code">[data-lds-empty]</code> when none remain, moves <code class="code">.is-active</code> with Up and Down and clicks it on Enter. The global shortcut is yours to wire.</p></section>
-        <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="search-field.html"><span class="link-card__eyebrow">Inputs</span><span class="link-card__title">Search field</span><span class="link-card__body">The filled, label-less field for finding things: courses, students, questions. On phones, focusing it slides in a Cancel button that clears and leaves search.</span></a><a class="link-card" href="combobox.html"><span class="link-card__eyebrow">Inputs</span><span class="link-card__title">Combobox</span><span class="link-card__body">A text field that filters a list of options as you type and stores the one picked. For long lists and server-backed options; it says so when nothing matches.</span></a><a class="link-card" href="dropdown-menu.html"><span class="link-card__eyebrow">Overlays</span><span class="link-card__title">Dropdown menu</span><span class="link-card__body">A list of commands that drops from a button: sort options, row actions, the &quot;more&quot; menu behind an icon button. Items do something; they are not a form field.</span></a><a class="link-card" href="kbd.html"><span class="link-card__eyebrow">Actions</span><span class="link-card__title">Keyboard key</span><span class="link-card__body">A small key cap that shows a keyboard shortcut: `.kbd` for one key, `.kbd-row` for a combination. Shortcuts are hints next to an action, never the only way to reach it.</span></a></div></section>
+        <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="search-field.html"><span class="link-card__eyebrow">Inputs</span><span class="link-card__title">Search field</span><span class="link-card__body">The filled, label-less field for finding things: services, residents, reports. On phones, focusing it slides in a Cancel button that clears and leaves search.</span></a><a class="link-card" href="combobox.html"><span class="link-card__eyebrow">Inputs</span><span class="link-card__title">Combobox</span><span class="link-card__body">A text field that filters a list of options as you type and stores the one picked. For long lists and server-backed options; it says so when nothing matches.</span></a><a class="link-card" href="dropdown-menu.html"><span class="link-card__eyebrow">Overlays</span><span class="link-card__title">Dropdown menu</span><span class="link-card__body">A list of commands that drops from a button: sort options, row actions, the &quot;more&quot; menu behind an icon button. Items do something; they are not a form field.</span></a><a class="link-card" href="kbd.html"><span class="link-card__eyebrow">Actions</span><span class="link-card__title">Keyboard key</span><span class="link-card__body">A small key cap that shows a keyboard shortcut: `.kbd` for one key, `.kbd-row` for a combination. Shortcuts are hints next to an action, never the only way to reach it.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Previous and next component">
           <a class="link-card cdoc__prev" href="toast.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Previous</span><span class="link-card__title">Toast</span></a>
           <a class="link-card cdoc__next" href="lightbox.html"><span class="link-card__eyebrow">Next<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Lightbox</span></a>
@@ -408,6 +413,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

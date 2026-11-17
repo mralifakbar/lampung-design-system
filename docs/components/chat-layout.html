@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,116 +321,120 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Chat">Obrolan</a></li></ol></nav>
           <h1>Chat layout</h1>
           <p class="cdoc__lede">Kolom percakapan: pesan bertumpuk dengan jarak 20 px di <code class="code">.chat</code>, riwayat bergulir di atas composer yang tidak ikut tergulir, dan tombol Terbaru yang muncul hanya saat pembaca menggulir ke atas. Pesan terbaru selalu di bawah.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="chat-layout.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="chat-layout.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Percakapan dengan asisten atau tutor: orang bertanya di kanan, jawaban mengisi kolom baca, pesan terbaru di bawah.</li><li>Utas layanan pengaduan atau umpan balik yang urutan dan waktunya penting, dan orang membalas dari layar yang sama.</li><li>Riwayat yang cukup panjang untuk digulir, saat orang membaca ke belakang dan butuh cara kembali ke pesan terbaru.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Riwayat kejadian tanpa kotak balasan (perubahan nilai, pembaruan status): pakai <a class="link" href="timeline.html">Timeline</a>.</li><li>Komentar yang masing-masing melekat pada bagian dokumen atau berkas permohonan: pakai <a class="link" href="list.html">List</a>. Letakkan di samping hal yang dibahas, bukan dalam satu kolom.</li><li>Satu jawaban yang dibuat di dalam halaman tanpa tanya jawab: pakai <a class="link" href="prose.html">Prose</a>. Tampilkan <a class="link" href="thinking.html">thinking</a> selama proses dan <a class="link" href="streaming-text.html">streaming text</a> saat jawaban datang.</li><li>Daftar notifikasi: pakai <a class="link" href="list.html">List</a>.</li><li>Penjelasan singkat untuk satu pertanyaan, di tempat: pakai <a class="link" href="popover.html">Popover</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Kolom utama halaman atau panel setinggi layar di samping pekerjaan yang dibahas (<a class="link" href="resizable-split.html">resizable split</a> di layar lebar). Riwayat adalah area gulir; <a class="link" href="composer.html">composer</a> ada di bawahnya, di luar area gulir, selebar kolom. Di ponsel kolom memenuhi layar dan composer duduk di atas keyboard dengan inset safe-area (<code class="code">safe-bottom</code>). Batasi lebar kolom paling lebar 640 px di layar lebar agar jawaban tetap mudah dibaca.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Percakapan dengan asisten layanan kota: orang bertanya di kanan, jawaban mengisi kolom baca, pesan terbaru di bawah.</li><li>Utas layanan pengaduan atau umpan balik yang urutan dan waktunya penting, dan orang membalas dari layar yang sama.</li><li>Riwayat yang cukup panjang untuk digulir, saat orang membaca ke belakang dan butuh cara kembali ke pesan terbaru.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Riwayat kejadian tanpa kotak balasan (perubahan status permohonan, catatan petugas): pakai <a class="link" href="timeline.html">Timeline</a>.</li><li>Komentar yang masing-masing melekat pada bagian dokumen atau berkas permohonan: pakai <a class="link" href="list.html">List</a>. Letakkan di samping hal yang dibahas, bukan dalam satu kolom.</li><li>Satu jawaban yang dibuat di dalam halaman tanpa tanya jawab: pakai <a class="link" href="prose.html">Prose</a>. Tampilkan <a class="link" href="thinking.html">thinking</a> selama proses dan <a class="link" href="streaming-text.html">streaming text</a> saat jawaban datang.</li><li>Daftar notifikasi: pakai <a class="link" href="list.html">List</a>.</li><li>Penjelasan singkat untuk satu pertanyaan, di tempat: pakai <a class="link" href="popover.html">Popover</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Kolom utama halaman atau panel setinggi layar di samping pekerjaan yang dibahas (<a class="link" href="resizable-split.html">resizable split</a> di layar lebar). Riwayat adalah area gulir; <a class="link" href="composer.html">composer</a> ada di bawahnya, di luar area gulir, selebar kolom. Di ponsel kolom memenuhi layar dan composer duduk di atas keyboard dengan inset safe-area (<code class="code">safe-bottom</code>). Batasi lebar kolom paling lebar 640 px di layar lebar agar jawaban tetap mudah dibaca.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Percakapan bimbingan belajar</span><span class="cdoc__ex-d">Gulir riwayat ke atas dan tombol Terbaru muncul; tekan untuk meluncur kembali. Ketik pertanyaan lalu tekan Enter: pesan Anda masuk ke kolom.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Bertanya ke asisten layanan kota</span><span class="cdoc__ex-d">Gulir riwayat ke atas dan tombol Terbaru muncul; tekan untuk meluncur kembali. Ketik pertanyaan lalu tekan Enter: pesan Anda masuk ke kolom.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="docs-col" style="max-width: 560px;">
   <div class="docs-scroll" id="cl-scroll" style="height: 320px;">
-    <div class="chat" id="cl-chat" role="log" aria-label="Percakapan dengan tutor Anda">
+    <div class="chat" id="cl-chat" role="log" aria-label="Percakapan dengan asisten layanan kota">
       <p class="msg msg--system">Hari ini, 09.12</p>
-      <div class="msg msg--me"><div class="bubble">Kenapa jawaban saya untuk soal nomor 4 disalahkan?</div><span class="msg__meta">09.12</span></div>
-      <div class="msg msg--ai"><div class="bubble">Soal nomor 4 menanyakan gaya total, bukan gaya dorong. Anda menghitung dorongan 20 N tetapi tidak memasukkan gesekan yang melawannya sebesar 6 N. Gaya totalnya 14 N, jadi percepatannya 14 N dibagi 7 kg, yaitu 2 m/s².</div><div class="msg__actions"><button class="icon-btn" aria-label="Salin jawaban" data-lds-copy="Gaya totalnya 14 N, jadi percepatannya 2 m/s²."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Coba lagi"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Bagikan jawaban"><span class="ic" aria-hidden="true">share</span></button></div></div>
-      <div class="msg msg--me"><div class="bubble">Jadi gesekan selalu berlawanan dengan arah gerak?</div><span class="msg__meta">09.14</span></div>
-      <div class="msg msg--ai"><div class="bubble">Berlawanan dengan arah gerak, atau dengan arah benda akan bergerak jika tidak ada yang menahan. Buku yang diam di atas meja miring mendapat gesekan ke arah atas lereng walaupun belum bergerak.</div><div class="msg__actions"><button class="icon-btn" aria-label="Salin jawaban" data-lds-copy="Gesekan berlawanan dengan arah gerak atau arah gerak yang akan terjadi."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Coba lagi"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Bagikan jawaban"><span class="ic" aria-hidden="true">share</span></button></div></div>
-      <div class="msg msg--me"><div class="bubble">Boleh saya coba soal yang mirip?</div><span class="msg__meta">09.15</span></div>
-      <div class="msg msg--ai"><div class="bubble">Ini soalnya. Peti 5 kg didorong dengan gaya 30 N di lantai yang memberi gesekan 10 N. Berapa percepatannya?</div><div class="msg__actions"><button class="icon-btn" aria-label="Salin jawaban" data-lds-copy="Peti 5 kg didorong 30 N melawan gesekan 10 N. Berapa percepatannya?"><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Coba lagi"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Bagikan jawaban"><span class="ic" aria-hidden="true">share</span></button></div></div>
+      <div class="msg msg--me"><div class="bubble">Kenapa permohonan perubahan KK saya untuk Kedaton dikembalikan?</div><span class="msg__meta">09.12</span></div>
+      <div class="msg msg--ai"><div class="bubble">Surat pengantar dari RT/RW belum dilampirkan. Disdukcapil memerlukannya untuk memastikan alamat baru Anda di Kedaton. Unggah suratnya pada permohonan yang sama, lalu permohonan kembali masuk antrean dengan nomor yang sama.</div><div class="msg__actions"><button class="icon-btn" aria-label="Salin jawaban" data-lds-copy="Lampirkan surat pengantar RT/RW pada permohonan yang sama; nomor antreannya tetap."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Coba lagi"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Bagikan jawaban"><span class="ic" aria-hidden="true">share</span></button></div></div>
+      <div class="msg msg--me"><div class="bubble">Apakah surat aslinya juga perlu dibawa?</div><span class="msg__meta">09.14</span></div>
+      <div class="msg msg--ai"><div class="bubble">Hanya bila Anda mengurus di loket. Secara daring, foto surat yang sudah dicap dan terbaca jelas sudah cukup. Bawa aslinya saat mengambil KK baru di kantor Kecamatan Kedaton.</div><div class="msg__actions"><button class="icon-btn" aria-label="Salin jawaban" data-lds-copy="Secara daring, foto surat yang sudah dicap sudah cukup; bawa aslinya saat mengambil KK."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Coba lagi"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Bagikan jawaban"><span class="ic" aria-hidden="true">share</span></button></div></div>
+      <div class="msg msg--me"><div class="bubble">Kapan KK-nya bisa diambil?</div><span class="msg__meta">09.15</span></div>
+      <div class="msg msg--ai"><div class="bubble">Perubahan KK di Bandar Lampung biasanya selesai 3 hari kerja setelah berkas lengkap. Anda akan menerima pesan saat KK siap diambil.</div><div class="msg__actions"><button class="icon-btn" aria-label="Salin jawaban" data-lds-copy="Perubahan KK biasanya selesai 3 hari kerja setelah berkas lengkap."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button><button class="icon-btn" aria-label="Coba lagi"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Bagikan jawaban"><span class="ic" aria-hidden="true">share</span></button></div></div>
       <button class="btn btn--secondary btn--sm chat__jump" data-lds-jump="cl-scroll"><span class="ic" aria-hidden="true">arrow_downward</span>Terbaru</button>
     </div>
   </div>
-  <form class="composer" data-lds-composer onsubmit="event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); const c = document.getElementById('cl-chat'); c.insertBefore(m, c.querySelector('.chat__jump')); const s = document.getElementById('cl-scroll'); s.scrollTo({ top: s.scrollHeight, behavior: 'smooth' });"><textarea rows="1" aria-label="Kirim pesan ke tutor" placeholder="Tanyakan tentang materi ini"></textarea><button class="composer__send" type="submit" aria-label="Kirim"><span class="ic" aria-hidden="true">arrow_upward</span></button></form>
+  <form class="composer" data-lds-composer onsubmit="event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); const c = document.getElementById('cl-chat'); c.insertBefore(m, c.querySelector('.chat__jump')); const s = document.getElementById('cl-scroll'); s.scrollTo({ top: s.scrollHeight, behavior: 'smooth' });"><textarea rows="1" aria-label="Kirim pesan ke asisten" placeholder="Tanyakan tentang permohonan ini"></textarea><button class="composer__send" type="submit" aria-label="Kirim"><span class="ic" aria-hidden="true">arrow_upward</span></button></form>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;chat-scroll&quot; id=&quot;chat-scroll&quot;&gt;&lt;!-- your scroller: overflow-y: auto, flex: 1 --&gt;
-  &lt;div class=&quot;chat&quot; role=&quot;log&quot; aria-label=&quot;Percakapan dengan tutor Anda&quot;&gt;
+  &lt;div class=&quot;chat&quot; role=&quot;log&quot; aria-label=&quot;Percakapan dengan asisten layanan kota&quot;&gt;
     &lt;p class=&quot;msg msg--system&quot;&gt;Hari ini, 09.12&lt;/p&gt;
-    &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Kenapa jawaban saya untuk soal nomor 4 disalahkan?&lt;/div&gt;&lt;span class=&quot;msg__meta&quot;&gt;09.12&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;msg msg--ai&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Soal nomor 4 menanyakan gaya total…&lt;/div&gt;
+    &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Kenapa permohonan perubahan KK saya untuk Kedaton dikembalikan?&lt;/div&gt;&lt;span class=&quot;msg__meta&quot;&gt;09.12&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;msg msg--ai&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Surat pengantar dari RT/RW belum dilampirkan…&lt;/div&gt;
       &lt;div class=&quot;msg__actions&quot;&gt;…&lt;/div&gt;
     &lt;/div&gt;
     &lt;button class=&quot;btn btn--secondary btn--sm chat__jump&quot; data-lds-jump=&quot;chat-scroll&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_downward&lt;/span&gt;Terbaru&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;form class=&quot;composer&quot; data-lds-composer&gt;
-  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Kirim pesan ke tutor&quot; placeholder=&quot;Tanyakan tentang materi ini&quot;&gt;&lt;/textarea&gt;
+  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Kirim pesan ke asisten&quot; placeholder=&quot;Tanyakan tentang permohonan ini&quot;&gt;&lt;/textarea&gt;
   &lt;button class=&quot;composer__send&quot; type=&quot;submit&quot; aria-label=&quot;Kirim&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;
 &lt;/form&gt;
 &lt;script type=&quot;module&quot;&gt;
   import { init } from 'lampung-design-system/js';
   init();
-  document.querySelector('.composer').addEventListener('lds:send', (e) =&gt; sendToTutor(e.detail.text));
+  document.querySelector('.composer').addEventListener('lds:send', (e) =&gt; sendToAssistant(e.detail.text));
 &lt;/script&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;chat-scroll&quot; id=&quot;chat-scroll&quot;&gt;&lt;!-- your scroller: overflow-y: auto, flex: 1 --&gt;
-  &lt;div class=&quot;chat&quot; role=&quot;log&quot; aria-label=&quot;Percakapan dengan tutor Anda&quot;&gt;
+  &lt;div class=&quot;chat&quot; role=&quot;log&quot; aria-label=&quot;Percakapan dengan asisten layanan kota&quot;&gt;
     &lt;p class=&quot;msg msg--system&quot;&gt;Hari ini, 09.12&lt;/p&gt;
-    &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Kenapa jawaban saya untuk soal nomor 4 disalahkan?&lt;/div&gt;&lt;span class=&quot;msg__meta&quot;&gt;09.12&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;msg msg--ai&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Soal nomor 4 menanyakan gaya total…&lt;/div&gt;
+    &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Kenapa permohonan perubahan KK saya untuk Kedaton dikembalikan?&lt;/div&gt;&lt;span class=&quot;msg__meta&quot;&gt;09.12&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;msg msg--ai&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Surat pengantar dari RT/RW belum dilampirkan…&lt;/div&gt;
       &lt;div class=&quot;msg__actions&quot;&gt;…&lt;/div&gt;
     &lt;/div&gt;
     &lt;button class=&quot;btn btn--secondary btn--sm chat__jump&quot; data-lds-jump=&quot;chat-scroll&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_downward&lt;/span&gt;Terbaru&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;
 &lt;form class=&quot;composer&quot; data-lds-composer&gt;
-  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Kirim pesan ke tutor&quot; placeholder=&quot;Tanyakan tentang materi ini&quot;&gt;&lt;/textarea&gt;
+  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Kirim pesan ke asisten&quot; placeholder=&quot;Tanyakan tentang permohonan ini&quot;&gt;&lt;/textarea&gt;
   &lt;button class=&quot;composer__send&quot; type=&quot;submit&quot; aria-label=&quot;Kirim&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;
 &lt;/form&gt;
 &lt;script type=&quot;module&quot;&gt;
   import { init } from 'lampung-design-system/js';
   init();
-  document.querySelector('.composer').addEventListener('lds:send', (e) =&gt; sendToTutor(e.detail.text));
+  document.querySelector('.composer').addEventListener('lds:send', (e) =&gt; sendToAssistant(e.detail.text));
 &lt;/script&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
           <figcaption><span class="cdoc__ex-t">Baris sistem menandai perubahan</span><span class="cdoc__ex-d">Pergantian hari, mode yang dinyalakan, berkas yang ditambahkan ke percakapan: baris footnote di tengah, tanpa bubble, tanpa aksi. Baris ini bagian dari riwayat, jadi ikut tergulir.</span></figcaption>
-          <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="chat" role="log" aria-label="Latihan ujian" style="max-width: 560px;">
+          <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="chat" role="log" aria-label="Bantuan izin usaha" style="max-width: 560px;">
   <p class="msg msg--system">Kemarin</p>
-  <div class="msg msg--me"><div class="bubble">Uji saya tentang bab 3, sepuluh soal.</div></div>
-  <div class="msg msg--ai"><div class="bubble">Silakan mulai kapan saja. Setiap soal punya empat pilihan; jawab dengan hurufnya.</div></div>
-  <p class="msg msg--system">Mode ujian aktif. Petunjuk disembunyikan sampai Anda mengumpulkan jawaban.</p>
-  <p class="msg msg--system">Anda melampirkan draf-laporan-praktikum.pdf</p>
+  <div class="msg msg--me"><div class="bubble">Periksa berkas izin usaha UMKM saya, satu per satu.</div></div>
+  <div class="msg msg--ai"><div class="bubble">Siap. Saya periksa lima berkas secara berurutan; jawab ya bila tiap berkas siap diunggah.</div></div>
+  <p class="msg msg--system">Mode terpandu aktif. Formulir terkunci sampai semua berkas diperiksa.</p>
+  <p class="msg msg--system">Anda melampirkan surat-keterangan-domisili.pdf</p>
   <p class="msg msg--system">Hari ini</p>
-  <div class="msg msg--me"><div class="bubble">Kumpulkan jawaban saya.</div></div>
+  <div class="msg msg--me"><div class="bubble">Ajukan permohonan saya.</div></div>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;chat&quot; role=&quot;log&quot; aria-label=&quot;Latihan ujian&quot; style=&quot;max-width: 560px;&quot;&gt;
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;chat&quot; role=&quot;log&quot; aria-label=&quot;Bantuan izin usaha&quot; style=&quot;max-width: 560px;&quot;&gt;
   &lt;p class=&quot;msg msg--system&quot;&gt;Kemarin&lt;/p&gt;
-  &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Uji saya tentang bab 3, sepuluh soal.&lt;/div&gt;&lt;/div&gt;
-  &lt;div class=&quot;msg msg--ai&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Silakan mulai kapan saja. Setiap soal punya empat pilihan; jawab dengan hurufnya.&lt;/div&gt;&lt;/div&gt;
-  &lt;p class=&quot;msg msg--system&quot;&gt;Mode ujian aktif. Petunjuk disembunyikan sampai Anda mengumpulkan jawaban.&lt;/p&gt;
-  &lt;p class=&quot;msg msg--system&quot;&gt;Anda melampirkan draf-laporan-praktikum.pdf&lt;/p&gt;
+  &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Periksa berkas izin usaha UMKM saya, satu per satu.&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;msg msg--ai&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Siap. Saya periksa lima berkas secara berurutan; jawab ya bila tiap berkas siap diunggah.&lt;/div&gt;&lt;/div&gt;
+  &lt;p class=&quot;msg msg--system&quot;&gt;Mode terpandu aktif. Formulir terkunci sampai semua berkas diperiksa.&lt;/p&gt;
+  &lt;p class=&quot;msg msg--system&quot;&gt;Anda melampirkan surat-keterangan-domisili.pdf&lt;/p&gt;
   &lt;p class=&quot;msg msg--system&quot;&gt;Hari ini&lt;/p&gt;
-  &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Kumpulkan jawaban saya.&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Ajukan permohonan saya.&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;chat&quot; role=&quot;log&quot; aria-label=&quot;Latihan ujian&quot; style=&quot;max-width: 560px;&quot;&gt;
+          <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;chat&quot; role=&quot;log&quot; aria-label=&quot;Bantuan izin usaha&quot; style=&quot;max-width: 560px;&quot;&gt;
   &lt;p class=&quot;msg msg--system&quot;&gt;Kemarin&lt;/p&gt;
-  &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Uji saya tentang bab 3, sepuluh soal.&lt;/div&gt;&lt;/div&gt;
-  &lt;div class=&quot;msg msg--ai&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Silakan mulai kapan saja. Setiap soal punya empat pilihan; jawab dengan hurufnya.&lt;/div&gt;&lt;/div&gt;
-  &lt;p class=&quot;msg msg--system&quot;&gt;Mode ujian aktif. Petunjuk disembunyikan sampai Anda mengumpulkan jawaban.&lt;/p&gt;
-  &lt;p class=&quot;msg msg--system&quot;&gt;Anda melampirkan draf-laporan-praktikum.pdf&lt;/p&gt;
+  &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Periksa berkas izin usaha UMKM saya, satu per satu.&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;msg msg--ai&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Siap. Saya periksa lima berkas secara berurutan; jawab ya bila tiap berkas siap diunggah.&lt;/div&gt;&lt;/div&gt;
+  &lt;p class=&quot;msg msg--system&quot;&gt;Mode terpandu aktif. Formulir terkunci sampai semua berkas diperiksa.&lt;/p&gt;
+  &lt;p class=&quot;msg msg--system&quot;&gt;Anda melampirkan surat-keterangan-domisili.pdf&lt;/p&gt;
   &lt;p class=&quot;msg msg--system&quot;&gt;Hari ini&lt;/p&gt;
-  &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Kumpulkan jawaban saya.&lt;/div&gt;&lt;/div&gt;
+  &lt;div class=&quot;msg msg--me&quot;&gt;&lt;div class=&quot;bubble&quot;&gt;Ajukan permohonan saya.&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-3">
           <figcaption><span class="cdoc__ex-t">Sebelum pesan pertama</span><span class="cdoc__ex-d">Percakapan kosong menjelaskan apa yang bisa dilakukan asisten dan menawarkan dua atau tiga pertanyaan pembuka sebagai chip. Chip mengisi composer; orang tetap menekan kirim.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-3-stage"><div class="docs-col" style="max-width: 560px;">
   <div class="empty">
-    <div class="empty__icon"><span class="ic" aria-hidden="true">school</span></div>
-    <p class="empty__title">Tanya tentang Biologi kelas X</p>
-    <p class="empty__body">Jawaban memakai catatan pelajaran Anda dan menyebut halaman sumbernya.</p>
+    <div class="empty__icon"><span class="ic" aria-hidden="true">id_card</span></div>
+    <p class="empty__title">Tanya tentang layanan Disdukcapil</p>
+    <p class="empty__body">Jawaban memakai persyaratan layanan yang sudah diumumkan dan menyebut halaman sumbernya.</p>
   </div>
   <div class="chip-row" style="justify-content: center;">
-    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Jelaskan osmosis dengan sederhana</button>
-    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Uji saya tentang bagian sel</button>
-    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Ringkas bab 2</button>
+    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Cara mengurus KTP elektronik</button>
+    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Syarat surat pindah</button>
+    <button class="chip" onclick="const t = this.closest('.docs-col').querySelector('textarea'); t.value = this.textContent; t.dispatchEvent(new Event('input')); t.focus();">Jadwal Samsat keliling</button>
   </div>
   <form class="composer" data-lds-composer><textarea rows="1" aria-label="Pesan" placeholder="Ajukan pertanyaan"></textarea><button class="composer__send" type="submit" aria-label="Kirim"><span class="ic" aria-hidden="true">arrow_upward</span></button></form>
 </div></div>
@@ -438,25 +443,25 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-3-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;empty&quot;&gt;
-  &lt;div class=&quot;empty__icon&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;school&lt;/span&gt;&lt;/div&gt;
-  &lt;p class=&quot;empty__title&quot;&gt;Tanya tentang Biologi kelas X&lt;/p&gt;
-  &lt;p class=&quot;empty__body&quot;&gt;Jawaban memakai catatan pelajaran Anda dan menyebut halaman sumbernya.&lt;/p&gt;
+  &lt;div class=&quot;empty__icon&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;id_card&lt;/span&gt;&lt;/div&gt;
+  &lt;p class=&quot;empty__title&quot;&gt;Tanya tentang layanan Disdukcapil&lt;/p&gt;
+  &lt;p class=&quot;empty__body&quot;&gt;Jawaban memakai persyaratan layanan yang sudah diumumkan dan menyebut halaman sumbernya.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;chip-row&quot;&gt;
-  &lt;button class=&quot;chip&quot;&gt;Jelaskan osmosis dengan sederhana&lt;/button&gt;
-  &lt;button class=&quot;chip&quot;&gt;Uji saya tentang bagian sel&lt;/button&gt;
+  &lt;button class=&quot;chip&quot;&gt;Cara mengurus KTP elektronik&lt;/button&gt;
+  &lt;button class=&quot;chip&quot;&gt;Syarat surat pindah&lt;/button&gt;
 &lt;/div&gt;
 &lt;form class=&quot;composer&quot; data-lds-composer&gt;…&lt;/form&gt;
 &lt;!-- On a chip click: put its text in the textarea, dispatch 'input' (enables send), focus it. --&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;empty&quot;&gt;
-  &lt;div class=&quot;empty__icon&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;school&lt;/span&gt;&lt;/div&gt;
-  &lt;p class=&quot;empty__title&quot;&gt;Tanya tentang Biologi kelas X&lt;/p&gt;
-  &lt;p class=&quot;empty__body&quot;&gt;Jawaban memakai catatan pelajaran Anda dan menyebut halaman sumbernya.&lt;/p&gt;
+  &lt;div class=&quot;empty__icon&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;id_card&lt;/span&gt;&lt;/div&gt;
+  &lt;p class=&quot;empty__title&quot;&gt;Tanya tentang layanan Disdukcapil&lt;/p&gt;
+  &lt;p class=&quot;empty__body&quot;&gt;Jawaban memakai persyaratan layanan yang sudah diumumkan dan menyebut halaman sumbernya.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div class=&quot;chip-row&quot;&gt;
-  &lt;button class=&quot;chip&quot;&gt;Jelaskan osmosis dengan sederhana&lt;/button&gt;
-  &lt;button class=&quot;chip&quot;&gt;Uji saya tentang bagian sel&lt;/button&gt;
+  &lt;button class=&quot;chip&quot;&gt;Cara mengurus KTP elektronik&lt;/button&gt;
+  &lt;button class=&quot;chip&quot;&gt;Syarat surat pindah&lt;/button&gt;
 &lt;/div&gt;
 &lt;form class=&quot;composer&quot; data-lds-composer&gt;…&lt;/form&gt;
 &lt;!-- On a chip click: put its text in the textarea, dispatch 'input' (enables send), focus it. --&gt;</pre></div></div></div>
@@ -467,7 +472,7 @@
         <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Beri <code class="code">.chat</code> <code class="code">role=&quot;log&quot;</code> dan <code class="code">aria-label</code>; pesan baru lalu diumumkan secara sopan (polite). Selama balasan mengalir, pasang <code class="code">aria-busy=&quot;true&quot;</code> pada pesan itu dan hapus setelah selesai agar balasan dibacakan sekali, utuh.</li><li>Baris sistem berupa teks biasa (<code class="code">&lt;p&gt;</code>), bukan live region tersendiri; log yang mengumumkannya.</li><li>Textarea composer perlu label (<code class="code">aria-label</code> atau label yang terlihat); lihat <a class="link" href="composer.html">composer</a>.</li><li>Tombol Terbaru adalah tombol sungguhan dengan label yang terlihat. Saat tersembunyi ia transparan tetapi masih bisa difokus: render hanya saat dibutuhkan jika pengguna keyboard melaporkannya.</li></ul></section>
         <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Letakkan composer di luar area gulir agar tidak ikut tergulir.</li><li>Hentikan gulir otomatis saat pembaca menggulir ke atas; tampilkan tombol Terbaru.</li><li>Pakai baris sistem untuk hal yang dilakukan percakapan dengan sendirinya (mode, berkas, hari).</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Menganimasikan seluruh riwayat masuk, atau memberi stagger pada pesan lama.</li><li>Memasang stempel waktu di setiap pesan; kelompokkan per hari dengan baris sistem dan tampilkan jam saat hover atau di <a class="link" href="chat-message.html">meta pesan</a>.</li><li>Membangun chat dari card atau baris list.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> Perilaku berasal dari <code class="code">init()</code>: <code class="code">[data-lds-jump=&quot;&lt;scroller id&gt;&quot;]</code> pada tombol Terbaru menampilkannya saat area gulir berjarak lebih dari 160 px dari ujung dan menggulir ke ujung saat diklik; <code class="code">[data-lds-composer]</code> memasang perilaku <a class="link" href="composer.html">composer</a> (Enter mengirim, <code class="code">lds:send</code> membawa <code class="code">{ text }</code>). Di React, render markup yang sama dan panggil <code class="code">init(ref.current)</code> di effect setelah pesan dirender.</p></section>
-        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="chat-message.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Chat message</span><span class="link-card__body">Satu giliran dalam percakapan. Kata-kata Anda ada di bubble aksen di kanan; asisten menjawab dengan teks baca biasa di kolom, dengan baris aksi yang tenang di bawahnya. Baris sistem berupa footnote di tengah.</span></a><a class="link-card" href="composer.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Composer</span><span class="link-card__body">Kotak balasan di bawah percakapan: kolom membulat yang tumbuh mengikuti teks, Enter untuk mengirim, Shift+Enter untuk baris baru, dan satu tombol kirim bulat yang nonaktif sampai ada yang bisa dikirim.</span></a><a class="link-card" href="streaming-text.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Streaming text</span><span class="link-card__body">Jawaban yang datang kata demi kata, setiap kata memudar masuk dari blur 3 px, dengan caret bulat di ujung selama masih ada yang datang. Ini menunjukkan kemajuan nyata; jangan pernah memalsukannya untuk teks yang sudah Anda miliki.</span></a><a class="link-card" href="tool-call.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Tool call</span><span class="link-card__body">Satu langkah yang diambil asisten untuk sampai pada jawabannya (mencari di catatan, membaca berkas, memeriksa kalender), ditampilkan sebagai `&lt;details&gt;` satu baris yang tenang dan bisa dibuka untuk melihat temuannya. Jawaban tetap yang utama.</span></a></div></section>
+        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="chat-message.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Chat message</span><span class="link-card__body">Satu giliran dalam percakapan. Kata-kata Anda ada di bubble aksen di kanan; asisten menjawab dengan teks baca biasa di kolom, dengan baris aksi yang tenang di bawahnya. Baris sistem berupa footnote di tengah.</span></a><a class="link-card" href="composer.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Composer</span><span class="link-card__body">Kotak balasan di bawah percakapan: kolom membulat yang tumbuh mengikuti teks, Enter untuk mengirim, Shift+Enter untuk baris baru, dan satu tombol kirim bulat yang nonaktif sampai ada yang bisa dikirim.</span></a><a class="link-card" href="streaming-text.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Streaming text</span><span class="link-card__body">Jawaban yang datang kata demi kata, setiap kata memudar masuk dari blur 3 px, dengan caret bulat di ujung selama masih ada yang datang. Ini menunjukkan kemajuan nyata; jangan pernah memalsukannya untuk teks yang sudah Anda miliki.</span></a><a class="link-card" href="tool-call.html"><span class="link-card__eyebrow">Obrolan</span><span class="link-card__title">Tool call</span><span class="link-card__body">Satu langkah yang diambil asisten untuk sampai pada jawabannya (mencari di panduan layanan, membaca berkas, memeriksa jadwal), ditampilkan sebagai `&lt;details&gt;` satu baris yang tenang dan bisa dibuka untuk melihat temuannya. Jawaban tetap yang utama.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
           <a class="link-card cdoc__prev" href="aksara.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Sebelumnya</span><span class="link-card__title">Aksara Lampung</span></a>
           <a class="link-card cdoc__next" href="chat-message.html"><span class="link-card__eyebrow">Berikutnya<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Chat message</span></a>
@@ -486,6 +491,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

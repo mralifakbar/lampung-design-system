@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,8 +321,12 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Inputs">Inputs</a></li></ol></nav>
           <h1>Number stepper</h1>
           <p class="cdoc__lede">Minus and plus buttons around a small whole number whose digits roll to the new value. For counts people change by one or two, inside a known range.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="number-stepper.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="number-stepper.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A small count with clear bounds: seats to reserve, tickets, people in a study group, tryout attempts.</li><li>Most changes are one or two steps from a sensible default.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Any amount of money, or values that can be large: use <a class="link" href="amount-field.html">Amount field</a>.</li><li>A position on a scale (volume, difficulty): use <a class="link" href="slider.html">Slider</a>.</li><li>Choosing between a few fixed counts (1, 2, 3 sessions a week): use <a class="link" href="segmented-control.html">Segmented control</a>. Or <a class="link" href="chips.html">chips</a> for more than five.</li><li>Showing a number that changes by itself (live score, count): use <a class="link" href="rolling-number.html">Rolling number</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In a form next to its label, or at the end of a list row (a cart line, an attendee row). It keeps its own width (about 140 px) and never stretches.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A small count with clear bounds: seats to reserve, tickets, people in a group, queue numbers.</li><li>Most changes are one or two steps from a sensible default.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Any amount of money, or values that can be large: use <a class="link" href="amount-field.html">Amount field</a>.</li><li>A position on a scale (volume, difficulty): use <a class="link" href="slider.html">Slider</a>.</li><li>Choosing between a few fixed counts (1, 2, 3 sessions a week): use <a class="link" href="segmented-control.html">Segmented control</a>. Or <a class="link" href="chips.html">chips</a> for more than five.</li><li>Showing a number that changes by itself (live score, count): use <a class="link" href="rolling-number.html">Rolling number</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In a form next to its label, or at the end of a list row (a request line, an attendee row). It keeps its own width (about 140 px) and never stretches.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">Seats to reserve</span><span class="cdoc__ex-d">Digits roll to the new value; the minus disables at the minimum and the plus at the maximum. Press quickly to watch the columns travel.</span></figcaption>
           <div class="cdoc__stage" id="ex-1-stage"><div class="field" style="max-width: 320px;">
@@ -360,7 +365,7 @@
 <figure class="cdoc__ex" id="ex-2">
           <figcaption><span class="cdoc__ex-t">At the end of a list row</span><span class="cdoc__ex-d">A small count per line, such as attendees per session.</span></figcaption>
           <div class="cdoc__stage" id="ex-2-stage"><div class="list" style="max-width: 440px; width: 100%;">
-  <div class="lrow"><span class="lrow__body"><span class="lrow__title" id="ns-r1">Saturday tryout, room A</span></span>
+  <div class="lrow"><span class="lrow__body"><span class="lrow__title" id="ns-r1">Saturday UMKM workshop, room A</span></span>
     <div class="stepper-field" role="group" aria-labelledby="ns-r1" data-lds-stepper data-min="0" data-max="6" data-value="2">
       <button type="button" aria-label="One person fewer"><span class="ic" aria-hidden="true">remove</span></button>
       <span class="stepper-field__value"><span class="roll" aria-live="polite"></span></span>
@@ -373,7 +378,7 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;list&quot; style=&quot;max-width: 440px; width: 100%;&quot;&gt;
-  &lt;div class=&quot;lrow&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot; id=&quot;ns-r1&quot;&gt;Saturday tryout, room A&lt;/span&gt;&lt;/span&gt;
+  &lt;div class=&quot;lrow&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot; id=&quot;ns-r1&quot;&gt;Saturday UMKM workshop, room A&lt;/span&gt;&lt;/span&gt;
     &lt;div class=&quot;stepper-field&quot; role=&quot;group&quot; aria-labelledby=&quot;ns-r1&quot; data-lds-stepper data-min=&quot;0&quot; data-max=&quot;6&quot; data-value=&quot;2&quot;&gt;
       &lt;button type=&quot;button&quot; aria-label=&quot;One person fewer&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;remove&lt;/span&gt;&lt;/button&gt;
       &lt;span class=&quot;stepper-field__value&quot;&gt;&lt;span class=&quot;roll&quot; aria-live=&quot;polite&quot;&gt;&lt;/span&gt;&lt;/span&gt;
@@ -383,7 +388,7 @@
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;list&quot; style=&quot;max-width: 440px; width: 100%;&quot;&gt;
-  &lt;div class=&quot;lrow&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot; id=&quot;ns-r1&quot;&gt;Saturday tryout, room A&lt;/span&gt;&lt;/span&gt;
+  &lt;div class=&quot;lrow&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot; id=&quot;ns-r1&quot;&gt;Saturday UMKM workshop, room A&lt;/span&gt;&lt;/span&gt;
     &lt;div class=&quot;stepper-field&quot; role=&quot;group&quot; aria-labelledby=&quot;ns-r1&quot; data-lds-stepper data-min=&quot;0&quot; data-max=&quot;6&quot; data-value=&quot;2&quot;&gt;
       &lt;button type=&quot;button&quot; aria-label=&quot;One person fewer&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;remove&lt;/span&gt;&lt;/button&gt;
       &lt;span class=&quot;stepper-field__value&quot;&gt;&lt;span class=&quot;roll&quot; aria-live=&quot;polite&quot;&gt;&lt;/span&gt;&lt;/span&gt;
@@ -417,6 +422,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

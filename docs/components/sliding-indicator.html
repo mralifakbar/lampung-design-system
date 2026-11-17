@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Motion">Gerak</a></li></ol></nav>
           <h1>Sliding indicator</h1>
           <p class="cdoc__lede">Satu penanda berpindah ke pilihan yang dipilih: thumb segmented, garis tab, sorotan sidebar, garis outline, sorotan toolbar. Label tidak pernah menyala sendiri; satu elemen yang bergerak itulah yang menunjukkan ke mana pilihan berpindah.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="sliding-indicator.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="sliding-indicator.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Memilih satu dari beberapa pilihan yang tampil berdampingan: thumb <a class="link" href="segmented-control.html">segmented control</a>, garis <a class="link" href="tabs.html">tab</a>.</li><li>Menunjukkan posisi Anda dalam daftar tempat: sorotan <a class="link" href="sidebar.html">sidebar</a> atau <a class="link" href="app-shell.html">app shell</a>, garis <a class="link" href="outline.html">outline</a> saat bagian-bagian halaman di-scroll.</li><li>Sorotan yang mengikuti hover di sepanjang deretan alat (<a class="link" href="expanding-toolbar.html">expanding toolbar</a>).</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Menyalakan atau mematikan satu hal: pakai <a class="link" href="switch.html">Switch</a>.</li><li>Memilih beberapa pilihan sekaligus: pakai <a class="link" href="chips.html">Chips</a>.</li><li>Konten di bawah tab yang berubah: pakai <a class="link" href="view-swap.html">View swap</a>.</li><li>Kemajuan dalam urutan yang tetap: pakai <a class="link" href="steps.html">Steps</a>.</li><li>Halaman di header situs (tautan aktif digarisbawahi, tidak digeser): pakai <a class="link" href="top-nav.html">Top nav</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di belakang atau di bawah pilihan yang ditandainya, di dalam grupnya: <code class="code">seg__thumb</code> sebagai anak pertama <code class="code">.seg</code>, <code class="code">tabs__ink</code> pertama di <code class="code">.tabs</code>, <code class="code">sidebar__hl</code> / <code class="code">shell__hl</code> pertama di nav, <code class="code">toc__ink</code> pertama di <code class="code">.toc</code>, <code class="code">xbar__hl</code> pertama di <code class="code">.xbar</code>.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -405,7 +410,7 @@
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;nav class=&quot;sidebar&quot; aria-label=&quot;Layanan&quot;&gt;
   &lt;span class=&quot;sidebar__hl&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
   &lt;a class=&quot;sidebar__item&quot; href=&quot;overview&quot; aria-current=&quot;page&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;home&lt;/span&gt;Ringkasan&lt;/a&gt;
-  &lt;a class=&quot;sidebar__item&quot; href=&quot;assignments&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;assignment&lt;/span&gt;Permohonan&lt;/a&gt;
+  &lt;a class=&quot;sidebar__item&quot; href=&quot;applications&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;assignment&lt;/span&gt;Permohonan&lt;/a&gt;
 &lt;/nav&gt;
 &lt;!-- Saat berganti: pindahkan aria-current, lalu setel transform .sidebar__hl ke translateY(&lt;offsetTop butir&gt;px).
      Di layout penuh pakai app shell (.shell__hl), yang ditempatkan oleh data-lds-shell untuk Anda. --&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
@@ -413,7 +418,7 @@
           <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;nav class=&quot;sidebar&quot; aria-label=&quot;Layanan&quot;&gt;
   &lt;span class=&quot;sidebar__hl&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
   &lt;a class=&quot;sidebar__item&quot; href=&quot;overview&quot; aria-current=&quot;page&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;home&lt;/span&gt;Ringkasan&lt;/a&gt;
-  &lt;a class=&quot;sidebar__item&quot; href=&quot;assignments&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;assignment&lt;/span&gt;Permohonan&lt;/a&gt;
+  &lt;a class=&quot;sidebar__item&quot; href=&quot;applications&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;assignment&lt;/span&gt;Permohonan&lt;/a&gt;
 &lt;/nav&gt;
 &lt;!-- Saat berganti: pindahkan aria-current, lalu setel transform .sidebar__hl ke translateY(&lt;offsetTop butir&gt;px).
      Di layout penuh pakai app shell (.shell__hl), yang ditempatkan oleh data-lds-shell untuk Anda. --&gt;</pre></div></div></div>
@@ -424,10 +429,10 @@
         <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Pakai satu elemen indikator per grup, digerakkan dengan <code class="code">transform</code>.</li><li>Biarkan hook sistem yang menempatkannya (<code class="code">data-lds-segmented</code>, <code class="code">data-lds-tabs</code>, <code class="code">data-lds-shell</code>, <code class="code">data-lds-toc</code>).</li><li>Buat perubahan label seketika dan jadikan penanda satu-satunya yang berpindah.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Memberi setiap pilihan latar sendiri yang memudar masuk dan keluar.</li><li>Menganimasikan <code class="code">left</code> atau <code class="code">width</code> dengan frame JS; setel transform dan biarkan CSS memberinya spring.</li><li>Menggeser penanda pada render pertama.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> <code class="code">data-lds-segmented</code> dan <code class="code">data-lds-tabs</code> mengatur ukuran dan menggerakkan penanda, menangani tombol panah, dan memancarkan <code class="code">lds:change</code> dengan <code class="code">{ index, item }</code>. <code class="code">data-lds-shell</code> menempatkan <code class="code">.shell__hl</code> setiap kali <code class="code">aria-current</code> berubah. <code class="code">data-lds-toc</code> menggerakkan <code class="code">.toc__ink</code> saat bagian-bagian di-scroll. <code class="code">.sidebar__hl</code> tidak punya binding sendiri: gerakkan sendiri atau pakai app shell.</p><p class="cdoc__p"><strong>React.</strong> Dari <code class="code">lampung-design-system/react</code>.</p><div class="codeblock"><pre>import { Segmented, Tabs } from 'lampung-design-system/react';
 
-&lt;Segmented label=&quot;Show grades for&quot; value={range} onChange={setRange}
-  options={[{ value: 'week', label: 'This week' }, { value: 'month', label: 'Month' }, { value: 'term', label: 'Term' }]} /&gt;
-&lt;Tabs label=&quot;Course sections&quot; value={tab} onChange={setTab}
-  items={[{ value: 'overview', label: 'Overview' }, { value: 'tasks', label: 'Assignments', count: 3 }]} /&gt;</pre></div></section>
+&lt;Segmented label=&quot;Show reports for&quot; value={range} onChange={setRange}
+  options={[{ value: 'week', label: 'This week' }, { value: 'month', label: 'Month' }, { value: 'year', label: 'Year' }]} /&gt;
+&lt;Tabs label=&quot;Service sections&quot; value={tab} onChange={setTab}
+  items={[{ value: 'overview', label: 'Overview' }, { value: 'applications', label: 'Applications', count: 3 }]} /&gt;</pre></div></section>
         <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="segmented-control.html"><span class="link-card__eyebrow">Pilihan</span><span class="link-card__title">Segmented control</span><span class="link-card__body">Dua sampai lima segmen sama lebar dengan satu thumb yang bergeser ke segmen terpilih. Untuk mengganti tampilan atau mode dari yang ada di layar saat itu; perubahannya langsung berlaku.</span></a><a class="link-card" href="tabs.html"><span class="link-card__eyebrow">Navigasi</span><span class="link-card__title">Tabs</span><span class="link-card__body">Tab bergaris bawah yang berpindah di antara bagian sejajar dalam satu halaman, masing-masing dengan panelnya sendiri. Satu garis tinta meluncur ke tab yang dipilih.</span></a><a class="link-card" href="sidebar.html"><span class="link-card__eyebrow">Navigasi</span><span class="link-card__title">Sidebar</span><span class="link-card__body">Panel berbingkai berisi tautan dengan satu sorotan yang bergeser, diletakkan di dalam konten: bagian-bagian halaman pengaturan, folder kotak masuk. Bukan kerangka aplikasi.</span></a><a class="link-card" href="outline.html"><span class="link-card__eyebrow">Navigasi</span><span class="link-card__title">Outline</span><span class="link-card__body">Daftar &quot;Di halaman ini&quot; berisi heading dari satu halaman panjang, dengan garis tinta yang mengikuti bagian yang sedang terlihat. Daftar di sebelah kanan halaman ini adalah salah satunya.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
           <a class="link-card cdoc__prev" href="enter-and-exit.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Sebelumnya</span><span class="link-card__title">Enter and exit</span></a>
@@ -447,6 +452,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

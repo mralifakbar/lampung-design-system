@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Actions">Actions</a></li></ol></nav>
           <h1>Floating action</h1>
           <p class="cdoc__lede">One round accent button that floats over the content of a phone screen for the action people come to that screen to do (new message, add expense). It is the only resting control that casts a shadow.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="floating-action.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="floating-action.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A phone screen whose main purpose is creating something in the list it shows: compose a message, log an expense, add a note.</li><li>The list scrolls long enough that a button at its top or bottom would often be out of reach.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Wide screens and desktop layouts: use <a class="link" href="button.html">Button</a>. Put a <code class="code">btn--primary</code> in the page header instead; a floating disc in the corner of a 1400 px window is easy to miss.</li><li>The screen has a primary action at the end of a form or flow: use <a class="link" href="button.html">Button</a>. Use a full-width <code class="code">btn--primary btn--block</code> in a sticky bar.</li><li>Two or more equally important actions: use <a class="link" href="button-group.html">Button group</a>.</li><li>Actions that apply to selected items: use <a class="link" href="selection-bar.html">Selection bar</a>.</li><li>A small icon action in a toolbar or card: use <a class="link" href="icon-button.html">Icon button</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Bottom right of a phone screen, 16 to 20 px from the edges, above the tab bar (<code class="code">bottom</code> = tab bar height + 16) and above the home indicator (<code class="code">env(safe-area-inset-bottom)</code>). One per screen. It must not cover the last row: give the scrolling list bottom padding of at least the button height plus 32.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
@@ -328,9 +333,9 @@
   <div class="docs-scroll" style="height: 100%; padding: 20px 16px 120px;">
     <h3 class="section__title-sm" style="margin-bottom: 12px;">Messages</h3>
     <div class="list list--fill">
-      <div class="lrow"><span class="avatar" style="--size: 36px;">RK</span><span class="lrow__body"><span class="lrow__title" style="display: block;">Rina Kusuma</span><span class="lrow__sub" style="display: block;">Can we move the study group to 4?</span></span></div>
-      <div class="lrow"><span class="avatar avatar--gray" style="--size: 36px;">DB</span><span class="lrow__body"><span class="lrow__title" style="display: block;">Database Systems</span><span class="lrow__sub" style="display: block;">Midterm room changed to B204</span></span></div>
-      <div class="lrow"><span class="avatar" style="--size: 36px;">AP</span><span class="lrow__body"><span class="lrow__title" style="display: block;">Adi Pratama</span><span class="lrow__sub" style="display: block;">Sent the lab notes</span></span></div>
+      <div class="lrow"><span class="avatar" style="--size: 36px;">RK</span><span class="lrow__body"><span class="lrow__title" style="display: block;">Rina Kusuma</span><span class="lrow__sub" style="display: block;">Can the posyandu session move to 4?</span></span></div>
+      <div class="lrow"><span class="avatar avatar--gray" style="--size: 36px;">PK</span><span class="lrow__body"><span class="lrow__title" style="display: block;">Puskesmas Kedaton</span><span class="lrow__sub" style="display: block;">The immunization room moved to the 2nd floor</span></span></div>
+      <div class="lrow"><span class="avatar" style="--size: 36px;">AP</span><span class="lrow__body"><span class="lrow__title" style="display: block;">Adi Pratama</span><span class="lrow__sub" style="display: block;">Sent photos of the damaged road report</span></span></div>
     </div>
   </div>
   <button class="icon-btn icon-btn--accent" aria-label="New message" style="position: absolute; right: 20px; bottom: 28px; width: 56px; height: 56px; box-shadow: var(--finish-primary), var(--shadow-md);"><span class="ic" aria-hidden="true">edit</span></button>
@@ -373,6 +378,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

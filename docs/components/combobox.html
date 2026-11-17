@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,23 +321,27 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Inputs">Input</a></li></ol></nav>
           <h1>Combobox</h1>
           <p class="cdoc__lede">Text field yang menyaring daftar opsi saat Anda mengetik dan menyimpan satu yang dipilih. Untuk daftar panjang dan opsi dari server; ia memberi tahu saat tidak ada yang cocok.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="combobox.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="combobox.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Satu nilai dari daftar panjang yang dikenal orang lewat namanya: provinsi, kota, sekolah, kelurahan, jurusan.</li><li>Opsi datang dari server saat mengetik (React <code class="code">Combobox</code> dengan <code class="code">loadOptions</code>).</li><li>Orang tahu yang mereka mau dan mengetik tiga huruf lebih cepat daripada menggulir.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Daftar tetap yang pendek (kurang dari sekitar 30 opsi): pakai <a class="link" href="select.html">Select</a>.</li><li>Mencari untuk menyaring halaman atau daftar, tanpa menyimpan pilihan: pakai <a class="link" href="search-field.html">Search field</a>.</li><li>Beberapa nilai, termasuk nilai baru yang dibuat orang: pakai <a class="link" href="tag-input.html">Tag input</a>.</li><li>Melompat ke halaman atau perintah apa pun di aplikasi: pakai <a class="link" href="command-palette.html">Command palette</a>.</li><li>Dua sampai lima opsi: pakai <a class="link" href="radio.html">Radio</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di <a class="link" href="form-layout.html">formulir</a> seperti <a class="link" href="text-field.html">text field</a>, atau di bilah filter pada layar lebar. Daftar terbuka di bawah kolom, selebar kolom, dan menggulir di dalamnya (sampai 320 px atau setengah viewport).</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Satu nilai dari daftar panjang yang dikenal orang lewat namanya: kabupaten atau kota, kecamatan, kelurahan, puskesmas, kantor layanan.</li><li>Opsi datang dari server saat mengetik (React <code class="code">Combobox</code> dengan <code class="code">loadOptions</code>).</li><li>Orang tahu yang mereka mau dan mengetik tiga huruf lebih cepat daripada menggulir.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Daftar tetap yang pendek (kurang dari sekitar 30 opsi): pakai <a class="link" href="select.html">Select</a>.</li><li>Mencari untuk menyaring halaman atau daftar, tanpa menyimpan pilihan: pakai <a class="link" href="search-field.html">Search field</a>.</li><li>Beberapa nilai, termasuk nilai baru yang dibuat orang: pakai <a class="link" href="tag-input.html">Tag input</a>.</li><li>Melompat ke halaman atau perintah apa pun di aplikasi: pakai <a class="link" href="command-palette.html">Command palette</a>.</li><li>Dua sampai lima opsi: pakai <a class="link" href="radio.html">Radio</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di <a class="link" href="form-layout.html">formulir</a> seperti <a class="link" href="text-field.html">text field</a>, atau di bilah filter pada layar lebar. Daftar terbuka di bawah kolom, selebar kolom, dan menggulir di dalamnya (sampai 320 px atau setengah viewport).</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Provinsi</span><span class="cdoc__ex-d">Fokus memilih teks dan membuka daftar; mengetik menyaring bagian mana pun dari nama; Enter memilih baris yang disorot. Coba &quot;jawa&quot; atau &quot;kal&quot;.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Kabupaten atau kota</span><span class="cdoc__ex-d">Fokus memilih teks dan membuka daftar; mengetik menyaring bagian mana pun dari nama; Enter memilih baris yang disorot. Coba &quot;lampung&quot; atau &quot;me&quot;.</span></figcaption>
           <div class="cdoc__stage" id="ex-1-stage" style="min-height: 380px;"><div class="field" style="max-width: 360px; width: 100%;">
-  <label class="field__label" for="cb-prov">Provinsi</label>
+  <label class="field__label" for="cb-prov">Kabupaten atau kota</label>
   <div class="select combobox" data-lds-combobox>
-    <div class="control combobox__control"><span class="ic" aria-hidden="true">location_on</span><input id="cb-prov" role="combobox" placeholder="Semua provinsi"><span class="control__btn combobox__arrow" aria-hidden="true"><span class="ic">expand_more</span></span></div>
-    <ul class="menu select__menu" role="listbox" aria-label="Provinsi">
-      <li class="menu__item" role="option" data-value="jabar">Jawa Barat</li>
-      <li class="menu__item" role="option" data-value="jateng">Jawa Tengah</li>
-      <li class="menu__item" role="option" data-value="jatim">Jawa Timur</li>
-      <li class="menu__item" role="option" data-value="bali">Bali</li>
-      <li class="menu__item" role="option" data-value="kalbar">Kalimantan Barat</li>
-      <li class="menu__item" role="option" data-value="kaltim">Kalimantan Timur</li>
-      <li class="menu__item" role="option" data-value="sulsel">Sulawesi Selatan</li>
-      <li class="menu__item" role="option" data-value="papua">Papua</li>
+    <div class="control combobox__control"><span class="ic" aria-hidden="true">location_on</span><input id="cb-prov" role="combobox" placeholder="Semua kabupaten dan kota"><span class="control__btn combobox__arrow" aria-hidden="true"><span class="ic">expand_more</span></span></div>
+    <ul class="menu select__menu" role="listbox" aria-label="Kabupaten atau kota">
+      <li class="menu__item" role="option" data-value="bdl">Kota Bandar Lampung</li>
+      <li class="menu__item" role="option" data-value="metro">Kota Metro</li>
+      <li class="menu__item" role="option" data-value="lamsel">Kabupaten Lampung Selatan</li>
+      <li class="menu__item" role="option" data-value="lamteng">Kabupaten Lampung Tengah</li>
+      <li class="menu__item" role="option" data-value="lampura">Kabupaten Lampung Utara</li>
+      <li class="menu__item" role="option" data-value="pringsewu">Kabupaten Pringsewu</li>
+      <li class="menu__item" role="option" data-value="pesawaran">Kabupaten Pesawaran</li>
+      <li class="menu__item" role="option" data-value="tanggamus">Kabupaten Tanggamus</li>
       <li class="select__empty" role="presentation" hidden>Tidak ada yang cocok. Coba kata lain.</li>
     </ul>
   </div>
@@ -346,36 +351,36 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;field&quot; style=&quot;max-width: 360px; width: 100%;&quot;&gt;
-  &lt;label class=&quot;field__label&quot; for=&quot;cb-prov&quot;&gt;Provinsi&lt;/label&gt;
+  &lt;label class=&quot;field__label&quot; for=&quot;cb-prov&quot;&gt;Kabupaten atau kota&lt;/label&gt;
   &lt;div class=&quot;select combobox&quot; data-lds-combobox&gt;
-    &lt;div class=&quot;control combobox__control&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;location_on&lt;/span&gt;&lt;input id=&quot;cb-prov&quot; role=&quot;combobox&quot; placeholder=&quot;Semua provinsi&quot;&gt;&lt;span class=&quot;control__btn combobox__arrow&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;ic&quot;&gt;expand_more&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;ul class=&quot;menu select__menu&quot; role=&quot;listbox&quot; aria-label=&quot;Provinsi&quot;&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;jabar&quot;&gt;Jawa Barat&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;jateng&quot;&gt;Jawa Tengah&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;jatim&quot;&gt;Jawa Timur&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;bali&quot;&gt;Bali&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;kalbar&quot;&gt;Kalimantan Barat&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;kaltim&quot;&gt;Kalimantan Timur&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;sulsel&quot;&gt;Sulawesi Selatan&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;papua&quot;&gt;Papua&lt;/li&gt;
+    &lt;div class=&quot;control combobox__control&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;location_on&lt;/span&gt;&lt;input id=&quot;cb-prov&quot; role=&quot;combobox&quot; placeholder=&quot;Semua kabupaten dan kota&quot;&gt;&lt;span class=&quot;control__btn combobox__arrow&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;ic&quot;&gt;expand_more&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;ul class=&quot;menu select__menu&quot; role=&quot;listbox&quot; aria-label=&quot;Kabupaten atau kota&quot;&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;bdl&quot;&gt;Kota Bandar Lampung&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;metro&quot;&gt;Kota Metro&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;lamsel&quot;&gt;Kabupaten Lampung Selatan&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;lamteng&quot;&gt;Kabupaten Lampung Tengah&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;lampura&quot;&gt;Kabupaten Lampung Utara&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;pringsewu&quot;&gt;Kabupaten Pringsewu&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;pesawaran&quot;&gt;Kabupaten Pesawaran&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;tanggamus&quot;&gt;Kabupaten Tanggamus&lt;/li&gt;
       &lt;li class=&quot;select__empty&quot; role=&quot;presentation&quot; hidden&gt;Tidak ada yang cocok. Coba kata lain.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;field&quot; style=&quot;max-width: 360px; width: 100%;&quot;&gt;
-  &lt;label class=&quot;field__label&quot; for=&quot;cb-prov&quot;&gt;Provinsi&lt;/label&gt;
+  &lt;label class=&quot;field__label&quot; for=&quot;cb-prov&quot;&gt;Kabupaten atau kota&lt;/label&gt;
   &lt;div class=&quot;select combobox&quot; data-lds-combobox&gt;
-    &lt;div class=&quot;control combobox__control&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;location_on&lt;/span&gt;&lt;input id=&quot;cb-prov&quot; role=&quot;combobox&quot; placeholder=&quot;Semua provinsi&quot;&gt;&lt;span class=&quot;control__btn combobox__arrow&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;ic&quot;&gt;expand_more&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;ul class=&quot;menu select__menu&quot; role=&quot;listbox&quot; aria-label=&quot;Provinsi&quot;&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;jabar&quot;&gt;Jawa Barat&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;jateng&quot;&gt;Jawa Tengah&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;jatim&quot;&gt;Jawa Timur&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;bali&quot;&gt;Bali&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;kalbar&quot;&gt;Kalimantan Barat&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;kaltim&quot;&gt;Kalimantan Timur&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;sulsel&quot;&gt;Sulawesi Selatan&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;papua&quot;&gt;Papua&lt;/li&gt;
+    &lt;div class=&quot;control combobox__control&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;location_on&lt;/span&gt;&lt;input id=&quot;cb-prov&quot; role=&quot;combobox&quot; placeholder=&quot;Semua kabupaten dan kota&quot;&gt;&lt;span class=&quot;control__btn combobox__arrow&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;ic&quot;&gt;expand_more&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;ul class=&quot;menu select__menu&quot; role=&quot;listbox&quot; aria-label=&quot;Kabupaten atau kota&quot;&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;bdl&quot;&gt;Kota Bandar Lampung&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;metro&quot;&gt;Kota Metro&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;lamsel&quot;&gt;Kabupaten Lampung Selatan&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;lamteng&quot;&gt;Kabupaten Lampung Tengah&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;lampura&quot;&gt;Kabupaten Lampung Utara&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;pringsewu&quot;&gt;Kabupaten Pringsewu&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;pesawaran&quot;&gt;Kabupaten Pesawaran&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;tanggamus&quot;&gt;Kabupaten Tanggamus&lt;/li&gt;
       &lt;li class=&quot;select__empty&quot; role=&quot;presentation&quot; hidden&gt;Tidak ada yang cocok. Coba kata lain.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
@@ -384,12 +389,12 @@
 <figure class="cdoc__ex" id="ex-2">
           <figcaption><span class="cdoc__ex-t">Opsi dari server (React)</span><span class="cdoc__ex-d">Dengan <code class="code">loadOptions</code> kueri ditunda (debounce 180 ms) dan permintaan sebelumnya dibatalkan saat teks berubah; spinner tampil di kolom selama memuat. <code class="code">minChars</code> menunggu sampai hurufnya cukup.</span></figcaption>
           <div class="cdoc__stage" id="ex-2-stage" style="min-height: 260px;"><div class="field" style="max-width: 360px; width: 100%;">
-  <label class="field__label" for="cb-uni">Sekolah</label>
+  <label class="field__label" for="cb-uni">Puskesmas</label>
   <div class="select combobox">
-    <div class="control combobox__control is-open"><span class="ic" aria-hidden="true">school</span><input id="cb-uni" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-controls="cb-uni-list" value="sma"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
-    <ul class="menu select__menu is-open" role="listbox" id="cb-uni-list" aria-label="Sekolah">
-      <li class="menu__item" role="option" aria-selected="false"><span class="select__text">SMA Negeri 3 Kotabumi<small>Kotabumi, Lampung Utara</small></span></li>
-      <li class="menu__item is-hover" role="option" aria-selected="false"><span class="select__text">SMA Negeri 1 Pringsewu<small>Pringsewu, Kabupaten Pringsewu</small></span></li>
+    <div class="control combobox__control is-open"><span class="ic" aria-hidden="true">local_hospital</span><input id="cb-uni" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-controls="cb-uni-list" value="way"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+    <ul class="menu select__menu is-open" role="listbox" id="cb-uni-list" aria-label="Puskesmas">
+      <li class="menu__item" role="option" aria-selected="false"><span class="select__text">Puskesmas Way Halim<small>Way Halim, Bandar Lampung</small></span></li>
+      <li class="menu__item is-hover" role="option" aria-selected="false"><span class="select__text">Puskesmas Way Kandis<small>Tanjung Senang, Bandar Lampung</small></span></li>
     </ul>
   </div>
 </div></div>
@@ -398,42 +403,42 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;Combobox
-  label=&quot;Sekolah&quot;
-  icon=&quot;school&quot;
+  label=&quot;Puskesmas&quot;
+  icon=&quot;local_hospital&quot;
   value={uni}
   onChange={setUni}
   minChars={3}
   loadOptions={(q, signal) =&gt;
-    fetch(`/api/universities?q=${encodeURIComponent(q)}`, { signal }).then((r) =&gt; r.json())
+    fetch(`/api/puskesmas?q=${encodeURIComponent(q)}`, { signal }).then((r) =&gt; r.json())
   }
 /&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;Combobox
-  label=&quot;Sekolah&quot;
-  icon=&quot;school&quot;
+  label=&quot;Puskesmas&quot;
+  icon=&quot;local_hospital&quot;
   value={uni}
   onChange={setUni}
   minChars={3}
   loadOptions={(q, signal) =&gt;
-    fetch(`/api/universities?q=${encodeURIComponent(q)}`, { signal }).then((r) =&gt; r.json())
+    fetch(`/api/puskesmas?q=${encodeURIComponent(q)}`, { signal }).then((r) =&gt; r.json())
   }
 /&gt;</pre></div></div></div>
         </figure></section>
         <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">.select.combobox</code></td><td>Wajib. Pembungkus berposisi. <code class="code">data-lds-combobox</code> untuk perilaku HTML biasa.</td></tr><tr><td><code class="code">.control.combobox__control</code></td><td>Wajib. Kolom 44 px; <code class="code">.is-open</code> selama daftar tampil. <code class="code">.ic</code> di depan opsional.</td></tr><tr><td><code class="code">input[role=combobox]</code></td><td>Wajib. Input teks, dinamai oleh <code class="code">&lt;label for&gt;</code> atau <code class="code">aria-label</code>. JS menyetel <code class="code">aria-expanded</code>, <code class="code">aria-controls</code>, <code class="code">aria-autocomplete=&quot;list&quot;</code>, dan <code class="code">autocomplete=&quot;off&quot;</code>.</td></tr><tr><td><code class="code">.control__btn.combobox__arrow</code></td><td>Chevron opsional (<code class="code">aria-hidden</code>), berputar saat terbuka. Di React tombol hapus menggantikannya setelah nilai dipilih.</td></tr><tr><td><code class="code">ul.menu.select__menu[role=listbox]</code></td><td>Wajib. Opsi-opsinya; <code class="code">li.menu__item[role=option]</code> dengan <code class="code">data-value</code>.</td></tr><tr><td><code class="code">.select__empty</code></td><td>Wajib. Baris tanpa hasil, <code class="code">role=&quot;presentation&quot;</code>, <code class="code">hidden</code> sampai tidak ada yang cocok.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">closed</code></td><td>Tampak seperti <a class="link" href="text-field.html">text field</a> dengan chevron.</td></tr><tr><td><code class="code">open (.is-open on the control, aria-expanded=&quot;true&quot;)</code></td><td>Tepi aksen dan halo tetap menyala; chevron menunjuk ke atas; daftar tumbuh masuk.</td></tr><tr><td><code class="code">filtering</code></td><td>Baris yang tidak mengandung teks diberi <code class="code">hidden</code>; baris pertama yang terlihat disorot.</td></tr><tr><td><code class="code">no match</code></td><td><code class="code">.select__empty</code> menampilkan &quot;Tidak ada yang cocok. Coba kata lain.&quot;</td></tr><tr><td><code class="code">loading (React)</code></td><td><a class="link" href="spinner.html">Spinner</a> di kolom menggantikan chevron.</td></tr><tr><td><code class="code">chosen (React)</code></td><td>Tombol hapus <code class="code">.control__btn</code> (ikon tutup, berlabel &quot;Hapus Provinsi&quot;) menggantikan chevron.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">closed</code></td><td>Tampak seperti <a class="link" href="text-field.html">text field</a> dengan chevron.</td></tr><tr><td><code class="code">open (.is-open on the control, aria-expanded=&quot;true&quot;)</code></td><td>Tepi aksen dan halo tetap menyala; chevron menunjuk ke atas; daftar tumbuh masuk.</td></tr><tr><td><code class="code">filtering</code></td><td>Baris yang tidak mengandung teks diberi <code class="code">hidden</code>; baris pertama yang terlihat disorot.</td></tr><tr><td><code class="code">no match</code></td><td><code class="code">.select__empty</code> menampilkan &quot;Tidak ada yang cocok. Coba kata lain.&quot;</td></tr><tr><td><code class="code">loading (React)</code></td><td><a class="link" href="spinner.html">Spinner</a> di kolom menggantikan chevron.</td></tr><tr><td><code class="code">chosen (React)</code></td><td>Tombol hapus <code class="code">.control__btn</code> (ikon tutup, berlabel &quot;Hapus Kabupaten atau kota&quot;) menggantikan chevron.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Daftar memakai gerak menu: masuk dengan <code class="code">--spring-smooth</code> (560 ms) dari <code class="code">scale(0.96) translateY(-4px)</code> dengan opacity dalam <code class="code">--d-fast</code>; keluar dalam <code class="code">--d-exit</code> (180 ms) dengan <code class="code">--ease-exit</code>.</li><li>Penyaringan langsung menyembunyikan baris; jangan menganimasikan baris masuk dan keluar di setiap ketukan, daftar jadi terasa lambat.</li><li>Chevron berputar dengan <code class="code">--spring-smooth</code>. Sorotan mengikuti pointer dalam 60 ms linear.</li><li>Reduced motion: menu memudar masuk 120 ms linear tanpa skala.</li></ul></section>
         <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Input punya <code class="code">role=&quot;combobox&quot;</code>, <code class="code">aria-expanded</code>, <code class="code">aria-controls</code>, dan <code class="code">aria-autocomplete=&quot;list&quot;</code>; <code class="code">aria-activedescendant</code> menunjuk ke opsi yang disorot sementara fokus tetap di input.</li><li>Tombol: Bawah membuka dan berpindah, Atas berpindah, Enter memilih, Escape menutup (React juga memulihkan label terpilih), Tab menutup.</li><li>Baris kosong adalah <code class="code">role=&quot;presentation&quot;</code>; pertimbangkan hitungan <code class="code">aria-live=&quot;polite&quot;</code> jika hasil sering berubah banyak.</li><li>Penyaringan mencocokkan bagian mana pun dari label (dan baris kedua di React), tanpa membedakan huruf besar kecil.</li></ul></section>
         <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Taruh opsi yang paling mungkin di awal saat kolom kosong.</li><li>Setel <code class="code">minChars</code> (2 atau 3) untuk daftar dari server agar permintaan pertama berguna.</li><li>Tampilkan baris kedua (<code class="code">sub</code>) saat dua opsi punya nama yang sama.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Menerima teks bebas yang tidak cocok dengan opsi mana pun sebagai nilai; combobox menyimpan salah satu opsinya.</li><li>Memakai combobox untuk daftar pendek hanya agar tampak bisa dicari.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> <code class="code">data-lds-combobox</code> pada <code class="code">.select.combobox</code>: fokus memilih teks dan membuka daftar; mengetik menyaring opsi dan menyalakan atau mematikan <code class="code">.select__empty</code>; tombol seperti di atas; pilihan menulis label ke input dan memicu <code class="code">lds:change</code> dengan <code class="code">{ value, label }</code>. Pemuatan dari server dan tombol hapus hanya ada di binding React.</p><p class="cdoc__p"><strong>React.</strong> Dari <code class="code">lampung-design-system/react</code>.</p><div class="codeblock"><pre>import { Combobox } from 'lampung-design-system/react';
 
 // Local options, filtered in the browser
-&lt;Combobox label=&quot;Provinsi&quot; icon=&quot;location_on&quot; value={prov} onChange={setProv}
-  options={[{ value: 'jabar', label: 'Jawa Barat' }, { value: 'bali', label: 'Bali' }]} /&gt;
+&lt;Combobox label=&quot;Kabupaten atau kota&quot; icon=&quot;location_on&quot; value={prov} onChange={setProv}
+  options={[{ value: 'bdl', label: 'Kota Bandar Lampung' }, { value: 'metro', label: 'Kota Metro' }]} /&gt;
 
 // From a server: debounced 180 ms, aborted when the query changes
-&lt;Combobox label=&quot;Sekolah&quot; icon=&quot;school&quot; value={uni} onChange={setUni} minChars={3}
-  loadOptions={(q, signal) =&gt; fetch(`/api/universities?q=${q}`, { signal }).then((r) =&gt; r.json())}
-  emptyText=&quot;Tidak ada sekolah dengan nama itu. Periksa ejaannya.&quot; /&gt;</pre></div></section>
+&lt;Combobox label=&quot;Puskesmas&quot; icon=&quot;local_hospital&quot; value={uni} onChange={setUni} minChars={3}
+  loadOptions={(q, signal) =&gt; fetch(`/api/puskesmas?q=${q}`, { signal }).then((r) =&gt; r.json())}
+  emptyText=&quot;Tidak ada puskesmas dengan nama itu. Periksa ejaannya.&quot; /&gt;</pre></div></section>
         <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="select.html"><span class="link-card__eyebrow">Input</span><span class="link-card__title">Select</span><span class="link-card__body">Tombol berbentuk kolom yang membuka daftar opsi di bawahnya dan menampilkan yang dipilih. Untuk satu pilihan dari daftar tetap yang terlalu panjang untuk ditampilkan sebagai radio; jika orang perlu mengetik untuk menemukannya, pakai combobox.</span></a><a class="link-card" href="search-field.html"><span class="link-card__eyebrow">Input</span><span class="link-card__title">Search field</span><span class="link-card__body">Kolom berisi tanpa label untuk menemukan sesuatu: layanan, warga, laporan. Di ponsel, memfokuskannya menggeser masuk tombol Batal yang menghapus teks dan keluar dari pencarian.</span></a><a class="link-card" href="tag-input.html"><span class="link-card__eyebrow">Input</span><span class="link-card__title">Tag input</span><span class="link-card__body">Kolom yang mengubah teks ketikan menjadi tag yang bisa dihapus: Enter atau koma menambah satu, Backspace di kolom kosong menghapus yang terakhir. Untuk beberapa nilai bebas yang pendek.</span></a><a class="link-card" href="command-palette.html"><span class="link-card__eyebrow">Lapisan</span><span class="link-card__title">Command palette</span><span class="link-card__body">Kotak pencarian di atas halaman untuk menemukan dan menjalankan perintah atau tujuan apa pun dengan mengetik. Jalan pintas bagi orang yang tahu apa yang dicari; tidak pernah satu-satunya jalan.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
           <a class="link-card cdoc__prev" href="select.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Sebelumnya</span><span class="link-card__title">Select</span></a>
@@ -453,6 +458,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

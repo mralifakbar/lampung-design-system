@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,22 +321,26 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Chat">Obrolan</a></li></ol></nav>
           <h1>Composer</h1>
           <p class="cdoc__lede">Kotak balasan di bawah percakapan: kolom membulat yang tumbuh mengikuti teks, Enter untuk mengirim, Shift+Enter untuk baris baru, dan satu tombol kirim bulat yang nonaktif sampai ada yang bisa dikirim.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="composer.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="composer.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Orang menulis pesan berikutnya di <a class="link" href="chat-layout.html">chat layout</a>: kepada tutor, asisten, atau utas layanan pengaduan.</li><li>Satu kotak pertanyaan di bagian atas halaman asisten yang masih kosong, sebelum ada percakapan.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Kolom formulir untuk jawaban panjang yang disimpan, bukan dikirim (esai, deskripsi): pakai <a class="link" href="textarea.html">Textarea</a>. Di sana Enter harus menambah baris, bukan mengirim.</li><li>Mencari atau menyaring daftar: pakai <a class="link" href="search-field.html">Search field</a>.</li><li>Nilai satu baris seperti nama atau email: pakai <a class="link" href="text-field.html">Text field</a>.</li><li>Melompat ke perintah atau halaman: pakai <a class="link" href="command-palette.html">Command palette</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Tepat di bawah area gulir pesan, selebar kolom percakapan, di luar area gulir agar tidak ikut tergulir. Di ponsel ini elemen terakhir di layar, diberi padding safe area (<code class="code">safe-bottom</code>), dan naik di atas keyboard. Alat tambahan (lampiran, suara) di kiri textarea; tombol kirim selalu terakhir, di kanan.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Orang menulis pesan berikutnya di <a class="link" href="chat-layout.html">chat layout</a>: kepada asisten layanan kota, meja bantuan, atau utas layanan pengaduan.</li><li>Satu kotak pertanyaan di bagian atas halaman asisten yang masih kosong, sebelum ada percakapan.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Kolom formulir untuk jawaban panjang yang disimpan, bukan dikirim (uraian pengaduan, keterangan): pakai <a class="link" href="textarea.html">Textarea</a>. Di sana Enter harus menambah baris, bukan mengirim.</li><li>Mencari atau menyaring daftar: pakai <a class="link" href="search-field.html">Search field</a>.</li><li>Nilai satu baris seperti nama atau email: pakai <a class="link" href="text-field.html">Text field</a>.</li><li>Melompat ke perintah atau halaman: pakai <a class="link" href="command-palette.html">Command palette</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Tepat di bawah area gulir pesan, selebar kolom percakapan, di luar area gulir agar tidak ikut tergulir. Di ponsel ini elemen terakhir di layar, diberi padding safe area (<code class="code">safe-bottom</code>), dan naik di atas keyboard. Alat tambahan (lampiran, suara) di kiri textarea; tombol kirim selalu terakhir, di kanan.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">Kirim pertanyaan</span><span class="cdoc__ex-d">Ketik lalu tekan Enter (atau tombolnya). Pesan Anda masuk ke kolom dan jawaban mengalir masuk. Shift+Enter menambah baris, bukan mengirim.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="docs-col" style="max-width: 520px;">
   <div class="chat" id="cp-chat" role="log" aria-label="Percakapan">
-    <div class="msg msg--ai"><div class="bubble">Tanyakan apa saja tentang soal fisika minggu ini.</div></div>
+    <div class="msg msg--ai"><div class="bubble">Tanyakan tentang layanan Disdukcapil: KTP elektronik, KK, akta kelahiran, surat pindah.</div></div>
   </div>
-  <form class="composer" data-lds-composer onsubmit="event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const c = document.getElementById('cp-chat'); const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); c.append(m); const a = document.createElement('div'); a.className = 'msg msg--ai is-new'; const ab = document.createElement('div'); ab.className = 'bubble'; a.append(ab); setTimeout(() => { c.append(a); import('../../js/lds.js').then((d) => d.streamText(ab, 'Pertanyaan bagus. Mulai dari satuannya: yang ditanyakan meter per detik, jadi bagi jarak dalam meter dengan waktu dalam detik.')); }, 400);"><textarea rows="1" aria-label="Pesan" placeholder="Tanyakan tentang materi ini"></textarea><button class="composer__send" type="submit" aria-label="Kirim"><span class="ic" aria-hidden="true">arrow_upward</span></button></form>
+  <form class="composer" data-lds-composer onsubmit="event.preventDefault(); const t = this.querySelector('textarea').value.trim(); if (!t) return; const c = document.getElementById('cp-chat'); const m = document.createElement('div'); m.className = 'msg msg--me is-new'; const b = document.createElement('div'); b.className = 'bubble'; b.textContent = t; m.append(b); c.append(m); const a = document.createElement('div'); a.className = 'msg msg--ai is-new'; const ab = document.createElement('div'); ab.className = 'bubble'; a.append(ab); setTimeout(() => { c.append(a); import('../../js/lds.js').then((d) => d.streamText(ab, 'Pertanyaan bagus. Untuk KTP elektronik baru, siapkan KK dan surat pengantar RT/RW. Bawa keduanya ke loket Disdukcapil atau kantor kecamatan; perekaman sekitar 15 menit.')); }, 400);"><textarea rows="1" aria-label="Pesan" placeholder="Tanya tentang layanan Disdukcapil"></textarea><button class="composer__send" type="submit" aria-label="Kirim"><span class="ic" aria-hidden="true">arrow_upward</span></button></form>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;form class=&quot;composer&quot; data-lds-composer&gt;
-  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Pesan&quot; placeholder=&quot;Tanyakan tentang materi ini&quot;&gt;&lt;/textarea&gt;
+  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Pesan&quot; placeholder=&quot;Tanya tentang layanan Disdukcapil&quot;&gt;&lt;/textarea&gt;
   &lt;button class=&quot;composer__send&quot; type=&quot;submit&quot; aria-label=&quot;Kirim&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;
 &lt;/form&gt;
 &lt;script type=&quot;module&quot;&gt;
@@ -348,7 +353,7 @@
 &lt;/script&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;form class=&quot;composer&quot; data-lds-composer&gt;
-  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Pesan&quot; placeholder=&quot;Tanyakan tentang materi ini&quot;&gt;&lt;/textarea&gt;
+  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Pesan&quot; placeholder=&quot;Tanya tentang layanan Disdukcapil&quot;&gt;&lt;/textarea&gt;
   &lt;button class=&quot;composer__send&quot; type=&quot;submit&quot; aria-label=&quot;Kirim&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;
 &lt;/form&gt;
 &lt;script type=&quot;module&quot;&gt;
@@ -364,7 +369,7 @@
           <figcaption><span class="cdoc__ex-t">Dengan tombol lampiran</span><span class="cdoc__ex-d">Alat ada sebelum textarea dan mempertahankan area sentuh 44 px. Tombol kirim tetap satu-satunya kontrol berisi warna.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><form class="composer" data-lds-composer style="max-width: 520px; width: 100%;">
   <button class="icon-btn" type="button" aria-label="Lampirkan berkas"><span class="ic" aria-hidden="true">attach_file</span></button>
-  <textarea rows="1" aria-label="Pesan" placeholder="Jelaskan kesalahan yang Anda temukan"></textarea><button class="composer__send" type="submit" aria-label="Kirim"><span class="ic" aria-hidden="true">arrow_upward</span></button>
+  <textarea rows="1" aria-label="Pesan" placeholder="Jelaskan masalah yang Anda temukan"></textarea><button class="composer__send" type="submit" aria-label="Kirim"><span class="ic" aria-hidden="true">arrow_upward</span></button>
 </form></div>
           
           <div class="cdoc__bar">
@@ -372,35 +377,35 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;form class=&quot;composer&quot; data-lds-composer style=&quot;max-width: 520px; width: 100%;&quot;&gt;
   &lt;button class=&quot;icon-btn&quot; type=&quot;button&quot; aria-label=&quot;Lampirkan berkas&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;attach_file&lt;/span&gt;&lt;/button&gt;
-  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Pesan&quot; placeholder=&quot;Jelaskan kesalahan yang Anda temukan&quot;&gt;&lt;/textarea&gt;&lt;button class=&quot;composer__send&quot; type=&quot;submit&quot; aria-label=&quot;Kirim&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;
+  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Pesan&quot; placeholder=&quot;Jelaskan masalah yang Anda temukan&quot;&gt;&lt;/textarea&gt;&lt;button class=&quot;composer__send&quot; type=&quot;submit&quot; aria-label=&quot;Kirim&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;
 &lt;/form&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;form class=&quot;composer&quot; data-lds-composer style=&quot;max-width: 520px; width: 100%;&quot;&gt;
   &lt;button class=&quot;icon-btn&quot; type=&quot;button&quot; aria-label=&quot;Lampirkan berkas&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;attach_file&lt;/span&gt;&lt;/button&gt;
-  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Pesan&quot; placeholder=&quot;Jelaskan kesalahan yang Anda temukan&quot;&gt;&lt;/textarea&gt;&lt;button class=&quot;composer__send&quot; type=&quot;submit&quot; aria-label=&quot;Kirim&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;
+  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Pesan&quot; placeholder=&quot;Jelaskan masalah yang Anda temukan&quot;&gt;&lt;/textarea&gt;&lt;button class=&quot;composer__send&quot; type=&quot;submit&quot; aria-label=&quot;Kirim&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;
 &lt;/form&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-3">
           <figcaption><span class="cdoc__ex-t">Tumbuh mengikuti teks</span><span class="cdoc__ex-d">Draf panjang membuat kotak tumbuh baris demi baris sampai 200 px, lalu bergulir di dalam. Tombol tetap di bawah, di samping baris terakhir.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-3-stage"><form class="composer" data-lds-composer style="max-width: 520px; width: 100%;">
-  <textarea rows="1" aria-label="Pesan">Saya sudah membaca bab 4 dua kali, tetapi masih belum paham kenapa enzim berhenti bekerja di atas 40 derajat.
-Apakah alasannya sama dengan kenapa demam tinggi berbahaya?
-Bisa beri contoh dengan angka?</textarea><button class="composer__send" type="submit" aria-label="Kirim"><span class="ic" aria-hidden="true">arrow_upward</span></button>
+  <textarea rows="1" aria-label="Pesan">Saya pindah dari Metro ke Kedaton, Bandar Lampung bulan lalu dan KK saya masih memakai alamat lama.
+Apakah saya perlu surat pindah dari Metro dulu, atau bisa diurus di kelurahan Kedaton?
+Dokumen apa saja yang harus dibawa?</textarea><button class="composer__send" type="submit" aria-label="Kirim"><span class="ic" aria-hidden="true">arrow_upward</span></button>
 </form></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-3-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;form class=&quot;composer&quot; data-lds-composer style=&quot;max-width: 520px; width: 100%;&quot;&gt;
-  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Pesan&quot;&gt;Saya sudah membaca bab 4 dua kali, tetapi masih belum paham kenapa enzim berhenti bekerja di atas 40 derajat.
-Apakah alasannya sama dengan kenapa demam tinggi berbahaya?
-Bisa beri contoh dengan angka?&lt;/textarea&gt;&lt;button class=&quot;composer__send&quot; type=&quot;submit&quot; aria-label=&quot;Kirim&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;
+  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Pesan&quot;&gt;Saya pindah dari Metro ke Kedaton, Bandar Lampung bulan lalu dan KK saya masih memakai alamat lama.
+Apakah saya perlu surat pindah dari Metro dulu, atau bisa diurus di kelurahan Kedaton?
+Dokumen apa saja yang harus dibawa?&lt;/textarea&gt;&lt;button class=&quot;composer__send&quot; type=&quot;submit&quot; aria-label=&quot;Kirim&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;
 &lt;/form&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;form class=&quot;composer&quot; data-lds-composer style=&quot;max-width: 520px; width: 100%;&quot;&gt;
-  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Pesan&quot;&gt;Saya sudah membaca bab 4 dua kali, tetapi masih belum paham kenapa enzim berhenti bekerja di atas 40 derajat.
-Apakah alasannya sama dengan kenapa demam tinggi berbahaya?
-Bisa beri contoh dengan angka?&lt;/textarea&gt;&lt;button class=&quot;composer__send&quot; type=&quot;submit&quot; aria-label=&quot;Kirim&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;
+  &lt;textarea rows=&quot;1&quot; aria-label=&quot;Pesan&quot;&gt;Saya pindah dari Metro ke Kedaton, Bandar Lampung bulan lalu dan KK saya masih memakai alamat lama.
+Apakah saya perlu surat pindah dari Metro dulu, atau bisa diurus di kelurahan Kedaton?
+Dokumen apa saja yang harus dibawa?&lt;/textarea&gt;&lt;button class=&quot;composer__send&quot; type=&quot;submit&quot; aria-label=&quot;Kirim&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;
 &lt;/form&gt;</pre></div></div></div>
         </figure></section>
         <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">form.composer</code></td><td>Wajib. <code class="code">&lt;form&gt;</code> dengan <code class="code">data-lds-composer</code>. Berbentuk pil (radius 24 px); ring muncul saat textarea mendapat fokus.</td></tr><tr><td><code class="code">textarea</code></td><td>Wajib. <code class="code">rows=&quot;1&quot;</code>, berlabel. Tumbuh dari satu baris sampai 200 px, lalu bergulir (<code class="code">field-sizing: content</code>, dengan cadangan JS).</td></tr><tr><td><code class="code">.composer__send</code></td><td>Wajib. Tombol aksen bulat 40 px <code class="code">type=&quot;submit&quot;</code> dengan <code class="code">aria-label=&quot;Kirim&quot;</code> dan ikon <code class="code">arrow_upward</code>. Nonaktif selama teks kosong.</td></tr><tr><td><code class="code">.icon-btn</code></td><td>Alat opsional sebelum textarea: lampirkan berkas, tambahkan gambar.</td></tr></tbody></table></div></section>
@@ -428,6 +433,17 @@ Bisa beri contoh dengan angka?&lt;/textarea&gt;&lt;button class=&quot;composer__
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

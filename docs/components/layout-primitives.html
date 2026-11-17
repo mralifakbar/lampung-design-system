@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Foundations">Landasan</a></li></ol></nav>
           <h1>Layout primitives</h1>
           <p class="cdoc__lede">Tujuh kelas kecil yang menata semua hal di antara komponen: <code class="code">stack</code>, <code class="code">cluster</code>, <code class="code">auto-grid</code>, <code class="code">split-2</code>, <code class="code">center</code>, <code class="code">measure</code>, dan <code class="code">sr-only</code>. Pakai ini sebelum menulis <code class="code">display: flex</code> atau <code class="code">grid</code> sendiri.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="layout-primitives.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="layout-primitives.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Anda perlu menaruh komponen bersebelahan atau bertumpuk: kolom kartu (<code class="code">stack</code>), baris tombol atau badge yang bisa turun baris (<code class="code">cluster</code>), grid petak yang menata ulang sesuai lebar (<code class="code">auto-grid</code>).</li><li>Halaman punya kolom samping sempit dan kolom utama yang harus menjadi satu kolom di tablet dan ponsel (<code class="code">split-2</code>).</li><li>Teks atau satu blok harus berada di tengah areanya (<code class="code">center</code>) atau teks panjang harus menjaga panjang baris yang nyaman dibaca (<code class="code">measure</code>).</li><li>Sesuatu harus dibacakan pembaca layar tetapi tidak ditampilkan (<code class="code">sr-only</code>): tabel di balik grafik, &quot;terbuka di tab baru&quot; setelah tautan eksternal.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Kolom, pasangan kolom, dan tombol penutup formulir: pakai <a class="link" href="form-layout.html">Form layout</a>. <code class="code">form</code>, <code class="code">form__row</code>, dan <code class="code">form__actions</code> sudah membawa jarak yang tepat dan perilaku di ponsel.</li><li>Halaman yang terdiri dari bagian berjudul dengan pemisah di antaranya: pakai <a class="link" href="sections.html">Sections</a>.</li><li>Bingkai aplikasi: sidebar, bilah atas, area utama yang menggulir: pakai <a class="link" href="app-shell.html">App shell</a>.</li><li>Baris tombol menyatu yang bertindak pada satu objek: pakai <a class="link" href="button-group.html">Button group</a>. <code class="code">cluster</code> hanya memberi jarak; tidak menyatukan.</li><li>Baris kartu yang menggulir ke samping: pakai <a class="link" href="carousel.html">Carousel</a>.</li><li>Dua panel yang ukurannya diubah pembaca dengan menyeret: pakai <a class="link" href="resizable-split.html">Resizable split</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di mana saja di dalam halaman, bersarang sedalam yang diperlukan: <code class="code">stack</code> berisi bagian-bagian, masing-masing memuat <code class="code">cluster</code> aksi dan <code class="code">auto-grid</code> kartu. Kelas ini tidak membawa warna, padding, atau radius, jadi tidak pernah bersaing dengan komponen di dalamnya. <code class="code">split-2</code> menjadi satu kolom di bawah 860 px; <code class="code">auto-grid</code> mengurangi kolom sendiri saat lebar menyusut.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -446,7 +451,7 @@
           <figcaption><span class="cdoc__ex-t">Tengah dan teks tersembunyi</span><span class="cdoc__ex-d"><code class="code">center</code> menaruh satu blok di tengah areanya. <code class="code">sr-only</code> menambahkan kata yang hanya didengar pembaca layar.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-4-stage"><div class="center" style="min-height: 180px;">
   <div class="stack" style="--gap: 8px; align-items: center;">
-    <span class="ic ic--lg" aria-hidden="true">school</span>
+    <span class="ic ic--lg" aria-hidden="true">checklist</span>
     <p class="card__title">Semua berkas minggu ini sudah diperiksa</p>
     <a class="link link--external" href="https://example.com" target="_blank" rel="noreferrer">Lihat jadwal minggu depan<span class="sr-only"> (terbuka di tab baru)</span></a>
   </div>
@@ -457,7 +462,7 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;center&quot; style=&quot;min-height: 180px;&quot;&gt;
   &lt;div class=&quot;stack&quot; style=&quot;--gap: 8px; align-items: center;&quot;&gt;
-    &lt;span class=&quot;ic ic--lg&quot; aria-hidden=&quot;true&quot;&gt;school&lt;/span&gt;
+    &lt;span class=&quot;ic ic--lg&quot; aria-hidden=&quot;true&quot;&gt;checklist&lt;/span&gt;
     &lt;p class=&quot;card__title&quot;&gt;Semua berkas minggu ini sudah diperiksa&lt;/p&gt;
     &lt;a class=&quot;link link--external&quot; href=&quot;https://example.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Lihat jadwal minggu depan&lt;span class=&quot;sr-only&quot;&gt; (terbuka di tab baru)&lt;/span&gt;&lt;/a&gt;
   &lt;/div&gt;
@@ -465,7 +470,7 @@
           </div>
           <div class="collapse is-closed" id="ex-4-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;center&quot; style=&quot;min-height: 180px;&quot;&gt;
   &lt;div class=&quot;stack&quot; style=&quot;--gap: 8px; align-items: center;&quot;&gt;
-    &lt;span class=&quot;ic ic--lg&quot; aria-hidden=&quot;true&quot;&gt;school&lt;/span&gt;
+    &lt;span class=&quot;ic ic--lg&quot; aria-hidden=&quot;true&quot;&gt;checklist&lt;/span&gt;
     &lt;p class=&quot;card__title&quot;&gt;Semua berkas minggu ini sudah diperiksa&lt;/p&gt;
     &lt;a class=&quot;link link--external&quot; href=&quot;https://example.com&quot; target=&quot;_blank&quot; rel=&quot;noreferrer&quot;&gt;Lihat jadwal minggu depan&lt;span class=&quot;sr-only&quot;&gt; (terbuka di tab baru)&lt;/span&gt;&lt;/a&gt;
   &lt;/div&gt;
@@ -495,6 +500,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

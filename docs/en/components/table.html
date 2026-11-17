@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,17 +321,21 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Data%20display">Data display</a></li></ol></nav>
           <h1>Table</h1>
           <p class="cdoc__lede">Rows of records compared by the same columns, in a <code class="code">.table-box</code> that scrolls sideways when it must. A real <code class="code">&lt;table&gt;</code> by default, <code class="code">.table--wrap</code> for text, and the <code class="code">.dt</code> grid when a template repeats rows.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="table.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="table.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>Comparing many records by the same attributes: courses by code, credits and seats; payments by date, amount and status.</li><li>Data people sort, scan down a column or select rows from (grade books, rosters, invoices).</li><li>A two-column text table of rules or definitions (<code class="code">.table--wrap</code>).</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Items with one or two facts each, especially on phones: use <a class="link" href="list.html">List</a>.</li><li>The details of one record: use <a class="link" href="key-value.html">Key-value</a>.</li><li>A few summary figures: use <a class="link" href="stat-row.html">Stat row</a>.</li><li>The shape of the numbers matters more than the values: use <a class="link" href="bar-chart.html">Bar chart</a>.</li><li>A hierarchy of folders or sections: use <a class="link" href="tree.html">Tree</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In the content column, full width of it, inside <code class="code">.table-box</code> (ring, radius, horizontal scroll). On phones keep the first column meaningful and let the box scroll, or show the same data as a <a class="link" href="list.html">list</a> when people need only one or two columns. Put filters and actions above it, <a class="link" href="pagination.html">pagination</a> under it.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>Comparing many records by the same attributes: services by code, processing time and quota; payments by date, amount and status.</li><li>Data people sort, scan down a column or select rows from (levy records, attendee lists, tax bills).</li><li>A two-column text table of rules or definitions (<code class="code">.table--wrap</code>).</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Items with one or two facts each, especially on phones: use <a class="link" href="list.html">List</a>.</li><li>The details of one record: use <a class="link" href="key-value.html">Key-value</a>.</li><li>A few summary figures: use <a class="link" href="stat-row.html">Stat row</a>.</li><li>The shape of the numbers matters more than the values: use <a class="link" href="bar-chart.html">Bar chart</a>.</li><li>A hierarchy of folders or sections: use <a class="link" href="tree.html">Tree</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In the content column, full width of it, inside <code class="code">.table-box</code> (ring, radius, horizontal scroll). On phones keep the first column meaningful and let the box scroll, or show the same data as a <a class="link" href="list.html">list</a> when people need only one or two columns. Put filters and actions above it, <a class="link" href="pagination.html">pagination</a> under it.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Records with sorting and selection</span><span class="cdoc__ex-d">Numbers right-aligned, the naming column strong, a selected row on the accent tint. Sorted by credits, descending.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Records with sorting and selection</span><span class="cdoc__ex-d">Numbers right-aligned, the naming column strong, a selected row on the accent tint. Sorted by processing time, descending.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="table-box">
   <table class="table">
-    <thead><tr><th>Course</th><th>Code</th><th class="num" aria-sort="descending"><button class="is-sorted is-desc">Credits<span class="ic" aria-hidden="true">arrow_upward</span></button></th><th class="num">Seats left</th><th>Status</th></tr></thead>
+    <thead><tr><th>Service</th><th>Code</th><th class="num" aria-sort="descending"><button class="is-sorted is-desc">Processing days<span class="ic" aria-hidden="true">arrow_upward</span></button></th><th class="num">Quota left</th><th>Status</th></tr></thead>
     <tbody>
-      <tr><td class="strong">Database Systems</td><td>CS 2104</td><td class="num">4</td><td class="num">12</td><td><span class="badge badge--success">Open</span></td></tr>
-      <tr class="is-selected"><td class="strong">Computer Networks</td><td>CS 3102</td><td class="num">3</td><td class="num">0</td><td><span class="badge badge--danger">Full</span></td></tr>
-      <tr><td class="strong">Technical Writing</td><td>HU 1201</td><td class="num">2</td><td class="num">31</td><td><span class="badge badge--success">Open</span></td></tr>
+      <tr><td class="strong">Micro business permit</td><td>IUM 2104</td><td class="num">4</td><td class="num">12</td><td><span class="badge badge--success">Open</span></td></tr>
+      <tr class="is-selected"><td class="strong">Building approval</td><td>PBG 3102</td><td class="num">3</td><td class="num">0</td><td><span class="badge badge--danger">Full</span></td></tr>
+      <tr><td class="strong">Domicile letter</td><td>SKD 1201</td><td class="num">2</td><td class="num">31</td><td><span class="badge badge--success">Open</span></td></tr>
     </tbody>
   </table>
 </div></div>
@@ -340,22 +345,22 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;table-box&quot;&gt;
   &lt;table class=&quot;table&quot;&gt;
-    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Course&lt;/th&gt;&lt;th&gt;Code&lt;/th&gt;&lt;th class=&quot;num&quot; aria-sort=&quot;descending&quot;&gt;&lt;button class=&quot;is-sorted is-desc&quot;&gt;Credits&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;&lt;th class=&quot;num&quot;&gt;Seats left&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Service&lt;/th&gt;&lt;th&gt;Code&lt;/th&gt;&lt;th class=&quot;num&quot; aria-sort=&quot;descending&quot;&gt;&lt;button class=&quot;is-sorted is-desc&quot;&gt;Processing days&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;&lt;th class=&quot;num&quot;&gt;Quota left&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
     &lt;tbody&gt;
-      &lt;tr&gt;&lt;td class=&quot;strong&quot;&gt;Database Systems&lt;/td&gt;&lt;td&gt;CS 2104&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;4&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;12&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr class=&quot;is-selected&quot;&gt;&lt;td class=&quot;strong&quot;&gt;Computer Networks&lt;/td&gt;&lt;td&gt;CS 3102&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;3&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;0&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;badge badge--danger&quot;&gt;Full&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td class=&quot;strong&quot;&gt;Technical Writing&lt;/td&gt;&lt;td&gt;HU 1201&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;2&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;31&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td class=&quot;strong&quot;&gt;Micro business permit&lt;/td&gt;&lt;td&gt;IUM 2104&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;4&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;12&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr class=&quot;is-selected&quot;&gt;&lt;td class=&quot;strong&quot;&gt;Building approval&lt;/td&gt;&lt;td&gt;PBG 3102&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;3&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;0&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;badge badge--danger&quot;&gt;Full&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td class=&quot;strong&quot;&gt;Domicile letter&lt;/td&gt;&lt;td&gt;SKD 1201&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;2&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;31&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
     &lt;/tbody&gt;
   &lt;/table&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;table-box&quot;&gt;
   &lt;table class=&quot;table&quot;&gt;
-    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Course&lt;/th&gt;&lt;th&gt;Code&lt;/th&gt;&lt;th class=&quot;num&quot; aria-sort=&quot;descending&quot;&gt;&lt;button class=&quot;is-sorted is-desc&quot;&gt;Credits&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;&lt;th class=&quot;num&quot;&gt;Seats left&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Service&lt;/th&gt;&lt;th&gt;Code&lt;/th&gt;&lt;th class=&quot;num&quot; aria-sort=&quot;descending&quot;&gt;&lt;button class=&quot;is-sorted is-desc&quot;&gt;Processing days&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;&lt;th class=&quot;num&quot;&gt;Quota left&lt;/th&gt;&lt;th&gt;Status&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
     &lt;tbody&gt;
-      &lt;tr&gt;&lt;td class=&quot;strong&quot;&gt;Database Systems&lt;/td&gt;&lt;td&gt;CS 2104&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;4&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;12&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr class=&quot;is-selected&quot;&gt;&lt;td class=&quot;strong&quot;&gt;Computer Networks&lt;/td&gt;&lt;td&gt;CS 3102&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;3&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;0&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;badge badge--danger&quot;&gt;Full&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td class=&quot;strong&quot;&gt;Technical Writing&lt;/td&gt;&lt;td&gt;HU 1201&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;2&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;31&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td class=&quot;strong&quot;&gt;Micro business permit&lt;/td&gt;&lt;td&gt;IUM 2104&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;4&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;12&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr class=&quot;is-selected&quot;&gt;&lt;td class=&quot;strong&quot;&gt;Building approval&lt;/td&gt;&lt;td&gt;PBG 3102&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;3&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;0&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;badge badge--danger&quot;&gt;Full&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td class=&quot;strong&quot;&gt;Domicile letter&lt;/td&gt;&lt;td&gt;SKD 1201&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;2&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;31&lt;/td&gt;&lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
     &lt;/tbody&gt;
   &lt;/table&gt;
 &lt;/div&gt;</pre></div></div></div>
@@ -366,8 +371,8 @@
   <table class="table table--wrap">
     <thead><tr><th>Rule</th><th>What it means</th></tr></thead>
     <tbody>
-      <tr><td class="strong">Late submission</td><td>Work handed in after the deadline loses 5 % a day, for up to five days. After that it is not graded.</td></tr>
-      <tr><td class="strong">Extension</td><td>Ask your lecturer before the deadline. Medical extensions need a letter within three days.</td></tr>
+      <tr><td class="strong">Late payment</td><td>Tax paid after the due date carries a 2 % fine per month, for up to 24 months.</td></tr>
+      <tr><td class="strong">Relief</td><td>Apply before the due date. Relief because of a disaster needs a letter from the kelurahan within three days.</td></tr>
     </tbody>
   </table>
 </div></div>
@@ -379,8 +384,8 @@
   &lt;table class=&quot;table table--wrap&quot;&gt;
     &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Rule&lt;/th&gt;&lt;th&gt;What it means&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
     &lt;tbody&gt;
-      &lt;tr&gt;&lt;td class=&quot;strong&quot;&gt;Late submission&lt;/td&gt;&lt;td&gt;Work handed in after the deadline loses 5 % a day, for up to five days. After that it is not graded.&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td class=&quot;strong&quot;&gt;Extension&lt;/td&gt;&lt;td&gt;Ask your lecturer before the deadline. Medical extensions need a letter within three days.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td class=&quot;strong&quot;&gt;Late payment&lt;/td&gt;&lt;td&gt;Tax paid after the due date carries a 2 % fine per month, for up to 24 months.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td class=&quot;strong&quot;&gt;Relief&lt;/td&gt;&lt;td&gt;Apply before the due date. Relief because of a disaster needs a letter from the kelurahan within three days.&lt;/td&gt;&lt;/tr&gt;
     &lt;/tbody&gt;
   &lt;/table&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
@@ -389,8 +394,8 @@
   &lt;table class=&quot;table table--wrap&quot;&gt;
     &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Rule&lt;/th&gt;&lt;th&gt;What it means&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
     &lt;tbody&gt;
-      &lt;tr&gt;&lt;td class=&quot;strong&quot;&gt;Late submission&lt;/td&gt;&lt;td&gt;Work handed in after the deadline loses 5 % a day, for up to five days. After that it is not graded.&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td class=&quot;strong&quot;&gt;Extension&lt;/td&gt;&lt;td&gt;Ask your lecturer before the deadline. Medical extensions need a letter within three days.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td class=&quot;strong&quot;&gt;Late payment&lt;/td&gt;&lt;td&gt;Tax paid after the due date carries a 2 % fine per month, for up to 24 months.&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td class=&quot;strong&quot;&gt;Relief&lt;/td&gt;&lt;td&gt;Apply before the due date. Relief because of a disaster needs a letter from the kelurahan within three days.&lt;/td&gt;&lt;/tr&gt;
     &lt;/tbody&gt;
   &lt;/table&gt;
 &lt;/div&gt;</pre></div></div></div>
@@ -400,8 +405,8 @@
           <div class="cdoc__stage cdoc__stage--block" id="ex-3-stage"><div class="table-box">
   <div class="dt" role="table" aria-label="Payments">
     <div class="dt__row dt__head" role="row" style="grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;"><span class="dt__cell" role="columnheader">Item</span><span class="dt__cell" role="columnheader" aria-sort="ascending"><button class="dt__sort is-sorted">Date<span class="ic" aria-hidden="true">arrow_upward</span></button></span><span class="dt__cell num" role="columnheader">Amount</span><span class="dt__cell" role="columnheader">Status</span></div>
-    <div class="dt__row" role="row" style="grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;"><span class="dt__cell strong" role="cell">Term fee</span><span class="dt__cell" role="cell">2 Sep 2026</span><span class="dt__cell num" role="cell">Rp 4.200.000</span><span class="dt__cell" role="cell"><span class="badge badge--success">Paid</span></span></div>
-    <div class="dt__row" role="row" style="grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;"><span class="dt__cell strong" role="cell">Graduation deposit</span><span class="dt__cell" role="cell">28 Nov 2026</span><span class="dt__cell num" role="cell">Rp 1.000.000</span><span class="dt__cell" role="cell"><span class="badge badge--warning">Due</span></span></div>
+    <div class="dt__row" role="row" style="grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;"><span class="dt__cell strong" role="cell">Land and building tax</span><span class="dt__cell" role="cell">2 Sep 2026</span><span class="dt__cell num" role="cell">Rp 1.250.000</span><span class="dt__cell" role="cell"><span class="badge badge--success">Paid</span></span></div>
+    <div class="dt__row" role="row" style="grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;"><span class="dt__cell strong" role="cell">Vehicle tax</span><span class="dt__cell" role="cell">28 Nov 2026</span><span class="dt__cell num" role="cell">Rp 1.000.000</span><span class="dt__cell" role="cell"><span class="badge badge--warning">Due</span></span></div>
   </div>
 </div></div>
           
@@ -411,16 +416,16 @@
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;table-box&quot;&gt;
   &lt;div class=&quot;dt&quot; role=&quot;table&quot; aria-label=&quot;Payments&quot;&gt;
     &lt;div class=&quot;dt__row dt__head&quot; role=&quot;row&quot; style=&quot;grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;&quot;&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;columnheader&quot;&gt;Item&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;columnheader&quot; aria-sort=&quot;ascending&quot;&gt;&lt;button class=&quot;dt__sort is-sorted&quot;&gt;Date&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;&lt;span class=&quot;dt__cell num&quot; role=&quot;columnheader&quot;&gt;Amount&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;columnheader&quot;&gt;Status&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;dt__row&quot; role=&quot;row&quot; style=&quot;grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;&quot;&gt;&lt;span class=&quot;dt__cell strong&quot; role=&quot;cell&quot;&gt;Term fee&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;cell&quot;&gt;2 Sep 2026&lt;/span&gt;&lt;span class=&quot;dt__cell num&quot; role=&quot;cell&quot;&gt;Rp 4.200.000&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;cell&quot;&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Paid&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;dt__row&quot; role=&quot;row&quot; style=&quot;grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;&quot;&gt;&lt;span class=&quot;dt__cell strong&quot; role=&quot;cell&quot;&gt;Graduation deposit&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;cell&quot;&gt;28 Nov 2026&lt;/span&gt;&lt;span class=&quot;dt__cell num&quot; role=&quot;cell&quot;&gt;Rp 1.000.000&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;cell&quot;&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Due&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;dt__row&quot; role=&quot;row&quot; style=&quot;grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;&quot;&gt;&lt;span class=&quot;dt__cell strong&quot; role=&quot;cell&quot;&gt;Land and building tax&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;cell&quot;&gt;2 Sep 2026&lt;/span&gt;&lt;span class=&quot;dt__cell num&quot; role=&quot;cell&quot;&gt;Rp 1.250.000&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;cell&quot;&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Paid&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;dt__row&quot; role=&quot;row&quot; style=&quot;grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;&quot;&gt;&lt;span class=&quot;dt__cell strong&quot; role=&quot;cell&quot;&gt;Vehicle tax&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;cell&quot;&gt;28 Nov 2026&lt;/span&gt;&lt;span class=&quot;dt__cell num&quot; role=&quot;cell&quot;&gt;Rp 1.000.000&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;cell&quot;&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Due&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;table-box&quot;&gt;
   &lt;div class=&quot;dt&quot; role=&quot;table&quot; aria-label=&quot;Payments&quot;&gt;
     &lt;div class=&quot;dt__row dt__head&quot; role=&quot;row&quot; style=&quot;grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;&quot;&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;columnheader&quot;&gt;Item&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;columnheader&quot; aria-sort=&quot;ascending&quot;&gt;&lt;button class=&quot;dt__sort is-sorted&quot;&gt;Date&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/span&gt;&lt;span class=&quot;dt__cell num&quot; role=&quot;columnheader&quot;&gt;Amount&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;columnheader&quot;&gt;Status&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;dt__row&quot; role=&quot;row&quot; style=&quot;grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;&quot;&gt;&lt;span class=&quot;dt__cell strong&quot; role=&quot;cell&quot;&gt;Term fee&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;cell&quot;&gt;2 Sep 2026&lt;/span&gt;&lt;span class=&quot;dt__cell num&quot; role=&quot;cell&quot;&gt;Rp 4.200.000&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;cell&quot;&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Paid&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;dt__row&quot; role=&quot;row&quot; style=&quot;grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;&quot;&gt;&lt;span class=&quot;dt__cell strong&quot; role=&quot;cell&quot;&gt;Graduation deposit&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;cell&quot;&gt;28 Nov 2026&lt;/span&gt;&lt;span class=&quot;dt__cell num&quot; role=&quot;cell&quot;&gt;Rp 1.000.000&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;cell&quot;&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Due&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;dt__row&quot; role=&quot;row&quot; style=&quot;grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;&quot;&gt;&lt;span class=&quot;dt__cell strong&quot; role=&quot;cell&quot;&gt;Land and building tax&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;cell&quot;&gt;2 Sep 2026&lt;/span&gt;&lt;span class=&quot;dt__cell num&quot; role=&quot;cell&quot;&gt;Rp 1.250.000&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;cell&quot;&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Paid&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;dt__row&quot; role=&quot;row&quot; style=&quot;grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) 140px 120px;&quot;&gt;&lt;span class=&quot;dt__cell strong&quot; role=&quot;cell&quot;&gt;Vehicle tax&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;cell&quot;&gt;28 Nov 2026&lt;/span&gt;&lt;span class=&quot;dt__cell num&quot; role=&quot;cell&quot;&gt;Rp 1.000.000&lt;/span&gt;&lt;span class=&quot;dt__cell&quot; role=&quot;cell&quot;&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Due&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
@@ -450,6 +455,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

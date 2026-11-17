@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,13 +321,17 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Motion">Motion</a></li></ol></nav>
           <h1>Drag and momentum</h1>
           <p class="cdoc__lede">What a finger moves follows it exactly, resists softly past its limits, and on release goes where the throw was heading: the release velocity is projected forward to decide the outcome, then a spring with a hint of overshoot settles it. A flick does what a long drag would.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="drag-and-momentum.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="drag-and-momentum.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>Dragging a <a class="link" href="sheet.html">sheet</a> down to dismiss it, or flicking it.</li><li>A knob dragged along a track to commit (<a class="link" href="slide-to-confirm.html">slide to confirm</a>).</li><li>A list row swiped sideways to reveal or run actions (<a class="link" href="swipe-actions.html">swipe actions</a>).</li><li>A divider dragged to resize two panes (<a class="link" href="resizable-split.html">resizable split</a>): direct, 1:1, no throw.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>A simple tap or press: use <a class="link" href="press-feedback.html">Press feedback</a>.</li><li>Choosing a value on a track: use <a class="link" href="slider.html">Slider</a>.</li><li>Scrolling a row of cards: use <a class="link" href="carousel.html">Carousel</a>.</li><li>Opening a panel with a button: use <a class="link" href="enter-and-exit.html">Enter and exit</a>.</li><li>Reordering items in a list: use <a class="link" href="list.html">List</a>. The system has no drag-to-reorder yet; offer Move up and Move down actions.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> On the handle that can be dragged: the sheet grabber and header (<code class="code">[data-lds-drag]</code>), the slide knob, the swipe row, the resize handle. Every gesture also has a button or key that does the same.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">A sheet you can throw</span><span class="cdoc__ex-d">Open the sheet, then drag the grabber: it follows 1:1 and the backdrop lightens. Pull up and it resists. Let go past half its height, or flick down quickly, and it dismisses; otherwise it springs back with a small overshoot.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--flush" id="ex-1-stage"><div class="viewport docs-box" data-lds-push="dm-sheet">
   <div class="viewport__content">
-    <p class="card__title">Exam room</p>
+    <p class="card__title">City bus, corridor 2</p>
     <button class="btn btn--secondary btn--md" data-lds-open="dm-sheet" aria-haspopup="dialog">Choose a seat</button>
   </div>
   <div class="scrim" data-lds-scrim="dm-sheet"></div>
@@ -342,7 +347,7 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;viewport docs-box&quot; data-lds-push=&quot;dm-sheet&quot;&gt;
   &lt;div class=&quot;viewport__content&quot;&gt;
-    &lt;p class=&quot;card__title&quot;&gt;Exam room&lt;/p&gt;
+    &lt;p class=&quot;card__title&quot;&gt;City bus, corridor 2&lt;/p&gt;
     &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-open=&quot;dm-sheet&quot; aria-haspopup=&quot;dialog&quot;&gt;Choose a seat&lt;/button&gt;
   &lt;/div&gt;
   &lt;div class=&quot;scrim&quot; data-lds-scrim=&quot;dm-sheet&quot;&gt;&lt;/div&gt;
@@ -355,7 +360,7 @@
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;viewport docs-box&quot; data-lds-push=&quot;dm-sheet&quot;&gt;
   &lt;div class=&quot;viewport__content&quot;&gt;
-    &lt;p class=&quot;card__title&quot;&gt;Exam room&lt;/p&gt;
+    &lt;p class=&quot;card__title&quot;&gt;City bus, corridor 2&lt;/p&gt;
     &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-open=&quot;dm-sheet&quot; aria-haspopup=&quot;dialog&quot;&gt;Choose a seat&lt;/button&gt;
   &lt;/div&gt;
   &lt;div class=&quot;scrim&quot; data-lds-scrim=&quot;dm-sheet&quot;&gt;&lt;/div&gt;
@@ -370,27 +375,27 @@
           <figcaption><span class="cdoc__ex-t">Slide to confirm</span><span class="cdoc__ex-d">Drag the knob. Past 85 % of the track (counting the throw), it commits and the label says so; short of it, it springs home on the momentum spring. Enter on the knob does the same.</span></figcaption>
           <div class="cdoc__stage" id="ex-2-stage"><div class="slide" data-lds-slide>
   <span class="slide__fill" aria-hidden="true"></span>
-  <span class="slide__label">Slide to submit grades</span>
-  <button class="slide__knob" aria-label="Slide to submit grades"><span class="ic" aria-hidden="true">arrow_forward</span></button>
+  <span class="slide__label">Slide to send report</span>
+  <button class="slide__knob" aria-label="Slide to send report"><span class="ic" aria-hidden="true">arrow_forward</span></button>
 </div></div>
           <template id="ex-2-stage-tpl"><div class="slide" data-lds-slide>
   <span class="slide__fill" aria-hidden="true"></span>
-  <span class="slide__label">Slide to submit grades</span>
-  <button class="slide__knob" aria-label="Slide to submit grades"><span class="ic" aria-hidden="true">arrow_forward</span></button>
+  <span class="slide__label">Slide to send report</span>
+  <button class="slide__knob" aria-label="Slide to send report"><span class="ic" aria-hidden="true">arrow_forward</span></button>
 </div></template>
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             <button class="btn btn--plain btn--sm" data-replay="ex-2-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>Replay</button>
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;slide&quot; data-lds-slide&gt;
   &lt;span class=&quot;slide__fill&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-  &lt;span class=&quot;slide__label&quot;&gt;Slide to submit grades&lt;/span&gt;
-  &lt;button class=&quot;slide__knob&quot; aria-label=&quot;Slide to submit grades&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_forward&lt;/span&gt;&lt;/button&gt;
+  &lt;span class=&quot;slide__label&quot;&gt;Slide to send report&lt;/span&gt;
+  &lt;button class=&quot;slide__knob&quot; aria-label=&quot;Slide to send report&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_forward&lt;/span&gt;&lt;/button&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;slide&quot; data-lds-slide&gt;
   &lt;span class=&quot;slide__fill&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;
-  &lt;span class=&quot;slide__label&quot;&gt;Slide to submit grades&lt;/span&gt;
-  &lt;button class=&quot;slide__knob&quot; aria-label=&quot;Slide to submit grades&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_forward&lt;/span&gt;&lt;/button&gt;
+  &lt;span class=&quot;slide__label&quot;&gt;Slide to send report&lt;/span&gt;
+  &lt;button class=&quot;slide__knob&quot; aria-label=&quot;Slide to send report&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_forward&lt;/span&gt;&lt;/button&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-3">
@@ -398,13 +403,13 @@
           <div class="cdoc__stage cdoc__stage--fill" id="ex-3-stage"><div class="list" style="width: 100%; max-width: 420px;">
   <div class="swipe" data-lds-swipe>
     <div class="swipe__actions"><button class="swipe__act swipe__act--gray" data-swipe="pin"><span class="ic" aria-hidden="true">keep</span>Pin</button><button class="swipe__act swipe__act--danger" data-swipe="delete" data-swipe-commit><span class="ic" aria-hidden="true">delete</span>Delete</button></div>
-    <div class="swipe__row lrow" tabindex="0"><span class="lrow__body"><span class="lrow__title">Lab report feedback</span><span class="lrow__sub">Two comments on section 3</span></span><span class="lrow__value">09:41</span></div>
+    <div class="swipe__row lrow" tabindex="0"><span class="lrow__body"><span class="lrow__title">Reply on the damaged road report</span><span class="lrow__sub">Two comments from an officer</span></span><span class="lrow__value">09:41</span></div>
   </div>
 </div></div>
           <template id="ex-3-stage-tpl"><div class="list" style="width: 100%; max-width: 420px;">
   <div class="swipe" data-lds-swipe>
     <div class="swipe__actions"><button class="swipe__act swipe__act--gray" data-swipe="pin"><span class="ic" aria-hidden="true">keep</span>Pin</button><button class="swipe__act swipe__act--danger" data-swipe="delete" data-swipe-commit><span class="ic" aria-hidden="true">delete</span>Delete</button></div>
-    <div class="swipe__row lrow" tabindex="0"><span class="lrow__body"><span class="lrow__title">Lab report feedback</span><span class="lrow__sub">Two comments on section 3</span></span><span class="lrow__value">09:41</span></div>
+    <div class="swipe__row lrow" tabindex="0"><span class="lrow__body"><span class="lrow__title">Reply on the damaged road report</span><span class="lrow__sub">Two comments from an officer</span></span><span class="lrow__value">09:41</span></div>
   </div>
 </div></template>
           <div class="cdoc__bar">
@@ -413,45 +418,45 @@
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;list&quot; style=&quot;width: 100%; max-width: 420px;&quot;&gt;
   &lt;div class=&quot;swipe&quot; data-lds-swipe&gt;
     &lt;div class=&quot;swipe__actions&quot;&gt;&lt;button class=&quot;swipe__act swipe__act--gray&quot; data-swipe=&quot;pin&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;keep&lt;/span&gt;Pin&lt;/button&gt;&lt;button class=&quot;swipe__act swipe__act--danger&quot; data-swipe=&quot;delete&quot; data-swipe-commit&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete&lt;/button&gt;&lt;/div&gt;
-    &lt;div class=&quot;swipe__row lrow&quot; tabindex=&quot;0&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Lab report feedback&lt;/span&gt;&lt;span class=&quot;lrow__sub&quot;&gt;Two comments on section 3&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;lrow__value&quot;&gt;09:41&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;swipe__row lrow&quot; tabindex=&quot;0&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Reply on the damaged road report&lt;/span&gt;&lt;span class=&quot;lrow__sub&quot;&gt;Two comments from an officer&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;lrow__value&quot;&gt;09:41&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;list&quot; style=&quot;width: 100%; max-width: 420px;&quot;&gt;
   &lt;div class=&quot;swipe&quot; data-lds-swipe&gt;
     &lt;div class=&quot;swipe__actions&quot;&gt;&lt;button class=&quot;swipe__act swipe__act--gray&quot; data-swipe=&quot;pin&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;keep&lt;/span&gt;Pin&lt;/button&gt;&lt;button class=&quot;swipe__act swipe__act--danger&quot; data-swipe=&quot;delete&quot; data-swipe-commit&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete&lt;/button&gt;&lt;/div&gt;
-    &lt;div class=&quot;swipe__row lrow&quot; tabindex=&quot;0&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Lab report feedback&lt;/span&gt;&lt;span class=&quot;lrow__sub&quot;&gt;Two comments on section 3&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;lrow__value&quot;&gt;09:41&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;swipe__row lrow&quot; tabindex=&quot;0&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Reply on the damaged road report&lt;/span&gt;&lt;span class=&quot;lrow__sub&quot;&gt;Two comments from an officer&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;lrow__value&quot;&gt;09:41&lt;/span&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-4">
           <figcaption><span class="cdoc__ex-t">Resize two panes</span><span class="cdoc__ex-d">Direct manipulation with no throw: the divider stays under the pointer and stops where you let go. Arrow keys move it 2 %, Shift 10 %.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-4-stage"><div class="resize card" data-lds-resize data-min="25" data-max="75" style="height: 160px; padding: 0;">
-  <div style="padding: 16px;"><p class="card__title">Question 4</p><p class="card__sub">A 7 kg box is pushed with 20 N against 6 N of friction. Find its acceleration.</p></div>
-  <div class="resize__handle" aria-label="Resize the question and answer panes"></div>
-  <div style="padding: 16px;"><p class="card__title">Your answer</p><p class="card__sub">Net force 14 N, so 2 m/s².</p></div>
+  <div style="padding: 16px;"><p class="card__title">Report</p><p class="card__sub">The street light in front of the market has been out for three nights. The road is dark after 18:00.</p></div>
+  <div class="resize__handle" aria-label="Resize the report and reply panes"></div>
+  <div style="padding: 16px;"><p class="card__title">Officer reply</p><p class="card__sub">Repair is scheduled for Thursday morning.</p></div>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-4-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;resize card&quot; data-lds-resize data-min=&quot;25&quot; data-max=&quot;75&quot; style=&quot;height: 160px; padding: 0;&quot;&gt;
-  &lt;div style=&quot;padding: 16px;&quot;&gt;&lt;p class=&quot;card__title&quot;&gt;Question 4&lt;/p&gt;&lt;p class=&quot;card__sub&quot;&gt;A 7 kg box is pushed with 20 N against 6 N of friction. Find its acceleration.&lt;/p&gt;&lt;/div&gt;
-  &lt;div class=&quot;resize__handle&quot; aria-label=&quot;Resize the question and answer panes&quot;&gt;&lt;/div&gt;
-  &lt;div style=&quot;padding: 16px;&quot;&gt;&lt;p class=&quot;card__title&quot;&gt;Your answer&lt;/p&gt;&lt;p class=&quot;card__sub&quot;&gt;Net force 14 N, so 2 m/s².&lt;/p&gt;&lt;/div&gt;
+  &lt;div style=&quot;padding: 16px;&quot;&gt;&lt;p class=&quot;card__title&quot;&gt;Report&lt;/p&gt;&lt;p class=&quot;card__sub&quot;&gt;The street light in front of the market has been out for three nights. The road is dark after 18:00.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class=&quot;resize__handle&quot; aria-label=&quot;Resize the report and reply panes&quot;&gt;&lt;/div&gt;
+  &lt;div style=&quot;padding: 16px;&quot;&gt;&lt;p class=&quot;card__title&quot;&gt;Officer reply&lt;/p&gt;&lt;p class=&quot;card__sub&quot;&gt;Repair is scheduled for Thursday morning.&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-4-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;resize card&quot; data-lds-resize data-min=&quot;25&quot; data-max=&quot;75&quot; style=&quot;height: 160px; padding: 0;&quot;&gt;
-  &lt;div style=&quot;padding: 16px;&quot;&gt;&lt;p class=&quot;card__title&quot;&gt;Question 4&lt;/p&gt;&lt;p class=&quot;card__sub&quot;&gt;A 7 kg box is pushed with 20 N against 6 N of friction. Find its acceleration.&lt;/p&gt;&lt;/div&gt;
-  &lt;div class=&quot;resize__handle&quot; aria-label=&quot;Resize the question and answer panes&quot;&gt;&lt;/div&gt;
-  &lt;div style=&quot;padding: 16px;&quot;&gt;&lt;p class=&quot;card__title&quot;&gt;Your answer&lt;/p&gt;&lt;p class=&quot;card__sub&quot;&gt;Net force 14 N, so 2 m/s².&lt;/p&gt;&lt;/div&gt;
+  &lt;div style=&quot;padding: 16px;&quot;&gt;&lt;p class=&quot;card__title&quot;&gt;Report&lt;/p&gt;&lt;p class=&quot;card__sub&quot;&gt;The street light in front of the market has been out for three nights. The road is dark after 18:00.&lt;/p&gt;&lt;/div&gt;
+  &lt;div class=&quot;resize__handle&quot; aria-label=&quot;Resize the report and reply panes&quot;&gt;&lt;/div&gt;
+  &lt;div style=&quot;padding: 16px;&quot;&gt;&lt;p class=&quot;card__title&quot;&gt;Officer reply&lt;/p&gt;&lt;p class=&quot;card__sub&quot;&gt;Repair is scheduled for Thursday morning.&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
         <section class="cdoc__sec" id="motion"><h2>Motion and microinteractions</h2><ul class="cdoc__list"><li>Follow: while dragging, transitions are off (<code class="code">.is-dragging</code>, <code class="code">transition: none</code>) and the element moves 1:1 with the pointer, including the first pixels. Swipe rows wait for 8 px of travel to decide between swipe and scroll; context menus allow 10 px of slop before a long press is cancelled.</li><li>Resist: past a limit, offset = <code class="code">over × dim × 0.55 / (dim + 0.55 × |over|)</code> (dim 120 px for sheets, 52 px for the slide knob, 40 px for swipe rows). It slows smoothly and never stops dead.</li><li>Throw: velocity is measured over the last five pointer samples. Sheets and the slide knob project the end point as <code class="code">position + (v / 1000) × 0.99 / (1 − 0.99)</code> (about a tenth of a second of travel); swipe rows use <code class="code">position + v × 0.1</code>.</li><li>Decide: a sheet dismisses past 50 % of its height; the slide knob commits past 85 % of its travel; a swipe row opens past half its actions and runs its last action past 60 % of the row or on a flick faster than 900 px/s.</li><li>Settle: going back or landing after a throw uses <code class="code">--spring-momentum</code> over <code class="code">--d-momentum</code> (600 ms, damping 0.8, about 1.5 % overshoot). Dismissing uses the exit curve; opening a swipe row uses <code class="code">--spring-smooth</code>.</li><li>Reduced motion: the drag still follows the finger (it is direct manipulation), but release settles in 120 ms linear with no overshoot, and the sheet does not throw.</li></ul></section>
         <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li>Every drag has a non-drag equivalent: sheets close with a button and Escape, the slide knob accepts Enter, swipe rows open with the Left arrow and close with Right or Escape, resize handles move with arrow keys, Home and End.</li><li>Drag handles that are controls carry their role: the resize handle is a <code class="code">separator</code> with <code class="code">aria-valuenow</code>; the knob is a labelled button.</li><li>Do not make a gesture the only way to discover an action; teach it with a <a class="link" href="hints.html">hint</a> for the first few visits.</li></ul></section>
         <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Follow the pointer from the first pixel, with transitions off.</li><li>Decide on release with the projected position, not the raw one.</li><li>Land with the momentum spring only after a throw.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Snap to the end on a fixed threshold without counting velocity.</li><li>Let something stop dead at a limit; rubber-band it.</li><li>Ship a gesture with no button or key that does the same.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Behavior and code</h2><p class="cdoc__p"><strong>Plain HTML.</strong> Built into the components: <code class="code">.sheet[data-lds-layer]</code> (drag on <code class="code">.sheet__grabber</code> and <code class="code">[data-lds-drag]</code>), <code class="code">[data-lds-slide]</code> (emits <code class="code">lds:confirm</code>), <code class="code">[data-lds-swipe]</code> (emits <code class="code">lds:swipe</code> with <code class="code">{ action, restore }</code>), <code class="code">[data-lds-resize]</code> (emits <code class="code">lds:resize</code> with <code class="code">{ size }</code>). There is no public drag helper; new draggable components reuse the same formulas in <code class="code">js/lds.js</code>.</p></section>
-        <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="sheet.html"><span class="link-card__eyebrow">Overlays</span><span class="link-card__title">Sheet</span><span class="link-card__body">A panel that rises from the bottom for a task that keeps its context: the page behind recedes but stays visible. Drag the grabber to dismiss with momentum. The phone answer to most dialogs.</span></a><a class="link-card" href="slide-to-confirm.html"><span class="link-card__eyebrow">Actions</span><span class="link-card__title">Slide to confirm</span><span class="link-card__body">A track with a knob you drag to the end to confirm a costly step on a touch screen (submit grades, send a payment). The knob follows your finger 1:1, resists past the ends, and commits past 85 % of the way.</span></a><a class="link-card" href="swipe-actions.html"><span class="link-card__eyebrow">Microinteractions</span><span class="link-card__title">Swipe actions</span><span class="link-card__body">Swipe a list row left to reveal its actions; swipe far or flick to run the last one, and the row slides out and closes its space. The row follows the finger exactly, and the same actions open with the Left arrow key.</span></a><a class="link-card" href="resizable-split.html"><span class="link-card__eyebrow">Page patterns</span><span class="link-card__title">Resizable split</span><span class="link-card__body">Two panes with a handle between them that people drag, or move with the arrow keys, to share the space. For tools where both panes are worked in at once.</span></a></div></section>
+        <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="sheet.html"><span class="link-card__eyebrow">Overlays</span><span class="link-card__title">Sheet</span><span class="link-card__body">A panel that rises from the bottom for a task that keeps its context: the page behind recedes but stays visible. Drag the grabber to dismiss with momentum. The phone answer to most dialogs.</span></a><a class="link-card" href="slide-to-confirm.html"><span class="link-card__eyebrow">Actions</span><span class="link-card__title">Slide to confirm</span><span class="link-card__body">A track with a knob you drag to the end to confirm a costly step on a touch screen (submit an aid recipient list, send a payment). The knob follows your finger 1:1, resists past the ends, and commits past 85 % of the way.</span></a><a class="link-card" href="swipe-actions.html"><span class="link-card__eyebrow">Microinteractions</span><span class="link-card__title">Swipe actions</span><span class="link-card__body">Swipe a list row left to reveal its actions; swipe far or flick to run the last one, and the row slides out and closes its space. The row follows the finger exactly, and the same actions open with the Left arrow key.</span></a><a class="link-card" href="resizable-split.html"><span class="link-card__eyebrow">Page patterns</span><span class="link-card__title">Resizable split</span><span class="link-card__body">Two panes with a handle between them that people drag, or move with the arrow keys, to share the space. For tools where both panes are worked in at once.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Previous and next component">
           <a class="link-card cdoc__prev" href="number-count.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Previous</span><span class="link-card__title">Number count</span></a>
           <a class="link-card cdoc__next" href="reveal-on-scroll.html"><span class="link-card__eyebrow">Next<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Reveal on scroll</span></a>
@@ -470,6 +475,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

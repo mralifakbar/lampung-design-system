@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Actions">Actions</a></li></ol></nav>
           <h1>Icon button</h1>
           <p class="cdoc__lede">A button that shows only an icon: 44 px target, 22 px glyph, round. It always has an <code class="code">aria-label</code> and a tooltip with the same words.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="icon-button.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="icon-button.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A well-known action in a toolbar, a card corner, a nav bar or a row where a text label would crowd: close, more options, share, bookmark, filter.</li><li>Several small actions sit together and each is recognizable by its icon alone (message actions: copy, retry, like).</li><li>The close button of a dialog, sheet, alert or lightbox.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>The action is not obvious from an icon, or it is the main action of the view: use <a class="link" href="button.html">Button</a>. Give it words. &quot;Export&quot; beats a lone download arrow nobody hovers.</li><li>The one creation action on a phone screen that floats over content: use <a class="link" href="floating-action.html">Floating action</a>.</li><li>The icon stays pressed to show a mode (bold, mute, pin): use <a class="link" href="toggle.html">Toggle</a>.</li><li>It opens a list of related actions: use <a class="link" href="dropdown-menu.html">Dropdown menu</a>. The trigger is still an icon button (<code class="code">more_horiz</code>); the menu is the dropdown.</li><li>Copying a value with a visible confirmation: use <a class="link" href="copy-button.html">Copy button</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Top right of cards, dialogs and sheets (close, more); at both ends of the phone nav bar; at the end of list rows; in toolbars grouped 2 to 4 together. On phones keep at least the 44 px target; never shrink <code class="code">icon-btn</code> below it.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
@@ -355,8 +360,8 @@
           <figcaption><span class="cdoc__ex-t">In a card header</span><span class="cdoc__ex-d">A more-options button at the end of a card title row. It pulls into the card padding a little so the glyph lines up with the edge.</span></figcaption>
           <div class="cdoc__stage" id="ex-2-stage"><div class="card" style="width: 340px;">
   <div class="cluster" style="justify-content: space-between; flex-wrap: nowrap;">
-    <div><div class="card__title">Lab report 3</div><div class="card__sub">Computer Networks · due tomorrow</div></div>
-    <span class="tip-host" style="margin: -10px -10px 0 0;"><button class="icon-btn" aria-label="More options for Lab report 3"><span class="ic" aria-hidden="true">more_vert</span></button><span class="tip" role="tooltip">More options</span></span>
+    <div><div class="card__title">Micro business permit</div><div class="card__sub">UMKM Sukarame · 1 document missing</div></div>
+    <span class="tip-host" style="margin: -10px -10px 0 0;"><button class="icon-btn" aria-label="More options for Micro business permit"><span class="ic" aria-hidden="true">more_vert</span></button><span class="tip" role="tooltip">More options</span></span>
   </div>
 </div></div>
           
@@ -365,15 +370,15 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;card&quot; style=&quot;width: 340px;&quot;&gt;
   &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between; flex-wrap: nowrap;&quot;&gt;
-    &lt;div&gt;&lt;div class=&quot;card__title&quot;&gt;Lab report 3&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Computer Networks · due tomorrow&lt;/div&gt;&lt;/div&gt;
-    &lt;span class=&quot;tip-host&quot; style=&quot;margin: -10px -10px 0 0;&quot;&gt;&lt;button class=&quot;icon-btn&quot; aria-label=&quot;More options for Lab report 3&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_vert&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;tip&quot; role=&quot;tooltip&quot;&gt;More options&lt;/span&gt;&lt;/span&gt;
+    &lt;div&gt;&lt;div class=&quot;card__title&quot;&gt;Micro business permit&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;UMKM Sukarame · 1 document missing&lt;/div&gt;&lt;/div&gt;
+    &lt;span class=&quot;tip-host&quot; style=&quot;margin: -10px -10px 0 0;&quot;&gt;&lt;button class=&quot;icon-btn&quot; aria-label=&quot;More options for Micro business permit&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_vert&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;tip&quot; role=&quot;tooltip&quot;&gt;More options&lt;/span&gt;&lt;/span&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;card&quot; style=&quot;width: 340px;&quot;&gt;
   &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between; flex-wrap: nowrap;&quot;&gt;
-    &lt;div&gt;&lt;div class=&quot;card__title&quot;&gt;Lab report 3&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;Computer Networks · due tomorrow&lt;/div&gt;&lt;/div&gt;
-    &lt;span class=&quot;tip-host&quot; style=&quot;margin: -10px -10px 0 0;&quot;&gt;&lt;button class=&quot;icon-btn&quot; aria-label=&quot;More options for Lab report 3&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_vert&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;tip&quot; role=&quot;tooltip&quot;&gt;More options&lt;/span&gt;&lt;/span&gt;
+    &lt;div&gt;&lt;div class=&quot;card__title&quot;&gt;Micro business permit&lt;/div&gt;&lt;div class=&quot;card__sub&quot;&gt;UMKM Sukarame · 1 document missing&lt;/div&gt;&lt;/div&gt;
+    &lt;span class=&quot;tip-host&quot; style=&quot;margin: -10px -10px 0 0;&quot;&gt;&lt;button class=&quot;icon-btn&quot; aria-label=&quot;More options for Micro business permit&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_vert&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;tip&quot; role=&quot;tooltip&quot;&gt;More options&lt;/span&gt;&lt;/span&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
@@ -413,6 +418,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

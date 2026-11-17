@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,112 +321,116 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Content">Content</a></li></ol></nav>
           <h1>Paper</h1>
           <p class="cdoc__lede">A printable page shown as a sheet inside the app: an invoice, a receipt, a letter, a certificate. The text reflows with the width, so the preview stays readable on a phone, and it can be the only thing that prints.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="paper.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="paper.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A live preview of a document people are editing in a form beside it: an invoice, a quote, an offer letter.</li><li>A record people print or save as PDF: a receipt, a payslip, a certificate of completion.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>The details of a record inside the app, not a document: use <a class="link" href="key-value.html">Key-value</a>.</li><li>Long rich text from an editor or a CMS: use <a class="link" href="prose.html">Prose</a>.</li><li>A self-contained subject among others in a grid: use <a class="link" href="card.html">Card</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In its own column beside the form on wide screens (sticky under the app bar), under the form on phones. Up to 816 px wide; it keeps a letter page proportion as its minimum height.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A live preview of a document people are editing in a form beside it: a levy bill, an RT cover letter, a certificate of residence.</li><li>A record people print or save as PDF: a payment receipt, a document intake slip, an UMKM training certificate.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>The details of a record inside the app, not a document: use <a class="link" href="key-value.html">Key-value</a>.</li><li>Long rich text from an editor or a CMS: use <a class="link" href="prose.html">Prose</a>.</li><li>A self-contained subject among others in a grid: use <a class="link" href="card.html">Card</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In its own column beside the form on wide screens (sticky under the app bar), under the form on phones. Up to 816 px wide; it keeps a letter page proportion as its minimum height.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">An invoice</span><span class="cdoc__ex-d">A full invoice. Narrow the window: the parties stack, the dates wrap, the figures stay right-aligned.</span></figcaption>
-          <div class="cdoc__stage cdoc__stage--fill" id="ex-1-stage"><article class="paper" style="max-width: 640px;" aria-label="Invoice INV-2026-118">
+          <figcaption><span class="cdoc__ex-t">A levy bill</span><span class="cdoc__ex-d">A full waste levy bill for a small food stall. Narrow the window: the parties stack, the dates wrap, the figures stay right-aligned.</span></figcaption>
+          <div class="cdoc__stage cdoc__stage--fill" id="ex-1-stage"><article class="paper" style="max-width: 640px;" aria-label="Levy bill SKRD-2026-118">
   <header class="paper__head">
-    <div class="paper__brand"><span class="paper__mark" aria-hidden="true">K</span>Kelola Studio</div>
-    <div class="paper__doc"><div class="paper__title">Invoice</div><span class="badge badge--warning">Due 30 Nov 2026</span></div>
+    <div class="paper__brand"><span class="paper__mark" aria-hidden="true">C</span>Waste Services, Kota Contoh</div>
+    <div class="paper__doc"><div class="paper__title">Levy bill</div><span class="badge badge--warning">Due 30 Nov 2026</span></div>
   </header>
   <dl class="paper__meta">
-    <div><dt class="paper__label">Invoice number</dt><dd>INV-2026-118</dd></div>
+    <div><dt class="paper__label">Bill number</dt><dd>SKRD-2026-118</dd></div>
     <div><dt class="paper__label">Issued</dt><dd>16 Nov 2026</dd></div>
     <div><dt class="paper__label">Due</dt><dd>30 Nov 2026</dd></div>
   </dl>
   <div class="paper__parties">
-    <div class="paper__party"><span class="paper__label">From</span><p>Kelola Studio</p><p>Jl. Kemang Raya 12, Jakarta 12730</p><p>billing@kelola.studio</p></div>
-    <div class="paper__party"><span class="paper__label">Bill to</span><p>Rumah Belajar Nusantara</p><p>Jl. Dago 88, Bandung 40135</p><p>finance@rumahbelajar.id</p></div>
+    <div class="paper__party"><span class="paper__label">From</span><p>Waste Services, Kota Contoh</p><p>Jl. Ki Maja 7, Way Halim, Bandar Lampung 35132</p><p>retribusi@kotacontoh.example</p></div>
+    <div class="paper__party"><span class="paper__label">Levy payer</span><p>Warung Makan Bu Sari</p><p>Jl. Teuku Umar 21, Kedaton, Bandar Lampung 35141</p><p>Levy ID 1871 •••• •••• 0042</p></div>
   </div>
   <table class="paper__table">
     <thead><tr><th scope="col">Description</th><th scope="col" class="num">Qty</th><th scope="col" class="num">Amount</th></tr></thead>
-    <tbody><tr><td>Brand identity refresh</td><td class="num">1</td><td class="num">$3,800.00</td></tr><tr><td>Landing page design and build</td><td class="num">1</td><td class="num">$2,600.00</td></tr><tr><td>Content workshop, half day</td><td class="num">2</td><td class="num">$450.00</td></tr></tbody>
+    <tbody><tr><td>Business waste levy, October 2026</td><td class="num">1</td><td class="num">Rp 75.000</td></tr><tr><td>Business waste levy, November 2026</td><td class="num">1</td><td class="num">Rp 75.000</td></tr><tr><td>Extra waste pickup, family event 2 Nov</td><td class="num">3</td><td class="num">Rp 150.000</td></tr></tbody>
   </table>
   <div class="paper__totals">
-    <div class="paper__sum"><span>Subtotal</span><b>$7,300.00</b></div>
-    <div class="paper__sum"><span>VAT 11%</span><b>$803.00</b></div>
-    <div class="paper__sum paper__sum--total"><span>Balance due</span><b>$8,103.00</b></div>
+    <div class="paper__sum"><span>Subtotal</span><b>Rp 300.000</b></div>
+    <div class="paper__sum"><span>Late fee 2%</span><b>Rp 6.000</b></div>
+    <div class="paper__sum paper__sum--total"><span>Balance due</span><b>Rp 306.000</b></div>
   </div>
-  <footer class="paper__foot"><p>Pay by bank transfer to Bank Mandiri 123 000 4567 890, Kelola Studio.</p><p>Thank you. Questions about this invoice: billing@kelola.studio.</p></footer>
+  <footer class="paper__foot"><p>Pay at any regional bank teller or e-wallet with payment code 1871 2611 0001 18.</p><p>Sample document, not an official bill. Questions about this bill: retribusi@kotacontoh.example.</p></footer>
 </article></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;article class=&quot;paper&quot; style=&quot;max-width: 640px;&quot; aria-label=&quot;Invoice INV-2026-118&quot;&gt;
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;article class=&quot;paper&quot; style=&quot;max-width: 640px;&quot; aria-label=&quot;Levy bill SKRD-2026-118&quot;&gt;
   &lt;header class=&quot;paper__head&quot;&gt;
-    &lt;div class=&quot;paper__brand&quot;&gt;&lt;span class=&quot;paper__mark&quot; aria-hidden=&quot;true&quot;&gt;K&lt;/span&gt;Kelola Studio&lt;/div&gt;
-    &lt;div class=&quot;paper__doc&quot;&gt;&lt;div class=&quot;paper__title&quot;&gt;Invoice&lt;/div&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Due 30 Nov 2026&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__brand&quot;&gt;&lt;span class=&quot;paper__mark&quot; aria-hidden=&quot;true&quot;&gt;C&lt;/span&gt;Waste Services, Kota Contoh&lt;/div&gt;
+    &lt;div class=&quot;paper__doc&quot;&gt;&lt;div class=&quot;paper__title&quot;&gt;Levy bill&lt;/div&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Due 30 Nov 2026&lt;/span&gt;&lt;/div&gt;
   &lt;/header&gt;
   &lt;dl class=&quot;paper__meta&quot;&gt;
-    &lt;div&gt;&lt;dt class=&quot;paper__label&quot;&gt;Invoice number&lt;/dt&gt;&lt;dd&gt;INV-2026-118&lt;/dd&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;dt class=&quot;paper__label&quot;&gt;Bill number&lt;/dt&gt;&lt;dd&gt;SKRD-2026-118&lt;/dd&gt;&lt;/div&gt;
     &lt;div&gt;&lt;dt class=&quot;paper__label&quot;&gt;Issued&lt;/dt&gt;&lt;dd&gt;16 Nov 2026&lt;/dd&gt;&lt;/div&gt;
     &lt;div&gt;&lt;dt class=&quot;paper__label&quot;&gt;Due&lt;/dt&gt;&lt;dd&gt;30 Nov 2026&lt;/dd&gt;&lt;/div&gt;
   &lt;/dl&gt;
   &lt;div class=&quot;paper__parties&quot;&gt;
-    &lt;div class=&quot;paper__party&quot;&gt;&lt;span class=&quot;paper__label&quot;&gt;From&lt;/span&gt;&lt;p&gt;Kelola Studio&lt;/p&gt;&lt;p&gt;Jl. Kemang Raya 12, Jakarta 12730&lt;/p&gt;&lt;p&gt;billing@kelola.studio&lt;/p&gt;&lt;/div&gt;
-    &lt;div class=&quot;paper__party&quot;&gt;&lt;span class=&quot;paper__label&quot;&gt;Bill to&lt;/span&gt;&lt;p&gt;Rumah Belajar Nusantara&lt;/p&gt;&lt;p&gt;Jl. Dago 88, Bandung 40135&lt;/p&gt;&lt;p&gt;finance@rumahbelajar.id&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__party&quot;&gt;&lt;span class=&quot;paper__label&quot;&gt;From&lt;/span&gt;&lt;p&gt;Waste Services, Kota Contoh&lt;/p&gt;&lt;p&gt;Jl. Ki Maja 7, Way Halim, Bandar Lampung 35132&lt;/p&gt;&lt;p&gt;retribusi@kotacontoh.example&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__party&quot;&gt;&lt;span class=&quot;paper__label&quot;&gt;Levy payer&lt;/span&gt;&lt;p&gt;Warung Makan Bu Sari&lt;/p&gt;&lt;p&gt;Jl. Teuku Umar 21, Kedaton, Bandar Lampung 35141&lt;/p&gt;&lt;p&gt;Levy ID 1871 •••• •••• 0042&lt;/p&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;table class=&quot;paper__table&quot;&gt;
     &lt;thead&gt;&lt;tr&gt;&lt;th scope=&quot;col&quot;&gt;Description&lt;/th&gt;&lt;th scope=&quot;col&quot; class=&quot;num&quot;&gt;Qty&lt;/th&gt;&lt;th scope=&quot;col&quot; class=&quot;num&quot;&gt;Amount&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-    &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Brand identity refresh&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;1&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;$3,800.00&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Landing page design and build&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;1&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;$2,600.00&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Content workshop, half day&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;2&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;$450.00&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+    &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Business waste levy, October 2026&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;1&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 75.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Business waste levy, November 2026&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;1&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 75.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Extra waste pickup, family event 2 Nov&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;3&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 150.000&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
   &lt;/table&gt;
   &lt;div class=&quot;paper__totals&quot;&gt;
-    &lt;div class=&quot;paper__sum&quot;&gt;&lt;span&gt;Subtotal&lt;/span&gt;&lt;b&gt;$7,300.00&lt;/b&gt;&lt;/div&gt;
-    &lt;div class=&quot;paper__sum&quot;&gt;&lt;span&gt;VAT 11%&lt;/span&gt;&lt;b&gt;$803.00&lt;/b&gt;&lt;/div&gt;
-    &lt;div class=&quot;paper__sum paper__sum--total&quot;&gt;&lt;span&gt;Balance due&lt;/span&gt;&lt;b&gt;$8,103.00&lt;/b&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__sum&quot;&gt;&lt;span&gt;Subtotal&lt;/span&gt;&lt;b&gt;Rp 300.000&lt;/b&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__sum&quot;&gt;&lt;span&gt;Late fee 2%&lt;/span&gt;&lt;b&gt;Rp 6.000&lt;/b&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__sum paper__sum--total&quot;&gt;&lt;span&gt;Balance due&lt;/span&gt;&lt;b&gt;Rp 306.000&lt;/b&gt;&lt;/div&gt;
   &lt;/div&gt;
-  &lt;footer class=&quot;paper__foot&quot;&gt;&lt;p&gt;Pay by bank transfer to Bank Mandiri 123 000 4567 890, Kelola Studio.&lt;/p&gt;&lt;p&gt;Thank you. Questions about this invoice: billing@kelola.studio.&lt;/p&gt;&lt;/footer&gt;
+  &lt;footer class=&quot;paper__foot&quot;&gt;&lt;p&gt;Pay at any regional bank teller or e-wallet with payment code 1871 2611 0001 18.&lt;/p&gt;&lt;p&gt;Sample document, not an official bill. Questions about this bill: retribusi@kotacontoh.example.&lt;/p&gt;&lt;/footer&gt;
 &lt;/article&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;article class=&quot;paper&quot; style=&quot;max-width: 640px;&quot; aria-label=&quot;Invoice INV-2026-118&quot;&gt;
+          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;article class=&quot;paper&quot; style=&quot;max-width: 640px;&quot; aria-label=&quot;Levy bill SKRD-2026-118&quot;&gt;
   &lt;header class=&quot;paper__head&quot;&gt;
-    &lt;div class=&quot;paper__brand&quot;&gt;&lt;span class=&quot;paper__mark&quot; aria-hidden=&quot;true&quot;&gt;K&lt;/span&gt;Kelola Studio&lt;/div&gt;
-    &lt;div class=&quot;paper__doc&quot;&gt;&lt;div class=&quot;paper__title&quot;&gt;Invoice&lt;/div&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Due 30 Nov 2026&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__brand&quot;&gt;&lt;span class=&quot;paper__mark&quot; aria-hidden=&quot;true&quot;&gt;C&lt;/span&gt;Waste Services, Kota Contoh&lt;/div&gt;
+    &lt;div class=&quot;paper__doc&quot;&gt;&lt;div class=&quot;paper__title&quot;&gt;Levy bill&lt;/div&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Due 30 Nov 2026&lt;/span&gt;&lt;/div&gt;
   &lt;/header&gt;
   &lt;dl class=&quot;paper__meta&quot;&gt;
-    &lt;div&gt;&lt;dt class=&quot;paper__label&quot;&gt;Invoice number&lt;/dt&gt;&lt;dd&gt;INV-2026-118&lt;/dd&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;dt class=&quot;paper__label&quot;&gt;Bill number&lt;/dt&gt;&lt;dd&gt;SKRD-2026-118&lt;/dd&gt;&lt;/div&gt;
     &lt;div&gt;&lt;dt class=&quot;paper__label&quot;&gt;Issued&lt;/dt&gt;&lt;dd&gt;16 Nov 2026&lt;/dd&gt;&lt;/div&gt;
     &lt;div&gt;&lt;dt class=&quot;paper__label&quot;&gt;Due&lt;/dt&gt;&lt;dd&gt;30 Nov 2026&lt;/dd&gt;&lt;/div&gt;
   &lt;/dl&gt;
   &lt;div class=&quot;paper__parties&quot;&gt;
-    &lt;div class=&quot;paper__party&quot;&gt;&lt;span class=&quot;paper__label&quot;&gt;From&lt;/span&gt;&lt;p&gt;Kelola Studio&lt;/p&gt;&lt;p&gt;Jl. Kemang Raya 12, Jakarta 12730&lt;/p&gt;&lt;p&gt;billing@kelola.studio&lt;/p&gt;&lt;/div&gt;
-    &lt;div class=&quot;paper__party&quot;&gt;&lt;span class=&quot;paper__label&quot;&gt;Bill to&lt;/span&gt;&lt;p&gt;Rumah Belajar Nusantara&lt;/p&gt;&lt;p&gt;Jl. Dago 88, Bandung 40135&lt;/p&gt;&lt;p&gt;finance@rumahbelajar.id&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__party&quot;&gt;&lt;span class=&quot;paper__label&quot;&gt;From&lt;/span&gt;&lt;p&gt;Waste Services, Kota Contoh&lt;/p&gt;&lt;p&gt;Jl. Ki Maja 7, Way Halim, Bandar Lampung 35132&lt;/p&gt;&lt;p&gt;retribusi@kotacontoh.example&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__party&quot;&gt;&lt;span class=&quot;paper__label&quot;&gt;Levy payer&lt;/span&gt;&lt;p&gt;Warung Makan Bu Sari&lt;/p&gt;&lt;p&gt;Jl. Teuku Umar 21, Kedaton, Bandar Lampung 35141&lt;/p&gt;&lt;p&gt;Levy ID 1871 •••• •••• 0042&lt;/p&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;table class=&quot;paper__table&quot;&gt;
     &lt;thead&gt;&lt;tr&gt;&lt;th scope=&quot;col&quot;&gt;Description&lt;/th&gt;&lt;th scope=&quot;col&quot; class=&quot;num&quot;&gt;Qty&lt;/th&gt;&lt;th scope=&quot;col&quot; class=&quot;num&quot;&gt;Amount&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-    &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Brand identity refresh&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;1&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;$3,800.00&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Landing page design and build&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;1&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;$2,600.00&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Content workshop, half day&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;2&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;$450.00&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+    &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Business waste levy, October 2026&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;1&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 75.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Business waste levy, November 2026&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;1&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 75.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Extra waste pickup, family event 2 Nov&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;3&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 150.000&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
   &lt;/table&gt;
   &lt;div class=&quot;paper__totals&quot;&gt;
-    &lt;div class=&quot;paper__sum&quot;&gt;&lt;span&gt;Subtotal&lt;/span&gt;&lt;b&gt;$7,300.00&lt;/b&gt;&lt;/div&gt;
-    &lt;div class=&quot;paper__sum&quot;&gt;&lt;span&gt;VAT 11%&lt;/span&gt;&lt;b&gt;$803.00&lt;/b&gt;&lt;/div&gt;
-    &lt;div class=&quot;paper__sum paper__sum--total&quot;&gt;&lt;span&gt;Balance due&lt;/span&gt;&lt;b&gt;$8,103.00&lt;/b&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__sum&quot;&gt;&lt;span&gt;Subtotal&lt;/span&gt;&lt;b&gt;Rp 300.000&lt;/b&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__sum&quot;&gt;&lt;span&gt;Late fee 2%&lt;/span&gt;&lt;b&gt;Rp 6.000&lt;/b&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__sum paper__sum--total&quot;&gt;&lt;span&gt;Balance due&lt;/span&gt;&lt;b&gt;Rp 306.000&lt;/b&gt;&lt;/div&gt;
   &lt;/div&gt;
-  &lt;footer class=&quot;paper__foot&quot;&gt;&lt;p&gt;Pay by bank transfer to Bank Mandiri 123 000 4567 890, Kelola Studio.&lt;/p&gt;&lt;p&gt;Thank you. Questions about this invoice: billing@kelola.studio.&lt;/p&gt;&lt;/footer&gt;
+  &lt;footer class=&quot;paper__foot&quot;&gt;&lt;p&gt;Pay at any regional bank teller or e-wallet with payment code 1871 2611 0001 18.&lt;/p&gt;&lt;p&gt;Sample document, not an official bill. Questions about this bill: retribusi@kotacontoh.example.&lt;/p&gt;&lt;/footer&gt;
 &lt;/article&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
           <figcaption><span class="cdoc__ex-t">Print only the paper</span><span class="cdoc__ex-d">Add <code class="code">paper--print</code> and call <code class="code">window.print()</code> from a Print button. The app around it does not print, and the sheet prints dark on white even in the dark theme.</span></figcaption>
-          <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="docs-row"><button class="btn btn--secondary btn--md" type="button" onclick="window.print()"><span class="ic" aria-hidden="true">print</span>Print invoice</button></div></div>
+          <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="docs-row"><button class="btn btn--secondary btn--md" type="button" onclick="window.print()"><span class="ic" aria-hidden="true">print</span>Print bill</button></div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;button class=&quot;btn btn--secondary btn--md&quot; type=&quot;button&quot; onclick=&quot;window.print()&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;print&lt;/span&gt;Print invoice&lt;/button&gt;
-&lt;article class=&quot;paper paper--print&quot; aria-label=&quot;Invoice INV-2026-118&quot;&gt;…&lt;/article&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;button class=&quot;btn btn--secondary btn--md&quot; type=&quot;button&quot; onclick=&quot;window.print()&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;print&lt;/span&gt;Print bill&lt;/button&gt;
+&lt;article class=&quot;paper paper--print&quot; aria-label=&quot;Levy bill SKRD-2026-118&quot;&gt;…&lt;/article&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;button class=&quot;btn btn--secondary btn--md&quot; type=&quot;button&quot; onclick=&quot;window.print()&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;print&lt;/span&gt;Print invoice&lt;/button&gt;
-&lt;article class=&quot;paper paper--print&quot; aria-label=&quot;Invoice INV-2026-118&quot;&gt;…&lt;/article&gt;</pre></div></div></div>
+          <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;button class=&quot;btn btn--secondary btn--md&quot; type=&quot;button&quot; onclick=&quot;window.print()&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;print&lt;/span&gt;Print bill&lt;/button&gt;
+&lt;article class=&quot;paper paper--print&quot; aria-label=&quot;Levy bill SKRD-2026-118&quot;&gt;…&lt;/article&gt;</pre></div></div></div>
         </figure></section>
         <section class="cdoc__sec" id="anatomy"><h2>Anatomy</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Part</th><th>What it is</th></tr></thead><tbody><tr><td><code class="code">article.paper</code></td><td>Required. The sheet: base color, a hairline ring, padding that grows with the width. <code class="code">aria-label</code> names the document.</td></tr><tr><td><code class="code">.paper__head</code></td><td>Brand (<code class="code">.paper__brand</code> with <code class="code">.paper__mark</code>) at the start, <code class="code">.paper__doc</code> (<code class="code">.paper__title</code> and a badge) at the end.</td></tr><tr><td><code class="code">dl.paper__meta</code></td><td>Number and dates; each <code class="code">dt.paper__label</code> over its <code class="code">dd</code>.</td></tr><tr><td><code class="code">.paper__parties &gt; .paper__party</code></td><td>From and to, each a <code class="code">.paper__label</code> and lines of address.</td></tr><tr><td><code class="code">table.paper__table</code></td><td>Line items; <code class="code">.num</code> right-aligns figures.</td></tr><tr><td><code class="code">.paper__totals &gt; .paper__sum</code></td><td>Label and amount rows; <code class="code">.paper__sum--total</code> for the amount due.</td></tr><tr><td><code class="code">.paper__foot</code></td><td>Payment details and notes, pushed to the bottom of the page.</td></tr><tr><td><code class="code">.paper--print</code></td><td>Modifier. When printing, only this paper prints, edge to edge, in the light theme.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="variants"><h2>Variants and sizes</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Class or attribute</th><th>When</th></tr></thead><tbody><tr><td><code class="code">.paper</code></td><td>A sheet on screen.</td></tr><tr><td><code class="code">.paper--print</code></td><td>The one sheet that prints; everything else on the page is left out of the print.</td></tr><tr><td><code class="code">.paper--receipt</code></td><td>A till receipt: 400 px at most, as tall as its lines, 24 px padding, centered foot. Prints 80 mm wide.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="states"><h2>States</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>State</th><th>How</th></tr></thead><tbody><tr><td><code class="code">editing</code></td><td>The form writes into the paper on input; changed totals roll with <a class="link" href="rolling-number.html">rolling number</a>.</td></tr><tr><td><code class="code">empty field</code></td><td>Show a muted placeholder in the paper (&quot;Client name&quot;) rather than leaving a gap.</td></tr><tr><td><code class="code">printing</code></td><td>Light theme, no ring, no padding of its own; the page margins come from <code class="code">@page</code>.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="states"><h2>States</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>State</th><th>How</th></tr></thead><tbody><tr><td><code class="code">editing</code></td><td>The form writes into the paper on input; changed totals roll with <a class="link" href="rolling-number.html">rolling number</a>.</td></tr><tr><td><code class="code">empty field</code></td><td>Show a muted placeholder in the paper (&quot;Levy payer name&quot;) rather than leaving a gap.</td></tr><tr><td><code class="code">printing</code></td><td>Light theme, no ring, no padding of its own; the page margins come from <code class="code">@page</code>.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="motion"><h2>Motion and microinteractions</h2><ul class="cdoc__list"><li>None of its own. Values that change while someone types may roll (rolling number); new line items enter with the list stagger once.</li></ul></section>
         <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li>Use an <code class="code">article</code> named by <code class="code">aria-label</code> (the document and its number).</li><li>Real headings and a real table with <code class="code">th scope=&quot;col&quot;</code>, so the preview reads in order.</li><li>In a live preview, do not announce every keystroke; the form fields are the source.</li></ul></section>
         <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Keep it in the light hierarchy of the system: one weight step for totals, labels muted.</li><li>Give the amount due its own row with the currency.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Scale the whole page down to fit a phone; let it reflow.</li><li>Put app controls inside the paper; they belong in the form.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Behavior and code</h2><p class="cdoc__p"><strong>Plain HTML.</strong> No hook needed. When a <code class="code">.paper--print</code> is on the page, <code class="code">init()</code> switches to the light theme for the print and back after.</p></section>
-        <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="key-value.html"><span class="link-card__eyebrow">Data display</span><span class="link-card__title">Key-value</span><span class="link-card__body">Label and value pairs that describe one thing: a payment, an exam registration, a profile. `.kv` rows in a `&lt;dl&gt;`, inside a card or in their own `.kv-list` box.</span></a><a class="link-card" href="table.html"><span class="link-card__eyebrow">Data display</span><span class="link-card__title">Table</span><span class="link-card__body">Rows of records compared by the same columns, in a `.table-box` that scrolls sideways when it must. A real `&lt;table&gt;` by default, `.table--wrap` for text, and the `.dt` grid when a template repeats rows.</span></a><a class="link-card" href="form-layout.html"><span class="link-card__eyebrow">Foundations</span><span class="link-card__title">Form layout</span><span class="link-card__body">The frame every form uses: `form` stacks fields 20 px apart, `form__row` puts short fields side by side when there is room, and `form__actions` ends the form with its buttons. Fields inside are always `.field`.</span></a><a class="link-card" href="card.html"><span class="link-card__eyebrow">Data display</span><span class="link-card__title">Card</span><span class="link-card__body">A surface that holds one subject: an event, a payment, a course. White with a hairline ring on the canvas, or the quiet fill on white. Never a shadow.</span></a></div></section>
+        <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="key-value.html"><span class="link-card__eyebrow">Data display</span><span class="link-card__title">Key-value</span><span class="link-card__body">Label and value pairs that describe one thing: a payment, an exam registration, a profile. `.kv` rows in a `&lt;dl&gt;`, inside a card or in their own `.kv-list` box.</span></a><a class="link-card" href="table.html"><span class="link-card__eyebrow">Data display</span><span class="link-card__title">Table</span><span class="link-card__body">Rows of records compared by the same columns, in a `.table-box` that scrolls sideways when it must. A real `&lt;table&gt;` by default, `.table--wrap` for text, and the `.dt` grid when a template repeats rows.</span></a><a class="link-card" href="form-layout.html"><span class="link-card__eyebrow">Foundations</span><span class="link-card__title">Form layout</span><span class="link-card__body">The frame every form uses: `form` stacks fields 20 px apart, `form__row` puts short fields side by side when there is room, and `form__actions` ends the form with its buttons. Fields inside are always `.field`.</span></a><a class="link-card" href="card.html"><span class="link-card__eyebrow">Data display</span><span class="link-card__title">Card</span><span class="link-card__body">A surface that holds one subject: an event, a bill, a service. White with a hairline ring on the canvas, or the quiet fill on white. Never a shadow.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Previous and next component">
           <a class="link-card cdoc__prev" href="thumbnail.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Previous</span><span class="link-card__title">Thumbnail</span></a>
           <a class="link-card cdoc__next" href="aksara.html"><span class="link-card__eyebrow">Next<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Aksara Lampung</span></a>
@@ -444,6 +449,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

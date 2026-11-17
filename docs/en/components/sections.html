@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,21 +321,25 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Page%20patterns">Page patterns</a></li></ol></nav>
           <h1>Sections</h1>
           <p class="cdoc__lede">A page as a column of titled sections: 48 px apart, a hairline above every section after the first, a larger heading on wide screens. Structure comes from space and headings, not from a card around each part.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="sections.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="sections.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>Any page with more than one part: a course page (overview, schedule, materials), a dashboard, a settings page, a profile.</li><li>A part needs a heading with an optional one-line explanation (<code class="code">.section__sub</code>).</li><li>A section has small sub-groups that need their own quiet heading (<code class="code">.section__title-sm</code>).</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>The page title, breadcrumbs and page actions at the top: use <a class="link" href="page-header.html">Page header</a>.</li><li>Parts people open one at a time (FAQ, long settings): use <a class="link" href="accordion.html">Accordion</a>.</li><li>Parts people switch between instead of scrolling: use <a class="link" href="tabs.html">Tabs</a>.</li><li>Long reading text with headings (an article, rules): use <a class="link" href="prose.html">Prose</a>.</li><li>A side list of the sections for jumping on a long page: use <a class="link" href="outline.html">Outline</a>. Use it next to sections, linked to their ids.</li><li>A bordered box that groups one object (a course, a person): use <a class="link" href="card.html">Card</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> The main column of the page, under the <a class="link" href="page-header.html">page header</a>, inside the <a class="link" href="app-shell.html">app shell</a> or below a <a class="link" href="top-nav.html">top nav</a>. One <code class="code">.sections</code> per page; it fills the content column (cap the column with <code class="code">.measure</code> or the shell, not the sections). Gaps drop to 40 px below 720 px.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>Any page with more than one part: a service page (overview, schedule, requirements), a dashboard, a settings page, a profile.</li><li>A part needs a heading with an optional one-line explanation (<code class="code">.section__sub</code>).</li><li>A section has small sub-groups that need their own quiet heading (<code class="code">.section__title-sm</code>).</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>The page title, breadcrumbs and page actions at the top: use <a class="link" href="page-header.html">Page header</a>.</li><li>Parts people open one at a time (FAQ, long settings): use <a class="link" href="accordion.html">Accordion</a>.</li><li>Parts people switch between instead of scrolling: use <a class="link" href="tabs.html">Tabs</a>.</li><li>Long reading text with headings (an article, rules): use <a class="link" href="prose.html">Prose</a>.</li><li>A side list of the sections for jumping on a long page: use <a class="link" href="outline.html">Outline</a>. Use it next to sections, linked to their ids.</li><li>A bordered box that groups one object (a service, a person): use <a class="link" href="card.html">Card</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> The main column of the page, under the <a class="link" href="page-header.html">page header</a>, inside the <a class="link" href="app-shell.html">app shell</a> or below a <a class="link" href="top-nav.html">top nav</a>. One <code class="code">.sections</code> per page; it fills the content column (cap the column with <code class="code">.measure</code> or the shell, not the sections). Gaps drop to 40 px below 720 px.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">A course page</span><span class="cdoc__ex-d">Headings and space do the grouping; content inside each section uses the normal components.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">A service page</span><span class="cdoc__ex-d">Headings and space do the grouping; content inside each section uses the normal components.</span></figcaption>
           <div class="cdoc__stage" id="ex-1-stage"><div class="sections" style="width: 100%;">
   <section class="section" aria-labelledby="sx-1">
-    <div class="section__head"><h2 id="sx-1">This week</h2><p class="section__sub">What is due before Friday and where the class meets.</p></div>
+    <div class="section__head"><h2 id="sx-1">This week</h2><p class="section__sub">What needs doing before Friday and where the service desk is.</p></div>
     <div class="list">
-      <a class="lrow" href="#"><span class="lrow__body"><span class="lrow__title">Lab report 3</span></span><span class="badge badge--warning">Tomorrow</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
-      <a class="lrow" href="#"><span class="lrow__body"><span class="lrow__title">Quiz: indexing</span></span><span class="badge">Thu</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+      <a class="lrow" href="#"><span class="lrow__body"><span class="lrow__title">Complete the letter of domicile</span></span><span class="badge badge--warning">Tomorrow</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
+      <a class="lrow" href="#"><span class="lrow__body"><span class="lrow__title">Business site survey</span></span><span class="badge">Thu</span><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>
     </div>
   </section>
   <section class="section" aria-labelledby="sx-2">
-    <div class="section__head"><h2 id="sx-2">Materials</h2></div>
-    <p class="section__sub">Slides and readings are added after each lecture.</p>
+    <div class="section__head"><h2 id="sx-2">Documents</h2></div>
+    <p class="section__sub">Letters and service receipts are added after each stage is done.</p>
   </section>
 </div></div>
           
@@ -343,29 +348,29 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;sections&quot; style=&quot;width: 100%;&quot;&gt;
   &lt;section class=&quot;section&quot; aria-labelledby=&quot;sx-1&quot;&gt;
-    &lt;div class=&quot;section__head&quot;&gt;&lt;h2 id=&quot;sx-1&quot;&gt;This week&lt;/h2&gt;&lt;p class=&quot;section__sub&quot;&gt;What is due before Friday and where the class meets.&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;section__head&quot;&gt;&lt;h2 id=&quot;sx-1&quot;&gt;This week&lt;/h2&gt;&lt;p class=&quot;section__sub&quot;&gt;What needs doing before Friday and where the service desk is.&lt;/p&gt;&lt;/div&gt;
     &lt;div class=&quot;list&quot;&gt;
-      &lt;a class=&quot;lrow&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Lab report 3&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Tomorrow&lt;/span&gt;&lt;span class=&quot;ic lrow__chev&quot; aria-hidden=&quot;true&quot;&gt;chevron_right&lt;/span&gt;&lt;/a&gt;
-      &lt;a class=&quot;lrow&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Quiz: indexing&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;badge&quot;&gt;Thu&lt;/span&gt;&lt;span class=&quot;ic lrow__chev&quot; aria-hidden=&quot;true&quot;&gt;chevron_right&lt;/span&gt;&lt;/a&gt;
+      &lt;a class=&quot;lrow&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Complete the letter of domicile&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Tomorrow&lt;/span&gt;&lt;span class=&quot;ic lrow__chev&quot; aria-hidden=&quot;true&quot;&gt;chevron_right&lt;/span&gt;&lt;/a&gt;
+      &lt;a class=&quot;lrow&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Business site survey&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;badge&quot;&gt;Thu&lt;/span&gt;&lt;span class=&quot;ic lrow__chev&quot; aria-hidden=&quot;true&quot;&gt;chevron_right&lt;/span&gt;&lt;/a&gt;
     &lt;/div&gt;
   &lt;/section&gt;
   &lt;section class=&quot;section&quot; aria-labelledby=&quot;sx-2&quot;&gt;
-    &lt;div class=&quot;section__head&quot;&gt;&lt;h2 id=&quot;sx-2&quot;&gt;Materials&lt;/h2&gt;&lt;/div&gt;
-    &lt;p class=&quot;section__sub&quot;&gt;Slides and readings are added after each lecture.&lt;/p&gt;
+    &lt;div class=&quot;section__head&quot;&gt;&lt;h2 id=&quot;sx-2&quot;&gt;Documents&lt;/h2&gt;&lt;/div&gt;
+    &lt;p class=&quot;section__sub&quot;&gt;Letters and service receipts are added after each stage is done.&lt;/p&gt;
   &lt;/section&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;sections&quot; style=&quot;width: 100%;&quot;&gt;
   &lt;section class=&quot;section&quot; aria-labelledby=&quot;sx-1&quot;&gt;
-    &lt;div class=&quot;section__head&quot;&gt;&lt;h2 id=&quot;sx-1&quot;&gt;This week&lt;/h2&gt;&lt;p class=&quot;section__sub&quot;&gt;What is due before Friday and where the class meets.&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;section__head&quot;&gt;&lt;h2 id=&quot;sx-1&quot;&gt;This week&lt;/h2&gt;&lt;p class=&quot;section__sub&quot;&gt;What needs doing before Friday and where the service desk is.&lt;/p&gt;&lt;/div&gt;
     &lt;div class=&quot;list&quot;&gt;
-      &lt;a class=&quot;lrow&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Lab report 3&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Tomorrow&lt;/span&gt;&lt;span class=&quot;ic lrow__chev&quot; aria-hidden=&quot;true&quot;&gt;chevron_right&lt;/span&gt;&lt;/a&gt;
-      &lt;a class=&quot;lrow&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Quiz: indexing&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;badge&quot;&gt;Thu&lt;/span&gt;&lt;span class=&quot;ic lrow__chev&quot; aria-hidden=&quot;true&quot;&gt;chevron_right&lt;/span&gt;&lt;/a&gt;
+      &lt;a class=&quot;lrow&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Complete the letter of domicile&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Tomorrow&lt;/span&gt;&lt;span class=&quot;ic lrow__chev&quot; aria-hidden=&quot;true&quot;&gt;chevron_right&lt;/span&gt;&lt;/a&gt;
+      &lt;a class=&quot;lrow&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Business site survey&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;badge&quot;&gt;Thu&lt;/span&gt;&lt;span class=&quot;ic lrow__chev&quot; aria-hidden=&quot;true&quot;&gt;chevron_right&lt;/span&gt;&lt;/a&gt;
     &lt;/div&gt;
   &lt;/section&gt;
   &lt;section class=&quot;section&quot; aria-labelledby=&quot;sx-2&quot;&gt;
-    &lt;div class=&quot;section__head&quot;&gt;&lt;h2 id=&quot;sx-2&quot;&gt;Materials&lt;/h2&gt;&lt;/div&gt;
-    &lt;p class=&quot;section__sub&quot;&gt;Slides and readings are added after each lecture.&lt;/p&gt;
+    &lt;div class=&quot;section__head&quot;&gt;&lt;h2 id=&quot;sx-2&quot;&gt;Documents&lt;/h2&gt;&lt;/div&gt;
+    &lt;p class=&quot;section__sub&quot;&gt;Letters and service receipts are added after each stage is done.&lt;/p&gt;
   &lt;/section&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
@@ -376,11 +381,11 @@
     <div class="section__head"><h2 id="sx-3">Account</h2><p class="section__sub">How you sign in and what we send you.</p></div>
     <div class="stack" style="--gap: 10px;">
       <h3 class="section__title-sm">Sign in</h3>
-      <dl class="kv-list"><div class="kv"><dt>Email</dt><dd>siti@campus.ac.id</dd></div><div class="kv"><dt>Password</dt><dd>Changed 3 months ago</dd></div></dl>
+      <dl class="kv-list"><div class="kv"><dt>Email</dt><dd>siti.rahma@contoh.id</dd></div><div class="kv"><dt>Password</dt><dd>Changed 3 months ago</dd></div></dl>
     </div>
     <div class="stack" style="--gap: 10px;">
       <h3 class="section__title-sm">Notifications</h3>
-      <label class="switch"><input type="checkbox" role="switch" checked><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span>Class reminders</label>
+      <label class="switch"><input type="checkbox" role="switch" checked><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span>Due date reminders</label>
     </div>
   </section>
 </div></div>
@@ -393,11 +398,11 @@
     &lt;div class=&quot;section__head&quot;&gt;&lt;h2 id=&quot;sx-3&quot;&gt;Account&lt;/h2&gt;&lt;p class=&quot;section__sub&quot;&gt;How you sign in and what we send you.&lt;/p&gt;&lt;/div&gt;
     &lt;div class=&quot;stack&quot; style=&quot;--gap: 10px;&quot;&gt;
       &lt;h3 class=&quot;section__title-sm&quot;&gt;Sign in&lt;/h3&gt;
-      &lt;dl class=&quot;kv-list&quot;&gt;&lt;div class=&quot;kv&quot;&gt;&lt;dt&gt;Email&lt;/dt&gt;&lt;dd&gt;siti@campus.ac.id&lt;/dd&gt;&lt;/div&gt;&lt;div class=&quot;kv&quot;&gt;&lt;dt&gt;Password&lt;/dt&gt;&lt;dd&gt;Changed 3 months ago&lt;/dd&gt;&lt;/div&gt;&lt;/dl&gt;
+      &lt;dl class=&quot;kv-list&quot;&gt;&lt;div class=&quot;kv&quot;&gt;&lt;dt&gt;Email&lt;/dt&gt;&lt;dd&gt;siti.rahma@contoh.id&lt;/dd&gt;&lt;/div&gt;&lt;div class=&quot;kv&quot;&gt;&lt;dt&gt;Password&lt;/dt&gt;&lt;dd&gt;Changed 3 months ago&lt;/dd&gt;&lt;/div&gt;&lt;/dl&gt;
     &lt;/div&gt;
     &lt;div class=&quot;stack&quot; style=&quot;--gap: 10px;&quot;&gt;
       &lt;h3 class=&quot;section__title-sm&quot;&gt;Notifications&lt;/h3&gt;
-      &lt;label class=&quot;switch&quot;&gt;&lt;input type=&quot;checkbox&quot; role=&quot;switch&quot; checked&gt;&lt;span class=&quot;switch__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;switch__thumb&quot;&gt;&lt;/span&gt;&lt;/span&gt;Class reminders&lt;/label&gt;
+      &lt;label class=&quot;switch&quot;&gt;&lt;input type=&quot;checkbox&quot; role=&quot;switch&quot; checked&gt;&lt;span class=&quot;switch__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;switch__thumb&quot;&gt;&lt;/span&gt;&lt;/span&gt;Due date reminders&lt;/label&gt;
     &lt;/div&gt;
   &lt;/section&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
@@ -407,11 +412,11 @@
     &lt;div class=&quot;section__head&quot;&gt;&lt;h2 id=&quot;sx-3&quot;&gt;Account&lt;/h2&gt;&lt;p class=&quot;section__sub&quot;&gt;How you sign in and what we send you.&lt;/p&gt;&lt;/div&gt;
     &lt;div class=&quot;stack&quot; style=&quot;--gap: 10px;&quot;&gt;
       &lt;h3 class=&quot;section__title-sm&quot;&gt;Sign in&lt;/h3&gt;
-      &lt;dl class=&quot;kv-list&quot;&gt;&lt;div class=&quot;kv&quot;&gt;&lt;dt&gt;Email&lt;/dt&gt;&lt;dd&gt;siti@campus.ac.id&lt;/dd&gt;&lt;/div&gt;&lt;div class=&quot;kv&quot;&gt;&lt;dt&gt;Password&lt;/dt&gt;&lt;dd&gt;Changed 3 months ago&lt;/dd&gt;&lt;/div&gt;&lt;/dl&gt;
+      &lt;dl class=&quot;kv-list&quot;&gt;&lt;div class=&quot;kv&quot;&gt;&lt;dt&gt;Email&lt;/dt&gt;&lt;dd&gt;siti.rahma@contoh.id&lt;/dd&gt;&lt;/div&gt;&lt;div class=&quot;kv&quot;&gt;&lt;dt&gt;Password&lt;/dt&gt;&lt;dd&gt;Changed 3 months ago&lt;/dd&gt;&lt;/div&gt;&lt;/dl&gt;
     &lt;/div&gt;
     &lt;div class=&quot;stack&quot; style=&quot;--gap: 10px;&quot;&gt;
       &lt;h3 class=&quot;section__title-sm&quot;&gt;Notifications&lt;/h3&gt;
-      &lt;label class=&quot;switch&quot;&gt;&lt;input type=&quot;checkbox&quot; role=&quot;switch&quot; checked&gt;&lt;span class=&quot;switch__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;switch__thumb&quot;&gt;&lt;/span&gt;&lt;/span&gt;Class reminders&lt;/label&gt;
+      &lt;label class=&quot;switch&quot;&gt;&lt;input type=&quot;checkbox&quot; role=&quot;switch&quot; checked&gt;&lt;span class=&quot;switch__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;switch__thumb&quot;&gt;&lt;/span&gt;&lt;/span&gt;Due date reminders&lt;/label&gt;
     &lt;/div&gt;
   &lt;/section&gt;
 &lt;/div&gt;</pre></div></div></div>
@@ -440,6 +445,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

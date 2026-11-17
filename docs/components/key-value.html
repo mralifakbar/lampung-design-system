@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Data%20display">Tampilan data</a></li></ol></nav>
           <h1>Key-value</h1>
           <p class="cdoc__lede">Pasangan label dan nilai yang menjelaskan satu hal: pembayaran, pendaftaran ujian, profil. Baris <code class="code">.kv</code> di dalam <code class="code">&lt;dl&gt;</code>, di dalam kartu atau di kotak <code class="code">.kv-list</code> sendiri.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="key-value.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="key-value.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Detail satu catatan: biaya, tanggal jatuh tempo, dan status pembayaran; kursi, ruang, dan jam ujian.</li><li>Ringkasan sebelum konfirmasi (&quot;Periksa pendaftaran Anda&quot;).</li><li>Fakta tentang pokok halaman di panel samping.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Beberapa catatan yang dibandingkan menurut atribut yang sama: pakai <a class="link" href="table.html">Table</a>.</li><li>Beberapa angka besar yang merangkum halaman: pakai <a class="link" href="stat-row.html">Stat row</a>.</li><li>Baris yang membuka halaman untuk mengubah setiap nilai: pakai <a class="link" href="list.html">List</a>. Pakai <code class="code">.lrow__value</code> dengan chevron.</li><li>Nilainya bisa diubah: pakai <a class="link" href="form-layout.html">Form layout</a>.</li><li>Peristiwa bertanggal secara berurutan: pakai <a class="link" href="timeline.html">Timeline</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di dalam <a class="link" href="card.html">kartu</a> di bawah judulnya, di panel samping, di <a class="link" href="dialog.html">dialog</a> sebelum konfirmasi, atau sendiri sebagai kotak <code class="code">.kv-list</code> di kolom isi. Label di kiri, nilai di kanan di semua ukuran layar; ganti ke <code class="code">.kv-list--stack</code> bila nilainya berupa kalimat atau nama panjang.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -386,7 +391,7 @@
 <figure class="cdoc__ex" id="ex-3">
           <figcaption><span class="cdoc__ex-t">Di atas isian tenang, dan bertumpuk untuk nilai panjang</span><span class="cdoc__ex-d"><code class="code">--base</code> membuat kotak putih di panel berisi isian; <code class="code">--stack</code> menaruh nilai panjang di bawah labelnya.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--fill" id="ex-3-stage"><dl class="kv-list kv-list--base kv-list--stack" style="max-width: 420px; width: 100%;">
-  <div class="kv"><dt>Nama usaha</dt><dd>Usaha Keripik Pisang Ibu Sumarni, Desa Way Halim Permai</dd></div>
+  <div class="kv"><dt>Nama usaha</dt><dd>Usaha Keripik Pisang Ibu Sumarni, Kelurahan Way Halim Permai</dd></div>
   <div class="kv"><dt>Pendamping</dt><dd>Ayu Rahmawati, petugas pendamping UMKM Kecamatan Kedaton</dd></div>
   <div class="kv"><dt>Tanggal verifikasi</dt><dd>Kamis, 10 Desember 2026</dd></div>
 </dl></div>
@@ -395,13 +400,13 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-3-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;dl class=&quot;kv-list kv-list--base kv-list--stack&quot; style=&quot;max-width: 420px; width: 100%;&quot;&gt;
-  &lt;div class=&quot;kv&quot;&gt;&lt;dt&gt;Nama usaha&lt;/dt&gt;&lt;dd&gt;Usaha Keripik Pisang Ibu Sumarni, Desa Way Halim Permai&lt;/dd&gt;&lt;/div&gt;
+  &lt;div class=&quot;kv&quot;&gt;&lt;dt&gt;Nama usaha&lt;/dt&gt;&lt;dd&gt;Usaha Keripik Pisang Ibu Sumarni, Kelurahan Way Halim Permai&lt;/dd&gt;&lt;/div&gt;
   &lt;div class=&quot;kv&quot;&gt;&lt;dt&gt;Pendamping&lt;/dt&gt;&lt;dd&gt;Ayu Rahmawati, petugas pendamping UMKM Kecamatan Kedaton&lt;/dd&gt;&lt;/div&gt;
   &lt;div class=&quot;kv&quot;&gt;&lt;dt&gt;Tanggal verifikasi&lt;/dt&gt;&lt;dd&gt;Kamis, 10 Desember 2026&lt;/dd&gt;&lt;/div&gt;
 &lt;/dl&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;dl class=&quot;kv-list kv-list--base kv-list--stack&quot; style=&quot;max-width: 420px; width: 100%;&quot;&gt;
-  &lt;div class=&quot;kv&quot;&gt;&lt;dt&gt;Nama usaha&lt;/dt&gt;&lt;dd&gt;Usaha Keripik Pisang Ibu Sumarni, Desa Way Halim Permai&lt;/dd&gt;&lt;/div&gt;
+  &lt;div class=&quot;kv&quot;&gt;&lt;dt&gt;Nama usaha&lt;/dt&gt;&lt;dd&gt;Usaha Keripik Pisang Ibu Sumarni, Kelurahan Way Halim Permai&lt;/dd&gt;&lt;/div&gt;
   &lt;div class=&quot;kv&quot;&gt;&lt;dt&gt;Pendamping&lt;/dt&gt;&lt;dd&gt;Ayu Rahmawati, petugas pendamping UMKM Kecamatan Kedaton&lt;/dd&gt;&lt;/div&gt;
   &lt;div class=&quot;kv&quot;&gt;&lt;dt&gt;Tanggal verifikasi&lt;/dt&gt;&lt;dd&gt;Kamis, 10 Desember 2026&lt;/dd&gt;&lt;/div&gt;
 &lt;/dl&gt;</pre></div></div></div>
@@ -431,6 +436,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

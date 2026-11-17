@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,8 +321,12 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Actions">Aksi</a></li></ol></nav>
           <h1>Copy button</h1>
           <p class="cdoc__lede">Tombol yang menyalin nilai ke clipboard dan mengonfirmasi di tempat: ikon salin memudar menjadi centang dan labelnya berbunyi &quot;Disalin&quot; selama 1,6 detik. Satu atribut, <code class="code">data-lds-copy</code>, menyimpan teksnya.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="copy-button.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="copy-button.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Nilai yang akan ditempel orang di tempat lain: kode undangan, tautan rujukan, nomor referensi pembayaran, API key, contoh kode.</li><li>Di samping kolom baca saja atau blok kode yang isinya sulit dipilih manual di ponsel.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Membagikan halaman lewat lembar berbagi sistem atau ke aplikasi: pakai <a class="link" href="button.html">Button</a>. Pakai tombol dengan <code class="code">ios_share</code> yang memanggil <code class="code">navigator.share</code>.</li><li>Blok kode dengan bilah header: pakai <a class="link" href="code-block.html">Code block</a>. Ia punya tombol salin sendiri di <code class="code">.codeblock__bar</code>; pakai pola ini di sana.</li><li>Mengonfirmasi aksi yang mengubah data (tersimpan, terkirim): pakai <a class="link" href="toast.html">Toast</a>.</li><li>Mengganti ikon apa pun untuk menunjukkan status baru (putar ke jeda): pakai <a class="link" href="icon-swap.html">Icon swap</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di ujung nilai yang disalin: di dalam kolom (<code class="code">control</code> dengan tombol di akhir), di bilah blok kode, atau setelah nilai sebaris di baris kunci-nilai. Di ponsel biarkan labelnya terlihat; tombol salin hanya ikon mudah terlewat.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Nilai yang akan ditempel orang di tempat lain: nomor permohonan, tautan lacak berkas, kode bayar retribusi, API key, contoh kode.</li><li>Di samping kolom baca saja atau blok kode yang isinya sulit dipilih manual di ponsel.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Membagikan halaman lewat lembar berbagi sistem atau ke aplikasi: pakai <a class="link" href="button.html">Button</a>. Pakai tombol dengan <code class="code">ios_share</code> yang memanggil <code class="code">navigator.share</code>.</li><li>Blok kode dengan bilah header: pakai <a class="link" href="code-block.html">Code block</a>. Ia punya tombol salin sendiri di <code class="code">.codeblock__bar</code>; pakai pola ini di sana.</li><li>Mengonfirmasi aksi yang mengubah data (tersimpan, terkirim): pakai <a class="link" href="toast.html">Toast</a>.</li><li>Mengganti ikon apa pun untuk menunjukkan status baru (putar ke jeda): pakai <a class="link" href="icon-swap.html">Icon swap</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di ujung nilai yang disalin: di dalam kolom (<code class="code">control</code> dengan tombol di akhir), di bilah blok kode, atau setelah nilai sebaris di baris kunci-nilai. Di ponsel biarkan labelnya terlihat; tombol salin hanya ikon mudah terlewat.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">Di dalam kolom</span><span class="cdoc__ex-d">Tekan Salin: ikon memudar menjadi centang dan label berganti, lalu keduanya kembali.</span></figcaption>
           <div class="cdoc__stage" id="ex-1-stage"><div class="control" style="width: 380px; max-width: 100%; padding-right: 6px;">
@@ -384,6 +389,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

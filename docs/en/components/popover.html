@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Overlays">Overlays</a></li></ol></nav>
           <h1>Popover</h1>
           <p class="cdoc__lede">A small floating card anchored to a button, for content richer than a menu: a mini form, a short explanation with a link, a quick setting. It does not block the page.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="popover.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="popover.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A few fields or controls tied to one button: set a reminder, adjust a column width, quick-edit a due date.</li><li>A short explanation people open on purpose, with formatting or a link inside.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>A list of commands: use <a class="link" href="dropdown-menu.html">Dropdown menu</a>.</li><li>A label for an icon or a one-line hint on hover: use <a class="link" href="tooltip.html">Tooltip</a>.</li><li>A preview of a person or link on hover: use <a class="link" href="hover-card.html">Hover card</a>.</li><li>A task that needs focus and a decision before going on: use <a class="link" href="dialog.html">Dialog</a>.</li><li>Picking a date: use <a class="link" href="date-field.html">Date field</a>. The date field already pairs a control with its calendar popover.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> 8 px below its trigger, aligned to its left edge, 300 px wide. Trigger and popover share a <code class="code">position: relative</code> wrapper; position the popover with inline <code class="code">top</code>/<code class="code">left</code>. On phones, use a <a class="link" href="sheet.html">sheet</a> for anything with fields.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
@@ -328,9 +333,9 @@
   <button class="btn btn--secondary btn--md" aria-haspopup="dialog" aria-expanded="false" aria-controls="po-remind" data-lds-menu="po-remind"><span class="ic" aria-hidden="true">notifications</span>Remind me</button>
   <div class="popover" id="po-remind" role="dialog" aria-labelledby="po-remind-t" style="top: calc(100% + 8px); left: 0;">
     <div class="stack" style="--gap: 12px;">
-      <h3 class="section__title-sm" id="po-remind-t">Remind me about Lab report 3</h3>
-      <label class="check"><input type="checkbox" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">One day before the deadline</span></label>
-      <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">One hour before the deadline</span></label>
+      <h3 class="section__title-sm" id="po-remind-t">Remind me about vehicle tax</h3>
+      <label class="check"><input type="checkbox" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">One day before the due date</span></label>
+      <label class="check"><input type="checkbox"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">One hour before the due date</span></label>
       <button class="btn btn--primary btn--md btn--block" onclick="setTimeout(() => document.body.click(), 0);">Set reminder</button>
     </div>
   </div>
@@ -342,7 +347,7 @@
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div style=&quot;position: relative;&quot;&gt;
   &lt;button class=&quot;btn btn--secondary&quot; aria-haspopup=&quot;dialog&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;remind&quot; data-lds-menu=&quot;remind&quot;&gt;Remind me&lt;/button&gt;
   &lt;div class=&quot;popover&quot; id=&quot;remind&quot; role=&quot;dialog&quot; aria-labelledby=&quot;remind-t&quot; style=&quot;top: calc(100% + 8px); left: 0;&quot;&gt;
-    &lt;h3 class=&quot;section__title-sm&quot; id=&quot;remind-t&quot;&gt;Remind me about Lab report 3&lt;/h3&gt;
+    &lt;h3 class=&quot;section__title-sm&quot; id=&quot;remind-t&quot;&gt;Remind me about vehicle tax&lt;/h3&gt;
     …
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
@@ -350,17 +355,17 @@
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div style=&quot;position: relative;&quot;&gt;
   &lt;button class=&quot;btn btn--secondary&quot; aria-haspopup=&quot;dialog&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;remind&quot; data-lds-menu=&quot;remind&quot;&gt;Remind me&lt;/button&gt;
   &lt;div class=&quot;popover&quot; id=&quot;remind&quot; role=&quot;dialog&quot; aria-labelledby=&quot;remind-t&quot; style=&quot;top: calc(100% + 8px); left: 0;&quot;&gt;
-    &lt;h3 class=&quot;section__title-sm&quot; id=&quot;remind-t&quot;&gt;Remind me about Lab report 3&lt;/h3&gt;
+    &lt;h3 class=&quot;section__title-sm&quot; id=&quot;remind-t&quot;&gt;Remind me about vehicle tax&lt;/h3&gt;
     …
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
-          <figcaption><span class="cdoc__ex-t">Static, open</span><span class="cdoc__ex-d">A popover explaining a score, shown open.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Static, open</span><span class="cdoc__ex-d">A popover explaining how an application is scored, shown open.</span></figcaption>
           <div class="cdoc__stage" id="ex-2-stage" style="min-height: 200px;"><div style="position: relative; align-self: flex-start;">
   <button class="btn btn--plain btn--sm" aria-haspopup="dialog" aria-expanded="true" aria-controls="po-score">How is this scored?</button>
   <div class="popover is-open" id="po-score" role="dialog" aria-label="How the score works" style="top: calc(100% + 8px); left: 0;">
-    <p class="section__sub">Each correct answer is worth 5 points, a wrong one 0. Unanswered questions do not count against you.</p>
+    <p class="section__sub">Each complete document is worth 5 points, an incomplete one 0. Optional documents you leave out do not count against you.</p>
   </div>
 </div></div>
           
@@ -370,14 +375,14 @@
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div style=&quot;position: relative; align-self: flex-start;&quot;&gt;
   &lt;button class=&quot;btn btn--plain btn--sm&quot; aria-haspopup=&quot;dialog&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;po-score&quot;&gt;How is this scored?&lt;/button&gt;
   &lt;div class=&quot;popover is-open&quot; id=&quot;po-score&quot; role=&quot;dialog&quot; aria-label=&quot;How the score works&quot; style=&quot;top: calc(100% + 8px); left: 0;&quot;&gt;
-    &lt;p class=&quot;section__sub&quot;&gt;Each correct answer is worth 5 points, a wrong one 0. Unanswered questions do not count against you.&lt;/p&gt;
+    &lt;p class=&quot;section__sub&quot;&gt;Each complete document is worth 5 points, an incomplete one 0. Optional documents you leave out do not count against you.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div style=&quot;position: relative; align-self: flex-start;&quot;&gt;
   &lt;button class=&quot;btn btn--plain btn--sm&quot; aria-haspopup=&quot;dialog&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;po-score&quot;&gt;How is this scored?&lt;/button&gt;
   &lt;div class=&quot;popover is-open&quot; id=&quot;po-score&quot; role=&quot;dialog&quot; aria-label=&quot;How the score works&quot; style=&quot;top: calc(100% + 8px); left: 0;&quot;&gt;
-    &lt;p class=&quot;section__sub&quot;&gt;Each correct answer is worth 5 points, a wrong one 0. Unanswered questions do not count against you.&lt;/p&gt;
+    &lt;p class=&quot;section__sub&quot;&gt;Each complete document is worth 5 points, an incomplete one 0. Optional documents you leave out do not count against you.&lt;/p&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
@@ -387,7 +392,7 @@
         <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li>Non-modal: focus is not trapped, the page stays usable. Give it <code class="code">role=&quot;dialog&quot;</code> and a name.</li><li>Moving focus into it on open and back to the trigger on close is your job, unless you reuse the menu hook (which focuses its first button, closes on Escape and returns focus).</li><li>Escape and a click outside close it.</li></ul></section>
         <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Keep it to one small task or explanation.</li><li>Close it after the main action.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Put a long form or a table in a popover.</li><li>Open it on hover; that is a <a class="link" href="hover-card.html">hover card</a>.</li><li>Use a popover where a <a class="link" href="dropdown-menu.html">dropdown menu</a> of commands would do.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Behavior and code</h2><p class="cdoc__p"><strong>Plain HTML.</strong> No dedicated hook: toggle <code class="code">.is-open</code> and <code class="code">aria-expanded</code> yourself, or reuse the menu hook (<code class="code">data-lds-menu=&quot;popoverId&quot;</code> on the trigger), which opens and closes it, focuses its first button, closes on Escape (focus back to the trigger) and on a click outside; call <code class="code">closeMenus()</code> after the action inside the popover. Avoid controls that use Up and Down arrows inside it: those keys are handled as menu keys.</p></section>
-        <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="dropdown-menu.html"><span class="link-card__eyebrow">Overlays</span><span class="link-card__title">Dropdown menu</span><span class="link-card__body">A list of commands that drops from a button: sort options, row actions, the &quot;more&quot; menu behind an icon button. Items do something; they are not a form field.</span></a><a class="link-card" href="tooltip.html"><span class="link-card__eyebrow">Overlays</span><span class="link-card__title">Tooltip</span><span class="link-card__body">A short dark label above a control on hover or focus, after a 500 ms wait. Names icon buttons and shortcuts; with `.infotip` and `.tip--wide` it explains a term in a sentence or two. CSS only.</span></a><a class="link-card" href="hover-card.html"><span class="link-card__eyebrow">Overlays</span><span class="link-card__title">Hover card</span><span class="link-card__body">A preview card under a link after a 600 ms hover or on focus: who a person is, what a course covers. It saves a click; it never holds the only copy of anything.</span></a><a class="link-card" href="date-field.html"><span class="link-card__eyebrow">Inputs</span><span class="link-card__title">Date field</span><span class="link-card__body">A text field for a date with a calendar button that opens a calendar in a popover. Typing the date always works; the calendar is the helper. Built from existing parts: `.control`, `.control__btn`, `.popover` and `.cal`.</span></a></div></section>
+        <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="dropdown-menu.html"><span class="link-card__eyebrow">Overlays</span><span class="link-card__title">Dropdown menu</span><span class="link-card__body">A list of commands that drops from a button: sort options, row actions, the &quot;more&quot; menu behind an icon button. Items do something; they are not a form field.</span></a><a class="link-card" href="tooltip.html"><span class="link-card__eyebrow">Overlays</span><span class="link-card__title">Tooltip</span><span class="link-card__body">A short dark label above a control on hover or focus, after a 500 ms wait. Names icon buttons and shortcuts; with `.infotip` and `.tip--wide` it explains a term in a sentence or two. CSS only.</span></a><a class="link-card" href="hover-card.html"><span class="link-card__eyebrow">Overlays</span><span class="link-card__title">Hover card</span><span class="link-card__body">A preview card under a link after a 600 ms hover or on focus: who a person is, what a service covers. It saves a click; it never holds the only copy of anything.</span></a><a class="link-card" href="date-field.html"><span class="link-card__eyebrow">Inputs</span><span class="link-card__title">Date field</span><span class="link-card__body">A text field for a date with a calendar button that opens a calendar in a popover. Typing the date always works; the calendar is the helper. Built from existing parts: `.control`, `.control__btn`, `.popover` and `.cal`.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Previous and next component">
           <a class="link-card cdoc__prev" href="context-menu.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Previous</span><span class="link-card__title">Context menu</span></a>
           <a class="link-card cdoc__next" href="tooltip.html"><span class="link-card__eyebrow">Next<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Tooltip</span></a>
@@ -406,6 +411,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,10 +321,14 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Data%20display">Tampilan data</a></li></ol></nav>
           <h1>KPI card</h1>
           <p class="cdoc__lede">Satu metrik di dasbor: apa yang diukur, nilainya, bagaimana perubahannya terhadap pembanding yang disebutkan, dan bila perlu bentuk terbarunya sebagai sparkline atau mini bar. Nilainya yang utama; perubahan selalu menyebut pembandingnya.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="kpi-card.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="kpi-card.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Baris pertama dasbor: tiga sampai enam metrik yang diperiksa setiap kali berkunjung (penerimaan, permohonan, pengembalian dana, waktu balas).</li><li>Metrik yang bentuk terbarunya sama pentingnya dengan nilainya: tambahkan sparkline (berkelanjutan) atau mini bar (per hari atau minggu).</li><li>Beberapa metrik dari satu pokok yang digabung menjadi strip (<code class="code">.kpi-grid</code>) di atas halaman analitik.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Angka yang merangkum halaman, tanpa perubahan untuk dilaporkan: pakai <a class="link" href="stat-row.html">Stat row</a>. Sebaris angka polos lebih tenang dan tidak butuh kartu.</li><li>Metrik dengan pertanyaan dan tren lebih panjang yang dipelajari pembaca: pakai <a class="link" href="sparkline-stat.html">Sparkline stat</a>.</li><li>Pembaca butuh nilai pada tanggal tertentu: pakai <a class="link" href="area-chart.html">Area chart</a>.</li><li>Kemajuan menuju target: pakai <a class="link" href="target-bar.html">Target bar</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di atas dasbor dalam <code class="code">auto-grid</code> (<code class="code">--min: 220px</code>), atau sebagai satu strip <code class="code">.kpi-grid</code>. Di ponsel kartu bertumpuk selebar penuh; strip menjadi dua kolom di bawah 760 px lebar wadahnya dan satu kolom di bawah 400 px. Tidak pernah lebih dari enam sebaris.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Baris pertama dasbor: tiga sampai enam metrik yang diperiksa setiap kali berkunjung (penerimaan, permohonan, berkas dikembalikan, waktu balas).</li><li>Metrik yang bentuk terbarunya sama pentingnya dengan nilainya: tambahkan sparkline (berkelanjutan) atau mini bar (per hari atau minggu).</li><li>Beberapa metrik dari satu pokok yang digabung menjadi strip (<code class="code">.kpi-grid</code>) di atas halaman analitik.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Angka yang merangkum halaman, tanpa perubahan untuk dilaporkan: pakai <a class="link" href="stat-row.html">Stat row</a>. Sebaris angka polos lebih tenang dan tidak butuh kartu.</li><li>Metrik dengan pertanyaan dan tren lebih panjang yang dipelajari pembaca: pakai <a class="link" href="sparkline-stat.html">Sparkline stat</a>.</li><li>Pembaca butuh nilai pada tanggal tertentu: pakai <a class="link" href="area-chart.html">Area chart</a>.</li><li>Kemajuan menuju target: pakai <a class="link" href="target-bar.html">Target bar</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di atas dasbor dalam <code class="code">auto-grid</code> (<code class="code">--min: 220px</code>), atau sebagai satu strip <code class="code">.kpi-grid</code>. Di ponsel kartu bertumpuk selebar penuh; strip menjadi dua kolom di bawah 760 px lebar wadahnya dan satu kolom di bawah 400 px. Tidak pernah lebih dari enam sebaris.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Baris pertama dasbor</span><span class="cdoc__ex-d">Sparkline, mini bar, dan dua kartu dengan ikon. Warna setiap perubahan mengikuti artinya: pengembalian dana yang berkurang itu baik, balasan yang melambat itu buruk. Bagian bawahnya tumbuh saat pertama terlihat.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Baris pertama dasbor</span><span class="cdoc__ex-d">Sparkline, mini bar, dan dua kartu dengan ikon. Warna setiap perubahan mengikuti artinya: berkas dikembalikan yang berkurang itu baik, balasan yang melambat itu buruk. Bagian bawahnya tumbuh saat pertama terlihat.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="auto-grid" style="--min: 220px;" data-lds-grow>
   <article class="kpi" aria-labelledby="kpi-rev">
     <div class="kpi__head"><span class="kpi__label" id="kpi-rev">Penerimaan retribusi</span><div style="position: relative; margin-left: auto;">
@@ -344,7 +349,7 @@
     <div class="kpi__bars" role="img" aria-label="Permohonan per hari selama 14 hari; hari ini yang tertinggi"><i style="--h: 59%;"></i><i style="--h: 78%;"></i><i style="--h: 79%;"></i><i style="--h: 71%;"></i><i style="--h: 60%;"></i><i style="--h: 54%;"></i><i style="--h: 60%;"></i><i style="--h: 71%;"></i><i style="--h: 89%;"></i><i style="--h: 100%;"></i><i style="--h: 90%;"></i><i style="--h: 68%;"></i><i style="--h: 59%;"></i><i class="is-on" style="--h: 63%;"></i></div>
   </article>
   <article class="kpi" aria-labelledby="kpi-ref">
-    <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">receipt_long</span></span><span class="kpi__label" id="kpi-ref">Permintaan pengembalian dana</span></div>
+    <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">receipt_long</span></span><span class="kpi__label" id="kpi-ref">Berkas dikembalikan</span></div>
     <div class="kpi__value">14</div>
     <div class="kpi__meta"><span class="delta delta--pill delta--down delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>36%<span class="sr-only"> turun</span></span><span>lebih sedikit dari bulan lalu</span></div>
   </article>
@@ -374,7 +379,7 @@
     <div class="kpi__bars" role="img" aria-label="Permohonan per hari selama 14 hari; hari ini yang tertinggi"><i style="--h: 59%;"></i><i style="--h: 78%;"></i><i style="--h: 79%;"></i><i style="--h: 71%;"></i><i style="--h: 60%;"></i><i style="--h: 54%;"></i><i style="--h: 60%;"></i><i style="--h: 71%;"></i><i style="--h: 89%;"></i><i style="--h: 100%;"></i><i style="--h: 90%;"></i><i style="--h: 68%;"></i><i style="--h: 59%;"></i><i class="is-on" style="--h: 63%;"></i></div>
   </article>
   <article class="kpi" aria-labelledby="kpi-ref">
-    <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">receipt_long</span></span><span class="kpi__label" id="kpi-ref">Permintaan pengembalian dana</span></div>
+    <div class="kpi__head"><span class="kpi__icon" aria-hidden="true"><span class="ic">receipt_long</span></span><span class="kpi__label" id="kpi-ref">Berkas dikembalikan</span></div>
     <div class="kpi__value">14</div>
     <div class="kpi__meta"><span class="delta delta--pill delta--down delta--good"><span class="ic" aria-hidden="true">arrow_upward</span>36%<span class="sr-only"> turun</span></span><span>lebih sedikit dari bulan lalu</span></div>
   </article>
@@ -407,7 +412,7 @@
     &lt;div class=&quot;kpi__bars&quot; role=&quot;img&quot; aria-label=&quot;Permohonan per hari selama 14 hari; hari ini yang tertinggi&quot;&gt;&lt;i style=&quot;--h: 59%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 78%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 79%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 71%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 60%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 54%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 60%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 71%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 89%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 100%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 90%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 68%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 59%;&quot;&gt;&lt;/i&gt;&lt;i class=&quot;is-on&quot; style=&quot;--h: 63%;&quot;&gt;&lt;/i&gt;&lt;/div&gt;
   &lt;/article&gt;
   &lt;article class=&quot;kpi&quot; aria-labelledby=&quot;kpi-ref&quot;&gt;
-    &lt;div class=&quot;kpi__head&quot;&gt;&lt;span class=&quot;kpi__icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;ic&quot;&gt;receipt_long&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;kpi__label&quot; id=&quot;kpi-ref&quot;&gt;Permintaan pengembalian dana&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi__head&quot;&gt;&lt;span class=&quot;kpi__icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;ic&quot;&gt;receipt_long&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;kpi__label&quot; id=&quot;kpi-ref&quot;&gt;Berkas dikembalikan&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;kpi__value&quot;&gt;14&lt;/div&gt;
     &lt;div class=&quot;kpi__meta&quot;&gt;&lt;span class=&quot;delta delta--pill delta--down delta--good&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;36%&lt;span class=&quot;sr-only&quot;&gt; turun&lt;/span&gt;&lt;/span&gt;&lt;span&gt;lebih sedikit dari bulan lalu&lt;/span&gt;&lt;/div&gt;
   &lt;/article&gt;
@@ -438,7 +443,7 @@
     &lt;div class=&quot;kpi__bars&quot; role=&quot;img&quot; aria-label=&quot;Permohonan per hari selama 14 hari; hari ini yang tertinggi&quot;&gt;&lt;i style=&quot;--h: 59%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 78%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 79%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 71%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 60%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 54%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 60%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 71%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 89%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 100%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 90%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 68%;&quot;&gt;&lt;/i&gt;&lt;i style=&quot;--h: 59%;&quot;&gt;&lt;/i&gt;&lt;i class=&quot;is-on&quot; style=&quot;--h: 63%;&quot;&gt;&lt;/i&gt;&lt;/div&gt;
   &lt;/article&gt;
   &lt;article class=&quot;kpi&quot; aria-labelledby=&quot;kpi-ref&quot;&gt;
-    &lt;div class=&quot;kpi__head&quot;&gt;&lt;span class=&quot;kpi__icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;ic&quot;&gt;receipt_long&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;kpi__label&quot; id=&quot;kpi-ref&quot;&gt;Permintaan pengembalian dana&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;kpi__head&quot;&gt;&lt;span class=&quot;kpi__icon&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;ic&quot;&gt;receipt_long&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;kpi__label&quot; id=&quot;kpi-ref&quot;&gt;Berkas dikembalikan&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;kpi__value&quot;&gt;14&lt;/div&gt;
     &lt;div class=&quot;kpi__meta&quot;&gt;&lt;span class=&quot;delta delta--pill delta--down delta--good&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;36%&lt;span class=&quot;sr-only&quot;&gt; turun&lt;/span&gt;&lt;/span&gt;&lt;span&gt;lebih sedikit dari bulan lalu&lt;/span&gt;&lt;/div&gt;
   &lt;/article&gt;
@@ -524,6 +529,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

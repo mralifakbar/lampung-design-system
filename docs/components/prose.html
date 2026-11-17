@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Prose · Lampung Design System</title>
-<meta name="description" content="Pembungkus untuk teks panjang yang tidak Anda atur baris per baris: artikel, halaman bantuan, catatan pelajaran, Markdown yang dirender. .prose memberi gaya pada heading, paragraf, daftar, tautan, tabel dan kode inline polos di dalamnya dan membatasi panjang baris sampai 680 px.">
+<meta name="description" content="Pembungkus untuk teks panjang yang tidak Anda atur baris per baris: artikel, halaman bantuan, panduan layanan, Markdown yang dirender. .prose memberi gaya pada heading, paragraf, daftar, tautan, tabel dan kode inline polos di dalamnya dan membatasi panjang baris sampai 680 px.">
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
 <link rel="icon" href="../../brand/mark.svg" type="image/svg+xml">
 <link rel="stylesheet" href="../../css/lds.css">
@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -319,28 +320,32 @@
         <header class="cdoc__head">
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Content">Konten</a></li></ol></nav>
           <h1>Prose</h1>
-          <p class="cdoc__lede">Pembungkus untuk teks panjang yang tidak Anda atur baris per baris: artikel, halaman bantuan, catatan pelajaran, Markdown yang dirender. <code class="code">.prose</code> memberi gaya pada heading, paragraf, daftar, tautan, tabel dan kode inline polos di dalamnya dan membatasi panjang baris sampai 680 px.</p>
+          <p class="cdoc__lede">Pembungkus untuk teks panjang yang tidak Anda atur baris per baris: artikel, halaman bantuan, panduan layanan, Markdown yang dirender. <code class="code">.prose</code> memberi gaya pada heading, paragraf, daftar, tautan, tabel dan kode inline polos di dalamnya dan membatasi panjang baris sampai 680 px.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="prose.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="prose.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Merender Markdown atau teks kaya dari CMS, editor atau jawaban asisten, ketika HTML-nya tidak punya kelas.</li><li>Artikel bantuan, halaman materi, syarat dan kebijakan: teks yang dibaca dari atas ke bawah.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Teks antarmuka: deskripsi card, teks bantuan, empty state: pakai <a class="link" href="card.html">Card</a>. Komponen mengatur huruf sendiri; jangan bungkus UI dengan <code class="code">.prose</code>.</li><li>Halaman yang terdiri dari bagian berjudul berisi komponen: pakai <a class="link" href="sections.html">Sections</a>.</li><li>Kode lebih dari satu baris: pakai <a class="link" href="code-block.html">Code block</a>.</li><li>Pasangan label dan nilai (biaya, tanggal, rincian): pakai <a class="link" href="key-value.html">Key-value</a>.</li><li>Pesan dalam chat: pakai <a class="link" href="chat-message.html">Chat message</a>. Pesan asisten boleh berisi <code class="code">.prose</code>, tetapi bubble-nya berasal dari komponen chat.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di kolom utama halaman, sendiri atau sebagai kolom utama <code class="code">split-2</code> di samping <a class="link" href="outline.html">outline</a>. Ia mengatur <code class="code">max-width</code> sendiri (<code class="code">--size-measure</code>, 680 px); jangan direntangkan. Di ponsel ia mengisi lebar di dalam gutter 20 px dan teks isi turun ke 15,5/26.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Halaman materi</span><span class="cdoc__ex-d">HTML polos tanpa kelas, kecuali kode inline, kutipan dan sitasi, yang merupakan komponen sendiri.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Panduan layanan</span><span class="cdoc__ex-d">HTML polos tanpa kelas, kecuali kode inline, kutipan dan sitasi, yang merupakan komponen sendiri.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><article class="prose">
-  <h2>Bentuk normal ketiga</h2>
-  <p>Sebuah tabel berada dalam <strong>bentuk normal ketiga</strong> jika setiap kolom bergantung pada kunci, seluruh kunci, dan hanya pada kunci. Dalam praktiknya, pisahkan kolom yang sebenarnya menjelaskan kolom lain.</p>
-  <h3>Cara memeriksa tabel</h3>
+  <h2>Pindah ke kota lain</h2>
+  <p>Anda memerlukan <strong>surat keterangan pindah</strong> jika memindahkan domisili ke luar Kota Bandar Lampung. Urus sebelum pindah, karena KK dan KTP di alamat baru dibuat dari surat ini.</p>
+  <h3>Cara mengajukan</h3>
   <ol>
-    <li>Temukan kunci primernya, misalnya <code class="code">student_id</code>.</li>
-    <li>Untuk setiap kolom lain, tanyakan apakah kolom itu menjelaskan kunci atau hal lain.</li>
-    <li>Pindahkan kolom yang menjelaskan hal lain ke tabelnya sendiri.</li>
+    <li>Isi formulir perpindahan, <code class="code">F-1.03</code>, lalu tanda tangani.</li>
+    <li>Lampirkan KK asli dan surat pengantar RT/RW.</li>
+    <li>Serahkan ke kantor kelurahan atau kirim lewat layanan daring.</li>
   </ol>
-  <blockquote class="quote"><p>Normalisasi sampai terasa sakit, lalu denormalisasi sampai berfungsi.</p><footer>Ungkapan di kalangan pengajar basis data</footer></blockquote>
-  <p>Sebagian besar sistem akademik berhenti di bentuk normal ketiga; lebih jauh dari itu jarang menguntungkan untuk data yang lebih sering dibaca <a class="cite" href="#src-1" aria-label="Sumber 1">1</a>. Lihat <a href="#lesson-14">materi berikutnya</a> tentang indeks.</p>
+  <blockquote class="quote"><p>Bawa KK asli saat mengambil surat; fotokopi tidak diterima.</p><footer>Pengumuman loket kependudukan, Kecamatan Kedaton</footer></blockquote>
+  <p>Sebagian besar permohonan selesai dalam tiga hari kerja; permohonan yang tidak lengkap dikembalikan <a class="cite" href="#src-1" aria-label="Sumber 1">1</a>. Lihat <a href="#lesson-14">langkah berikutnya</a> untuk membuat KK di alamat baru.</p>
   <table>
-    <thead><tr><th>Bentuk</th><th>Menghilangkan</th></tr></thead>
+    <thead><tr><th>Jenis pindah</th><th>Dokumen tambahan</th></tr></thead>
     <tbody>
-      <tr><td>Pertama</td><td>Grup berulang</td></tr>
-      <tr><td>Kedua</td><td>Ketergantungan parsial</td></tr>
-      <tr><td>Ketiga</td><td>Ketergantungan transitif</td></tr>
+      <tr><td>Dalam satu kecamatan</td><td>Surat pengantar RT/RW</td></tr>
+      <tr><td>Antarkecamatan</td><td>Surat keterangan pindah</td></tr>
+      <tr><td>Antarkota</td><td>Surat keterangan pindah dari kota asal</td></tr>
     </tbody>
   </table>
 </article></div>
@@ -349,43 +354,43 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;article class=&quot;prose&quot;&gt;
-  &lt;h2&gt;Bentuk normal ketiga&lt;/h2&gt;
-  &lt;p&gt;Sebuah tabel berada dalam &lt;strong&gt;bentuk normal ketiga&lt;/strong&gt; jika setiap kolom bergantung pada kunci, seluruh kunci, dan hanya pada kunci. Dalam praktiknya, pisahkan kolom yang sebenarnya menjelaskan kolom lain.&lt;/p&gt;
-  &lt;h3&gt;Cara memeriksa tabel&lt;/h3&gt;
+  &lt;h2&gt;Pindah ke kota lain&lt;/h2&gt;
+  &lt;p&gt;Anda memerlukan &lt;strong&gt;surat keterangan pindah&lt;/strong&gt; jika memindahkan domisili ke luar Kota Bandar Lampung. Urus sebelum pindah, karena KK dan KTP di alamat baru dibuat dari surat ini.&lt;/p&gt;
+  &lt;h3&gt;Cara mengajukan&lt;/h3&gt;
   &lt;ol&gt;
-    &lt;li&gt;Temukan kunci primernya, misalnya &lt;code class=&quot;code&quot;&gt;student_id&lt;/code&gt;.&lt;/li&gt;
-    &lt;li&gt;Untuk setiap kolom lain, tanyakan apakah kolom itu menjelaskan kunci atau hal lain.&lt;/li&gt;
-    &lt;li&gt;Pindahkan kolom yang menjelaskan hal lain ke tabelnya sendiri.&lt;/li&gt;
+    &lt;li&gt;Isi formulir perpindahan, &lt;code class=&quot;code&quot;&gt;F-1.03&lt;/code&gt;, lalu tanda tangani.&lt;/li&gt;
+    &lt;li&gt;Lampirkan KK asli dan surat pengantar RT/RW.&lt;/li&gt;
+    &lt;li&gt;Serahkan ke kantor kelurahan atau kirim lewat layanan daring.&lt;/li&gt;
   &lt;/ol&gt;
-  &lt;blockquote class=&quot;quote&quot;&gt;&lt;p&gt;Normalisasi sampai terasa sakit, lalu denormalisasi sampai berfungsi.&lt;/p&gt;&lt;footer&gt;Ungkapan di kalangan pengajar basis data&lt;/footer&gt;&lt;/blockquote&gt;
-  &lt;p&gt;Sebagian besar sistem akademik berhenti di bentuk normal ketiga; lebih jauh dari itu jarang menguntungkan untuk data yang lebih sering dibaca &lt;a class=&quot;cite&quot; href=&quot;#src-1&quot; aria-label=&quot;Sumber 1&quot;&gt;1&lt;/a&gt;. Lihat &lt;a href=&quot;#lesson-14&quot;&gt;materi berikutnya&lt;/a&gt; tentang indeks.&lt;/p&gt;
+  &lt;blockquote class=&quot;quote&quot;&gt;&lt;p&gt;Bawa KK asli saat mengambil surat; fotokopi tidak diterima.&lt;/p&gt;&lt;footer&gt;Pengumuman loket kependudukan, Kecamatan Kedaton&lt;/footer&gt;&lt;/blockquote&gt;
+  &lt;p&gt;Sebagian besar permohonan selesai dalam tiga hari kerja; permohonan yang tidak lengkap dikembalikan &lt;a class=&quot;cite&quot; href=&quot;#src-1&quot; aria-label=&quot;Sumber 1&quot;&gt;1&lt;/a&gt;. Lihat &lt;a href=&quot;#lesson-14&quot;&gt;langkah berikutnya&lt;/a&gt; untuk membuat KK di alamat baru.&lt;/p&gt;
   &lt;table&gt;
-    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bentuk&lt;/th&gt;&lt;th&gt;Menghilangkan&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Jenis pindah&lt;/th&gt;&lt;th&gt;Dokumen tambahan&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
     &lt;tbody&gt;
-      &lt;tr&gt;&lt;td&gt;Pertama&lt;/td&gt;&lt;td&gt;Grup berulang&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td&gt;Kedua&lt;/td&gt;&lt;td&gt;Ketergantungan parsial&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td&gt;Ketiga&lt;/td&gt;&lt;td&gt;Ketergantungan transitif&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Dalam satu kecamatan&lt;/td&gt;&lt;td&gt;Surat pengantar RT/RW&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Antarkecamatan&lt;/td&gt;&lt;td&gt;Surat keterangan pindah&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Antarkota&lt;/td&gt;&lt;td&gt;Surat keterangan pindah dari kota asal&lt;/td&gt;&lt;/tr&gt;
     &lt;/tbody&gt;
   &lt;/table&gt;
 &lt;/article&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;article class=&quot;prose&quot;&gt;
-  &lt;h2&gt;Bentuk normal ketiga&lt;/h2&gt;
-  &lt;p&gt;Sebuah tabel berada dalam &lt;strong&gt;bentuk normal ketiga&lt;/strong&gt; jika setiap kolom bergantung pada kunci, seluruh kunci, dan hanya pada kunci. Dalam praktiknya, pisahkan kolom yang sebenarnya menjelaskan kolom lain.&lt;/p&gt;
-  &lt;h3&gt;Cara memeriksa tabel&lt;/h3&gt;
+  &lt;h2&gt;Pindah ke kota lain&lt;/h2&gt;
+  &lt;p&gt;Anda memerlukan &lt;strong&gt;surat keterangan pindah&lt;/strong&gt; jika memindahkan domisili ke luar Kota Bandar Lampung. Urus sebelum pindah, karena KK dan KTP di alamat baru dibuat dari surat ini.&lt;/p&gt;
+  &lt;h3&gt;Cara mengajukan&lt;/h3&gt;
   &lt;ol&gt;
-    &lt;li&gt;Temukan kunci primernya, misalnya &lt;code class=&quot;code&quot;&gt;student_id&lt;/code&gt;.&lt;/li&gt;
-    &lt;li&gt;Untuk setiap kolom lain, tanyakan apakah kolom itu menjelaskan kunci atau hal lain.&lt;/li&gt;
-    &lt;li&gt;Pindahkan kolom yang menjelaskan hal lain ke tabelnya sendiri.&lt;/li&gt;
+    &lt;li&gt;Isi formulir perpindahan, &lt;code class=&quot;code&quot;&gt;F-1.03&lt;/code&gt;, lalu tanda tangani.&lt;/li&gt;
+    &lt;li&gt;Lampirkan KK asli dan surat pengantar RT/RW.&lt;/li&gt;
+    &lt;li&gt;Serahkan ke kantor kelurahan atau kirim lewat layanan daring.&lt;/li&gt;
   &lt;/ol&gt;
-  &lt;blockquote class=&quot;quote&quot;&gt;&lt;p&gt;Normalisasi sampai terasa sakit, lalu denormalisasi sampai berfungsi.&lt;/p&gt;&lt;footer&gt;Ungkapan di kalangan pengajar basis data&lt;/footer&gt;&lt;/blockquote&gt;
-  &lt;p&gt;Sebagian besar sistem akademik berhenti di bentuk normal ketiga; lebih jauh dari itu jarang menguntungkan untuk data yang lebih sering dibaca &lt;a class=&quot;cite&quot; href=&quot;#src-1&quot; aria-label=&quot;Sumber 1&quot;&gt;1&lt;/a&gt;. Lihat &lt;a href=&quot;#lesson-14&quot;&gt;materi berikutnya&lt;/a&gt; tentang indeks.&lt;/p&gt;
+  &lt;blockquote class=&quot;quote&quot;&gt;&lt;p&gt;Bawa KK asli saat mengambil surat; fotokopi tidak diterima.&lt;/p&gt;&lt;footer&gt;Pengumuman loket kependudukan, Kecamatan Kedaton&lt;/footer&gt;&lt;/blockquote&gt;
+  &lt;p&gt;Sebagian besar permohonan selesai dalam tiga hari kerja; permohonan yang tidak lengkap dikembalikan &lt;a class=&quot;cite&quot; href=&quot;#src-1&quot; aria-label=&quot;Sumber 1&quot;&gt;1&lt;/a&gt;. Lihat &lt;a href=&quot;#lesson-14&quot;&gt;langkah berikutnya&lt;/a&gt; untuk membuat KK di alamat baru.&lt;/p&gt;
   &lt;table&gt;
-    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Bentuk&lt;/th&gt;&lt;th&gt;Menghilangkan&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
+    &lt;thead&gt;&lt;tr&gt;&lt;th&gt;Jenis pindah&lt;/th&gt;&lt;th&gt;Dokumen tambahan&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
     &lt;tbody&gt;
-      &lt;tr&gt;&lt;td&gt;Pertama&lt;/td&gt;&lt;td&gt;Grup berulang&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td&gt;Kedua&lt;/td&gt;&lt;td&gt;Ketergantungan parsial&lt;/td&gt;&lt;/tr&gt;
-      &lt;tr&gt;&lt;td&gt;Ketiga&lt;/td&gt;&lt;td&gt;Ketergantungan transitif&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Dalam satu kecamatan&lt;/td&gt;&lt;td&gt;Surat pengantar RT/RW&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Antarkecamatan&lt;/td&gt;&lt;td&gt;Surat keterangan pindah&lt;/td&gt;&lt;/tr&gt;
+      &lt;tr&gt;&lt;td&gt;Antarkota&lt;/td&gt;&lt;td&gt;Surat keterangan pindah dari kota asal&lt;/td&gt;&lt;/tr&gt;
     &lt;/tbody&gt;
   &lt;/table&gt;
 &lt;/article&gt;</pre></div></div></div>
@@ -429,7 +434,7 @@
         <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Tidak ada. Teks panjang tidak pernah beranimasi masuk, kecuali teks yang masih mengalir, yang memakai <a class="link" href="streaming-text.html">streaming text</a>.</li><li>Garis bawah tautan berganti warna selama <code class="code">--d-fast</code>.</li></ul></section>
         <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Pakai struktur sungguhan: <code class="code">&lt;article&gt;</code> atau <code class="code">&lt;main&gt;</code>, satu <code class="code">&lt;h1&gt;</code> di halaman (di luar <code class="code">.prose</code>, di page header), lalu <code class="code">h2</code> dan <code class="code">h3</code> berurutan tanpa melompati tingkat.</li><li>Tautan menyebut tujuannya; lihat <a class="link" href="link.html">link</a>.</li><li>Tabel tetap memakai <code class="code">&lt;thead&gt;</code> dan <code class="code">&lt;th&gt;</code>; tambahkan <code class="code">&lt;caption&gt;</code> jika tidak ada heading tepat di atas tabel.</li><li>Teks isi 16 px dengan tinggi baris 27 px dan sekitar 70 karakter per baris, tetap terbaca saat diperbesar 200 %.</li></ul></section>
         <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Bungkus Markdown yang dirender dan konten CMS dengan <code class="code">.prose</code>.</li><li>Buat paragraf pendek dan pakai heading setiap beberapa paragraf.</li><li>Pakai <code class="code">.quote</code> untuk kutipan dan <code class="code">.code</code> untuk kode di dalam prose.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Menaruh tombol, card atau formulir di dalam <code class="code">.prose</code>; letakkan di <code class="code">sections</code> di sebelahnya.</li><li>Menimpa <code class="code">max-width</code> agar memenuhi layar lebar.</li><li>Menambah kelas di setiap paragraf; pembungkus sudah mengatur gayanya.</li></ul></div></div></section>
-        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="quote.html"><span class="link-card__eyebrow">Konten</span><span class="link-card__title">Quote</span><span class="link-card__body">Kata-kata yang diucapkan atau ditulis orang lain, dipisahkan oleh garis aksen 3 px di kiri, 17/28 dengan `--text-strong`, dengan sumber di footer di bawahnya. Hanya untuk kutipan sungguhan.</span></a><a class="link-card" href="citation.html"><span class="link-card__eyebrow">Konten</span><span class="link-card__title">Citation</span><span class="link-card__body">Pil bernomor kecil setelah sebuah klaim yang menautkan ke sumbernya: `&lt;a class=&quot;cite&quot; href=&quot;#src-1&quot;&gt;1&lt;/a&gt;`. Dipakai di artikel dan jawaban asisten agar setiap fakta bisa diperiksa.</span></a><a class="link-card" href="inline-code.html"><span class="link-card__eyebrow">Konten</span><span class="link-card__title">Inline code</span><span class="link-card__body">Potongan kode pendek, nama berkas, kunci atau nilai di dalam kalimat: `&lt;code class=&quot;code&quot;&gt;student_id&lt;/code&gt;`, monospace 0,88 em di atas `--bg-recessed`.</span></a><a class="link-card" href="sections.html"><span class="link-card__eyebrow">Pola halaman</span><span class="link-card__title">Sections</span><span class="link-card__body">Halaman sebagai kolom berisi bagian-bagian berjudul: berjarak 48 px, garis tipis di atas setiap bagian setelah yang pertama, heading lebih besar di layar lebar. Struktur dibentuk oleh ruang dan heading, bukan kartu di sekeliling setiap bagian.</span></a></div></section>
+        <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="quote.html"><span class="link-card__eyebrow">Konten</span><span class="link-card__title">Quote</span><span class="link-card__body">Kata-kata yang diucapkan atau ditulis orang lain, dipisahkan oleh garis aksen 3 px di kiri, 17/28 dengan `--text-strong`, dengan sumber di footer di bawahnya. Hanya untuk kutipan sungguhan.</span></a><a class="link-card" href="citation.html"><span class="link-card__eyebrow">Konten</span><span class="link-card__title">Citation</span><span class="link-card__body">Pil bernomor kecil setelah sebuah klaim yang menautkan ke sumbernya: `&lt;a class=&quot;cite&quot; href=&quot;#src-1&quot;&gt;1&lt;/a&gt;`. Dipakai di artikel dan jawaban asisten agar setiap fakta bisa diperiksa.</span></a><a class="link-card" href="inline-code.html"><span class="link-card__eyebrow">Konten</span><span class="link-card__title">Inline code</span><span class="link-card__body">Potongan kode pendek, nama berkas, kunci atau nilai di dalam kalimat: `&lt;code class=&quot;code&quot;&gt;report_id&lt;/code&gt;`, monospace 0,88 em di atas `--bg-recessed`.</span></a><a class="link-card" href="sections.html"><span class="link-card__eyebrow">Pola halaman</span><span class="link-card__title">Sections</span><span class="link-card__body">Halaman sebagai kolom berisi bagian-bagian berjudul: berjarak 48 px, garis tipis di atas setiap bagian setelah yang pertama, heading lebih besar di layar lebar. Struktur dibentuk oleh ruang dan heading, bukan kartu di sekeliling setiap bagian.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
           <a class="link-card cdoc__prev" href="map.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Sebelumnya</span><span class="link-card__title">Map</span></a>
           <a class="link-card cdoc__next" href="quote.html"><span class="link-card__eyebrow">Berikutnya<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Quote</span></a>
@@ -448,6 +453,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

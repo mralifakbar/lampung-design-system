@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,107 +321,111 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Content">Konten</a></li></ol></nav>
           <h1>Paper</h1>
           <p class="cdoc__lede">Halaman yang bisa dicetak, ditampilkan sebagai lembar di dalam aplikasi: faktur, kuitansi, surat, sertifikat. Teksnya mengalir ulang mengikuti lebar, jadi pratinjau tetap terbaca di ponsel, dan bisa menjadi satu-satunya bagian yang dicetak.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="paper.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="paper.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Pratinjau langsung dokumen yang sedang diisi lewat formulir di sebelahnya: faktur, penawaran harga, surat keterangan.</li><li>Catatan yang dicetak atau disimpan sebagai PDF: kuitansi, slip gaji, sertifikat pelatihan.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Rincian sebuah catatan di dalam aplikasi, bukan dokumen: pakai <a class="link" href="key-value.html">Key-value</a>.</li><li>Teks kaya yang panjang dari editor atau CMS: pakai <a class="link" href="prose.html">Prose</a>.</li><li>Satu subjek mandiri di antara yang lain dalam grid: pakai <a class="link" href="card.html">Card</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di kolomnya sendiri di samping formulir pada layar lebar (sticky di bawah app bar), di bawah formulir pada ponsel. Paling lebar 816 px; tinggi minimalnya mengikuti proporsi kertas letter.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Pratinjau langsung dokumen yang sedang diisi lewat formulir di sebelahnya: tagihan retribusi, surat pengantar RT, surat keterangan.</li><li>Catatan yang dicetak atau disimpan sebagai PDF: kuitansi pembayaran, tanda terima berkas, sertifikat pelatihan UMKM.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Rincian sebuah catatan di dalam aplikasi, bukan dokumen: pakai <a class="link" href="key-value.html">Key-value</a>.</li><li>Teks kaya yang panjang dari editor atau CMS: pakai <a class="link" href="prose.html">Prose</a>.</li><li>Satu subjek mandiri di antara yang lain dalam grid: pakai <a class="link" href="card.html">Card</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di kolomnya sendiri di samping formulir pada layar lebar (sticky di bawah app bar), di bawah formulir pada ponsel. Paling lebar 816 px; tinggi minimalnya mengikuti proporsi kertas letter.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Faktur</span><span class="cdoc__ex-d">Faktur lengkap dari usaha percetakan lokal. Persempit jendela: pihak pengirim dan penerima bertumpuk, tanggal terlipat, angka tetap rata kanan.</span></figcaption>
-          <div class="cdoc__stage cdoc__stage--fill" id="ex-1-stage"><article class="paper" style="max-width: 640px;" aria-label="Faktur INV-2026-118">
+          <figcaption><span class="cdoc__ex-t">Tagihan retribusi</span><span class="cdoc__ex-d">Tagihan retribusi sampah lengkap untuk sebuah warung makan. Persempit jendela: pihak pengirim dan penerima bertumpuk, tanggal terlipat, angka tetap rata kanan.</span></figcaption>
+          <div class="cdoc__stage cdoc__stage--fill" id="ex-1-stage"><article class="paper" style="max-width: 640px;" aria-label="Tagihan retribusi SKRD-2026-118">
   <header class="paper__head">
-    <div class="paper__brand"><span class="paper__mark" aria-hidden="true">S</span>Percetakan Sinar Way Halim</div>
-    <div class="paper__doc"><div class="paper__title">Faktur</div><span class="badge badge--warning">Jatuh tempo 30 Nov 2026</span></div>
+    <div class="paper__brand"><span class="paper__mark" aria-hidden="true">C</span>Layanan Kebersihan Kota Contoh</div>
+    <div class="paper__doc"><div class="paper__title">Tagihan retribusi</div><span class="badge badge--warning">Jatuh tempo 30 Nov 2026</span></div>
   </header>
   <dl class="paper__meta">
-    <div><dt class="paper__label">Nomor faktur</dt><dd>INV-2026-118</dd></div>
+    <div><dt class="paper__label">Nomor SKRD</dt><dd>SKRD-2026-118</dd></div>
     <div><dt class="paper__label">Diterbitkan</dt><dd>16 Nov 2026</dd></div>
     <div><dt class="paper__label">Jatuh tempo</dt><dd>30 Nov 2026</dd></div>
   </dl>
   <div class="paper__parties">
-    <div class="paper__party"><span class="paper__label">Dari</span><p>Percetakan Sinar Way Halim</p><p>Jl. Sultan Agung 45, Bandar Lampung 35132</p><p>tagihan@sinarwayhalim.id</p></div>
-    <div class="paper__party"><span class="paper__label">Ditagihkan kepada</span><p>Yayasan Pendidikan Tunas Harapan</p><p>Jl. Ahmad Yani 18, Metro 34111</p><p>keuangan@tunasharapan.sch.id</p></div>
+    <div class="paper__party"><span class="paper__label">Dari</span><p>Layanan Kebersihan Kota Contoh</p><p>Jl. Ki Maja 7, Way Halim, Bandar Lampung 35132</p><p>retribusi@kotacontoh.example</p></div>
+    <div class="paper__party"><span class="paper__label">Wajib retribusi</span><p>Warung Makan Bu Sari</p><p>Jl. Teuku Umar 21, Kedaton, Bandar Lampung 35141</p><p>NPWRD 1871 •••• •••• 0042</p></div>
   </div>
   <table class="paper__table">
     <thead><tr><th scope="col">Uraian</th><th scope="col" class="num">Jml</th><th scope="col" class="num">Jumlah</th></tr></thead>
-    <tbody><tr><td>Cetak buku rapor, sampul keras</td><td class="num">120</td><td class="num">Rp 4.200.000</td></tr><tr><td>Desain dan cetak spanduk penerimaan siswa baru</td><td class="num">2</td><td class="num">Rp 900.000</td></tr><tr><td>Cetak kartu pelajar dengan foto</td><td class="num">120</td><td class="num">Rp 1.800.000</td></tr></tbody>
+    <tbody><tr><td>Retribusi sampah usaha, Oktober 2026</td><td class="num">1</td><td class="num">Rp 75.000</td></tr><tr><td>Retribusi sampah usaha, November 2026</td><td class="num">1</td><td class="num">Rp 75.000</td></tr><tr><td>Angkut sampah tambahan, hajatan 2 Nov</td><td class="num">3</td><td class="num">Rp 150.000</td></tr></tbody>
   </table>
   <div class="paper__totals">
-    <div class="paper__sum"><span>Subtotal</span><b>Rp 6.900.000</b></div>
-    <div class="paper__sum"><span>PPN 11%</span><b>Rp 759.000</b></div>
-    <div class="paper__sum paper__sum--total"><span>Total tagihan</span><b>Rp 7.659.000</b></div>
+    <div class="paper__sum"><span>Subtotal</span><b>Rp 300.000</b></div>
+    <div class="paper__sum"><span>Denda keterlambatan 2%</span><b>Rp 6.000</b></div>
+    <div class="paper__sum paper__sum--total"><span>Total tagihan</span><b>Rp 306.000</b></div>
   </div>
-  <footer class="paper__foot"><p>Bayar dengan transfer ke rekening 123 000 4567 890 atas nama Percetakan Sinar Way Halim.</p><p>Terima kasih. Pertanyaan tentang faktur ini: tagihan@sinarwayhalim.id.</p></footer>
+  <footer class="paper__foot"><p>Bayar di teller bank daerah atau dompet digital dengan kode bayar 1871 2611 0001 18.</p><p>Contoh dokumen, bukan tagihan resmi. Pertanyaan tentang tagihan ini: retribusi@kotacontoh.example.</p></footer>
 </article></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;article class=&quot;paper&quot; style=&quot;max-width: 640px;&quot; aria-label=&quot;Faktur INV-2026-118&quot;&gt;
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;article class=&quot;paper&quot; style=&quot;max-width: 640px;&quot; aria-label=&quot;Tagihan retribusi SKRD-2026-118&quot;&gt;
   &lt;header class=&quot;paper__head&quot;&gt;
-    &lt;div class=&quot;paper__brand&quot;&gt;&lt;span class=&quot;paper__mark&quot; aria-hidden=&quot;true&quot;&gt;S&lt;/span&gt;Percetakan Sinar Way Halim&lt;/div&gt;
-    &lt;div class=&quot;paper__doc&quot;&gt;&lt;div class=&quot;paper__title&quot;&gt;Faktur&lt;/div&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Jatuh tempo 30 Nov 2026&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__brand&quot;&gt;&lt;span class=&quot;paper__mark&quot; aria-hidden=&quot;true&quot;&gt;C&lt;/span&gt;Layanan Kebersihan Kota Contoh&lt;/div&gt;
+    &lt;div class=&quot;paper__doc&quot;&gt;&lt;div class=&quot;paper__title&quot;&gt;Tagihan retribusi&lt;/div&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Jatuh tempo 30 Nov 2026&lt;/span&gt;&lt;/div&gt;
   &lt;/header&gt;
   &lt;dl class=&quot;paper__meta&quot;&gt;
-    &lt;div&gt;&lt;dt class=&quot;paper__label&quot;&gt;Nomor faktur&lt;/dt&gt;&lt;dd&gt;INV-2026-118&lt;/dd&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;dt class=&quot;paper__label&quot;&gt;Nomor SKRD&lt;/dt&gt;&lt;dd&gt;SKRD-2026-118&lt;/dd&gt;&lt;/div&gt;
     &lt;div&gt;&lt;dt class=&quot;paper__label&quot;&gt;Diterbitkan&lt;/dt&gt;&lt;dd&gt;16 Nov 2026&lt;/dd&gt;&lt;/div&gt;
     &lt;div&gt;&lt;dt class=&quot;paper__label&quot;&gt;Jatuh tempo&lt;/dt&gt;&lt;dd&gt;30 Nov 2026&lt;/dd&gt;&lt;/div&gt;
   &lt;/dl&gt;
   &lt;div class=&quot;paper__parties&quot;&gt;
-    &lt;div class=&quot;paper__party&quot;&gt;&lt;span class=&quot;paper__label&quot;&gt;Dari&lt;/span&gt;&lt;p&gt;Percetakan Sinar Way Halim&lt;/p&gt;&lt;p&gt;Jl. Sultan Agung 45, Bandar Lampung 35132&lt;/p&gt;&lt;p&gt;tagihan@sinarwayhalim.id&lt;/p&gt;&lt;/div&gt;
-    &lt;div class=&quot;paper__party&quot;&gt;&lt;span class=&quot;paper__label&quot;&gt;Ditagihkan kepada&lt;/span&gt;&lt;p&gt;Yayasan Pendidikan Tunas Harapan&lt;/p&gt;&lt;p&gt;Jl. Ahmad Yani 18, Metro 34111&lt;/p&gt;&lt;p&gt;keuangan@tunasharapan.sch.id&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__party&quot;&gt;&lt;span class=&quot;paper__label&quot;&gt;Dari&lt;/span&gt;&lt;p&gt;Layanan Kebersihan Kota Contoh&lt;/p&gt;&lt;p&gt;Jl. Ki Maja 7, Way Halim, Bandar Lampung 35132&lt;/p&gt;&lt;p&gt;retribusi@kotacontoh.example&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__party&quot;&gt;&lt;span class=&quot;paper__label&quot;&gt;Wajib retribusi&lt;/span&gt;&lt;p&gt;Warung Makan Bu Sari&lt;/p&gt;&lt;p&gt;Jl. Teuku Umar 21, Kedaton, Bandar Lampung 35141&lt;/p&gt;&lt;p&gt;NPWRD 1871 •••• •••• 0042&lt;/p&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;table class=&quot;paper__table&quot;&gt;
     &lt;thead&gt;&lt;tr&gt;&lt;th scope=&quot;col&quot;&gt;Uraian&lt;/th&gt;&lt;th scope=&quot;col&quot; class=&quot;num&quot;&gt;Jml&lt;/th&gt;&lt;th scope=&quot;col&quot; class=&quot;num&quot;&gt;Jumlah&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-    &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Cetak buku rapor, sampul keras&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;120&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 4.200.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Desain dan cetak spanduk penerimaan siswa baru&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;2&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 900.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Cetak kartu pelajar dengan foto&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;120&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 1.800.000&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+    &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Retribusi sampah usaha, Oktober 2026&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;1&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 75.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Retribusi sampah usaha, November 2026&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;1&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 75.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Angkut sampah tambahan, hajatan 2 Nov&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;3&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 150.000&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
   &lt;/table&gt;
   &lt;div class=&quot;paper__totals&quot;&gt;
-    &lt;div class=&quot;paper__sum&quot;&gt;&lt;span&gt;Subtotal&lt;/span&gt;&lt;b&gt;Rp 6.900.000&lt;/b&gt;&lt;/div&gt;
-    &lt;div class=&quot;paper__sum&quot;&gt;&lt;span&gt;PPN 11%&lt;/span&gt;&lt;b&gt;Rp 759.000&lt;/b&gt;&lt;/div&gt;
-    &lt;div class=&quot;paper__sum paper__sum--total&quot;&gt;&lt;span&gt;Total tagihan&lt;/span&gt;&lt;b&gt;Rp 7.659.000&lt;/b&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__sum&quot;&gt;&lt;span&gt;Subtotal&lt;/span&gt;&lt;b&gt;Rp 300.000&lt;/b&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__sum&quot;&gt;&lt;span&gt;Denda keterlambatan 2%&lt;/span&gt;&lt;b&gt;Rp 6.000&lt;/b&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__sum paper__sum--total&quot;&gt;&lt;span&gt;Total tagihan&lt;/span&gt;&lt;b&gt;Rp 306.000&lt;/b&gt;&lt;/div&gt;
   &lt;/div&gt;
-  &lt;footer class=&quot;paper__foot&quot;&gt;&lt;p&gt;Bayar dengan transfer ke rekening 123 000 4567 890 atas nama Percetakan Sinar Way Halim.&lt;/p&gt;&lt;p&gt;Terima kasih. Pertanyaan tentang faktur ini: tagihan@sinarwayhalim.id.&lt;/p&gt;&lt;/footer&gt;
+  &lt;footer class=&quot;paper__foot&quot;&gt;&lt;p&gt;Bayar di teller bank daerah atau dompet digital dengan kode bayar 1871 2611 0001 18.&lt;/p&gt;&lt;p&gt;Contoh dokumen, bukan tagihan resmi. Pertanyaan tentang tagihan ini: retribusi@kotacontoh.example.&lt;/p&gt;&lt;/footer&gt;
 &lt;/article&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;article class=&quot;paper&quot; style=&quot;max-width: 640px;&quot; aria-label=&quot;Faktur INV-2026-118&quot;&gt;
+          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;article class=&quot;paper&quot; style=&quot;max-width: 640px;&quot; aria-label=&quot;Tagihan retribusi SKRD-2026-118&quot;&gt;
   &lt;header class=&quot;paper__head&quot;&gt;
-    &lt;div class=&quot;paper__brand&quot;&gt;&lt;span class=&quot;paper__mark&quot; aria-hidden=&quot;true&quot;&gt;S&lt;/span&gt;Percetakan Sinar Way Halim&lt;/div&gt;
-    &lt;div class=&quot;paper__doc&quot;&gt;&lt;div class=&quot;paper__title&quot;&gt;Faktur&lt;/div&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Jatuh tempo 30 Nov 2026&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__brand&quot;&gt;&lt;span class=&quot;paper__mark&quot; aria-hidden=&quot;true&quot;&gt;C&lt;/span&gt;Layanan Kebersihan Kota Contoh&lt;/div&gt;
+    &lt;div class=&quot;paper__doc&quot;&gt;&lt;div class=&quot;paper__title&quot;&gt;Tagihan retribusi&lt;/div&gt;&lt;span class=&quot;badge badge--warning&quot;&gt;Jatuh tempo 30 Nov 2026&lt;/span&gt;&lt;/div&gt;
   &lt;/header&gt;
   &lt;dl class=&quot;paper__meta&quot;&gt;
-    &lt;div&gt;&lt;dt class=&quot;paper__label&quot;&gt;Nomor faktur&lt;/dt&gt;&lt;dd&gt;INV-2026-118&lt;/dd&gt;&lt;/div&gt;
+    &lt;div&gt;&lt;dt class=&quot;paper__label&quot;&gt;Nomor SKRD&lt;/dt&gt;&lt;dd&gt;SKRD-2026-118&lt;/dd&gt;&lt;/div&gt;
     &lt;div&gt;&lt;dt class=&quot;paper__label&quot;&gt;Diterbitkan&lt;/dt&gt;&lt;dd&gt;16 Nov 2026&lt;/dd&gt;&lt;/div&gt;
     &lt;div&gt;&lt;dt class=&quot;paper__label&quot;&gt;Jatuh tempo&lt;/dt&gt;&lt;dd&gt;30 Nov 2026&lt;/dd&gt;&lt;/div&gt;
   &lt;/dl&gt;
   &lt;div class=&quot;paper__parties&quot;&gt;
-    &lt;div class=&quot;paper__party&quot;&gt;&lt;span class=&quot;paper__label&quot;&gt;Dari&lt;/span&gt;&lt;p&gt;Percetakan Sinar Way Halim&lt;/p&gt;&lt;p&gt;Jl. Sultan Agung 45, Bandar Lampung 35132&lt;/p&gt;&lt;p&gt;tagihan@sinarwayhalim.id&lt;/p&gt;&lt;/div&gt;
-    &lt;div class=&quot;paper__party&quot;&gt;&lt;span class=&quot;paper__label&quot;&gt;Ditagihkan kepada&lt;/span&gt;&lt;p&gt;Yayasan Pendidikan Tunas Harapan&lt;/p&gt;&lt;p&gt;Jl. Ahmad Yani 18, Metro 34111&lt;/p&gt;&lt;p&gt;keuangan@tunasharapan.sch.id&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__party&quot;&gt;&lt;span class=&quot;paper__label&quot;&gt;Dari&lt;/span&gt;&lt;p&gt;Layanan Kebersihan Kota Contoh&lt;/p&gt;&lt;p&gt;Jl. Ki Maja 7, Way Halim, Bandar Lampung 35132&lt;/p&gt;&lt;p&gt;retribusi@kotacontoh.example&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__party&quot;&gt;&lt;span class=&quot;paper__label&quot;&gt;Wajib retribusi&lt;/span&gt;&lt;p&gt;Warung Makan Bu Sari&lt;/p&gt;&lt;p&gt;Jl. Teuku Umar 21, Kedaton, Bandar Lampung 35141&lt;/p&gt;&lt;p&gt;NPWRD 1871 •••• •••• 0042&lt;/p&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;table class=&quot;paper__table&quot;&gt;
     &lt;thead&gt;&lt;tr&gt;&lt;th scope=&quot;col&quot;&gt;Uraian&lt;/th&gt;&lt;th scope=&quot;col&quot; class=&quot;num&quot;&gt;Jml&lt;/th&gt;&lt;th scope=&quot;col&quot; class=&quot;num&quot;&gt;Jumlah&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;
-    &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Cetak buku rapor, sampul keras&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;120&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 4.200.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Desain dan cetak spanduk penerimaan siswa baru&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;2&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 900.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Cetak kartu pelajar dengan foto&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;120&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 1.800.000&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
+    &lt;tbody&gt;&lt;tr&gt;&lt;td&gt;Retribusi sampah usaha, Oktober 2026&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;1&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 75.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Retribusi sampah usaha, November 2026&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;1&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 75.000&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;Angkut sampah tambahan, hajatan 2 Nov&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;3&lt;/td&gt;&lt;td class=&quot;num&quot;&gt;Rp 150.000&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;
   &lt;/table&gt;
   &lt;div class=&quot;paper__totals&quot;&gt;
-    &lt;div class=&quot;paper__sum&quot;&gt;&lt;span&gt;Subtotal&lt;/span&gt;&lt;b&gt;Rp 6.900.000&lt;/b&gt;&lt;/div&gt;
-    &lt;div class=&quot;paper__sum&quot;&gt;&lt;span&gt;PPN 11%&lt;/span&gt;&lt;b&gt;Rp 759.000&lt;/b&gt;&lt;/div&gt;
-    &lt;div class=&quot;paper__sum paper__sum--total&quot;&gt;&lt;span&gt;Total tagihan&lt;/span&gt;&lt;b&gt;Rp 7.659.000&lt;/b&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__sum&quot;&gt;&lt;span&gt;Subtotal&lt;/span&gt;&lt;b&gt;Rp 300.000&lt;/b&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__sum&quot;&gt;&lt;span&gt;Denda keterlambatan 2%&lt;/span&gt;&lt;b&gt;Rp 6.000&lt;/b&gt;&lt;/div&gt;
+    &lt;div class=&quot;paper__sum paper__sum--total&quot;&gt;&lt;span&gt;Total tagihan&lt;/span&gt;&lt;b&gt;Rp 306.000&lt;/b&gt;&lt;/div&gt;
   &lt;/div&gt;
-  &lt;footer class=&quot;paper__foot&quot;&gt;&lt;p&gt;Bayar dengan transfer ke rekening 123 000 4567 890 atas nama Percetakan Sinar Way Halim.&lt;/p&gt;&lt;p&gt;Terima kasih. Pertanyaan tentang faktur ini: tagihan@sinarwayhalim.id.&lt;/p&gt;&lt;/footer&gt;
+  &lt;footer class=&quot;paper__foot&quot;&gt;&lt;p&gt;Bayar di teller bank daerah atau dompet digital dengan kode bayar 1871 2611 0001 18.&lt;/p&gt;&lt;p&gt;Contoh dokumen, bukan tagihan resmi. Pertanyaan tentang tagihan ini: retribusi@kotacontoh.example.&lt;/p&gt;&lt;/footer&gt;
 &lt;/article&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
           <figcaption><span class="cdoc__ex-t">Cetak paper saja</span><span class="cdoc__ex-d">Tambahkan <code class="code">paper--print</code> dan panggil <code class="code">window.print()</code> dari tombol Cetak. Aplikasi di sekitarnya tidak ikut tercetak, dan lembarnya tercetak gelap di atas putih walaupun dalam dark mode.</span></figcaption>
-          <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="docs-row"><button class="btn btn--secondary btn--md" type="button" onclick="window.print()"><span class="ic" aria-hidden="true">print</span>Cetak faktur</button></div></div>
+          <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="docs-row"><button class="btn btn--secondary btn--md" type="button" onclick="window.print()"><span class="ic" aria-hidden="true">print</span>Cetak tagihan</button></div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;button class=&quot;btn btn--secondary btn--md&quot; type=&quot;button&quot; onclick=&quot;window.print()&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;print&lt;/span&gt;Cetak faktur&lt;/button&gt;
-&lt;article class=&quot;paper paper--print&quot; aria-label=&quot;Faktur INV-2026-118&quot;&gt;…&lt;/article&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;button class=&quot;btn btn--secondary btn--md&quot; type=&quot;button&quot; onclick=&quot;window.print()&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;print&lt;/span&gt;Cetak tagihan&lt;/button&gt;
+&lt;article class=&quot;paper paper--print&quot; aria-label=&quot;Tagihan retribusi SKRD-2026-118&quot;&gt;…&lt;/article&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;button class=&quot;btn btn--secondary btn--md&quot; type=&quot;button&quot; onclick=&quot;window.print()&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;print&lt;/span&gt;Cetak faktur&lt;/button&gt;
-&lt;article class=&quot;paper paper--print&quot; aria-label=&quot;Faktur INV-2026-118&quot;&gt;…&lt;/article&gt;</pre></div></div></div>
+          <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;button class=&quot;btn btn--secondary btn--md&quot; type=&quot;button&quot; onclick=&quot;window.print()&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;print&lt;/span&gt;Cetak tagihan&lt;/button&gt;
+&lt;article class=&quot;paper paper--print&quot; aria-label=&quot;Tagihan retribusi SKRD-2026-118&quot;&gt;…&lt;/article&gt;</pre></div></div></div>
         </figure></section>
         <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">article.paper</code></td><td>Wajib. Lembarnya: warna dasar, ring tipis, padding yang tumbuh mengikuti lebar. <code class="code">aria-label</code> menyebut nama dokumen.</td></tr><tr><td><code class="code">.paper__head</code></td><td>Merek (<code class="code">.paper__brand</code> dengan <code class="code">.paper__mark</code>) di awal, <code class="code">.paper__doc</code> (<code class="code">.paper__title</code> dan badge) di akhir.</td></tr><tr><td><code class="code">dl.paper__meta</code></td><td>Nomor dan tanggal; setiap <code class="code">dt.paper__label</code> di atas <code class="code">dd</code>-nya.</td></tr><tr><td><code class="code">.paper__parties &gt; .paper__party</code></td><td>Pengirim dan penerima, masing-masing berisi <code class="code">.paper__label</code> dan baris alamat.</td></tr><tr><td><code class="code">table.paper__table</code></td><td>Daftar item; <code class="code">.num</code> meratakan angka ke kanan.</td></tr><tr><td><code class="code">.paper__totals &gt; .paper__sum</code></td><td>Baris label dan jumlah; <code class="code">.paper__sum--total</code> untuk total yang harus dibayar.</td></tr><tr><td><code class="code">.paper__foot</code></td><td>Rincian pembayaran dan catatan, terdorong ke bawah halaman.</td></tr><tr><td><code class="code">.paper--print</code></td><td>Modifier. Saat mencetak, hanya paper ini yang tercetak, dari tepi ke tepi, dengan tema terang.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="variants"><h2>Varian dan ukuran</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Kelas atau atribut</th><th>Kapan</th></tr></thead><tbody><tr><td><code class="code">.paper</code></td><td>Lembar di layar.</td></tr><tr><td><code class="code">.paper--print</code></td><td>Satu-satunya lembar yang dicetak; semua bagian lain halaman tidak ikut dicetak.</td></tr><tr><td><code class="code">.paper--receipt</code></td><td>Struk kasir: paling lebar 400 px, setinggi barisnya, padding 24 px, kaki di tengah. Dicetak selebar 80 mm.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">editing</code></td><td>Formulir menulis ke paper saat diisi; total yang berubah bergulir dengan <a class="link" href="rolling-number.html">rolling number</a>.</td></tr><tr><td><code class="code">empty field</code></td><td>Tampilkan placeholder redup di paper (&quot;Nama pelanggan&quot;) daripada membiarkan celah kosong.</td></tr><tr><td><code class="code">printing</code></td><td>Tema terang, tanpa ring, tanpa padding sendiri; margin halaman diatur <code class="code">@page</code>.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">editing</code></td><td>Formulir menulis ke paper saat diisi; total yang berubah bergulir dengan <a class="link" href="rolling-number.html">rolling number</a>.</td></tr><tr><td><code class="code">empty field</code></td><td>Tampilkan placeholder redup di paper (&quot;Nama wajib retribusi&quot;) daripada membiarkan celah kosong.</td></tr><tr><td><code class="code">printing</code></td><td>Tema terang, tanpa ring, tanpa padding sendiri; margin halaman diatur <code class="code">@page</code>.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Tidak punya gerak sendiri. Nilai yang berubah saat orang mengetik boleh bergulir (rolling number); item baru masuk dengan list stagger sekali.</li></ul></section>
         <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Pakai <code class="code">article</code> yang diberi nama lewat <code class="code">aria-label</code> (jenis dokumen dan nomornya).</li><li>Pakai heading sungguhan dan tabel sungguhan dengan <code class="code">th scope=&quot;col&quot;</code>, agar pratinjau terbaca berurutan.</li><li>Di pratinjau langsung, jangan mengumumkan setiap ketukan; kolom formulir adalah sumbernya.</li></ul></section>
         <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Pertahankan hierarki ringan sistem: satu tingkat ketebalan untuk total, label redup.</li><li>Beri total yang harus dibayar barisnya sendiri dengan mata uangnya.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Mengecilkan seluruh halaman agar muat di ponsel; biarkan teks mengalir ulang.</li><li>Menaruh kontrol aplikasi di dalam paper; tempatnya di formulir.</li></ul></div></div></section>
@@ -444,6 +449,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

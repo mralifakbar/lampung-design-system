@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,10 +321,14 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Marketing">Promosi</a></li></ol></nav>
           <h1>Plans</h1>
           <p class="cdoc__lede">Paket harga sebagai card, dengan kontrol periode pembayaran di atasnya. Harga bergulir saat periode atau jumlah peserta berubah; penghematannya disebut dengan kata-kata di samping kontrol.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="plans.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="plans.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Halaman atau bagian tarif dengan dua sampai empat paket.</li><li>Paket yang dibayar bulanan atau tahunan, atau per orang, saat orang membandingkan total sebelum memilih.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Satu paket dipilih di dalam formulir pembayaran atau pengaturan: pakai <a class="link" href="radio-card.html">Radio card</a>.</li><li>Membandingkan semua fitur antarpaket: pakai <a class="link" href="compare-table.html">Compare table</a>.</li><li>Satu harga dalam kalimat: pakai <a class="link" href="prose.html">Prose</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di dalam <a class="link" href="marketing-section.html">marketing section</a> dengan head di tengah. Kontrol <code class="code">.billing</code> di tengah di atas <code class="code">.plans</code>; card mengisi grid yang terlipat di bawah 280 px per card. Lanjutkan dengan <a class="link" href="compare-table.html">compare table</a> dan pertanyaan yang biasa diajukan sebelum memilih.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Bulanan atau tahunan, dengan jumlah peserta</span><span class="cdoc__ex-d">Paket bimbingan belajar dari usaha lokal fiktif. Ganti periode dan ubah jumlah siswa: harga bergulir, kata-kata berubah bentuk.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Bulanan atau tahunan, dengan jumlah peserta</span><span class="cdoc__ex-d">Sewa tempat usaha dari kantor pasar kota fiktif. Ganti periode dan ubah jumlah lapak: harga bergulir, kata-kata berubah bentuk.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div data-lds-billing style="width: 100%;">
   <div class="billing">
     <div class="seg seg--lg" role="group" aria-label="Periode pembayaran" data-lds-segmented><span class="seg__thumb"></span><button class="seg__btn" aria-pressed="true" data-billing="month">Bulanan</button><button class="seg__btn" aria-pressed="false" data-billing="year">Tahunan</button></div>
@@ -331,16 +336,16 @@
   </div>
   <div class="plans">
     <article class="plan plan--featured" aria-labelledby="pl-1">
-      <div class="plan__head"><h3 class="plan__name" id="pl-1">Privat</h3><p class="plan__desc">Untuk satu siswa, dua pertemuan per minggu.</p></div>
+      <div class="plan__head"><h3 class="plan__name" id="pl-1">Kios</h3><p class="plan__desc">Satu kios tertutup di Pasar Tugu, Tanjung Karang Timur.</p></div>
       <div class="plan__price"><span class="plan__amount"><span class="plan__currency">Rp</span><span class="roll" data-price-month="360" data-price-year="300" data-lds-roll-label="{n} ribu rupiah per bulan"></span></span><span class="plan__period morph" data-lds-morph data-billing-month="ribu per bulan" data-billing-year="ribu per bulan, dibayar tahunan">ribu per bulan</span></div>
-      <ul class="plan__list"><li><span class="ic" aria-hidden="true">check</span>Jadwal bisa diatur ulang</li><li><span class="ic" aria-hidden="true">check</span>Laporan kemajuan setiap bulan</li></ul>
-      <div class="plan__cta"><button class="btn btn--primary btn--block">Daftar paket Privat</button></div>
+      <ul class="plan__list"><li><span class="ic" aria-hidden="true">check</span>Sudah termasuk meteran listrik dan air</li><li><span class="ic" aria-hidden="true">check</span>Angkut sampah setiap hari</li></ul>
+      <div class="plan__cta"><button class="btn btn--primary btn--block">Ajukan sewa kios</button></div>
     </article>
     <article class="plan" aria-labelledby="pl-2">
-      <div class="plan__head"><h3 class="plan__name" id="pl-2">Sekolah mitra</h3><p class="plan__desc">Untuk kelas tambahan di satu sekolah.</p></div>
-      <div class="plan__price"><span class="plan__amount"><span class="plan__currency">Rp</span><span class="roll" data-per-seat data-price-month="30" data-price-year="25" data-lds-roll-label="{n} ribu rupiah per bulan"></span></span><span class="plan__period morph" data-lds-morph data-billing-month="ribu per bulan untuk {seats} siswa" data-billing-year="ribu per bulan untuk {seats} siswa">ribu per bulan untuk 10 siswa</span></div>
-      <div class="plan__seats"><span id="pl-s">Siswa</span><div class="stepper-field" role="group" aria-labelledby="pl-s" data-lds-stepper data-min="5" data-max="200" data-value="10"><button aria-label="Kurangi siswa"><span class="ic" aria-hidden="true">remove</span></button><span class="stepper-field__value"><span class="roll" aria-live="polite"></span></span><button aria-label="Tambah siswa"><span class="ic" aria-hidden="true">add</span></button></div></div>
-      <div class="plan__cta"><button class="btn btn--secondary btn--block">Minta penawaran untuk sekolah</button></div>
+      <div class="plan__head"><h3 class="plan__name" id="pl-2">Lapak bazar UMKM</h3><p class="plan__desc">Lapak terbuka untuk kelompok usaha lokal di bazar hari Sabtu.</p></div>
+      <div class="plan__price"><span class="plan__amount"><span class="plan__currency">Rp</span><span class="roll" data-per-seat data-price-month="30" data-price-year="25" data-lds-roll-label="{n} ribu rupiah per bulan"></span></span><span class="plan__period morph" data-lds-morph data-billing-month="ribu per bulan untuk {seats} lapak" data-billing-year="ribu per bulan untuk {seats} lapak">ribu per bulan untuk 10 lapak</span></div>
+      <div class="plan__seats"><span id="pl-s">Lapak</span><div class="stepper-field" role="group" aria-labelledby="pl-s" data-lds-stepper data-min="5" data-max="200" data-value="10"><button aria-label="Kurangi lapak"><span class="ic" aria-hidden="true">remove</span></button><span class="stepper-field__value"><span class="roll" aria-live="polite"></span></span><button aria-label="Tambah lapak"><span class="ic" aria-hidden="true">add</span></button></div></div>
+      <div class="plan__cta"><button class="btn btn--secondary btn--block">Minta rincian untuk kelompok</button></div>
     </article>
   </div>
 </div></div>
@@ -355,16 +360,16 @@
   &lt;/div&gt;
   &lt;div class=&quot;plans&quot;&gt;
     &lt;article class=&quot;plan plan--featured&quot; aria-labelledby=&quot;pl-1&quot;&gt;
-      &lt;div class=&quot;plan__head&quot;&gt;&lt;h3 class=&quot;plan__name&quot; id=&quot;pl-1&quot;&gt;Privat&lt;/h3&gt;&lt;p class=&quot;plan__desc&quot;&gt;Untuk satu siswa, dua pertemuan per minggu.&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__head&quot;&gt;&lt;h3 class=&quot;plan__name&quot; id=&quot;pl-1&quot;&gt;Kios&lt;/h3&gt;&lt;p class=&quot;plan__desc&quot;&gt;Satu kios tertutup di Pasar Tugu, Tanjung Karang Timur.&lt;/p&gt;&lt;/div&gt;
       &lt;div class=&quot;plan__price&quot;&gt;&lt;span class=&quot;plan__amount&quot;&gt;&lt;span class=&quot;plan__currency&quot;&gt;Rp&lt;/span&gt;&lt;span class=&quot;roll&quot; data-price-month=&quot;360&quot; data-price-year=&quot;300&quot; data-lds-roll-label=&quot;{n} ribu rupiah per bulan&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;plan__period morph&quot; data-lds-morph data-billing-month=&quot;ribu per bulan&quot; data-billing-year=&quot;ribu per bulan, dibayar tahunan&quot;&gt;ribu per bulan&lt;/span&gt;&lt;/div&gt;
-      &lt;ul class=&quot;plan__list&quot;&gt;&lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Jadwal bisa diatur ulang&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Laporan kemajuan setiap bulan&lt;/li&gt;&lt;/ul&gt;
-      &lt;div class=&quot;plan__cta&quot;&gt;&lt;button class=&quot;btn btn--primary btn--block&quot;&gt;Daftar paket Privat&lt;/button&gt;&lt;/div&gt;
+      &lt;ul class=&quot;plan__list&quot;&gt;&lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Sudah termasuk meteran listrik dan air&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Angkut sampah setiap hari&lt;/li&gt;&lt;/ul&gt;
+      &lt;div class=&quot;plan__cta&quot;&gt;&lt;button class=&quot;btn btn--primary btn--block&quot;&gt;Ajukan sewa kios&lt;/button&gt;&lt;/div&gt;
     &lt;/article&gt;
     &lt;article class=&quot;plan&quot; aria-labelledby=&quot;pl-2&quot;&gt;
-      &lt;div class=&quot;plan__head&quot;&gt;&lt;h3 class=&quot;plan__name&quot; id=&quot;pl-2&quot;&gt;Sekolah mitra&lt;/h3&gt;&lt;p class=&quot;plan__desc&quot;&gt;Untuk kelas tambahan di satu sekolah.&lt;/p&gt;&lt;/div&gt;
-      &lt;div class=&quot;plan__price&quot;&gt;&lt;span class=&quot;plan__amount&quot;&gt;&lt;span class=&quot;plan__currency&quot;&gt;Rp&lt;/span&gt;&lt;span class=&quot;roll&quot; data-per-seat data-price-month=&quot;30&quot; data-price-year=&quot;25&quot; data-lds-roll-label=&quot;{n} ribu rupiah per bulan&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;plan__period morph&quot; data-lds-morph data-billing-month=&quot;ribu per bulan untuk {seats} siswa&quot; data-billing-year=&quot;ribu per bulan untuk {seats} siswa&quot;&gt;ribu per bulan untuk 10 siswa&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;plan__seats&quot;&gt;&lt;span id=&quot;pl-s&quot;&gt;Siswa&lt;/span&gt;&lt;div class=&quot;stepper-field&quot; role=&quot;group&quot; aria-labelledby=&quot;pl-s&quot; data-lds-stepper data-min=&quot;5&quot; data-max=&quot;200&quot; data-value=&quot;10&quot;&gt;&lt;button aria-label=&quot;Kurangi siswa&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;remove&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;stepper-field__value&quot;&gt;&lt;span class=&quot;roll&quot; aria-live=&quot;polite&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;button aria-label=&quot;Tambah siswa&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;add&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;plan__cta&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--block&quot;&gt;Minta penawaran untuk sekolah&lt;/button&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__head&quot;&gt;&lt;h3 class=&quot;plan__name&quot; id=&quot;pl-2&quot;&gt;Lapak bazar UMKM&lt;/h3&gt;&lt;p class=&quot;plan__desc&quot;&gt;Lapak terbuka untuk kelompok usaha lokal di bazar hari Sabtu.&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__price&quot;&gt;&lt;span class=&quot;plan__amount&quot;&gt;&lt;span class=&quot;plan__currency&quot;&gt;Rp&lt;/span&gt;&lt;span class=&quot;roll&quot; data-per-seat data-price-month=&quot;30&quot; data-price-year=&quot;25&quot; data-lds-roll-label=&quot;{n} ribu rupiah per bulan&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;plan__period morph&quot; data-lds-morph data-billing-month=&quot;ribu per bulan untuk {seats} lapak&quot; data-billing-year=&quot;ribu per bulan untuk {seats} lapak&quot;&gt;ribu per bulan untuk 10 lapak&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__seats&quot;&gt;&lt;span id=&quot;pl-s&quot;&gt;Lapak&lt;/span&gt;&lt;div class=&quot;stepper-field&quot; role=&quot;group&quot; aria-labelledby=&quot;pl-s&quot; data-lds-stepper data-min=&quot;5&quot; data-max=&quot;200&quot; data-value=&quot;10&quot;&gt;&lt;button aria-label=&quot;Kurangi lapak&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;remove&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;stepper-field__value&quot;&gt;&lt;span class=&quot;roll&quot; aria-live=&quot;polite&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;button aria-label=&quot;Tambah lapak&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;add&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__cta&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--block&quot;&gt;Minta rincian untuk kelompok&lt;/button&gt;&lt;/div&gt;
     &lt;/article&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
@@ -376,16 +381,16 @@
   &lt;/div&gt;
   &lt;div class=&quot;plans&quot;&gt;
     &lt;article class=&quot;plan plan--featured&quot; aria-labelledby=&quot;pl-1&quot;&gt;
-      &lt;div class=&quot;plan__head&quot;&gt;&lt;h3 class=&quot;plan__name&quot; id=&quot;pl-1&quot;&gt;Privat&lt;/h3&gt;&lt;p class=&quot;plan__desc&quot;&gt;Untuk satu siswa, dua pertemuan per minggu.&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__head&quot;&gt;&lt;h3 class=&quot;plan__name&quot; id=&quot;pl-1&quot;&gt;Kios&lt;/h3&gt;&lt;p class=&quot;plan__desc&quot;&gt;Satu kios tertutup di Pasar Tugu, Tanjung Karang Timur.&lt;/p&gt;&lt;/div&gt;
       &lt;div class=&quot;plan__price&quot;&gt;&lt;span class=&quot;plan__amount&quot;&gt;&lt;span class=&quot;plan__currency&quot;&gt;Rp&lt;/span&gt;&lt;span class=&quot;roll&quot; data-price-month=&quot;360&quot; data-price-year=&quot;300&quot; data-lds-roll-label=&quot;{n} ribu rupiah per bulan&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;plan__period morph&quot; data-lds-morph data-billing-month=&quot;ribu per bulan&quot; data-billing-year=&quot;ribu per bulan, dibayar tahunan&quot;&gt;ribu per bulan&lt;/span&gt;&lt;/div&gt;
-      &lt;ul class=&quot;plan__list&quot;&gt;&lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Jadwal bisa diatur ulang&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Laporan kemajuan setiap bulan&lt;/li&gt;&lt;/ul&gt;
-      &lt;div class=&quot;plan__cta&quot;&gt;&lt;button class=&quot;btn btn--primary btn--block&quot;&gt;Daftar paket Privat&lt;/button&gt;&lt;/div&gt;
+      &lt;ul class=&quot;plan__list&quot;&gt;&lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Sudah termasuk meteran listrik dan air&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Angkut sampah setiap hari&lt;/li&gt;&lt;/ul&gt;
+      &lt;div class=&quot;plan__cta&quot;&gt;&lt;button class=&quot;btn btn--primary btn--block&quot;&gt;Ajukan sewa kios&lt;/button&gt;&lt;/div&gt;
     &lt;/article&gt;
     &lt;article class=&quot;plan&quot; aria-labelledby=&quot;pl-2&quot;&gt;
-      &lt;div class=&quot;plan__head&quot;&gt;&lt;h3 class=&quot;plan__name&quot; id=&quot;pl-2&quot;&gt;Sekolah mitra&lt;/h3&gt;&lt;p class=&quot;plan__desc&quot;&gt;Untuk kelas tambahan di satu sekolah.&lt;/p&gt;&lt;/div&gt;
-      &lt;div class=&quot;plan__price&quot;&gt;&lt;span class=&quot;plan__amount&quot;&gt;&lt;span class=&quot;plan__currency&quot;&gt;Rp&lt;/span&gt;&lt;span class=&quot;roll&quot; data-per-seat data-price-month=&quot;30&quot; data-price-year=&quot;25&quot; data-lds-roll-label=&quot;{n} ribu rupiah per bulan&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;plan__period morph&quot; data-lds-morph data-billing-month=&quot;ribu per bulan untuk {seats} siswa&quot; data-billing-year=&quot;ribu per bulan untuk {seats} siswa&quot;&gt;ribu per bulan untuk 10 siswa&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;plan__seats&quot;&gt;&lt;span id=&quot;pl-s&quot;&gt;Siswa&lt;/span&gt;&lt;div class=&quot;stepper-field&quot; role=&quot;group&quot; aria-labelledby=&quot;pl-s&quot; data-lds-stepper data-min=&quot;5&quot; data-max=&quot;200&quot; data-value=&quot;10&quot;&gt;&lt;button aria-label=&quot;Kurangi siswa&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;remove&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;stepper-field__value&quot;&gt;&lt;span class=&quot;roll&quot; aria-live=&quot;polite&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;button aria-label=&quot;Tambah siswa&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;add&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;plan__cta&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--block&quot;&gt;Minta penawaran untuk sekolah&lt;/button&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__head&quot;&gt;&lt;h3 class=&quot;plan__name&quot; id=&quot;pl-2&quot;&gt;Lapak bazar UMKM&lt;/h3&gt;&lt;p class=&quot;plan__desc&quot;&gt;Lapak terbuka untuk kelompok usaha lokal di bazar hari Sabtu.&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__price&quot;&gt;&lt;span class=&quot;plan__amount&quot;&gt;&lt;span class=&quot;plan__currency&quot;&gt;Rp&lt;/span&gt;&lt;span class=&quot;roll&quot; data-per-seat data-price-month=&quot;30&quot; data-price-year=&quot;25&quot; data-lds-roll-label=&quot;{n} ribu rupiah per bulan&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;plan__period morph&quot; data-lds-morph data-billing-month=&quot;ribu per bulan untuk {seats} lapak&quot; data-billing-year=&quot;ribu per bulan untuk {seats} lapak&quot;&gt;ribu per bulan untuk 10 lapak&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__seats&quot;&gt;&lt;span id=&quot;pl-s&quot;&gt;Lapak&lt;/span&gt;&lt;div class=&quot;stepper-field&quot; role=&quot;group&quot; aria-labelledby=&quot;pl-s&quot; data-lds-stepper data-min=&quot;5&quot; data-max=&quot;200&quot; data-value=&quot;10&quot;&gt;&lt;button aria-label=&quot;Kurangi lapak&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;remove&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;stepper-field__value&quot;&gt;&lt;span class=&quot;roll&quot; aria-live=&quot;polite&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;button aria-label=&quot;Tambah lapak&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;add&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__cta&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--block&quot;&gt;Minta rincian untuk kelompok&lt;/button&gt;&lt;/div&gt;
     &lt;/article&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
@@ -416,6 +421,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

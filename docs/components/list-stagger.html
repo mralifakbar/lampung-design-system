@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Motion">Gerak</a></li></ol></nav>
           <h1>List stagger</h1>
           <p class="cdoc__lede">Saat sekelompok butir tiba bersamaan, setiap butir menyusul butir sebelumnya dengan jeda 35 ms, memudar masuk dari blur 4 px dan naik 4 px. Seluruh rangkaian selesai di bawah 400 ms, sehingga daftar terbaca sebagai satu kedatangan yang punya arah, bukan iring-iringan yang lambat.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="list-stagger.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="list-stagger.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Hasil pencarian atau hasil filter yang tiba setelah orang memintanya.</li><li>Notifikasi atau pesan baru yang masuk bersamaan selama panel tertutup.</li><li>Kartu-kartu dasbor pada pemuatan pertama dalam satu sesi.</li><li>Butir menu atau sheet yang terbuka dengan daftar yang dibuat saat itu juga (hanya jika belum dirender sebelumnya).</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Satu butir yang bergabung ke daftar yang sudah ada: pakai <a class="link" href="enter-and-exit.html">Enter and exit</a>.</li><li>Gambar dan ilustrasi yang muncul saat halaman di-scroll: pakai <a class="link" href="reveal-on-scroll.html">Reveal on scroll</a>. Punya stagger sendiri 30 ms, dibatasi sampai butir keempat.</li><li>Daftar yang sama dirender ulang setelah diurutkan atau berubah sedikit: pakai <a class="link" href="motion-principles.html">Motion principles</a>. Jangan dianimasikan; cukup perbarui.</li><li>Konten yang masih dimuat: pakai <a class="link" href="skeleton.html">Skeleton</a>.</li><li>Riwayat obrolan panjang yang dibuka: pakai <a class="link" href="chat-layout.html">Chat layout</a>. Jangan pernah memberi stagger pada riwayat.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Pada anak langsung dari daftar yang tiba: baris <code class="code">.lrow</code>, <code class="code">.card</code> dan kartu <code class="code">.kpi</code> di dalam <code class="code">auto-grid</code>, <code class="code">.file-row</code>. Jangan pada kontainer daftar dan jangan pada bagian bertingkat di dalamnya.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -438,6 +443,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

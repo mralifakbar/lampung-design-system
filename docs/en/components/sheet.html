@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,14 +321,18 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Overlays">Overlays</a></li></ol></nav>
           <h1>Sheet</h1>
           <p class="cdoc__lede">A panel that rises from the bottom for a task that keeps its context: the page behind recedes but stays visible. Drag the grabber to dismiss with momentum. The phone answer to most dialogs.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="sheet.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="sheet.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>On phones, a focused task related to the current screen: mark attendance, choose a class, set filters, share.</li><li>A short list of options with more detail than a menu can hold.</li><li>Anything people may want to flick away with a thumb.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>The same task on wide screens, beside a list: use <a class="link" href="drawer.html">Drawer</a>.</li><li>A page-level form that should be a centered dialog on desktop and a sheet on phones: use <a class="link" href="modal.html">Modal</a>. The native modal turns into a bottom sheet below 600 px by itself.</li><li>Confirming a destructive action: use <a class="link" href="alert-dialog.html">Alert dialog</a>.</li><li>Three to seven commands on an object: use <a class="link" href="dropdown-menu.html">Dropdown menu</a>.</li><li>A message that something happened: use <a class="link" href="toast.html">Toast</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Docked to the bottom of its positioned container (<code class="code">.viewport</code>, or a <code class="code">position: fixed; inset: 0</code> wrapper for a real page), full width, rounded top corners, above a scrim. The primary button is full width at the bottom (<code class="code">btn--block</code>). Keep it under about 80 % of the height.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>On phones, a focused task related to the current screen: mark attendance, choose a time slot, set filters, share.</li><li>A short list of options with more detail than a menu can hold.</li><li>Anything people may want to flick away with a thumb.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>The same task on wide screens, beside a list: use <a class="link" href="drawer.html">Drawer</a>.</li><li>A page-level form that should be a centered dialog on desktop and a sheet on phones: use <a class="link" href="modal.html">Modal</a>. The native modal turns into a bottom sheet below 600 px by itself.</li><li>Confirming a destructive action: use <a class="link" href="alert-dialog.html">Alert dialog</a>.</li><li>Three to seven commands on an object: use <a class="link" href="dropdown-menu.html">Dropdown menu</a>.</li><li>A message that something happened: use <a class="link" href="toast.html">Toast</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Docked to the bottom of its positioned container (<code class="code">.viewport</code>, or a <code class="code">position: fixed; inset: 0</code> wrapper for a real page), full width, rounded top corners, above a scrim. The primary button is full width at the bottom (<code class="code">btn--block</code>). Keep it under about 80 % of the height.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">Mark attendance</span><span class="cdoc__ex-d">Open it, then drag the grabber or the title down and let go: a fast flick dismisses even from a short drag; a slow one springs back.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="viewport docs-box" data-lds-push="sh-att">
   <div class="viewport__content">
     <button class="btn btn--secondary btn--md" data-lds-open="sh-att" aria-haspopup="dialog">Mark attendance</button>
-    <p class="section__sub">Database Systems · Monday 08:00</p>
+    <p class="section__sub">Posyandu Melati · Monday 08:00</p>
   </div>
   <div class="scrim" data-lds-scrim="sh-att"></div>
   <div class="sheet" id="sh-att" role="dialog" aria-modal="true" aria-labelledby="sh-att-t" data-lds-layer>
@@ -339,7 +344,7 @@
     <div class="list list--fill">
       <button class="lrow"><span class="lrow__body"><span class="lrow__title">Present</span></span><span class="ic" style="color: var(--accent-text);" aria-hidden="true">check</span></button>
       <button class="lrow"><span class="lrow__body"><span class="lrow__title">Late, with reason</span></span></button>
-      <button class="lrow"><span class="lrow__body"><span class="lrow__title">Excused absence</span></span></button>
+      <button class="lrow"><span class="lrow__body"><span class="lrow__title">Absent with permission</span></span></button>
     </div>
     <button class="btn btn--primary btn--block" style="margin-top: 16px;" data-lds-close>Save attendance</button>
   </div>
@@ -380,12 +385,12 @@
           <figcaption><span class="cdoc__ex-t">Share options</span><span class="cdoc__ex-d">Without the push: the page stays put, only the scrim dims it.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="viewport docs-box">
   <div class="viewport__content">
-    <button class="btn btn--secondary btn--md" data-lds-open="sh-share" aria-haspopup="dialog"><span class="ic" aria-hidden="true">ios_share</span>Share result</button>
+    <button class="btn btn--secondary btn--md" data-lds-open="sh-share" aria-haspopup="dialog"><span class="ic" aria-hidden="true">ios_share</span>Share receipt</button>
   </div>
   <div class="scrim" data-lds-scrim="sh-share"></div>
   <div class="sheet" id="sh-share" role="dialog" aria-modal="true" aria-labelledby="sh-share-t" data-lds-layer>
     <div class="sheet__grabber" aria-hidden="true"></div>
-    <div class="sheet__head"><h3 class="sheet__title" id="sh-share-t">Share your tryout result</h3></div>
+    <div class="sheet__head"><h3 class="sheet__title" id="sh-share-t">Share your registration receipt</h3></div>
     <div class="list list--fill">
       <button class="lrow" data-lds-close><span class="ic" aria-hidden="true">link</span><span class="lrow__body"><span class="lrow__title">Copy link</span></span></button>
       <button class="lrow" data-lds-close><span class="ic" aria-hidden="true">download</span><span class="lrow__body"><span class="lrow__title">Save as image</span></span></button>
@@ -399,12 +404,12 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;viewport docs-box&quot;&gt;
   &lt;div class=&quot;viewport__content&quot;&gt;
-    &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-open=&quot;sh-share&quot; aria-haspopup=&quot;dialog&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;ios_share&lt;/span&gt;Share result&lt;/button&gt;
+    &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-open=&quot;sh-share&quot; aria-haspopup=&quot;dialog&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;ios_share&lt;/span&gt;Share receipt&lt;/button&gt;
   &lt;/div&gt;
   &lt;div class=&quot;scrim&quot; data-lds-scrim=&quot;sh-share&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;sheet&quot; id=&quot;sh-share&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;sh-share-t&quot; data-lds-layer&gt;
     &lt;div class=&quot;sheet__grabber&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;sheet__head&quot;&gt;&lt;h3 class=&quot;sheet__title&quot; id=&quot;sh-share-t&quot;&gt;Share your tryout result&lt;/h3&gt;&lt;/div&gt;
+    &lt;div class=&quot;sheet__head&quot;&gt;&lt;h3 class=&quot;sheet__title&quot; id=&quot;sh-share-t&quot;&gt;Share your registration receipt&lt;/h3&gt;&lt;/div&gt;
     &lt;div class=&quot;list list--fill&quot;&gt;
       &lt;button class=&quot;lrow&quot; data-lds-close&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Copy link&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
       &lt;button class=&quot;lrow&quot; data-lds-close&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Save as image&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
@@ -415,12 +420,12 @@
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;viewport docs-box&quot;&gt;
   &lt;div class=&quot;viewport__content&quot;&gt;
-    &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-open=&quot;sh-share&quot; aria-haspopup=&quot;dialog&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;ios_share&lt;/span&gt;Share result&lt;/button&gt;
+    &lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-open=&quot;sh-share&quot; aria-haspopup=&quot;dialog&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;ios_share&lt;/span&gt;Share receipt&lt;/button&gt;
   &lt;/div&gt;
   &lt;div class=&quot;scrim&quot; data-lds-scrim=&quot;sh-share&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;sheet&quot; id=&quot;sh-share&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;sh-share-t&quot; data-lds-layer&gt;
     &lt;div class=&quot;sheet__grabber&quot; aria-hidden=&quot;true&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;sheet__head&quot;&gt;&lt;h3 class=&quot;sheet__title&quot; id=&quot;sh-share-t&quot;&gt;Share your tryout result&lt;/h3&gt;&lt;/div&gt;
+    &lt;div class=&quot;sheet__head&quot;&gt;&lt;h3 class=&quot;sheet__title&quot; id=&quot;sh-share-t&quot;&gt;Share your registration receipt&lt;/h3&gt;&lt;/div&gt;
     &lt;div class=&quot;list list--fill&quot;&gt;
       &lt;button class=&quot;lrow&quot; data-lds-close&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;link&lt;/span&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Copy link&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
       &lt;button class=&quot;lrow&quot; data-lds-close&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Save as image&lt;/span&gt;&lt;/span&gt;&lt;/button&gt;
@@ -454,6 +459,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

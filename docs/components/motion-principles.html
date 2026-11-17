@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Motion">Gerak</a></li></ol></nav>
           <h1>Motion principles</h1>
           <p class="cdoc__lede">Tenang secara bawaan: elemen tiba dengan spring tanpa overshoot, pergi lebih cepat dengan kurva yang makin cepat, mulai dari posisi mana pun saat diinterupsi, dan hanya memantul setelah gestur yang membawa momentum. Setiap nilai berasal dari token; resep di grup ini menyebut token yang dipakai.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="motion-principles.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="motion-principles.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Sebelum menambahkan gerakan apa pun: baca halaman ini, lalu pilih resep yang cocok dengan situasinya alih-alih menulis animasi baru.</li><li>Memilih durasi atau kurva untuk komponen yang belum dimiliki sistem (lalu tambahkan ke sistem, bukan ke halaman).</li><li>Meninjau layar yang &quot;terasa lambat&quot;, &quot;terasa murahan&quot;, atau &quot;melompat&quot;: periksa terhadap enam aturan di bawah.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Tekanan pada kontrol: pakai <a class="link" href="press-feedback.html">Press feedback</a>.</li><li>Sesuatu yang terbuka, tertutup, tiba, atau pergi: pakai <a class="link" href="enter-and-exit.html">Enter and exit</a>.</li><li>Penanda yang berpindah antar-pilihan (tab, segmented, sidebar): pakai <a class="link" href="sliding-indicator.html">Sliding indicator</a>.</li><li>Konten yang terbuka atau tertutup di dalam alur (accordion, tutup): pakai <a class="link" href="height-expand.html">Height expand</a>.</li><li>Sekelompok butir yang tiba bersamaan: pakai <a class="link" href="list-stagger.html">List stagger</a>.</li><li>Mengganti satu tampilan dengan tampilan lain di tempat yang sama: pakai <a class="link" href="view-swap.html">View swap</a>.</li><li>Thumbnail yang membesar menjadi tampilan penuh: pakai <a class="link" href="shared-element.html">Shared element</a>.</li><li>Angka yang berubah: pakai <a class="link" href="number-count.html">Number count</a>.</li><li>Menyeret, menjentikkan, swipe: pakai <a class="link" href="drag-and-momentum.html">Drag and momentum</a>.</li><li>Gambar yang muncul saat halaman di-scroll: pakai <a class="link" href="reveal-on-scroll.html">Reveal on scroll</a>.</li><li>Apa yang berubah saat orang meminta gerakan dikurangi: pakai <a class="link" href="reduced-motion.html">Reduced motion</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di mana saja, lewat token di <code class="code">css/tokens.css</code>. Gerakan tinggal di CSS komponen; halaman tidak menambahkan transisinya sendiri ke komponen sistem.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -328,7 +333,7 @@
   <button class="btn btn--gray btn--md" data-lds-menu="mp-menu" aria-haspopup="menu" aria-expanded="false">Urutkan laporan<span class="ic" aria-hidden="true">expand_more</span></button>
   <div class="menu" id="mp-menu" role="menu" style="top: calc(100% + 6px); left: 0;">
     <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">event</span>Tanggal lapor</button>
-    <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">school</span>Jenis layanan</button>
+    <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">label</span>Jenis layanan</button>
     <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">schedule</span>Baru ditambahkan</button>
   </div>
 </div></div>
@@ -340,7 +345,7 @@
   &lt;button class=&quot;btn btn--gray btn--md&quot; data-lds-menu=&quot;mp-menu&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot;&gt;Urutkan laporan&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
   &lt;div class=&quot;menu&quot; id=&quot;mp-menu&quot; role=&quot;menu&quot; style=&quot;top: calc(100% + 6px); left: 0;&quot;&gt;
     &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;event&lt;/span&gt;Tanggal lapor&lt;/button&gt;
-    &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;school&lt;/span&gt;Jenis layanan&lt;/button&gt;
+    &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;label&lt;/span&gt;Jenis layanan&lt;/button&gt;
     &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;schedule&lt;/span&gt;Baru ditambahkan&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
@@ -349,7 +354,7 @@
   &lt;button class=&quot;btn btn--gray btn--md&quot; data-lds-menu=&quot;mp-menu&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot;&gt;Urutkan laporan&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
   &lt;div class=&quot;menu&quot; id=&quot;mp-menu&quot; role=&quot;menu&quot; style=&quot;top: calc(100% + 6px); left: 0;&quot;&gt;
     &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;event&lt;/span&gt;Tanggal lapor&lt;/button&gt;
-    &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;school&lt;/span&gt;Jenis layanan&lt;/button&gt;
+    &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;label&lt;/span&gt;Jenis layanan&lt;/button&gt;
     &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;schedule&lt;/span&gt;Baru ditambahkan&lt;/button&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
@@ -481,6 +486,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Marketing">Promosi</a></li></ol></nav>
           <h1>Feature row</h1>
           <p class="cdoc__lede">Satu fitur diceritakan di samping buktinya: judul singkat, satu paragraf dan beberapa poin di satu sisi, stage hidup dengan fitur yang berjalan di sisi lain. Baris bergantian sisi dengan <code class="code">feature--reverse</code>.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="feature-row.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="feature-row.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Menjelaskan satu fitur layanan di landing page, di samping fitur itu berjalan.</li><li>Dua sampai empat fitur dalam deretan bagian, saat masing-masing butuh demonya sendiri.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Banyak fitur kecil dengan bobot sama: pakai <a class="link" href="layout-primitives.html">Layout primitives</a>. Pakai <code class="code">auto-grid</code> berisi blok teks pendek; tidak setiap fitur butuh stage.</li><li>Tujuan yang bisa dibuka orang: pakai <a class="link" href="link-card.html">Link card</a>.</li><li>Layar pertama halaman: pakai <a class="link" href="hero.html">Hero</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di dalam <a class="link" href="marketing-section.html">marketing section</a>. Mulai 900 px teks memakai 5 dari 12 kolom dan stage 7 (terbalik dengan <code class="code">feature--reverse</code>); di bawahnya teks lebih dulu lalu stage. Baris yang berurutan berjarak 56 sampai 112 px.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -327,8 +332,8 @@
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="feature" style="width: 100%;">
   <div class="feature__copy">
     <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">code</span>Ekspor</span>
-    <h3 class="feature__title">Nilai siswa, dalam format yang diminta dinas.</h3>
-    <p class="feature__body">Ekspor nilai satu semester sebagai spreadsheet, laporan PDF atau berkas untuk sistem data pendidikan.</p>
+    <h3 class="feature__title">Data penerima bantuan sosial, dalam format yang diminta dinas.</h3>
+    <p class="feature__body">Ekspor satu tahap penyaluran sebagai spreadsheet, laporan PDF atau berkas untuk sistem data kesejahteraan daerah.</p>
     <ul class="feature__points">
       <li><span class="ic" aria-hidden="true">check_circle</span><span>Kolomnya sesuai templat resmi.</span></li>
       <li><span class="ic" aria-hidden="true">check_circle</span><span>Ekspor berjalan di latar belakang.</span></li>
@@ -336,9 +341,9 @@
   </div>
   <div class="feature__stage">
     <div class="seg" role="group" aria-label="Format" data-lds-segmented style="width: 240px;"><span class="seg__thumb"></span><button class="seg__btn" aria-pressed="true">CSV</button><button class="seg__btn" aria-pressed="false">PDF</button></div>
-    <div class="codeblock"><div class="codeblock__bar"><span>nilai-semester-1.csv</span></div><pre>student_id,name,grade
-2026001,Siti Rahmawati,A
-2026002,Budi Santoso,B+</pre></div>
+    <div class="codeblock"><div class="codeblock__bar"><span>penerima-bansos-tahap-1.csv</span></div><pre>nik,nama,kelurahan,status
+1871 •••• •••• 0042,Siti Rahmawati,Way Halim,terverifikasi
+1871 •••• •••• 0317,Budi Santoso,Kedaton,menunggu</pre></div>
     <span class="feature__caption">Data contoh.</span>
   </div>
 </div></div>
@@ -349,8 +354,8 @@
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;feature&quot; style=&quot;width: 100%;&quot;&gt;
   &lt;div class=&quot;feature__copy&quot;&gt;
     &lt;span class=&quot;msec__eyebrow&quot;&gt;&lt;span class=&quot;ic ic--sm&quot; aria-hidden=&quot;true&quot;&gt;code&lt;/span&gt;Ekspor&lt;/span&gt;
-    &lt;h3 class=&quot;feature__title&quot;&gt;Nilai siswa, dalam format yang diminta dinas.&lt;/h3&gt;
-    &lt;p class=&quot;feature__body&quot;&gt;Ekspor nilai satu semester sebagai spreadsheet, laporan PDF atau berkas untuk sistem data pendidikan.&lt;/p&gt;
+    &lt;h3 class=&quot;feature__title&quot;&gt;Data penerima bantuan sosial, dalam format yang diminta dinas.&lt;/h3&gt;
+    &lt;p class=&quot;feature__body&quot;&gt;Ekspor satu tahap penyaluran sebagai spreadsheet, laporan PDF atau berkas untuk sistem data kesejahteraan daerah.&lt;/p&gt;
     &lt;ul class=&quot;feature__points&quot;&gt;
       &lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check_circle&lt;/span&gt;&lt;span&gt;Kolomnya sesuai templat resmi.&lt;/span&gt;&lt;/li&gt;
       &lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check_circle&lt;/span&gt;&lt;span&gt;Ekspor berjalan di latar belakang.&lt;/span&gt;&lt;/li&gt;
@@ -358,9 +363,9 @@
   &lt;/div&gt;
   &lt;div class=&quot;feature__stage&quot;&gt;
     &lt;div class=&quot;seg&quot; role=&quot;group&quot; aria-label=&quot;Format&quot; data-lds-segmented style=&quot;width: 240px;&quot;&gt;&lt;span class=&quot;seg__thumb&quot;&gt;&lt;/span&gt;&lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;true&quot;&gt;CSV&lt;/button&gt;&lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;false&quot;&gt;PDF&lt;/button&gt;&lt;/div&gt;
-    &lt;div class=&quot;codeblock&quot;&gt;&lt;div class=&quot;codeblock__bar&quot;&gt;&lt;span&gt;nilai-semester-1.csv&lt;/span&gt;&lt;/div&gt;&lt;pre&gt;student_id,name,grade
-2026001,Siti Rahmawati,A
-2026002,Budi Santoso,B+&lt;/pre&gt;&lt;/div&gt;
+    &lt;div class=&quot;codeblock&quot;&gt;&lt;div class=&quot;codeblock__bar&quot;&gt;&lt;span&gt;penerima-bansos-tahap-1.csv&lt;/span&gt;&lt;/div&gt;&lt;pre&gt;nik,nama,kelurahan,status
+1871 •••• •••• 0042,Siti Rahmawati,Way Halim,terverifikasi
+1871 •••• •••• 0317,Budi Santoso,Kedaton,menunggu&lt;/pre&gt;&lt;/div&gt;
     &lt;span class=&quot;feature__caption&quot;&gt;Data contoh.&lt;/span&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
@@ -368,8 +373,8 @@
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;feature&quot; style=&quot;width: 100%;&quot;&gt;
   &lt;div class=&quot;feature__copy&quot;&gt;
     &lt;span class=&quot;msec__eyebrow&quot;&gt;&lt;span class=&quot;ic ic--sm&quot; aria-hidden=&quot;true&quot;&gt;code&lt;/span&gt;Ekspor&lt;/span&gt;
-    &lt;h3 class=&quot;feature__title&quot;&gt;Nilai siswa, dalam format yang diminta dinas.&lt;/h3&gt;
-    &lt;p class=&quot;feature__body&quot;&gt;Ekspor nilai satu semester sebagai spreadsheet, laporan PDF atau berkas untuk sistem data pendidikan.&lt;/p&gt;
+    &lt;h3 class=&quot;feature__title&quot;&gt;Data penerima bantuan sosial, dalam format yang diminta dinas.&lt;/h3&gt;
+    &lt;p class=&quot;feature__body&quot;&gt;Ekspor satu tahap penyaluran sebagai spreadsheet, laporan PDF atau berkas untuk sistem data kesejahteraan daerah.&lt;/p&gt;
     &lt;ul class=&quot;feature__points&quot;&gt;
       &lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check_circle&lt;/span&gt;&lt;span&gt;Kolomnya sesuai templat resmi.&lt;/span&gt;&lt;/li&gt;
       &lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check_circle&lt;/span&gt;&lt;span&gt;Ekspor berjalan di latar belakang.&lt;/span&gt;&lt;/li&gt;
@@ -377,9 +382,9 @@
   &lt;/div&gt;
   &lt;div class=&quot;feature__stage&quot;&gt;
     &lt;div class=&quot;seg&quot; role=&quot;group&quot; aria-label=&quot;Format&quot; data-lds-segmented style=&quot;width: 240px;&quot;&gt;&lt;span class=&quot;seg__thumb&quot;&gt;&lt;/span&gt;&lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;true&quot;&gt;CSV&lt;/button&gt;&lt;button class=&quot;seg__btn&quot; aria-pressed=&quot;false&quot;&gt;PDF&lt;/button&gt;&lt;/div&gt;
-    &lt;div class=&quot;codeblock&quot;&gt;&lt;div class=&quot;codeblock__bar&quot;&gt;&lt;span&gt;nilai-semester-1.csv&lt;/span&gt;&lt;/div&gt;&lt;pre&gt;student_id,name,grade
-2026001,Siti Rahmawati,A
-2026002,Budi Santoso,B+&lt;/pre&gt;&lt;/div&gt;
+    &lt;div class=&quot;codeblock&quot;&gt;&lt;div class=&quot;codeblock__bar&quot;&gt;&lt;span&gt;penerima-bansos-tahap-1.csv&lt;/span&gt;&lt;/div&gt;&lt;pre&gt;nik,nama,kelurahan,status
+1871 •••• •••• 0042,Siti Rahmawati,Way Halim,terverifikasi
+1871 •••• •••• 0317,Budi Santoso,Kedaton,menunggu&lt;/pre&gt;&lt;/div&gt;
     &lt;span class=&quot;feature__caption&quot;&gt;Data contoh.&lt;/span&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
@@ -443,6 +448,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Navigation">Navigation</a></li></ol></nav>
           <h1>Sidebar</h1>
           <p class="cdoc__lede">A bordered panel of links with one sliding highlight, placed inside the content: the sections of a settings page, the folders of an inbox. Not the frame of the app.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="sidebar.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="sidebar.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A page has its own secondary sections listed beside the content: Settings (Profile, Notifications, Billing), a help center category, inbox folders.</li><li>A two-column layout (<code class="code">split-2</code>) where the left column lists what the right column shows.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>The main navigation of the whole app, sticky at full height with a phone drawer: use <a class="link" href="app-shell.html">App shell</a>. The shell already has a highlight, groups and sections.</li><li>Site-wide links across the top: use <a class="link" href="top-nav.html">Top nav</a>.</li><li>Jumping to headings of one long page: use <a class="link" href="outline.html">Outline</a>.</li><li>Two to five sibling sections that fit across the page: use <a class="link" href="tabs.html">Tabs</a>.</li><li>A tree of folders that open and close: use <a class="link" href="tree.html">Tree</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In the left column of a <code class="code">split-2</code> inside the content, 240 px wide, at the top of that column. Below 860 px <code class="code">split-2</code> stacks it above the content; on phones prefer a <a class="link" href="list.html">list</a> of links that each open a page.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
@@ -329,8 +334,8 @@
   <span class="sidebar__head">Workspace</span>
   <button class="sidebar__item"><span class="ic" aria-hidden="true">home</span>Home</button>
   <button class="sidebar__item"><span class="ic" aria-hidden="true">calendar_month</span>Schedule</button>
-  <button class="sidebar__item" aria-current="page"><span class="ic" aria-hidden="true">menu_book</span>Courses<span class="sidebar__badge">6</span></button>
-  <button class="sidebar__item"><span class="ic" aria-hidden="true">assignment</span>Assignments<span class="sidebar__badge">3</span></button>
+  <button class="sidebar__item" aria-current="page"><span class="ic" aria-hidden="true">menu_book</span>Services<span class="sidebar__badge">6</span></button>
+  <button class="sidebar__item"><span class="ic" aria-hidden="true">assignment</span>Applications<span class="sidebar__badge">3</span></button>
   <button class="sidebar__item"><span class="ic" aria-hidden="true">receipt_long</span>Billing</button>
   <button class="sidebar__item"><span class="ic" aria-hidden="true">settings</span>Settings</button>
 </nav></div>
@@ -342,7 +347,7 @@
   &lt;span class=&quot;sidebar__hl&quot; aria-hidden=&quot;true&quot; style=&quot;transform: translateY(120px);&quot;&gt;&lt;/span&gt;
   &lt;span class=&quot;sidebar__head&quot;&gt;Workspace&lt;/span&gt;
   &lt;a class=&quot;sidebar__item&quot; href=&quot;/home&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;home&lt;/span&gt;Home&lt;/a&gt;
-  &lt;a class=&quot;sidebar__item&quot; href=&quot;/courses&quot; aria-current=&quot;page&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;menu_book&lt;/span&gt;Courses&lt;span class=&quot;sidebar__badge&quot;&gt;6&lt;/span&gt;&lt;/a&gt;
+  &lt;a class=&quot;sidebar__item&quot; href=&quot;/services&quot; aria-current=&quot;page&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;menu_book&lt;/span&gt;Services&lt;span class=&quot;sidebar__badge&quot;&gt;6&lt;/span&gt;&lt;/a&gt;
 &lt;/nav&gt;
 &lt;script type=&quot;module&quot;&gt;
   // Move the one highlight to the current item
@@ -355,7 +360,7 @@
   &lt;span class=&quot;sidebar__hl&quot; aria-hidden=&quot;true&quot; style=&quot;transform: translateY(120px);&quot;&gt;&lt;/span&gt;
   &lt;span class=&quot;sidebar__head&quot;&gt;Workspace&lt;/span&gt;
   &lt;a class=&quot;sidebar__item&quot; href=&quot;/home&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;home&lt;/span&gt;Home&lt;/a&gt;
-  &lt;a class=&quot;sidebar__item&quot; href=&quot;/courses&quot; aria-current=&quot;page&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;menu_book&lt;/span&gt;Courses&lt;span class=&quot;sidebar__badge&quot;&gt;6&lt;/span&gt;&lt;/a&gt;
+  &lt;a class=&quot;sidebar__item&quot; href=&quot;/services&quot; aria-current=&quot;page&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;menu_book&lt;/span&gt;Services&lt;span class=&quot;sidebar__badge&quot;&gt;6&lt;/span&gt;&lt;/a&gt;
 &lt;/nav&gt;
 &lt;script type=&quot;module&quot;&gt;
   // Move the one highlight to the current item
@@ -374,7 +379,7 @@
     <a class="sidebar__item" href="#sb2"><span class="ic" aria-hidden="true">lock</span>Password and sign in</a>
   </nav>
   <div class="section" id="sb2">
-    <div class="section__head"><h2>Profile</h2><p class="section__sub">How your name and photo appear to lecturers and classmates.</p></div>
+    <div class="section__head"><h2>Profile</h2><p class="section__sub">How your name and photo appear to service officers.</p></div>
   </div>
 </div></div>
           
@@ -389,7 +394,7 @@
     &lt;a class=&quot;sidebar__item&quot; href=&quot;#sb2&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;lock&lt;/span&gt;Password and sign in&lt;/a&gt;
   &lt;/nav&gt;
   &lt;div class=&quot;section&quot; id=&quot;sb2&quot;&gt;
-    &lt;div class=&quot;section__head&quot;&gt;&lt;h2&gt;Profile&lt;/h2&gt;&lt;p class=&quot;section__sub&quot;&gt;How your name and photo appear to lecturers and classmates.&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;section__head&quot;&gt;&lt;h2&gt;Profile&lt;/h2&gt;&lt;p class=&quot;section__sub&quot;&gt;How your name and photo appear to service officers.&lt;/p&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
@@ -401,7 +406,7 @@
     &lt;a class=&quot;sidebar__item&quot; href=&quot;#sb2&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;lock&lt;/span&gt;Password and sign in&lt;/a&gt;
   &lt;/nav&gt;
   &lt;div class=&quot;section&quot; id=&quot;sb2&quot;&gt;
-    &lt;div class=&quot;section__head&quot;&gt;&lt;h2&gt;Profile&lt;/h2&gt;&lt;p class=&quot;section__sub&quot;&gt;How your name and photo appear to lecturers and classmates.&lt;/p&gt;&lt;/div&gt;
+    &lt;div class=&quot;section__head&quot;&gt;&lt;h2&gt;Profile&lt;/h2&gt;&lt;p class=&quot;section__sub&quot;&gt;How your name and photo appear to service officers.&lt;/p&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
@@ -430,6 +435,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

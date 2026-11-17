@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,23 +321,27 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Feedback">Feedback</a></li></ol></nav>
           <h1>Coachmark</h1>
           <p class="cdoc__lede">An inverse card that points at one part of the interface with a short explanation, in a tour of at most three steps. Always skippable.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="coachmark.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="coachmark.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A new feature lives somewhere the person would not look, and one sentence pointing at it saves a support question.</li><li>A short first-run tour (one to three steps) through a dense screen, such as the exam editor or a grade book.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>A one-time tip that does not need to point at a control: use <a class="link" href="hints.html">Hints</a>.</li><li>Explaining a term or an icon on hover or focus: use <a class="link" href="tooltip.html">Tooltip</a>.</li><li>Rich, interactive content opened by a click: use <a class="link" href="popover.html">Popover</a>.</li><li>Announcing something about the whole app: use <a class="link" href="banner.html">Banner</a>.</li><li>The interface needs a tour of more than three steps: use <a class="link" href="empty-state.html">Empty state</a>. Usually the screen needs a better first-run state, not a longer tour.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Directly under the control it explains, with its arrow aimed at it (the arrow is on the top edge, placed with <code class="code">--arrow</code>). The container must be positioned (<code class="code">position: relative</code>). On phones keep it inside the screen width (280 px card) and below the target.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A new feature lives somewhere the person would not look, and one sentence pointing at it saves a support question.</li><li>A short first-run tour (one to three steps) through a dense screen, such as the permit application form editor or a tax ledger.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>A one-time tip that does not need to point at a control: use <a class="link" href="hints.html">Hints</a>.</li><li>Explaining a term or an icon on hover or focus: use <a class="link" href="tooltip.html">Tooltip</a>.</li><li>Rich, interactive content opened by a click: use <a class="link" href="popover.html">Popover</a>.</li><li>Announcing something about the whole app: use <a class="link" href="banner.html">Banner</a>.</li><li>The interface needs a tour of more than three steps: use <a class="link" href="empty-state.html">Empty state</a>. Usually the screen needs a better first-run state, not a longer tour.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Directly under the control it explains, with its arrow aimed at it (the arrow is on the top edge, placed with <code class="code">--arrow</code>). The container must be positioned (<code class="code">position: relative</code>). On phones keep it inside the screen width (280 px card) and below the target.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">A three-step tour</span><span class="cdoc__ex-d">The card glides to the next target and the arrow follows. Press Next.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div style="position: relative; min-height: 260px;" id="cm">
   <div class="docs-row">
     <button class="btn btn--secondary btn--md is-lit" data-step="0"><span class="ic" aria-hidden="true">search</span>Search</button>
     <button class="btn btn--secondary btn--md" data-step="1"><span class="ic" aria-hidden="true">filter_list</span>Filter</button>
-    <button class="btn btn--primary btn--md" data-step="2"><span class="ic" aria-hidden="true">add</span>New note</button>
+    <button class="btn btn--primary btn--md" data-step="2"><span class="ic" aria-hidden="true">add</span>New report</button>
   </div>
   <div class="coach" role="dialog" aria-labelledby="cm-t" aria-describedby="cm-b" style="top: 64px; left: 0;">
     <div class="coach__step" id="cm-s">Step 1 of 3</div>
-    <div class="coach__title" id="cm-t">Search every note</div>
-    <div class="coach__body" id="cm-b">Find a note by any word in it, not only the title.</div>
+    <div class="coach__title" id="cm-t">Search every report</div>
+    <div class="coach__body" id="cm-b">Find a report by any word in it, not only the title.</div>
     <div class="docs-row" style="gap: 8px; margin-top: 14px; justify-content: flex-end;">
       <button class="btn btn--sm" onclick="this.closest('.coach').hidden = true; document.querySelectorAll('#cm [data-step]').forEach((b) => b.classList.remove('is-lit'));">Skip</button>
-      <button class="btn btn--sm is-primary" onclick="const box = document.getElementById('cm'); const c = box.querySelector('.coach'); const n = Number(c.dataset.n || 0) + 1; const t = [['Search every note', 'Find a note by any word in it, not only the title.'], ['Filter by course', 'Show only the notes from one course or one week.'], ['Start a new note', 'It saves as you type, even offline.']]; if (n > 2) { c.hidden = true; box.querySelectorAll('[data-step]').forEach((b) => b.classList.remove('is-lit')); return; } c.dataset.n = n; const target = box.querySelector('[data-step=&quot;' + n + '&quot;]'); box.querySelectorAll('[data-step]').forEach((b) => b.classList.toggle('is-lit', b === target)); c.style.transform = 'translateX(' + Math.max(0, target.offsetLeft - 8) + 'px)'; c.style.setProperty('--arrow', Math.min(240, target.offsetWidth / 2 + 2) + 'px'); document.getElementById('cm-s').textContent = 'Step ' + (n + 1) + ' of 3'; document.getElementById('cm-t').textContent = t[n][0]; document.getElementById('cm-b').textContent = t[n][1]; if (n === 2) this.textContent = 'Done';">Next</button>
+      <button class="btn btn--sm is-primary" onclick="const box = document.getElementById('cm'); const c = box.querySelector('.coach'); const n = Number(c.dataset.n || 0) + 1; const t = [['Search every report', 'Find a report by any word in it, not only the title.'], ['Filter by kecamatan', 'Show only the reports from one kecamatan or one week.'], ['Start a new report', 'It saves as you type, even offline.']]; if (n > 2) { c.hidden = true; box.querySelectorAll('[data-step]').forEach((b) => b.classList.remove('is-lit')); return; } c.dataset.n = n; const target = box.querySelector('[data-step=&quot;' + n + '&quot;]'); box.querySelectorAll('[data-step]').forEach((b) => b.classList.toggle('is-lit', b === target)); c.style.transform = 'translateX(' + Math.max(0, target.offsetLeft - 8) + 'px)'; c.style.setProperty('--arrow', Math.min(240, target.offsetWidth / 2 + 2) + 'px'); document.getElementById('cm-s').textContent = 'Step ' + (n + 1) + ' of 3'; document.getElementById('cm-t').textContent = t[n][0]; document.getElementById('cm-b').textContent = t[n][1]; if (n === 2) this.textContent = 'Done';">Next</button>
     </div>
   </div>
 </div></div>
@@ -344,15 +349,15 @@
   <div class="docs-row">
     <button class="btn btn--secondary btn--md is-lit" data-step="0"><span class="ic" aria-hidden="true">search</span>Search</button>
     <button class="btn btn--secondary btn--md" data-step="1"><span class="ic" aria-hidden="true">filter_list</span>Filter</button>
-    <button class="btn btn--primary btn--md" data-step="2"><span class="ic" aria-hidden="true">add</span>New note</button>
+    <button class="btn btn--primary btn--md" data-step="2"><span class="ic" aria-hidden="true">add</span>New report</button>
   </div>
   <div class="coach" role="dialog" aria-labelledby="cm-t" aria-describedby="cm-b" style="top: 64px; left: 0;">
     <div class="coach__step" id="cm-s">Step 1 of 3</div>
-    <div class="coach__title" id="cm-t">Search every note</div>
-    <div class="coach__body" id="cm-b">Find a note by any word in it, not only the title.</div>
+    <div class="coach__title" id="cm-t">Search every report</div>
+    <div class="coach__body" id="cm-b">Find a report by any word in it, not only the title.</div>
     <div class="docs-row" style="gap: 8px; margin-top: 14px; justify-content: flex-end;">
       <button class="btn btn--sm" onclick="this.closest('.coach').hidden = true; document.querySelectorAll('#cm [data-step]').forEach((b) => b.classList.remove('is-lit'));">Skip</button>
-      <button class="btn btn--sm is-primary" onclick="const box = document.getElementById('cm'); const c = box.querySelector('.coach'); const n = Number(c.dataset.n || 0) + 1; const t = [['Search every note', 'Find a note by any word in it, not only the title.'], ['Filter by course', 'Show only the notes from one course or one week.'], ['Start a new note', 'It saves as you type, even offline.']]; if (n > 2) { c.hidden = true; box.querySelectorAll('[data-step]').forEach((b) => b.classList.remove('is-lit')); return; } c.dataset.n = n; const target = box.querySelector('[data-step=&quot;' + n + '&quot;]'); box.querySelectorAll('[data-step]').forEach((b) => b.classList.toggle('is-lit', b === target)); c.style.transform = 'translateX(' + Math.max(0, target.offsetLeft - 8) + 'px)'; c.style.setProperty('--arrow', Math.min(240, target.offsetWidth / 2 + 2) + 'px'); document.getElementById('cm-s').textContent = 'Step ' + (n + 1) + ' of 3'; document.getElementById('cm-t').textContent = t[n][0]; document.getElementById('cm-b').textContent = t[n][1]; if (n === 2) this.textContent = 'Done';">Next</button>
+      <button class="btn btn--sm is-primary" onclick="const box = document.getElementById('cm'); const c = box.querySelector('.coach'); const n = Number(c.dataset.n || 0) + 1; const t = [['Search every report', 'Find a report by any word in it, not only the title.'], ['Filter by kecamatan', 'Show only the reports from one kecamatan or one week.'], ['Start a new report', 'It saves as you type, even offline.']]; if (n > 2) { c.hidden = true; box.querySelectorAll('[data-step]').forEach((b) => b.classList.remove('is-lit')); return; } c.dataset.n = n; const target = box.querySelector('[data-step=&quot;' + n + '&quot;]'); box.querySelectorAll('[data-step]').forEach((b) => b.classList.toggle('is-lit', b === target)); c.style.transform = 'translateX(' + Math.max(0, target.offsetLeft - 8) + 'px)'; c.style.setProperty('--arrow', Math.min(240, target.offsetWidth / 2 + 2) + 'px'); document.getElementById('cm-s').textContent = 'Step ' + (n + 1) + ' of 3'; document.getElementById('cm-t').textContent = t[n][0]; document.getElementById('cm-b').textContent = t[n][1]; if (n === 2) this.textContent = 'Done';">Next</button>
     </div>
   </div>
 </div></template>
@@ -363,8 +368,8 @@
   &lt;button class=&quot;btn btn--secondary btn--md is-lit&quot; id=&quot;search-btn&quot;&gt;Search&lt;/button&gt;
   &lt;div class=&quot;coach&quot; role=&quot;dialog&quot; aria-labelledby=&quot;coach-t&quot; aria-describedby=&quot;coach-b&quot; style=&quot;top: 64px; left: 0; --arrow: 40px;&quot;&gt;
     &lt;div class=&quot;coach__step&quot;&gt;Step 1 of 3&lt;/div&gt;
-    &lt;div class=&quot;coach__title&quot; id=&quot;coach-t&quot;&gt;Search every note&lt;/div&gt;
-    &lt;div class=&quot;coach__body&quot; id=&quot;coach-b&quot;&gt;Find a note by any word in it, not only the title.&lt;/div&gt;
+    &lt;div class=&quot;coach__title&quot; id=&quot;coach-t&quot;&gt;Search every report&lt;/div&gt;
+    &lt;div class=&quot;coach__body&quot; id=&quot;coach-b&quot;&gt;Find a report by any word in it, not only the title.&lt;/div&gt;
     &lt;div class=&quot;cluster&quot; style=&quot;margin-top: 14px; justify-content: flex-end;&quot;&gt;
       &lt;button class=&quot;btn btn--sm&quot;&gt;Skip&lt;/button&gt;
       &lt;button class=&quot;btn btn--sm is-primary&quot;&gt;Next&lt;/button&gt;
@@ -376,8 +381,8 @@
   &lt;button class=&quot;btn btn--secondary btn--md is-lit&quot; id=&quot;search-btn&quot;&gt;Search&lt;/button&gt;
   &lt;div class=&quot;coach&quot; role=&quot;dialog&quot; aria-labelledby=&quot;coach-t&quot; aria-describedby=&quot;coach-b&quot; style=&quot;top: 64px; left: 0; --arrow: 40px;&quot;&gt;
     &lt;div class=&quot;coach__step&quot;&gt;Step 1 of 3&lt;/div&gt;
-    &lt;div class=&quot;coach__title&quot; id=&quot;coach-t&quot;&gt;Search every note&lt;/div&gt;
-    &lt;div class=&quot;coach__body&quot; id=&quot;coach-b&quot;&gt;Find a note by any word in it, not only the title.&lt;/div&gt;
+    &lt;div class=&quot;coach__title&quot; id=&quot;coach-t&quot;&gt;Search every report&lt;/div&gt;
+    &lt;div class=&quot;coach__body&quot; id=&quot;coach-b&quot;&gt;Find a report by any word in it, not only the title.&lt;/div&gt;
     &lt;div class=&quot;cluster&quot; style=&quot;margin-top: 14px; justify-content: flex-end;&quot;&gt;
       &lt;button class=&quot;btn btn--sm&quot;&gt;Skip&lt;/button&gt;
       &lt;button class=&quot;btn btn--sm is-primary&quot;&gt;Next&lt;/button&gt;
@@ -390,7 +395,7 @@
           <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div style="position: relative; min-height: 210px;">
   <button class="btn btn--gray btn--md is-lit"><span class="ic" aria-hidden="true">download</span>Export</button>
   <div class="coach" role="dialog" aria-labelledby="cm2-t" style="top: 60px; left: 0; --arrow: 36px;">
-    <div class="coach__title" id="cm2-t">Export grades to a spreadsheet</div>
+    <div class="coach__title" id="cm2-t">Export retribusi data to a spreadsheet</div>
     <div class="coach__body">Every column you see is included, in the same order.</div>
     <div class="docs-row" style="margin-top: 14px; justify-content: flex-end;"><button class="btn btn--sm is-primary" onclick="this.closest('.coach').hidden = true; this.closest('.coach').parentElement.querySelector('.is-lit').classList.remove('is-lit');">Got it</button></div>
   </div>
@@ -402,7 +407,7 @@
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div style=&quot;position: relative; min-height: 210px;&quot;&gt;
   &lt;button class=&quot;btn btn--gray btn--md is-lit&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Export&lt;/button&gt;
   &lt;div class=&quot;coach&quot; role=&quot;dialog&quot; aria-labelledby=&quot;cm2-t&quot; style=&quot;top: 60px; left: 0; --arrow: 36px;&quot;&gt;
-    &lt;div class=&quot;coach__title&quot; id=&quot;cm2-t&quot;&gt;Export grades to a spreadsheet&lt;/div&gt;
+    &lt;div class=&quot;coach__title&quot; id=&quot;cm2-t&quot;&gt;Export retribusi data to a spreadsheet&lt;/div&gt;
     &lt;div class=&quot;coach__body&quot;&gt;Every column you see is included, in the same order.&lt;/div&gt;
     &lt;div class=&quot;docs-row&quot; style=&quot;margin-top: 14px; justify-content: flex-end;&quot;&gt;&lt;button class=&quot;btn btn--sm is-primary&quot; onclick=&quot;this.closest('.coach').hidden = true; this.closest('.coach').parentElement.querySelector('.is-lit').classList.remove('is-lit');&quot;&gt;Got it&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
@@ -411,7 +416,7 @@
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div style=&quot;position: relative; min-height: 210px;&quot;&gt;
   &lt;button class=&quot;btn btn--gray btn--md is-lit&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Export&lt;/button&gt;
   &lt;div class=&quot;coach&quot; role=&quot;dialog&quot; aria-labelledby=&quot;cm2-t&quot; style=&quot;top: 60px; left: 0; --arrow: 36px;&quot;&gt;
-    &lt;div class=&quot;coach__title&quot; id=&quot;cm2-t&quot;&gt;Export grades to a spreadsheet&lt;/div&gt;
+    &lt;div class=&quot;coach__title&quot; id=&quot;cm2-t&quot;&gt;Export retribusi data to a spreadsheet&lt;/div&gt;
     &lt;div class=&quot;coach__body&quot;&gt;Every column you see is included, in the same order.&lt;/div&gt;
     &lt;div class=&quot;docs-row&quot; style=&quot;margin-top: 14px; justify-content: flex-end;&quot;&gt;&lt;button class=&quot;btn btn--sm is-primary&quot; onclick=&quot;this.closest('.coach').hidden = true; this.closest('.coach').parentElement.querySelector('.is-lit').classList.remove('is-lit');&quot;&gt;Got it&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
@@ -420,7 +425,7 @@
         <section class="cdoc__sec" id="anatomy"><h2>Anatomy</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Part</th><th>What it is</th></tr></thead><tbody><tr><td><code class="code">.coach</code></td><td>Required. A 280 px inverse card, absolutely positioned inside a relative container; set <code class="code">top</code>/<code class="code">left</code> (or <code class="code">transform</code>) to place it.</td></tr><tr><td><code class="code">.coach::before</code></td><td>The arrow on the top edge. Move it with <code class="code">--arrow</code> (left offset, default 24 px); it glides when the value changes.</td></tr><tr><td><code class="code">.coach__step</code></td><td>&quot;Step 1 of 3&quot;.</td></tr><tr><td><code class="code">.coach__title</code></td><td>Required. What this is, in a few words.</td></tr><tr><td><code class="code">.coach__body</code></td><td>One sentence: why it helps.</td></tr><tr><td><code class="code">.btn.btn--sm</code></td><td>Skip (inverse tint) and Next or Done (<code class="code">.btn--sm.is-primary</code>, accent).</td></tr><tr><td><code class="code">.is-lit</code></td><td>On the target: a ring in the accent with a gap, so the person sees what is meant.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="states"><h2>States</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>State</th><th>How</th></tr></thead><tbody><tr><td><code class="code">open</code></td><td>The card is placed under the target and the target has <code class="code">.is-lit</code>.</td></tr><tr><td><code class="code">next step</code></td><td>Move the card (<code class="code">transform</code>) and the arrow (<code class="code">--arrow</code>); change the text; move <code class="code">.is-lit</code>.</td></tr><tr><td><code class="code">skipped or done</code></td><td>Remove the card and <code class="code">.is-lit</code>, and remember it so the tour never shows again.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="motion"><h2>Motion and microinteractions</h2><ul class="cdoc__list"><li>Between steps the card glides with <code class="code">transform</code> on <code class="code">--spring-smooth</code> (<code class="code">--d-smooth</code>, 560 ms) and the arrow slides with <code class="code">left</code> on the same spring, so the eye follows to the new target instead of losing it.</li><li>New step text may rise in with <code class="code">lds-rise</code> over <code class="code">--d-standard</code> (240 ms) on <code class="code">--ease-enter</code>.</li><li>Opacity uses <code class="code">--d-standard</code> on <code class="code">--ease-enter</code>. Reduced motion: moves become 120 ms linear changes.</li></ul></section>
-        <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li><code class="code">role=&quot;dialog&quot;</code> (non-modal) with <code class="code">aria-labelledby</code> the title and <code class="code">aria-describedby</code> the body. Move focus to the Next button when it opens, and back to the target when it closes.</li><li>Escape must skip the tour; wire it in the app (there is no built-in behavior).</li><li>The page stays usable behind it: no scrim, no focus trap.</li><li>The lit ring is not the only cue; the text names the control (&quot;Filter by course&quot;).</li></ul></section>
+        <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li><code class="code">role=&quot;dialog&quot;</code> (non-modal) with <code class="code">aria-labelledby</code> the title and <code class="code">aria-describedby</code> the body. Move focus to the Next button when it opens, and back to the target when it closes.</li><li>Escape must skip the tour; wire it in the app (there is no built-in behavior).</li><li>The page stays usable behind it: no scrim, no focus trap.</li><li>The lit ring is not the only cue; the text names the control (&quot;Filter by kecamatan&quot;).</li></ul></section>
         <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Point at one control per step, three steps at most.</li><li>Always offer Skip, and never show a finished tour again.</li><li>Start the tour only after the screen has loaded and the person is idle.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Chain coachmarks across pages.</li><li>Explain what the label already says (&quot;This is the search button&quot;).</li><li>Cover the control it points at.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Behavior and code</h2><p class="cdoc__p"><strong>Plain HTML.</strong> No built-in behavior: placing the card, moving <code class="code">--arrow</code>, toggling <code class="code">.is-lit</code>, Escape and remembering completion are up to the app.</p></section>
         <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="hints.html"><span class="link-card__eyebrow">Microinteractions</span><span class="link-card__title">Hints</span><span class="link-card__body">A short tip that teaches a shortcut or a gesture, shown on the first few visits only and gone for good once closed. It gets quieter with use: by the time people know the trick, the hint has retired itself.</span></a><a class="link-card" href="tooltip.html"><span class="link-card__eyebrow">Overlays</span><span class="link-card__title">Tooltip</span><span class="link-card__body">A short dark label above a control on hover or focus, after a 500 ms wait. Names icon buttons and shortcuts; with `.infotip` and `.tip--wide` it explains a term in a sentence or two. CSS only.</span></a><a class="link-card" href="popover.html"><span class="link-card__eyebrow">Overlays</span><span class="link-card__title">Popover</span><span class="link-card__body">A small floating card anchored to a button, for content richer than a menu: a mini form, a short explanation with a link, a quick setting. It does not block the page.</span></a><a class="link-card" href="banner.html"><span class="link-card__eyebrow">Feedback</span><span class="link-card__title">Banner</span><span class="link-card__body">One inverse line about the whole app: offline, maintenance, viewing as someone else. It says the condition and offers at most one action.</span></a></div></section>
@@ -442,6 +447,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

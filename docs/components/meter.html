@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Feedback">Umpan balik</a></li></ol></nav>
           <h1>Meter</h1>
           <p class="cdoc__lede">Pengukur bersegmen untuk tingkat dalam rentang yang diketahui: penyimpanan terpakai, kuota terisi, kekuatan kata sandi. Menunjukkan seberapa penuh, bukan seberapa jauh kemajuannya.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="meter.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="meter.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Jumlah terhadap batas: penyimpanan terpakai, kuota pendaftar dalam satu kelas pelatihan, jumlah laporan dibanding jatah.</li><li>Tingkat kekuatan atau kualitas dalam beberapa langkah, seperti kekuatan kata sandi (empat segmen).</li><li>Tingkat yang berubah menjadi peringatan mendekati batas (<code class="code">.is-warn</code>) dan masalah saat mencapai batas (<code class="code">.is-full</code>).</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Tugas yang maju sampai selesai: pakai <a class="link" href="progress-bar.html">Progress bar</a>.</li><li>Satu skor dalam kotak ringkas: pakai <a class="link" href="progress-ring.html">Progress ring</a>.</li><li>Bagian dari keseluruhan lintas kategori: pakai <a class="link" href="percentage-bar.html">Percentage bar</a>.</li><li>Orang memberi penilaian: pakai <a class="link" href="rating.html">Rating</a>.</li><li>Grid aktivitas per hari: pakai <a class="link" href="heatmap.html">Heatmap</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di bawah label yang menyebut jumlahnya, dengan nilai dalam kata-kata (<code class="code">.progress-meta</code> bisa dipakai sebagai header). Di baris pengaturan, di bawah kolom kata sandi, di card paket atau penyimpanan. Selebar wadahnya; 160 sampai 320 px paling mudah dibaca.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -366,21 +371,21 @@
 <figure class="cdoc__ex" id="ex-2">
           <figcaption><span class="cdoc__ex-t">Kuota terisi</span><span class="cdoc__ex-d">Saat penuh, segmen berubah menjadi danger; kata &quot;penuh&quot; ditulis di sampingnya.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div style="max-width: 320px; width: 100%;">
-  <div class="progress-meta"><span id="m3">Kuota peserta pelatihan</span><b>40 dari 40, penuh</b></div>
-  <div class="meter-seg is-full" role="meter" aria-labelledby="m3" aria-valuemin="0" aria-valuemax="40" aria-valuenow="40" aria-valuetext="40 dari 40 kursi, penuh"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+  <div class="progress-meta"><span id="m3">Kuota pelatihan UMKM</span><b>40 dari 40, penuh</b></div>
+  <div class="meter-seg is-full" role="meter" aria-labelledby="m3" aria-valuemin="0" aria-valuemax="40" aria-valuenow="40" aria-valuetext="40 dari 40 tempat, penuh"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div style=&quot;max-width: 320px; width: 100%;&quot;&gt;
-  &lt;div class=&quot;progress-meta&quot;&gt;&lt;span id=&quot;m3&quot;&gt;Kuota peserta pelatihan&lt;/span&gt;&lt;b&gt;40 dari 40, penuh&lt;/b&gt;&lt;/div&gt;
-  &lt;div class=&quot;meter-seg is-full&quot; role=&quot;meter&quot; aria-labelledby=&quot;m3&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;40&quot; aria-valuenow=&quot;40&quot; aria-valuetext=&quot;40 dari 40 kursi, penuh&quot;&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;div class=&quot;progress-meta&quot;&gt;&lt;span id=&quot;m3&quot;&gt;Kuota pelatihan UMKM&lt;/span&gt;&lt;b&gt;40 dari 40, penuh&lt;/b&gt;&lt;/div&gt;
+  &lt;div class=&quot;meter-seg is-full&quot; role=&quot;meter&quot; aria-labelledby=&quot;m3&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;40&quot; aria-valuenow=&quot;40&quot; aria-valuetext=&quot;40 dari 40 tempat, penuh&quot;&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div style=&quot;max-width: 320px; width: 100%;&quot;&gt;
-  &lt;div class=&quot;progress-meta&quot;&gt;&lt;span id=&quot;m3&quot;&gt;Kuota peserta pelatihan&lt;/span&gt;&lt;b&gt;40 dari 40, penuh&lt;/b&gt;&lt;/div&gt;
-  &lt;div class=&quot;meter-seg is-full&quot; role=&quot;meter&quot; aria-labelledby=&quot;m3&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;40&quot; aria-valuenow=&quot;40&quot; aria-valuetext=&quot;40 dari 40 kursi, penuh&quot;&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;/div&gt;
+  &lt;div class=&quot;progress-meta&quot;&gt;&lt;span id=&quot;m3&quot;&gt;Kuota pelatihan UMKM&lt;/span&gt;&lt;b&gt;40 dari 40, penuh&lt;/b&gt;&lt;/div&gt;
+  &lt;div class=&quot;meter-seg is-full&quot; role=&quot;meter&quot; aria-labelledby=&quot;m3&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;40&quot; aria-valuenow=&quot;40&quot; aria-valuetext=&quot;40 dari 40 tempat, penuh&quot;&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;i class=&quot;on&quot;&gt;&lt;/i&gt;&lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-3">
@@ -431,6 +436,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

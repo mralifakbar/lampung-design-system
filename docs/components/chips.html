@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Selection">Pilihan</a></li></ol></nav>
           <h1>Chips</h1>
           <p class="cdoc__lede">Tombol toggle berbentuk pil dalam baris yang bisa turun baris, untuk filter dan pilihan cepat yang langsung berlaku saat diketuk. Chip yang tertekan menjadi warna aksen dan tanda centang bergeser masuk.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="chips.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="chips.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Menyaring daftar dengan beberapa nilai sekaligus: hari dalam seminggu, bidang layanan, status.</li><li>Pilihan cepat dari set pendek yang semua opsinya harus terlihat: nominal siap pilih, slot jam, balasan cepat.</li><li>Pilihan ganda ringkas di ponsel ketika checkbox akan memakan terlalu banyak tinggi.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Nilai yang diketik dan dibuat orang sendiri (topik, email): pakai <a class="link" href="tag-input.html">Tag input</a>.</li><li>Dua sampai lima tampilan dari konten yang sama, tepat satu setiap saat: pakai <a class="link" href="segmented-control.html">Segmented control</a>.</li><li>Pilihan yang disimpan di formulir dan butuh penjelasan: pakai <a class="link" href="checkbox.html">Checkbox</a>. Atau <a class="link" href="radio.html">radio</a> untuk satu pilihan.</li><li>Label status atau kategori yang tidak bisa diklik: pakai <a class="link" href="badge.html">Badge</a>.</li><li>Daftar opsi yang panjang: pakai <a class="link" href="select.html">Select</a>. Atau <a class="link" href="combobox.html">combobox</a></li><li>Satu pengaturan nyala dan mati: pakai <a class="link" href="switch.html">Switch</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Tepat di atas konten yang disaringnya, di bawah <a class="link" href="search-field.html">search field</a> atau header halaman. Di dalam <code class="code">.chip-row</code> yang bisa turun baris; di ponsel satu baris boleh menggulir ke samping di dalam kontainernya alih-alih turun menjadi tiga baris.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -340,19 +345,19 @@
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
-          <figcaption><span class="cdoc__ex-t">Satu pilihan cepat</span><span class="cdoc__ex-d">Nominal isi ulang siap pilih: memilih satu melepas yang lain. Pasangkan dengan <a class="link" href="amount-field.html">amount field</a> untuk nilai sendiri.</span></figcaption>
-          <div class="cdoc__stage" id="ex-2-stage"><div class="chip-row" role="group" aria-label="Nominal isi ulang">
+          <figcaption><span class="cdoc__ex-t">Satu pilihan cepat</span><span class="cdoc__ex-d">Nominal isi ulang kartu bus Trans Bandar Lampung: memilih satu melepas yang lain. Pasangkan dengan <a class="link" href="amount-field.html">amount field</a> untuk nilai sendiri.</span></figcaption>
+          <div class="cdoc__stage" id="ex-2-stage"><div class="chip-row" role="group" aria-label="Nominal isi ulang kartu bus">
   <button type="button" class="chip" aria-pressed="false" onclick="this.parentElement.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c === this)))"><span class="ic chip__check" aria-hidden="true">check</span>Rp 50.000</button><button type="button" class="chip" aria-pressed="true" onclick="this.parentElement.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c === this)))"><span class="ic chip__check" aria-hidden="true">check</span>Rp 100.000</button><button type="button" class="chip" aria-pressed="false" onclick="this.parentElement.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c === this)))"><span class="ic chip__check" aria-hidden="true">check</span>Rp 200.000</button><button type="button" class="chip" aria-pressed="false" onclick="this.parentElement.querySelectorAll('.chip').forEach((c) => c.setAttribute('aria-pressed', String(c === this)))"><span class="ic chip__check" aria-hidden="true">check</span>Rp 500.000</button>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;chip-row&quot; role=&quot;group&quot; aria-label=&quot;Nominal isi ulang&quot;&gt;
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;chip-row&quot; role=&quot;group&quot; aria-label=&quot;Nominal isi ulang kartu bus&quot;&gt;
   &lt;button type=&quot;button&quot; class=&quot;chip&quot; aria-pressed=&quot;false&quot; onclick=&quot;this.parentElement.querySelectorAll('.chip').forEach((c) =&gt; c.setAttribute('aria-pressed', String(c === this)))&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Rp 50.000&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;chip&quot; aria-pressed=&quot;true&quot; onclick=&quot;this.parentElement.querySelectorAll('.chip').forEach((c) =&gt; c.setAttribute('aria-pressed', String(c === this)))&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Rp 100.000&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;chip&quot; aria-pressed=&quot;false&quot; onclick=&quot;this.parentElement.querySelectorAll('.chip').forEach((c) =&gt; c.setAttribute('aria-pressed', String(c === this)))&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Rp 200.000&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;chip&quot; aria-pressed=&quot;false&quot; onclick=&quot;this.parentElement.querySelectorAll('.chip').forEach((c) =&gt; c.setAttribute('aria-pressed', String(c === this)))&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Rp 500.000&lt;/button&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;chip-row&quot; role=&quot;group&quot; aria-label=&quot;Nominal isi ulang&quot;&gt;
+          <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;chip-row&quot; role=&quot;group&quot; aria-label=&quot;Nominal isi ulang kartu bus&quot;&gt;
   &lt;button type=&quot;button&quot; class=&quot;chip&quot; aria-pressed=&quot;false&quot; onclick=&quot;this.parentElement.querySelectorAll('.chip').forEach((c) =&gt; c.setAttribute('aria-pressed', String(c === this)))&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Rp 50.000&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;chip&quot; aria-pressed=&quot;true&quot; onclick=&quot;this.parentElement.querySelectorAll('.chip').forEach((c) =&gt; c.setAttribute('aria-pressed', String(c === this)))&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Rp 100.000&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;chip&quot; aria-pressed=&quot;false&quot; onclick=&quot;this.parentElement.querySelectorAll('.chip').forEach((c) =&gt; c.setAttribute('aria-pressed', String(c === this)))&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Rp 200.000&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;chip&quot; aria-pressed=&quot;false&quot; onclick=&quot;this.parentElement.querySelectorAll('.chip').forEach((c) =&gt; c.setAttribute('aria-pressed', String(c === this)))&quot;&gt;&lt;span class=&quot;ic chip__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Rp 500.000&lt;/button&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
@@ -381,6 +386,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

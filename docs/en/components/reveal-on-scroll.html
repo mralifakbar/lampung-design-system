@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,35 +321,39 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Motion">Motion</a></li></ol></nav>
           <h1>Reveal on scroll</h1>
           <p class="cdoc__lede">Figures, key numbers and illustrations fade up 4 px the first time they scroll into view, once, and never again. Body text, lists and tables are never revealed: people should be able to read and search everything at once.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="reveal-on-scroll.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="reveal-on-scroll.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>Key numbers on a results or landing page (<a class="link" href="stat-row.html">stat row</a>) that come into view as people scroll.</li><li>Illustrations, photos and charts further down a long page.</li><li>A short row of cards or figures arriving together, with a 30 ms stagger through <code class="code">--i</code>.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Paragraphs, lists, tables, forms: use <a class="link" href="prose.html">Prose</a>. They are just there. Revealing reading content makes people wait to read.</li><li>Items that arrive because the person asked (search results): use <a class="link" href="list-stagger.html">List stagger</a>.</li><li>Something opening because of a press: use <a class="link" href="enter-and-exit.html">Enter and exit</a>.</li><li>Content above the fold on load: use <a class="link" href="motion-principles.html">Motion principles</a>. It is already visible: show it at once.</li><li>Loading content that is not there yet: use <a class="link" href="skeleton.html">Skeleton</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> On individual figure-like elements: <code class="code">.stat-row__item</code>, <code class="code">.thumb</code>, <code class="code">.chart-card</code>, a <code class="code">.spotlight</code>, cards in an <code class="code">auto-grid</code>. Never on a section, a whole page or a container of text.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">Key numbers on a results page</span><span class="cdoc__ex-d">Scroll inside the box. The three figures fade up together with a 30 ms step when they come into view; scroll back and they stay put. Press Replay to watch it again.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="docs-scroll fade-edges" data-lds-fade style="height: 300px;">
   <div class="prose" style="padding-bottom: 24px;">
-    <h3>Tryout 3 results</h3>
-    <p>You answered 84 of 100 questions in 1 hour 52 minutes. Scroll down to see how that compares with your last tryout and with everyone who took it this week.</p>
-    <p>The verbal section improved the most. Numeric reasoning is close to the passing line, so the next practice set focuses there.</p>
-    <p>Scores are final once the review period ends on Friday.</p>
+    <h3>Citizen reports in October</h3>
+    <p>This month 1,248 reports came in from 20 districts. Scroll down to see how that compares with last month and how many are already resolved.</p>
+    <p>Road damage reports fell the most. Waste reports are still close to the response deadline, so cleaning crews get extra rounds.</p>
+    <p>The figures are final once verification ends on Friday.</p>
   </div>
   <div class="stat-row-wrap"><dl class="stat-row">
-    <div class="stat-row__item" data-lds-reveal style="--i: 0"><dt class="stat-row__label">Your score</dt><dd class="stat-row__value">421</dd><span class="stat-row__sub">Up 36 from tryout 2</span></div>
-    <div class="stat-row__item" data-lds-reveal style="--i: 1"><dt class="stat-row__label">Passing line</dt><dd class="stat-row__value">311</dd></div>
-    <div class="stat-row__item" data-lds-reveal style="--i: 2"><dt class="stat-row__label">Percentile</dt><dd class="stat-row__value">82</dd><span class="stat-row__sub">Among 4,120 people</span></div>
+    <div class="stat-row__item" data-lds-reveal style="--i: 0"><dt class="stat-row__label">Reports received</dt><dd class="stat-row__value">1,248</dd><span class="stat-row__sub">Up 136 from September</span></div>
+    <div class="stat-row__item" data-lds-reveal style="--i: 1"><dt class="stat-row__label">Resolved</dt><dd class="stat-row__value">1,031</dd></div>
+    <div class="stat-row__item" data-lds-reveal style="--i: 2"><dt class="stat-row__label">On time</dt><dd class="stat-row__value">82.6%</dd><span class="stat-row__sub">Target 80%</span></div>
   </dl></div>
   <div style="height: 120px;"></div>
 </div></div>
           <template id="ex-1-stage-tpl"><div class="docs-scroll fade-edges" data-lds-fade style="height: 300px;">
   <div class="prose" style="padding-bottom: 24px;">
-    <h3>Tryout 3 results</h3>
-    <p>You answered 84 of 100 questions in 1 hour 52 minutes. Scroll down to see how that compares with your last tryout and with everyone who took it this week.</p>
-    <p>The verbal section improved the most. Numeric reasoning is close to the passing line, so the next practice set focuses there.</p>
-    <p>Scores are final once the review period ends on Friday.</p>
+    <h3>Citizen reports in October</h3>
+    <p>This month 1,248 reports came in from 20 districts. Scroll down to see how that compares with last month and how many are already resolved.</p>
+    <p>Road damage reports fell the most. Waste reports are still close to the response deadline, so cleaning crews get extra rounds.</p>
+    <p>The figures are final once verification ends on Friday.</p>
   </div>
   <div class="stat-row-wrap"><dl class="stat-row">
-    <div class="stat-row__item" data-lds-reveal style="--i: 0"><dt class="stat-row__label">Your score</dt><dd class="stat-row__value">421</dd><span class="stat-row__sub">Up 36 from tryout 2</span></div>
-    <div class="stat-row__item" data-lds-reveal style="--i: 1"><dt class="stat-row__label">Passing line</dt><dd class="stat-row__value">311</dd></div>
-    <div class="stat-row__item" data-lds-reveal style="--i: 2"><dt class="stat-row__label">Percentile</dt><dd class="stat-row__value">82</dd><span class="stat-row__sub">Among 4,120 people</span></div>
+    <div class="stat-row__item" data-lds-reveal style="--i: 0"><dt class="stat-row__label">Reports received</dt><dd class="stat-row__value">1,248</dd><span class="stat-row__sub">Up 136 from September</span></div>
+    <div class="stat-row__item" data-lds-reveal style="--i: 1"><dt class="stat-row__label">Resolved</dt><dd class="stat-row__value">1,031</dd></div>
+    <div class="stat-row__item" data-lds-reveal style="--i: 2"><dt class="stat-row__label">On time</dt><dd class="stat-row__value">82.6%</dd><span class="stat-row__sub">Target 80%</span></div>
   </dl></div>
   <div style="height: 120px;"></div>
 </div></template>
@@ -376,13 +381,13 @@
 &lt;/script&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
-          <figcaption><span class="cdoc__ex-t">Pictures further down a guide</span><span class="cdoc__ex-d">Photos in a long campus guide fade up as they arrive; the text around them is already there.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Pictures further down a guide</span><span class="cdoc__ex-d">Photos in a long service guide fade up as they arrive; the text around them is already there.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="docs-scroll" style="height: 300px;">
   <div class="prose">
-    <h3>Your first week on campus</h3>
-    <p>Pick up your student card at the service desk in the main hall. Bring your ID card and the acceptance letter.</p>
-    <p>The library opens at 07:30 on weekdays. The quiet floor is the third one; group rooms can be booked a week ahead.</p>
-    <p>Lunch is served from 11:00 to 14:00 in the canteen next to building C.</p>
+    <h3>Getting a business permit at the public service mall</h3>
+    <p>Take a queue number from the machine by the entrance. Bring your KTP, family card and a photo of the business.</p>
+    <p>Counters open at 07:30 on working days. The waiting room is on the second floor; consultations can be booked a week ahead.</p>
+    <p>Levy payments are taken from 08:00 to 14:00 at the counter next to building C.</p>
   </div>
   <div class="auto-grid" style="--min: 140px; margin-top: 24px;">
     <div class="thumb" data-lds-reveal style="--i: 0"></div>
@@ -393,10 +398,10 @@
 </div></div>
           <template id="ex-2-stage-tpl"><div class="docs-scroll" style="height: 300px;">
   <div class="prose">
-    <h3>Your first week on campus</h3>
-    <p>Pick up your student card at the service desk in the main hall. Bring your ID card and the acceptance letter.</p>
-    <p>The library opens at 07:30 on weekdays. The quiet floor is the third one; group rooms can be booked a week ahead.</p>
-    <p>Lunch is served from 11:00 to 14:00 in the canteen next to building C.</p>
+    <h3>Getting a business permit at the public service mall</h3>
+    <p>Take a queue number from the machine by the entrance. Bring your KTP, family card and a photo of the business.</p>
+    <p>Counters open at 07:30 on working days. The waiting room is on the second floor; consultations can be booked a week ahead.</p>
+    <p>Levy payments are taken from 08:00 to 14:00 at the counter next to building C.</p>
   </div>
   <div class="auto-grid" style="--min: 140px; margin-top: 24px;">
     <div class="thumb" data-lds-reveal style="--i: 0"></div>
@@ -410,10 +415,10 @@
             <button class="btn btn--plain btn--sm" data-replay="ex-2-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>Replay</button>
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;docs-scroll&quot; style=&quot;height: 300px;&quot;&gt;
   &lt;div class=&quot;prose&quot;&gt;
-    &lt;h3&gt;Your first week on campus&lt;/h3&gt;
-    &lt;p&gt;Pick up your student card at the service desk in the main hall. Bring your ID card and the acceptance letter.&lt;/p&gt;
-    &lt;p&gt;The library opens at 07:30 on weekdays. The quiet floor is the third one; group rooms can be booked a week ahead.&lt;/p&gt;
-    &lt;p&gt;Lunch is served from 11:00 to 14:00 in the canteen next to building C.&lt;/p&gt;
+    &lt;h3&gt;Getting a business permit at the public service mall&lt;/h3&gt;
+    &lt;p&gt;Take a queue number from the machine by the entrance. Bring your KTP, family card and a photo of the business.&lt;/p&gt;
+    &lt;p&gt;Counters open at 07:30 on working days. The waiting room is on the second floor; consultations can be booked a week ahead.&lt;/p&gt;
+    &lt;p&gt;Levy payments are taken from 08:00 to 14:00 at the counter next to building C.&lt;/p&gt;
   &lt;/div&gt;
   &lt;div class=&quot;auto-grid&quot; style=&quot;--min: 140px; margin-top: 24px;&quot;&gt;
     &lt;div class=&quot;thumb&quot; data-lds-reveal style=&quot;--i: 0&quot;&gt;&lt;/div&gt;
@@ -425,10 +430,10 @@
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;docs-scroll&quot; style=&quot;height: 300px;&quot;&gt;
   &lt;div class=&quot;prose&quot;&gt;
-    &lt;h3&gt;Your first week on campus&lt;/h3&gt;
-    &lt;p&gt;Pick up your student card at the service desk in the main hall. Bring your ID card and the acceptance letter.&lt;/p&gt;
-    &lt;p&gt;The library opens at 07:30 on weekdays. The quiet floor is the third one; group rooms can be booked a week ahead.&lt;/p&gt;
-    &lt;p&gt;Lunch is served from 11:00 to 14:00 in the canteen next to building C.&lt;/p&gt;
+    &lt;h3&gt;Getting a business permit at the public service mall&lt;/h3&gt;
+    &lt;p&gt;Take a queue number from the machine by the entrance. Bring your KTP, family card and a photo of the business.&lt;/p&gt;
+    &lt;p&gt;Counters open at 07:30 on working days. The waiting room is on the second floor; consultations can be booked a week ahead.&lt;/p&gt;
+    &lt;p&gt;Levy payments are taken from 08:00 to 14:00 at the counter next to building C.&lt;/p&gt;
   &lt;/div&gt;
   &lt;div class=&quot;auto-grid&quot; style=&quot;--min: 140px; margin-top: 24px;&quot;&gt;
     &lt;div class=&quot;thumb&quot; data-lds-reveal style=&quot;--i: 0&quot;&gt;&lt;/div&gt;
@@ -468,6 +473,17 @@ function ResultsPage() {
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

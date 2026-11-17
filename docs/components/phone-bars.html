@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Navigation">Navigasi</a></li></ol></nav>
           <h1>Phone bars</h1>
           <p class="cdoc__lede">Bingkai layar ponsel: nav bar di atas yang judul besarnya menyatu ke dalamnya saat digulir, dan tab bar berisi tiga sampai lima tujuan di bawah. Keduanya tembus pandang sehingga konten terlihat bergulir di bawahnya.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="phone-bars.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="phone-bars.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Aplikasi yang mengutamakan ponsel atau aplikasi web terpasang dengan tiga sampai lima tujuan tingkat atas yang dipakai bergantian sepanjang hari: Hari ini, Jadwal, Layanan, Profil.</li><li>Layar ponsel yang butuh judul, tombol kembali, dan satu atau dua aksi di atas.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Aplikasi web responsif yang juga berjalan di desktop: pakai <a class="link" href="app-shell.html">App shell</a>. Shell berubah sendiri menjadi top bar dan drawer di ponsel.</li><li>Situs web dengan beberapa halaman: pakai <a class="link" href="top-nav.html">Top nav</a>.</li><li>Bagian-bagian di dalam satu layar: pakai <a class="link" href="segmented-control.html">Segmented control</a>. Taruh segmented control di bawah judul besar.</li><li>Lebih dari lima tujuan: pakai <a class="link" href="app-shell.html">App shell</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di dalam layar ponsel setinggi penuh (<a class="link" href="phone-screen.html">phone screen</a>): <code class="code">.navbar</code> absolut di atas menutupi area gulir, <code class="code">.large-title</code> sebagai konten pertama di area gulir, <code class="code">.tabbar</code> absolut di bawah. Kedua bar memberi padding sendiri untuk notch dan home indicator di aplikasi sungguhan; bingkai dokumentasi <code class="code">.phone</code> hanya untuk memperlihatkannya.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -350,7 +355,7 @@
   <nav class="tabbar" style="height: 76px; padding-bottom: 22px;" aria-label="Utama" onclick="const b = event.target.closest('.tabbar__item'); if (!b) return; this.querySelectorAll('.tabbar__item').forEach((x) => x.removeAttribute('aria-current')); b.setAttribute('aria-current', 'page');">
     <button class="tabbar__item" aria-current="page"><span class="ic" aria-hidden="true">today</span>Hari ini</button>
     <button class="tabbar__item"><span class="ic" aria-hidden="true">calendar_month</span>Jadwal</button>
-    <button class="tabbar__item"><span class="ic" aria-hidden="true">school</span>Layanan</button>
+    <button class="tabbar__item"><span class="ic" aria-hidden="true">account_balance</span>Layanan</button>
     <button class="tabbar__item"><span class="ic" aria-hidden="true">person</span>Profil</button>
   </nav>
   <span class="home-ind" style="bottom: 7px; width: 108px;" aria-hidden="true"></span>
@@ -371,7 +376,7 @@
 &lt;nav class=&quot;tabbar&quot; aria-label=&quot;Utama&quot;&gt;
   &lt;a class=&quot;tabbar__item&quot; href=&quot;/today&quot; aria-current=&quot;page&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;today&lt;/span&gt;Hari ini&lt;/a&gt;
   &lt;a class=&quot;tabbar__item&quot; href=&quot;/schedule&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;calendar_month&lt;/span&gt;Jadwal&lt;/a&gt;
-  &lt;a class=&quot;tabbar__item&quot; href=&quot;/courses&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;school&lt;/span&gt;Layanan&lt;/a&gt;
+  &lt;a class=&quot;tabbar__item&quot; href=&quot;/services&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;account_balance&lt;/span&gt;Layanan&lt;/a&gt;
   &lt;a class=&quot;tabbar__item&quot; href=&quot;/profile&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;person&lt;/span&gt;Profil&lt;/a&gt;
 &lt;/nav&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
@@ -387,7 +392,7 @@
 &lt;nav class=&quot;tabbar&quot; aria-label=&quot;Utama&quot;&gt;
   &lt;a class=&quot;tabbar__item&quot; href=&quot;/today&quot; aria-current=&quot;page&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;today&lt;/span&gt;Hari ini&lt;/a&gt;
   &lt;a class=&quot;tabbar__item&quot; href=&quot;/schedule&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;calendar_month&lt;/span&gt;Jadwal&lt;/a&gt;
-  &lt;a class=&quot;tabbar__item&quot; href=&quot;/courses&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;school&lt;/span&gt;Layanan&lt;/a&gt;
+  &lt;a class=&quot;tabbar__item&quot; href=&quot;/services&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;account_balance&lt;/span&gt;Layanan&lt;/a&gt;
   &lt;a class=&quot;tabbar__item&quot; href=&quot;/profile&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;person&lt;/span&gt;Profil&lt;/a&gt;
 &lt;/nav&gt;</pre></div></div></div>
         </figure>
@@ -454,6 +459,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

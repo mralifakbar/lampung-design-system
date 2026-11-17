@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,20 +321,24 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Overlays">Overlays</a></li></ol></nav>
           <h1>Alert dialog</h1>
           <p class="cdoc__lede">A dialog that confirms a destructive or irreversible action. The title names the object and the consequence; the safe button gets focus; the destructive button is the only place <code class="code">btn--danger</code> belongs.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="alert-dialog.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="alert-dialog.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>Before something that cannot be undone: delete a course, remove a member, discard a graded exam.</li><li>When an Undo toast is not possible because the action has effects outside the app (emails sent, payments made, data erased for everyone).</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>The action can be undone: use <a class="link" href="toast.html">Toast</a>. Do it at once and offer Undo in the toast; it is faster and respects people.</li><li>A costly but not dangerous confirm (submit an exam, pay): use <a class="link" href="hold-to-confirm.html">Hold to confirm</a>.</li><li>A small destructive action inside a row: use <a class="link" href="confirm-in-place.html">Confirm in place</a>. The control walks from rest to ask to done in place.</li><li>A non-destructive question or short input: use <a class="link" href="dialog.html">Dialog</a>.</li><li>A page-level confirm over the whole window: use <a class="link" href="modal.html">Modal</a>. Use <code class="code">dialog.modal</code> with the same icon, title and danger button.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Centered above a scrim in its positioned container, like a <a class="link" href="dialog.html">dialog</a>. It appears directly after the person presses the destructive control, never on page load.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>Before something that cannot be undone: delete a service, remove a team member, discard a verified file.</li><li>When an Undo toast is not possible because the action has effects outside the app (emails sent, payments made, data erased for everyone).</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>The action can be undone: use <a class="link" href="toast.html">Toast</a>. Do it at once and offer Undo in the toast; it is faster and respects people.</li><li>A costly but not dangerous confirm (submit an application, pay): use <a class="link" href="hold-to-confirm.html">Hold to confirm</a>.</li><li>A small destructive action inside a row: use <a class="link" href="confirm-in-place.html">Confirm in place</a>. The control walks from rest to ask to done in place.</li><li>A non-destructive question or short input: use <a class="link" href="dialog.html">Dialog</a>.</li><li>A page-level confirm over the whole window: use <a class="link" href="modal.html">Modal</a>. Use <code class="code">dialog.modal</code> with the same icon, title and danger button.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Centered above a scrim in its positioned container, like a <a class="link" href="dialog.html">dialog</a>. It appears directly after the person presses the destructive control, never on page load.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Delete a course</span><span class="cdoc__ex-d">Focus lands on &quot;Keep course&quot;, so a stray Enter is safe. Escape, the scrim and &quot;Keep course&quot; all cancel.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Delete a service</span><span class="cdoc__ex-d">Focus lands on &quot;Keep service&quot;, so a stray Enter is safe. Escape, the scrim and &quot;Keep service&quot; all cancel.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="viewport docs-box">
   <div class="viewport__content">
-    <button class="btn btn--danger-tinted btn--md" data-lds-open="ad-delete" aria-haspopup="dialog"><span class="ic" aria-hidden="true">delete</span>Delete course</button>
+    <button class="btn btn--danger-tinted btn--md" data-lds-open="ad-delete" aria-haspopup="dialog"><span class="ic" aria-hidden="true">delete</span>Delete service</button>
   </div>
   <div class="scrim" data-lds-scrim="ad-delete"></div>
   <div class="dialog" id="ad-delete" role="alertdialog" aria-modal="true" aria-labelledby="ad-delete-t" aria-describedby="ad-delete-b" data-lds-layer>
     <div class="dialog__icon"><span class="ic ic--fill" aria-hidden="true">delete</span></div>
-    <h3 class="dialog__title" id="ad-delete-t">Delete Database Systems?</h3>
-    <p class="dialog__body" id="ad-delete-b">Its assignments and submissions are removed for every student. This cannot be undone.</p>
-    <div class="dialog__actions"><button class="btn btn--secondary btn--md" data-lds-close data-lds-autofocus>Keep course</button><button class="btn btn--danger btn--md" data-lds-close>Delete</button></div>
+    <h3 class="dialog__title" id="ad-delete-t">Delete the Micro business permit service?</h3>
+    <p class="dialog__body" id="ad-delete-b">All applications and their files are removed for every applicant. This cannot be undone.</p>
+    <div class="dialog__actions"><button class="btn btn--secondary btn--md" data-lds-close data-lds-autofocus>Keep service</button><button class="btn btn--danger btn--md" data-lds-close>Delete</button></div>
   </div>
 </div></div>
           
@@ -342,27 +347,27 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;viewport docs-box&quot;&gt;
   &lt;div class=&quot;viewport__content&quot;&gt;
-    &lt;button class=&quot;btn btn--danger-tinted btn--md&quot; data-lds-open=&quot;ad-delete&quot; aria-haspopup=&quot;dialog&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete course&lt;/button&gt;
+    &lt;button class=&quot;btn btn--danger-tinted btn--md&quot; data-lds-open=&quot;ad-delete&quot; aria-haspopup=&quot;dialog&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete service&lt;/button&gt;
   &lt;/div&gt;
   &lt;div class=&quot;scrim&quot; data-lds-scrim=&quot;ad-delete&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;dialog&quot; id=&quot;ad-delete&quot; role=&quot;alertdialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;ad-delete-t&quot; aria-describedby=&quot;ad-delete-b&quot; data-lds-layer&gt;
     &lt;div class=&quot;dialog__icon&quot;&gt;&lt;span class=&quot;ic ic--fill&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;&lt;/div&gt;
-    &lt;h3 class=&quot;dialog__title&quot; id=&quot;ad-delete-t&quot;&gt;Delete Database Systems?&lt;/h3&gt;
-    &lt;p class=&quot;dialog__body&quot; id=&quot;ad-delete-b&quot;&gt;Its assignments and submissions are removed for every student. This cannot be undone.&lt;/p&gt;
-    &lt;div class=&quot;dialog__actions&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-close data-lds-autofocus&gt;Keep course&lt;/button&gt;&lt;button class=&quot;btn btn--danger btn--md&quot; data-lds-close&gt;Delete&lt;/button&gt;&lt;/div&gt;
+    &lt;h3 class=&quot;dialog__title&quot; id=&quot;ad-delete-t&quot;&gt;Delete the Micro business permit service?&lt;/h3&gt;
+    &lt;p class=&quot;dialog__body&quot; id=&quot;ad-delete-b&quot;&gt;All applications and their files are removed for every applicant. This cannot be undone.&lt;/p&gt;
+    &lt;div class=&quot;dialog__actions&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-close data-lds-autofocus&gt;Keep service&lt;/button&gt;&lt;button class=&quot;btn btn--danger btn--md&quot; data-lds-close&gt;Delete&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;viewport docs-box&quot;&gt;
   &lt;div class=&quot;viewport__content&quot;&gt;
-    &lt;button class=&quot;btn btn--danger-tinted btn--md&quot; data-lds-open=&quot;ad-delete&quot; aria-haspopup=&quot;dialog&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete course&lt;/button&gt;
+    &lt;button class=&quot;btn btn--danger-tinted btn--md&quot; data-lds-open=&quot;ad-delete&quot; aria-haspopup=&quot;dialog&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete service&lt;/button&gt;
   &lt;/div&gt;
   &lt;div class=&quot;scrim&quot; data-lds-scrim=&quot;ad-delete&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;dialog&quot; id=&quot;ad-delete&quot; role=&quot;alertdialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;ad-delete-t&quot; aria-describedby=&quot;ad-delete-b&quot; data-lds-layer&gt;
     &lt;div class=&quot;dialog__icon&quot;&gt;&lt;span class=&quot;ic ic--fill&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;&lt;/div&gt;
-    &lt;h3 class=&quot;dialog__title&quot; id=&quot;ad-delete-t&quot;&gt;Delete Database Systems?&lt;/h3&gt;
-    &lt;p class=&quot;dialog__body&quot; id=&quot;ad-delete-b&quot;&gt;Its assignments and submissions are removed for every student. This cannot be undone.&lt;/p&gt;
-    &lt;div class=&quot;dialog__actions&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-close data-lds-autofocus&gt;Keep course&lt;/button&gt;&lt;button class=&quot;btn btn--danger btn--md&quot; data-lds-close&gt;Delete&lt;/button&gt;&lt;/div&gt;
+    &lt;h3 class=&quot;dialog__title&quot; id=&quot;ad-delete-t&quot;&gt;Delete the Micro business permit service?&lt;/h3&gt;
+    &lt;p class=&quot;dialog__body&quot; id=&quot;ad-delete-b&quot;&gt;All applications and their files are removed for every applicant. This cannot be undone.&lt;/p&gt;
+    &lt;div class=&quot;dialog__actions&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-close data-lds-autofocus&gt;Keep service&lt;/button&gt;&lt;button class=&quot;btn btn--danger btn--md&quot; data-lds-close&gt;Delete&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
@@ -370,13 +375,13 @@
           <figcaption><span class="cdoc__ex-t">Remove a member</span><span class="cdoc__ex-d">A warning icon when the action is reversible by someone else but not by this person.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="viewport docs-box">
   <div class="viewport__content">
-    <button class="btn btn--danger-tinted btn--md" data-lds-open="ad-remove" aria-haspopup="dialog">Remove from class</button>
+    <button class="btn btn--danger-tinted btn--md" data-lds-open="ad-remove" aria-haspopup="dialog">Remove from team</button>
   </div>
   <div class="scrim" data-lds-scrim="ad-remove"></div>
   <div class="dialog" id="ad-remove" role="alertdialog" aria-modal="true" aria-labelledby="ad-remove-t" aria-describedby="ad-remove-b" data-lds-layer>
     <div class="dialog__icon"><span class="ic ic--fill" aria-hidden="true">warning</span></div>
-    <h3 class="dialog__title" id="ad-remove-t">Remove Rina Wijaya from the class?</h3>
-    <p class="dialog__body" id="ad-remove-b">She loses access to materials and her grades are archived. Only an administrator can add her back.</p>
+    <h3 class="dialog__title" id="ad-remove-t">Remove Rina Wijaya from the verification team?</h3>
+    <p class="dialog__body" id="ad-remove-b">She loses access to application files and her work history is archived. Only an administrator can add her back.</p>
     <div class="dialog__actions"><button class="btn btn--secondary btn--md" data-lds-close data-lds-autofocus>Cancel</button><button class="btn btn--danger btn--md" data-lds-close>Remove</button></div>
   </div>
 </div></div>
@@ -386,31 +391,31 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;viewport docs-box&quot;&gt;
   &lt;div class=&quot;viewport__content&quot;&gt;
-    &lt;button class=&quot;btn btn--danger-tinted btn--md&quot; data-lds-open=&quot;ad-remove&quot; aria-haspopup=&quot;dialog&quot;&gt;Remove from class&lt;/button&gt;
+    &lt;button class=&quot;btn btn--danger-tinted btn--md&quot; data-lds-open=&quot;ad-remove&quot; aria-haspopup=&quot;dialog&quot;&gt;Remove from team&lt;/button&gt;
   &lt;/div&gt;
   &lt;div class=&quot;scrim&quot; data-lds-scrim=&quot;ad-remove&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;dialog&quot; id=&quot;ad-remove&quot; role=&quot;alertdialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;ad-remove-t&quot; aria-describedby=&quot;ad-remove-b&quot; data-lds-layer&gt;
     &lt;div class=&quot;dialog__icon&quot;&gt;&lt;span class=&quot;ic ic--fill&quot; aria-hidden=&quot;true&quot;&gt;warning&lt;/span&gt;&lt;/div&gt;
-    &lt;h3 class=&quot;dialog__title&quot; id=&quot;ad-remove-t&quot;&gt;Remove Rina Wijaya from the class?&lt;/h3&gt;
-    &lt;p class=&quot;dialog__body&quot; id=&quot;ad-remove-b&quot;&gt;She loses access to materials and her grades are archived. Only an administrator can add her back.&lt;/p&gt;
+    &lt;h3 class=&quot;dialog__title&quot; id=&quot;ad-remove-t&quot;&gt;Remove Rina Wijaya from the verification team?&lt;/h3&gt;
+    &lt;p class=&quot;dialog__body&quot; id=&quot;ad-remove-b&quot;&gt;She loses access to application files and her work history is archived. Only an administrator can add her back.&lt;/p&gt;
     &lt;div class=&quot;dialog__actions&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-close data-lds-autofocus&gt;Cancel&lt;/button&gt;&lt;button class=&quot;btn btn--danger btn--md&quot; data-lds-close&gt;Remove&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;viewport docs-box&quot;&gt;
   &lt;div class=&quot;viewport__content&quot;&gt;
-    &lt;button class=&quot;btn btn--danger-tinted btn--md&quot; data-lds-open=&quot;ad-remove&quot; aria-haspopup=&quot;dialog&quot;&gt;Remove from class&lt;/button&gt;
+    &lt;button class=&quot;btn btn--danger-tinted btn--md&quot; data-lds-open=&quot;ad-remove&quot; aria-haspopup=&quot;dialog&quot;&gt;Remove from team&lt;/button&gt;
   &lt;/div&gt;
   &lt;div class=&quot;scrim&quot; data-lds-scrim=&quot;ad-remove&quot;&gt;&lt;/div&gt;
   &lt;div class=&quot;dialog&quot; id=&quot;ad-remove&quot; role=&quot;alertdialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;ad-remove-t&quot; aria-describedby=&quot;ad-remove-b&quot; data-lds-layer&gt;
     &lt;div class=&quot;dialog__icon&quot;&gt;&lt;span class=&quot;ic ic--fill&quot; aria-hidden=&quot;true&quot;&gt;warning&lt;/span&gt;&lt;/div&gt;
-    &lt;h3 class=&quot;dialog__title&quot; id=&quot;ad-remove-t&quot;&gt;Remove Rina Wijaya from the class?&lt;/h3&gt;
-    &lt;p class=&quot;dialog__body&quot; id=&quot;ad-remove-b&quot;&gt;She loses access to materials and her grades are archived. Only an administrator can add her back.&lt;/p&gt;
+    &lt;h3 class=&quot;dialog__title&quot; id=&quot;ad-remove-t&quot;&gt;Remove Rina Wijaya from the verification team?&lt;/h3&gt;
+    &lt;p class=&quot;dialog__body&quot; id=&quot;ad-remove-b&quot;&gt;She loses access to application files and her work history is archived. Only an administrator can add her back.&lt;/p&gt;
     &lt;div class=&quot;dialog__actions&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-close data-lds-autofocus&gt;Cancel&lt;/button&gt;&lt;button class=&quot;btn btn--danger btn--md&quot; data-lds-close&gt;Remove&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
-        <section class="cdoc__sec" id="anatomy"><h2>Anatomy</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Part</th><th>What it is</th></tr></thead><tbody><tr><td><code class="code">.dialog[role=alertdialog][aria-modal=true]</code></td><td>Required. The layer with <code class="code">data-lds-layer</code>, <code class="code">aria-labelledby</code> the title and <code class="code">aria-describedby</code> the body.</td></tr><tr><td><code class="code">.dialog__icon</code></td><td>The 44 px danger-tinted tile with a filled icon (<code class="code">delete</code>, <code class="code">warning</code>).</td></tr><tr><td><code class="code">.dialog__title</code></td><td>Required. &quot;Delete Database Systems?&quot;: the verb and the object.</td></tr><tr><td><code class="code">.dialog__body</code></td><td>Required. What will be lost, for whom, and that it cannot be undone.</td></tr><tr><td><code class="code">.dialog__actions</code></td><td>Required. The safe button first (<code class="code">btn--secondary</code>, <code class="code">data-lds-autofocus</code>), then <code class="code">btn--danger</code> named with the verb.</td></tr><tr><td><code class="code">.scrim[data-lds-scrim]</code></td><td>Required. Clicking it cancels.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="anatomy"><h2>Anatomy</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Part</th><th>What it is</th></tr></thead><tbody><tr><td><code class="code">.dialog[role=alertdialog][aria-modal=true]</code></td><td>Required. The layer with <code class="code">data-lds-layer</code>, <code class="code">aria-labelledby</code> the title and <code class="code">aria-describedby</code> the body.</td></tr><tr><td><code class="code">.dialog__icon</code></td><td>The 44 px danger-tinted tile with a filled icon (<code class="code">delete</code>, <code class="code">warning</code>).</td></tr><tr><td><code class="code">.dialog__title</code></td><td>Required. &quot;Delete the Micro business permit service?&quot;: the verb and the object.</td></tr><tr><td><code class="code">.dialog__body</code></td><td>Required. What will be lost, for whom, and that it cannot be undone.</td></tr><tr><td><code class="code">.dialog__actions</code></td><td>Required. The safe button first (<code class="code">btn--secondary</code>, <code class="code">data-lds-autofocus</code>), then <code class="code">btn--danger</code> named with the verb.</td></tr><tr><td><code class="code">.scrim[data-lds-scrim]</code></td><td>Required. Clicking it cancels.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="states"><h2>States</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>State</th><th>How</th></tr></thead><tbody><tr><td><code class="code">.is-open</code></td><td>Shown with its scrim; focus on the safe button.</td></tr><tr><td><code class="code">danger button loading</code></td><td>If the delete takes time, put the danger button in <code class="code">.is-loading</code> and keep the dialog open until it is done, then confirm with a <a class="link" href="toast.html">toast</a>.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="motion"><h2>Motion and microinteractions</h2><ul class="cdoc__list"><li>Same as <a class="link" href="dialog.html">dialog</a>: enter on <code class="code">--spring-smooth</code> from <code class="code">translateY(4px) scale(0.98)</code> with opacity over <code class="code">--d-fast</code>; exit over <code class="code">--d-exit</code> (180 ms) on <code class="code">--ease-exit</code>.</li><li>No shake, pulse or red flash: the words carry the weight. Reduced motion: opacity only.</li></ul></section>
         <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li><code class="code">role=&quot;alertdialog&quot;</code> so screen readers announce it at once, with <code class="code">aria-labelledby</code> the title and <code class="code">aria-describedby</code> the body.</li><li>Focus goes to the safe button (<code class="code">data-lds-autofocus</code>); Tab is trapped; Escape cancels; focus returns to the destructive trigger.</li><li>The danger button repeats the verb from the title (&quot;Delete&quot;, &quot;Remove&quot;), never &quot;OK&quot; or &quot;Yes&quot;.</li></ul></section>
@@ -435,6 +440,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

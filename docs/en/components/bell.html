@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,18 +321,22 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Microinteractions">Microinteractions</a></li></ol></nav>
           <h1>Bell</h1>
           <p class="cdoc__lede">The bell icon rings once, a short swing from its top that settles in 640 ms, when notifications are turned on or a new one arrives. Once, never on a loop: it acknowledges, it does not nag.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="bell.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="bell.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A switch turns notifications or reminders on: the bell inside the switch label rings as the thumb lands.</li><li>A notification arrives while the person is looking at the screen: the bell in the top bar rings once and the count appears.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>A notification the person must read now: use <a class="link" href="banner.html">Banner</a>.</li><li>A message that confirms an action: use <a class="link" href="toast.html">Toast</a>.</li><li>An unread count on its own: use <a class="link" href="count.html">Count</a>.</li><li>A refused action: use <a class="link" href="shake.html">Shake</a>.</li><li>Something new in the product to explain: use <a class="link" href="coachmark.html">Coachmark</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> On a notifications icon only: inside a <code class="code">.switch</code> label, or in an <a class="link" href="icon-button.html">icon button</a> in the top bar or app shell.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">Turning notifications on</span><span class="cdoc__ex-d">Switch it on: the thumb lands and stretches, and the bell rings once. Switching off is silent.</span></figcaption>
-          <div class="cdoc__stage" id="ex-1-stage"><label class="switch"><input type="checkbox" role="switch"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="bell ic" aria-hidden="true">notifications</span>Notify me when grades are posted</label></div>
+          <div class="cdoc__stage" id="ex-1-stage"><label class="switch"><input type="checkbox" role="switch"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="bell ic" aria-hidden="true">notifications</span>Notify me when my report gets a response</label></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             
-            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;label class=&quot;switch&quot;&gt;&lt;input type=&quot;checkbox&quot; role=&quot;switch&quot;&gt;&lt;span class=&quot;switch__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;switch__thumb&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bell ic&quot; aria-hidden=&quot;true&quot;&gt;notifications&lt;/span&gt;Notify me when grades are posted&lt;/label&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
+            <button class="btn btn--plain btn--sm" data-lds-copy="&lt;label class=&quot;switch&quot;&gt;&lt;input type=&quot;checkbox&quot; role=&quot;switch&quot;&gt;&lt;span class=&quot;switch__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;switch__thumb&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bell ic&quot; aria-hidden=&quot;true&quot;&gt;notifications&lt;/span&gt;Notify me when my report gets a response&lt;/label&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
-          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;label class=&quot;switch&quot;&gt;&lt;input type=&quot;checkbox&quot; role=&quot;switch&quot;&gt;&lt;span class=&quot;switch__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;switch__thumb&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bell ic&quot; aria-hidden=&quot;true&quot;&gt;notifications&lt;/span&gt;Notify me when grades are posted&lt;/label&gt;</pre></div></div></div>
+          <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;label class=&quot;switch&quot;&gt;&lt;input type=&quot;checkbox&quot; role=&quot;switch&quot;&gt;&lt;span class=&quot;switch__track&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;switch__thumb&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;bell ic&quot; aria-hidden=&quot;true&quot;&gt;notifications&lt;/span&gt;Notify me when my report gets a response&lt;/label&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
           <figcaption><span class="cdoc__ex-t">A new notification arrives</span><span class="cdoc__ex-d">Simulate one: the bell rings once and the count goes up. A second arrival rings again from the start.</span></figcaption>
@@ -361,7 +366,7 @@
         <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Ring once per event.</li><li>Keep it on the notifications icon only.</li><li>Pair it with a count or a switch state.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Loop the ring or ring on page load.</li><li>Ring for every notification in a burst; ring once for the group.</li><li>Use the ring on other icons.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Behavior and code</h2><p class="cdoc__p"><strong>Plain HTML.</strong> Inside a <code class="code">.switch</code>, <code class="code">init()</code> rings any <code class="code">.bell</code> in the label when the switch turns on. Elsewhere, toggle <code class="code">.is-ringing</code> yourself.</p><p class="cdoc__p"><strong>React.</strong> From <code class="code">lampung-design-system/react</code>.</p><div class="codeblock"><pre>import { Switch } from 'lampung-design-system/react';
 
-&lt;Switch checked={notify} onChange={setNotify}&gt;Notify me when grades are posted&lt;/Switch&gt;
+&lt;Switch checked={notify} onChange={setNotify}&gt;Notify me when my report gets a response&lt;/Switch&gt;
 // Switch does not ring a bell itself: render &lt;span className={`bell ic${ring ? ' is-ringing' : ''}`}&gt;notifications&lt;/span&gt; beside it and set ring when it turns on.</pre></div></section>
         <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="switch.html"><span class="link-card__eyebrow">Selection</span><span class="link-card__title">Switch</span><span class="link-card__body">An on and off control for a setting that applies the moment it is flipped, with no Save button. The thumb stretches while held and travels on a spring.</span></a><a class="link-card" href="count.html"><span class="link-card__eyebrow">Feedback</span><span class="link-card__title">Count</span><span class="link-card__body">A small red pill with a number of things waiting for the person: unread messages, pending requests. It means &quot;act on these&quot;, so use it only for that.</span></a><a class="link-card" href="icon-button.html"><span class="link-card__eyebrow">Actions</span><span class="link-card__title">Icon button</span><span class="link-card__body">A button that shows only an icon: 44 px target, 22 px glyph, round. It always has an `aria-label` and a tooltip with the same words.</span></a><a class="link-card" href="haptics.html"><span class="link-card__eyebrow">Microinteractions</span><span class="link-card__title">Haptics</span><span class="link-card__body">A short vibration on phones that support it, always together with a visible change, never alone. Four kinds: light for a tap that changed something, medium for a gesture that committed, success when something finished, error when something was refused.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Previous and next component">
@@ -382,6 +387,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

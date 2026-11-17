@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,21 +321,25 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Overlays">Overlays</a></li></ol></nav>
           <h1>Dropdown menu</h1>
           <p class="cdoc__lede">A list of commands that drops from a button: sort options, row actions, the &quot;more&quot; menu behind an icon button. Items do something; they are not a form field.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="dropdown-menu.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="dropdown-menu.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>Three to seven commands on one object that do not deserve their own buttons: Duplicate, Move, Export, Delete.</li><li>The &quot;more&quot; pattern: a <code class="code">more_horiz</code> <a class="link" href="icon-button.html">icon button</a> at the end of a row, card or header, opening the rare actions.</li><li>Choosing how a list is sorted or shown, with a check on the current choice.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Picking a value for a form field: use <a class="link" href="select.html">Select</a>. A select is a field with a label and a value; a menu runs commands.</li><li>Searching or typing to find an option: use <a class="link" href="combobox.html">Combobox</a>.</li><li>Rich content anchored to a button (a mini form, a calendar, a description): use <a class="link" href="popover.html">Popover</a>.</li><li>Commands opened by right-click or long press on an area: use <a class="link" href="context-menu.html">Context menu</a>.</li><li>A secondary action attached to the primary button (Publish, Schedule for later): use <a class="link" href="split-button.html">Split button</a>.</li><li>Two to five views of the same content, always visible: use <a class="link" href="segmented-control.html">Segmented control</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Hanging 6 px below its trigger, aligned to the trigger's left edge, or to its right edge (<code class="code">.menu--right</code>) when the trigger sits at the right of a row. Use <code class="code">.menu--up</code> when there is no room below. The trigger and the menu share a <code class="code">position: relative</code> wrapper.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">The &quot;more&quot; menu</span><span class="cdoc__ex-d">Rare actions behind a <code class="code">more_horiz</code> icon button at the end of a row; the menu aligns to the right edge and grows from that corner.</span></figcaption>
           <div class="cdoc__stage" id="ex-1-stage" style="min-height: 300px;"><div class="list" style="width: 100%; max-width: 420px; overflow: visible;">
   <div class="lrow">
-    <span class="lrow__body"><span class="lrow__title" style="display: block;">Lab report 3</span><span class="lrow__sub" style="display: block;">Computer Networks · due tomorrow</span></span>
+    <span class="lrow__body"><span class="lrow__title" style="display: block;">Pothole report</span><span class="lrow__sub" style="display: block;">Public works office · due tomorrow</span></span>
     <div style="position: relative;">
-      <button class="icon-btn" aria-label="More actions for Lab report 3" aria-haspopup="menu" aria-expanded="false" data-lds-menu="dm-more"><span class="ic" aria-hidden="true">more_horiz</span></button>
-      <div class="menu menu--right" id="dm-more" role="menu" aria-label="Lab report 3" style="top: calc(100% + 6px); right: 0;">
-        <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Edit brief</button>
+      <button class="icon-btn" aria-label="More actions for Pothole report" aria-haspopup="menu" aria-expanded="false" data-lds-menu="dm-more"><span class="ic" aria-hidden="true">more_horiz</span></button>
+      <div class="menu menu--right" id="dm-more" role="menu" aria-label="Pothole report" style="top: calc(100% + 6px); right: 0;">
+        <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Edit report</button>
         <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">content_copy</span>Duplicate<kbd>⌘D</kbd></button>
-        <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Export submissions</button>
+        <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Export attachments</button>
         <div class="menu__sep"></div>
-        <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete assignment</button>
+        <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete report</button>
       </div>
     </div>
   </div>
@@ -345,15 +350,15 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;list&quot; style=&quot;width: 100%; max-width: 420px; overflow: visible;&quot;&gt;
   &lt;div class=&quot;lrow&quot;&gt;
-    &lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot; style=&quot;display: block;&quot;&gt;Lab report 3&lt;/span&gt;&lt;span class=&quot;lrow__sub&quot; style=&quot;display: block;&quot;&gt;Computer Networks · due tomorrow&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot; style=&quot;display: block;&quot;&gt;Pothole report&lt;/span&gt;&lt;span class=&quot;lrow__sub&quot; style=&quot;display: block;&quot;&gt;Public works office · due tomorrow&lt;/span&gt;&lt;/span&gt;
     &lt;div style=&quot;position: relative;&quot;&gt;
-      &lt;button class=&quot;icon-btn&quot; aria-label=&quot;More actions for Lab report 3&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;dm-more&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
-      &lt;div class=&quot;menu menu--right&quot; id=&quot;dm-more&quot; role=&quot;menu&quot; aria-label=&quot;Lab report 3&quot; style=&quot;top: calc(100% + 6px); right: 0;&quot;&gt;
-        &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Edit brief&lt;/button&gt;
+      &lt;button class=&quot;icon-btn&quot; aria-label=&quot;More actions for Pothole report&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;dm-more&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
+      &lt;div class=&quot;menu menu--right&quot; id=&quot;dm-more&quot; role=&quot;menu&quot; aria-label=&quot;Pothole report&quot; style=&quot;top: calc(100% + 6px); right: 0;&quot;&gt;
+        &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Edit report&lt;/button&gt;
         &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;content_copy&lt;/span&gt;Duplicate&lt;kbd&gt;⌘D&lt;/kbd&gt;&lt;/button&gt;
-        &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Export submissions&lt;/button&gt;
+        &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Export attachments&lt;/button&gt;
         &lt;div class=&quot;menu__sep&quot;&gt;&lt;/div&gt;
-        &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete assignment&lt;/button&gt;
+        &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete report&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -361,15 +366,15 @@
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;list&quot; style=&quot;width: 100%; max-width: 420px; overflow: visible;&quot;&gt;
   &lt;div class=&quot;lrow&quot;&gt;
-    &lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot; style=&quot;display: block;&quot;&gt;Lab report 3&lt;/span&gt;&lt;span class=&quot;lrow__sub&quot; style=&quot;display: block;&quot;&gt;Computer Networks · due tomorrow&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot; style=&quot;display: block;&quot;&gt;Pothole report&lt;/span&gt;&lt;span class=&quot;lrow__sub&quot; style=&quot;display: block;&quot;&gt;Public works office · due tomorrow&lt;/span&gt;&lt;/span&gt;
     &lt;div style=&quot;position: relative;&quot;&gt;
-      &lt;button class=&quot;icon-btn&quot; aria-label=&quot;More actions for Lab report 3&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;dm-more&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
-      &lt;div class=&quot;menu menu--right&quot; id=&quot;dm-more&quot; role=&quot;menu&quot; aria-label=&quot;Lab report 3&quot; style=&quot;top: calc(100% + 6px); right: 0;&quot;&gt;
-        &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Edit brief&lt;/button&gt;
+      &lt;button class=&quot;icon-btn&quot; aria-label=&quot;More actions for Pothole report&quot; aria-haspopup=&quot;menu&quot; aria-expanded=&quot;false&quot; data-lds-menu=&quot;dm-more&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;more_horiz&lt;/span&gt;&lt;/button&gt;
+      &lt;div class=&quot;menu menu--right&quot; id=&quot;dm-more&quot; role=&quot;menu&quot; aria-label=&quot;Pothole report&quot; style=&quot;top: calc(100% + 6px); right: 0;&quot;&gt;
+        &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;edit&lt;/span&gt;Edit report&lt;/button&gt;
         &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;content_copy&lt;/span&gt;Duplicate&lt;kbd&gt;⌘D&lt;/kbd&gt;&lt;/button&gt;
-        &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Export submissions&lt;/button&gt;
+        &lt;button class=&quot;menu__item&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Export attachments&lt;/button&gt;
         &lt;div class=&quot;menu__sep&quot;&gt;&lt;/div&gt;
-        &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete assignment&lt;/button&gt;
+        &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Delete report&lt;/button&gt;
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
@@ -382,7 +387,7 @@
   <div class="menu" id="dm-sort" role="menu" aria-label="Sort by" style="top: calc(100% + 6px); left: 0;">
     <p class="menu__label">Sort by</p>
     <button class="menu__item is-selected" role="menuitemradio" aria-checked="true">Due date<span class="ic menu__check" aria-hidden="true">check</span></button>
-    <button class="menu__item" role="menuitemradio" aria-checked="false">Course</button>
+    <button class="menu__item" role="menuitemradio" aria-checked="false">Service</button>
     <button class="menu__item" role="menuitemradio" aria-checked="false">Recently added</button>
     <div class="menu__sep"></div>
     <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Clear completed</button>
@@ -397,7 +402,7 @@
   &lt;div class=&quot;menu&quot; id=&quot;dm-sort&quot; role=&quot;menu&quot; aria-label=&quot;Sort by&quot; style=&quot;top: calc(100% + 6px); left: 0;&quot;&gt;
     &lt;p class=&quot;menu__label&quot;&gt;Sort by&lt;/p&gt;
     &lt;button class=&quot;menu__item is-selected&quot; role=&quot;menuitemradio&quot; aria-checked=&quot;true&quot;&gt;Due date&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
-    &lt;button class=&quot;menu__item&quot; role=&quot;menuitemradio&quot; aria-checked=&quot;false&quot;&gt;Course&lt;/button&gt;
+    &lt;button class=&quot;menu__item&quot; role=&quot;menuitemradio&quot; aria-checked=&quot;false&quot;&gt;Service&lt;/button&gt;
     &lt;button class=&quot;menu__item&quot; role=&quot;menuitemradio&quot; aria-checked=&quot;false&quot;&gt;Recently added&lt;/button&gt;
     &lt;div class=&quot;menu__sep&quot;&gt;&lt;/div&gt;
     &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Clear completed&lt;/button&gt;
@@ -409,7 +414,7 @@
   &lt;div class=&quot;menu&quot; id=&quot;dm-sort&quot; role=&quot;menu&quot; aria-label=&quot;Sort by&quot; style=&quot;top: calc(100% + 6px); left: 0;&quot;&gt;
     &lt;p class=&quot;menu__label&quot;&gt;Sort by&lt;/p&gt;
     &lt;button class=&quot;menu__item is-selected&quot; role=&quot;menuitemradio&quot; aria-checked=&quot;true&quot;&gt;Due date&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
-    &lt;button class=&quot;menu__item&quot; role=&quot;menuitemradio&quot; aria-checked=&quot;false&quot;&gt;Course&lt;/button&gt;
+    &lt;button class=&quot;menu__item&quot; role=&quot;menuitemradio&quot; aria-checked=&quot;false&quot;&gt;Service&lt;/button&gt;
     &lt;button class=&quot;menu__item&quot; role=&quot;menuitemradio&quot; aria-checked=&quot;false&quot;&gt;Recently added&lt;/button&gt;
     &lt;div class=&quot;menu__sep&quot;&gt;&lt;/div&gt;
     &lt;button class=&quot;menu__item menu__item--danger&quot; role=&quot;menuitem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;delete&lt;/span&gt;Clear completed&lt;/button&gt;
@@ -420,8 +425,8 @@
         <section class="cdoc__sec" id="variants"><h2>Variants and sizes</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Class or attribute</th><th>When</th></tr></thead><tbody><tr><td><code class="code">.menu--right</code></td><td>Grows from the top right; for triggers at the right edge (with <code class="code">right: 0</code>).</td></tr><tr><td><code class="code">.menu--up</code></td><td>Grows from the bottom left; place it with <code class="code">bottom: calc(100% + 6px)</code> when there is no room below.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="states"><h2>States</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>State</th><th>How</th></tr></thead><tbody><tr><td><code class="code">.is-open</code></td><td>Visible, focus on the first item. The trigger has <code class="code">aria-expanded=&quot;true&quot;</code>.</td></tr><tr><td><code class="code">hover / .is-hover</code></td><td>Strong tint on the row; instant (60 ms).</td></tr><tr><td><code class="code">focus-visible</code></td><td>Accent tint and accent text on the focused item.</td></tr><tr><td><code class="code">.is-selected</code></td><td>Weight 500 and a <code class="code">.menu__check</code>.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="motion"><h2>Motion and microinteractions</h2><ul class="cdoc__list"><li>Enter: opacity over <code class="code">--d-fast</code> (160 ms) on <code class="code">--ease-enter</code>; transform from <code class="code">scale(0.96) translateY(-4px)</code> on <code class="code">--spring-smooth</code>, growing from the corner nearest the trigger (<code class="code">transform-origin</code>).</li><li>Exit: opacity and transform over <code class="code">--d-exit</code> (180 ms) on <code class="code">--ease-exit</code>, then hidden. Opening another menu closes this one at once.</li><li>Item hover is a 60 ms linear background change, so moving down the list never lags.</li><li>Reduced motion: fade only, no scale.</li></ul></section>
-        <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li>Trigger: <code class="code">aria-haspopup=&quot;menu&quot;</code> and <code class="code">aria-expanded</code>; an icon-only trigger needs an <code class="code">aria-label</code> naming the object (&quot;More actions for Lab report 3&quot;).</li><li><code class="code">role=&quot;menu&quot;</code> with <code class="code">menuitem</code>, <code class="code">menuitemradio</code> or <code class="code">menuitemcheckbox</code> children (with <code class="code">aria-checked</code>).</li><li>Down arrow on the trigger opens the menu; focus goes to the first item; Up and Down move (wrapping); Escape closes and returns focus to the trigger; a click outside closes it.</li><li>Choosing an item closes the menu. Shortcuts shown in <code class="code">kbd</code> must work.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Order by frequency; put destructive items last, after a separator, in <code class="code">menu__item--danger</code>.</li><li>Start each item with a verb (&quot;Export submissions&quot;).</li><li>Use the &quot;more&quot; icon button only for actions that are rare; keep frequent ones visible.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Nest submenus.</li><li>Use a menu as a form field; that is a <a class="link" href="select.html">select</a>.</li><li>Put more than about seven items in one menu without groups.</li></ul></div></div></section>
+        <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li>Trigger: <code class="code">aria-haspopup=&quot;menu&quot;</code> and <code class="code">aria-expanded</code>; an icon-only trigger needs an <code class="code">aria-label</code> naming the object (&quot;More actions for Pothole report&quot;).</li><li><code class="code">role=&quot;menu&quot;</code> with <code class="code">menuitem</code>, <code class="code">menuitemradio</code> or <code class="code">menuitemcheckbox</code> children (with <code class="code">aria-checked</code>).</li><li>Down arrow on the trigger opens the menu; focus goes to the first item; Up and Down move (wrapping); Escape closes and returns focus to the trigger; a click outside closes it.</li><li>Choosing an item closes the menu. Shortcuts shown in <code class="code">kbd</code> must work.</li></ul></section>
+        <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Order by frequency; put destructive items last, after a separator, in <code class="code">menu__item--danger</code>.</li><li>Start each item with a verb (&quot;Export attachments&quot;).</li><li>Use the &quot;more&quot; icon button only for actions that are rare; keep frequent ones visible.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Nest submenus.</li><li>Use a menu as a form field; that is a <a class="link" href="select.html">select</a>.</li><li>Put more than about seven items in one menu without groups.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Behavior and code</h2><p class="cdoc__p"><strong>Plain HTML.</strong> <code class="code">data-lds-menu=&quot;menuId&quot;</code> on the trigger toggles <code class="code">.is-open</code> on <code class="code">#menuId</code> and <code class="code">aria-expanded</code> on the trigger, focuses the first item, handles Down arrow on the trigger, Up/Down/Escape inside, and closes on a choice or a click outside. Inside a <code class="code">.split</code>, the split gets <code class="code">.is-open</code> too. <code class="code">closeMenus()</code> closes the open menu from code.</p></section>
         <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="context-menu.html"><span class="link-card__eyebrow">Overlays</span><span class="link-card__title">Context menu</span><span class="link-card__body">A command menu that opens at the pointer on right-click, a long press on touch, or Shift+F10. A shortcut for commands that are also reachable another way.</span></a><a class="link-card" href="select.html"><span class="link-card__eyebrow">Inputs</span><span class="link-card__title">Select</span><span class="link-card__body">A field-shaped button that opens a list of options below it and shows the one chosen. For one choice from a fixed list too long to show as radios; if people need to type to find it, use a combobox.</span></a><a class="link-card" href="split-button.html"><span class="link-card__eyebrow">Actions</span><span class="link-card__title">Split button</span><span class="link-card__body">A primary button joined to a chevron that opens a menu of variants of the same action (Publish, or schedule it, or publish to members only). The left part does the common thing in one press.</span></a><a class="link-card" href="icon-button.html"><span class="link-card__eyebrow">Actions</span><span class="link-card__title">Icon button</span><span class="link-card__body">A button that shows only an icon: 44 px target, 22 px glyph, round. It always has an `aria-label` and a tooltip with the same words.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Previous and next component">
@@ -442,6 +447,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

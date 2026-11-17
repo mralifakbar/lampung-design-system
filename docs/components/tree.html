@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Data%20display">Tampilan data</a></li></ol></nav>
           <h1>Tree</h1>
           <p class="cdoc__lede">Baris bertingkat yang bisa dibuka dan ditutup: folder dan berkas, bab dan subbab. Setiap induk adalah tombol dengan <code class="code">aria-expanded</code>; anak-anaknya terbuka dengan spring.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="tree.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="tree.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Hierarki yang dijelajahi orang: berkas layanan dalam folder, bidang dengan subbidang, peraturan dengan bab dan pasal.</li><li>Panel samping untuk menavigasi struktur bertingkat sementara isinya tampil di kanan.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Daftar datar: pakai <a class="link" href="list.html">List</a>.</li><li>Bagian satu halaman yang terbuka di tempat: pakai <a class="link" href="accordion.html">Accordion</a>.</li><li>Navigasi utama aplikasi, dengan kelompok: pakai <a class="link" href="app-shell.html">App shell</a>. App shell punya bagian bertingkat.</li><li>Tautan ke bagian di halaman yang sedang dibuka: pakai <a class="link" href="outline.html">Outline</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di kolom samping selebar 240 sampai 320 px di samping isi (sidebar <a class="link" href="app-shell.html">app shell</a> atau <a class="link" href="resizable-split.html">resizable split</a>), atau selebar penuh di ponsel sebagai halaman tersendiri. Baris setinggi 32 px, sengaja dibuat padat.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -327,13 +332,13 @@
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><nav class="tree" aria-label="Berkas layanan" style="max-width: 300px;">
   <button class="tree__row" aria-expanded="true" aria-controls="tk1"><span class="ic tree__chev" aria-hidden="true">chevron_right</span><span class="ic" aria-hidden="true">folder_open</span>Izin usaha mikro</button>
   <div class="tree__kids is-open" id="tk1"><div>
-    <a class="tree__row is-selected" href="#syllabus" aria-current="page"><span class="ic" aria-hidden="true">description</span>Persyaratan</a>
-    <a class="tree__row" href="#slides"><span class="ic" aria-hidden="true">description</span>Alur pengajuan</a>
+    <a class="tree__row is-selected" href="#requirements" aria-current="page"><span class="ic" aria-hidden="true">description</span>Persyaratan</a>
+    <a class="tree__row" href="#flow"><span class="ic" aria-hidden="true">description</span>Alur pengajuan</a>
   </div></div>
   <button class="tree__row" aria-expanded="false" aria-controls="tk2"><span class="ic tree__chev" aria-hidden="true">chevron_right</span><span class="ic" aria-hidden="true">folder</span>Persetujuan bangunan gedung</button>
   <div class="tree__kids" id="tk2"><div>
-    <a class="tree__row" href="#reading"><span class="ic" aria-hidden="true">description</span>Daftar dokumen</a>
-    <a class="tree__row" href="#quiz"><span class="ic" aria-hidden="true">assignment</span>Formulir permohonan</a>
+    <a class="tree__row" href="#documents"><span class="ic" aria-hidden="true">description</span>Daftar dokumen</a>
+    <a class="tree__row" href="#form"><span class="ic" aria-hidden="true">assignment</span>Formulir permohonan</a>
   </div></div>
 </nav></div>
           
@@ -343,26 +348,26 @@
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;nav class=&quot;tree&quot; aria-label=&quot;Berkas layanan&quot; style=&quot;max-width: 300px;&quot;&gt;
   &lt;button class=&quot;tree__row&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;tk1&quot;&gt;&lt;span class=&quot;ic tree__chev&quot; aria-hidden=&quot;true&quot;&gt;chevron_right&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;folder_open&lt;/span&gt;Izin usaha mikro&lt;/button&gt;
   &lt;div class=&quot;tree__kids is-open&quot; id=&quot;tk1&quot;&gt;&lt;div&gt;
-    &lt;a class=&quot;tree__row is-selected&quot; href=&quot;#syllabus&quot; aria-current=&quot;page&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;Persyaratan&lt;/a&gt;
-    &lt;a class=&quot;tree__row&quot; href=&quot;#slides&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;Alur pengajuan&lt;/a&gt;
+    &lt;a class=&quot;tree__row is-selected&quot; href=&quot;#requirements&quot; aria-current=&quot;page&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;Persyaratan&lt;/a&gt;
+    &lt;a class=&quot;tree__row&quot; href=&quot;#flow&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;Alur pengajuan&lt;/a&gt;
   &lt;/div&gt;&lt;/div&gt;
   &lt;button class=&quot;tree__row&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;tk2&quot;&gt;&lt;span class=&quot;ic tree__chev&quot; aria-hidden=&quot;true&quot;&gt;chevron_right&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;folder&lt;/span&gt;Persetujuan bangunan gedung&lt;/button&gt;
   &lt;div class=&quot;tree__kids&quot; id=&quot;tk2&quot;&gt;&lt;div&gt;
-    &lt;a class=&quot;tree__row&quot; href=&quot;#reading&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;Daftar dokumen&lt;/a&gt;
-    &lt;a class=&quot;tree__row&quot; href=&quot;#quiz&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;assignment&lt;/span&gt;Formulir permohonan&lt;/a&gt;
+    &lt;a class=&quot;tree__row&quot; href=&quot;#documents&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;Daftar dokumen&lt;/a&gt;
+    &lt;a class=&quot;tree__row&quot; href=&quot;#form&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;assignment&lt;/span&gt;Formulir permohonan&lt;/a&gt;
   &lt;/div&gt;&lt;/div&gt;
 &lt;/nav&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;nav class=&quot;tree&quot; aria-label=&quot;Berkas layanan&quot; style=&quot;max-width: 300px;&quot;&gt;
   &lt;button class=&quot;tree__row&quot; aria-expanded=&quot;true&quot; aria-controls=&quot;tk1&quot;&gt;&lt;span class=&quot;ic tree__chev&quot; aria-hidden=&quot;true&quot;&gt;chevron_right&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;folder_open&lt;/span&gt;Izin usaha mikro&lt;/button&gt;
   &lt;div class=&quot;tree__kids is-open&quot; id=&quot;tk1&quot;&gt;&lt;div&gt;
-    &lt;a class=&quot;tree__row is-selected&quot; href=&quot;#syllabus&quot; aria-current=&quot;page&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;Persyaratan&lt;/a&gt;
-    &lt;a class=&quot;tree__row&quot; href=&quot;#slides&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;Alur pengajuan&lt;/a&gt;
+    &lt;a class=&quot;tree__row is-selected&quot; href=&quot;#requirements&quot; aria-current=&quot;page&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;Persyaratan&lt;/a&gt;
+    &lt;a class=&quot;tree__row&quot; href=&quot;#flow&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;Alur pengajuan&lt;/a&gt;
   &lt;/div&gt;&lt;/div&gt;
   &lt;button class=&quot;tree__row&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;tk2&quot;&gt;&lt;span class=&quot;ic tree__chev&quot; aria-hidden=&quot;true&quot;&gt;chevron_right&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;folder&lt;/span&gt;Persetujuan bangunan gedung&lt;/button&gt;
   &lt;div class=&quot;tree__kids&quot; id=&quot;tk2&quot;&gt;&lt;div&gt;
-    &lt;a class=&quot;tree__row&quot; href=&quot;#reading&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;Daftar dokumen&lt;/a&gt;
-    &lt;a class=&quot;tree__row&quot; href=&quot;#quiz&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;assignment&lt;/span&gt;Formulir permohonan&lt;/a&gt;
+    &lt;a class=&quot;tree__row&quot; href=&quot;#documents&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;description&lt;/span&gt;Daftar dokumen&lt;/a&gt;
+    &lt;a class=&quot;tree__row&quot; href=&quot;#form&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;assignment&lt;/span&gt;Formulir permohonan&lt;/a&gt;
   &lt;/div&gt;&lt;/div&gt;
 &lt;/nav&gt;</pre></div></div></div>
         </figure></section>
@@ -391,6 +396,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,19 +321,23 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Inputs">Input</a></li></ol></nav>
           <h1>Select</h1>
           <p class="cdoc__lede">Tombol berbentuk kolom yang membuka daftar opsi di bawahnya dan menampilkan yang dipilih. Untuk satu pilihan dari daftar tetap yang terlalu panjang untuk ditampilkan sebagai radio; jika orang perlu mengetik untuk menemukannya, pakai combobox.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="select.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="select.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Satu nilai dari daftar tetap sekitar 6 sampai 30 opsi: jenjang pendidikan, semester, kategori ujian, provinsi saat daftarnya pendek.</li><li>Ruang terbatas, sehingga semua opsi tidak bisa terlihat (bilah filter, baris formulir).</li><li>Opsi butuh baris keterangan kedua di dalam daftar (<code class="code">.select__text</code> dengan <code class="code">small</code>).</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Dua sampai lima opsi yang muat di layar: pakai <a class="link" href="radio.html">Radio</a>. Opsi yang terlihat lebih cepat dibandingkan dan cukup sekali ketuk.</li><li>Setiap opsi butuh deskripsi, harga, atau badge: pakai <a class="link" href="radio-card.html">Radio card</a>.</li><li>Beralih antartampilan dari konten yang sama saat itu juga: pakai <a class="link" href="segmented-control.html">Segmented control</a>.</li><li>Daftar panjang (kota, sekolah, lebih dari sekitar 30) atau opsi dari server: pakai <a class="link" href="combobox.html">Combobox</a>. Orang mengetik untuk menemukan alih-alih menggulir.</li><li>Beberapa nilai sekaligus: pakai <a class="link" href="chips.html">Chips</a>. Atau <a class="link" href="checkbox.html">checkbox</a> di formulir, atau <a class="link" href="tag-input.html">tag input</a> untuk nilai bebas.</li><li>Daftar aksi (Urutkan, Ekspor, Hapus): pakai <a class="link" href="dropdown-menu.html">Dropdown menu</a>. Select menyimpan nilai; menu menjalankan perintah.</li><li>Berpindah antarbagian atau halaman: pakai <a class="link" href="tabs.html">Tabs</a>. Atau <a class="link" href="sidebar.html">sidebar</a> saat tujuannya banyak.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di <a class="link" href="form-layout.html">formulir</a> seperti <a class="link" href="text-field.html">text field</a>, dengan label di atas. Di bilah filter pada layar lebar dengan lebar tetap (sekitar 220 px). Daftar terbuka di alur halaman di bawah pemicu, selebar pemicu; di ponsel daftar lebih dari sekitar 8 opsi lebih nyaman dibaca di <a class="link" href="sheet.html">sheet</a>.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Satu nilai dari daftar tetap sekitar 6 sampai 30 opsi: kecamatan, periode laporan, jenis pengaduan, kabupaten saat daftarnya pendek.</li><li>Ruang terbatas, sehingga semua opsi tidak bisa terlihat (bilah filter, baris formulir).</li><li>Opsi butuh baris keterangan kedua di dalam daftar (<code class="code">.select__text</code> dengan <code class="code">small</code>).</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Dua sampai lima opsi yang muat di layar: pakai <a class="link" href="radio.html">Radio</a>. Opsi yang terlihat lebih cepat dibandingkan dan cukup sekali ketuk.</li><li>Setiap opsi butuh deskripsi, harga, atau badge: pakai <a class="link" href="radio-card.html">Radio card</a>.</li><li>Beralih antartampilan dari konten yang sama saat itu juga: pakai <a class="link" href="segmented-control.html">Segmented control</a>.</li><li>Daftar panjang (desa, kelurahan, lebih dari sekitar 30) atau opsi dari server: pakai <a class="link" href="combobox.html">Combobox</a>. Orang mengetik untuk menemukan alih-alih menggulir.</li><li>Beberapa nilai sekaligus: pakai <a class="link" href="chips.html">Chips</a>. Atau <a class="link" href="checkbox.html">checkbox</a> di formulir, atau <a class="link" href="tag-input.html">tag input</a> untuk nilai bebas.</li><li>Daftar aksi (Urutkan, Ekspor, Hapus): pakai <a class="link" href="dropdown-menu.html">Dropdown menu</a>. Select menyimpan nilai; menu menjalankan perintah.</li><li>Berpindah antarbagian atau halaman: pakai <a class="link" href="tabs.html">Tabs</a>. Atau <a class="link" href="sidebar.html">sidebar</a> saat tujuannya banyak.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di <a class="link" href="form-layout.html">formulir</a> seperti <a class="link" href="text-field.html">text field</a>, dengan label di atas. Di bilah filter pada layar lebar dengan lebar tetap (sekitar 220 px). Daftar terbuka di alur halaman di bawah pemicu, selebar pemicu; di ponsel daftar lebih dari sekitar 8 opsi lebih nyaman dibaca di <a class="link" href="sheet.html">sheet</a>.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Pilih jenjang</span><span class="cdoc__ex-d">Klik atau tekan Enter, Spasi, atau Bawah untuk membuka; panah berpindah; Enter memilih; Escape menutup; mengetik huruf melompat ke opsi pertama yang diawali huruf itu.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Pilih kecamatan</span><span class="cdoc__ex-d">Klik atau tekan Enter, Spasi, atau Bawah untuk membuka; panah berpindah; Enter memilih; Escape menutup; mengetik huruf melompat ke opsi pertama yang diawali huruf itu.</span></figcaption>
           <div class="cdoc__stage" id="ex-1-stage" style="min-height: 300px;"><div class="field" style="max-width: 360px; width: 100%;">
-  <span class="field__label" id="se-level">Jenjang pendidikan</span>
+  <span class="field__label" id="se-level">Kecamatan</span>
   <div class="select" data-lds-select>
-    <button type="button" class="control select-trigger is-placeholder" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-level"><span class="select__value">Pilih jenjang</span><span class="ic" aria-hidden="true">expand_more</span></button>
+    <button type="button" class="control select-trigger is-placeholder" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-level"><span class="select__value">Pilih kecamatan</span><span class="ic" aria-hidden="true">expand_more</span></button>
     <ul class="menu select__menu" role="listbox" aria-labelledby="se-level">
-      <li class="menu__item" role="option" aria-selected="false" data-value="d3"><span class="select__text">Diploma<small>D-III</small></span></li>
-      <li class="menu__item" role="option" aria-selected="false" data-value="s1"><span class="select__text">Sarjana<small>S-1, D-IV</small></span></li>
-      <li class="menu__item" role="option" aria-selected="false" data-value="s2"><span class="select__text">Magister<small>S-2</small></span></li>
-      <li class="menu__item" role="option" aria-selected="false" data-value="s3"><span class="select__text">Doktor<small>S-3</small></span></li>
+      <li class="menu__item" role="option" aria-selected="false" data-value="kedaton"><span class="select__text">Kedaton<small>Bandar Lampung</small></span></li>
+      <li class="menu__item" role="option" aria-selected="false" data-value="way-halim"><span class="select__text">Way Halim<small>Bandar Lampung</small></span></li>
+      <li class="menu__item" role="option" aria-selected="false" data-value="metro-pusat"><span class="select__text">Metro Pusat<small>Kota Metro</small></span></li>
+      <li class="menu__item" role="option" aria-selected="false" data-value="pringsewu"><span class="select__text">Pringsewu<small>Kabupaten Pringsewu</small></span></li>
     </ul>
   </div>
 </div></div>
@@ -341,27 +346,27 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;field&quot; style=&quot;max-width: 360px; width: 100%;&quot;&gt;
-  &lt;span class=&quot;field__label&quot; id=&quot;se-level&quot;&gt;Jenjang pendidikan&lt;/span&gt;
+  &lt;span class=&quot;field__label&quot; id=&quot;se-level&quot;&gt;Kecamatan&lt;/span&gt;
   &lt;div class=&quot;select&quot; data-lds-select&gt;
-    &lt;button type=&quot;button&quot; class=&quot;control select-trigger is-placeholder&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;false&quot; aria-labelledby=&quot;se-level&quot;&gt;&lt;span class=&quot;select__value&quot;&gt;Pilih jenjang&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;control select-trigger is-placeholder&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;false&quot; aria-labelledby=&quot;se-level&quot;&gt;&lt;span class=&quot;select__value&quot;&gt;Pilih kecamatan&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
     &lt;ul class=&quot;menu select__menu&quot; role=&quot;listbox&quot; aria-labelledby=&quot;se-level&quot;&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;d3&quot;&gt;&lt;span class=&quot;select__text&quot;&gt;Diploma&lt;small&gt;D-III&lt;/small&gt;&lt;/span&gt;&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;s1&quot;&gt;&lt;span class=&quot;select__text&quot;&gt;Sarjana&lt;small&gt;S-1, D-IV&lt;/small&gt;&lt;/span&gt;&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;s2&quot;&gt;&lt;span class=&quot;select__text&quot;&gt;Magister&lt;small&gt;S-2&lt;/small&gt;&lt;/span&gt;&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;s3&quot;&gt;&lt;span class=&quot;select__text&quot;&gt;Doktor&lt;small&gt;S-3&lt;/small&gt;&lt;/span&gt;&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;kedaton&quot;&gt;&lt;span class=&quot;select__text&quot;&gt;Kedaton&lt;small&gt;Bandar Lampung&lt;/small&gt;&lt;/span&gt;&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;way-halim&quot;&gt;&lt;span class=&quot;select__text&quot;&gt;Way Halim&lt;small&gt;Bandar Lampung&lt;/small&gt;&lt;/span&gt;&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;metro-pusat&quot;&gt;&lt;span class=&quot;select__text&quot;&gt;Metro Pusat&lt;small&gt;Kota Metro&lt;/small&gt;&lt;/span&gt;&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;pringsewu&quot;&gt;&lt;span class=&quot;select__text&quot;&gt;Pringsewu&lt;small&gt;Kabupaten Pringsewu&lt;/small&gt;&lt;/span&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;field&quot; style=&quot;max-width: 360px; width: 100%;&quot;&gt;
-  &lt;span class=&quot;field__label&quot; id=&quot;se-level&quot;&gt;Jenjang pendidikan&lt;/span&gt;
+  &lt;span class=&quot;field__label&quot; id=&quot;se-level&quot;&gt;Kecamatan&lt;/span&gt;
   &lt;div class=&quot;select&quot; data-lds-select&gt;
-    &lt;button type=&quot;button&quot; class=&quot;control select-trigger is-placeholder&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;false&quot; aria-labelledby=&quot;se-level&quot;&gt;&lt;span class=&quot;select__value&quot;&gt;Pilih jenjang&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;control select-trigger is-placeholder&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;false&quot; aria-labelledby=&quot;se-level&quot;&gt;&lt;span class=&quot;select__value&quot;&gt;Pilih kecamatan&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
     &lt;ul class=&quot;menu select__menu&quot; role=&quot;listbox&quot; aria-labelledby=&quot;se-level&quot;&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;d3&quot;&gt;&lt;span class=&quot;select__text&quot;&gt;Diploma&lt;small&gt;D-III&lt;/small&gt;&lt;/span&gt;&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;s1&quot;&gt;&lt;span class=&quot;select__text&quot;&gt;Sarjana&lt;small&gt;S-1, D-IV&lt;/small&gt;&lt;/span&gt;&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;s2&quot;&gt;&lt;span class=&quot;select__text&quot;&gt;Magister&lt;small&gt;S-2&lt;/small&gt;&lt;/span&gt;&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;s3&quot;&gt;&lt;span class=&quot;select__text&quot;&gt;Doktor&lt;small&gt;S-3&lt;/small&gt;&lt;/span&gt;&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;kedaton&quot;&gt;&lt;span class=&quot;select__text&quot;&gt;Kedaton&lt;small&gt;Bandar Lampung&lt;/small&gt;&lt;/span&gt;&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;way-halim&quot;&gt;&lt;span class=&quot;select__text&quot;&gt;Way Halim&lt;small&gt;Bandar Lampung&lt;/small&gt;&lt;/span&gt;&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;metro-pusat&quot;&gt;&lt;span class=&quot;select__text&quot;&gt;Metro Pusat&lt;small&gt;Kota Metro&lt;/small&gt;&lt;/span&gt;&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;pringsewu&quot;&gt;&lt;span class=&quot;select__text&quot;&gt;Pringsewu&lt;small&gt;Kabupaten Pringsewu&lt;/small&gt;&lt;/span&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
@@ -369,14 +374,14 @@
 <figure class="cdoc__ex" id="ex-2">
           <figcaption><span class="cdoc__ex-t">Dengan ikon dan nilai terpilih</span><span class="cdoc__ex-d">Select di bilah filter yang sudah dipilih. Tanda centang menandai baris terpilih di daftar.</span></figcaption>
           <div class="cdoc__stage" id="ex-2-stage" style="min-height: 280px;"><div class="field" style="max-width: 260px; width: 100%;">
-  <span class="field__label" id="se-sem">Semester</span>
+  <span class="field__label" id="se-sem">Periode laporan</span>
   <div class="select" data-lds-select>
-    <button type="button" class="control select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-sem"><span class="ic" aria-hidden="true">calendar_month</span><span class="select__value">Ganjil 2026/2027</span><span class="ic" aria-hidden="true">expand_more</span></button>
+    <button type="button" class="control select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-sem"><span class="ic" aria-hidden="true">calendar_month</span><span class="select__value">Triwulan III 2026</span><span class="ic" aria-hidden="true">expand_more</span></button>
     <ul class="menu select__menu" role="listbox" aria-labelledby="se-sem">
-      <li class="menu__item is-selected" role="option" aria-selected="true" data-value="2026-1">Ganjil 2026/2027</li>
-      <li class="menu__item" role="option" aria-selected="false" data-value="2025-2">Genap 2025/2026</li>
-      <li class="menu__item" role="option" aria-selected="false" data-value="2025-1">Ganjil 2025/2026</li>
-      <li class="menu__item" role="option" aria-selected="false" data-value="2024-2">Genap 2024/2025</li>
+      <li class="menu__item is-selected" role="option" aria-selected="true" data-value="2026-q3">Triwulan III 2026</li>
+      <li class="menu__item" role="option" aria-selected="false" data-value="2026-q2">Triwulan II 2026</li>
+      <li class="menu__item" role="option" aria-selected="false" data-value="2026-q1">Triwulan I 2026</li>
+      <li class="menu__item" role="option" aria-selected="false" data-value="2025-q4">Triwulan IV 2025</li>
     </ul>
   </div>
 </div></div>
@@ -385,27 +390,27 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;field&quot; style=&quot;max-width: 260px; width: 100%;&quot;&gt;
-  &lt;span class=&quot;field__label&quot; id=&quot;se-sem&quot;&gt;Semester&lt;/span&gt;
+  &lt;span class=&quot;field__label&quot; id=&quot;se-sem&quot;&gt;Periode laporan&lt;/span&gt;
   &lt;div class=&quot;select&quot; data-lds-select&gt;
-    &lt;button type=&quot;button&quot; class=&quot;control select-trigger&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;false&quot; aria-labelledby=&quot;se-sem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;calendar_month&lt;/span&gt;&lt;span class=&quot;select__value&quot;&gt;Ganjil 2026/2027&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;control select-trigger&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;false&quot; aria-labelledby=&quot;se-sem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;calendar_month&lt;/span&gt;&lt;span class=&quot;select__value&quot;&gt;Triwulan III 2026&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
     &lt;ul class=&quot;menu select__menu&quot; role=&quot;listbox&quot; aria-labelledby=&quot;se-sem&quot;&gt;
-      &lt;li class=&quot;menu__item is-selected&quot; role=&quot;option&quot; aria-selected=&quot;true&quot; data-value=&quot;2026-1&quot;&gt;Ganjil 2026/2027&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;2025-2&quot;&gt;Genap 2025/2026&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;2025-1&quot;&gt;Ganjil 2025/2026&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;2024-2&quot;&gt;Genap 2024/2025&lt;/li&gt;
+      &lt;li class=&quot;menu__item is-selected&quot; role=&quot;option&quot; aria-selected=&quot;true&quot; data-value=&quot;2026-q3&quot;&gt;Triwulan III 2026&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;2026-q2&quot;&gt;Triwulan II 2026&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;2026-q1&quot;&gt;Triwulan I 2026&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;2025-q4&quot;&gt;Triwulan IV 2025&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;field&quot; style=&quot;max-width: 260px; width: 100%;&quot;&gt;
-  &lt;span class=&quot;field__label&quot; id=&quot;se-sem&quot;&gt;Semester&lt;/span&gt;
+  &lt;span class=&quot;field__label&quot; id=&quot;se-sem&quot;&gt;Periode laporan&lt;/span&gt;
   &lt;div class=&quot;select&quot; data-lds-select&gt;
-    &lt;button type=&quot;button&quot; class=&quot;control select-trigger&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;false&quot; aria-labelledby=&quot;se-sem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;calendar_month&lt;/span&gt;&lt;span class=&quot;select__value&quot;&gt;Ganjil 2026/2027&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;control select-trigger&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;false&quot; aria-labelledby=&quot;se-sem&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;calendar_month&lt;/span&gt;&lt;span class=&quot;select__value&quot;&gt;Triwulan III 2026&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
     &lt;ul class=&quot;menu select__menu&quot; role=&quot;listbox&quot; aria-labelledby=&quot;se-sem&quot;&gt;
-      &lt;li class=&quot;menu__item is-selected&quot; role=&quot;option&quot; aria-selected=&quot;true&quot; data-value=&quot;2026-1&quot;&gt;Ganjil 2026/2027&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;2025-2&quot;&gt;Genap 2025/2026&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;2025-1&quot;&gt;Ganjil 2025/2026&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;2024-2&quot;&gt;Genap 2024/2025&lt;/li&gt;
+      &lt;li class=&quot;menu__item is-selected&quot; role=&quot;option&quot; aria-selected=&quot;true&quot; data-value=&quot;2026-q3&quot;&gt;Triwulan III 2026&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;2026-q2&quot;&gt;Triwulan II 2026&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;2026-q1&quot;&gt;Triwulan I 2026&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;2025-q4&quot;&gt;Triwulan IV 2025&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
@@ -413,63 +418,63 @@
 <figure class="cdoc__ex" id="ex-3">
           <figcaption><span class="cdoc__ex-t">Wajib dan belum diisi</span><span class="cdoc__ex-d">Pemicunya adalah <code class="code">.control</code>, jadi status galatnya sama dengan kolom lainnya.</span></figcaption>
           <div class="cdoc__stage" id="ex-3-stage" style="min-height: 260px;"><div class="field" style="max-width: 360px; width: 100%;">
-  <span class="field__label" id="se-cat">Kategori ujian</span>
+  <span class="field__label" id="se-cat">Jenis pengaduan</span>
   <div class="select" data-lds-select>
-    <button type="button" class="control select-trigger is-placeholder is-invalid" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-cat" aria-invalid="true" aria-describedby="se-cat-help"><span class="select__value">Pilih kategori</span><span class="ic" aria-hidden="true">expand_more</span></button>
+    <button type="button" class="control select-trigger is-placeholder is-invalid" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-cat" aria-invalid="true" aria-describedby="se-cat-help"><span class="select__value">Pilih jenis</span><span class="ic" aria-hidden="true">expand_more</span></button>
     <ul class="menu select__menu" role="listbox" aria-labelledby="se-cat">
-      <li class="menu__item" role="option" aria-selected="false" data-value="twk">Tes wawasan kebangsaan</li>
-      <li class="menu__item" role="option" aria-selected="false" data-value="tiu">Tes intelegensia umum</li>
-      <li class="menu__item" role="option" aria-selected="false" data-value="tkp">Tes karakteristik pribadi</li>
+      <li class="menu__item" role="option" aria-selected="false" data-value="jalan">Jalan rusak</li>
+      <li class="menu__item" role="option" aria-selected="false" data-value="lampu">Lampu jalan padam</li>
+      <li class="menu__item" role="option" aria-selected="false" data-value="sampah">Sampah tidak terangkut</li>
     </ul>
   </div>
-  <span class="field__help field__help--error" id="se-cat-help"><span class="ic" aria-hidden="true">error</span>Pilih kategori untuk melihat bank soalnya.</span>
+  <span class="field__help field__help--error" id="se-cat-help"><span class="ic" aria-hidden="true">error</span>Pilih jenis pengaduan agar laporan sampai ke dinas yang tepat.</span>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-3-code"><span class="ic ic--sm" aria-hidden="true">code</span>Kode</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;field&quot; style=&quot;max-width: 360px; width: 100%;&quot;&gt;
-  &lt;span class=&quot;field__label&quot; id=&quot;se-cat&quot;&gt;Kategori ujian&lt;/span&gt;
+  &lt;span class=&quot;field__label&quot; id=&quot;se-cat&quot;&gt;Jenis pengaduan&lt;/span&gt;
   &lt;div class=&quot;select&quot; data-lds-select&gt;
-    &lt;button type=&quot;button&quot; class=&quot;control select-trigger is-placeholder is-invalid&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;false&quot; aria-labelledby=&quot;se-cat&quot; aria-invalid=&quot;true&quot; aria-describedby=&quot;se-cat-help&quot;&gt;&lt;span class=&quot;select__value&quot;&gt;Pilih kategori&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;control select-trigger is-placeholder is-invalid&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;false&quot; aria-labelledby=&quot;se-cat&quot; aria-invalid=&quot;true&quot; aria-describedby=&quot;se-cat-help&quot;&gt;&lt;span class=&quot;select__value&quot;&gt;Pilih jenis&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
     &lt;ul class=&quot;menu select__menu&quot; role=&quot;listbox&quot; aria-labelledby=&quot;se-cat&quot;&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;twk&quot;&gt;Tes wawasan kebangsaan&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;tiu&quot;&gt;Tes intelegensia umum&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;tkp&quot;&gt;Tes karakteristik pribadi&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;jalan&quot;&gt;Jalan rusak&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;lampu&quot;&gt;Lampu jalan padam&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;sampah&quot;&gt;Sampah tidak terangkut&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
-  &lt;span class=&quot;field__help field__help--error&quot; id=&quot;se-cat-help&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;error&lt;/span&gt;Pilih kategori untuk melihat bank soalnya.&lt;/span&gt;
+  &lt;span class=&quot;field__help field__help--error&quot; id=&quot;se-cat-help&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;error&lt;/span&gt;Pilih jenis pengaduan agar laporan sampai ke dinas yang tepat.&lt;/span&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;field&quot; style=&quot;max-width: 360px; width: 100%;&quot;&gt;
-  &lt;span class=&quot;field__label&quot; id=&quot;se-cat&quot;&gt;Kategori ujian&lt;/span&gt;
+  &lt;span class=&quot;field__label&quot; id=&quot;se-cat&quot;&gt;Jenis pengaduan&lt;/span&gt;
   &lt;div class=&quot;select&quot; data-lds-select&gt;
-    &lt;button type=&quot;button&quot; class=&quot;control select-trigger is-placeholder is-invalid&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;false&quot; aria-labelledby=&quot;se-cat&quot; aria-invalid=&quot;true&quot; aria-describedby=&quot;se-cat-help&quot;&gt;&lt;span class=&quot;select__value&quot;&gt;Pilih kategori&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
+    &lt;button type=&quot;button&quot; class=&quot;control select-trigger is-placeholder is-invalid&quot; aria-haspopup=&quot;listbox&quot; aria-expanded=&quot;false&quot; aria-labelledby=&quot;se-cat&quot; aria-invalid=&quot;true&quot; aria-describedby=&quot;se-cat-help&quot;&gt;&lt;span class=&quot;select__value&quot;&gt;Pilih jenis&lt;/span&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;expand_more&lt;/span&gt;&lt;/button&gt;
     &lt;ul class=&quot;menu select__menu&quot; role=&quot;listbox&quot; aria-labelledby=&quot;se-cat&quot;&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;twk&quot;&gt;Tes wawasan kebangsaan&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;tiu&quot;&gt;Tes intelegensia umum&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;tkp&quot;&gt;Tes karakteristik pribadi&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;jalan&quot;&gt;Jalan rusak&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;lampu&quot;&gt;Lampu jalan padam&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; aria-selected=&quot;false&quot; data-value=&quot;sampah&quot;&gt;Sampah tidak terangkut&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
-  &lt;span class=&quot;field__help field__help--error&quot; id=&quot;se-cat-help&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;error&lt;/span&gt;Pilih kategori untuk melihat bank soalnya.&lt;/span&gt;
+  &lt;span class=&quot;field__help field__help--error&quot; id=&quot;se-cat-help&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;error&lt;/span&gt;Pilih jenis pengaduan agar laporan sampai ke dinas yang tepat.&lt;/span&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
         <section class="cdoc__sec" id="anatomy"><h2>Anatomi</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Bagian</th><th>Fungsinya</th></tr></thead><tbody><tr><td><code class="code">.select</code></td><td>Wajib. Pembungkus berposisi, selebar kolomnya. <code class="code">data-lds-select</code> untuk perilaku HTML biasa.</td></tr><tr><td><code class="code">button.control.select-trigger</code></td><td>Wajib. Kolom 44 px. <code class="code">aria-haspopup=&quot;listbox&quot;</code>, <code class="code">aria-expanded</code>, dinamai oleh label (<code class="code">aria-labelledby</code>). <code class="code">.is-placeholder</code> selama belum ada yang dipilih.</td></tr><tr><td><code class="code">.select__value</code></td><td>Wajib. Label terpilih (atau placeholder), dipotong dengan elipsis saat panjang.</td></tr><tr><td><code class="code">.ic (expand_more)</code></td><td>Wajib. Chevron; berputar 180 derajat saat terbuka. <code class="code">.ic</code> di depan nilai bersifat opsional.</td></tr><tr><td><code class="code">ul.menu.select__menu[role=listbox]</code></td><td>Wajib. Daftarnya, tinggi sampai 320 px (atau setengah viewport), menggulir di dalam.</td></tr><tr><td><code class="code">li.menu__item[role=option]</code></td><td>Wajib. Satu opsi dengan <code class="code">data-value</code> dan <code class="code">aria-selected</code>; <code class="code">.is-selected</code> menandai yang dipilih. Taruh <code class="code">.select__text</code> dengan <code class="code">small</code> di dalamnya untuk baris kedua.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="states"><h2>Status</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Status</th><th>Caranya</th></tr></thead><tbody><tr><td><code class="code">.is-placeholder</code></td><td>Teks redup sampai sesuatu dipilih; dihapus oleh JS pada pilihan pertama.</td></tr><tr><td><code class="code">open (aria-expanded=&quot;true&quot;)</code></td><td>Tepi aksen dan halo tetap di pemicu; chevron menunjuk ke atas; menu mendapat <code class="code">.is-open</code>.</td></tr><tr><td><code class="code">active option (.is-hover)</code></td><td>Baris keyboard atau pointer; <code class="code">aria-activedescendant</code> pada pemicu mengikutinya.</td></tr><tr><td><code class="code">selected (.is-selected + aria-selected)</code></td><td>Latar berisi pada baris terpilih.</td></tr><tr><td><code class="code">.is-invalid + aria-invalid</code></td><td>Tepi danger, dengan <code class="code">.field__help--error</code> di bawahnya.</td></tr><tr><td><code class="code">disabled</code></td><td><code class="code">disabled</code> pada tombol ditambah <code class="code">.is-disabled</code>.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="motion"><h2>Gerak dan mikrointeraksi</h2><ul class="cdoc__list"><li>Daftar tumbuh dari pemicu: opacity dalam <code class="code">--d-fast</code> (160 ms) dengan <code class="code">--ease-enter</code> dan <code class="code">scale(0.96) translateY(-4px)</code> ke posisi diam dengan <code class="code">--spring-smooth</code> (560 ms), titik asal kiri atas.</li><li>Ia menutup lebih cepat daripada membuka: opacity dan transform dalam <code class="code">--d-exit</code> (180 ms) dengan <code class="code">--ease-exit</code>, lalu <code class="code">visibility</code> berganti. Membuka lagi di tengah penutupan berbalik dari posisinya saat itu.</li><li>Chevron berputar 180 derajat dengan <code class="code">--spring-smooth</code>. Sorotan baris berganti dalam 60 ms linear agar berpindah dengan panah terasa langsung.</li><li>Reduced motion: menu memudar masuk 120 ms linear tanpa skala atau perpindahan.</li></ul></section>
         <section class="cdoc__sec" id="a11y"><h2>Aksesibilitas</h2><ul class="cdoc__list"><li>Pemicu adalah <code class="code">&lt;button type=&quot;button&quot;&gt;</code> (di dalam formulir tombol polos akan mengirim) dengan <code class="code">aria-haspopup=&quot;listbox&quot;</code>, <code class="code">aria-expanded</code>, dan nama dari label terlihat lewat <code class="code">aria-labelledby</code>.</li><li>Tombol: Bawah, Atas, Enter, atau Spasi membuka; Bawah dan Atas berpindah; Home dan End melompat; Enter atau Spasi memilih; Escape menutup dan menjaga fokus di pemicu; Tab menutup; mengetik huruf melompat ke kecocokan pertama (jeda 700 ms).</li><li>JS memberi listbox sebuah id, menyetel <code class="code">aria-controls</code>, dan memindahkan <code class="code">aria-activedescendant</code> pada pemicu; opsi membawa <code class="code">aria-selected</code>.</li><li>Tidak ada nilai formulir bawaan: saat <code class="code">lds:change</code> tulis nilainya ke input tersembunyi, atau baca dari state Anda.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Tulis placeholder yang menyebut aksinya (&quot;Pilih jenjang&quot;), dan tampilkan bawaan terpilih jika memang jelas benar.</li><li>Urutkan opsi sesuai harapan orang (jenjang, waktu, abjad), bukan berdasarkan id basis data.</li><li>Pakai baris kedua (<code class="code">small</code>) untuk kode atau keterangan singkat, bukan teks promosi.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Memakai select untuk dua atau tiga opsi; tampilkan <a class="link" href="radio.html">radio</a> atau <a class="link" href="segmented-control.html">segmented control</a>.</li><li>Menaruh aksi atau tautan di dalam listbox.</li><li>Memberi gaya <code class="code">&lt;select&gt;</code> bawaan agar tampak seperti ini; pakai <code class="code">.select</code> (sistem tidak memberi gaya select bawaan).</li></ul></div></div></section>
+        <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Tulis placeholder yang menyebut aksinya (&quot;Pilih kecamatan&quot;), dan tampilkan bawaan terpilih jika memang jelas benar.</li><li>Urutkan opsi sesuai harapan orang (abjad, waktu, wilayah), bukan berdasarkan id basis data.</li><li>Pakai baris kedua (<code class="code">small</code>) untuk kode atau keterangan singkat, bukan teks promosi.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Memakai select untuk dua atau tiga opsi; tampilkan <a class="link" href="radio.html">radio</a> atau <a class="link" href="segmented-control.html">segmented control</a>.</li><li>Menaruh aksi atau tautan di dalam listbox.</li><li>Memberi gaya <code class="code">&lt;select&gt;</code> bawaan agar tampak seperti ini; pakai <code class="code">.select</code> (sistem tidak memberi gaya select bawaan).</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> <code class="code">data-lds-select</code> pada <code class="code">.select</code>: membuka dan menutup listbox, menangani tombol di atas, menutup saat pointer di luar, menulis label terpilih ke <code class="code">.select__value</code>, dan memicu <code class="code">lds:change</code> dengan <code class="code">{ value, label }</code> pada pembungkus (nilai dari <code class="code">data-value</code>).</p><p class="cdoc__p"><strong>React.</strong> Dari <code class="code">lampung-design-system/react</code>.</p><div class="codeblock"><pre>import { Select } from 'lampung-design-system/react';
 
-&lt;span className=&quot;field__label&quot; id=&quot;level-label&quot;&gt;Jenjang pendidikan&lt;/span&gt;
+&lt;span className=&quot;field__label&quot; id=&quot;level-label&quot;&gt;Kecamatan&lt;/span&gt;
 &lt;Select
   labelledBy=&quot;level-label&quot;
   value={level}
   onChange={setLevel}
-  placeholder=&quot;Pilih jenjang&quot;
+  placeholder=&quot;Pilih kecamatan&quot;
   options={[
-    { value: 'd3', label: 'Diploma', sub: 'D-III' },
-    { value: 's1', label: 'Sarjana', sub: 'S-1, D-IV' },
+    { value: 'kedaton', label: 'Kedaton', sub: 'Bandar Lampung' },
+    { value: 'way-halim', label: 'Way Halim', sub: 'Bandar Lampung' },
   ]}
 /&gt;</pre></div></section>
         <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="combobox.html"><span class="link-card__eyebrow">Input</span><span class="link-card__title">Combobox</span><span class="link-card__body">Text field yang menyaring daftar opsi saat Anda mengetik dan menyimpan satu yang dipilih. Untuk daftar panjang dan opsi dari server; ia memberi tahu saat tidak ada yang cocok.</span></a><a class="link-card" href="radio-card.html"><span class="link-card__eyebrow">Pilihan</span><span class="link-card__title">Radio card</span><span class="link-card__body">Kartu yang bisa dipilih untuk satu pilihan di antara dua sampai empat opsi yang masing-masing butuh judul, satu baris keterangan, dan sering kali harga. Seluruh kartu adalah targetnya; yang dipilih mendapat tepi dan warna aksen.</span></a><a class="link-card" href="segmented-control.html"><span class="link-card__eyebrow">Pilihan</span><span class="link-card__title">Segmented control</span><span class="link-card__body">Dua sampai lima segmen sama lebar dengan satu thumb yang bergeser ke segmen terpilih. Untuk mengganti tampilan atau mode dari yang ada di layar saat itu; perubahannya langsung berlaku.</span></a><a class="link-card" href="dropdown-menu.html"><span class="link-card__eyebrow">Lapisan</span><span class="link-card__title">Dropdown menu</span><span class="link-card__body">Daftar perintah yang turun dari tombol: opsi urutan, aksi baris, menu &quot;lainnya&quot; di balik icon button. Item menjalankan sesuatu; bukan field formulir.</span></a></div></section>
@@ -491,6 +496,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

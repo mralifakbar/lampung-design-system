@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Feedback">Umpan balik</a></li></ol></nav>
           <h1>Alert</h1>
           <p class="cdoc__lede">Pesan inline tentang halaman, bagian atau formulir ini, dalam salah satu dari empat nada. Kata-katanya yang membawa makna; warna dan ikon hanya mendukung.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="alert.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="alert.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Ada hal di halaman ini yang perlu diperhatikan sebelum orang bertindak: jadwal yang bentrok, dokumen yang kurang, pembayaran yang ditolak.</li><li>Formulir gagal saat dikirim dan Anda perlu satu ringkasan di atasnya (error per kolom tetap di bawah setiap kolom).</li><li>Hasil yang tetap relevan selama orang berada di halaman: &quot;Permohonan Anda terkirim. Kami membalas dalam dua hari kerja.&quot;</li><li>Penjelasan singkat tentang aturan yang mengubah apa yang bisa dilakukan di sini (&quot;Pendaftaran ditutup Jumat pukul 17.00&quot;).</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Kondisinya menyangkut seluruh aplikasi, bukan halaman ini (offline, pemeliharaan, masa uji coba berakhir): pakai <a class="link" href="banner.html">Banner</a>.</li><li>Mengonfirmasi hal yang baru saja terjadi (&quot;Tersimpan&quot;, &quot;Pesan terkirim&quot;): pakai <a class="link" href="toast.html">Toast</a>. Toast hilang sendiri; alert bertahan sampai kondisinya selesai.</li><li>Meminta orang mengonfirmasi aksi yang merusak: pakai <a class="link" href="alert-dialog.html">Alert dialog</a>.</li><li>Satu kolom salah: pakai <a class="link" href="text-field.html">Text field</a>. Letakkan error di bawah kolomnya (<code class="code">field__error</code>), bukan di alert.</li><li>Tips sekali tampil tentang gestur atau fitur: pakai <a class="link" href="hints.html">Hints</a>.</li><li>Sebuah area belum punya data: pakai <a class="link" href="empty-state.html">Empty state</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di bagian atas area yang dibahas: di bawah <a class="link" href="page-header.html">page header</a>, di atas formulir yang diringkasnya, atau di atas card. Selebar kolomnya di semua ukuran layar. Jangan pernah melayang, jangan pernah ditumpuk lebih dari dua; jika ada tiga kondisi, gabungkan menjadi satu alert dengan daftar.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -427,7 +432,7 @@
         <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Tulis judul sebagai fakta (&quot;Dua jadwal layanan bentrok pada hari Kamis&quot;) dan isi sebagai langkah berikutnya.</li><li>Letakkan satu perbaikan di dalam alert sebagai tombol.</li><li>Hapus alert begitu kondisinya beres.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Menumpuk beberapa alert; gabungkan atau perbaiki penyebabnya.</li><li>Memakai alert untuk mengonfirmasi penyimpanan; itu tugas <a class="link" href="toast.html">toast</a>.</li><li>Memakai <code class="code">role=&quot;alert&quot;</code> pada konten yang sudah ada saat halaman dimuat.</li><li>Mengubah alert menjadi card berwarna atau menambah bayangan.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> Opsional. Tombol tutup dengan <code class="code">data-lds-dismiss</code> di dalam <code class="code">.collapse</code> menambahkan <code class="code">is-closed</code> ke <code class="code">.collapse</code> terdekat dan memicu <code class="code">lds:dismiss</code> (bubbles). Bagian lain tidak butuh JS.</p><p class="cdoc__p"><strong>React.</strong> Dari <code class="code">lampung-design-system/react</code>.</p><div class="codeblock"><pre>import { Alert } from 'lampung-design-system/react';
 
-&lt;Alert tone=&quot;warning&quot; title=&quot;Two courses overlap on Thursday&quot;
+&lt;Alert tone=&quot;warning&quot; title=&quot;Two service appointments overlap on Thursday&quot;
   actions={&lt;button className=&quot;btn btn--secondary btn--sm&quot;&gt;Resolve conflict&lt;/button&gt;}&gt;
   Pick one before you submit your plan.
 &lt;/Alert&gt;
@@ -451,6 +456,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

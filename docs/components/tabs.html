@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Navigation">Navigasi</a></li></ol></nav>
           <h1>Tabs</h1>
           <p class="cdoc__lede">Tab bergaris bawah yang berpindah di antara bagian sejajar dalam satu halaman, masing-masing dengan panelnya sendiri. Satu garis tinta meluncur ke tab yang dipilih.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="tabs.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="tabs.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Satu data atau halaman punya bagian sejajar yang dikunjungi satu per satu: Ringkasan, Permohonan, Dokumen, Diskusi.</li><li>Bagian-bagiannya berisi jenis konten berbeda, sehingga masing-masing butuh panel sendiri.</li><li>Empat bagian atau lebih, atau label panjang: tab rata awal (<code class="code">.tabs--start</code>) selebar labelnya.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Berpindah di antara dua sampai lima tampilan atau filter dari konten yang sama (Minggu, Bulan; Semua, Belum dibaca): pakai <a class="link" href="segmented-control.html">Segmented control</a>. Tabs mengganti bagian; segmented control mengubah nilai.</li><li>Berpindah antarhalaman aplikasi: pakai <a class="link" href="app-shell.html">App shell</a>.</li><li>Urutan tetap yang harus dilalui berurutan: pakai <a class="link" href="steps.html">Steps</a>.</li><li>Konten yang mungkin ingin dibaca beberapa bagiannya sekaligus: pakai <a class="link" href="accordion.html">Accordion</a>.</li><li>Tujuan di bagian bawah layar ponsel: pakai <a class="link" href="phone-bars.html">Phone bars</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Tepat di bawah <a class="link" href="page-header.html">page header</a> dari hal yang dibaginya, selebar kolom konten, dengan panel tepat di bawahnya. Di ponsel tetap di bawah judul; jika label tidak muat, pakai <code class="code">.tabs--start</code> di dalam gulir horizontal alih-alih mengecilkan teks.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -415,10 +420,10 @@
         <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Namai tab dengan kata benda sesuai isinya: &quot;Permohonan&quot;, bukan &quot;Lihat permohonan&quot;.</li><li>Pertahankan tab terpilih saat orang kembali ke halaman (simpan di URL atau state).</li><li>Pakai <code class="code">.tabs--start</code> begitu label tidak lagi muat sama rata.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Memakai tabs untuk memfilter daftar atau mengganti grafik; itu tugas <a class="link" href="segmented-control.html">segmented control</a>.</li><li>Menyarangkan tabs di dalam tabs.</li><li>Menaruh aksi (Simpan, Hapus) di baris tab.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> <code class="code">data-lds-tabs</code> pada <code class="code">.tabs</code> memilih tab saat diklik atau dengan tombol panah, mengatur <code class="code">aria-selected</code> dan roving <code class="code">tabindex</code>, menggeser dan mengukur <code class="code">.tabs__ink</code> (lebar sama), menampilkan panel yang disebut <code class="code">aria-controls</code> dan menyembunyikan sisanya, lalu memicu <code class="code">lds:change</code> dengan <code class="code">{ index, item }</code>.</p><p class="cdoc__p"><strong>React.</strong> Dari <code class="code">lampung-design-system/react</code>.</p><div class="codeblock"><pre>import { Tabs } from 'lampung-design-system/react';
 
-const [tab, setTab] = useState&lt;'overview' | 'assignments'&gt;('overview');
+const [tab, setTab] = useState&lt;'overview' | 'applications'&gt;('overview');
 
 &lt;Tabs label=&quot;Bagian layanan&quot; value={tab} onChange={setTab} align=&quot;fill&quot;
-  items={[{ value: 'overview', label: 'Ringkasan' }, { value: 'assignments', label: 'Permohonan', count: 3 }]} /&gt;
+  items={[{ value: 'overview', label: 'Ringkasan' }, { value: 'applications', label: 'Permohonan', count: 3 }]} /&gt;
 {tab === 'overview' ? &lt;div className=&quot;tab-panel&quot; role=&quot;tabpanel&quot;&gt;…&lt;/div&gt; : &lt;div className=&quot;tab-panel&quot; role=&quot;tabpanel&quot;&gt;…&lt;/div&gt;}</pre></div></section>
         <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="segmented-control.html"><span class="link-card__eyebrow">Pilihan</span><span class="link-card__title">Segmented control</span><span class="link-card__body">Dua sampai lima segmen sama lebar dengan satu thumb yang bergeser ke segmen terpilih. Untuk mengganti tampilan atau mode dari yang ada di layar saat itu; perubahannya langsung berlaku.</span></a><a class="link-card" href="page-header.html"><span class="link-card__eyebrow">Navigasi</span><span class="link-card__title">Page header</span><span class="link-card__body">Bagian atas halaman: breadcrumbs, judul dengan satu baris konteks, dan aksi halaman pada garis dasar yang sama. Gabungan dari bagian yang sudah ada, bukan komponen tersendiri.</span></a><a class="link-card" href="sliding-indicator.html"><span class="link-card__eyebrow">Gerak</span><span class="link-card__title">Sliding indicator</span><span class="link-card__body">Satu penanda berpindah ke pilihan yang dipilih: thumb segmented, garis tab, sorotan sidebar, garis outline, sorotan toolbar. Label tidak pernah menyala sendiri; satu elemen yang bergerak itulah yang menunjukkan ke mana pilihan berpindah.</span></a><a class="link-card" href="accordion.html"><span class="link-card__eyebrow">Tampilan data</span><span class="link-card__title">Accordion</span><span class="link-card__body">Tumpukan pertanyaan atau bagian yang masing-masing membuka panelnya dengan spring. Untuk isi yang dibaca sebagian saja; jangan pernah untuk menyembunyikan hal yang dibutuhkan semua orang.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
@@ -439,6 +444,17 @@ const [tab, setTab] = useState&lt;'overview' | 'assignments'&gt;('overview');
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

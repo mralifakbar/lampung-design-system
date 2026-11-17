@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,18 +321,22 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Microinteractions">Microinteractions</a></li></ol></nav>
           <h1>Menu icon</h1>
           <p class="cdoc__lede">Three bars that fold into a close icon when their button opens a menu, and unfold when it closes: the top and bottom bars meet and turn 45 degrees, the middle one shrinks away. The button stays in place, so the same spot opens and closes.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="menu-icon.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="menu-icon.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>The button that opens and closes site navigation on small screens: the <a class="link" href="top-nav.html">top nav</a> toggle, the <a class="link" href="app-shell.html">app shell</a> drawer toggle.</li><li>Any button that opens a panel of navigation and also closes it from the same spot.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>A menu of actions on an item: use <a class="link" href="dropdown-menu.html">Dropdown menu</a>. Use <code class="code">more_horiz</code> or <code class="code">more_vert</code>; it does not turn into a close icon.</li><li>Closing a dialog or sheet: use <a class="link" href="icon-button.html">Icon button</a>. A plain <code class="code">close</code> icon.</li><li>Two icons for two states (play, pause): use <a class="link" href="icon-swap.html">Icon swap</a>.</li><li>Opening a section in the page: use <a class="link" href="height-expand.html">Height expand</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> The leading edge of a top bar on phones (app shell), or the trailing edge of a site header (top nav). Always inside an <a class="link" href="icon-button.html">icon button</a> that carries <code class="code">aria-expanded</code>.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">Open and close the navigation</span><span class="cdoc__ex-d">Press the button: the bars fold into a close icon while the links open below. Press again to fold back.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div style="max-width: 360px;">
   <div class="docs-row" style="justify-content: space-between;">
-    <span class="card__title">Campus</span>
+    <span class="card__title">Citizen services</span>
     <button class="icon-btn" aria-label="Menu" aria-expanded="false" aria-controls="mi-nav" onclick="const open = this.getAttribute('aria-expanded') !== 'true'; this.setAttribute('aria-expanded', String(open)); document.getElementById(this.getAttribute('aria-controls')).classList.toggle('is-closed', !open);"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
   </div>
   <div class="collapse is-closed" id="mi-nav"><div><nav class="list list--fill" aria-label="Main" style="margin-top: 8px;">
     <a class="lrow" href="#" aria-current="page"><span class="lrow__body"><span class="lrow__title">Home</span></span></a>
-    <a class="lrow" href="#"><span class="lrow__body"><span class="lrow__title">Courses</span></span></a>
+    <a class="lrow" href="#"><span class="lrow__body"><span class="lrow__title">Services</span></span></a>
     <a class="lrow" href="#"><span class="lrow__body"><span class="lrow__title">Schedule</span></span></a>
   </nav></div></div>
 </div></div>
@@ -341,24 +346,24 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div style=&quot;max-width: 360px;&quot;&gt;
   &lt;div class=&quot;docs-row&quot; style=&quot;justify-content: space-between;&quot;&gt;
-    &lt;span class=&quot;card__title&quot;&gt;Campus&lt;/span&gt;
+    &lt;span class=&quot;card__title&quot;&gt;Citizen services&lt;/span&gt;
     &lt;button class=&quot;icon-btn&quot; aria-label=&quot;Menu&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;mi-nav&quot; onclick=&quot;const open = this.getAttribute('aria-expanded') !== 'true'; this.setAttribute('aria-expanded', String(open)); document.getElementById(this.getAttribute('aria-controls')).classList.toggle('is-closed', !open);&quot;&gt;&lt;span class=&quot;burger&quot; aria-hidden=&quot;true&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;/button&gt;
   &lt;/div&gt;
   &lt;div class=&quot;collapse is-closed&quot; id=&quot;mi-nav&quot;&gt;&lt;div&gt;&lt;nav class=&quot;list list--fill&quot; aria-label=&quot;Main&quot; style=&quot;margin-top: 8px;&quot;&gt;
     &lt;a class=&quot;lrow&quot; href=&quot;#&quot; aria-current=&quot;page&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Home&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;
-    &lt;a class=&quot;lrow&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Courses&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;
+    &lt;a class=&quot;lrow&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Services&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;
     &lt;a class=&quot;lrow&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Schedule&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;
   &lt;/nav&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div style=&quot;max-width: 360px;&quot;&gt;
   &lt;div class=&quot;docs-row&quot; style=&quot;justify-content: space-between;&quot;&gt;
-    &lt;span class=&quot;card__title&quot;&gt;Campus&lt;/span&gt;
+    &lt;span class=&quot;card__title&quot;&gt;Citizen services&lt;/span&gt;
     &lt;button class=&quot;icon-btn&quot; aria-label=&quot;Menu&quot; aria-expanded=&quot;false&quot; aria-controls=&quot;mi-nav&quot; onclick=&quot;const open = this.getAttribute('aria-expanded') !== 'true'; this.setAttribute('aria-expanded', String(open)); document.getElementById(this.getAttribute('aria-controls')).classList.toggle('is-closed', !open);&quot;&gt;&lt;span class=&quot;burger&quot; aria-hidden=&quot;true&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;/button&gt;
   &lt;/div&gt;
   &lt;div class=&quot;collapse is-closed&quot; id=&quot;mi-nav&quot;&gt;&lt;div&gt;&lt;nav class=&quot;list list--fill&quot; aria-label=&quot;Main&quot; style=&quot;margin-top: 8px;&quot;&gt;
     &lt;a class=&quot;lrow&quot; href=&quot;#&quot; aria-current=&quot;page&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Home&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;
-    &lt;a class=&quot;lrow&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Courses&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;
+    &lt;a class=&quot;lrow&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Services&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;
     &lt;a class=&quot;lrow&quot; href=&quot;#&quot;&gt;&lt;span class=&quot;lrow__body&quot;&gt;&lt;span class=&quot;lrow__title&quot;&gt;Schedule&lt;/span&gt;&lt;/span&gt;&lt;/a&gt;
   &lt;/nav&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
@@ -398,6 +403,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

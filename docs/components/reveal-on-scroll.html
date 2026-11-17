@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Motion">Gerak</a></li></ol></nav>
           <h1>Reveal on scroll</h1>
           <p class="cdoc__lede">Gambar, angka kunci, dan ilustrasi memudar naik 4 px saat pertama kali masuk ke layar karena scroll, sekali saja, dan tidak pernah lagi. Teks isi, daftar, dan tabel tidak pernah dimunculkan dengan cara ini: orang harus bisa membaca dan mencari semuanya sekaligus.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="reveal-on-scroll.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="reveal-on-scroll.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Angka kunci di halaman hasil atau halaman depan (<a class="link" href="stat-row.html">stat row</a>) yang masuk ke layar saat orang menggulir.</li><li>Ilustrasi, foto, dan grafik di bagian bawah halaman yang panjang.</li><li>Deretan pendek kartu atau gambar yang tiba bersamaan, dengan stagger 30 ms lewat <code class="code">--i</code>.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Paragraf, daftar, tabel, formulir: pakai <a class="link" href="prose.html">Prose</a>. Semuanya cukup langsung ada. Memunculkan konten bacaan membuat orang menunggu untuk membaca.</li><li>Butir yang tiba karena orang memintanya (hasil pencarian): pakai <a class="link" href="list-stagger.html">List stagger</a>.</li><li>Sesuatu yang terbuka karena tekanan: pakai <a class="link" href="enter-and-exit.html">Enter and exit</a>.</li><li>Konten di layar pertama saat dimuat: pakai <a class="link" href="motion-principles.html">Motion principles</a>. Sudah terlihat: tampilkan seketika.</li><li>Konten yang sedang dimuat dan belum ada: pakai <a class="link" href="skeleton.html">Skeleton</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Pada elemen tunggal yang berupa gambar atau angka: <code class="code">.stat-row__item</code>, <code class="code">.thumb</code>, <code class="code">.chart-card</code>, <code class="code">.spotlight</code>, kartu di dalam <code class="code">auto-grid</code>. Jangan pada section, seluruh halaman, atau kontainer teks.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -468,6 +473,17 @@ function ResultsPage() {
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

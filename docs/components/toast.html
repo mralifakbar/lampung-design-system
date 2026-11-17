@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Overlays">Lapisan</a></li></ol></nav>
           <h1>Toast</h1>
           <p class="cdoc__lede">Pesan gelap singkat di bagian bawah yang memastikan sesuatu baru saja terjadi, lalu hilang sendiri. Jika aksinya bisa dibatalkan, tombol Urungkan ada di toast dengan hitung mundur yang jujur.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="toast.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="toast.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Memastikan aksi yang sudah selesai: &quot;Draf tersimpan&quot;, &quot;Undangan terkirim&quot;, &quot;Laporan diarsipkan&quot;.</li><li>Menawarkan Urungkan tepat setelah aksi destruktif yang bisa dibatalkan, alih-alih bertanya lebih dulu.</li><li>Melaporkan hasil proses latar yang dimulai orang itu (ekspor siap, unggahan selesai).</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Kondisi yang bertahan sampai diperbaiki (offline, tagihan lewat jatuh tempo): pakai <a class="link" href="alert.html">Alert</a>. Atau <a class="link" href="banner.html">banner</a> untuk kondisi di seluruh sistem.</li><li>Galat di field formulir: pakai <a class="link" href="text-field.html">Text field</a>. Taruh pesannya di bawah field.</li><li>Keputusan yang harus dibuat: pakai <a class="link" href="dialog.html">Dialog</a>.</li><li>Aksi destruktif yang tidak bisa dibatalkan: pakai <a class="link" href="alert-dialog.html">Alert dialog</a>.</li><li>Aksi pada beberapa item terpilih: pakai <a class="link" href="selection-bar.html">Selection bar</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Tengah bawah jendela (atau <code class="code">.viewport</code>-nya), lebar 340 px, 20 px dari bawah. Yang terbaru di depan; hingga tiga terselip di belakangnya, lebih kecil. Di atas tab bar ponsel, angkat toaster agar tidak menutupi bar.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -408,6 +413,17 @@ notify({ title: 'Laporan diarsipkan', action: 'Urungkan', onAction: restore });<
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,8 +321,12 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Actions">Actions</a></li></ol></nav>
           <h1>Button</h1>
           <p class="cdoc__lede">The control people press to make something happen: save, send, start, delete. One primary per view; the label names the outcome.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="button.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="button.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>An action happens on this page or in this form: submit, save, start a task, open a dialog.</li><li>You need a loading state that keeps the width while the action runs (<code class="code">.is-loading</code> with <code class="code">btn__label</code> and <code class="code">btn__spin</code>).</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Going to another page with no side effect: use <a class="link" href="link.html">Link</a>. A link is announced as navigation and opens in a new tab on middle click.</li><li>The control only shows an icon: use <a class="link" href="icon-button.html">Icon button</a>.</li><li>Turning a setting on or off that applies at once: use <a class="link" href="switch.html">Switch</a>.</li><li>Picking one view of the same content: use <a class="link" href="segmented-control.html">Segmented control</a>.</li><li>A costly but not dangerous confirm (submit an exam, send payment): use <a class="link" href="hold-to-confirm.html">Hold to confirm</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> At the end of the thing it acts on: under a form (<code class="code">form__actions</code>), at the bottom of a dialog (<code class="code">dialog__actions</code>), in a card footer, or in a sticky bar on phones. The primary sits on the right on wide screens and on top (full width) on phones.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>An action happens on this page or in this form: submit, save, start a task, open a dialog.</li><li>You need a loading state that keeps the width while the action runs (<code class="code">.is-loading</code> with <code class="code">btn__label</code> and <code class="code">btn__spin</code>).</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Going to another page with no side effect: use <a class="link" href="link.html">Link</a>. A link is announced as navigation and opens in a new tab on middle click.</li><li>The control only shows an icon: use <a class="link" href="icon-button.html">Icon button</a>.</li><li>Turning a setting on or off that applies at once: use <a class="link" href="switch.html">Switch</a>.</li><li>Picking one view of the same content: use <a class="link" href="segmented-control.html">Segmented control</a>.</li><li>A costly but not dangerous confirm (submit an application, send payment): use <a class="link" href="hold-to-confirm.html">Hold to confirm</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> At the end of the thing it acts on: under a form (<code class="code">form__actions</code>), at the bottom of a dialog (<code class="code">dialog__actions</code>), in a card footer, or in a sticky bar on phones. The primary sits on the right on wide screens and on top (full width) on phones.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">Variants</span><span class="cdoc__ex-d">Primary once per view; secondary for the alternative; tinted for a quiet positive; plain for inline and tertiary actions; danger only inside a confirm.</span></figcaption>
           <div class="cdoc__stage" id="ex-1-stage"><div class="docs-row">
@@ -357,8 +362,8 @@
 <figure class="cdoc__ex" id="ex-2">
           <figcaption><span class="cdoc__ex-t">Sizes and icons</span><span class="cdoc__ex-d">52 for the one big call to action on a landing page, 44 by default, 36 in toolbars and dense rows, 28 inside rows and chips. Small sizes keep a 44 px hit area through the space around them.</span></figcaption>
           <div class="cdoc__stage" id="ex-2-stage"><div class="docs-row">
-  <button class="btn btn--primary btn--lg"><span class="ic" aria-hidden="true">play_arrow</span>Start the tryout</button>
-  <button class="btn btn--secondary"><span class="ic" aria-hidden="true">add</span>Add course</button>
+  <button class="btn btn--primary btn--lg"><span class="ic" aria-hidden="true">play_arrow</span>Start application</button>
+  <button class="btn btn--secondary"><span class="ic" aria-hidden="true">add</span>Add service</button>
   <button class="btn btn--secondary btn--md"><span class="ic" aria-hidden="true">download</span>Export</button>
   <button class="btn btn--plain btn--sm">Edit</button>
 </div></div>
@@ -367,15 +372,15 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;docs-row&quot;&gt;
-  &lt;button class=&quot;btn btn--primary btn--lg&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;play_arrow&lt;/span&gt;Start the tryout&lt;/button&gt;
-  &lt;button class=&quot;btn btn--secondary&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;add&lt;/span&gt;Add course&lt;/button&gt;
+  &lt;button class=&quot;btn btn--primary btn--lg&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;play_arrow&lt;/span&gt;Start application&lt;/button&gt;
+  &lt;button class=&quot;btn btn--secondary&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;add&lt;/span&gt;Add service&lt;/button&gt;
   &lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Export&lt;/button&gt;
   &lt;button class=&quot;btn btn--plain btn--sm&quot;&gt;Edit&lt;/button&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;docs-row&quot;&gt;
-  &lt;button class=&quot;btn btn--primary btn--lg&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;play_arrow&lt;/span&gt;Start the tryout&lt;/button&gt;
-  &lt;button class=&quot;btn btn--secondary&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;add&lt;/span&gt;Add course&lt;/button&gt;
+  &lt;button class=&quot;btn btn--primary btn--lg&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;play_arrow&lt;/span&gt;Start application&lt;/button&gt;
+  &lt;button class=&quot;btn btn--secondary&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;add&lt;/span&gt;Add service&lt;/button&gt;
   &lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;download&lt;/span&gt;Export&lt;/button&gt;
   &lt;button class=&quot;btn btn--plain btn--sm&quot;&gt;Edit&lt;/button&gt;
 &lt;/div&gt;</pre></div></div></div>
@@ -383,7 +388,7 @@
 <figure class="cdoc__ex" id="ex-3">
           <figcaption><span class="cdoc__ex-t">Loading without a jump</span><span class="cdoc__ex-d">The label blurs out, the spinner scales in, the width stays. Press it.</span></figcaption>
           <div class="cdoc__stage" id="ex-3-stage"><button class="btn btn--primary" onclick="this.classList.add('is-loading'); this.setAttribute('aria-busy','true'); setTimeout(() => { this.classList.remove('is-loading'); this.removeAttribute('aria-busy'); }, 1600)">
-  <span class="btn__label"><span class="ic" aria-hidden="true">check</span>Submit answers</span>
+  <span class="btn__label"><span class="ic" aria-hidden="true">check</span>Submit application</span>
   <span class="btn__spin" aria-hidden="true"><span class="spinner"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></span>
 </button></div>
           
@@ -391,12 +396,12 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-3-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;button class=&quot;btn btn--primary is-loading&quot; aria-busy=&quot;true&quot;&gt;
-  &lt;span class=&quot;btn__label&quot;&gt;Submit answers&lt;/span&gt;
+  &lt;span class=&quot;btn__label&quot;&gt;Submit application&lt;/span&gt;
   &lt;span class=&quot;btn__spin&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;spinner&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;/button&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;button class=&quot;btn btn--primary is-loading&quot; aria-busy=&quot;true&quot;&gt;
-  &lt;span class=&quot;btn__label&quot;&gt;Submit answers&lt;/span&gt;
+  &lt;span class=&quot;btn__label&quot;&gt;Submit application&lt;/span&gt;
   &lt;span class=&quot;btn__spin&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;spinner&quot;&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;i&gt;&lt;/i&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;/button&gt;</pre></div></div></div>
         </figure>
@@ -404,7 +409,7 @@
           <figcaption><span class="cdoc__ex-t">Disabled</span><span class="cdoc__ex-d">Prefer an enabled button that explains what is missing when pressed. Disable only when the reason is visible next to it.</span></figcaption>
           <div class="cdoc__stage" id="ex-4-stage"><div class="docs-col" style="max-width: 360px;">
   <button class="btn btn--primary" disabled>Send report</button>
-  <span class="field__help">Choose what kind of mistake it is to send the report.</span>
+  <span class="field__help">Choose the kind of problem to send the report.</span>
 </div></div>
           
           <div class="cdoc__bar">
@@ -412,12 +417,12 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;docs-col&quot; style=&quot;max-width: 360px;&quot;&gt;
   &lt;button class=&quot;btn btn--primary&quot; disabled&gt;Send report&lt;/button&gt;
-  &lt;span class=&quot;field__help&quot;&gt;Choose what kind of mistake it is to send the report.&lt;/span&gt;
+  &lt;span class=&quot;field__help&quot;&gt;Choose the kind of problem to send the report.&lt;/span&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-4-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;docs-col&quot; style=&quot;max-width: 360px;&quot;&gt;
   &lt;button class=&quot;btn btn--primary&quot; disabled&gt;Send report&lt;/button&gt;
-  &lt;span class=&quot;field__help&quot;&gt;Choose what kind of mistake it is to send the report.&lt;/span&gt;
+  &lt;span class=&quot;field__help&quot;&gt;Choose the kind of problem to send the report.&lt;/span&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
         <section class="cdoc__sec" id="anatomy"><h2>Anatomy</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Part</th><th>What it is</th></tr></thead><tbody><tr><td><code class="code">.btn</code></td><td>Required. The <code class="code">&lt;button&gt;</code> (or <code class="code">&lt;a&gt;</code> styled as one when it navigates). 44 px tall by default.</td></tr><tr><td><code class="code">.btn--primary|secondary|…</code></td><td>Required. One variant class; it sets color and finish.</td></tr><tr><td><code class="code">.ic</code></td><td>Optional leading icon, 19 px, before the label.</td></tr><tr><td><code class="code">.btn__label</code></td><td>Wraps the text when the button can load, so the text can blur out without changing width.</td></tr><tr><td><code class="code">.btn__spin</code></td><td>The spinner shown while <code class="code">.is-loading</code> is on. Holds a <code class="code">.spinner</code> with eight <code class="code">&lt;i&gt;</code>.</td></tr></tbody></table></div></section>
@@ -425,7 +430,7 @@
         <section class="cdoc__sec" id="states"><h2>States</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>State</th><th>How</th></tr></thead><tbody><tr><td><code class="code">hover</code></td><td>Automatic; only on devices that can hover.</td></tr><tr><td><code class="code">:active</code></td><td>Sinks to 97 % in 90 ms and springs back on release.</td></tr><tr><td><code class="code">.is-loading + aria-busy</code></td><td>Label out, spinner in, width kept; clicks ignored. <code class="code">setLoading(btn, true)</code> in plain HTML.</td></tr><tr><td><code class="code">disabled / aria-disabled</code></td><td>38 % opacity, no finish, not clickable.</td></tr><tr><td><code class="code">.is-done</code></td><td>The label rises in once after a success (pair with a toast or a text morph).</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="motion"><h2>Motion and microinteractions</h2><ul class="cdoc__list"><li>Press: <code class="code">transform: scale(0.97)</code> on <code class="code">:active</code> in 90 ms, back on <code class="code">--spring-snappy</code>. Feedback starts on pointer down, not on release.</li><li>Loading: the label leaves with a 4 px blur in <code class="code">--d-fast</code>; the spinner scales from 0.6 on <code class="code">--spring-snappy</code>. Both are transitions, so turning loading off mid-way reverses smoothly.</li><li>Below 560 px a long label wraps onto two lines instead of pushing the layout sideways (<code class="code">--sm</code> stays on one line).</li><li>For &quot;Saved&quot; after &quot;Save&quot;, change the text with <a class="link" href="text-morph.html">text morph</a> instead of swapping the button.</li></ul></section>
         <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li>Use <code class="code">&lt;button type=&quot;button&quot;&gt;</code> for actions and <code class="code">&lt;button type=&quot;submit&quot;&gt;</code> in forms; use <code class="code">&lt;a href&gt;</code> only to navigate.</li><li>Icon-only buttons are <a class="link" href="icon-button.html">icon buttons</a> with an <code class="code">aria-label</code>.</li><li>While loading set <code class="code">aria-busy=&quot;true&quot;</code>; announce the result with a <a class="link" href="toast.html">toast</a> or inline text.</li><li>The focus ring comes from the system (<code class="code">:focus-visible</code>); never remove it.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Name the outcome: &quot;Save changes&quot;, &quot;Send report&quot;, &quot;Start the tryout&quot;.</li><li>Keep one primary per view; demote the rest to secondary, tinted or plain.</li><li>Make the primary full width in phone layouts (<code class="code">btn--block</code>).</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Write &quot;Submit&quot;, &quot;OK&quot;, &quot;Click here&quot; or &quot;Continue&quot; when a specific verb exists.</li><li>Restyle a button with a custom class (rounded pill, gradient, shadow). Pick a variant.</li><li>Use <code class="code">btn--danger</code> outside a confirm, or two primaries side by side.</li></ul></div></div></section>
+        <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Name the outcome: &quot;Save changes&quot;, &quot;Send report&quot;, &quot;Start application&quot;.</li><li>Keep one primary per view; demote the rest to secondary, tinted or plain.</li><li>Make the primary full width in phone layouts (<code class="code">btn--block</code>).</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Write &quot;Submit&quot;, &quot;OK&quot;, &quot;Click here&quot; or &quot;Continue&quot; when a specific verb exists.</li><li>Restyle a button with a custom class (rounded pill, gradient, shadow). Pick a variant.</li><li>Use <code class="code">btn--danger</code> outside a confirm, or two primaries side by side.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Behavior and code</h2><p class="cdoc__p"><strong>Plain HTML.</strong> Optional. <code class="code">setLoading(button, true|false)</code> toggles the loading state and <code class="code">aria-busy</code>.</p><p class="cdoc__p"><strong>React.</strong> From <code class="code">lampung-design-system/react</code>.</p><div class="codeblock"><pre>import { ButtonContent } from 'lampung-design-system/react';
 
 &lt;button className={`btn btn--primary${saving ? ' is-loading' : ''}`} aria-busy={saving} onClick={save}&gt;
@@ -450,6 +455,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

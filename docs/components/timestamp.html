@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Data%20display">Tampilan data</a></li></ol></nav>
           <h1>Timestamp</h1>
           <p class="cdoc__lede"><code class="code">&lt;time&gt;</code> yang menunjukkan kapan sesuatu terjadi atau jatuh tempo dalam kata relatif (&quot;5 menit yang lalu&quot;, &quot;dalam 3 hari&quot;), dalam bahasa halaman, dan memperbarui dirinya sendiri. Tanggal persisnya ada di title.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="timestamp.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="timestamp.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Kapan sesuatu terjadi, ketika kebaruan lebih penting daripada jam persisnya: pesan, komentar, perubahan di log.</li><li>Kapan sesuatu segera jatuh tempo: &quot;dalam 2 hari&quot;, &quot;besok&quot;.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Hitung mundur dalam detik menuju tenggat tegas: pakai <a class="link" href="timer.html">Timer</a>.</li><li>Tanggal persisnya penting (tanggal jatuh tempo di catatan, tanggal hukum): pakai <a class="link" href="key-value.html">Key-value</a>. Tulis tanggal absolutnya.</li><li>Riwayat peristiwa bertanggal: pakai <a class="link" href="timeline.html">Timeline</a>.</li><li>Berapa lama pekerjaan yang sedang berjalan sudah berlangsung: pakai <a class="link" href="thinking.html">Thinking</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di baris meta: nilai atau baris kedua di baris daftar, kepala pesan, subjudul kartu, sel tabel. Teks samar, angka tabular.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -327,7 +332,7 @@
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="list" style="max-width: 460px;">
   <div class="lrow"><div class="lrow__body"><div class="lrow__title">Tanggapan atas laporan jalan rusak</div><div class="lrow__sub">Dua komentar dari petugas</div></div><time class="timestamp lrow__value" data-lds-time="2026-11-16T08:05:00+07:00">16 Nov 2026, 08.05</time></div>
   <div class="lrow"><div class="lrow__body"><div class="lrow__title">Ruang sosialisasi dipindah</div><div class="lrow__sub">Sekarang di gedung C, ruang 204</div></div><time class="timestamp lrow__value" data-lds-time="2026-11-13T15:20:00+07:00">13 Nov 2026, 15.20</time></div>
-  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Batas pendaftaran beasiswa</div><div class="lrow__sub">Unggah rapor Anda</div></div><time class="timestamp lrow__value" data-lds-time="2026-12-01T17:00:00+07:00">1 Des 2026, 17.00</time></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Batas pendaftaran beasiswa daerah</div><div class="lrow__sub">Unggah rapor Anda</div></div><time class="timestamp lrow__value" data-lds-time="2026-12-01T17:00:00+07:00">1 Des 2026, 17.00</time></div>
 </div></div>
           
           <div class="cdoc__bar">
@@ -336,13 +341,13 @@
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;list&quot; style=&quot;max-width: 460px;&quot;&gt;
   &lt;div class=&quot;lrow&quot;&gt;&lt;div class=&quot;lrow__body&quot;&gt;&lt;div class=&quot;lrow__title&quot;&gt;Tanggapan atas laporan jalan rusak&lt;/div&gt;&lt;div class=&quot;lrow__sub&quot;&gt;Dua komentar dari petugas&lt;/div&gt;&lt;/div&gt;&lt;time class=&quot;timestamp lrow__value&quot; data-lds-time=&quot;2026-11-16T08:05:00+07:00&quot;&gt;16 Nov 2026, 08.05&lt;/time&gt;&lt;/div&gt;
   &lt;div class=&quot;lrow&quot;&gt;&lt;div class=&quot;lrow__body&quot;&gt;&lt;div class=&quot;lrow__title&quot;&gt;Ruang sosialisasi dipindah&lt;/div&gt;&lt;div class=&quot;lrow__sub&quot;&gt;Sekarang di gedung C, ruang 204&lt;/div&gt;&lt;/div&gt;&lt;time class=&quot;timestamp lrow__value&quot; data-lds-time=&quot;2026-11-13T15:20:00+07:00&quot;&gt;13 Nov 2026, 15.20&lt;/time&gt;&lt;/div&gt;
-  &lt;div class=&quot;lrow&quot;&gt;&lt;div class=&quot;lrow__body&quot;&gt;&lt;div class=&quot;lrow__title&quot;&gt;Batas pendaftaran beasiswa&lt;/div&gt;&lt;div class=&quot;lrow__sub&quot;&gt;Unggah rapor Anda&lt;/div&gt;&lt;/div&gt;&lt;time class=&quot;timestamp lrow__value&quot; data-lds-time=&quot;2026-12-01T17:00:00+07:00&quot;&gt;1 Des 2026, 17.00&lt;/time&gt;&lt;/div&gt;
+  &lt;div class=&quot;lrow&quot;&gt;&lt;div class=&quot;lrow__body&quot;&gt;&lt;div class=&quot;lrow__title&quot;&gt;Batas pendaftaran beasiswa daerah&lt;/div&gt;&lt;div class=&quot;lrow__sub&quot;&gt;Unggah rapor Anda&lt;/div&gt;&lt;/div&gt;&lt;time class=&quot;timestamp lrow__value&quot; data-lds-time=&quot;2026-12-01T17:00:00+07:00&quot;&gt;1 Des 2026, 17.00&lt;/time&gt;&lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Disalin">Salin</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;list&quot; style=&quot;max-width: 460px;&quot;&gt;
   &lt;div class=&quot;lrow&quot;&gt;&lt;div class=&quot;lrow__body&quot;&gt;&lt;div class=&quot;lrow__title&quot;&gt;Tanggapan atas laporan jalan rusak&lt;/div&gt;&lt;div class=&quot;lrow__sub&quot;&gt;Dua komentar dari petugas&lt;/div&gt;&lt;/div&gt;&lt;time class=&quot;timestamp lrow__value&quot; data-lds-time=&quot;2026-11-16T08:05:00+07:00&quot;&gt;16 Nov 2026, 08.05&lt;/time&gt;&lt;/div&gt;
   &lt;div class=&quot;lrow&quot;&gt;&lt;div class=&quot;lrow__body&quot;&gt;&lt;div class=&quot;lrow__title&quot;&gt;Ruang sosialisasi dipindah&lt;/div&gt;&lt;div class=&quot;lrow__sub&quot;&gt;Sekarang di gedung C, ruang 204&lt;/div&gt;&lt;/div&gt;&lt;time class=&quot;timestamp lrow__value&quot; data-lds-time=&quot;2026-11-13T15:20:00+07:00&quot;&gt;13 Nov 2026, 15.20&lt;/time&gt;&lt;/div&gt;
-  &lt;div class=&quot;lrow&quot;&gt;&lt;div class=&quot;lrow__body&quot;&gt;&lt;div class=&quot;lrow__title&quot;&gt;Batas pendaftaran beasiswa&lt;/div&gt;&lt;div class=&quot;lrow__sub&quot;&gt;Unggah rapor Anda&lt;/div&gt;&lt;/div&gt;&lt;time class=&quot;timestamp lrow__value&quot; data-lds-time=&quot;2026-12-01T17:00:00+07:00&quot;&gt;1 Des 2026, 17.00&lt;/time&gt;&lt;/div&gt;
+  &lt;div class=&quot;lrow&quot;&gt;&lt;div class=&quot;lrow__body&quot;&gt;&lt;div class=&quot;lrow__title&quot;&gt;Batas pendaftaran beasiswa daerah&lt;/div&gt;&lt;div class=&quot;lrow__sub&quot;&gt;Unggah rapor Anda&lt;/div&gt;&lt;/div&gt;&lt;time class=&quot;timestamp lrow__value&quot; data-lds-time=&quot;2026-12-01T17:00:00+07:00&quot;&gt;1 Des 2026, 17.00&lt;/time&gt;&lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-2">
@@ -381,6 +386,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

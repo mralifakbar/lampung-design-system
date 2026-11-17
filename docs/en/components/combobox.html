@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,23 +321,27 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Inputs">Inputs</a></li></ol></nav>
           <h1>Combobox</h1>
           <p class="cdoc__lede">A text field that filters a list of options as you type and stores the one picked. For long lists and server-backed options; it says so when nothing matches.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="combobox.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="combobox.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>One value from a long list people know by name: province, city, school, university, major.</li><li>Options come from a server as you type (React <code class="code">Combobox</code> with <code class="code">loadOptions</code>).</li><li>People know what they want and typing three letters is faster than scrolling.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>A short fixed list (under about 30 options): use <a class="link" href="select.html">Select</a>.</li><li>Searching to filter a page or list, without storing a choice: use <a class="link" href="search-field.html">Search field</a>.</li><li>Several values, including new ones people make up: use <a class="link" href="tag-input.html">Tag input</a>.</li><li>Jumping to any page or command in the app: use <a class="link" href="command-palette.html">Command palette</a>.</li><li>Two to five options: use <a class="link" href="radio.html">Radio</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In a <a class="link" href="form-layout.html">form</a> like a <a class="link" href="text-field.html">text field</a>, or in a filter bar on wide screens. The list opens below the field, as wide as the field, and scrolls inside (up to 320 px or half the viewport).</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>One value from a long list people know by name: regency or city, kecamatan, kelurahan, puskesmas, service office.</li><li>Options come from a server as you type (React <code class="code">Combobox</code> with <code class="code">loadOptions</code>).</li><li>People know what they want and typing three letters is faster than scrolling.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>A short fixed list (under about 30 options): use <a class="link" href="select.html">Select</a>.</li><li>Searching to filter a page or list, without storing a choice: use <a class="link" href="search-field.html">Search field</a>.</li><li>Several values, including new ones people make up: use <a class="link" href="tag-input.html">Tag input</a>.</li><li>Jumping to any page or command in the app: use <a class="link" href="command-palette.html">Command palette</a>.</li><li>Two to five options: use <a class="link" href="radio.html">Radio</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In a <a class="link" href="form-layout.html">form</a> like a <a class="link" href="text-field.html">text field</a>, or in a filter bar on wide screens. The list opens below the field, as wide as the field, and scrolls inside (up to 320 px or half the viewport).</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Province</span><span class="cdoc__ex-d">Focus selects the text and opens the list; typing filters on any part of the name; Enter picks the highlighted row. Try &quot;java&quot; or &quot;kal&quot;.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Regency or city</span><span class="cdoc__ex-d">Focus selects the text and opens the list; typing filters on any part of the name; Enter picks the highlighted row. Try &quot;lampung&quot; or &quot;me&quot;.</span></figcaption>
           <div class="cdoc__stage" id="ex-1-stage" style="min-height: 380px;"><div class="field" style="max-width: 360px; width: 100%;">
-  <label class="field__label" for="cb-prov">Province</label>
+  <label class="field__label" for="cb-prov">Regency or city</label>
   <div class="select combobox" data-lds-combobox>
-    <div class="control combobox__control"><span class="ic" aria-hidden="true">location_on</span><input id="cb-prov" role="combobox" placeholder="All provinces"><span class="control__btn combobox__arrow" aria-hidden="true"><span class="ic">expand_more</span></span></div>
-    <ul class="menu select__menu" role="listbox" aria-label="Province">
-      <li class="menu__item" role="option" data-value="jabar">West Java</li>
-      <li class="menu__item" role="option" data-value="jateng">Central Java</li>
-      <li class="menu__item" role="option" data-value="jatim">East Java</li>
-      <li class="menu__item" role="option" data-value="bali">Bali</li>
-      <li class="menu__item" role="option" data-value="kalbar">West Kalimantan</li>
-      <li class="menu__item" role="option" data-value="kaltim">East Kalimantan</li>
-      <li class="menu__item" role="option" data-value="sulsel">South Sulawesi</li>
-      <li class="menu__item" role="option" data-value="papua">Papua</li>
+    <div class="control combobox__control"><span class="ic" aria-hidden="true">location_on</span><input id="cb-prov" role="combobox" placeholder="All regencies and cities"><span class="control__btn combobox__arrow" aria-hidden="true"><span class="ic">expand_more</span></span></div>
+    <ul class="menu select__menu" role="listbox" aria-label="Regency or city">
+      <li class="menu__item" role="option" data-value="bdl">Kota Bandar Lampung</li>
+      <li class="menu__item" role="option" data-value="metro">Kota Metro</li>
+      <li class="menu__item" role="option" data-value="lamsel">Kabupaten Lampung Selatan</li>
+      <li class="menu__item" role="option" data-value="lamteng">Kabupaten Lampung Tengah</li>
+      <li class="menu__item" role="option" data-value="lampura">Kabupaten Lampung Utara</li>
+      <li class="menu__item" role="option" data-value="pringsewu">Kabupaten Pringsewu</li>
+      <li class="menu__item" role="option" data-value="pesawaran">Kabupaten Pesawaran</li>
+      <li class="menu__item" role="option" data-value="tanggamus">Kabupaten Tanggamus</li>
       <li class="select__empty" role="presentation" hidden>Nothing matches. Try other words.</li>
     </ul>
   </div>
@@ -346,36 +351,36 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;field&quot; style=&quot;max-width: 360px; width: 100%;&quot;&gt;
-  &lt;label class=&quot;field__label&quot; for=&quot;cb-prov&quot;&gt;Province&lt;/label&gt;
+  &lt;label class=&quot;field__label&quot; for=&quot;cb-prov&quot;&gt;Regency or city&lt;/label&gt;
   &lt;div class=&quot;select combobox&quot; data-lds-combobox&gt;
-    &lt;div class=&quot;control combobox__control&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;location_on&lt;/span&gt;&lt;input id=&quot;cb-prov&quot; role=&quot;combobox&quot; placeholder=&quot;All provinces&quot;&gt;&lt;span class=&quot;control__btn combobox__arrow&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;ic&quot;&gt;expand_more&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;ul class=&quot;menu select__menu&quot; role=&quot;listbox&quot; aria-label=&quot;Province&quot;&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;jabar&quot;&gt;West Java&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;jateng&quot;&gt;Central Java&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;jatim&quot;&gt;East Java&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;bali&quot;&gt;Bali&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;kalbar&quot;&gt;West Kalimantan&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;kaltim&quot;&gt;East Kalimantan&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;sulsel&quot;&gt;South Sulawesi&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;papua&quot;&gt;Papua&lt;/li&gt;
+    &lt;div class=&quot;control combobox__control&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;location_on&lt;/span&gt;&lt;input id=&quot;cb-prov&quot; role=&quot;combobox&quot; placeholder=&quot;All regencies and cities&quot;&gt;&lt;span class=&quot;control__btn combobox__arrow&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;ic&quot;&gt;expand_more&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;ul class=&quot;menu select__menu&quot; role=&quot;listbox&quot; aria-label=&quot;Regency or city&quot;&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;bdl&quot;&gt;Kota Bandar Lampung&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;metro&quot;&gt;Kota Metro&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;lamsel&quot;&gt;Kabupaten Lampung Selatan&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;lamteng&quot;&gt;Kabupaten Lampung Tengah&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;lampura&quot;&gt;Kabupaten Lampung Utara&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;pringsewu&quot;&gt;Kabupaten Pringsewu&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;pesawaran&quot;&gt;Kabupaten Pesawaran&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;tanggamus&quot;&gt;Kabupaten Tanggamus&lt;/li&gt;
       &lt;li class=&quot;select__empty&quot; role=&quot;presentation&quot; hidden&gt;Nothing matches. Try other words.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;field&quot; style=&quot;max-width: 360px; width: 100%;&quot;&gt;
-  &lt;label class=&quot;field__label&quot; for=&quot;cb-prov&quot;&gt;Province&lt;/label&gt;
+  &lt;label class=&quot;field__label&quot; for=&quot;cb-prov&quot;&gt;Regency or city&lt;/label&gt;
   &lt;div class=&quot;select combobox&quot; data-lds-combobox&gt;
-    &lt;div class=&quot;control combobox__control&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;location_on&lt;/span&gt;&lt;input id=&quot;cb-prov&quot; role=&quot;combobox&quot; placeholder=&quot;All provinces&quot;&gt;&lt;span class=&quot;control__btn combobox__arrow&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;ic&quot;&gt;expand_more&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;ul class=&quot;menu select__menu&quot; role=&quot;listbox&quot; aria-label=&quot;Province&quot;&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;jabar&quot;&gt;West Java&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;jateng&quot;&gt;Central Java&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;jatim&quot;&gt;East Java&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;bali&quot;&gt;Bali&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;kalbar&quot;&gt;West Kalimantan&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;kaltim&quot;&gt;East Kalimantan&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;sulsel&quot;&gt;South Sulawesi&lt;/li&gt;
-      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;papua&quot;&gt;Papua&lt;/li&gt;
+    &lt;div class=&quot;control combobox__control&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;location_on&lt;/span&gt;&lt;input id=&quot;cb-prov&quot; role=&quot;combobox&quot; placeholder=&quot;All regencies and cities&quot;&gt;&lt;span class=&quot;control__btn combobox__arrow&quot; aria-hidden=&quot;true&quot;&gt;&lt;span class=&quot;ic&quot;&gt;expand_more&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;
+    &lt;ul class=&quot;menu select__menu&quot; role=&quot;listbox&quot; aria-label=&quot;Regency or city&quot;&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;bdl&quot;&gt;Kota Bandar Lampung&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;metro&quot;&gt;Kota Metro&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;lamsel&quot;&gt;Kabupaten Lampung Selatan&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;lamteng&quot;&gt;Kabupaten Lampung Tengah&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;lampura&quot;&gt;Kabupaten Lampung Utara&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;pringsewu&quot;&gt;Kabupaten Pringsewu&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;pesawaran&quot;&gt;Kabupaten Pesawaran&lt;/li&gt;
+      &lt;li class=&quot;menu__item&quot; role=&quot;option&quot; data-value=&quot;tanggamus&quot;&gt;Kabupaten Tanggamus&lt;/li&gt;
       &lt;li class=&quot;select__empty&quot; role=&quot;presentation&quot; hidden&gt;Nothing matches. Try other words.&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/div&gt;
@@ -384,12 +389,12 @@
 <figure class="cdoc__ex" id="ex-2">
           <figcaption><span class="cdoc__ex-t">Options from a server (React)</span><span class="cdoc__ex-d">With <code class="code">loadOptions</code> the query is debounced (180 ms) and the previous request is aborted when the text changes; a spinner shows in the field while loading. <code class="code">minChars</code> waits for enough letters.</span></figcaption>
           <div class="cdoc__stage" id="ex-2-stage" style="min-height: 260px;"><div class="field" style="max-width: 360px; width: 100%;">
-  <label class="field__label" for="cb-uni">University</label>
+  <label class="field__label" for="cb-uni">Puskesmas</label>
   <div class="select combobox">
-    <div class="control combobox__control is-open"><span class="ic" aria-hidden="true">school</span><input id="cb-uni" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-controls="cb-uni-list" value="univ"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
-    <ul class="menu select__menu is-open" role="listbox" id="cb-uni-list" aria-label="University">
-      <li class="menu__item" role="option" aria-selected="false"><span class="select__text">State University of Surabaya<small>Surabaya, East Java</small></span></li>
-      <li class="menu__item is-hover" role="option" aria-selected="false"><span class="select__text">University of Mataram<small>Mataram, West Nusa Tenggara</small></span></li>
+    <div class="control combobox__control is-open"><span class="ic" aria-hidden="true">local_hospital</span><input id="cb-uni" role="combobox" aria-expanded="true" aria-autocomplete="list" aria-controls="cb-uni-list" value="way"><span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+    <ul class="menu select__menu is-open" role="listbox" id="cb-uni-list" aria-label="Puskesmas">
+      <li class="menu__item" role="option" aria-selected="false"><span class="select__text">Puskesmas Way Halim<small>Way Halim, Bandar Lampung</small></span></li>
+      <li class="menu__item is-hover" role="option" aria-selected="false"><span class="select__text">Puskesmas Way Kandis<small>Tanjung Senang, Bandar Lampung</small></span></li>
     </ul>
   </div>
 </div></div>
@@ -398,43 +403,43 @@
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;Combobox
-  label=&quot;University&quot;
-  icon=&quot;school&quot;
+  label=&quot;Puskesmas&quot;
+  icon=&quot;local_hospital&quot;
   value={uni}
   onChange={setUni}
   minChars={3}
   loadOptions={(q, signal) =&gt;
-    fetch(`/api/universities?q=${encodeURIComponent(q)}`, { signal }).then((r) =&gt; r.json())
+    fetch(`/api/puskesmas?q=${encodeURIComponent(q)}`, { signal }).then((r) =&gt; r.json())
   }
 /&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;Combobox
-  label=&quot;University&quot;
-  icon=&quot;school&quot;
+  label=&quot;Puskesmas&quot;
+  icon=&quot;local_hospital&quot;
   value={uni}
   onChange={setUni}
   minChars={3}
   loadOptions={(q, signal) =&gt;
-    fetch(`/api/universities?q=${encodeURIComponent(q)}`, { signal }).then((r) =&gt; r.json())
+    fetch(`/api/puskesmas?q=${encodeURIComponent(q)}`, { signal }).then((r) =&gt; r.json())
   }
 /&gt;</pre></div></div></div>
         </figure></section>
         <section class="cdoc__sec" id="anatomy"><h2>Anatomy</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Part</th><th>What it is</th></tr></thead><tbody><tr><td><code class="code">.select.combobox</code></td><td>Required. Positioned wrapper. <code class="code">data-lds-combobox</code> for the plain HTML behavior.</td></tr><tr><td><code class="code">.control.combobox__control</code></td><td>Required. The 44 px field; <code class="code">.is-open</code> while the list shows. A leading <code class="code">.ic</code> is optional.</td></tr><tr><td><code class="code">input[role=combobox]</code></td><td>Required. The text input, named by a <code class="code">&lt;label for&gt;</code> or <code class="code">aria-label</code>. The JS sets <code class="code">aria-expanded</code>, <code class="code">aria-controls</code>, <code class="code">aria-autocomplete=&quot;list&quot;</code> and <code class="code">autocomplete=&quot;off&quot;</code>.</td></tr><tr><td><code class="code">.control__btn.combobox__arrow</code></td><td>Optional chevron (<code class="code">aria-hidden</code>), rotates while open. In React a clear button replaces it once a value is chosen.</td></tr><tr><td><code class="code">ul.menu.select__menu[role=listbox]</code></td><td>Required. The options; <code class="code">li.menu__item[role=option]</code> with <code class="code">data-value</code>.</td></tr><tr><td><code class="code">.select__empty</code></td><td>Required. The no-match row, <code class="code">role=&quot;presentation&quot;</code>, <code class="code">hidden</code> until nothing matches.</td></tr></tbody></table></div></section>
-        <section class="cdoc__sec" id="states"><h2>States</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>State</th><th>How</th></tr></thead><tbody><tr><td><code class="code">closed</code></td><td>Looks like a <a class="link" href="text-field.html">text field</a> with a chevron.</td></tr><tr><td><code class="code">open (.is-open on the control, aria-expanded=&quot;true&quot;)</code></td><td>Accent edge and halo stay on; chevron points up; the list grows in.</td></tr><tr><td><code class="code">filtering</code></td><td>Rows that do not contain the text get <code class="code">hidden</code>; the first visible row is highlighted.</td></tr><tr><td><code class="code">no match</code></td><td><code class="code">.select__empty</code> shows &quot;Nothing matches. Try other words.&quot;</td></tr><tr><td><code class="code">loading (React)</code></td><td>A <a class="link" href="spinner.html">spinner</a> in the field replaces the chevron.</td></tr><tr><td><code class="code">chosen (React)</code></td><td>A clear <code class="code">.control__btn</code> (close icon, labelled &quot;Clear Province&quot;) replaces the chevron.</td></tr></tbody></table></div></section>
+        <section class="cdoc__sec" id="states"><h2>States</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>State</th><th>How</th></tr></thead><tbody><tr><td><code class="code">closed</code></td><td>Looks like a <a class="link" href="text-field.html">text field</a> with a chevron.</td></tr><tr><td><code class="code">open (.is-open on the control, aria-expanded=&quot;true&quot;)</code></td><td>Accent edge and halo stay on; chevron points up; the list grows in.</td></tr><tr><td><code class="code">filtering</code></td><td>Rows that do not contain the text get <code class="code">hidden</code>; the first visible row is highlighted.</td></tr><tr><td><code class="code">no match</code></td><td><code class="code">.select__empty</code> shows &quot;Nothing matches. Try other words.&quot;</td></tr><tr><td><code class="code">loading (React)</code></td><td>A <a class="link" href="spinner.html">spinner</a> in the field replaces the chevron.</td></tr><tr><td><code class="code">chosen (React)</code></td><td>A clear <code class="code">.control__btn</code> (close icon, labelled &quot;Clear Regency or city&quot;) replaces the chevron.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="motion"><h2>Motion and microinteractions</h2><ul class="cdoc__list"><li>The list uses the menu motion: in on <code class="code">--spring-smooth</code> (560 ms) from <code class="code">scale(0.96) translateY(-4px)</code> with opacity in <code class="code">--d-fast</code>; out in <code class="code">--d-exit</code> (180 ms) on <code class="code">--ease-exit</code>.</li><li>Filtering hides rows at once; do not animate rows in and out on every key, it makes the list feel slow.</li><li>The chevron rotates on <code class="code">--spring-smooth</code>. Highlight follows the pointer in 60 ms linear.</li><li>Reduced motion: the menu fades in 120 ms linear without scale.</li></ul></section>
         <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li>The input has <code class="code">role=&quot;combobox&quot;</code>, <code class="code">aria-expanded</code>, <code class="code">aria-controls</code> and <code class="code">aria-autocomplete=&quot;list&quot;</code>; <code class="code">aria-activedescendant</code> points at the highlighted option while focus stays in the input.</li><li>Keys: Down opens and moves, Up moves, Enter picks, Escape closes (React also restores the chosen label), Tab closes.</li><li>The empty row is <code class="code">role=&quot;presentation&quot;</code>; consider an <code class="code">aria-live=&quot;polite&quot;</code> count if results change a lot.</li><li>Filtering matches anywhere in the label (and the second line in React), case-insensitive.</li></ul></section>
         <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Put the most likely options first when the field is empty.</li><li>Set <code class="code">minChars</code> (2 or 3) for server lists so the first request is useful.</li><li>Show the second line (<code class="code">sub</code>) when two options share a name.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Accept free text that matches no option as the value; a combobox stores one of its options.</li><li>Use a combobox for a short list just to look searchable.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Behavior and code</h2><p class="cdoc__p"><strong>Plain HTML.</strong> <code class="code">data-lds-combobox</code> on <code class="code">.select.combobox</code>: focus selects the text and opens; typing filters the options and toggles <code class="code">.select__empty</code>; keys as above; a pick writes the label into the input and fires <code class="code">lds:change</code> with <code class="code">{ value, label }</code>. Server loading and the clear button exist only in the React binding.</p><p class="cdoc__p"><strong>React.</strong> From <code class="code">lampung-design-system/react</code>.</p><div class="codeblock"><pre>import { Combobox } from 'lampung-design-system/react';
 
 // Local options, filtered in the browser
-&lt;Combobox label=&quot;Province&quot; icon=&quot;location_on&quot; value={prov} onChange={setProv}
-  options={[{ value: 'jabar', label: 'West Java' }, { value: 'bali', label: 'Bali' }]} /&gt;
+&lt;Combobox label=&quot;Regency or city&quot; icon=&quot;location_on&quot; value={prov} onChange={setProv}
+  options={[{ value: 'bdl', label: 'Kota Bandar Lampung' }, { value: 'metro', label: 'Kota Metro' }]} /&gt;
 
 // From a server: debounced 180 ms, aborted when the query changes
-&lt;Combobox label=&quot;University&quot; icon=&quot;school&quot; value={uni} onChange={setUni} minChars={3}
-  loadOptions={(q, signal) =&gt; fetch(`/api/universities?q=${q}`, { signal }).then((r) =&gt; r.json())}
-  emptyText=&quot;No university by that name. Check the spelling.&quot; /&gt;</pre></div></section>
-        <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="select.html"><span class="link-card__eyebrow">Inputs</span><span class="link-card__title">Select</span><span class="link-card__body">A field-shaped button that opens a list of options below it and shows the one chosen. For one choice from a fixed list too long to show as radios; if people need to type to find it, use a combobox.</span></a><a class="link-card" href="search-field.html"><span class="link-card__eyebrow">Inputs</span><span class="link-card__title">Search field</span><span class="link-card__body">The filled, label-less field for finding things: courses, students, questions. On phones, focusing it slides in a Cancel button that clears and leaves search.</span></a><a class="link-card" href="tag-input.html"><span class="link-card__eyebrow">Inputs</span><span class="link-card__title">Tag input</span><span class="link-card__body">A field that turns typed text into removable tags: Enter or comma adds one, Backspace on an empty field removes the last. For several short free values.</span></a><a class="link-card" href="command-palette.html"><span class="link-card__eyebrow">Overlays</span><span class="link-card__title">Command palette</span><span class="link-card__body">A search box over the page that finds and runs any command or destination by typing. A fast path for people who know what they want; never the only path.</span></a></div></section>
+&lt;Combobox label=&quot;Puskesmas&quot; icon=&quot;local_hospital&quot; value={uni} onChange={setUni} minChars={3}
+  loadOptions={(q, signal) =&gt; fetch(`/api/puskesmas?q=${q}`, { signal }).then((r) =&gt; r.json())}
+  emptyText=&quot;No puskesmas by that name. Check the spelling.&quot; /&gt;</pre></div></section>
+        <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="select.html"><span class="link-card__eyebrow">Inputs</span><span class="link-card__title">Select</span><span class="link-card__body">A field-shaped button that opens a list of options below it and shows the one chosen. For one choice from a fixed list too long to show as radios; if people need to type to find it, use a combobox.</span></a><a class="link-card" href="search-field.html"><span class="link-card__eyebrow">Inputs</span><span class="link-card__title">Search field</span><span class="link-card__body">The filled, label-less field for finding things: services, residents, reports. On phones, focusing it slides in a Cancel button that clears and leaves search.</span></a><a class="link-card" href="tag-input.html"><span class="link-card__eyebrow">Inputs</span><span class="link-card__title">Tag input</span><span class="link-card__body">A field that turns typed text into removable tags: Enter or comma adds one, Backspace on an empty field removes the last. For several short free values.</span></a><a class="link-card" href="command-palette.html"><span class="link-card__eyebrow">Overlays</span><span class="link-card__title">Command palette</span><span class="link-card__body">A search box over the page that finds and runs any command or destination by typing. A fast path for people who know what they want; never the only path.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Previous and next component">
           <a class="link-card cdoc__prev" href="select.html"><span class="link-card__eyebrow"><span class="ic ic--sm" aria-hidden="true">arrow_back_ios_new</span>Previous</span><span class="link-card__title">Select</span></a>
           <a class="link-card cdoc__next" href="tag-input.html"><span class="link-card__eyebrow">Next<span class="ic ic--sm" aria-hidden="true">arrow_forward</span></span><span class="link-card__title">Tag input</span></a>
@@ -453,6 +458,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

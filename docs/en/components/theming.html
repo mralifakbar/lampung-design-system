@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Foundations">Foundations</a></li></ol></nav>
           <h1>Theming</h1>
           <p class="cdoc__lede">Light and dark come from one attribute: <code class="code">data-theme=&quot;light|dark|system&quot;</code> on <code class="code">&lt;html&gt;</code> or any subtree. Components read only tokens, so they switch by themselves; you never write dark-mode CSS for a component.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="theming.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="theming.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>Setting up a page: put <code class="code">class=&quot;lds&quot;</code> and <code class="code">data-theme</code> on <code class="code">&lt;html&gt;</code>, and call <code class="code">restoreTheme()</code> before first paint so the saved choice is used without a flash.</li><li>Offering an appearance switch (Light, Dark, System) in settings or a sidebar footer.</li><li>A region must stay dark (or light) regardless of the page: a code preview, a media player, a marketing band. Put <code class="code">data-theme</code> on that element only.</li><li>Writing project CSS on top of the system: use the tokens (<code class="code">--bg-fill</code>, <code class="code">--text-subtle</code>, <code class="code">--line</code>, <code class="code">--accent</code>) so your additions switch with the theme.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Showing a status (approved, overdue) with color: use <a class="link" href="badge.html">Badge</a>. Status colors come with words and an icon; never theme a region to signal state.</li><li>Picking a view of the same content (not appearance): use <a class="link" href="segmented-control.html">Segmented control</a>.</li><li>A setting that turns a feature on or off: use <a class="link" href="switch.html">Switch</a>. Appearance has three values, so it is a segmented control, not a switch.</li><li>Colors for data series: use <a class="link" href="chart-principles.html">Chart principles</a>. <code class="code">--series-1..4</code> are already tuned per theme and fixed in order.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> <code class="code">data-theme</code> belongs on <code class="code">&lt;html&gt;</code> for the page. The switch lives in settings, the account menu or the sidebar footer, never in the main toolbar. Scoped themes go on the outermost element of the region that should differ.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
@@ -353,16 +358,16 @@
           <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="auto-grid" style="--min: 260px;">
   <div class="lds" data-theme="light" style="padding: 20px; border-radius: var(--r-lg);">
   <div class="card stack" style="--gap: 12px;">
-    <div class="cluster" style="justify-content: space-between;"><span class="card__title">Database Systems</span><span class="badge badge--success">Open</span></div>
+    <div class="cluster" style="justify-content: space-between;"><span class="card__title">Micro business permit</span><span class="badge badge--success">Open</span></div>
     <div class="progress"><span class="progress__fill" style="transform: scaleX(0.72);"></span></div>
-    <div class="cluster"><button class="btn btn--primary btn--md">Continue</button><button class="btn btn--secondary btn--md">Syllabus</button></div>
+    <div class="cluster"><button class="btn btn--primary btn--md">Continue</button><button class="btn btn--secondary btn--md">Requirements</button></div>
   </div>
   </div>
   <div class="lds" data-theme="dark" style="padding: 20px; border-radius: var(--r-lg);">
   <div class="card stack" style="--gap: 12px;">
-    <div class="cluster" style="justify-content: space-between;"><span class="card__title">Database Systems</span><span class="badge badge--success">Open</span></div>
+    <div class="cluster" style="justify-content: space-between;"><span class="card__title">Micro business permit</span><span class="badge badge--success">Open</span></div>
     <div class="progress"><span class="progress__fill" style="transform: scaleX(0.72);"></span></div>
-    <div class="cluster"><button class="btn btn--primary btn--md">Continue</button><button class="btn btn--secondary btn--md">Syllabus</button></div>
+    <div class="cluster"><button class="btn btn--primary btn--md">Continue</button><button class="btn btn--secondary btn--md">Requirements</button></div>
   </div>
   </div>
 </div></div>
@@ -373,16 +378,16 @@
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;auto-grid&quot; style=&quot;--min: 260px;&quot;&gt;
   &lt;div class=&quot;lds&quot; data-theme=&quot;light&quot; style=&quot;padding: 20px; border-radius: var(--r-lg);&quot;&gt;
   &lt;div class=&quot;card stack&quot; style=&quot;--gap: 12px;&quot;&gt;
-    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between;&quot;&gt;&lt;span class=&quot;card__title&quot;&gt;Database Systems&lt;/span&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between;&quot;&gt;&lt;span class=&quot;card__title&quot;&gt;Micro business permit&lt;/span&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;progress&quot;&gt;&lt;span class=&quot;progress__fill&quot; style=&quot;transform: scaleX(0.72);&quot;&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;cluster&quot;&gt;&lt;button class=&quot;btn btn--primary btn--md&quot;&gt;Continue&lt;/button&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;Syllabus&lt;/button&gt;&lt;/div&gt;
+    &lt;div class=&quot;cluster&quot;&gt;&lt;button class=&quot;btn btn--primary btn--md&quot;&gt;Continue&lt;/button&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;Requirements&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;lds&quot; data-theme=&quot;dark&quot; style=&quot;padding: 20px; border-radius: var(--r-lg);&quot;&gt;
   &lt;div class=&quot;card stack&quot; style=&quot;--gap: 12px;&quot;&gt;
-    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between;&quot;&gt;&lt;span class=&quot;card__title&quot;&gt;Database Systems&lt;/span&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between;&quot;&gt;&lt;span class=&quot;card__title&quot;&gt;Micro business permit&lt;/span&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;progress&quot;&gt;&lt;span class=&quot;progress__fill&quot; style=&quot;transform: scaleX(0.72);&quot;&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;cluster&quot;&gt;&lt;button class=&quot;btn btn--primary btn--md&quot;&gt;Continue&lt;/button&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;Syllabus&lt;/button&gt;&lt;/div&gt;
+    &lt;div class=&quot;cluster&quot;&gt;&lt;button class=&quot;btn btn--primary btn--md&quot;&gt;Continue&lt;/button&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;Requirements&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
@@ -390,16 +395,16 @@
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;auto-grid&quot; style=&quot;--min: 260px;&quot;&gt;
   &lt;div class=&quot;lds&quot; data-theme=&quot;light&quot; style=&quot;padding: 20px; border-radius: var(--r-lg);&quot;&gt;
   &lt;div class=&quot;card stack&quot; style=&quot;--gap: 12px;&quot;&gt;
-    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between;&quot;&gt;&lt;span class=&quot;card__title&quot;&gt;Database Systems&lt;/span&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between;&quot;&gt;&lt;span class=&quot;card__title&quot;&gt;Micro business permit&lt;/span&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;progress&quot;&gt;&lt;span class=&quot;progress__fill&quot; style=&quot;transform: scaleX(0.72);&quot;&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;cluster&quot;&gt;&lt;button class=&quot;btn btn--primary btn--md&quot;&gt;Continue&lt;/button&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;Syllabus&lt;/button&gt;&lt;/div&gt;
+    &lt;div class=&quot;cluster&quot;&gt;&lt;button class=&quot;btn btn--primary btn--md&quot;&gt;Continue&lt;/button&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;Requirements&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;/div&gt;
   &lt;div class=&quot;lds&quot; data-theme=&quot;dark&quot; style=&quot;padding: 20px; border-radius: var(--r-lg);&quot;&gt;
   &lt;div class=&quot;card stack&quot; style=&quot;--gap: 12px;&quot;&gt;
-    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between;&quot;&gt;&lt;span class=&quot;card__title&quot;&gt;Database Systems&lt;/span&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/div&gt;
+    &lt;div class=&quot;cluster&quot; style=&quot;justify-content: space-between;&quot;&gt;&lt;span class=&quot;card__title&quot;&gt;Micro business permit&lt;/span&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Open&lt;/span&gt;&lt;/div&gt;
     &lt;div class=&quot;progress&quot;&gt;&lt;span class=&quot;progress__fill&quot; style=&quot;transform: scaleX(0.72);&quot;&gt;&lt;/span&gt;&lt;/div&gt;
-    &lt;div class=&quot;cluster&quot;&gt;&lt;button class=&quot;btn btn--primary btn--md&quot;&gt;Continue&lt;/button&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;Syllabus&lt;/button&gt;&lt;/div&gt;
+    &lt;div class=&quot;cluster&quot;&gt;&lt;button class=&quot;btn btn--primary btn--md&quot;&gt;Continue&lt;/button&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot;&gt;Requirements&lt;/button&gt;&lt;/div&gt;
   &lt;/div&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
@@ -466,6 +471,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

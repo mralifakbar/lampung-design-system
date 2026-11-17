@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,8 +321,12 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Foundations">Foundations</a></li></ol></nav>
           <h1>Form layout</h1>
           <p class="cdoc__lede">The frame every form uses: <code class="code">form</code> stacks fields 20 px apart, <code class="code">form__row</code> puts short fields side by side when there is room, and <code class="code">form__actions</code> ends the form with its buttons. Fields inside are always <code class="code">.field</code>.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="form-layout.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="form-layout.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>Any form with more than one field: sign up, profile, checkout, a course settings page, the body of a dialog or sheet.</li><li>Two or three short fields belong together on one line on wide screens (first and last name, city and postal code, start and end date) and must stack on phones.</li><li>A form needs its buttons at the end, primary on the right on wide screens and full width on top on phones.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Placing anything that is not a form (cards, badges, toolbars): use <a class="link" href="layout-primitives.html">Layout primitives</a>.</li><li>The single field itself: label, control, helper and error: use <a class="link" href="text-field.html">Text field</a>.</li><li>One search box above a list: use <a class="link" href="search-field.html">Search field</a>. A search field is not a form; it filters as you type and has no submit row.</li><li>A setting that applies the moment it changes: use <a class="link" href="switch.html">Switch</a>. Settings lists save per row; they do not get a form__actions row.</li><li>Long values read back as label and value, not edited: use <a class="link" href="key-value.html">Key-value</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Inside the page content column (cap it with <code class="code">measure</code> or a max width around 560 px for single-column forms), inside a <a class="link" href="dialog.html">dialog</a>, <a class="link" href="modal.html">modal</a> or <a class="link" href="sheet.html">sheet</a> body, or in the main column of <code class="code">split-2</code>. On phones the form is full width with the 20 px page gutter.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>Any form with more than one field: registration, profile, payment, a service settings page, the body of a dialog or sheet.</li><li>Two or three short fields belong together on one line on wide screens (first and last name, city and postal code, start and end date) and must stack on phones.</li><li>A form needs its buttons at the end, primary on the right on wide screens and full width on top on phones.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Placing anything that is not a form (cards, badges, toolbars): use <a class="link" href="layout-primitives.html">Layout primitives</a>.</li><li>The single field itself: label, control, helper and error: use <a class="link" href="text-field.html">Text field</a>.</li><li>One search box above a list: use <a class="link" href="search-field.html">Search field</a>. A search field is not a form; it filters as you type and has no submit row.</li><li>A setting that applies the moment it changes: use <a class="link" href="switch.html">Switch</a>. Settings lists save per row; they do not get a form__actions row.</li><li>Long values read back as label and value, not edited: use <a class="link" href="key-value.html">Key-value</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Inside the page content column (cap it with <code class="code">measure</code> or a max width around 560 px for single-column forms), inside a <a class="link" href="dialog.html">dialog</a>, <a class="link" href="modal.html">modal</a> or <a class="link" href="sheet.html">sheet</a> body, or in the main column of <code class="code">split-2</code>. On phones the form is full width with the 20 px page gutter.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">Profile form</span><span class="cdoc__ex-d">Pairs share a row on wide screens and stack on phones. The cancel button comes first in the source so the primary is last on the row and on top when the actions stack.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><form class="form" style="max-width: 560px;" onsubmit="event.preventDefault()">
@@ -338,12 +343,12 @@
   <div class="field">
       <label class="field__label" for="pf-email">Email</label>
       <div class="control"><input id="pf-email" type="email" value="rina.kusuma@example.com" aria-describedby="pf-email-help"></div>
-      <span class="field__help" id="pf-email-help">Grades and receipts go here.</span>
+      <span class="field__help" id="pf-email-help">Application receipts and payment slips go here.</span>
     </div>
   <div class="field">
-      <label class="field__label" for="pf-phone">Phone <span>Optional</span></label>
+      <label class="field__label" for="pf-phone">Mobile number <span>Optional</span></label>
       <div class="control"><input id="pf-phone" type="tel" value="" aria-describedby="pf-phone-help"></div>
-      <span class="field__help" id="pf-phone-help">Only for exam day reminders.</span>
+      <span class="field__help" id="pf-phone-help">Only for service appointment reminders.</span>
     </div>
   <div class="form__actions">
     <button type="button" class="btn btn--secondary">Cancel</button>
@@ -368,12 +373,12 @@
   &lt;div class=&quot;field&quot;&gt;
       &lt;label class=&quot;field__label&quot; for=&quot;pf-email&quot;&gt;Email&lt;/label&gt;
       &lt;div class=&quot;control&quot;&gt;&lt;input id=&quot;pf-email&quot; type=&quot;email&quot; value=&quot;rina.kusuma@example.com&quot; aria-describedby=&quot;pf-email-help&quot;&gt;&lt;/div&gt;
-      &lt;span class=&quot;field__help&quot; id=&quot;pf-email-help&quot;&gt;Grades and receipts go here.&lt;/span&gt;
+      &lt;span class=&quot;field__help&quot; id=&quot;pf-email-help&quot;&gt;Application receipts and payment slips go here.&lt;/span&gt;
     &lt;/div&gt;
   &lt;div class=&quot;field&quot;&gt;
-      &lt;label class=&quot;field__label&quot; for=&quot;pf-phone&quot;&gt;Phone &lt;span&gt;Optional&lt;/span&gt;&lt;/label&gt;
+      &lt;label class=&quot;field__label&quot; for=&quot;pf-phone&quot;&gt;Mobile number &lt;span&gt;Optional&lt;/span&gt;&lt;/label&gt;
       &lt;div class=&quot;control&quot;&gt;&lt;input id=&quot;pf-phone&quot; type=&quot;tel&quot; value=&quot;&quot; aria-describedby=&quot;pf-phone-help&quot;&gt;&lt;/div&gt;
-      &lt;span class=&quot;field__help&quot; id=&quot;pf-phone-help&quot;&gt;Only for exam day reminders.&lt;/span&gt;
+      &lt;span class=&quot;field__help&quot; id=&quot;pf-phone-help&quot;&gt;Only for service appointment reminders.&lt;/span&gt;
     &lt;/div&gt;
   &lt;div class=&quot;form__actions&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn--secondary&quot;&gt;Cancel&lt;/button&gt;
@@ -395,12 +400,12 @@
   &lt;div class=&quot;field&quot;&gt;
       &lt;label class=&quot;field__label&quot; for=&quot;pf-email&quot;&gt;Email&lt;/label&gt;
       &lt;div class=&quot;control&quot;&gt;&lt;input id=&quot;pf-email&quot; type=&quot;email&quot; value=&quot;rina.kusuma@example.com&quot; aria-describedby=&quot;pf-email-help&quot;&gt;&lt;/div&gt;
-      &lt;span class=&quot;field__help&quot; id=&quot;pf-email-help&quot;&gt;Grades and receipts go here.&lt;/span&gt;
+      &lt;span class=&quot;field__help&quot; id=&quot;pf-email-help&quot;&gt;Application receipts and payment slips go here.&lt;/span&gt;
     &lt;/div&gt;
   &lt;div class=&quot;field&quot;&gt;
-      &lt;label class=&quot;field__label&quot; for=&quot;pf-phone&quot;&gt;Phone &lt;span&gt;Optional&lt;/span&gt;&lt;/label&gt;
+      &lt;label class=&quot;field__label&quot; for=&quot;pf-phone&quot;&gt;Mobile number &lt;span&gt;Optional&lt;/span&gt;&lt;/label&gt;
       &lt;div class=&quot;control&quot;&gt;&lt;input id=&quot;pf-phone&quot; type=&quot;tel&quot; value=&quot;&quot; aria-describedby=&quot;pf-phone-help&quot;&gt;&lt;/div&gt;
-      &lt;span class=&quot;field__help&quot; id=&quot;pf-phone-help&quot;&gt;Only for exam day reminders.&lt;/span&gt;
+      &lt;span class=&quot;field__help&quot; id=&quot;pf-phone-help&quot;&gt;Only for service appointment reminders.&lt;/span&gt;
     &lt;/div&gt;
   &lt;div class=&quot;form__actions&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn--secondary&quot;&gt;Cancel&lt;/button&gt;
@@ -412,8 +417,8 @@
           <figcaption><span class="cdoc__ex-t">Grouped with a fieldset</span><span class="cdoc__ex-d">A fieldset with a legend names a group of related choices; the form keeps the same rhythm around it.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><form class="form" style="max-width: 560px;" onsubmit="event.preventDefault()">
   <div class="field">
-      <label class="field__label" for="ex-name">Exam name</label>
-      <div class="control"><input id="ex-name" type="text" value="Midterm, Database Systems"></div>
+      <label class="field__label" for="ex-name">Activity name</label>
+      <div class="control"><input id="ex-name" type="text" value="Child immunization, Puskesmas Kedaton"></div>
     </div>
   <div class="form__row">
     <div class="field">
@@ -426,13 +431,13 @@
     </div>
   </div>
   <fieldset class="stack" style="--gap: 12px; border: 0;">
-    <legend class="field__label" style="margin-bottom: 12px;">Notify students</legend>
+    <legend class="field__label" style="margin-bottom: 12px;">Remind residents</legend>
     <label class="check"><input type="checkbox" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">One week before</span></label>
     <label class="check"><input type="checkbox" checked><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path></svg></span><span class="check__text">The evening before</span></label>
   </fieldset>
   <div class="form__actions">
     <button type="button" class="btn btn--plain">Save as draft</button>
-    <button type="submit" class="btn btn--primary">Schedule exam</button>
+    <button type="submit" class="btn btn--primary">Schedule activity</button>
   </div>
 </form></div>
           
@@ -441,8 +446,8 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;form class=&quot;form&quot; style=&quot;max-width: 560px;&quot; onsubmit=&quot;event.preventDefault()&quot;&gt;
   &lt;div class=&quot;field&quot;&gt;
-      &lt;label class=&quot;field__label&quot; for=&quot;ex-name&quot;&gt;Exam name&lt;/label&gt;
-      &lt;div class=&quot;control&quot;&gt;&lt;input id=&quot;ex-name&quot; type=&quot;text&quot; value=&quot;Midterm, Database Systems&quot;&gt;&lt;/div&gt;
+      &lt;label class=&quot;field__label&quot; for=&quot;ex-name&quot;&gt;Activity name&lt;/label&gt;
+      &lt;div class=&quot;control&quot;&gt;&lt;input id=&quot;ex-name&quot; type=&quot;text&quot; value=&quot;Child immunization, Puskesmas Kedaton&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
   &lt;div class=&quot;form__row&quot;&gt;
     &lt;div class=&quot;field&quot;&gt;
@@ -455,20 +460,20 @@
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;fieldset class=&quot;stack&quot; style=&quot;--gap: 12px; border: 0;&quot;&gt;
-    &lt;legend class=&quot;field__label&quot; style=&quot;margin-bottom: 12px;&quot;&gt;Notify students&lt;/legend&gt;
+    &lt;legend class=&quot;field__label&quot; style=&quot;margin-bottom: 12px;&quot;&gt;Remind residents&lt;/legend&gt;
     &lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; checked&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;span class=&quot;check__text&quot;&gt;One week before&lt;/span&gt;&lt;/label&gt;
     &lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; checked&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;span class=&quot;check__text&quot;&gt;The evening before&lt;/span&gt;&lt;/label&gt;
   &lt;/fieldset&gt;
   &lt;div class=&quot;form__actions&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn--plain&quot;&gt;Save as draft&lt;/button&gt;
-    &lt;button type=&quot;submit&quot; class=&quot;btn btn--primary&quot;&gt;Schedule exam&lt;/button&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn--primary&quot;&gt;Schedule activity&lt;/button&gt;
   &lt;/div&gt;
 &lt;/form&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;form class=&quot;form&quot; style=&quot;max-width: 560px;&quot; onsubmit=&quot;event.preventDefault()&quot;&gt;
   &lt;div class=&quot;field&quot;&gt;
-      &lt;label class=&quot;field__label&quot; for=&quot;ex-name&quot;&gt;Exam name&lt;/label&gt;
-      &lt;div class=&quot;control&quot;&gt;&lt;input id=&quot;ex-name&quot; type=&quot;text&quot; value=&quot;Midterm, Database Systems&quot;&gt;&lt;/div&gt;
+      &lt;label class=&quot;field__label&quot; for=&quot;ex-name&quot;&gt;Activity name&lt;/label&gt;
+      &lt;div class=&quot;control&quot;&gt;&lt;input id=&quot;ex-name&quot; type=&quot;text&quot; value=&quot;Child immunization, Puskesmas Kedaton&quot;&gt;&lt;/div&gt;
     &lt;/div&gt;
   &lt;div class=&quot;form__row&quot;&gt;
     &lt;div class=&quot;field&quot;&gt;
@@ -481,23 +486,23 @@
     &lt;/div&gt;
   &lt;/div&gt;
   &lt;fieldset class=&quot;stack&quot; style=&quot;--gap: 12px; border: 0;&quot;&gt;
-    &lt;legend class=&quot;field__label&quot; style=&quot;margin-bottom: 12px;&quot;&gt;Notify students&lt;/legend&gt;
+    &lt;legend class=&quot;field__label&quot; style=&quot;margin-bottom: 12px;&quot;&gt;Remind residents&lt;/legend&gt;
     &lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; checked&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;span class=&quot;check__text&quot;&gt;One week before&lt;/span&gt;&lt;/label&gt;
     &lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; checked&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;span class=&quot;check__text&quot;&gt;The evening before&lt;/span&gt;&lt;/label&gt;
   &lt;/fieldset&gt;
   &lt;div class=&quot;form__actions&quot;&gt;
     &lt;button type=&quot;button&quot; class=&quot;btn btn--plain&quot;&gt;Save as draft&lt;/button&gt;
-    &lt;button type=&quot;submit&quot; class=&quot;btn btn--primary&quot;&gt;Schedule exam&lt;/button&gt;
+    &lt;button type=&quot;submit&quot; class=&quot;btn btn--primary&quot;&gt;Schedule activity&lt;/button&gt;
   &lt;/div&gt;
 &lt;/form&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-3">
           <figcaption><span class="cdoc__ex-t">Error after submit</span><span class="cdoc__ex-d">The helper line becomes the error in place, so nothing below it moves. Focus moves to the first invalid field.</span></figcaption>
-          <div class="cdoc__stage cdoc__stage--block" id="ex-3-stage"><form class="form" style="max-width: 400px;" onsubmit="event.preventDefault(); const c = this.querySelector('.control'); c.classList.add('is-invalid'); const i = c.querySelector('input'); i.setAttribute('aria-invalid', 'true'); const h = this.querySelector('.field__help'); h.classList.add('field__help--error'); h.innerHTML = '<span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>error</span>Enter the 10 digit student number on your card.'; i.focus();">
+          <div class="cdoc__stage cdoc__stage--block" id="ex-3-stage"><form class="form" style="max-width: 400px;" onsubmit="event.preventDefault(); const c = this.querySelector('.control'); c.classList.add('is-invalid'); const i = c.querySelector('input'); i.setAttribute('aria-invalid', 'true'); const h = this.querySelector('.field__help'); h.classList.add('field__help--error'); h.innerHTML = '<span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>error</span>Enter the 16 digit NIK shown on your KTP.'; i.focus();">
   <div class="field">
-    <label class="field__label" for="sn">Student number</label>
-    <div class="control"><input id="sn" inputmode="numeric" value="21045" aria-describedby="sn-help"></div>
-    <span class="field__help" id="sn-help">It is on the front of your student card.</span>
+    <label class="field__label" for="sn">NIK</label>
+    <div class="control"><input id="sn" inputmode="numeric" value="18710" aria-describedby="sn-help"></div>
+    <span class="field__help" id="sn-help">It is printed at the top of your KTP.</span>
   </div>
   <div class="form__actions">
     <button type="submit" class="btn btn--primary">Link my account</button>
@@ -509,9 +514,9 @@
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;form class=&quot;form&quot;&gt;
   &lt;div class=&quot;field&quot;&gt;
-    &lt;label class=&quot;field__label&quot; for=&quot;sn&quot;&gt;Student number&lt;/label&gt;
+    &lt;label class=&quot;field__label&quot; for=&quot;sn&quot;&gt;NIK&lt;/label&gt;
     &lt;div class=&quot;control is-invalid&quot;&gt;&lt;input id=&quot;sn&quot; inputmode=&quot;numeric&quot; aria-invalid=&quot;true&quot; aria-describedby=&quot;sn-help&quot;&gt;&lt;/div&gt;
-    &lt;span class=&quot;field__help field__help--error&quot; id=&quot;sn-help&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;error&lt;/span&gt;Enter the 10 digit student number on your card.&lt;/span&gt;
+    &lt;span class=&quot;field__help field__help--error&quot; id=&quot;sn-help&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;error&lt;/span&gt;Enter the 16 digit NIK shown on your KTP.&lt;/span&gt;
   &lt;/div&gt;
   &lt;div class=&quot;form__actions&quot;&gt;
     &lt;button type=&quot;submit&quot; class=&quot;btn btn--primary&quot;&gt;Link my account&lt;/button&gt;
@@ -520,9 +525,9 @@
           </div>
           <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;form class=&quot;form&quot;&gt;
   &lt;div class=&quot;field&quot;&gt;
-    &lt;label class=&quot;field__label&quot; for=&quot;sn&quot;&gt;Student number&lt;/label&gt;
+    &lt;label class=&quot;field__label&quot; for=&quot;sn&quot;&gt;NIK&lt;/label&gt;
     &lt;div class=&quot;control is-invalid&quot;&gt;&lt;input id=&quot;sn&quot; inputmode=&quot;numeric&quot; aria-invalid=&quot;true&quot; aria-describedby=&quot;sn-help&quot;&gt;&lt;/div&gt;
-    &lt;span class=&quot;field__help field__help--error&quot; id=&quot;sn-help&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;error&lt;/span&gt;Enter the 10 digit student number on your card.&lt;/span&gt;
+    &lt;span class=&quot;field__help field__help--error&quot; id=&quot;sn-help&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;error&lt;/span&gt;Enter the 16 digit NIK shown on your KTP.&lt;/span&gt;
   &lt;/div&gt;
   &lt;div class=&quot;form__actions&quot;&gt;
     &lt;button type=&quot;submit&quot; class=&quot;btn btn--primary&quot;&gt;Link my account&lt;/button&gt;
@@ -533,7 +538,7 @@
         <section class="cdoc__sec" id="states"><h2>States</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>State</th><th>How</th></tr></thead><tbody><tr><td><code class="code">error</code></td><td>Per field: <code class="code">.control.is-invalid</code> + <code class="code">aria-invalid=&quot;true&quot;</code> + <code class="code">.field__help--error</code> with an <code class="code">error</code> icon. Validate after the first blur, then live.</td></tr><tr><td><code class="code">submitting</code></td><td>The primary button gets <code class="code">.is-loading</code> and <code class="code">aria-busy=&quot;true&quot;</code> (<code class="code">setLoading(btn, true)</code>); the fields stay editable.</td></tr><tr><td><code class="code">many errors</code></td><td>Put an <a class="link" href="alert.html">alert</a> above the form that lists them with links to each field, then focus the alert.</td></tr></tbody></table></div></section>
         <section class="cdoc__sec" id="motion"><h2>Motion and microinteractions</h2><ul class="cdoc__list"><li>The form itself never animates. Fields that appear on a choice (an &quot;Other&quot; text box) open with <a class="link" href="height-expand.html">height expand</a> on <code class="code">--spring-smooth</code> over <code class="code">--d-smooth</code>.</li><li>Errors change color in <code class="code">--d-fast</code> on <code class="code">--ease-standard</code>; the helper line keeps its height so nothing jumps. A refused submit may <a class="link" href="shake.html">shake</a> the first invalid field once.</li><li>Under reduced motion the expand becomes a 120 ms cross-fade.</li></ul></section>
         <section class="cdoc__sec" id="a11y"><h2>Accessibility</h2><ul class="cdoc__list"><li>Use a real <code class="code">&lt;form&gt;</code> so Enter submits and the browser can autofill; the submit button is <code class="code">type=&quot;submit&quot;</code>, the others <code class="code">type=&quot;button&quot;</code>.</li><li>Every input has a <code class="code">&lt;label for&gt;</code>; helper and error text are linked with <code class="code">aria-describedby</code>.</li><li>Groups of checkboxes or radios go in a <code class="code">&lt;fieldset&gt;</code> with a <code class="code">&lt;legend&gt;</code>.</li><li>Source order is visual order: cancel before submit in the markup. On phones <code class="code">column-reverse</code> shows the primary on top while Tab still reaches Cancel first, which matches reading the buttons from the end of the form.</li><li>On a failed submit move focus to the first invalid field or to the summary <a class="link" href="alert.html">alert</a>.</li></ul></section>
-        <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Cap single-column forms near 560 px; long inputs across a wide screen are hard to scan.</li><li>Pair only short, related fields in a <code class="code">form__row</code>; keep one idea per row.</li><li>Name the primary for its outcome (&quot;Save profile&quot;, &quot;Schedule exam&quot;).</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Lay out fields with <code class="code">auto-grid</code> or hand-written flex; error lines and labels stop lining up.</li><li>Put three or more unrelated fields in one row to save space.</li><li>Add a second primary to <code class="code">form__actions</code>, or put the actions above the fields.</li></ul></div></div></section>
+        <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Cap single-column forms near 560 px; long inputs across a wide screen are hard to scan.</li><li>Pair only short, related fields in a <code class="code">form__row</code>; keep one idea per row.</li><li>Name the primary for its outcome (&quot;Save profile&quot;, &quot;Schedule activity&quot;).</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Lay out fields with <code class="code">auto-grid</code> or hand-written flex; error lines and labels stop lining up.</li><li>Put three or more unrelated fields in one row to save space.</li><li>Add a second primary to <code class="code">form__actions</code>, or put the actions above the fields.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Behavior and code</h2><p class="cdoc__p"><strong>Plain HTML.</strong> None needed for layout. <code class="code">setLoading(button, true)</code> for the submitting state; <code class="code">shake(el)</code> for a refused submit.</p></section>
         <section class="cdoc__sec" id="related"><h2>Related</h2><div class="link-grid"><a class="link-card" href="text-field.html"><span class="link-card__eyebrow">Inputs</span><span class="link-card__title">Text field</span><span class="link-card__body">A single line of free text with its label above and a helper line below. The helper turns into the error message, so the layout never jumps.</span></a><a class="link-card" href="layout-primitives.html"><span class="link-card__eyebrow">Foundations</span><span class="link-card__title">Layout primitives</span><span class="link-card__body">Seven small classes that lay out everything between components: `stack`, `cluster`, `auto-grid`, `split-2`, `center`, `measure` and `sr-only`. Reach for them before writing `display: flex` or `grid` by hand.</span></a><a class="link-card" href="button.html"><span class="link-card__eyebrow">Actions</span><span class="link-card__title">Button</span><span class="link-card__body">The control people press to make something happen: save, send, start, delete. One primary per view; the label names the outcome.</span></a><a class="link-card" href="alert.html"><span class="link-card__eyebrow">Feedback</span><span class="link-card__title">Alert</span><span class="link-card__body">An inline message about this page, section or form, in one of four tones. The words carry the meaning; the tint and the icon only support them.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Previous and next component">
@@ -554,6 +559,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

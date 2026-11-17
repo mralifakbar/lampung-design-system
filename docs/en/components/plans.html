@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,10 +321,14 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Marketing">Marketing</a></li></ol></nav>
           <h1>Plans</h1>
           <p class="cdoc__lede">Pricing plans as cards, with a billing period control above them. Prices roll when the period or the seat count changes; the saving is said in words next to the control.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="plans.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="plans.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A pricing page or section with two to four plans.</li><li>Plans billed monthly or yearly, or per seat, where people compare totals before they buy.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>One plan picked inside a checkout or settings form: use <a class="link" href="radio-card.html">Radio card</a>.</li><li>Comparing every feature across plans: use <a class="link" href="compare-table.html">Compare table</a>.</li><li>A single price in a sentence: use <a class="link" href="prose.html">Prose</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Inside a <a class="link" href="marketing-section.html">marketing section</a> with a centered head. The <code class="code">.billing</code> control sits centered above <code class="code">.plans</code>; cards fill a grid that wraps below 280 px per card. Follow with a <a class="link" href="compare-table.html">compare table</a> and the questions people ask before buying.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Monthly or yearly, with seats</span><span class="cdoc__ex-d">Switch the period and change the seats: the prices roll, the words morph.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Monthly or yearly, with seats</span><span class="cdoc__ex-d">Market stall rental from a fictional city market office. Switch the period and change the number of stalls: the prices roll, the words morph.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div data-lds-billing style="width: 100%;">
   <div class="billing">
     <div class="seg seg--lg" role="group" aria-label="Billing period" data-lds-segmented><span class="seg__thumb"></span><button class="seg__btn" aria-pressed="true" data-billing="month">Monthly</button><button class="seg__btn" aria-pressed="false" data-billing="year">Yearly</button></div>
@@ -331,16 +336,16 @@
   </div>
   <div class="plans">
     <article class="plan plan--featured" aria-labelledby="pl-1">
-      <div class="plan__head"><h3 class="plan__name" id="pl-1">Teacher</h3><p class="plan__desc">For one teacher and all their classes.</p></div>
-      <div class="plan__price"><span class="plan__amount"><span class="plan__currency">$</span><span class="roll" data-price-month="12" data-price-year="10" data-lds-roll-label="{n} US dollars a month"></span></span><span class="plan__period morph" data-lds-morph data-billing-month="a month" data-billing-year="a month, billed yearly">a month</span></div>
-      <ul class="plan__list"><li><span class="ic" aria-hidden="true">check</span>Unlimited classes</li><li><span class="ic" aria-hidden="true">check</span>Rubrics and saved comments</li></ul>
-      <div class="plan__cta"><button class="btn btn--primary btn--block">Start the Teacher plan</button></div>
+      <div class="plan__head"><h3 class="plan__name" id="pl-1">Kiosk</h3><p class="plan__desc">One closed kiosk at Pasar Tugu, Tanjung Karang Timur.</p></div>
+      <div class="plan__price"><span class="plan__amount"><span class="plan__currency">Rp</span><span class="roll" data-price-month="360" data-price-year="300" data-lds-roll-label="{n} thousand rupiah a month"></span></span><span class="plan__period morph" data-lds-morph data-billing-month="thousand a month" data-billing-year="thousand a month, paid yearly">thousand a month</span></div>
+      <ul class="plan__list"><li><span class="ic" aria-hidden="true">check</span>Electricity and water meter included</li><li><span class="ic" aria-hidden="true">check</span>Daily waste pickup</li></ul>
+      <div class="plan__cta"><button class="btn btn--primary btn--block">Apply for a kiosk</button></div>
     </article>
     <article class="plan" aria-labelledby="pl-2">
-      <div class="plan__head"><h3 class="plan__name" id="pl-2">School</h3><p class="plan__desc">For every teacher in one school.</p></div>
-      <div class="plan__price"><span class="plan__amount"><span class="plan__currency">$</span><span class="roll" data-per-seat data-price-month="9" data-price-year="7" data-lds-roll-label="{n} US dollars a month"></span></span><span class="plan__period morph" data-lds-morph data-billing-month="a month for {seats} teachers" data-billing-year="a month for {seats} teachers">a month for 10 teachers</span></div>
-      <div class="plan__seats"><span id="pl-s">Teachers</span><div class="stepper-field" role="group" aria-labelledby="pl-s" data-lds-stepper data-min="5" data-max="200" data-value="10"><button aria-label="Fewer teachers"><span class="ic" aria-hidden="true">remove</span></button><span class="stepper-field__value"><span class="roll" aria-live="polite"></span></span><button aria-label="More teachers"><span class="ic" aria-hidden="true">add</span></button></div></div>
-      <div class="plan__cta"><button class="btn btn--secondary btn--block">Ask for a school invoice</button></div>
+      <div class="plan__head"><h3 class="plan__name" id="pl-2">UMKM bazaar stalls</h3><p class="plan__desc">Open stalls for a group of local businesses at the Saturday bazaar.</p></div>
+      <div class="plan__price"><span class="plan__amount"><span class="plan__currency">Rp</span><span class="roll" data-per-seat data-price-month="30" data-price-year="25" data-lds-roll-label="{n} thousand rupiah a month"></span></span><span class="plan__period morph" data-lds-morph data-billing-month="thousand a month for {seats} stalls" data-billing-year="thousand a month for {seats} stalls">thousand a month for 10 stalls</span></div>
+      <div class="plan__seats"><span id="pl-s">Stalls</span><div class="stepper-field" role="group" aria-labelledby="pl-s" data-lds-stepper data-min="5" data-max="200" data-value="10"><button aria-label="Fewer stalls"><span class="ic" aria-hidden="true">remove</span></button><span class="stepper-field__value"><span class="roll" aria-live="polite"></span></span><button aria-label="More stalls"><span class="ic" aria-hidden="true">add</span></button></div></div>
+      <div class="plan__cta"><button class="btn btn--secondary btn--block">Ask for a group quote</button></div>
     </article>
   </div>
 </div></div>
@@ -355,16 +360,16 @@
   &lt;/div&gt;
   &lt;div class=&quot;plans&quot;&gt;
     &lt;article class=&quot;plan plan--featured&quot; aria-labelledby=&quot;pl-1&quot;&gt;
-      &lt;div class=&quot;plan__head&quot;&gt;&lt;h3 class=&quot;plan__name&quot; id=&quot;pl-1&quot;&gt;Teacher&lt;/h3&gt;&lt;p class=&quot;plan__desc&quot;&gt;For one teacher and all their classes.&lt;/p&gt;&lt;/div&gt;
-      &lt;div class=&quot;plan__price&quot;&gt;&lt;span class=&quot;plan__amount&quot;&gt;&lt;span class=&quot;plan__currency&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;roll&quot; data-price-month=&quot;12&quot; data-price-year=&quot;10&quot; data-lds-roll-label=&quot;{n} US dollars a month&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;plan__period morph&quot; data-lds-morph data-billing-month=&quot;a month&quot; data-billing-year=&quot;a month, billed yearly&quot;&gt;a month&lt;/span&gt;&lt;/div&gt;
-      &lt;ul class=&quot;plan__list&quot;&gt;&lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Unlimited classes&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Rubrics and saved comments&lt;/li&gt;&lt;/ul&gt;
-      &lt;div class=&quot;plan__cta&quot;&gt;&lt;button class=&quot;btn btn--primary btn--block&quot;&gt;Start the Teacher plan&lt;/button&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__head&quot;&gt;&lt;h3 class=&quot;plan__name&quot; id=&quot;pl-1&quot;&gt;Kiosk&lt;/h3&gt;&lt;p class=&quot;plan__desc&quot;&gt;One closed kiosk at Pasar Tugu, Tanjung Karang Timur.&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__price&quot;&gt;&lt;span class=&quot;plan__amount&quot;&gt;&lt;span class=&quot;plan__currency&quot;&gt;Rp&lt;/span&gt;&lt;span class=&quot;roll&quot; data-price-month=&quot;360&quot; data-price-year=&quot;300&quot; data-lds-roll-label=&quot;{n} thousand rupiah a month&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;plan__period morph&quot; data-lds-morph data-billing-month=&quot;thousand a month&quot; data-billing-year=&quot;thousand a month, paid yearly&quot;&gt;thousand a month&lt;/span&gt;&lt;/div&gt;
+      &lt;ul class=&quot;plan__list&quot;&gt;&lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Electricity and water meter included&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Daily waste pickup&lt;/li&gt;&lt;/ul&gt;
+      &lt;div class=&quot;plan__cta&quot;&gt;&lt;button class=&quot;btn btn--primary btn--block&quot;&gt;Apply for a kiosk&lt;/button&gt;&lt;/div&gt;
     &lt;/article&gt;
     &lt;article class=&quot;plan&quot; aria-labelledby=&quot;pl-2&quot;&gt;
-      &lt;div class=&quot;plan__head&quot;&gt;&lt;h3 class=&quot;plan__name&quot; id=&quot;pl-2&quot;&gt;School&lt;/h3&gt;&lt;p class=&quot;plan__desc&quot;&gt;For every teacher in one school.&lt;/p&gt;&lt;/div&gt;
-      &lt;div class=&quot;plan__price&quot;&gt;&lt;span class=&quot;plan__amount&quot;&gt;&lt;span class=&quot;plan__currency&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;roll&quot; data-per-seat data-price-month=&quot;9&quot; data-price-year=&quot;7&quot; data-lds-roll-label=&quot;{n} US dollars a month&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;plan__period morph&quot; data-lds-morph data-billing-month=&quot;a month for {seats} teachers&quot; data-billing-year=&quot;a month for {seats} teachers&quot;&gt;a month for 10 teachers&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;plan__seats&quot;&gt;&lt;span id=&quot;pl-s&quot;&gt;Teachers&lt;/span&gt;&lt;div class=&quot;stepper-field&quot; role=&quot;group&quot; aria-labelledby=&quot;pl-s&quot; data-lds-stepper data-min=&quot;5&quot; data-max=&quot;200&quot; data-value=&quot;10&quot;&gt;&lt;button aria-label=&quot;Fewer teachers&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;remove&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;stepper-field__value&quot;&gt;&lt;span class=&quot;roll&quot; aria-live=&quot;polite&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;button aria-label=&quot;More teachers&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;add&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;plan__cta&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--block&quot;&gt;Ask for a school invoice&lt;/button&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__head&quot;&gt;&lt;h3 class=&quot;plan__name&quot; id=&quot;pl-2&quot;&gt;UMKM bazaar stalls&lt;/h3&gt;&lt;p class=&quot;plan__desc&quot;&gt;Open stalls for a group of local businesses at the Saturday bazaar.&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__price&quot;&gt;&lt;span class=&quot;plan__amount&quot;&gt;&lt;span class=&quot;plan__currency&quot;&gt;Rp&lt;/span&gt;&lt;span class=&quot;roll&quot; data-per-seat data-price-month=&quot;30&quot; data-price-year=&quot;25&quot; data-lds-roll-label=&quot;{n} thousand rupiah a month&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;plan__period morph&quot; data-lds-morph data-billing-month=&quot;thousand a month for {seats} stalls&quot; data-billing-year=&quot;thousand a month for {seats} stalls&quot;&gt;thousand a month for 10 stalls&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__seats&quot;&gt;&lt;span id=&quot;pl-s&quot;&gt;Stalls&lt;/span&gt;&lt;div class=&quot;stepper-field&quot; role=&quot;group&quot; aria-labelledby=&quot;pl-s&quot; data-lds-stepper data-min=&quot;5&quot; data-max=&quot;200&quot; data-value=&quot;10&quot;&gt;&lt;button aria-label=&quot;Fewer stalls&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;remove&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;stepper-field__value&quot;&gt;&lt;span class=&quot;roll&quot; aria-live=&quot;polite&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;button aria-label=&quot;More stalls&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;add&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__cta&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--block&quot;&gt;Ask for a group quote&lt;/button&gt;&lt;/div&gt;
     &lt;/article&gt;
   &lt;/div&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
@@ -376,16 +381,16 @@
   &lt;/div&gt;
   &lt;div class=&quot;plans&quot;&gt;
     &lt;article class=&quot;plan plan--featured&quot; aria-labelledby=&quot;pl-1&quot;&gt;
-      &lt;div class=&quot;plan__head&quot;&gt;&lt;h3 class=&quot;plan__name&quot; id=&quot;pl-1&quot;&gt;Teacher&lt;/h3&gt;&lt;p class=&quot;plan__desc&quot;&gt;For one teacher and all their classes.&lt;/p&gt;&lt;/div&gt;
-      &lt;div class=&quot;plan__price&quot;&gt;&lt;span class=&quot;plan__amount&quot;&gt;&lt;span class=&quot;plan__currency&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;roll&quot; data-price-month=&quot;12&quot; data-price-year=&quot;10&quot; data-lds-roll-label=&quot;{n} US dollars a month&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;plan__period morph&quot; data-lds-morph data-billing-month=&quot;a month&quot; data-billing-year=&quot;a month, billed yearly&quot;&gt;a month&lt;/span&gt;&lt;/div&gt;
-      &lt;ul class=&quot;plan__list&quot;&gt;&lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Unlimited classes&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Rubrics and saved comments&lt;/li&gt;&lt;/ul&gt;
-      &lt;div class=&quot;plan__cta&quot;&gt;&lt;button class=&quot;btn btn--primary btn--block&quot;&gt;Start the Teacher plan&lt;/button&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__head&quot;&gt;&lt;h3 class=&quot;plan__name&quot; id=&quot;pl-1&quot;&gt;Kiosk&lt;/h3&gt;&lt;p class=&quot;plan__desc&quot;&gt;One closed kiosk at Pasar Tugu, Tanjung Karang Timur.&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__price&quot;&gt;&lt;span class=&quot;plan__amount&quot;&gt;&lt;span class=&quot;plan__currency&quot;&gt;Rp&lt;/span&gt;&lt;span class=&quot;roll&quot; data-price-month=&quot;360&quot; data-price-year=&quot;300&quot; data-lds-roll-label=&quot;{n} thousand rupiah a month&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;plan__period morph&quot; data-lds-morph data-billing-month=&quot;thousand a month&quot; data-billing-year=&quot;thousand a month, paid yearly&quot;&gt;thousand a month&lt;/span&gt;&lt;/div&gt;
+      &lt;ul class=&quot;plan__list&quot;&gt;&lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Electricity and water meter included&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;Daily waste pickup&lt;/li&gt;&lt;/ul&gt;
+      &lt;div class=&quot;plan__cta&quot;&gt;&lt;button class=&quot;btn btn--primary btn--block&quot;&gt;Apply for a kiosk&lt;/button&gt;&lt;/div&gt;
     &lt;/article&gt;
     &lt;article class=&quot;plan&quot; aria-labelledby=&quot;pl-2&quot;&gt;
-      &lt;div class=&quot;plan__head&quot;&gt;&lt;h3 class=&quot;plan__name&quot; id=&quot;pl-2&quot;&gt;School&lt;/h3&gt;&lt;p class=&quot;plan__desc&quot;&gt;For every teacher in one school.&lt;/p&gt;&lt;/div&gt;
-      &lt;div class=&quot;plan__price&quot;&gt;&lt;span class=&quot;plan__amount&quot;&gt;&lt;span class=&quot;plan__currency&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;roll&quot; data-per-seat data-price-month=&quot;9&quot; data-price-year=&quot;7&quot; data-lds-roll-label=&quot;{n} US dollars a month&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;plan__period morph&quot; data-lds-morph data-billing-month=&quot;a month for {seats} teachers&quot; data-billing-year=&quot;a month for {seats} teachers&quot;&gt;a month for 10 teachers&lt;/span&gt;&lt;/div&gt;
-      &lt;div class=&quot;plan__seats&quot;&gt;&lt;span id=&quot;pl-s&quot;&gt;Teachers&lt;/span&gt;&lt;div class=&quot;stepper-field&quot; role=&quot;group&quot; aria-labelledby=&quot;pl-s&quot; data-lds-stepper data-min=&quot;5&quot; data-max=&quot;200&quot; data-value=&quot;10&quot;&gt;&lt;button aria-label=&quot;Fewer teachers&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;remove&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;stepper-field__value&quot;&gt;&lt;span class=&quot;roll&quot; aria-live=&quot;polite&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;button aria-label=&quot;More teachers&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;add&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
-      &lt;div class=&quot;plan__cta&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--block&quot;&gt;Ask for a school invoice&lt;/button&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__head&quot;&gt;&lt;h3 class=&quot;plan__name&quot; id=&quot;pl-2&quot;&gt;UMKM bazaar stalls&lt;/h3&gt;&lt;p class=&quot;plan__desc&quot;&gt;Open stalls for a group of local businesses at the Saturday bazaar.&lt;/p&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__price&quot;&gt;&lt;span class=&quot;plan__amount&quot;&gt;&lt;span class=&quot;plan__currency&quot;&gt;Rp&lt;/span&gt;&lt;span class=&quot;roll&quot; data-per-seat data-price-month=&quot;30&quot; data-price-year=&quot;25&quot; data-lds-roll-label=&quot;{n} thousand rupiah a month&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;plan__period morph&quot; data-lds-morph data-billing-month=&quot;thousand a month for {seats} stalls&quot; data-billing-year=&quot;thousand a month for {seats} stalls&quot;&gt;thousand a month for 10 stalls&lt;/span&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__seats&quot;&gt;&lt;span id=&quot;pl-s&quot;&gt;Stalls&lt;/span&gt;&lt;div class=&quot;stepper-field&quot; role=&quot;group&quot; aria-labelledby=&quot;pl-s&quot; data-lds-stepper data-min=&quot;5&quot; data-max=&quot;200&quot; data-value=&quot;10&quot;&gt;&lt;button aria-label=&quot;Fewer stalls&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;remove&lt;/span&gt;&lt;/button&gt;&lt;span class=&quot;stepper-field__value&quot;&gt;&lt;span class=&quot;roll&quot; aria-live=&quot;polite&quot;&gt;&lt;/span&gt;&lt;/span&gt;&lt;button aria-label=&quot;More stalls&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;add&lt;/span&gt;&lt;/button&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class=&quot;plan__cta&quot;&gt;&lt;button class=&quot;btn btn--secondary btn--block&quot;&gt;Ask for a group quote&lt;/button&gt;&lt;/div&gt;
     &lt;/article&gt;
   &lt;/div&gt;
 &lt;/div&gt;</pre></div></div></div>
@@ -416,6 +421,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

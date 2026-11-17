@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Microinteractions">Mikrointeraksi</a></li></ol></nav>
           <h1>Bell</h1>
           <p class="cdoc__lede">Ikon lonceng berbunyi sekali, ayunan pendek dari bagian atasnya yang berhenti dalam 640 ms, saat notifikasi dinyalakan atau notifikasi baru masuk. Sekali saja, tidak pernah berulang: lonceng memberi tanda, bukan merecoki.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="bell.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="bell.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Switch menyalakan notifikasi atau pengingat: lonceng di label switch berbunyi saat thumb mendarat.</li><li>Notifikasi masuk saat orang sedang melihat layar: lonceng di bilah atas berbunyi sekali dan jumlahnya muncul.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Notifikasi yang harus dibaca sekarang: pakai <a class="link" href="banner.html">Banner</a>.</li><li>Pesan yang mengonfirmasi sebuah aksi: pakai <a class="link" href="toast.html">Toast</a>.</li><li>Jumlah belum dibaca saja: pakai <a class="link" href="count.html">Count</a>.</li><li>Aksi yang ditolak: pakai <a class="link" href="shake.html">Shake</a>.</li><li>Fitur baru di produk yang perlu dijelaskan: pakai <a class="link" href="coachmark.html">Coachmark</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Hanya pada ikon notifikasi: di dalam label <code class="code">.switch</code>, atau di <a class="link" href="icon-button.html">tombol ikon</a> pada bilah atas atau app shell.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -361,7 +366,7 @@
         <section class="cdoc__sec" id="practices"><h2>Lakukan dan hindari</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Lakukan</p><ul class="cdoc__list"><li>Bunyikan sekali per kejadian.</li><li>Pakai hanya pada ikon notifikasi.</li><li>Pasangkan dengan jumlah atau status switch.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Hindari</p><ul class="cdoc__list"><li>Mengulang bunyi lonceng atau membunyikannya saat halaman dimuat.</li><li>Membunyikan lonceng untuk setiap notifikasi dalam satu rentetan; cukup sekali untuk satu kelompok.</li><li>Memakai ayunan ini pada ikon lain.</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Perilaku dan kode</h2><p class="cdoc__p"><strong>HTML biasa.</strong> Di dalam <code class="code">.switch</code>, <code class="code">init()</code> membunyikan setiap <code class="code">.bell</code> di label saat switch dinyalakan. Di tempat lain, pasang dan lepas <code class="code">.is-ringing</code> sendiri.</p><p class="cdoc__p"><strong>React.</strong> Dari <code class="code">lampung-design-system/react</code>.</p><div class="codeblock"><pre>import { Switch } from 'lampung-design-system/react';
 
-&lt;Switch checked={notify} onChange={setNotify}&gt;Notify me when grades are posted&lt;/Switch&gt;
+&lt;Switch checked={notify} onChange={setNotify}&gt;Notify me when my report gets a response&lt;/Switch&gt;
 // Switch does not ring a bell itself: render &lt;span className={`bell ic${ring ? ' is-ringing' : ''}`}&gt;notifications&lt;/span&gt; beside it and set ring when it turns on.</pre></div></section>
         <section class="cdoc__sec" id="related"><h2>Terkait</h2><div class="link-grid"><a class="link-card" href="switch.html"><span class="link-card__eyebrow">Pilihan</span><span class="link-card__title">Switch</span><span class="link-card__body">Kontrol nyala dan mati untuk pengaturan yang berlaku saat itu juga ketika diubah, tanpa tombol Simpan. Thumb meregang selama ditahan dan berpindah dengan spring.</span></a><a class="link-card" href="count.html"><span class="link-card__eyebrow">Umpan balik</span><span class="link-card__title">Count</span><span class="link-card__body">Pil merah kecil berisi jumlah hal yang menunggu orang: pesan belum dibaca, permohonan tertunda. Artinya &quot;tindak lanjuti ini&quot;, jadi pakai hanya untuk itu.</span></a><a class="link-card" href="icon-button.html"><span class="link-card__eyebrow">Aksi</span><span class="link-card__title">Icon button</span><span class="link-card__body">Tombol yang hanya menampilkan ikon: target 44 px, glyph 22 px, bulat. Selalu punya `aria-label` dan tooltip dengan kata yang sama.</span></a><a class="link-card" href="haptics.html"><span class="link-card__eyebrow">Mikrointeraksi</span><span class="link-card__title">Haptics</span><span class="link-card__body">Getaran singkat di ponsel yang mendukungnya, selalu bersama perubahan yang terlihat, tidak pernah sendirian. Ada empat jenis: light untuk ketukan yang mengubah sesuatu, medium untuk gestur yang dijalankan, success saat sesuatu selesai, error saat sesuatu ditolak.</span></a></div></section>
         <nav class="cdoc__pager" aria-label="Komponen sebelumnya dan berikutnya">
@@ -382,6 +387,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Terang</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Gelap</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privasi</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Ketentuan</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,6 +321,10 @@
           <nav aria-label="Remah roti"><ol class="crumbs"><li><a href="index.html">Komponen</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Feedback">Umpan balik</a></li></ol></nav>
           <h1>Spinner</h1>
           <p class="cdoc__lede">Delapan jari-jari yang memudar bergantian, menandakan &quot;sedang bekerja&quot; untuk tunggu singkat tanpa kemajuan yang terukur. Diletakkan di tempat hasil akan muncul dan tidak pernah memblokir seluruh halaman.</p>
+          <div class="cdoc__agent" role="group" aria-label="Untuk agen AI">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="spinner.md" data-done="Disalin" data-fail="Gagal menyalin"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Salin untuk LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="spinner.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>Lihat sebagai Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Penggunaan</h2><p class="cdoc__p"><strong>Pakai saat</strong></p><ul class="cdoc__list"><li>Tunggu singkat (sekitar setengah detik sampai beberapa detik) tanpa ada yang bisa diukur: menyegarkan daftar, memeriksa kode, memuat halaman hasil berikutnya.</li><li>Di dalam kontrol yang sedang sibuk, seperti aksi baris atau konfirmasi di tempat.</li><li>Di ujung daftar saat item berikutnya dimuat.</li></ul><p class="cdoc__p"><strong>Pakai yang lain saat</strong></p><ul class="cdoc__list"><li>Tombol sedang menjalankan aksinya: pakai <a class="link" href="button.html">Button</a>. Pakai <code class="code">.is-loading</code> dengan <code class="code">btn__label</code> dan <code class="code">btn__spin</code>; lebar tombol tetap.</li><li>Konten sedang dimuat dan tata letaknya diketahui: pakai <a class="link" href="skeleton.html">Skeleton</a>.</li><li>Pekerjaannya punya ukuran yang terukur: pakai <a class="link" href="progress-bar.html">Progress bar</a>.</li><li>Pekerjaan panjang yang lamanya tidak diketahui (asisten, laporan) saat waktu berjalan penting: pakai <a class="link" href="thinking.html">Thinking</a>.</li><li>Halaman sedang dimuat setelah tautan diklik: pakai <a class="link" href="nav-progress.html">Nav progress</a>.</li></ul><p class="cdoc__p"><strong>Letaknya.</strong> Di tempat hasil akan muncul: di tengah area yang disegarkan, di ujung baris list yang sibuk, di bawah item terakhir saat item lain dimuat. 20 px inline, 32 px (<code class="code">spinner--lg</code>) di tengah panel. Jangan pernah berupa overlay layar penuh dengan spinner.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Contoh</h2><figure class="cdoc__ex" id="ex-1">
@@ -413,6 +418,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

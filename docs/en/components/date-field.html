@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,12 +321,16 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Inputs">Inputs</a></li></ol></nav>
           <h1>Date field</h1>
           <p class="cdoc__lede">A text field for a date with a calendar button that opens a calendar in a popover. Typing the date always works; the calendar is the helper. Built from existing parts: <code class="code">.control</code>, <code class="code">.control__btn</code>, <code class="code">.popover</code> and <code class="code">.cal</code>.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="date-field.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="date-field.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>People enter one date in a form: a date of birth, an exam date, a deadline, a payment date.</li><li>The date is near today and seeing the month helps (scheduling a tryout, choosing a due date).</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Showing a month of events, or picking a range on the page itself: use <a class="link" href="calendar.html">Calendar</a>. The <code class="code">.cal</code> component inline, not in a popover.</li><li>A date far in the past people know by heart (date of birth): use <a class="link" href="text-field.html">Text field</a>. Typing DD/MM/YYYY is faster than paging back 20 years; keep the calendar button optional.</li><li>Picking a relative period (this week, this month): use <a class="link" href="segmented-control.html">Segmented control</a>. Or <a class="link" href="chips.html">chips</a> for presets like &quot;Last 7 days&quot;.</li><li>A time of day only: use <a class="link" href="select.html">Select</a>. A list of half-hour slots.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In a <a class="link" href="form-layout.html">form</a> like any field, about 220 px wide on wide screens (a date never needs the full width). The popover opens below the field, aligned to its right edge. On phones, prefer the native picker (<code class="code">type=&quot;date&quot;</code> in a <code class="code">.control</code>) or open the calendar in a <a class="link" href="sheet.html">sheet</a>.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>People enter one date in a form: a date of birth, a service visit date, a deadline, a payment date.</li><li>The date is near today and seeing the month helps (booking a visit, choosing a due date).</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Showing a month of events, or picking a range on the page itself: use <a class="link" href="calendar.html">Calendar</a>. The <code class="code">.cal</code> component inline, not in a popover.</li><li>A date far in the past people know by heart (date of birth): use <a class="link" href="text-field.html">Text field</a>. Typing DD/MM/YYYY is faster than paging back 20 years; keep the calendar button optional.</li><li>Picking a relative period (this week, this month): use <a class="link" href="segmented-control.html">Segmented control</a>. Or <a class="link" href="chips.html">chips</a> for presets like &quot;Last 7 days&quot;.</li><li>A time of day only: use <a class="link" href="select.html">Select</a>. A list of half-hour slots.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> In a <a class="link" href="form-layout.html">form</a> like any field, about 220 px wide on wide screens (a date never needs the full width). The popover opens below the field, aligned to its right edge. On phones, prefer the native picker (<code class="code">type=&quot;date&quot;</code> in a <code class="code">.control</code>) or open the calendar in a <a class="link" href="sheet.html">sheet</a>.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Exam date</span><span class="cdoc__ex-d">Type a date, or open the calendar with the button. Picking a day fills the field, closes the calendar and returns focus to the input. Escape or a click outside closes it.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Visit date</span><span class="cdoc__ex-d">Type a date, or open the calendar with the button. Picking a day fills the field, closes the calendar and returns focus to the input. Escape or a click outside closes it.</span></figcaption>
           <div class="cdoc__stage" id="ex-1-stage" style="min-height: 470px;"><div class="field" style="max-width: 300px; width: 100%;" data-date-field>
-  <label class="field__label" for="df-exam">Exam date</label>
+  <label class="field__label" for="df-exam">Visit date</label>
   <div style="position: relative;">
     <div class="control"><input id="df-exam" inputmode="numeric" placeholder="DD/MM/YYYY" value="24/11/2026" aria-describedby="df-exam-help"><button type="button" class="control__btn" aria-label="Choose a date" aria-haspopup="dialog" aria-expanded="false" data-lds-menu="df-pop"><span class="ic" aria-hidden="true">calendar_month</span></button></div>
     <div class="popover" id="df-pop" role="dialog" aria-label="Choose a date" style="width: auto; padding: 0; top: calc(100% + 6px); right: 0;">
@@ -335,14 +340,14 @@
       </div>
     </div>
   </div>
-  <span class="field__help" id="df-exam-help">DD/MM/YYYY. Exams run Monday to Saturday.</span>
+  <span class="field__help" id="df-exam-help">DD/MM/YYYY. Service counters open Monday to Saturday.</span>
 </div></div>
           
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-1-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;field&quot;&gt;
-  &lt;label class=&quot;field__label&quot; for=&quot;exam-date&quot;&gt;Exam date&lt;/label&gt;
+  &lt;label class=&quot;field__label&quot; for=&quot;exam-date&quot;&gt;Visit date&lt;/label&gt;
   &lt;div style=&quot;position: relative;&quot;&gt;
     &lt;div class=&quot;control&quot;&gt;
       &lt;input id=&quot;exam-date&quot; inputmode=&quot;numeric&quot; placeholder=&quot;DD/MM/YYYY&quot; aria-describedby=&quot;exam-date-help&quot;&gt;
@@ -368,13 +373,13 @@
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-  &lt;span class=&quot;field__help&quot; id=&quot;exam-date-help&quot;&gt;DD/MM/YYYY. Exams run Monday to Saturday.&lt;/span&gt;
+  &lt;span class=&quot;field__help&quot; id=&quot;exam-date-help&quot;&gt;DD/MM/YYYY. Service counters open Monday to Saturday.&lt;/span&gt;
 &lt;/div&gt;
 &lt;!-- Your code: render the month, page it with the arrows, and on a day click
      write the date into the input, move .is-selected, then closeMenus() and focus the input. --&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-1-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;field&quot;&gt;
-  &lt;label class=&quot;field__label&quot; for=&quot;exam-date&quot;&gt;Exam date&lt;/label&gt;
+  &lt;label class=&quot;field__label&quot; for=&quot;exam-date&quot;&gt;Visit date&lt;/label&gt;
   &lt;div style=&quot;position: relative;&quot;&gt;
     &lt;div class=&quot;control&quot;&gt;
       &lt;input id=&quot;exam-date&quot; inputmode=&quot;numeric&quot; placeholder=&quot;DD/MM/YYYY&quot; aria-describedby=&quot;exam-date-help&quot;&gt;
@@ -400,7 +405,7 @@
       &lt;/div&gt;
     &lt;/div&gt;
   &lt;/div&gt;
-  &lt;span class=&quot;field__help&quot; id=&quot;exam-date-help&quot;&gt;DD/MM/YYYY. Exams run Monday to Saturday.&lt;/span&gt;
+  &lt;span class=&quot;field__help&quot; id=&quot;exam-date-help&quot;&gt;DD/MM/YYYY. Service counters open Monday to Saturday.&lt;/span&gt;
 &lt;/div&gt;
 &lt;!-- Your code: render the month, page it with the arrows, and on a day click
      write the date into the input, move .is-selected, then closeMenus() and focus the input. --&gt;</pre></div></div></div>
@@ -473,6 +478,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

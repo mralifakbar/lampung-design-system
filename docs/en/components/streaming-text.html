@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,14 +321,18 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Chat">Chat</a></li></ol></nav>
           <h1>Streaming text</h1>
           <p class="cdoc__lede">An answer that arrives word by word, each word fading in from a 3 px blur, with a round caret at the end while more is coming. It shows real progress; never fake it for text you already have.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="streaming-text.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="streaming-text.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
         <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>An assistant reply that is generated while the person waits: show words as they arrive from the server.</li><li>Right after <a class="link" href="thinking.html">thinking</a> ends: the thinking row settles, then the answer streams in under it.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>Waiting before the first word exists: use <a class="link" href="thinking.html">Thinking</a>.</li><li>Text you already have in full (a saved answer, a help article): use <a class="link" href="prose.html">Prose</a>. Show it at once; typing it out only slows people down.</li><li>A short status that changes (Saving, Saved): use <a class="link" href="text-morph.html">Text morph</a>.</li><li>Loading the layout of a page: use <a class="link" href="skeleton.html">Skeleton</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Inside the <code class="code">.bubble</code> of a <code class="code">msg--ai</code> <a class="link" href="chat-message.html">chat message</a>, or in any reading block that is being generated (a summary at the top of a report). The actions row of the message stays hidden until streaming ends.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
           <figcaption><span class="cdoc__ex-t">An answer arriving</span><span class="cdoc__ex-d">Press Ask again. Words appear at the pace they arrive; the caret marks that more is coming and disappears when the answer is complete. The actions row appears only at the end.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="chat" style="max-width: 560px;">
-  <div class="msg msg--me"><div class="bubble">What is photosynthesis, in two sentences?</div></div>
-  <div class="msg msg--ai"><div class="bubble" id="st-a">Photosynthesis turns light, water and carbon dioxide into sugar and oxygen. It happens in the chloroplasts, mostly in the leaves, and the sugar feeds the whole plant.</div><div class="msg__actions"><button class="icon-btn" aria-label="Copy answer" data-lds-copy="Photosynthesis turns light, water and carbon dioxide into sugar and oxygen. It happens in the chloroplasts, mostly in the leaves, and the sugar feeds the whole plant."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button></div></div>
-  <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="const b = document.getElementById('st-a'); const acts = b.nextElementSibling; acts.hidden = true; b.setAttribute('aria-busy', 'true'); import('../../js/lds.js').then((m) => m.streamText(b, 'Photosynthesis turns light, water and carbon dioxide into sugar and oxygen. It happens in the chloroplasts, mostly in the leaves, and the sugar feeds the whole plant.')).then(() => { acts.hidden = false; b.removeAttribute('aria-busy'); });"><span class="ic" aria-hidden="true">refresh</span>Ask again</button>
+  <div class="msg msg--me"><div class="bubble">How do I get a KTP-el, in two sentences?</div></div>
+  <div class="msg msg--ai"><div class="bubble" id="st-a">For a first electronic ID card (KTP-el), bring your Kartu Keluarga and a letter from your RT/RW to the Disdukcapil desk. Recording takes about 15 minutes, and the card is usually ready within 14 working days.</div><div class="msg__actions"><button class="icon-btn" aria-label="Copy answer" data-lds-copy="For a first electronic ID card (KTP-el), bring your Kartu Keluarga and a letter from your RT/RW to the Disdukcapil desk. Recording takes about 15 minutes, and the card is usually ready within 14 working days."><span class="swap" aria-hidden="true"><span class="ic swap__a">content_copy</span><span class="ic swap__b">check</span></span></button></div></div>
+  <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="const b = document.getElementById('st-a'); const acts = b.nextElementSibling; acts.hidden = true; b.setAttribute('aria-busy', 'true'); import('../../js/lds.js').then((m) => m.streamText(b, 'For a first electronic ID card (KTP-el), bring your Kartu Keluarga and a letter from your RT/RW to the Disdukcapil desk. Recording takes about 15 minutes, and the card is usually ready within 14 working days.')).then(() => { acts.hidden = false; b.removeAttribute('aria-busy'); });"><span class="ic" aria-hidden="true">refresh</span>Ask again</button>
 </div></div>
           
           <div class="cdoc__bar">
@@ -352,65 +357,65 @@ actions.hidden = false;</pre></div></div></div>
 <figure class="cdoc__ex" id="ex-2">
           <figcaption><span class="cdoc__ex-t">After thinking</span><span class="cdoc__ex-d">Thinking runs with a real timer while the assistant reads. When the first words are ready it settles into what it did, and the answer streams in under it.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-2-stage"><div class="msg msg--ai" style="max-width: 560px;">
-  <div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Reading your notes</span><span class="thinking__time"></span></div>
+  <div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Reading the service guide</span><span class="thinking__time"></span></div>
   <div class="bubble" id="st-b"></div>
-  <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="this.hidden = true; const msg = this.closest('.msg'); import('../../js/lds.js').then((m) => { m.thinkingDone(msg.querySelector('.thinking'), 'Read 3 pages of your notes'); return m.streamText(document.getElementById('st-b'), 'Your notes define osmosis as water moving through a membrane toward the side with more dissolved salt. Page 12 has the potato experiment that shows it.'); });">Finish thinking</button>
+  <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="this.hidden = true; const msg = this.closest('.msg'); import('../../js/lds.js').then((m) => { m.thinkingDone(msg.querySelector('.thinking'), 'Read 3 pages of the service guide'); return m.streamText(document.getElementById('st-b'), 'The guide says a moving letter (surat pindah) needs your KK, your KTP-el and a letter from the kelurahan. Page 12 lists the Disdukcapil desks in Bandar Lampung that issue it on the same day.'); });">Finish thinking</button>
 </div></div>
           <template id="ex-2-stage-tpl"><div class="msg msg--ai" style="max-width: 560px;">
-  <div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Reading your notes</span><span class="thinking__time"></span></div>
+  <div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Reading the service guide</span><span class="thinking__time"></span></div>
   <div class="bubble" id="st-b"></div>
-  <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="this.hidden = true; const msg = this.closest('.msg'); import('../../js/lds.js').then((m) => { m.thinkingDone(msg.querySelector('.thinking'), 'Read 3 pages of your notes'); return m.streamText(document.getElementById('st-b'), 'Your notes define osmosis as water moving through a membrane toward the side with more dissolved salt. Page 12 has the potato experiment that shows it.'); });">Finish thinking</button>
+  <button class="btn btn--secondary btn--sm" style="align-self: flex-start;" onclick="this.hidden = true; const msg = this.closest('.msg'); import('../../js/lds.js').then((m) => { m.thinkingDone(msg.querySelector('.thinking'), 'Read 3 pages of the service guide'); return m.streamText(document.getElementById('st-b'), 'The guide says a moving letter (surat pindah) needs your KK, your KTP-el and a letter from the kelurahan. Page 12 lists the Disdukcapil desks in Bandar Lampung that issue it on the same day.'); });">Finish thinking</button>
 </div></template>
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-2-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             <button class="btn btn--plain btn--sm" data-replay="ex-2-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>Replay</button>
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;msg msg--ai&quot;&gt;
-  &lt;div class=&quot;thinking&quot; data-lds-thinking role=&quot;status&quot;&gt;&lt;span class=&quot;dotgrid&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;&lt;span class=&quot;shimmer&quot;&gt;Reading your notes&lt;/span&gt;&lt;span class=&quot;thinking__time&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;thinking&quot; data-lds-thinking role=&quot;status&quot;&gt;&lt;span class=&quot;dotgrid&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;&lt;span class=&quot;shimmer&quot;&gt;Reading the service guide&lt;/span&gt;&lt;span class=&quot;thinking__time&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;div class=&quot;bubble&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;script type=&quot;module&quot;&gt;
   import { thinkingDone, streamText } from 'lampung-design-system/js';
   // when the first token arrives:
-  thinkingDone(msg.querySelector('.thinking'), 'Read 3 pages of your notes');
+  thinkingDone(msg.querySelector('.thinking'), 'Read 3 pages of the service guide');
   await streamText(msg.querySelector('.bubble'), text);
 &lt;/script&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-2-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;msg msg--ai&quot;&gt;
-  &lt;div class=&quot;thinking&quot; data-lds-thinking role=&quot;status&quot;&gt;&lt;span class=&quot;dotgrid&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;&lt;span class=&quot;shimmer&quot;&gt;Reading your notes&lt;/span&gt;&lt;span class=&quot;thinking__time&quot;&gt;&lt;/span&gt;&lt;/div&gt;
+  &lt;div class=&quot;thinking&quot; data-lds-thinking role=&quot;status&quot;&gt;&lt;span class=&quot;dotgrid&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;&lt;span class=&quot;shimmer&quot;&gt;Reading the service guide&lt;/span&gt;&lt;span class=&quot;thinking__time&quot;&gt;&lt;/span&gt;&lt;/div&gt;
   &lt;div class=&quot;bubble&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;script type=&quot;module&quot;&gt;
   import { thinkingDone, streamText } from 'lampung-design-system/js';
   // when the first token arrives:
-  thinkingDone(msg.querySelector('.thinking'), 'Read 3 pages of your notes');
+  thinkingDone(msg.querySelector('.thinking'), 'Read 3 pages of the service guide');
   await streamText(msg.querySelector('.bubble'), text);
 &lt;/script&gt;</pre></div></div></div>
         </figure>
 <figure class="cdoc__ex" id="ex-3">
           <figcaption><span class="cdoc__ex-t">A summary generated in a page</span><span class="cdoc__ex-d">Streaming is not only for chat. A report summary can arrive the same way at the top of the page while the rest of the page is already usable.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-3-stage"><div class="card" style="max-width: 560px;">
-  <p class="card__title">Class summary</p>
+  <p class="card__title">This week in citizen reports</p>
   <p class="card__sub stream is-streaming" id="st-c" style="margin-top: 8px;"></p>
-  <button class="btn btn--plain btn--sm" style="margin-top: 8px; margin-left: -10px;" onclick="this.hidden = true; import('../../js/lds.js').then((m) => m.streamText(document.getElementById('st-c'), 'Most students finished the quiz in under 20 minutes. Question 7 was missed by 18 of 30, so it is worth reviewing on Monday.'));">Generate summary</button>
+  <button class="btn btn--plain btn--sm" style="margin-top: 8px; margin-left: -10px;" onclick="this.hidden = true; import('../../js/lds.js').then((m) => m.streamText(document.getElementById('st-c'), 'Most reports this week were about street lights in Way Halim and Kedaton. 18 of 30 reports of uncollected rubbish came from Rajabasa, so the Monday pickup route is worth checking.'));">Generate summary</button>
 </div></div>
           <template id="ex-3-stage-tpl"><div class="card" style="max-width: 560px;">
-  <p class="card__title">Class summary</p>
+  <p class="card__title">This week in citizen reports</p>
   <p class="card__sub stream is-streaming" id="st-c" style="margin-top: 8px;"></p>
-  <button class="btn btn--plain btn--sm" style="margin-top: 8px; margin-left: -10px;" onclick="this.hidden = true; import('../../js/lds.js').then((m) => m.streamText(document.getElementById('st-c'), 'Most students finished the quiz in under 20 minutes. Question 7 was missed by 18 of 30, so it is worth reviewing on Monday.'));">Generate summary</button>
+  <button class="btn btn--plain btn--sm" style="margin-top: 8px; margin-left: -10px;" onclick="this.hidden = true; import('../../js/lds.js').then((m) => m.streamText(document.getElementById('st-c'), 'Most reports this week were about street lights in Way Halim and Kedaton. 18 of 30 reports of uncollected rubbish came from Rajabasa, so the Monday pickup route is worth checking.'));">Generate summary</button>
 </div></template>
           <div class="cdoc__bar">
             <button class="btn btn--plain btn--sm" data-code-toggle aria-expanded="false" aria-controls="ex-3-code"><span class="ic ic--sm" aria-hidden="true">code</span>Code</button>
             <button class="btn btn--plain btn--sm" data-replay="ex-3-stage"><span class="ic ic--sm" aria-hidden="true">refresh</span>Replay</button>
             <button class="btn btn--plain btn--sm" data-lds-copy="&lt;div class=&quot;card&quot; style=&quot;max-width: 560px;&quot;&gt;
-  &lt;p class=&quot;card__title&quot;&gt;Class summary&lt;/p&gt;
+  &lt;p class=&quot;card__title&quot;&gt;This week in citizen reports&lt;/p&gt;
   &lt;p class=&quot;card__sub stream is-streaming&quot; id=&quot;st-c&quot; style=&quot;margin-top: 8px;&quot;&gt;&lt;/p&gt;
-  &lt;button class=&quot;btn btn--plain btn--sm&quot; style=&quot;margin-top: 8px; margin-left: -10px;&quot; onclick=&quot;this.hidden = true; import('../../js/lds.js').then((m) =&gt; m.streamText(document.getElementById('st-c'), 'Most students finished the quiz in under 20 minutes. Question 7 was missed by 18 of 30, so it is worth reviewing on Monday.'));&quot;&gt;Generate summary&lt;/button&gt;
+  &lt;button class=&quot;btn btn--plain btn--sm&quot; style=&quot;margin-top: 8px; margin-left: -10px;&quot; onclick=&quot;this.hidden = true; import('../../js/lds.js').then((m) =&gt; m.streamText(document.getElementById('st-c'), 'Most reports this week were about street lights in Way Halim and Kedaton. 18 of 30 reports of uncollected rubbish came from Rajabasa, so the Monday pickup route is worth checking.'));&quot;&gt;Generate summary&lt;/button&gt;
 &lt;/div&gt;"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span data-lds-copy-label="Copied">Copy</span></button>
           </div>
           <div class="collapse is-closed" id="ex-3-code" inert><div><div class="codeblock"><pre>&lt;div class=&quot;card&quot; style=&quot;max-width: 560px;&quot;&gt;
-  &lt;p class=&quot;card__title&quot;&gt;Class summary&lt;/p&gt;
+  &lt;p class=&quot;card__title&quot;&gt;This week in citizen reports&lt;/p&gt;
   &lt;p class=&quot;card__sub stream is-streaming&quot; id=&quot;st-c&quot; style=&quot;margin-top: 8px;&quot;&gt;&lt;/p&gt;
-  &lt;button class=&quot;btn btn--plain btn--sm&quot; style=&quot;margin-top: 8px; margin-left: -10px;&quot; onclick=&quot;this.hidden = true; import('../../js/lds.js').then((m) =&gt; m.streamText(document.getElementById('st-c'), 'Most students finished the quiz in under 20 minutes. Question 7 was missed by 18 of 30, so it is worth reviewing on Monday.'));&quot;&gt;Generate summary&lt;/button&gt;
+  &lt;button class=&quot;btn btn--plain btn--sm&quot; style=&quot;margin-top: 8px; margin-left: -10px;&quot; onclick=&quot;this.hidden = true; import('../../js/lds.js').then((m) =&gt; m.streamText(document.getElementById('st-c'), 'Most reports this week were about street lights in Way Halim and Kedaton. 18 of 30 reports of uncollected rubbish came from Rajabasa, so the Monday pickup route is worth checking.'));&quot;&gt;Generate summary&lt;/button&gt;
 &lt;/div&gt;</pre></div></div></div>
         </figure></section>
         <section class="cdoc__sec" id="anatomy"><h2>Anatomy</h2><div class="table-box"><table class="table table--wrap"><thead><tr><th>Part</th><th>What it is</th></tr></thead><tbody><tr><td><code class="code">.stream</code></td><td>The element receiving words (added by <code class="code">streamText</code>).</td></tr><tr><td><code class="code">.stream.is-streaming</code></td><td>While words are still coming: draws an 8 px round caret after the last word, blinking each second.</td></tr><tr><td><code class="code">.stream__w</code></td><td>One arrived word. Fades from 3 px blur and transparent over 360 ms.</td></tr></tbody></table></div></section>
@@ -420,7 +425,7 @@ actions.hidden = false;</pre></div></div></div>
         <section class="cdoc__sec" id="practices"><h2>Do and don't</h2><div class="cdoc__dd"><div class="cdoc__do"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">check_circle</span>Do</p><ul class="cdoc__list"><li>Stream only text that is really being generated.</li><li>Pair with <a class="link" href="thinking.html">thinking</a> for the wait before the first word.</li><li>Reveal copy and retry actions only after the end.</li></ul></div><div class="cdoc__dont"><p class="cdoc__dd-h"><span class="ic ic--fill" aria-hidden="true">cancel</span>Don't</p><ul class="cdoc__list"><li>Type out text you already have to make it feel smart.</li><li>Animate words upward or scale them; reading lines must stay still.</li><li>Auto-scroll the conversation while the reader has scrolled up; show Latest instead (<a class="link" href="chat-layout.html">chat layout</a>).</li></ul></div></div></section>
         <section class="cdoc__sec" id="code"><h2>Behavior and code</h2><p class="cdoc__p"><strong>Plain HTML.</strong> <code class="code">streamText(el, text, { wordMs = 40 })</code> from <code class="code">js/lds.js</code> adds <code class="code">stream is-streaming</code> to <code class="code">el</code>, clears it, appends each word as a <code class="code">.stream__w</code> span, and resolves its promise when done (removing <code class="code">is-streaming</code>). With live tokens, add <code class="code">stream is-streaming</code> yourself, append <code class="code">&lt;span class=&quot;stream__w&quot;&gt;word&lt;/span&gt;</code> per word, and remove <code class="code">is-streaming</code> at the end.</p><p class="cdoc__p"><strong>React.</strong> From <code class="code">lampung-design-system/react</code>.</p><div class="codeblock"><pre>import { Thinking } from 'lampung-design-system/react';
 
-{phase === 'thinking' &amp;&amp; &lt;Thinking label=&quot;Reading your notes&quot; startedAt={startedAt} /&gt;}
+{phase === 'thinking' &amp;&amp; &lt;Thinking label=&quot;Reading the service guide&quot; startedAt={startedAt} /&gt;}
 &lt;div className={`bubble stream${phase === 'streaming' ? ' is-streaming' : ''}`} aria-busy={phase === 'streaming'}&gt;
   {words.map((w, i) =&gt; &lt;span key={i} className=&quot;stream__w&quot;&gt;{w} &lt;/span&gt;)}
 &lt;/div&gt;</pre></div></section>
@@ -443,6 +448,17 @@ actions.hidden = false;</pre></div></div></div>
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));

@@ -304,6 +304,7 @@
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">Light</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">Dark</button>
       </div>
+      <p class="docs-legal"><a href="../guide/privasi.html">Privacy</a><span aria-hidden="true">·</span><a href="../guide/ketentuan.html">Terms</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>
@@ -320,10 +321,14 @@
           <nav aria-label="Breadcrumb"><ol class="crumbs"><li><a href="index.html">Components</a></li><li><span class="ic" aria-hidden="true">chevron_right</span></li><li><a href="index.html#Data%20display">Data display</a></li></ol></nav>
           <h1>Data table</h1>
           <p class="cdoc__lede">A table people work in: search, filter chips and menus, sortable headers, a column menu, row density, row selection with a selection bar, and pagination with a page size, all on a plain <code class="code">.table</code> and wired by one hook. Every control changes the rows at once and says what it did.</p>
+          <div class="cdoc__agent" role="group" aria-label="For AI agents">
+            <button class="btn btn--gray btn--sm" type="button" data-md-copy="data-table.md" data-done="Copied" data-fail="Copy failed"><span class="ic ic--sm" aria-hidden="true">content_copy</span><span>Copy for LLM</span></button>
+            <a class="btn btn--gray btn--sm" href="data-table.md" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>View as Markdown</span></a>
+          </div>
         </header>
-        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A list of records people search, narrow, sort and act on in bulk: members of a workspace, customers, orders, invoices.</li><li>More than about 20 rows, so paging and a page size help, and enough columns that some people want fewer.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>A short, fixed table people only read: use <a class="link" href="table.html">Table</a>. Plain <code class="code">.table</code>, maybe with <code class="code">data-lds-sort</code>.</li><li>One or two facts per item, mostly on phones: use <a class="link" href="list.html">List</a>.</li><li>Thousands of rows from a server: use <a class="link" href="table.html">Table</a>. Render the page the server returns into a <code class="code">.table</code> and keep the same bar and footer markup; this hook works on the rows in the page.</li><li>Files people recognize by type or picture: use <a class="link" href="file-tile.html">File tile</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Full width of the content column. The bar sits above the table (search first, filters next, tools at the end), the footer below it (the count on the left, page size and pager on the right). The selection bar floats at the bottom of the window while rows are ticked. On phones the search takes its own row, the tools wrap, the table scrolls sideways in its box and the pager keeps only previous, current and next.</p></section>
+        <section class="cdoc__sec" id="usage"><h2>Usage</h2><p class="cdoc__p"><strong>Use it when</strong></p><ul class="cdoc__list"><li>A list of records people search, narrow, sort and act on in bulk: staff of a service portal, applicants, permit applications, bills.</li><li>More than about 20 rows, so paging and a page size help, and enough columns that some people want fewer.</li></ul><p class="cdoc__p"><strong>Use something else when</strong></p><ul class="cdoc__list"><li>A short, fixed table people only read: use <a class="link" href="table.html">Table</a>. Plain <code class="code">.table</code>, maybe with <code class="code">data-lds-sort</code>.</li><li>One or two facts per item, mostly on phones: use <a class="link" href="list.html">List</a>.</li><li>Thousands of rows from a server: use <a class="link" href="table.html">Table</a>. Render the page the server returns into a <code class="code">.table</code> and keep the same bar and footer markup; this hook works on the rows in the page.</li><li>Files people recognize by type or picture: use <a class="link" href="file-tile.html">File tile</a>.</li></ul><p class="cdoc__p"><strong>Where it goes.</strong> Full width of the content column. The bar sits above the table (search first, filters next, tools at the end), the footer below it (the count on the left, page size and pager on the right). The selection bar floats at the bottom of the window while rows are ticked. On phones the search takes its own row, the tools wrap, the table scrolls sideways in its box and the pager keeps only previous, current and next.</p></section>
         <section class="cdoc__sec" id="examples"><h2>Examples</h2><figure class="cdoc__ex" id="ex-1">
-          <figcaption><span class="cdoc__ex-t">Members of a workspace</span><span class="cdoc__ex-d">Search &quot;fin&quot;, tick a status chip, filter by role from the menu (it stays open while you tick), sort by any header, hide a column, switch to compact rows, tick rows (Shift-click for a run) and page through. Every change filters at once; the count and the pager follow.</span></figcaption>
+          <figcaption><span class="cdoc__ex-t">Staff of a service portal</span><span class="cdoc__ex-d">Search &quot;fin&quot;, tick a status chip, filter by role from the menu (it stays open while you tick), sort by any header, hide a column, switch to compact rows, tick rows (Shift-click for a run) and page through. Every change filters at once; the count and the pager follow.</span></figcaption>
           <div class="cdoc__stage cdoc__stage--block" id="ex-1-stage"><div class="viewport docs-box" style="height: 620px; width: 100%;"><div class="viewport__content" style="overflow: auto; align-items: stretch;"><div class="dtable" data-lds-table="demo-members" data-lds-selection="dt-bar" data-page-size="5" data-noun="members">
   <div class="dtable__bar">
     <div class="control search dtable__search"><span class="ic" aria-hidden="true">search</span><input type="search" data-lds-table-search placeholder="Search name or email" aria-label="Search members"></div>
@@ -347,7 +352,7 @@
           <p class="menu__label">Show columns</p>
           <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="role">Role<span class="ic menu__check" aria-hidden="true">check</span></button>
           <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="status">Status<span class="ic menu__check" aria-hidden="true">check</span></button>
-          <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="team">Team<span class="ic menu__check" aria-hidden="true">check</span></button>
+          <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="team">Division<span class="ic menu__check" aria-hidden="true">check</span></button>
           <button class="menu__item" role="menuitemcheckbox" data-lds-keep-open data-lds-table-col="joined">Joined<span class="ic menu__check" aria-hidden="true">check</span></button>
         </div>
       </div>
@@ -364,29 +369,29 @@
         <th data-col="name"><button>Name<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
         <th data-col="role"><button>Role<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
         <th data-col="status">Status</th>
-        <th data-col="team"><button>Team<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
+        <th data-col="team"><button>Division<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
         <th data-col="joined" aria-sort="descending"><button>Joined<span class="ic" aria-hidden="true">arrow_upward</span></button></th>
       </tr></thead>
       <tbody>
       <tr data-status="active" data-role="admin">
         <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Rina Wijaya"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
-        <td data-sort="Rina Wijaya"><span class="dtable__user"><span class="avatar">RW</span><span><b>Rina Wijaya</b><small>rina@kelola.id</small></span></span></td>
+        <td data-sort="Rina Wijaya"><span class="dtable__user"><span class="avatar">RW</span><span><b>Rina Wijaya</b><small>rina@contoh.id</small></span></span></td>
         <td>Admin</td>
         <td><span class="badge badge--success">Active</span></td>
-        <td>Platform</td>
+        <td>Permits</td>
         <td data-sort="2024-06-24">24 Jun 2024</td>
       </tr>
       <tr data-status="active" data-role="editor">
         <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Arif Santoso"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
-        <td data-sort="Arif Santoso"><span class="dtable__user"><span class="avatar">AS</span><span><b>Arif Santoso</b><small>arif@kelola.id</small></span></span></td>
+        <td data-sort="Arif Santoso"><span class="dtable__user"><span class="avatar">AS</span><span><b>Arif Santoso</b><small>arif@contoh.id</small></span></span></td>
         <td>Editor</td>
         <td><span class="badge badge--success">Active</span></td>
-        <td>Growth</td>
+        <td>Complaints</td>
         <td data-sort="2023-03-15">15 Mar 2023</td>
       </tr>
       <tr data-status="invited" data-role="viewer">
         <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Dewi Lestari"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
-        <td data-sort="Dewi Lestari"><span class="dtable__user"><span class="avatar">DL</span><span><b>Dewi Lestari</b><small>dewi@kelola.id</small></span></span></td>
+        <td data-sort="Dewi Lestari"><span class="dtable__user"><span class="avatar">DL</span><span><b>Dewi Lestari</b><small>dewi@contoh.id</small></span></span></td>
         <td>Viewer</td>
         <td><span class="badge badge--accent">Invited</span></td>
         <td>Finance</td>
@@ -394,15 +399,15 @@
       </tr>
       <tr data-status="suspended" data-role="editor">
         <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Bima Prasetyo"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
-        <td data-sort="Bima Prasetyo"><span class="dtable__user"><span class="avatar">BP</span><span><b>Bima Prasetyo</b><small>bima@kelola.id</small></span></span></td>
+        <td data-sort="Bima Prasetyo"><span class="dtable__user"><span class="avatar">BP</span><span><b>Bima Prasetyo</b><small>bima@contoh.id</small></span></span></td>
         <td>Editor</td>
         <td><span class="badge badge--danger">Suspended</span></td>
-        <td>Support</td>
+        <td>Services</td>
         <td data-sort="2022-04-10">10 Apr 2022</td>
       </tr>
       <tr data-status="active" data-role="admin">
         <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Sari Handayani"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
-        <td data-sort="Sari Handayani"><span class="dtable__user"><span class="avatar">SH</span><span><b>Sari Handayani</b><small>sari@kelola.id</small></span></span></td>
+        <td data-sort="Sari Handayani"><span class="dtable__user"><span class="avatar">SH</span><span><b>Sari Handayani</b><small>sari@contoh.id</small></span></span></td>
         <td>Admin</td>
         <td><span class="badge badge--success">Active</span></td>
         <td>Finance</td>
@@ -410,26 +415,26 @@
       </tr>
       <tr data-status="active" data-role="viewer">
         <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Yusuf Hakim"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
-        <td data-sort="Yusuf Hakim"><span class="dtable__user"><span class="avatar">YH</span><span><b>Yusuf Hakim</b><small>yusuf@kelola.id</small></span></span></td>
+        <td data-sort="Yusuf Hakim"><span class="dtable__user"><span class="avatar">YH</span><span><b>Yusuf Hakim</b><small>yusuf@contoh.id</small></span></span></td>
         <td>Viewer</td>
         <td><span class="badge badge--success">Active</span></td>
-        <td>Support</td>
+        <td>Services</td>
         <td data-sort="2025-01-20">20 Jan 2025</td>
       </tr>
       <tr data-status="invited" data-role="editor">
         <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Nadia Putri"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
-        <td data-sort="Nadia Putri"><span class="dtable__user"><span class="avatar">NP</span><span><b>Nadia Putri</b><small>nadia@kelola.id</small></span></span></td>
+        <td data-sort="Nadia Putri"><span class="dtable__user"><span class="avatar">NP</span><span><b>Nadia Putri</b><small>nadia@contoh.id</small></span></span></td>
         <td>Editor</td>
         <td><span class="badge badge--accent">Invited</span></td>
-        <td>Growth</td>
+        <td>Complaints</td>
         <td data-sort="2026-11-14">14 Nov 2026</td>
       </tr>
       <tr data-status="active" data-role="viewer">
         <td class="dtable__select"><label class="check"><input type="checkbox" data-lds-select aria-label="Select Galih Ramadhan"><span class="check__box" aria-hidden="true"><svg viewBox="0 0 14 14"><path class="tick" d="M2.5 7.4 L5.7 10.4 L11.5 3.8"></path><path class="dash" d="M3 7 L11 7"></path></svg></span></label></td>
-        <td data-sort="Galih Ramadhan"><span class="dtable__user"><span class="avatar">GR</span><span><b>Galih Ramadhan</b><small>galih@kelola.id</small></span></span></td>
+        <td data-sort="Galih Ramadhan"><span class="dtable__user"><span class="avatar">GR</span><span><b>Galih Ramadhan</b><small>galih@contoh.id</small></span></span></td>
         <td>Viewer</td>
         <td><span class="badge badge--success">Active</span></td>
-        <td>Platform</td>
+        <td>Permits</td>
         <td data-sort="2024-12-01">1 Dec 2024</td>
       </tr>
       <tr class="dtable__empty" hidden><td colspan="6"><div class="empty"><div class="empty__icon"><span class="ic" aria-hidden="true">filter_list</span></div><div class="empty__title">No members match</div><div class="empty__body">Try another name, or clear the search and filters.</div><button class="btn btn--secondary btn--md" data-lds-table-reset>Clear filters</button></div></td></tr>
@@ -478,7 +483,7 @@
           &lt;p class=&quot;menu__label&quot;&gt;Show columns&lt;/p&gt;
           &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;role&quot;&gt;Role&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
           &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;status&quot;&gt;Status&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
-          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;team&quot;&gt;Team&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
+          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;team&quot;&gt;Division&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
           &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;joined&quot;&gt;Joined&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
         &lt;/div&gt;
       &lt;/div&gt;
@@ -495,29 +500,29 @@
         &lt;th data-col=&quot;name&quot;&gt;&lt;button&gt;Name&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
         &lt;th data-col=&quot;role&quot;&gt;&lt;button&gt;Role&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
         &lt;th data-col=&quot;status&quot;&gt;Status&lt;/th&gt;
-        &lt;th data-col=&quot;team&quot;&gt;&lt;button&gt;Team&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
+        &lt;th data-col=&quot;team&quot;&gt;&lt;button&gt;Division&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
         &lt;th data-col=&quot;joined&quot; aria-sort=&quot;descending&quot;&gt;&lt;button&gt;Joined&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
       &lt;/tr&gt;&lt;/thead&gt;
       &lt;tbody&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;admin&quot;&gt;
         &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Rina Wijaya&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
-        &lt;td data-sort=&quot;Rina Wijaya&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;RW&lt;/span&gt;&lt;span&gt;&lt;b&gt;Rina Wijaya&lt;/b&gt;&lt;small&gt;rina@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;td data-sort=&quot;Rina Wijaya&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;RW&lt;/span&gt;&lt;span&gt;&lt;b&gt;Rina Wijaya&lt;/b&gt;&lt;small&gt;rina@contoh.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Admin&lt;/td&gt;
         &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Platform&lt;/td&gt;
+        &lt;td&gt;Permits&lt;/td&gt;
         &lt;td data-sort=&quot;2024-06-24&quot;&gt;24 Jun 2024&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;editor&quot;&gt;
         &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Arif Santoso&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
-        &lt;td data-sort=&quot;Arif Santoso&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;AS&lt;/span&gt;&lt;span&gt;&lt;b&gt;Arif Santoso&lt;/b&gt;&lt;small&gt;arif@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;td data-sort=&quot;Arif Santoso&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;AS&lt;/span&gt;&lt;span&gt;&lt;b&gt;Arif Santoso&lt;/b&gt;&lt;small&gt;arif@contoh.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Editor&lt;/td&gt;
         &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Growth&lt;/td&gt;
+        &lt;td&gt;Complaints&lt;/td&gt;
         &lt;td data-sort=&quot;2023-03-15&quot;&gt;15 Mar 2023&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;invited&quot; data-role=&quot;viewer&quot;&gt;
         &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Dewi Lestari&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
-        &lt;td data-sort=&quot;Dewi Lestari&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;DL&lt;/span&gt;&lt;span&gt;&lt;b&gt;Dewi Lestari&lt;/b&gt;&lt;small&gt;dewi@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;td data-sort=&quot;Dewi Lestari&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;DL&lt;/span&gt;&lt;span&gt;&lt;b&gt;Dewi Lestari&lt;/b&gt;&lt;small&gt;dewi@contoh.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Viewer&lt;/td&gt;
         &lt;td&gt;&lt;span class=&quot;badge badge--accent&quot;&gt;Invited&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Finance&lt;/td&gt;
@@ -525,15 +530,15 @@
       &lt;/tr&gt;
       &lt;tr data-status=&quot;suspended&quot; data-role=&quot;editor&quot;&gt;
         &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Bima Prasetyo&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
-        &lt;td data-sort=&quot;Bima Prasetyo&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;BP&lt;/span&gt;&lt;span&gt;&lt;b&gt;Bima Prasetyo&lt;/b&gt;&lt;small&gt;bima@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;td data-sort=&quot;Bima Prasetyo&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;BP&lt;/span&gt;&lt;span&gt;&lt;b&gt;Bima Prasetyo&lt;/b&gt;&lt;small&gt;bima@contoh.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Editor&lt;/td&gt;
         &lt;td&gt;&lt;span class=&quot;badge badge--danger&quot;&gt;Suspended&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Support&lt;/td&gt;
+        &lt;td&gt;Services&lt;/td&gt;
         &lt;td data-sort=&quot;2022-04-10&quot;&gt;10 Apr 2022&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;admin&quot;&gt;
         &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Sari Handayani&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
-        &lt;td data-sort=&quot;Sari Handayani&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;SH&lt;/span&gt;&lt;span&gt;&lt;b&gt;Sari Handayani&lt;/b&gt;&lt;small&gt;sari@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;td data-sort=&quot;Sari Handayani&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;SH&lt;/span&gt;&lt;span&gt;&lt;b&gt;Sari Handayani&lt;/b&gt;&lt;small&gt;sari@contoh.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Admin&lt;/td&gt;
         &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Finance&lt;/td&gt;
@@ -541,26 +546,26 @@
       &lt;/tr&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;viewer&quot;&gt;
         &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Yusuf Hakim&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
-        &lt;td data-sort=&quot;Yusuf Hakim&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;YH&lt;/span&gt;&lt;span&gt;&lt;b&gt;Yusuf Hakim&lt;/b&gt;&lt;small&gt;yusuf@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;td data-sort=&quot;Yusuf Hakim&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;YH&lt;/span&gt;&lt;span&gt;&lt;b&gt;Yusuf Hakim&lt;/b&gt;&lt;small&gt;yusuf@contoh.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Viewer&lt;/td&gt;
         &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Support&lt;/td&gt;
+        &lt;td&gt;Services&lt;/td&gt;
         &lt;td data-sort=&quot;2025-01-20&quot;&gt;20 Jan 2025&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;invited&quot; data-role=&quot;editor&quot;&gt;
         &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Nadia Putri&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
-        &lt;td data-sort=&quot;Nadia Putri&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;NP&lt;/span&gt;&lt;span&gt;&lt;b&gt;Nadia Putri&lt;/b&gt;&lt;small&gt;nadia@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;td data-sort=&quot;Nadia Putri&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;NP&lt;/span&gt;&lt;span&gt;&lt;b&gt;Nadia Putri&lt;/b&gt;&lt;small&gt;nadia@contoh.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Editor&lt;/td&gt;
         &lt;td&gt;&lt;span class=&quot;badge badge--accent&quot;&gt;Invited&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Growth&lt;/td&gt;
+        &lt;td&gt;Complaints&lt;/td&gt;
         &lt;td data-sort=&quot;2026-11-14&quot;&gt;14 Nov 2026&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;viewer&quot;&gt;
         &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Galih Ramadhan&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
-        &lt;td data-sort=&quot;Galih Ramadhan&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;GR&lt;/span&gt;&lt;span&gt;&lt;b&gt;Galih Ramadhan&lt;/b&gt;&lt;small&gt;galih@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;td data-sort=&quot;Galih Ramadhan&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;GR&lt;/span&gt;&lt;span&gt;&lt;b&gt;Galih Ramadhan&lt;/b&gt;&lt;small&gt;galih@contoh.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Viewer&lt;/td&gt;
         &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Platform&lt;/td&gt;
+        &lt;td&gt;Permits&lt;/td&gt;
         &lt;td data-sort=&quot;2024-12-01&quot;&gt;1 Dec 2024&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr class=&quot;dtable__empty&quot; hidden&gt;&lt;td colspan=&quot;6&quot;&gt;&lt;div class=&quot;empty&quot;&gt;&lt;div class=&quot;empty__icon&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;filter_list&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;empty__title&quot;&gt;No members match&lt;/div&gt;&lt;div class=&quot;empty__body&quot;&gt;Try another name, or clear the search and filters.&lt;/div&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-table-reset&gt;Clear filters&lt;/button&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;
@@ -606,7 +611,7 @@
           &lt;p class=&quot;menu__label&quot;&gt;Show columns&lt;/p&gt;
           &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;role&quot;&gt;Role&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
           &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;status&quot;&gt;Status&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
-          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;team&quot;&gt;Team&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
+          &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;team&quot;&gt;Division&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
           &lt;button class=&quot;menu__item&quot; role=&quot;menuitemcheckbox&quot; data-lds-keep-open data-lds-table-col=&quot;joined&quot;&gt;Joined&lt;span class=&quot;ic menu__check&quot; aria-hidden=&quot;true&quot;&gt;check&lt;/span&gt;&lt;/button&gt;
         &lt;/div&gt;
       &lt;/div&gt;
@@ -623,29 +628,29 @@
         &lt;th data-col=&quot;name&quot;&gt;&lt;button&gt;Name&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
         &lt;th data-col=&quot;role&quot;&gt;&lt;button&gt;Role&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
         &lt;th data-col=&quot;status&quot;&gt;Status&lt;/th&gt;
-        &lt;th data-col=&quot;team&quot;&gt;&lt;button&gt;Team&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
+        &lt;th data-col=&quot;team&quot;&gt;&lt;button&gt;Division&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
         &lt;th data-col=&quot;joined&quot; aria-sort=&quot;descending&quot;&gt;&lt;button&gt;Joined&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;arrow_upward&lt;/span&gt;&lt;/button&gt;&lt;/th&gt;
       &lt;/tr&gt;&lt;/thead&gt;
       &lt;tbody&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;admin&quot;&gt;
         &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Rina Wijaya&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
-        &lt;td data-sort=&quot;Rina Wijaya&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;RW&lt;/span&gt;&lt;span&gt;&lt;b&gt;Rina Wijaya&lt;/b&gt;&lt;small&gt;rina@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;td data-sort=&quot;Rina Wijaya&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;RW&lt;/span&gt;&lt;span&gt;&lt;b&gt;Rina Wijaya&lt;/b&gt;&lt;small&gt;rina@contoh.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Admin&lt;/td&gt;
         &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Platform&lt;/td&gt;
+        &lt;td&gt;Permits&lt;/td&gt;
         &lt;td data-sort=&quot;2024-06-24&quot;&gt;24 Jun 2024&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;editor&quot;&gt;
         &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Arif Santoso&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
-        &lt;td data-sort=&quot;Arif Santoso&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;AS&lt;/span&gt;&lt;span&gt;&lt;b&gt;Arif Santoso&lt;/b&gt;&lt;small&gt;arif@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;td data-sort=&quot;Arif Santoso&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;AS&lt;/span&gt;&lt;span&gt;&lt;b&gt;Arif Santoso&lt;/b&gt;&lt;small&gt;arif@contoh.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Editor&lt;/td&gt;
         &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Growth&lt;/td&gt;
+        &lt;td&gt;Complaints&lt;/td&gt;
         &lt;td data-sort=&quot;2023-03-15&quot;&gt;15 Mar 2023&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;invited&quot; data-role=&quot;viewer&quot;&gt;
         &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Dewi Lestari&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
-        &lt;td data-sort=&quot;Dewi Lestari&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;DL&lt;/span&gt;&lt;span&gt;&lt;b&gt;Dewi Lestari&lt;/b&gt;&lt;small&gt;dewi@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;td data-sort=&quot;Dewi Lestari&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;DL&lt;/span&gt;&lt;span&gt;&lt;b&gt;Dewi Lestari&lt;/b&gt;&lt;small&gt;dewi@contoh.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Viewer&lt;/td&gt;
         &lt;td&gt;&lt;span class=&quot;badge badge--accent&quot;&gt;Invited&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Finance&lt;/td&gt;
@@ -653,15 +658,15 @@
       &lt;/tr&gt;
       &lt;tr data-status=&quot;suspended&quot; data-role=&quot;editor&quot;&gt;
         &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Bima Prasetyo&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
-        &lt;td data-sort=&quot;Bima Prasetyo&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;BP&lt;/span&gt;&lt;span&gt;&lt;b&gt;Bima Prasetyo&lt;/b&gt;&lt;small&gt;bima@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;td data-sort=&quot;Bima Prasetyo&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;BP&lt;/span&gt;&lt;span&gt;&lt;b&gt;Bima Prasetyo&lt;/b&gt;&lt;small&gt;bima@contoh.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Editor&lt;/td&gt;
         &lt;td&gt;&lt;span class=&quot;badge badge--danger&quot;&gt;Suspended&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Support&lt;/td&gt;
+        &lt;td&gt;Services&lt;/td&gt;
         &lt;td data-sort=&quot;2022-04-10&quot;&gt;10 Apr 2022&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;admin&quot;&gt;
         &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Sari Handayani&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
-        &lt;td data-sort=&quot;Sari Handayani&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;SH&lt;/span&gt;&lt;span&gt;&lt;b&gt;Sari Handayani&lt;/b&gt;&lt;small&gt;sari@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;td data-sort=&quot;Sari Handayani&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;SH&lt;/span&gt;&lt;span&gt;&lt;b&gt;Sari Handayani&lt;/b&gt;&lt;small&gt;sari@contoh.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Admin&lt;/td&gt;
         &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Finance&lt;/td&gt;
@@ -669,26 +674,26 @@
       &lt;/tr&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;viewer&quot;&gt;
         &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Yusuf Hakim&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
-        &lt;td data-sort=&quot;Yusuf Hakim&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;YH&lt;/span&gt;&lt;span&gt;&lt;b&gt;Yusuf Hakim&lt;/b&gt;&lt;small&gt;yusuf@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;td data-sort=&quot;Yusuf Hakim&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;YH&lt;/span&gt;&lt;span&gt;&lt;b&gt;Yusuf Hakim&lt;/b&gt;&lt;small&gt;yusuf@contoh.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Viewer&lt;/td&gt;
         &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Support&lt;/td&gt;
+        &lt;td&gt;Services&lt;/td&gt;
         &lt;td data-sort=&quot;2025-01-20&quot;&gt;20 Jan 2025&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;invited&quot; data-role=&quot;editor&quot;&gt;
         &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Nadia Putri&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
-        &lt;td data-sort=&quot;Nadia Putri&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;NP&lt;/span&gt;&lt;span&gt;&lt;b&gt;Nadia Putri&lt;/b&gt;&lt;small&gt;nadia@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;td data-sort=&quot;Nadia Putri&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;NP&lt;/span&gt;&lt;span&gt;&lt;b&gt;Nadia Putri&lt;/b&gt;&lt;small&gt;nadia@contoh.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Editor&lt;/td&gt;
         &lt;td&gt;&lt;span class=&quot;badge badge--accent&quot;&gt;Invited&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Growth&lt;/td&gt;
+        &lt;td&gt;Complaints&lt;/td&gt;
         &lt;td data-sort=&quot;2026-11-14&quot;&gt;14 Nov 2026&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr data-status=&quot;active&quot; data-role=&quot;viewer&quot;&gt;
         &lt;td class=&quot;dtable__select&quot;&gt;&lt;label class=&quot;check&quot;&gt;&lt;input type=&quot;checkbox&quot; data-lds-select aria-label=&quot;Select Galih Ramadhan&quot;&gt;&lt;span class=&quot;check__box&quot; aria-hidden=&quot;true&quot;&gt;&lt;svg viewBox=&quot;0 0 14 14&quot;&gt;&lt;path class=&quot;tick&quot; d=&quot;M2.5 7.4 L5.7 10.4 L11.5 3.8&quot;&gt;&lt;/path&gt;&lt;path class=&quot;dash&quot; d=&quot;M3 7 L11 7&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/span&gt;&lt;/label&gt;&lt;/td&gt;
-        &lt;td data-sort=&quot;Galih Ramadhan&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;GR&lt;/span&gt;&lt;span&gt;&lt;b&gt;Galih Ramadhan&lt;/b&gt;&lt;small&gt;galih@kelola.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
+        &lt;td data-sort=&quot;Galih Ramadhan&quot;&gt;&lt;span class=&quot;dtable__user&quot;&gt;&lt;span class=&quot;avatar&quot;&gt;GR&lt;/span&gt;&lt;span&gt;&lt;b&gt;Galih Ramadhan&lt;/b&gt;&lt;small&gt;galih@contoh.id&lt;/small&gt;&lt;/span&gt;&lt;/span&gt;&lt;/td&gt;
         &lt;td&gt;Viewer&lt;/td&gt;
         &lt;td&gt;&lt;span class=&quot;badge badge--success&quot;&gt;Active&lt;/span&gt;&lt;/td&gt;
-        &lt;td&gt;Platform&lt;/td&gt;
+        &lt;td&gt;Permits&lt;/td&gt;
         &lt;td data-sort=&quot;2024-12-01&quot;&gt;1 Dec 2024&lt;/td&gt;
       &lt;/tr&gt;
       &lt;tr class=&quot;dtable__empty&quot; hidden&gt;&lt;td colspan=&quot;6&quot;&gt;&lt;div class=&quot;empty&quot;&gt;&lt;div class=&quot;empty__icon&quot;&gt;&lt;span class=&quot;ic&quot; aria-hidden=&quot;true&quot;&gt;filter_list&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;empty__title&quot;&gt;No members match&lt;/div&gt;&lt;div class=&quot;empty__body&quot;&gt;Try another name, or clear the search and filters.&lt;/div&gt;&lt;button class=&quot;btn btn--secondary btn--md&quot; data-lds-table-reset&gt;Clear filters&lt;/button&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;
@@ -737,6 +742,17 @@
     const box = document.getElementById(b.getAttribute('aria-controls'));
     const open = b.getAttribute('aria-expanded') !== 'true';
     b.setAttribute('aria-expanded', String(open)); box.classList.toggle('is-closed', !open); box.inert = !open;
+  }));
+  // Copy for LLM: fetch the page's Markdown twin and put it on the clipboard.
+  document.querySelectorAll('[data-md-copy]').forEach((b) => b.addEventListener('click', async () => {
+    const label = b.querySelector('span:last-child'), text = label.textContent;
+    try {
+      const res = await fetch(b.getAttribute('data-md-copy'));
+      if (!res.ok) throw new Error(res.status);
+      await navigator.clipboard.writeText(await res.text());
+      label.textContent = b.getAttribute('data-done');
+    } catch { label.textContent = b.getAttribute('data-fail'); }
+    setTimeout(() => { label.textContent = text; }, 1600);
   }));
   document.querySelectorAll('[data-replay]').forEach((b) => b.addEventListener('click', () => {
     const stage = document.getElementById(b.getAttribute('data-replay'));
