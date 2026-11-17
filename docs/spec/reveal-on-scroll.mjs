@@ -26,15 +26,15 @@ export default {
       replay: true,
       html: `<div class="docs-scroll fade-edges" data-lds-fade style="height: 300px;">
   <div class="prose" style="padding-bottom: 24px;">
-    <h3>Tryout 3 results</h3>
-    <p>You answered 84 of 100 questions in 1 hour 52 minutes. Scroll down to see how that compares with your last tryout and with everyone who took it this week.</p>
-    <p>The verbal section improved the most. Numeric reasoning is close to the passing line, so the next practice set focuses there.</p>
-    <p>Scores are final once the review period ends on Friday.</p>
+    <h3>Citizen reports in October</h3>
+    <p>This month 1,248 reports came in from 20 districts. Scroll down to see how that compares with last month and how many are already resolved.</p>
+    <p>Road damage reports fell the most. Waste reports are still close to the response deadline, so cleaning crews get extra rounds.</p>
+    <p>The figures are final once verification ends on Friday.</p>
   </div>
   <div class="stat-row-wrap"><dl class="stat-row">
-    ${STAT(0, 'Your score', '421', 'Up 36 from tryout 2')}
-    ${STAT(1, 'Passing line', '311', '')}
-    ${STAT(2, 'Percentile', '82', 'Among 4,120 people')}
+    ${STAT(0, 'Reports received', '1,248', 'Up 136 from September')}
+    ${STAT(1, 'Resolved', '1,031', '')}
+    ${STAT(2, 'On time', '82.6%', 'Target 80%')}
   </dl></div>
   <div style="height: 120px;"></div>
 </div>`,
@@ -50,15 +50,15 @@ export default {
     },
     {
       title: 'Pictures further down a guide',
-      desc: 'Photos in a long campus guide fade up as they arrive; the text around them is already there.',
+      desc: 'Photos in a long service guide fade up as they arrive; the text around them is already there.',
       stage: 'block',
       replay: true,
       html: `<div class="docs-scroll" style="height: 300px;">
   <div class="prose">
-    <h3>Your first week on campus</h3>
-    <p>Pick up your student card at the service desk in the main hall. Bring your ID card and the acceptance letter.</p>
-    <p>The library opens at 07:30 on weekdays. The quiet floor is the third one; group rooms can be booked a week ahead.</p>
-    <p>Lunch is served from 11:00 to 14:00 in the canteen next to building C.</p>
+    <h3>Getting a business permit at the public service mall</h3>
+    <p>Take a queue number from the machine by the entrance. Bring your KTP, family card and a photo of the business.</p>
+    <p>Counters open at 07:30 on working days. The waiting room is on the second floor; consultations can be booked a week ahead.</p>
+    <p>Levy payments are taken from 08:00 to 14:00 at the counter next to building C.</p>
   </div>
   <div class="auto-grid" style="--min: 140px; margin-top: 24px;">
     <div class="thumb" data-lds-reveal style="--i: 0"></div>
