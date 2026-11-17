@@ -27,7 +27,7 @@ export default {
   order: 2,
   summary: 'One headline number with a word on its direction and a tiny line of its recent history, in a chart card. The number is the point; the sparkline only shows the shape of the trend.',
   when: [
-    'A dashboard tile for one metric people check often, where the trend matters as much as the value: attendance rate, study hours, average score.',
+    'A dashboard tile for one metric people check often, where the trend matters as much as the value: reports closed on time, average waiting time, satisfaction score.',
     'A row of two to four such tiles at the top of a report.',
   ],
   whenNot: [
@@ -52,8 +52,8 @@ export default {
       replay: true,
       stage: 'block',
       html: `<div class="auto-grid" style="--min: 300px;">
-${card({ q: 'How often do I attend?', sub: 'Attendance rate, last 12 weeks', big: '92%', badge: '<div class="badge badge--success" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_up</span>4 points above term start</div>', s: att, label: 'Attendance rising from 88 to 92 percent over 12 weeks' })}
-${card({ q: 'How much am I studying?', sub: 'Hours logged per week, last 12 weeks', big: '7 h', badge: '<div class="badge badge--warning" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_down</span>Half of week 1</div>', s: hrs, label: 'Study hours falling from 14 to 7 per week over 12 weeks' })}
+${card({ q: 'How fast are citizen reports closed?', sub: 'Reports closed on time, last 12 weeks', big: '92%', badge: '<div class="badge badge--success" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_up</span>4 points above the start of the year</div>', s: att, label: 'Reports closed on time rising from 88 to 92 percent over 12 weeks' })}
+${card({ q: 'How long is the queue at the desk?', sub: 'Average waiting time per week, last 12 weeks', big: '7 min', badge: '<div class="badge badge--warning" style="margin-top: 8px;"><span class="ic" aria-hidden="true">trending_down</span>Half of week 1</div>', s: hrs, label: 'Waiting time falling from 14 to 7 minutes over 12 weeks' })}
 </div>`,
     },
   ],
@@ -74,7 +74,7 @@ ${card({ q: 'How much am I studying?', sub: 'Hours logged per week, last 12 week
   ],
   do: [
     'Lead with the number; keep the line small and unlabelled.',
-    'Say what the change is relative to ("above term start").',
+    'Say what the change is relative to ("above the start of the year").',
   ],
   dont: [
     'Add axes, ticks or tooltips to a sparkline.',
