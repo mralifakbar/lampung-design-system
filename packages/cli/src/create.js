@@ -17,6 +17,14 @@ function pmCreate(pm, pkg, name, args) {
   return [pm, ['create', pkg, name, ...args]];
 }
 
+/** Runs a package's binary without installing it: npx, pnpm dlx, yarn dlx or bunx. */
+function pmExec(pm, pkg, args) {
+  if (pm === 'pnpm') return ['pnpm', ['dlx', pkg, ...args]];
+  if (pm === 'yarn') return ['yarn', ['dlx', pkg, ...args]];
+  if (pm === 'bun') return ['bunx', [pkg, ...args]];
+  return ['npx', ['--yes', pkg, ...args]];
+}
+
 const snake = (s) => s.toLowerCase().replace(/[^a-z0-9]+/g, '_').replace(/^_+|_+$/g, '').replace(/^(\d)/, 'app_$1') || 'app';
 
 /** The official creator command for a template, or null for html. */
@@ -29,7 +37,8 @@ export function creatorCommand(template, name, pm, env = process.env) {
     case 'react-router':
       return pmCreate(pm, 'react-router@latest', name, ['--yes']);
     case 'start':
-      return pmCreate(pm, '@tanstack/start@latest', name, []);
+      // @tanstack/start's create package is deprecated in favor of the TanStack CLI.
+      return pmExec(pm, '@tanstack/cli@latest', ['create', name]);
     case 'astro':
       return pmCreate(pm, 'astro@latest', name, ['--template', 'basics', '--yes']);
     case 'laravel':

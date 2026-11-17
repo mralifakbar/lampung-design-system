@@ -226,7 +226,9 @@ test('create --dry-run prints the official creator and init', async () => {
   cleanup(dir);
   assert.deepEqual(creatorCommand('next', 'a', 'pnpm'), ['pnpm', ['create', 'next-app@latest', 'a', '--yes', '--use-pnpm']]);
   assert.deepEqual(creatorCommand('react-router', 'a', 'yarn'), ['yarn', ['create', 'react-router', 'a', '--yes']]);
-  assert.deepEqual(creatorCommand('start', 'a', 'npm'), ['npm', ['create', '@tanstack/start@latest', 'a']]);
+  assert.deepEqual(creatorCommand('start', 'a', 'npm'), ['npx', ['--yes', '@tanstack/cli@latest', 'create', 'a']]);
+  assert.deepEqual(creatorCommand('start', 'a', 'pnpm'), ['pnpm', ['dlx', '@tanstack/cli@latest', 'create', 'a']]);
+  assert.deepEqual(creatorCommand('start', 'a', 'bun'), ['bunx', ['@tanstack/cli@latest', 'create', 'a']]);
   assert.deepEqual(creatorCommand('astro', 'a', 'bun'), ['bun', ['create', 'astro@latest', 'a', '--template', 'basics', '--yes']]);
   assert.deepEqual(creatorCommand('laravel', 'a', 'npm', { PATH: '' }), ['composer', ['create-project', 'laravel/laravel', 'a']]);
   assert.deepEqual(creatorCommand('flutter', 'layanan-kota', 'npm'), ['flutter', ['create', '--project-name', 'layanan_kota', 'layanan-kota']]);

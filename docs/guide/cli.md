@@ -118,7 +118,7 @@ Menjalankan pembuat resmi framework, lalu `init` di folder baru. Dengan `--dry-r
 | `next` | `npm create next-app@latest <nama> -- --yes --use-npm` |
 | `vite` | `npm create vite@latest <nama> -- --template react-ts` |
 | `react-router` | `npm create react-router@latest <nama> -- --yes` |
-| `start` | `npm create @tanstack/start@latest <nama>` |
+| `start` | `npx @tanstack/cli@latest create <nama>` |
 | `astro` | `npm create astro@latest <nama> -- --template basics --yes` |
 | `laravel` | `laravel new <nama>` bila Laravel installer ada, bila tidak `composer create-project laravel/laravel <nama>` |
 | `flutter` | `flutter create --project-name <nama_snake_case> <nama>` |

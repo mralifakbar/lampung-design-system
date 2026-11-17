@@ -66,7 +66,7 @@ Runs the official creator, then `init` inside the new folder:
 | `next` | `npm create next-app@latest <name> -- --yes --use-npm` |
 | `vite` | `npm create vite@latest <name> -- --template react-ts` |
 | `react-router` | `npm create react-router@latest <name> -- --yes` |
-| `start` | `npm create @tanstack/start@latest <name>` |
+| `start` | `npx @tanstack/cli@latest create <name>` |
 | `astro` | `npm create astro@latest <name> -- --template basics --yes` |
 | `laravel` | `laravel new <name> --no-interaction` when the Laravel installer is on your PATH, else `composer create-project laravel/laravel <name>` |
 | `flutter` | `flutter create --project-name <name_in_snake_case> <name>` |
