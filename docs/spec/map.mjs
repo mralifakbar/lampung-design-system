@@ -1,34 +1,34 @@
 const cfg = (o) => JSON.stringify(o).replace(/'/g, '&#39;');
 
-const CGK = [-6.1256, 106.6559], SIN = [1.3644, 103.9915];
+const CANTI = [-5.8165, 105.5880], SEBESI = [-5.9590, 105.4930];
 const flight = {
-  label: 'Air freight from Jakarta to Singapore, 65 percent of the way',
-  routes: [{ path: [CGK, SIN], progress: 0.65, arc: true, vehicle: { icon: 'flight', label: 'Flight 884', sub: 'Lands 08:45' } }],
+  label: 'BPBD logistics boat from Dermaga Canti to Pulau Sebesi, 65 percent of the way',
+  routes: [{ path: [CANTI, SEBESI], progress: 0.65, arc: true, vehicle: { icon: 'directions_boat', label: 'Logistics boat 02', sub: 'Docks 10:45' } }],
   markers: [
-    { at: CGK, kind: 'origin', label: 'Jakarta CGK', sub: 'Left 06:10' },
-    { at: SIN, kind: 'destination', label: 'Singapore SIN', sub: 'Lands 08:45' },
+    { at: CANTI, kind: 'origin', label: 'Dermaga Canti', sub: 'Left 09:30' },
+    { at: SEBESI, kind: 'destination', label: 'Dermaga Tejang, Pulau Sebesi', sub: 'Docks 10:45' },
   ],
 };
-const road = [[-6.9175, 107.6191], [-6.94, 107.75], [-7.03, 107.89], [-7.06, 108.08], [-7.3274, 108.2207], [-7.33, 108.35], [-7.37, 108.54], [-7.30, 108.76], [-7.52, 109.06], [-7.4245, 109.2302], [-7.51, 109.29], [-7.61, 109.51], [-7.67, 109.65], [-7.72, 109.91], [-7.71, 110.01], [-7.86, 110.16], [-7.7956, 110.3695]];
+const road = [[-5.4292, 105.2610], [-5.4060, 105.2050], [-5.3940, 105.1350], [-5.3836, 105.0789], [-5.3700, 105.0250], [-5.3586, 104.9746], [-5.3560, 104.9200], [-5.3530, 104.8790], [-5.3780, 104.7930], [-5.4180, 104.7550], [-5.4431, 104.7266], [-5.4720, 104.6700], [-5.4976, 104.6232]];
 const truck = {
-  label: 'Road freight from Bandung to Yogyakarta, past Tasikmalaya, next stop Purwokerto',
-  routes: [{ path: road, progress: 0.36, vehicle: { icon: 'local_shipping', label: 'Truck D 8812 KL', sub: 'Next: Purwokerto 06:30' } }],
+  label: 'BPBD relief truck from Bandar Lampung to Kota Agung, past Gedong Tataan, next stop Pringsewu',
+  routes: [{ path: road, progress: 0.36, vehicle: { icon: 'local_shipping', label: 'Truck BE 9214 CD', sub: 'Next: Pringsewu 10:20' } }],
   markers: [
-    { at: road[0], kind: 'origin', label: 'Bandung', sub: 'Loaded 15 Nov, 21:00' },
-    { at: road[4], kind: 'stop', done: true, label: 'Tasikmalaya', sub: 'Passed 16 Nov, 01:40' },
-    { at: road[9], kind: 'stop', label: 'Purwokerto', sub: 'Due 06:30' },
-    { at: road[16], kind: 'destination', label: 'Yogyakarta', sub: 'Due 10:15' },
+    { at: road[0], kind: 'origin', label: 'BPBD warehouse, Bandar Lampung', sub: 'Loaded 15 Nov, 07:00' },
+    { at: road[3], kind: 'stop', done: true, label: 'Gedong Tataan', sub: 'Passed 15 Nov, 09:35' },
+    { at: road[5], kind: 'stop', label: 'Pringsewu', sub: 'Due 10:20' },
+    { at: road[12], kind: 'destination', label: 'Kota Agung', sub: 'Due 12:15' },
   ],
 };
 const centres = {
-  label: 'Exam centres in Bandung',
+  label: 'Puskesmas in Bandar Lampung',
   scrollZoom: 'modifier',
   markers: [
-    { at: [-6.8915, 107.6107], label: 'Dago centre', sub: '120 seats, 2 sessions left' },
-    { at: [-6.9147, 107.6098], label: 'Braga centre', sub: '80 seats, full' },
-    { at: [-6.9389, 107.6229], label: 'Buah Batu centre', sub: '96 seats, 5 sessions left' },
-    { at: [-6.8721, 107.5841], label: 'Setiabudi centre', sub: '60 seats, 1 session left' },
-    { at: [-6.9447, 107.5774], label: 'Kopo centre', sub: '140 seats, 8 sessions left' },
+    { at: [-5.3835, 105.2785], label: 'Puskesmas Way Halim', sub: 'Queue 14, open until 14:00' },
+    { at: [-5.3758, 105.2556], label: 'Puskesmas Kedaton', sub: 'Quota full today' },
+    { at: [-5.3687, 105.2380], label: 'Puskesmas Rajabasa', sub: 'Queue 6, open until 14:00' },
+    { at: [-5.3846, 105.3020], label: 'Puskesmas Sukarame', sub: 'Queue 21, open until 14:00' },
+    { at: [-5.4740, 105.3160], label: 'Puskesmas Panjang', sub: 'Queue 3, open until 21:00' },
   ],
 };
 const swap = (o) => `this.closest('.docs-col').querySelector('.map')._ldsMap.handle.update(${cfg(o).replace(/"/g, '&quot;')})`;
@@ -39,8 +39,8 @@ export default {
   order: 23.5,
   summary: 'A small slippy map over OpenStreetMap tiles: routes with the travelled part in the accent, the vehicle where it is, and pins for the places that matter. It draws only the tiles in view and always credits the map data in the corner.',
   when: [
-    'Showing where a shipment, a driver or a flight is right now, on real geography, beside its details.',
-    'A handful of places people choose between by where they are: exam centres, pickup points, branches.',
+    'Showing where a relief shipment, an ambulance or a ferry is right now, on real geography, beside its details.',
+    'A handful of places people choose between by where they are: puskesmas, Samsat offices, aid distribution points.',
     'An overview of everything moving at once, where a click on a vehicle opens its record.',
   ],
   whenNot: [
@@ -61,15 +61,15 @@ export default {
   ],
   examples: [
     {
-      title: 'A flight under way',
-      desc: 'The leg follows the great circle, bowed gently so it reads as a flight. The travelled part draws in on first view, then the plane settles, turned along its path. Drag, scroll, pinch or use the buttons; focus the map and use the arrow keys and plus or minus.',
+      title: 'A boat crossing under way',
+      desc: 'The leg follows the great circle, bowed gently so it reads as a crossing over water. The travelled part draws in on first view, then the boat settles, turned along its path. Drag, scroll, pinch or use the buttons; focus the map and use the arrow keys and plus or minus.',
       stage: 'block',
       replay: true,
       html: `<div class="map" style="--map-h: 340px;" data-lds-map='${cfg(flight)}'></div>`,
     },
     {
       title: 'A road trip with stops',
-      desc: 'A truck route through road waypoints. Passed stops fill, the caret on the truck points the way it is heading, and each place says when in its label.',
+      desc: 'A BPBD relief truck route through road waypoints. Passed stops fill, the caret on the truck points the way it is heading, and each place says when in its label.',
       stage: 'block',
       html: `<div class="map" style="--map-h: 360px;" data-lds-map='${cfg(truck)}'></div>`,
     },
@@ -83,8 +83,8 @@ export default {
       title: 'Switching records: fly to fit',
       desc: 'Calling `drawMap` again on the same element (or `handle.update`) flies the map out and back in to fit the new route, then draws the travelled part. Any drag or key stops the flight where it is.',
       stage: 'block',
-      html: `<div class="docs-col" style="gap: 12px;"><div class="cluster" style="--gap: 8px;"><button class="btn btn--secondary btn--sm" type="button" onclick="${swap(flight)}">Jakarta to Singapore</button><button class="btn btn--secondary btn--sm" type="button" onclick="${swap(truck)}">Bandung to Yogyakarta</button></div><div class="map" style="--map-h: 320px;" data-lds-map='${cfg(flight)}'></div></div>`,
-      code: `<div class="map" style="--map-h: 320px;" data-lds-map='{"label":"Air freight from Jakarta to Singapore","routes":[{"path":[[-6.1256,106.6559],[1.3644,103.9915]],"progress":0.65,"arc":true,"vehicle":{"icon":"flight","label":"Flight 884"}}],"markers":[{"at":[-6.1256,106.6559],"kind":"origin","label":"Jakarta CGK"},{"at":[1.3644,103.9915],"kind":"destination","label":"Singapore SIN"}]}'></div>
+      html: `<div class="docs-col" style="gap: 12px;"><div class="cluster" style="--gap: 8px;"><button class="btn btn--secondary btn--sm" type="button" onclick="${swap(flight)}">Canti to Pulau Sebesi</button><button class="btn btn--secondary btn--sm" type="button" onclick="${swap(truck)}">Bandar Lampung to Kota Agung</button></div><div class="map" style="--map-h: 320px;" data-lds-map='${cfg(flight)}'></div></div>`,
+      code: `<div class="map" style="--map-h: 320px;" data-lds-map='{"label":"BPBD logistics boat from Dermaga Canti to Pulau Sebesi","routes":[{"path":[[-5.8165,105.588],[-5.959,105.493]],"progress":0.65,"arc":true,"vehicle":{"icon":"directions_boat","label":"Logistics boat 02"}}],"markers":[{"at":[-5.8165,105.588],"kind":"origin","label":"Dermaga Canti"},{"at":[-5.959,105.493],"kind":"destination","label":"Dermaga Tejang, Pulau Sebesi"}]}'></div>
 
 <script type="module">
   import { drawMap } from 'lampung-design-system/js';
@@ -98,7 +98,7 @@ export default {
     },
   ],
   variants: [
-    ['routes[].arc', 'Each leg follows the great circle, lifted into a gentle bow. For flights.'],
+    ['routes[].arc', 'Each leg follows the great circle, lifted into a gentle bow. For flights and sea crossings.'],
     ['routes[].progress', '0 to 1 of the length. The travelled part is solid accent, the rest dashed muted. 1 means arrived: no vehicle unless `vehicle.arrived`.'],
     ['routes[].thin', 'Thinner lines for an overview with many routes.'],
     ['markers[].kind', '`origin`, `destination`, `stop` (`done: true` fills it), `point`. Vehicles come from `routes[].vehicle`.'],
@@ -123,7 +123,7 @@ export default {
     'Reduced motion: no draw-in, no flight, no momentum; the view jumps.',
   ],
   a11y: [
-    'The map surface is focusable, named by `label` and described by a sentence per marker ("Origin: Jakarta CGK, Left 06:10. Now: Flight 884, Lands 08:45 …") plus how to use the keys.',
+    'The map surface is focusable, named by `label` and described by a sentence per marker ("Origin: Dermaga Canti, Left 09:30. Now: Logistics boat 02, Docks 10:45 …") plus how to use the keys.',
     'Arrow keys pan, plus and minus zoom, Home or 0 shows everything. The zoom and fit buttons are real buttons with names; zoom buttons disable at the limits.',
     'Markers are buttons with a full name (kind, place, time); their visual labels are hidden from assistive tech to avoid double reading.',
     'Nothing lives only on the map: keep the route, the status and the times in the record next to it.',

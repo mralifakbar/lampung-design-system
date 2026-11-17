@@ -1,34 +1,34 @@
 const cfg = (o) => JSON.stringify(o).replace(/'/g, '&#39;');
 
-const CGK = [-6.1256, 106.6559], SIN = [1.3644, 103.9915];
+const CANTI = [-5.8165, 105.5880], SEBESI = [-5.9590, 105.4930];
 const flight = {
-  label: 'Kargo udara dari Jakarta ke Singapura, 65 persen perjalanan',
-  routes: [{ path: [CGK, SIN], progress: 0.65, arc: true, vehicle: { icon: 'flight', label: 'Penerbangan 884', sub: 'Mendarat 08.45' } }],
+  label: 'Kapal logistik BPBD dari Dermaga Canti ke Pulau Sebesi, 65 persen perjalanan',
+  routes: [{ path: [CANTI, SEBESI], progress: 0.65, arc: true, vehicle: { icon: 'directions_boat', label: 'Kapal logistik 02', sub: 'Merapat 10.45' } }],
   markers: [
-    { at: CGK, kind: 'origin', label: 'Jakarta CGK', sub: 'Berangkat 06.10' },
-    { at: SIN, kind: 'destination', label: 'Singapura SIN', sub: 'Mendarat 08.45' },
+    { at: CANTI, kind: 'origin', label: 'Dermaga Canti', sub: 'Berangkat 09.30' },
+    { at: SEBESI, kind: 'destination', label: 'Dermaga Tejang, Pulau Sebesi', sub: 'Merapat 10.45' },
   ],
 };
-const road = [[-6.9175, 107.6191], [-6.94, 107.75], [-7.03, 107.89], [-7.06, 108.08], [-7.3274, 108.2207], [-7.33, 108.35], [-7.37, 108.54], [-7.30, 108.76], [-7.52, 109.06], [-7.4245, 109.2302], [-7.51, 109.29], [-7.61, 109.51], [-7.67, 109.65], [-7.72, 109.91], [-7.71, 110.01], [-7.86, 110.16], [-7.7956, 110.3695]];
+const road = [[-5.4292, 105.2610], [-5.4060, 105.2050], [-5.3940, 105.1350], [-5.3836, 105.0789], [-5.3700, 105.0250], [-5.3586, 104.9746], [-5.3560, 104.9200], [-5.3530, 104.8790], [-5.3780, 104.7930], [-5.4180, 104.7550], [-5.4431, 104.7266], [-5.4720, 104.6700], [-5.4976, 104.6232]];
 const truck = {
-  label: 'Angkutan darat dari Bandung ke Yogyakarta, sudah melewati Tasikmalaya, pemberhentian berikutnya Purwokerto',
-  routes: [{ path: road, progress: 0.36, vehicle: { icon: 'local_shipping', label: 'Truk D 8812 KL', sub: 'Berikutnya: Purwokerto 06.30' } }],
+  label: 'Truk bantuan BPBD dari Bandar Lampung ke Kota Agung, sudah melewati Gedong Tataan, pemberhentian berikutnya Pringsewu',
+  routes: [{ path: road, progress: 0.36, vehicle: { icon: 'local_shipping', label: 'Truk BE 9214 CD', sub: 'Berikutnya: Pringsewu 10.20' } }],
   markers: [
-    { at: road[0], kind: 'origin', label: 'Bandung', sub: 'Dimuat 15 Nov, 21.00' },
-    { at: road[4], kind: 'stop', done: true, label: 'Tasikmalaya', sub: 'Dilewati 16 Nov, 01.40' },
-    { at: road[9], kind: 'stop', label: 'Purwokerto', sub: 'Perkiraan 06.30' },
-    { at: road[16], kind: 'destination', label: 'Yogyakarta', sub: 'Perkiraan 10.15' },
+    { at: road[0], kind: 'origin', label: 'Gudang BPBD, Bandar Lampung', sub: 'Dimuat 15 Nov, 07.00' },
+    { at: road[3], kind: 'stop', done: true, label: 'Gedong Tataan', sub: 'Dilewati 15 Nov, 09.35' },
+    { at: road[5], kind: 'stop', label: 'Pringsewu', sub: 'Perkiraan 10.20' },
+    { at: road[12], kind: 'destination', label: 'Kota Agung', sub: 'Perkiraan 12.15' },
   ],
 };
 const centres = {
-  label: 'Lokasi ujian di Bandung',
+  label: 'Puskesmas di Bandar Lampung',
   scrollZoom: 'modifier',
   markers: [
-    { at: [-6.8915, 107.6107], label: 'Lokasi Dago', sub: '120 kursi, sisa 2 sesi' },
-    { at: [-6.9147, 107.6098], label: 'Lokasi Braga', sub: '80 kursi, penuh' },
-    { at: [-6.9389, 107.6229], label: 'Lokasi Buah Batu', sub: '96 kursi, sisa 5 sesi' },
-    { at: [-6.8721, 107.5841], label: 'Lokasi Setiabudi', sub: '60 kursi, sisa 1 sesi' },
-    { at: [-6.9447, 107.5774], label: 'Lokasi Kopo', sub: '140 kursi, sisa 8 sesi' },
+    { at: [-5.3835, 105.2785], label: 'Puskesmas Way Halim', sub: 'Antrean 14, buka sampai 14.00' },
+    { at: [-5.3758, 105.2556], label: 'Puskesmas Kedaton', sub: 'Kuota hari ini penuh' },
+    { at: [-5.3687, 105.2380], label: 'Puskesmas Rajabasa', sub: 'Antrean 6, buka sampai 14.00' },
+    { at: [-5.3846, 105.3020], label: 'Puskesmas Sukarame', sub: 'Antrean 21, buka sampai 14.00' },
+    { at: [-5.4740, 105.3160], label: 'Puskesmas Panjang', sub: 'Antrean 3, buka sampai 21.00' },
   ],
 };
 const swap = (o) => `this.closest('.docs-col').querySelector('.map')._ldsMap.handle.update(${cfg(o).replace(/"/g, '&quot;')})`;
@@ -36,8 +36,8 @@ const swap = (o) => `this.closest('.docs-col').querySelector('.map')._ldsMap.han
 export default {
   summary: 'Peta geser kecil di atas tile OpenStreetMap: rute dengan bagian yang sudah ditempuh berwarna aksen, kendaraan di posisinya, dan pin untuk tempat yang penting. Hanya menggambar tile yang terlihat dan selalu mencantumkan kredit data peta di sudut.',
   when: [
-    'Menunjukkan posisi kiriman, pengemudi, atau penerbangan saat ini, di geografi nyata, di samping detailnya.',
-    'Beberapa tempat yang dipilih orang berdasarkan letaknya: lokasi ujian, titik penjemputan, kantor cabang.',
+    'Menunjukkan posisi kiriman bantuan, ambulans, atau kapal penyeberangan saat ini, di geografi nyata, di samping detailnya.',
+    'Beberapa tempat yang dipilih orang berdasarkan letaknya: puskesmas, kantor Samsat, titik penyaluran bantuan.',
     'Gambaran semua yang sedang bergerak sekaligus, ketika klik pada kendaraan membuka catatannya.',
   ],
   whenNot: [
@@ -58,13 +58,13 @@ export default {
   ],
   examples: [
     {
-      title: 'Penerbangan yang sedang berjalan',
-      desc: 'Rutenya mengikuti lingkaran besar, dilengkungkan sedikit agar terbaca sebagai penerbangan. Bagian yang sudah ditempuh tergambar saat pertama terlihat, lalu pesawat mengendap, menghadap sepanjang jalurnya. Seret, gulir, cubit, atau pakai tombolnya; fokuskan peta dan pakai tombol panah serta plus atau minus.',
+      title: 'Penyeberangan kapal yang sedang berjalan',
+      desc: 'Rutenya mengikuti lingkaran besar, dilengkungkan sedikit agar terbaca sebagai penyeberangan laut. Bagian yang sudah ditempuh tergambar saat pertama terlihat, lalu kapal mengendap, menghadap sepanjang jalurnya. Seret, gulir, cubit, atau pakai tombolnya; fokuskan peta dan pakai tombol panah serta plus atau minus.',
       html: `<div class="map" style="--map-h: 340px;" data-lds-map='${cfg(flight)}'></div>`,
     },
     {
       title: 'Perjalanan darat dengan pemberhentian',
-      desc: 'Rute truk melewati titik-titik jalan. Pemberhentian yang sudah dilewati terisi, caret pada truk menunjuk arah tujuannya, dan setiap tempat menyebut waktunya di label.',
+      desc: 'Rute truk bantuan BPBD melewati titik-titik jalan. Pemberhentian yang sudah dilewati terisi, caret pada truk menunjuk arah tujuannya, dan setiap tempat menyebut waktunya di label.',
       html: `<div class="map" style="--map-h: 360px;" data-lds-map='${cfg(truck)}'></div>`,
     },
     {
@@ -75,8 +75,8 @@ export default {
     {
       title: 'Berganti catatan: terbang untuk memaskan',
       desc: 'Memanggil `drawMap` lagi pada elemen yang sama (atau `handle.update`) menerbangkan peta keluar dan masuk kembali untuk memaskan rute baru, lalu menggambar bagian yang sudah ditempuh. Seret atau tombol apa pun menghentikan penerbangan di tempatnya.',
-      html: `<div class="docs-col" style="gap: 12px;"><div class="cluster" style="--gap: 8px;"><button class="btn btn--secondary btn--sm" type="button" onclick="${swap(flight)}">Jakarta ke Singapura</button><button class="btn btn--secondary btn--sm" type="button" onclick="${swap(truck)}">Bandung ke Yogyakarta</button></div><div class="map" style="--map-h: 320px;" data-lds-map='${cfg(flight)}'></div></div>`,
-      code: `<div class="map" style="--map-h: 320px;" data-lds-map='{"label":"Kargo udara dari Jakarta ke Singapura","routes":[{"path":[[-6.1256,106.6559],[1.3644,103.9915]],"progress":0.65,"arc":true,"vehicle":{"icon":"flight","label":"Penerbangan 884"}}],"markers":[{"at":[-6.1256,106.6559],"kind":"origin","label":"Jakarta CGK"},{"at":[1.3644,103.9915],"kind":"destination","label":"Singapura SIN"}]}'></div>
+      html: `<div class="docs-col" style="gap: 12px;"><div class="cluster" style="--gap: 8px;"><button class="btn btn--secondary btn--sm" type="button" onclick="${swap(flight)}">Canti ke Pulau Sebesi</button><button class="btn btn--secondary btn--sm" type="button" onclick="${swap(truck)}">Bandar Lampung ke Kota Agung</button></div><div class="map" style="--map-h: 320px;" data-lds-map='${cfg(flight)}'></div></div>`,
+      code: `<div class="map" style="--map-h: 320px;" data-lds-map='{"label":"Kapal logistik BPBD dari Dermaga Canti ke Pulau Sebesi","routes":[{"path":[[-5.8165,105.588],[-5.959,105.493]],"progress":0.65,"arc":true,"vehicle":{"icon":"directions_boat","label":"Kapal logistik 02"}}],"markers":[{"at":[-5.8165,105.588],"kind":"origin","label":"Dermaga Canti"},{"at":[-5.959,105.493],"kind":"destination","label":"Dermaga Tejang, Pulau Sebesi"}]}'></div>
 
 <script type="module">
   import { drawMap } from 'lampung-design-system/js';
@@ -90,7 +90,7 @@ export default {
     },
   ],
   variants: [
-    ['routes[].arc', 'Setiap ruas mengikuti lingkaran besar, diangkat menjadi lengkungan lembut. Untuk penerbangan.'],
+    ['routes[].arc', 'Setiap ruas mengikuti lingkaran besar, diangkat menjadi lengkungan lembut. Untuk penerbangan dan penyeberangan laut.'],
     ['routes[].progress', '0 sampai 1 dari panjangnya. Bagian yang sudah ditempuh berwarna aksen penuh, sisanya putus-putus redup. 1 berarti sudah tiba: tanpa kendaraan kecuali `vehicle.arrived`.'],
     ['routes[].thin', 'Garis lebih tipis untuk gambaran umum dengan banyak rute.'],
     ['markers[].kind', '`origin`, `destination`, `stop` (`done: true` mengisinya), `point`. Kendaraan berasal dari `routes[].vehicle`.'],
@@ -115,7 +115,7 @@ export default {
     'Reduced motion: tanpa gambar masuk, tanpa terbang, tanpa momentum; tampilan langsung melompat.',
   ],
   a11y: [
-    'Permukaan peta bisa difokus, dinamai oleh `label`, dan dijelaskan dengan satu kalimat per marker ("Asal: Jakarta CGK, Berangkat 06.10. Sekarang: Penerbangan 884, Mendarat 08.45 …") ditambah cara memakai tombolnya.',
+    'Permukaan peta bisa difokus, dinamai oleh `label`, dan dijelaskan dengan satu kalimat per marker ("Asal: Dermaga Canti, Berangkat 09.30. Sekarang: Kapal logistik 02, Merapat 10.45 …") ditambah cara memakai tombolnya.',
     'Tombol panah menggeser, plus dan minus memperbesar dan memperkecil, Home atau 0 menampilkan semuanya. Tombol zoom dan paskan adalah tombol asli bernama; tombol zoom nonaktif di batasnya.',
     'Marker adalah tombol dengan nama lengkap (jenis, tempat, waktu); label visualnya disembunyikan dari teknologi bantu agar tidak terbaca dua kali.',
     'Tidak ada yang hanya ada di peta: simpan rute, status, dan waktu di catatan di sebelahnya.',
