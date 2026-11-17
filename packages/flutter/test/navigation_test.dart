@@ -666,4 +666,86 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(Opacity), findsNothing);
   });
+
+  group('layout in a scrolling list', () {
+    testWidgets('vertical LdsSteps with unfinished steps sizes to content',
+        (tester) async {
+      await tester.pumpWidget(wrapList(const [
+        LdsSteps(current: 0, direction: Axis.vertical, steps: [
+          LdsStep(label: 'Isi data usaha'),
+          LdsStep(label: 'Unggah NIB'),
+          LdsStep(label: 'Verifikasi'),
+        ]),
+      ]));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+      final h = tester.getSize(find.byType(LdsSteps)).height;
+      expect(h, greaterThan(28 * 3));
+      expect(h, lessThan(400));
+      // Each connector stays long enough to read as a line.
+      final bars = find.descendant(
+          of: find.byType(LdsSteps), matching: find.byType(CustomPaint));
+      final heights = bars
+          .evaluate()
+          .map((e) => (e.renderObject! as RenderBox).size.height)
+          .where((v) => v > 0 && v < 200)
+          .toList();
+      expect(heights.where((v) => v >= 16), hasLength(2));
+    });
+
+    testWidgets('LdsTabs sizes to the tab bar height without a parent height',
+        (tester) async {
+      const tabs = [
+        LdsTab(value: 'a', label: 'Ringkasan'),
+        LdsTab(value: 'b', label: 'Berkas', count: 3),
+      ];
+      await tester.pumpWidget(wrapList([
+        LdsTabs<String>(tabs: tabs, value: 'a', onChanged: (_) {}),
+        LdsTabs<String>(
+            tabs: tabs,
+            value: 'b',
+            alignment: LdsTabsAlignment.start,
+            onChanged: (_) {}),
+      ]));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+      for (final e in find.byType(LdsTabs<String>).evaluate()) {
+        final h = (e.renderObject! as RenderBox).size.height;
+        expect(h, inInclusiveRange(44, 48));
+      }
+    });
+
+    testWidgets('horizontal LdsSlidingIndicator sizes to its children',
+        (tester) async {
+      await tester.pumpWidget(wrapList(const [
+        LdsSlidingIndicator(
+          direction: Axis.horizontal,
+          selectedIndex: 0,
+          children: [
+            SizedBox(width: 60, height: 40),
+            SizedBox(width: 60, height: 40),
+          ],
+        ),
+      ]));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+      expect(tester.getSize(find.byType(LdsSlidingIndicator)).height, 40);
+    });
+
+    testWidgets('LdsPagination buttons hug their content', (tester) async {
+      await tester.pumpWidget(wrapList([
+        LdsPagination(page: 1, pageCount: 3, onChanged: (_) {}),
+      ]));
+      await tester.pumpAndSettle();
+      expect(tester.takeException(), isNull);
+      final box = find.ancestor(
+          of: find.text('2'), matching: find.byType(AnimatedContainer));
+      expect(tester.getSize(box.first).width, lessThan(60));
+      // The hit area keeps its 44 pt minimum.
+      final hit = find.ancestor(
+          of: find.text('2'), matching: find.byType(GestureDetector));
+      expect(tester.getSize(hit.first).width, greaterThanOrEqualTo(44));
+      expect(tester.getSize(hit.first).height, greaterThanOrEqualTo(44));
+    });
+  });
 }

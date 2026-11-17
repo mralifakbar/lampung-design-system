@@ -914,4 +914,21 @@ void main() {
       );
     });
   });
+
+  group('hold to confirm layout', () {
+    testWidgets('centers the label vertically', (tester) async {
+      for (final expand in [false, true]) {
+        await tester.pumpWidget(wrapList([
+          LdsHoldToConfirm(
+              label: 'Tahan untuk kirim SOS',
+              icon: 'emergency',
+              expand: expand,
+              onConfirmed: () {}),
+        ]));
+        final button = tester.getRect(find.byType(LdsHoldToConfirm));
+        final label = tester.getRect(find.text('Tahan untuk kirim SOS'));
+        expect((label.center.dy - button.center.dy).abs(), lessThan(1));
+      }
+    });
+  });
 }

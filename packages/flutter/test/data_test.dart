@@ -1023,4 +1023,52 @@ void main() {
       expect(colors.accent, LdsColors.dark.accent);
     });
   });
+
+  group('layout in a scrolling list', () {
+    testWidgets('LdsKbd hugs its label in a wide parent', (tester) async {
+      await tester.pumpWidget(wrapList(const [LdsKbd('Esc')]));
+      expect(tester.takeException(), isNull);
+      final key = find.descendant(
+          of: find.byType(LdsKbd), matching: find.byType(DecoratedBox));
+      expect(tester.getSize(key.first).width, lessThan(80));
+    });
+
+    testWidgets('LdsCitation.span keeps the pill at its own size',
+        (tester) async {
+      await tester.pumpWidget(wrapList([
+        Text.rich(TextSpan(children: [
+          const TextSpan(text: 'Waktu layanan rata-rata tiga hari'),
+          LdsCitation.span(1, onTap: () {}),
+        ])),
+      ]));
+      expect(tester.takeException(), isNull);
+      final pill = find.ancestor(
+          of: find.text('1'), matching: find.byType(AnimatedContainer));
+      expect(tester.getSize(pill.first).width, lessThan(30));
+    });
+
+    testWidgets('LdsPaper sizes number columns to their content',
+        (tester) async {
+      await tester.pumpWidget(wrapList(const [
+        LdsPaper(
+          title: 'Tagihan retribusi',
+          semanticLabel: 'Tagihan',
+          lines: [
+            LdsPaperLine('Retribusi sampah rumah tangga', '1', 'Rp125.000',
+                'Rp125.000'),
+          ],
+        ),
+      ], width: 500));
+      expect(tester.takeException(), isNull);
+      final one = tester.getSize(find.text('1')).height;
+      for (final e in find.text('Rp125.000').evaluate()) {
+        expect((e.renderObject! as RenderBox).size.height, one);
+      }
+      expect(tester.getSize(find.text('Jumlah')).height,
+          tester.getSize(find.text('Total')).height);
+      // The description takes the remaining width and wraps instead.
+      expect(tester.getSize(find.text('Retribusi sampah rumah tangga')).height,
+          greaterThan(one));
+    });
+  });
 }

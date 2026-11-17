@@ -19,6 +19,23 @@ Widget wrap(Widget child, {bool dark = false, bool reduceMotion = false}) {
   );
 }
 
+/// Places [children] in a vertical [ListView] of [width] (unbounded height,
+/// tight width), the way a phone screen or a gallery list hosts them.
+Widget wrapList(List<Widget> children, {double width = 343}) {
+  return MaterialApp(
+    theme: LdsTheme.light(),
+    home: Scaffold(
+      body: Align(
+        alignment: Alignment.topLeft,
+        child: SizedBox(
+          width: width,
+          child: ListView(children: children),
+        ),
+      ),
+    ),
+  );
+}
+
 /// Parses a tokens.json color (#RRGGBB or rgba()) into a [Color].
 Color parseTokenColor(String v) {
   final hex = RegExp(r'^#([0-9a-fA-F]{6})$').firstMatch(v);
