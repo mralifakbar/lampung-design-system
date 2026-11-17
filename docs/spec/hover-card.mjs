@@ -2,9 +2,9 @@ export default {
   title: 'Hover card',
   group: 'Overlays',
   order: 10,
-  summary: 'A preview card under a link after a 600 ms hover or on focus: who a person is, what a course covers. It saves a click; it never holds the only copy of anything.',
+  summary: 'A preview card under a link after a 600 ms hover or on focus: who a person is, what a service covers. It saves a click; it never holds the only copy of anything.',
   when: [
-    'A mention or link to a person, course or document where a quick look saves opening it: @lecturer, a course code in a table.',
+    'A mention or link to a person, service or document where a quick look saves opening it: the name of an officer, a service code in a table.',
     'Dense lists where people scan many links and want context before choosing one.',
   ],
   whenNot: [
@@ -21,18 +21,18 @@ export default {
   ],
   examples: [
     {
-      title: 'Lecturer mention',
+      title: 'Officer mention',
       desc: 'Hover or tab to the name: the card waits 600 ms, then rises in.',
       height: 200,
-      html: `<p class="section__sub" style="align-self: flex-start;">Questions about the lab go to
-  <span class="tip-host"><a class="link" href="#hc" aria-describedby="hc-1">Dr. Ayu Lestari</a><span class="hovercard" role="tooltip" id="hc-1"><span class="card__title" style="display: block;">Dr. Ayu Lestari</span><span class="card__sub" style="display: block;">Lecturer, Faculty of Computer Science. Office hours Tuesday 13:00 to 15:00.</span></span></span>
+      html: `<p class="section__sub" style="align-self: flex-start;">Questions about permit documents go to
+  <span class="tip-host"><a class="link" href="#hc" aria-describedby="hc-1">Ayu Lestari</a><span class="hovercard" role="tooltip" id="hc-1"><span class="card__title" style="display: block;">Ayu Lestari</span><span class="card__sub" style="display: block;">Verification officer, permit desk. Service hours Tuesday 13:00 to 15:00.</span></span></span>
   before Friday.</p>`,
     },
     {
-      title: 'Course code in a table cell',
+      title: 'Service code in a table cell',
       desc: 'A short preview with an avatar-like mark.',
       height: 200,
-      html: `<span class="tip-host" style="align-self: flex-start;"><a class="link" href="#hc" aria-describedby="hc-2">CS 2104</a><span class="hovercard" role="tooltip" id="hc-2"><span class="cluster" style="--gap: 12px; flex-wrap: nowrap;"><span class="avatar avatar--sq" aria-hidden="true">DB</span><span><span class="card__title" style="display: block;">Database Systems</span><span class="card__sub" style="display: block;">3 credits · 48 students</span></span></span></span></span>`,
+      html: `<span class="tip-host" style="align-self: flex-start;"><a class="link" href="#hc" aria-describedby="hc-2">IUM 2104</a><span class="hovercard" role="tooltip" id="hc-2"><span class="cluster" style="--gap: 12px; flex-wrap: nowrap;"><span class="avatar avatar--sq" aria-hidden="true">IU</span><span><span class="card__title" style="display: block;">Micro business permit</span><span class="card__sub" style="display: block;">Done in 3 working days · 48 applications</span></span></span></span></span>`,
     },
   ],
   variants: [
