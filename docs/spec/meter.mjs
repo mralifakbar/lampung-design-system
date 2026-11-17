@@ -4,7 +4,7 @@ export default {
   order: 5,
   summary: 'A segmented gauge for a level within a known range: storage used, seats taken, password strength. It shows how full, not how far along.',
   when: [
-    'A quantity against a limit: storage used, seats taken in a class, questions flagged out of an allowance.',
+    'A quantity against a limit: storage used, places taken in a training class, reports filed against an allowance.',
     'A strength or quality level in a few steps, such as password strength (four segments).',
     'A level that turns into a warning near the limit (`.is-warn`) and a problem at it (`.is-full`).',
   ],
@@ -36,17 +36,17 @@ export default {
   <div>
     <div class="progress-meta"><span id="m2">Storage</span><b>9.1 of 10 GB</b></div>
     <div class="meter-seg is-warn" role="meter" aria-labelledby="m2" aria-valuemin="0" aria-valuemax="10" aria-valuenow="9.1" aria-valuetext="9.1 of 10 GB used, almost full"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
-    <span class="field__help">Almost full. Remove old recordings to keep uploading.</span>
+    <span class="field__help">Almost full. Remove old attachments to keep uploading.</span>
   </div>
 </div>`,
     },
     {
-      title: 'Seats taken',
+      title: 'Training places taken',
       desc: 'Full turns the segments to danger; the word "Full" goes next to it.',
       stage: 'block',
       html: `<div style="max-width: 320px; width: 100%;">
-  <div class="progress-meta"><span id="m3">Seats taken</span><b>40 of 40, full</b></div>
-  <div class="meter-seg is-full" role="meter" aria-labelledby="m3" aria-valuemin="0" aria-valuemax="40" aria-valuenow="40" aria-valuetext="40 of 40 seats, full"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+  <div class="progress-meta"><span id="m3">UMKM training places</span><b>40 of 40, full</b></div>
+  <div class="meter-seg is-full" role="meter" aria-labelledby="m3" aria-valuemin="0" aria-valuemax="40" aria-valuenow="40" aria-valuetext="40 of 40 places, full"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
 </div>`,
     },
     {

@@ -40,8 +40,8 @@ export default {
       title: 'Kuota terisi',
       desc: 'Saat penuh, segmen berubah menjadi danger; kata "penuh" ditulis di sampingnya.',
       html: `<div style="max-width: 320px; width: 100%;">
-  <div class="progress-meta"><span id="m3">Kuota peserta pelatihan</span><b>40 dari 40, penuh</b></div>
-  <div class="meter-seg is-full" role="meter" aria-labelledby="m3" aria-valuemin="0" aria-valuemax="40" aria-valuenow="40" aria-valuetext="40 dari 40 kursi, penuh"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
+  <div class="progress-meta"><span id="m3">Kuota pelatihan UMKM</span><b>40 dari 40, penuh</b></div>
+  <div class="meter-seg is-full" role="meter" aria-labelledby="m3" aria-valuemin="0" aria-valuemax="40" aria-valuenow="40" aria-valuetext="40 dari 40 tempat, penuh"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></div>
 </div>`,
     },
     {
