@@ -146,7 +146,6 @@ class _PagerButton extends StatelessWidget {
           constraints: const BoxConstraints(minWidth: 36),
           height: 36,
           padding: const EdgeInsets.symmetric(horizontal: 8),
-          alignment: Alignment.center,
           decoration: BoxDecoration(
             borderRadius: radius,
             color: current
@@ -155,15 +154,21 @@ class _PagerButton extends StatelessWidget {
                     ? c.bgTintStrong
                     : Colors.transparent,
           ),
-          child: IconTheme.merge(
-            data: IconThemeData(color: fg),
-            child: DefaultTextStyle.merge(
-              style: LdsType.subhead.copyWith(
-                color: fg,
-                fontWeight: current ? FontWeight.w600 : FontWeight.w500,
-                fontFeatures: const [FontFeature.tabularFigures()],
+          // Factors of 1 keep the button at its content width: a plain
+          // alignment would stretch it to the full width of the row.
+          child: Center(
+            widthFactor: 1,
+            heightFactor: 1,
+            child: IconTheme.merge(
+              data: IconThemeData(color: fg),
+              child: DefaultTextStyle.merge(
+                style: LdsType.subhead.copyWith(
+                  color: fg,
+                  fontWeight: current ? FontWeight.w600 : FontWeight.w500,
+                  fontFeatures: const [FontFeature.tabularFigures()],
+                ),
+                child: child,
               ),
-              child: child,
             ),
           ),
         );
