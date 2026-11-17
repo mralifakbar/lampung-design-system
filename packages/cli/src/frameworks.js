@@ -299,9 +299,12 @@ export const flutter = {
   },
 };
 
-/** Swaps the default template's ThemeData for LdsTheme. Returns null when main.dart is not the default. */
+/**
+ * Swaps the default template's ThemeData for LdsTheme. Returns null when main.dart is not the default.
+ * Flutter 3.38+ writes `colorScheme: .fromSeed(...)` (dot shorthand); older templates `ColorScheme.fromSeed(...)`.
+ */
 export function patchFlutterMain(src, theme) {
-  if (!/MaterialApp\(/.test(src) || !/ColorScheme\.fromSeed\(/.test(src)) return null;
+  if (!/MaterialApp\(/.test(src) || !/colorScheme:\s*(?:ColorScheme)?\.fromSeed\(/.test(src)) return null;
   const at = src.search(/theme:\s*ThemeData\(/);
   if (at < 0) return null;
   const open = src.indexOf('(', at);
