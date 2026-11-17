@@ -29,13 +29,13 @@ export default {
       stage: 'fill',
       replay: true,
       html: `<div class="docs-col" style="max-width: 440px;">
-  <div class="control search"><span class="ic" aria-hidden="true">search</span><input aria-label="Search lessons" value="osmosis"></div>
+  <div class="control search"><span class="ic" aria-hidden="true">search</span><input aria-label="Search services" value="certificate"></div>
   <div class="list">
-    ${RESULT(0, 'Osmosis and diffusion', 'Biology 101, lesson 6')}
-    ${RESULT(1, 'Lab 3: potato osmosis', 'Biology 101, lab')}
-    ${RESULT(2, 'Cell membranes', 'Biology 101, lesson 5')}
-    ${RESULT(3, 'Quiz 2 review', 'Practice questions')}
-    ${RESULT(4, 'Water potential', 'Plant biology, lesson 2')}
+    ${RESULT(0, 'Birth certificate', 'Civil registry, issued in 3 working days')}
+    ${RESULT(1, 'Death certificate', 'Civil registry, issued in 3 working days')}
+    ${RESULT(2, 'Marriage certificate', 'Civil registry, needs a letter from KUA')}
+    ${RESULT(3, 'Certificate data change', 'Civil registry, needs a court ruling')}
+    ${RESULT(4, 'Copy of a lost certificate', 'Civil registry, needs a police loss report')}
   </div>
 </div>`,
       code: `<!-- The system has no stagger class yet: the keyframe and tokens are the contract. -->
@@ -49,9 +49,9 @@ export default {
       stage: 'fill',
       replay: true,
       html: `<div class="list" style="width: 100%; max-width: 440px;">
-  ${NOTE(0, 'AP', 'Ana Putri commented on your lab report', '2 minutes ago')}
-  ${NOTE(1, 'RS', 'Rizal Siregar shared Week 6 notes', '40 minutes ago', ' avatar--gray')}
-  ${NOTE(2, 'BK', 'Grades for Quiz 3 are published', '1 hour ago', ' avatar--gray')}
+  ${NOTE(0, 'AP', 'Ana Putri responded to your report', '2 minutes ago')}
+  ${NOTE(1, 'RS', 'Rizal Siregar updated the road repair status', '40 minutes ago', ' avatar--gray')}
+  ${NOTE(2, 'BK', 'This year\'s PBB bill is out', '1 hour ago', ' avatar--gray')}
 </div>`,
     },
     {
@@ -59,10 +59,10 @@ export default {
       desc: 'KPI cards arrive left to right in reading order. Do this on the first load of a session only; coming back to the page shows them at once.',
       replay: true,
       html: `<div class="auto-grid" style="--min: 150px; width: 100%;">
-  ${KPI(0, 'Classes today', '3')}
-  ${KPI(1, 'Due this week', '4')}
-  ${KPI(2, 'Average grade', '3.62')}
-  ${KPI(3, 'Absences', '1')}
+  ${KPI(0, 'Reports today', '128')}
+  ${KPI(1, 'Awaiting follow-up', '24')}
+  ${KPI(2, 'Average response time', '2.4 days')}
+  ${KPI(3, 'Resolved this week', '96')}
 </div>`,
     },
   ],
