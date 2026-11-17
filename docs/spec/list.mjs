@@ -4,7 +4,7 @@ export default {
   order: 1,
   summary: 'The inset grouped list: rows on one surface, separated by hairlines that start where the text starts. The default for any list of things, instead of a stack of cards.',
   when: [
-    'Any collection of similar items the person scans or opens: courses, messages, settings, payments, files.',
+    'Any collection of similar items the person scans or opens: services, messages, settings, payments, files.',
     'Navigation rows that lead somewhere (`a.lrow` with a chevron) or act (`button.lrow`).',
     'Settings, each row a label with its value, a switch or a chevron.',
     'Numbered steps to follow (`.lrow--num`) or a checked list of requirements or what is included (`.lrow--check`).',
@@ -54,9 +54,9 @@ export default {
       desc: 'A title and a second line on the left, the value on the right.',
       stage: 'block',
       html: `<ul class="list" style="max-width: 440px;">
-  <li class="lrow"><div class="lrow__body"><div class="lrow__title">Term fee, odd semester</div><div class="lrow__sub">Paid 2 Sep by bank transfer</div></div><span class="lrow__value">Rp 4.200.000</span></li>
-  <li class="lrow"><div class="lrow__body"><div class="lrow__title">Lab fee</div><div class="lrow__sub">Paid 2 Sep</div></div><span class="lrow__value">Rp 350.000</span></li>
-  <li class="lrow"><div class="lrow__body"><div class="lrow__title">Graduation deposit</div><div class="lrow__sub">Due 28 Nov</div></div><span class="badge badge--warning">Not paid</span></li>
+  <li class="lrow"><div class="lrow__body"><div class="lrow__title">Land and building tax 2026</div><div class="lrow__sub">Paid 2 Sep by bank transfer</div></div><span class="lrow__value">Rp 1.250.000</span></li>
+  <li class="lrow"><div class="lrow__body"><div class="lrow__title">Waste collection levy</div><div class="lrow__sub">Paid 2 Sep</div></div><span class="lrow__value">Rp 35.000</span></li>
+  <li class="lrow"><div class="lrow__body"><div class="lrow__title">Motor vehicle tax</div><div class="lrow__sub">Due 28 Nov</div></div><span class="badge badge--warning">Not paid</span></li>
 </ul>`,
     },
     {
@@ -65,20 +65,20 @@ export default {
       stage: 'block',
       html: `<ol class="list list--fill" style="max-width: 440px;">
   <li class="lrow lrow--num"><span class="lrow__num" aria-hidden="true">1</span><span class="lrow__body"><span class="lrow__title">Download the registration form and fill in every page.</span></span></li>
-  <li class="lrow lrow--num"><span class="lrow__num" aria-hidden="true">2</span><span class="lrow__body"><span class="lrow__title">Ask your adviser to sign page 3.</span></span></li>
+  <li class="lrow lrow--num"><span class="lrow__num" aria-hidden="true">2</span><span class="lrow__body"><span class="lrow__title">Ask the lurah to sign page 3.</span></span></li>
   <li class="lrow lrow--num"><span class="lrow__num" aria-hidden="true">3</span><span class="lrow__body"><span class="lrow__title">Upload the signed form before 28 November.</span><span class="lrow__sub">PDF, up to 5 MB</span></span></li>
 </ol>`,
     },
     {
       title: 'Checked rows',
-      desc: 'Requirements met, or what a plan includes.',
+      desc: 'Requirements met, or what a service includes.',
       stage: 'block',
       html: `<div style="max-width: 440px;">
-  <p class="list__header">Included in the exam prep plan</p>
+  <p class="list__header">Included in MSME assistance</p>
   <ul class="list">
-    <li class="lrow lrow--check"><span class="ic lrow__check" aria-hidden="true">check_circle</span><span class="lrow__body"><span class="lrow__title">12 full tryouts with ranked results</span></span></li>
-    <li class="lrow lrow--check"><span class="ic lrow__check" aria-hidden="true">check_circle</span><span class="lrow__body"><span class="lrow__title">Explanations for every question</span></span></li>
-    <li class="lrow lrow--check"><span class="ic lrow__check" aria-hidden="true">check_circle</span><span class="lrow__body"><span class="lrow__title">A weekly study plan that adapts to your scores</span></span></li>
+    <li class="lrow lrow--check"><span class="ic lrow__check" aria-hidden="true">check_circle</span><span class="lrow__body"><span class="lrow__title">Help registering a business ID number (NIB)</span></span></li>
+    <li class="lrow lrow--check"><span class="ic lrow__check" aria-hidden="true">check_circle</span><span class="lrow__body"><span class="lrow__title">Simple bookkeeping training</span></span></li>
+    <li class="lrow lrow--check"><span class="ic lrow__check" aria-hidden="true">check_circle</span><span class="lrow__body"><span class="lrow__title">A monthly consultation with an assistant officer</span></span></li>
   </ul>
 </div>`,
     },
@@ -87,8 +87,8 @@ export default {
       desc: 'A switch with its label fills the row; the label is the switch text.',
       stage: 'block',
       html: `<div class="list" style="max-width: 440px;">
-  <div class="lrow"><label class="switch" style="flex: 1;"><input type="checkbox" role="switch" checked><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="switch__text">Email me when grades are posted</span></label></div>
-  <div class="lrow"><label class="switch" style="flex: 1;"><input type="checkbox" role="switch"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="switch__text">Weekly study summary</span></label></div>
+  <div class="lrow"><label class="switch" style="flex: 1;"><input type="checkbox" role="switch" checked><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="switch__text">Email me when my application status changes</span></label></div>
+  <div class="lrow"><label class="switch" style="flex: 1;"><input type="checkbox" role="switch"><span class="switch__track" aria-hidden="true"><span class="switch__thumb"></span></span><span class="switch__text">Weekly summary of citizen reports</span></label></div>
 </div>`,
     },
   ],
