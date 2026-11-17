@@ -5,7 +5,7 @@ export default {
   summary: 'A small numbered pill after a claim that links to its source: `<a class="cite" href="#src-1">1</a>`. Used in articles and assistant answers so every fact can be checked.',
   when: [
     'An assistant answer or summary states facts drawn from documents: each claim gets a numbered citation to the document it came from.',
-    'A lesson or report refers to sources listed at the end.',
+    'A service guide or report refers to sources listed at the end.',
   ],
   whenNot: [
     ['A link the reader should follow as part of the sentence', 'link'],
@@ -26,11 +26,11 @@ export default {
       desc: 'Each claim points to the document it came from. Hover a number to see it darken.',
       stage: 'block',
       html: `<div class="prose">
-  <p>The final exam is on 18 December in room B204 <a class="cite" href="#cite-src-1" aria-label="Source 1">1</a>. You may bring one handwritten page of notes <a class="cite" href="#cite-src-2" aria-label="Source 2">2</a>, and the exam counts for 40 % of the grade <a class="cite" href="#cite-src-1" aria-label="Source 1">1</a>.</p>
+  <p>Samsat keliling serves Way Halim every Tuesday and Thursday, 08:00 to 12:00, at the Way Halim field <a class="cite" href="#cite-src-1" aria-label="Source 1">1</a>. Bring your KTP-el and the original STNK <a class="cite" href="#cite-src-2" aria-label="Source 2">2</a>, and the vehicle tax is paid on the spot by QRIS or cash <a class="cite" href="#cite-src-1" aria-label="Source 1">1</a>.</p>
   <h3>Sources</h3>
   <ol>
-    <li id="cite-src-1"><a href="#syllabus">Database Systems syllabus, semester 3</a></li>
-    <li id="cite-src-2"><a href="#rules">Exam regulations, article 12</a></li>
+    <li id="cite-src-1"><a href="#jadwal">Samsat keliling schedule, Bandar Lampung, November 2026</a></li>
+    <li id="cite-src-2"><a href="#syarat">Requirements for paying annual vehicle tax</a></li>
   </ol>
 </div>`,
     },

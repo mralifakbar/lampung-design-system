@@ -2,7 +2,7 @@ export default {
   summary: 'Pil bernomor kecil setelah sebuah klaim yang menautkan ke sumbernya: `<a class="cite" href="#src-1">1</a>`. Dipakai di artikel dan jawaban asisten agar setiap fakta bisa diperiksa.',
   when: [
     'Jawaban asisten atau ringkasan menyebut fakta dari dokumen: setiap klaim mendapat sitasi bernomor ke dokumen asalnya.',
-    'Materi atau laporan merujuk sumber yang dicantumkan di akhir.',
+    'Panduan layanan atau laporan merujuk sumber yang dicantumkan di akhir.',
   ],
   whenNot: [
     ['Tautan yang perlu diikuti pembaca sebagai bagian kalimat', 'link'],
@@ -22,11 +22,11 @@ export default {
       title: 'Di dalam jawaban, dengan sumber',
       desc: 'Setiap klaim menunjuk ke dokumen asalnya. Arahkan kursor ke angka untuk melihatnya menggelap.',
       html: `<div class="prose">
-  <p>Uji kompetensi akhir digelar 18 Desember di ruang B204 <a class="cite" href="#cite-src-1" aria-label="Sumber 1">1</a>. Peserta boleh membawa satu halaman catatan tulisan tangan <a class="cite" href="#cite-src-2" aria-label="Sumber 2">2</a>, dan nilai ujian ini menyumbang 40 % dari nilai akhir <a class="cite" href="#cite-src-1" aria-label="Sumber 1">1</a>.</p>
+  <p>Samsat keliling melayani Way Halim setiap Selasa dan Kamis, 08.00 sampai 12.00, di Lapangan Way Halim <a class="cite" href="#cite-src-1" aria-label="Sumber 1">1</a>. Bawa KTP-el dan STNK asli <a class="cite" href="#cite-src-2" aria-label="Sumber 2">2</a>, dan pajak kendaraan dibayar di tempat lewat QRIS atau tunai <a class="cite" href="#cite-src-1" aria-label="Sumber 1">1</a>.</p>
   <h3>Sumber</h3>
   <ol>
-    <li id="cite-src-1"><a href="#syllabus">Silabus Sistem Basis Data, semester 3</a></li>
-    <li id="cite-src-2"><a href="#rules">Tata tertib ujian, pasal 12</a></li>
+    <li id="cite-src-1"><a href="#jadwal">Jadwal Samsat keliling Bandar Lampung, November 2026</a></li>
+    <li id="cite-src-2"><a href="#syarat">Syarat pembayaran pajak kendaraan tahunan</a></li>
   </ol>
 </div>`,
     },
