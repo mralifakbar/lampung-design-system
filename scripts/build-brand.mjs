@@ -59,7 +59,7 @@ export function sigerPath({ scale = 0.066 } = {}) {
 
 const body = sigerPath().d;
 const view = '3 18.5 58 31';
-const place = 'translate(32 32) scale(0.92) translate(-32 -33.85)';
+const place = 'translate(32 32) scale(0.76) translate(-32 -33.85)';
 const files = {
   'brand/siger.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${view}" fill="currentColor"><title>Siger</title><path d="${body}"/></svg>\n`,
   'brand/mark.svg': `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><title>Lampung Design System</title><rect width="64" height="64" rx="15" fill="#0B6E4F"/><path transform="${place}" d="${body}" fill="#FFFFFF"/></svg>\n`,
