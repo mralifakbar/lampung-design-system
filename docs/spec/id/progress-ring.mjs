@@ -1,8 +1,8 @@
 export default {
   summary: 'Track melingkar dengan nilai digambar sebagai busur dan angka di tengah. Untuk tempat yang ringkas dan skor yang dinilai; sebutkan juga penilaiannya dengan kata-kata.',
   when: [
-    'Skor atau tingkat penyelesaian yang harus muat dalam kotak: hasil tes di card, kehadiran di profil, target hari ini di layar beranda ponsel.',
-    'Skor yang dinilai, saat warnanya menunjukkan lulus, nyaris atau tidak lulus (`ring--success|warning|danger`), selalu dengan kata-kata di sampingnya.',
+    'Skor atau tingkat penyelesaian yang harus muat dalam kotak: skor standar layanan di card, kelengkapan berkas di profil, target hari ini di layar beranda ponsel.',
+    'Skor yang dinilai, saat warnanya menunjukkan memenuhi, nyaris, atau belum memenuhi (`ring--success|warning|danger`), selalu dengan kata-kata di sampingnya.',
     'Tugas dengan kemajuan di dalam tile atau baris list ketika bar terlalu lebar.',
   ],
   whenNot: [
@@ -24,21 +24,21 @@ export default {
   examples: [
     {
       title: 'Skor dengan keputusan',
-      desc: 'Warna mendukung kata-kata; tidak pernah menggantikannya.',
+      desc: 'Skor standar layanan dari penilaian kantor kelurahan. Warna mendukung kata-kata; tidak pernah menggantikannya.',
       html: `<div class="docs-row" style="gap: 28px;">
-  <div class="docs-row"><div class="ring ring--success" role="img" aria-label="Skor 86 dari 100, lulus"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="23.7"></circle></svg><span class="ring__label" aria-hidden="true">86</span></div><div><div class="card__title">Lulus</div><div class="card__sub">Nilai batas lulus 65</div></div></div>
-  <div class="docs-row"><div class="ring ring--warning" role="img" aria-label="Skor 62 dari 100, sedikit di bawah batas lulus"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="64.4"></circle></svg><span class="ring__label" aria-hidden="true">62</span></div><div><div class="card__title">Sedikit di bawah</div><div class="card__sub">Kurang 3 poin</div></div></div>
-  <div class="docs-row"><div class="ring ring--danger" role="img" aria-label="Skor 38 dari 100, tidak lulus"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="105.2"></circle></svg><span class="ring__label" aria-hidden="true">38</span></div><div><div class="card__title">Tidak lulus</div><div class="card__sub">Ujian ulang dibuka 2 Desember</div></div></div>
+  <div class="docs-row"><div class="ring ring--success" role="img" aria-label="Skor 86 dari 100, memenuhi standar"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="23.7"></circle></svg><span class="ring__label" aria-hidden="true">86</span></div><div><div class="card__title">Memenuhi standar</div><div class="card__sub">Batas minimal 65</div></div></div>
+  <div class="docs-row"><div class="ring ring--warning" role="img" aria-label="Skor 62 dari 100, sedikit di bawah batas minimal"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="64.4"></circle></svg><span class="ring__label" aria-hidden="true">62</span></div><div><div class="card__title">Sedikit di bawah</div><div class="card__sub">Kurang 3 poin</div></div></div>
+  <div class="docs-row"><div class="ring ring--danger" role="img" aria-label="Skor 38 dari 100, belum memenuhi standar"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="105.2"></circle></svg><span class="ring__label" aria-hidden="true">38</span></div><div><div class="card__title">Belum memenuhi</div><div class="card__sub">Penilaian ulang 2 Desember</div></div></div>
 </div>`,
     },
     {
       title: 'Kemajuan tugas yang bergerak',
       desc: 'Busur bergerak halus ke setiap nilai baru. Tekan tombolnya.',
       html: `<div class="docs-row" style="gap: 16px;">
-  <div class="ring" id="rg" role="progressbar" aria-label="Materi selesai minggu ini" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="101.8"></circle></svg><span class="ring__label">40</span></div>
+  <div class="ring" id="rg" role="progressbar" aria-label="Laporan ditindaklanjuti minggu ini" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="101.8"></circle></svg><span class="ring__label">40</span></div>
   <button class="btn btn--secondary btn--sm" onclick="const r = document.getElementById('rg'); const v = (Number(r.getAttribute('aria-valuenow')) + 25) % 125; r.setAttribute('aria-valuenow', v); r.querySelector('.ring__val').setAttribute('stroke-dashoffset', (169.6 * (1 - v / 100)).toFixed(1)); r.querySelector('.ring__label').textContent = v;">Tambah kemajuan</button>
 </div>`,
-      code: `<div class="ring" role="progressbar" aria-label="Materi selesai minggu ini" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40">
+      code: `<div class="ring" role="progressbar" aria-label="Laporan ditindaklanjuti minggu ini" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40">
   <svg viewBox="0 0 64 64" aria-hidden="true">
     <circle class="ring__track" cx="32" cy="32" r="27"></circle>
     <circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="101.8"></circle>
@@ -50,8 +50,8 @@ export default {
       title: 'Kecil, di baris list',
       desc: 'Pada 40 px, atur ukurannya secara inline dan kecilkan labelnya juga.',
       html: `<div class="list" style="max-width: 420px;">
-  <div class="lrow"><div class="ring" style="width: 40px; height: 40px;" role="img" aria-label="75 persen selesai"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="42.4"></circle></svg><span class="ring__label" style="font-size: 12px;" aria-hidden="true">75</span></div><div class="lrow__body"><div class="lrow__title">Pemahaman bacaan</div><div class="lrow__sub">15 dari 20 soal</div></div></div>
-  <div class="lrow"><div class="ring" style="width: 40px; height: 40px;" role="img" aria-label="30 persen selesai"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="118.7"></circle></svg><span class="ring__label" style="font-size: 12px;" aria-hidden="true">30</span></div><div class="lrow__body"><div class="lrow__title">Penalaran numerik</div><div class="lrow__sub">6 dari 20 soal</div></div></div>
+  <div class="lrow"><div class="ring" style="width: 40px; height: 40px;" role="img" aria-label="75 persen selesai"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="42.4"></circle></svg><span class="ring__label" style="font-size: 12px;" aria-hidden="true">75</span></div><div class="lrow__body"><div class="lrow__title">Verifikasi data penerima bansos</div><div class="lrow__sub">15 dari 20 KK</div></div></div>
+  <div class="lrow"><div class="ring" style="width: 40px; height: 40px;" role="img" aria-label="30 persen selesai"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="118.7"></circle></svg><span class="ring__label" style="font-size: 12px;" aria-hidden="true">30</span></div><div class="lrow__body"><div class="lrow__title">Survei jalan rusak Kedaton</div><div class="lrow__sub">6 dari 20 titik</div></div></div>
 </div>`,
     },
   ],
@@ -72,7 +72,7 @@ export default {
     'Dengan reduced motion perubahan busur menjadi perubahan linear 120 ms.',
   ],
   a11y: [
-    'Skor adalah gambar dari sebuah angka: `role="img"` dengan `aria-label` yang menyebut angka dan keputusannya ("Skor 86 dari 100, lulus"), dan `aria-hidden` pada label yang terlihat.',
+    'Skor adalah gambar dari sebuah angka: `role="img"` dengan `aria-label` yang menyebut angka dan keputusannya ("Skor 86 dari 100, memenuhi standar"), dan `aria-hidden` pada label yang terlihat.',
     'Kemajuan tugas langsung: `role="progressbar"` dengan `aria-valuemin`, `aria-valuemax`, `aria-valuenow` dan nama.',
     'SVG memakai `aria-hidden="true"`. Jangan biarkan warna ring menjadi satu-satunya sinyal; tulis keputusannya di samping.',
   ],

@@ -4,8 +4,8 @@ export default {
   order: 4,
   summary: 'A circular track with the value drawn as an arc and the number in the middle. For compact places and judged scores; say the judgment in words too.',
   when: [
-    'A score or completion that must fit a square: a quiz result in a card, attendance on a profile, today\'s goal on a phone home screen.',
-    'A judged score where the color tells pass, borderline or fail (`ring--success|warning|danger`), always with words next to it.',
+    'A score or completion that must fit a square: a service standard score in a card, document completeness on a profile, today\'s goal on a phone home screen.',
+    'A judged score where the color tells met, borderline or not met (`ring--success|warning|danger`), always with words next to it.',
     'A task with progress inside a tile or a list row where a bar would be too wide.',
   ],
   whenNot: [
@@ -27,21 +27,21 @@ export default {
   examples: [
     {
       title: 'Score with a verdict',
-      desc: 'The color supports the words; it never replaces them.',
+      desc: 'Service standard scores from a kelurahan office review. The color supports the words; it never replaces them.',
       html: `<div class="docs-row" style="gap: 28px;">
-  <div class="docs-row"><div class="ring ring--success" role="img" aria-label="Score 86 of 100, passed"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="23.7"></circle></svg><span class="ring__label" aria-hidden="true">86</span></div><div><div class="card__title">Passed</div><div class="card__sub">Pass mark is 65</div></div></div>
-  <div class="docs-row"><div class="ring ring--warning" role="img" aria-label="Score 62 of 100, just below the pass mark"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="64.4"></circle></svg><span class="ring__label" aria-hidden="true">62</span></div><div><div class="card__title">Just below</div><div class="card__sub">3 points short</div></div></div>
-  <div class="docs-row"><div class="ring ring--danger" role="img" aria-label="Score 38 of 100, not passed"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="105.2"></circle></svg><span class="ring__label" aria-hidden="true">38</span></div><div><div class="card__title">Not passed</div><div class="card__sub">Retake opens 2 December</div></div></div>
+  <div class="docs-row"><div class="ring ring--success" role="img" aria-label="Score 86 of 100, meets the standard"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="23.7"></circle></svg><span class="ring__label" aria-hidden="true">86</span></div><div><div class="card__title">Meets the standard</div><div class="card__sub">Threshold is 65</div></div></div>
+  <div class="docs-row"><div class="ring ring--warning" role="img" aria-label="Score 62 of 100, just below the threshold"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="64.4"></circle></svg><span class="ring__label" aria-hidden="true">62</span></div><div><div class="card__title">Just below</div><div class="card__sub">3 points short</div></div></div>
+  <div class="docs-row"><div class="ring ring--danger" role="img" aria-label="Score 38 of 100, does not meet the standard"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="105.2"></circle></svg><span class="ring__label" aria-hidden="true">38</span></div><div><div class="card__title">Not met</div><div class="card__sub">Reassessment on 2 December</div></div></div>
 </div>`,
     },
     {
       title: 'Task progress that moves',
       desc: 'The arc eases to each new value. Press the button.',
       html: `<div class="docs-row" style="gap: 16px;">
-  <div class="ring" id="rg" role="progressbar" aria-label="Lessons done this week" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="101.8"></circle></svg><span class="ring__label">40</span></div>
+  <div class="ring" id="rg" role="progressbar" aria-label="Reports followed up this week" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="101.8"></circle></svg><span class="ring__label">40</span></div>
   <button class="btn btn--secondary btn--sm" onclick="const r = document.getElementById('rg'); const v = (Number(r.getAttribute('aria-valuenow')) + 25) % 125; r.setAttribute('aria-valuenow', v); r.querySelector('.ring__val').setAttribute('stroke-dashoffset', (169.6 * (1 - v / 100)).toFixed(1)); r.querySelector('.ring__label').textContent = v;">Add progress</button>
 </div>`,
-      code: `<div class="ring" role="progressbar" aria-label="Lessons done this week" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40">
+      code: `<div class="ring" role="progressbar" aria-label="Reports followed up this week" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40">
   <svg viewBox="0 0 64 64" aria-hidden="true">
     <circle class="ring__track" cx="32" cy="32" r="27"></circle>
     <circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="101.8"></circle>
@@ -54,8 +54,8 @@ export default {
       desc: 'At 40 px set the size inline and shrink the label with it.',
       stage: 'block',
       html: `<div class="list" style="max-width: 420px;">
-  <div class="lrow"><div class="ring" style="width: 40px; height: 40px;" role="img" aria-label="75 percent done"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="42.4"></circle></svg><span class="ring__label" style="font-size: 12px;" aria-hidden="true">75</span></div><div class="lrow__body"><div class="lrow__title">Reading comprehension</div><div class="lrow__sub">15 of 20 questions</div></div></div>
-  <div class="lrow"><div class="ring" style="width: 40px; height: 40px;" role="img" aria-label="30 percent done"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="118.7"></circle></svg><span class="ring__label" style="font-size: 12px;" aria-hidden="true">30</span></div><div class="lrow__body"><div class="lrow__title">Numerical reasoning</div><div class="lrow__sub">6 of 20 questions</div></div></div>
+  <div class="lrow"><div class="ring" style="width: 40px; height: 40px;" role="img" aria-label="75 percent done"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="42.4"></circle></svg><span class="ring__label" style="font-size: 12px;" aria-hidden="true">75</span></div><div class="lrow__body"><div class="lrow__title">Aid recipient data check</div><div class="lrow__sub">15 of 20 households</div></div></div>
+  <div class="lrow"><div class="ring" style="width: 40px; height: 40px;" role="img" aria-label="30 percent done"><svg viewBox="0 0 64 64" aria-hidden="true"><circle class="ring__track" cx="32" cy="32" r="27"></circle><circle class="ring__val" cx="32" cy="32" r="27" stroke-dasharray="169.6" stroke-dashoffset="118.7"></circle></svg><span class="ring__label" style="font-size: 12px;" aria-hidden="true">30</span></div><div class="lrow__body"><div class="lrow__title">Road damage survey, Kedaton</div><div class="lrow__sub">6 of 20 sites</div></div></div>
 </div>`,
     },
   ],
@@ -76,7 +76,7 @@ export default {
     'Under reduced motion the arc change becomes a 120 ms linear change.',
   ],
   a11y: [
-    'A score is a picture of a number: `role="img"` with an `aria-label` that says the number and the verdict ("Score 86 of 100, passed"), and `aria-hidden` on the visible label.',
+    'A score is a picture of a number: `role="img"` with an `aria-label` that says the number and the verdict ("Score 86 of 100, meets the standard"), and `aria-hidden` on the visible label.',
     'Live task progress: `role="progressbar"` with `aria-valuemin`, `aria-valuemax`, `aria-valuenow` and a name.',
     'The SVG is `aria-hidden="true"`. Never let the ring color be the only signal; write the verdict next to it.',
   ],
@@ -93,7 +93,7 @@ export default {
   js: 'None in plain HTML: set `stroke-dashoffset` and the label from your code.',
   react: `import { Ring } from 'lampung-design-system/react';
 
-<Ring value={86} tone="success" ariaLabel="Score 86 of 100, passed" />
-<Ring value={12} max={20} size={44} label="12" ariaLabel="12 of 20 lessons" />`,
+<Ring value={86} tone="success" ariaLabel="Score 86 of 100, meets the standard" />
+<Ring value={12} max={20} size={44} label="12" ariaLabel="12 of 20 households checked" />`,
   related: ['progress-bar', 'meter', 'donut', 'stat-row'],
 };
