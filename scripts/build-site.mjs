@@ -166,6 +166,25 @@ writeFileSync(join(out, 'site.webmanifest'), JSON.stringify({
   writeFileSync(join(out, 'favicon.ico'), Buffer.concat([head, png]));
 }
 
+// Cache busting: every page loads its CSS and JS with ?v=<content hash>, and lds.css passes the same
+// tag to the files it imports, so a deploy gives browsers new URLs instead of a stale cached copy.
+{
+  const { createHash } = await import('node:crypto');
+  const assets = ['css', 'js'].flatMap((d) => readdirSync(join(out, d)).map((f) => `${d}/${f}`)).concat(['landing.css', 'landing.js', 'docs/docs.css', 'docs/runtime.js']).filter((f) => existsSync(join(out, f)));
+  const hash = createHash('sha256');
+  for (const f of assets.sort()) hash.update(readFileSync(join(out, f)));
+  const v = hash.digest('hex').slice(0, 10);
+  // Any quoted local path (./, ../ or /) to one of these files, wherever it appears: href, src,
+  // static and dynamic imports, @import, or a conditional like import(a ? '../js/lds.js' : './lds.js').
+  const tag = (src) => src.replace(/(["'])((?:\.{1,2}\/|\/)(?:[\w.-]+\/)*(?:lds\.css|lds\.js|aksara\.js|aksara-glyphs\.js|components\.css|tokens\.css|fonts\.css|landing\.css|landing\.js|docs\.css|runtime\.js|mobile\.js|dashboard\.js|dashboard\.css|mobile\.css))(?=\1)/g, (m, q, path) => `${q}${path}?v=${v}`);
+  const walkAll = (dir) => readdirSync(dir).flatMap((f) => { const p = join(dir, f); return statSync(p).isDirectory() ? walkAll(p) : [p]; });
+  for (const f of walkAll(out).filter((p) => /\.(html|css|js)$/.test(p))) {
+    const src = readFileSync(f, 'utf8');
+    const next = tag(src);
+    if (next !== src) writeFileSync(f, next);
+  }
+}
+
 // Canonical URLs, hreflang, social tags, structured data, clean links, sitemap, robots and llms.txt.
 // Cloudflare Web Analytics site token (dashboard > Analytics & Logs > Web Analytics). It is public by
 // design (it ships in every page); LDS_CF_BEACON overrides it, and LDS_CF_BEACON=off builds without it.
