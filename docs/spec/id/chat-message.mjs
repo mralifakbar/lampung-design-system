@@ -27,10 +27,10 @@ export default {
       title: 'Pesan Anda dan jawabannya',
       desc: 'Orang berbicara di bubble aksen; jawaban berupa teks biasa di kolom, lebih mudah dibaca panjang dan disalin. Tekan salin untuk melihat icon swap.',
       html: `<div class="chat" role="log" aria-label="Percakapan" style="max-width: 560px;">
-  <div class="msg msg--me"><div class="bubble">Apa beda mitosis dan meiosis?</div><span class="msg__meta">09.41</span></div>
+  <div class="msg msg--me"><div class="bubble">Apa beda KTP-el dan KIA?</div><span class="msg__meta">09.41</span></div>
   <div class="msg msg--ai">
-    <div class="bubble">Mitosis menghasilkan dua sel yang sama persis dengan sel induk, untuk pertumbuhan dan perbaikan. Meiosis menghasilkan empat sel yang masing-masing berisi separuh kromosom, untuk reproduksi, dan mengacak gen di prosesnya sehingga setiap sel berbeda.</div>
-    <div class="msg__actions">${COPY('Mitosis menghasilkan dua sel identik; meiosis menghasilkan empat sel dengan separuh kromosom.')}<button class="icon-btn" aria-label="Coba lagi"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Bagikan jawaban"><span class="ic" aria-hidden="true">share</span></button></div>
+    <div class="bubble">KTP-el adalah kartu identitas elektronik untuk penduduk berusia 17 tahun ke atas, atau lebih muda bila sudah menikah. KIA adalah kartu identitas anak untuk penduduk di bawah 17 tahun; Disdukcapil menerbitkannya berdasarkan KK dan akta kelahiran.</div>
+    <div class="msg__actions">${COPY('KTP-el untuk penduduk 17 tahun ke atas; KIA adalah kartu identitas anak di bawah 17 tahun.')}<button class="icon-btn" aria-label="Coba lagi"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Bagikan jawaban"><span class="ic" aria-hidden="true">share</span></button></div>
   </div>
 </div>`,
     },
@@ -38,13 +38,13 @@ export default {
       title: 'Jawaban dengan sumber dan kode',
       desc: 'Jawaban panjang memakai [prose](prose) di dalam bubble untuk jarak paragraf; sumber berupa [sitasi](citation); kode inline terlipat, tidak meluber.',
       html: `<div class="chat" style="max-width: 560px;">
-  <div class="msg msg--me"><div class="bubble">Bagaimana cara menghitung jumlah baris di tabel nilai?</div></div>
+  <div class="msg msg--me"><div class="bubble">Bagaimana cara menghitung jumlah laporan di tabel pengaduan?</div></div>
   <div class="msg msg--ai">
     <div class="bubble prose">
-      <p>Pakai <code class="code">SELECT COUNT(*) FROM grades;</code> untuk menghitung semua baris, termasuk baris dengan nilai kosong.<a class="cite" href="#">1</a></p>
-      <p>Untuk menghitung tugas yang sudah dinilai saja, sebut kolomnya: <code class="code">COUNT(score)</code> melewati baris yang nilainya kosong.<a class="cite" href="#">2</a></p>
+      <p>Pakai <code class="code">SELECT COUNT(*) FROM complaints;</code> untuk menghitung semua laporan, termasuk laporan yang masih terbuka.<a class="cite" href="#">1</a></p>
+      <p>Untuk menghitung laporan yang sudah selesai saja, sebut kolomnya: <code class="code">COUNT(closed_at)</code> melewati baris yang tanggal selesainya kosong.<a class="cite" href="#">2</a></p>
     </div>
-    <div class="msg__actions">${COPY('SELECT COUNT(*) FROM grades;')}<button class="icon-btn" aria-label="Coba lagi"><span class="ic" aria-hidden="true">refresh</span></button></div>
+    <div class="msg__actions">${COPY('SELECT COUNT(*) FROM complaints;')}<button class="icon-btn" aria-label="Coba lagi"><span class="ic" aria-hidden="true">refresh</span></button></div>
   </div>
 </div>`,
     },
@@ -52,16 +52,16 @@ export default {
       title: 'Meta: jam, diedit, tidak terkirim',
       desc: 'Meta adalah satu baris keterangan. Pesan yang gagal menyebutkannya dengan kata-kata di bawah bubble, beserta cara mencoba lagi; tidak ada bagian lain yang menjadi merah.',
       html: `<div class="chat" style="max-width: 560px;">
-  <div class="msg msg--me"><div class="bubble">Ingatkan saya tugas apa yang harus dikumpulkan hari Jumat.</div><span class="msg__meta"><time class="timestamp" data-lds-time="2026-11-16T08:05:00+07:00"></time></span></div>
-  <div class="msg msg--me"><div class="bubble">Laporan praktikum juga, ya.</div><span class="msg__meta">Diedit</span></div>
-  <div class="msg msg--me"><div class="bubble">Dan bacaan untuk minggu ke-6.</div><span class="field__help field__help--error"><span class="ic" aria-hidden="true">error</span>Tidak terkirim. Anda sedang offline.<button class="btn btn--plain btn--sm">Coba lagi</button></span></div>
+  <div class="msg msg--me"><div class="bubble">Ingatkan saya berkas apa saja yang perlu dibawa ke Samsat hari Jumat.</div><span class="msg__meta"><time class="timestamp" data-lds-time="2026-11-16T08:05:00+07:00"></time></span></div>
+  <div class="msg msg--me"><div class="bubble">Fotokopi BPKB juga, ya.</div><span class="msg__meta">Diedit</span></div>
+  <div class="msg msg--me"><div class="bubble">Dan jadwal Samsat keliling di Way Halim.</div><span class="field__help field__help--error"><span class="ic" aria-hidden="true">error</span>Tidak terkirim. Anda sedang offline.<button class="btn btn--plain btn--sm">Coba lagi</button></span></div>
 </div>`,
     },
     {
       title: 'Baris sistem',
       desc: 'Teks footnote di tengah, tanpa bubble. Untuk hal yang dilakukan percakapan, bukan untuk ucapan seseorang.',
       html: `<div class="chat" style="max-width: 560px;">
-  <p class="msg msg--system">Anda beralih ke mode ujian. Petunjuk disembunyikan sampai Anda mengumpulkan jawaban.</p>
+  <p class="msg msg--system">Anda beralih ke mode terpandu. Formulir terkunci sampai semua berkas diperiksa.</p>
 </div>`,
     },
   ],
@@ -85,7 +85,7 @@ export default {
   ],
   a11y: [
     'Pesan adalah elemen biasa di dalam kolom `role="log"`; jangan beri tiap pesan live region sendiri.',
-    'Jika pembicara tidak jelas dari tata letak saja, tambahkan teks tersembunyi "Anda berkata" / "Tutor berkata" (`sr-only`) di awal setiap pesan.',
+    'Jika pembicara tidak jelas dari tata letak saja, tambahkan teks tersembunyi "Anda berkata" / "Asisten berkata" (`sr-only`) di awal setiap pesan.',
     'Setiap aksi adalah [icon button](icon-button) dengan `aria-label` yang menyebut objeknya: "Salin jawaban", bukan "Salin".',
     'Pesan yang gagal menyebutkannya dengan teks ("Tidak terkirim. Anda sedang offline.") dengan tombol Coba lagi di sebelahnya.',
   ],

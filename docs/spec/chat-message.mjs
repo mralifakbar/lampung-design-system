@@ -31,10 +31,10 @@ export default {
       desc: 'The person speaks in the accent bubble; the answer is plain text in the column, which is easier to read at length and to copy. Press copy to see the icon swap.',
       stage: 'block',
       html: `<div class="chat" role="log" aria-label="Conversation" style="max-width: 560px;">
-  <div class="msg msg--me"><div class="bubble">What is the difference between mitosis and meiosis?</div><span class="msg__meta">09:41</span></div>
+  <div class="msg msg--me"><div class="bubble">What is the difference between a KTP-el and a KIA?</div><span class="msg__meta">09:41</span></div>
   <div class="msg msg--ai">
-    <div class="bubble">Mitosis makes two cells that are copies of the parent, for growth and repair. Meiosis makes four cells with half the chromosomes each, for reproduction, and shuffles genes on the way so each cell is different.</div>
-    <div class="msg__actions">${COPY('Mitosis makes two identical cells; meiosis makes four cells with half the chromosomes.')}<button class="icon-btn" aria-label="Try again"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Share answer"><span class="ic" aria-hidden="true">share</span></button></div>
+    <div class="bubble">The KTP-el is the electronic identity card for residents aged 17 and over, or younger if married. The KIA is the child identity card for residents under 17; Disdukcapil issues it from the family card and the birth certificate.</div>
+    <div class="msg__actions">${COPY('KTP-el is for residents aged 17 and over; KIA is the child identity card for those under 17.')}<button class="icon-btn" aria-label="Try again"><span class="ic" aria-hidden="true">refresh</span></button><button class="icon-btn" aria-label="Share answer"><span class="ic" aria-hidden="true">share</span></button></div>
   </div>
 </div>`,
     },
@@ -43,13 +43,13 @@ export default {
       desc: 'Long answers use [prose](prose) inside the bubble for paragraph spacing; sources are [citations](citation); inline code wraps instead of overflowing.',
       stage: 'block',
       html: `<div class="chat" style="max-width: 560px;">
-  <div class="msg msg--me"><div class="bubble">How do I count the rows in the grades table?</div></div>
+  <div class="msg msg--me"><div class="bubble">How do I count the reports in the complaints table?</div></div>
   <div class="msg msg--ai">
     <div class="bubble prose">
-      <p>Use <code class="code">SELECT COUNT(*) FROM grades;</code> to count every row, including rows with empty scores.<a class="cite" href="#">1</a></p>
-      <p>To count only graded work, name the column: <code class="code">COUNT(score)</code> skips rows where the score is empty.<a class="cite" href="#">2</a></p>
+      <p>Use <code class="code">SELECT COUNT(*) FROM complaints;</code> to count every report, including reports that are still open.<a class="cite" href="#">1</a></p>
+      <p>To count only closed reports, name the column: <code class="code">COUNT(closed_at)</code> skips rows where the close date is empty.<a class="cite" href="#">2</a></p>
     </div>
-    <div class="msg__actions">${COPY('SELECT COUNT(*) FROM grades;')}<button class="icon-btn" aria-label="Try again"><span class="ic" aria-hidden="true">refresh</span></button></div>
+    <div class="msg__actions">${COPY('SELECT COUNT(*) FROM complaints;')}<button class="icon-btn" aria-label="Try again"><span class="ic" aria-hidden="true">refresh</span></button></div>
   </div>
 </div>`,
     },
@@ -58,9 +58,9 @@ export default {
       desc: 'Meta is one caption line. A message that failed says so in words under the bubble with a way to retry; nothing else turns red.',
       stage: 'block',
       html: `<div class="chat" style="max-width: 560px;">
-  <div class="msg msg--me"><div class="bubble">Remind me what is due on Friday.</div><span class="msg__meta"><time class="timestamp" data-lds-time="2026-11-16T08:05:00+07:00"></time></span></div>
-  <div class="msg msg--me"><div class="bubble">Also the lab report, please.</div><span class="msg__meta">Edited</span></div>
-  <div class="msg msg--me"><div class="bubble">And the reading for week 6.</div><span class="field__help field__help--error"><span class="ic" aria-hidden="true">error</span>Not sent. You are offline.<button class="btn btn--plain btn--sm">Try again</button></span></div>
+  <div class="msg msg--me"><div class="bubble">Remind me which documents I need for Samsat on Friday.</div><span class="msg__meta"><time class="timestamp" data-lds-time="2026-11-16T08:05:00+07:00"></time></span></div>
+  <div class="msg msg--me"><div class="bubble">Also the BPKB copy, please.</div><span class="msg__meta">Edited</span></div>
+  <div class="msg msg--me"><div class="bubble">And the Samsat keliling times in Way Halim.</div><span class="field__help field__help--error"><span class="ic" aria-hidden="true">error</span>Not sent. You are offline.<button class="btn btn--plain btn--sm">Try again</button></span></div>
 </div>`,
     },
     {
@@ -68,7 +68,7 @@ export default {
       desc: 'Centered footnote text, no bubble. For what the conversation did, not for what someone said.',
       stage: 'block',
       html: `<div class="chat" style="max-width: 560px;">
-  <p class="msg msg--system">You switched to exam mode. Hints stay hidden until you submit.</p>
+  <p class="msg msg--system">You switched to guided mode. The form stays locked until every document is checked.</p>
 </div>`,
     },
   ],
@@ -92,7 +92,7 @@ export default {
   ],
   a11y: [
     'Messages are plain elements inside the `role="log"` column; do not give each one its own live region.',
-    'If speakers are not obvious from layout alone, add a visually hidden "You said" / "Tutor said" (`sr-only`) at the start of each message.',
+    'If speakers are not obvious from layout alone, add a visually hidden "You said" / "Assistant said" (`sr-only`) at the start of each message.',
     'Every action is an [icon button](icon-button) with an `aria-label` that names the object: "Copy answer", not "Copy".',
     'A failed message says so in text ("Not sent. You are offline.") with a Try again button next to it.',
   ],
