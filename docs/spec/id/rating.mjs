@@ -31,8 +31,8 @@ export default {
   <span class="field__label" id="rt-label">Bagaimana layanan pembuatan KTP hari ini?</span>
   <div class="stars" role="radiogroup" aria-labelledby="rt-label" onclick="${PICK}" onmouseover="${HOVER}" onmouseleave="${LEAVE}" onkeydown="${KEYS}">${stars(0)}</div>
 </div>`,
-      code: `<span class="field__label" id="course-rating">Bagaimana layanan pembuatan KTP hari ini?</span>
-<div class="stars" role="radiogroup" aria-labelledby="course-rating">
+      code: `<span class="field__label" id="service-rating">Bagaimana layanan pembuatan KTP hari ini?</span>
+<div class="stars" role="radiogroup" aria-labelledby="service-rating">
   <button type="button" class="star on" role="radio" aria-checked="false" tabindex="-1" aria-label="1 bintang"><span class="ic" aria-hidden="true">star</span></button>
   <button type="button" class="star on" role="radio" aria-checked="false" tabindex="-1" aria-label="2 bintang"><span class="ic" aria-hidden="true">star</span></button>
   <button type="button" class="star on" role="radio" aria-checked="true" tabindex="0" aria-label="3 bintang"><span class="ic" aria-hidden="true">star</span></button>

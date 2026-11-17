@@ -10,7 +10,7 @@ export default {
   order: 9,
   summary: 'Five stars for rating something from one to five. Hovering previews the score, clicking sets it; it works as a radio group from the keyboard.',
   when: [
-    'People rate a course, a lecturer, an explanation or a tryout from one to five.',
+    'People rate a service, an officer, an explanation or a visit from one to five.',
     'Showing an average rating read-only next to a title (static stars without buttons).',
   ],
   whenNot: [
@@ -19,7 +19,7 @@ export default {
     ['Showing a score as progress or a level', 'meter'],
     ['Choosing one of a few named levels (Easy, Medium, Hard)', 'segmented-control'],
   ],
-  where: 'At the end of the thing rated: after a finished course or tryout, in a review form, in a feedback [sheet](sheet) on phones. Read-only ratings sit next to the title or in a key-value row.',
+  where: 'At the end of the thing rated: after a finished service or visit, in a review form, in a feedback [sheet](sheet) on phones. Read-only ratings sit next to the title or in a key-value row.',
   anatomy: [
     ['.stars', 'Required. Inline row of five, 2 px apart. `role="radiogroup"` with an `aria-label` for input; `role="img"` with an `aria-label` ("4 of 5 stars") for display.'],
     ['button.star[role=radio]', 'Required for input. 40 px target with a filled `star` icon, `aria-checked` and a name ("4 stars").'],
@@ -28,14 +28,14 @@ export default {
   ],
   examples: [
     {
-      title: 'Rate a course',
+      title: 'Rate a service',
       desc: 'Hover to preview, click to set. From the keyboard, Tab to the stars and use the arrow keys.',
       html: `<div class="field" style="align-items: flex-start;">
-  <span class="field__label" id="rt-label">How was Database Systems?</span>
+  <span class="field__label" id="rt-label">How was the KTP service today?</span>
   <div class="stars" role="radiogroup" aria-labelledby="rt-label" onclick="${PICK}" onmouseover="${HOVER}" onmouseleave="${LEAVE}" onkeydown="${KEYS}">${stars(0)}</div>
 </div>`,
-      code: `<span class="field__label" id="course-rating">How was Database Systems?</span>
-<div class="stars" role="radiogroup" aria-labelledby="course-rating">
+      code: `<span class="field__label" id="service-rating">How was the KTP service today?</span>
+<div class="stars" role="radiogroup" aria-labelledby="service-rating">
   <button type="button" class="star on" role="radio" aria-checked="false" tabindex="-1" aria-label="1 star"><span class="ic" aria-hidden="true">star</span></button>
   <button type="button" class="star on" role="radio" aria-checked="false" tabindex="-1" aria-label="2 stars"><span class="ic" aria-hidden="true">star</span></button>
   <button type="button" class="star on" role="radio" aria-checked="true" tabindex="0" aria-label="3 stars"><span class="ic" aria-hidden="true">star</span></button>
@@ -49,7 +49,7 @@ export default {
       desc: 'Display only: spans, not buttons, and one name for the whole row.',
       html: `<div class="docs-row" style="gap: 8px;">
   <span class="stars" role="img" aria-label="4 of 5 stars"><span class="star on"><span class="ic" aria-hidden="true">star</span></span><span class="star on"><span class="ic" aria-hidden="true">star</span></span><span class="star on"><span class="ic" aria-hidden="true">star</span></span><span class="star on"><span class="ic" aria-hidden="true">star</span></span><span class="star"><span class="ic" aria-hidden="true">star</span></span></span>
-  <span class="field__help">4.2 from 318 students</span>
+  <span class="field__help">4.2 from 318 citizens</span>
 </div>`,
     },
   ],
