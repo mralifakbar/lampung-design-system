@@ -3,7 +3,7 @@ const opt = (v, label, sub, sel) => `<li class="menu__item${sel ? ' is-selected'
 export default {
   summary: 'Tombol berbentuk kolom yang membuka daftar opsi di bawahnya dan menampilkan yang dipilih. Untuk satu pilihan dari daftar tetap yang terlalu panjang untuk ditampilkan sebagai radio; jika orang perlu mengetik untuk menemukannya, pakai combobox.',
   when: [
-    'Satu nilai dari daftar tetap sekitar 6 sampai 30 opsi: jenjang pendidikan, semester, kategori ujian, provinsi saat daftarnya pendek.',
+    'Satu nilai dari daftar tetap sekitar 6 sampai 30 opsi: kecamatan, periode laporan, jenis pengaduan, kabupaten saat daftarnya pendek.',
     'Ruang terbatas, sehingga semua opsi tidak bisa terlihat (bilah filter, baris formulir).',
     'Opsi butuh baris keterangan kedua di dalam daftar (`.select__text` dengan `small`).',
   ],
@@ -11,7 +11,7 @@ export default {
     ['Dua sampai lima opsi yang muat di layar', 'radio', 'Opsi yang terlihat lebih cepat dibandingkan dan cukup sekali ketuk'],
     ['Setiap opsi butuh deskripsi, harga, atau badge', 'radio-card'],
     ['Beralih antartampilan dari konten yang sama saat itu juga', 'segmented-control'],
-    ['Daftar panjang (kota, sekolah, lebih dari sekitar 30) atau opsi dari server', 'combobox', 'Orang mengetik untuk menemukan alih-alih menggulir'],
+    ['Daftar panjang (desa, kelurahan, lebih dari sekitar 30) atau opsi dari server', 'combobox', 'Orang mengetik untuk menemukan alih-alih menggulir'],
     ['Beberapa nilai sekaligus', 'chips', 'Atau [checkbox](checkbox) di formulir, atau [tag input](tag-input) untuk nilai bebas'],
     ['Daftar aksi (Urutkan, Ekspor, Hapus)', 'dropdown-menu', 'Select menyimpan nilai; menu menjalankan perintah'],
     ['Berpindah antarbagian atau halaman', 'tabs', 'Atau [sidebar](sidebar) saat tujuannya banyak'],
@@ -27,17 +27,17 @@ export default {
   ],
   examples: [
     {
-      title: 'Pilih jenjang',
+      title: 'Pilih kecamatan',
       desc: 'Klik atau tekan Enter, Spasi, atau Bawah untuk membuka; panah berpindah; Enter memilih; Escape menutup; mengetik huruf melompat ke opsi pertama yang diawali huruf itu.',
       html: `<div class="field" style="max-width: 360px; width: 100%;">
-  <span class="field__label" id="se-level">Jenjang pendidikan</span>
+  <span class="field__label" id="se-level">Kecamatan</span>
   <div class="select" data-lds-select>
-    <button type="button" class="control select-trigger is-placeholder" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-level"><span class="select__value">Pilih jenjang</span><span class="ic" aria-hidden="true">expand_more</span></button>
+    <button type="button" class="control select-trigger is-placeholder" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-level"><span class="select__value">Pilih kecamatan</span><span class="ic" aria-hidden="true">expand_more</span></button>
     <ul class="menu select__menu" role="listbox" aria-labelledby="se-level">
-      ${opt('d3', 'Diploma', 'D-III')}
-      ${opt('s1', 'Sarjana', 'S-1, D-IV')}
-      ${opt('s2', 'Magister', 'S-2')}
-      ${opt('s3', 'Doktor', 'S-3')}
+      ${opt('kedaton', 'Kedaton', 'Bandar Lampung')}
+      ${opt('way-halim', 'Way Halim', 'Bandar Lampung')}
+      ${opt('metro-pusat', 'Metro Pusat', 'Kota Metro')}
+      ${opt('pringsewu', 'Pringsewu', 'Kabupaten Pringsewu')}
     </ul>
   </div>
 </div>`,
@@ -46,14 +46,14 @@ export default {
       title: 'Dengan ikon dan nilai terpilih',
       desc: 'Select di bilah filter yang sudah dipilih. Tanda centang menandai baris terpilih di daftar.',
       html: `<div class="field" style="max-width: 260px; width: 100%;">
-  <span class="field__label" id="se-sem">Semester</span>
+  <span class="field__label" id="se-sem">Periode laporan</span>
   <div class="select" data-lds-select>
-    <button type="button" class="control select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-sem"><span class="ic" aria-hidden="true">calendar_month</span><span class="select__value">Ganjil 2026/2027</span><span class="ic" aria-hidden="true">expand_more</span></button>
+    <button type="button" class="control select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-sem"><span class="ic" aria-hidden="true">calendar_month</span><span class="select__value">Triwulan III 2026</span><span class="ic" aria-hidden="true">expand_more</span></button>
     <ul class="menu select__menu" role="listbox" aria-labelledby="se-sem">
-      ${opt('2026-1', 'Ganjil 2026/2027', '', true)}
-      ${opt('2025-2', 'Genap 2025/2026')}
-      ${opt('2025-1', 'Ganjil 2025/2026')}
-      ${opt('2024-2', 'Genap 2024/2025')}
+      ${opt('2026-q3', 'Triwulan III 2026', '', true)}
+      ${opt('2026-q2', 'Triwulan II 2026')}
+      ${opt('2026-q1', 'Triwulan I 2026')}
+      ${opt('2025-q4', 'Triwulan IV 2025')}
     </ul>
   </div>
 </div>`,
@@ -62,16 +62,16 @@ export default {
       title: 'Wajib dan belum diisi',
       desc: 'Pemicunya adalah `.control`, jadi status galatnya sama dengan kolom lainnya.',
       html: `<div class="field" style="max-width: 360px; width: 100%;">
-  <span class="field__label" id="se-cat">Kategori ujian</span>
+  <span class="field__label" id="se-cat">Jenis pengaduan</span>
   <div class="select" data-lds-select>
-    <button type="button" class="control select-trigger is-placeholder is-invalid" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-cat" aria-invalid="true" aria-describedby="se-cat-help"><span class="select__value">Pilih kategori</span><span class="ic" aria-hidden="true">expand_more</span></button>
+    <button type="button" class="control select-trigger is-placeholder is-invalid" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-cat" aria-invalid="true" aria-describedby="se-cat-help"><span class="select__value">Pilih jenis</span><span class="ic" aria-hidden="true">expand_more</span></button>
     <ul class="menu select__menu" role="listbox" aria-labelledby="se-cat">
-      ${opt('twk', 'Tes wawasan kebangsaan')}
-      ${opt('tiu', 'Tes intelegensia umum')}
-      ${opt('tkp', 'Tes karakteristik pribadi')}
+      ${opt('jalan', 'Jalan rusak')}
+      ${opt('lampu', 'Lampu jalan padam')}
+      ${opt('sampah', 'Sampah tidak terangkut')}
     </ul>
   </div>
-  <span class="field__help field__help--error" id="se-cat-help"><span class="ic" aria-hidden="true">error</span>Pilih kategori untuk melihat bank soalnya.</span>
+  <span class="field__help field__help--error" id="se-cat-help"><span class="ic" aria-hidden="true">error</span>Pilih jenis pengaduan agar laporan sampai ke dinas yang tepat.</span>
 </div>`,
     },
   ],
@@ -96,8 +96,8 @@ export default {
     'Tidak ada nilai formulir bawaan: saat `lds:change` tulis nilainya ke input tersembunyi, atau baca dari state Anda.',
   ],
   do: [
-    'Tulis placeholder yang menyebut aksinya ("Pilih jenjang"), dan tampilkan bawaan terpilih jika memang jelas benar.',
-    'Urutkan opsi sesuai harapan orang (jenjang, waktu, abjad), bukan berdasarkan id basis data.',
+    'Tulis placeholder yang menyebut aksinya ("Pilih kecamatan"), dan tampilkan bawaan terpilih jika memang jelas benar.',
+    'Urutkan opsi sesuai harapan orang (abjad, waktu, wilayah), bukan berdasarkan id basis data.',
     'Pakai baris kedua (`small`) untuk kode atau keterangan singkat, bukan teks promosi.',
   ],
   dont: [
@@ -108,15 +108,15 @@ export default {
   js: '`data-lds-select` pada `.select`: membuka dan menutup listbox, menangani tombol di atas, menutup saat pointer di luar, menulis label terpilih ke `.select__value`, dan memicu `lds:change` dengan `{ value, label }` pada pembungkus (nilai dari `data-value`).',
   react: `import { Select } from 'lampung-design-system/react';
 
-<span className="field__label" id="level-label">Jenjang pendidikan</span>
+<span className="field__label" id="level-label">Kecamatan</span>
 <Select
   labelledBy="level-label"
   value={level}
   onChange={setLevel}
-  placeholder="Pilih jenjang"
+  placeholder="Pilih kecamatan"
   options={[
-    { value: 'd3', label: 'Diploma', sub: 'D-III' },
-    { value: 's1', label: 'Sarjana', sub: 'S-1, D-IV' },
+    { value: 'kedaton', label: 'Kedaton', sub: 'Bandar Lampung' },
+    { value: 'way-halim', label: 'Way Halim', sub: 'Bandar Lampung' },
   ]}
 />`,
 };

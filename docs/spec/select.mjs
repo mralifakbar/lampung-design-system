@@ -6,7 +6,7 @@ export default {
   order: 8,
   summary: 'A field-shaped button that opens a list of options below it and shows the one chosen. For one choice from a fixed list too long to show as radios; if people need to type to find it, use a combobox.',
   when: [
-    'One value from a fixed list of about 6 to 30 options: education level, semester, exam category, province when the list is short.',
+    'One value from a fixed list of about 6 to 30 options: district (kecamatan), report period, complaint type, regency when the list is short.',
     'Space is tight, so the options cannot all be visible (a filter bar, a form row).',
     'Options need a second line of detail inside the list (`.select__text` with `small`).',
   ],
@@ -14,7 +14,7 @@ export default {
     ['Two to five options that fit on screen', 'radio', 'Visible options are faster to compare and need one tap'],
     ['Each option needs a description, a price or a badge', 'radio-card'],
     ['Switching between views of the same content right now', 'segmented-control'],
-    ['A long list (cities, schools, more than about 30) or options from a server', 'combobox', 'People type to find instead of scrolling'],
+    ['A long list (villages, kelurahan, more than about 30) or options from a server', 'combobox', 'People type to find instead of scrolling'],
     ['Several values at once', 'chips', 'Or [checkboxes](checkbox) in a form, or a [tag input](tag-input) for free values'],
     ['A list of actions (Sort, Export, Delete)', 'dropdown-menu', 'A select stores a value; a menu runs a command'],
     ['Moving between sections or pages', 'tabs', 'Or a [sidebar](sidebar) when there are many destinations'],
@@ -30,17 +30,17 @@ export default {
   ],
   examples: [
     {
-      title: 'Choose a level',
+      title: 'Choose a district',
       desc: 'Click or press Enter, Space or Down to open; arrows move; Enter picks; Escape closes; typing jumps to the first option starting with the letters.',
       html: `<div class="field" style="max-width: 360px; width: 100%;">
-  <span class="field__label" id="se-level">Education level</span>
+  <span class="field__label" id="se-level">District (kecamatan)</span>
   <div class="select" data-lds-select>
-    <button type="button" class="control select-trigger is-placeholder" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-level"><span class="select__value">Choose a level</span><span class="ic" aria-hidden="true">expand_more</span></button>
+    <button type="button" class="control select-trigger is-placeholder" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-level"><span class="select__value">Choose a district</span><span class="ic" aria-hidden="true">expand_more</span></button>
     <ul class="menu select__menu" role="listbox" aria-labelledby="se-level">
-      ${opt('d3', 'Diploma', 'D-III')}
-      ${opt('s1', 'Bachelor', 'S-1, D-IV')}
-      ${opt('s2', 'Master', 'S-2')}
-      ${opt('s3', 'Doctorate', 'S-3')}
+      ${opt('kedaton', 'Kedaton', 'Bandar Lampung')}
+      ${opt('way-halim', 'Way Halim', 'Bandar Lampung')}
+      ${opt('metro-pusat', 'Metro Pusat', 'Kota Metro')}
+      ${opt('pringsewu', 'Pringsewu', 'Kabupaten Pringsewu')}
     </ul>
   </div>
 </div>`,
@@ -50,14 +50,14 @@ export default {
       title: 'With an icon and a chosen value',
       desc: 'A filter bar select, chosen already. The check marks the selected row in the list.',
       html: `<div class="field" style="max-width: 260px; width: 100%;">
-  <span class="field__label" id="se-sem">Semester</span>
+  <span class="field__label" id="se-sem">Report period</span>
   <div class="select" data-lds-select>
-    <button type="button" class="control select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-sem"><span class="ic" aria-hidden="true">calendar_month</span><span class="select__value">Odd 2026/2027</span><span class="ic" aria-hidden="true">expand_more</span></button>
+    <button type="button" class="control select-trigger" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-sem"><span class="ic" aria-hidden="true">calendar_month</span><span class="select__value">Q3 2026</span><span class="ic" aria-hidden="true">expand_more</span></button>
     <ul class="menu select__menu" role="listbox" aria-labelledby="se-sem">
-      ${opt('2026-1', 'Odd 2026/2027', '', true)}
-      ${opt('2025-2', 'Even 2025/2026')}
-      ${opt('2025-1', 'Odd 2025/2026')}
-      ${opt('2024-2', 'Even 2024/2025')}
+      ${opt('2026-q3', 'Q3 2026', '', true)}
+      ${opt('2026-q2', 'Q2 2026')}
+      ${opt('2026-q1', 'Q1 2026')}
+      ${opt('2025-q4', 'Q4 2025')}
     </ul>
   </div>
 </div>`,
@@ -67,16 +67,16 @@ export default {
       title: 'Required and missing',
       desc: 'The trigger is a `.control`, so the error state is the same as any field.',
       html: `<div class="field" style="max-width: 360px; width: 100%;">
-  <span class="field__label" id="se-cat">Exam category</span>
+  <span class="field__label" id="se-cat">Complaint type</span>
   <div class="select" data-lds-select>
-    <button type="button" class="control select-trigger is-placeholder is-invalid" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-cat" aria-invalid="true" aria-describedby="se-cat-help"><span class="select__value">Choose a category</span><span class="ic" aria-hidden="true">expand_more</span></button>
+    <button type="button" class="control select-trigger is-placeholder is-invalid" aria-haspopup="listbox" aria-expanded="false" aria-labelledby="se-cat" aria-invalid="true" aria-describedby="se-cat-help"><span class="select__value">Choose a type</span><span class="ic" aria-hidden="true">expand_more</span></button>
     <ul class="menu select__menu" role="listbox" aria-labelledby="se-cat">
-      ${opt('twk', 'National insight test')}
-      ${opt('tiu', 'General aptitude test')}
-      ${opt('tkp', 'Personal character test')}
+      ${opt('jalan', 'Damaged road')}
+      ${opt('lampu', 'Street light out')}
+      ${opt('sampah', 'Uncollected rubbish')}
     </ul>
   </div>
-  <span class="field__help field__help--error" id="se-cat-help"><span class="ic" aria-hidden="true">error</span>Choose a category to see its question bank.</span>
+  <span class="field__help field__help--error" id="se-cat-help"><span class="ic" aria-hidden="true">error</span>Choose a complaint type so the report reaches the right agency.</span>
 </div>`,
       height: 260,
     },
@@ -102,8 +102,8 @@ export default {
     'There is no native form value: on `lds:change` write the value into a hidden input, or read it from your state.',
   ],
   do: [
-    'Write a placeholder that says the action ("Choose a level"), and show a chosen default when one is clearly right.',
-    'Order options in a way people expect (level, time, alphabet), not by database id.',
+    'Write a placeholder that says the action ("Choose a district"), and show a chosen default when one is clearly right.',
+    'Order options in a way people expect (alphabet, time, region), not by database id.',
     'Use the second line (`small`) for codes or short detail, not for marketing copy.',
   ],
   dont: [
@@ -114,15 +114,15 @@ export default {
   js: '`data-lds-select` on `.select`: opens and closes the listbox, handles the keys above, closes on an outside pointer, writes the chosen label into `.select__value`, and fires `lds:change` with `{ value, label }` on the wrapper (value from `data-value`).',
   react: `import { Select } from 'lampung-design-system/react';
 
-<span className="field__label" id="level-label">Education level</span>
+<span className="field__label" id="level-label">District (kecamatan)</span>
 <Select
   labelledBy="level-label"
   value={level}
   onChange={setLevel}
-  placeholder="Choose a level"
+  placeholder="Choose a district"
   options={[
-    { value: 'd3', label: 'Diploma', sub: 'D-III' },
-    { value: 's1', label: 'Bachelor', sub: 'S-1, D-IV' },
+    { value: 'kedaton', label: 'Kedaton', sub: 'Bandar Lampung' },
+    { value: 'way-halim', label: 'Way Halim', sub: 'Bandar Lampung' },
   ]}
 />`,
   related: ['combobox', 'radio-card', 'segmented-control', 'dropdown-menu'],
