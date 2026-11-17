@@ -19,7 +19,7 @@ export default {
   ],
   examples: [
     {
-      title: 'Refresh a schedule',
+      title: 'Refresh a clinic schedule',
       desc: 'Drag the list down with the mouse or a finger and let go past the spinner. The button does the same thing for people who cannot drag.',
       stage: 'phone',
       html: `<div class="phone phone--inline" style="height: 500px; --phone-top: 0px;">
@@ -29,9 +29,9 @@ export default {
     <div class="navbar-gap"></div>
     <h3 class="large-title">Today</h3>
     <div style="padding: 12px 16px 40px;"><div class="list list--fill">
-      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Database Systems</span><span class="lrow__sub">08:00 · Room H 2.14</span></span></div>
-      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Computer Networks</span><span class="lrow__sub">13:00 · Lab 3.01</span></span></div>
-      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Software Engineering</span><span class="lrow__sub">15:30 · Room H 3.05</span></span></div>
+      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Prenatal check-up</span><span class="lrow__sub">08:00 · Puskesmas, room 2</span></span></div>
+      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Toddler immunization</span><span class="lrow__sub">13:00 · Posyandu Melati</span></span></div>
+      <div class="lrow"><span class="lrow__body"><span class="lrow__title">Nutrition consultation</span><span class="lrow__sub">15:30 · Puskesmas, room 5</span></span></div>
     </div></div>
   </div>
 </div>`,
