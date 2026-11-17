@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.2
+
+- Vertical `LdsSteps` lays out inside scrolling lists instead of throwing.
+- `LdsTabs` and `LdsSlidingIndicator` size to their content in a vertical list.
+- `LdsPagination`, `LdsKbd` and `LdsCitation.span` hug their content.
+- `LdsHoldToConfirm` centers its label.
+- `LdsPaper` sizes its number columns to their content.
+- `LdsEventCalendar` fits 375 pt screens.
+- Example app: a Komponen tab with a searchable gallery of every widget.
+
 ## 0.1.1
 
 - `LdsSwipeActions` collapses its row with `Align` instead of the deprecated
