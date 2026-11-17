@@ -34,8 +34,8 @@ export default {
   <span class="sidebar__head">Workspace</span>
   <button class="sidebar__item"><span class="ic" aria-hidden="true">home</span>Home</button>
   <button class="sidebar__item"><span class="ic" aria-hidden="true">calendar_month</span>Schedule</button>
-  <button class="sidebar__item" aria-current="page"><span class="ic" aria-hidden="true">menu_book</span>Courses<span class="sidebar__badge">6</span></button>
-  <button class="sidebar__item"><span class="ic" aria-hidden="true">assignment</span>Assignments<span class="sidebar__badge">3</span></button>
+  <button class="sidebar__item" aria-current="page"><span class="ic" aria-hidden="true">menu_book</span>Services<span class="sidebar__badge">6</span></button>
+  <button class="sidebar__item"><span class="ic" aria-hidden="true">assignment</span>Applications<span class="sidebar__badge">3</span></button>
   <button class="sidebar__item"><span class="ic" aria-hidden="true">receipt_long</span>Billing</button>
   <button class="sidebar__item"><span class="ic" aria-hidden="true">settings</span>Settings</button>
 </nav>`,
@@ -43,7 +43,7 @@ export default {
   <span class="sidebar__hl" aria-hidden="true" style="transform: translateY(120px);"></span>
   <span class="sidebar__head">Workspace</span>
   <a class="sidebar__item" href="/home"><span class="ic" aria-hidden="true">home</span>Home</a>
-  <a class="sidebar__item" href="/courses" aria-current="page"><span class="ic" aria-hidden="true">menu_book</span>Courses<span class="sidebar__badge">6</span></a>
+  <a class="sidebar__item" href="/services" aria-current="page"><span class="ic" aria-hidden="true">menu_book</span>Services<span class="sidebar__badge">6</span></a>
 </nav>
 <script type="module">
   // Move the one highlight to the current item
@@ -64,7 +64,7 @@ export default {
     <a class="sidebar__item" href="#sb2"><span class="ic" aria-hidden="true">lock</span>Password and sign in</a>
   </nav>
   <div class="section" id="sb2">
-    <div class="section__head"><h2>Profile</h2><p class="section__sub">How your name and photo appear to lecturers and classmates.</p></div>
+    <div class="section__head"><h2>Profile</h2><p class="section__sub">How your name and photo appear to service officers.</p></div>
   </div>
 </div>`,
     },

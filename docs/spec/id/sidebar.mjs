@@ -39,7 +39,7 @@ export default {
   <span class="sidebar__hl" aria-hidden="true" style="transform: translateY(120px);"></span>
   <span class="sidebar__head">Ruang kerja</span>
   <a class="sidebar__item" href="/home"><span class="ic" aria-hidden="true">home</span>Beranda</a>
-  <a class="sidebar__item" href="/courses" aria-current="page"><span class="ic" aria-hidden="true">menu_book</span>Layanan<span class="sidebar__badge">6</span></a>
+  <a class="sidebar__item" href="/services" aria-current="page"><span class="ic" aria-hidden="true">menu_book</span>Layanan<span class="sidebar__badge">6</span></a>
 </nav>
 <script type="module">
   // Move the one highlight to the current item
