@@ -28,8 +28,8 @@ export default {
       html: `<div class="feature" style="width: 100%;">
   <div class="feature__copy">
     <span class="msec__eyebrow"><span class="ic ic--sm" aria-hidden="true">code</span>Ekspor</span>
-    <h3 class="feature__title">Nilai siswa, dalam format yang diminta dinas.</h3>
-    <p class="feature__body">Ekspor nilai satu semester sebagai spreadsheet, laporan PDF atau berkas untuk sistem data pendidikan.</p>
+    <h3 class="feature__title">Data penerima bantuan sosial, dalam format yang diminta dinas.</h3>
+    <p class="feature__body">Ekspor satu tahap penyaluran sebagai spreadsheet, laporan PDF atau berkas untuk sistem data kesejahteraan daerah.</p>
     <ul class="feature__points">
       <li><span class="ic" aria-hidden="true">check_circle</span><span>Kolomnya sesuai templat resmi.</span></li>
       <li><span class="ic" aria-hidden="true">check_circle</span><span>Ekspor berjalan di latar belakang.</span></li>
@@ -37,9 +37,9 @@ export default {
   </div>
   <div class="feature__stage">
     <div class="seg" role="group" aria-label="Format" data-lds-segmented style="width: 240px;"><span class="seg__thumb"></span><button class="seg__btn" aria-pressed="true">CSV</button><button class="seg__btn" aria-pressed="false">PDF</button></div>
-    <div class="codeblock"><div class="codeblock__bar"><span>nilai-semester-1.csv</span></div><pre>student_id,name,grade
-2026001,Siti Rahmawati,A
-2026002,Budi Santoso,B+</pre></div>
+    <div class="codeblock"><div class="codeblock__bar"><span>penerima-bansos-tahap-1.csv</span></div><pre>nik,nama,kelurahan,status
+1871 •••• •••• 0042,Siti Rahmawati,Way Halim,terverifikasi
+1871 •••• •••• 0317,Budi Santoso,Kedaton,menunggu</pre></div>
     <span class="feature__caption">Data contoh.</span>
   </div>
 </div>`,
