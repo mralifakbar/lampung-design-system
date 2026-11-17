@@ -4,10 +4,10 @@ export default {
   title: 'Date tile',
   group: 'Data display',
   order: 13.5,
-  summary: 'A small month-and-day block at the start of a row, for lists of things that happen on a date: classes, exams, payments due, events. People find the date before the title, so it leads.',
+  summary: 'A small month-and-day block at the start of a row, for lists of things that happen on a date: posyandu sessions, mobile Samsat visits, payments due, events. People find the date before the title, so it leads.',
   when: [
-    'A list of upcoming events or deadlines where the day is how people scan: exams, webinars, invoices due.',
-    'A card that announces one dated thing: the next class, a payment due.',
+    'A list of upcoming events or deadlines where the day is how people scan: posyandu sessions, public briefings, levies due.',
+    'A card that announces one dated thing: the next mobile Samsat visit, a payment due.',
   ],
   whenNot: [
     ['Picking a date', 'date-field'],
@@ -29,10 +29,10 @@ export default {
       desc: 'Today first and accented, then the coming week. Badges say the kind of event in words.',
       stage: 'block',
       html: `<div class="list" style="max-width: 460px;">
-  ${row('Nov', 16, '2026-11-16', 'Statistics: live review', 'Today, 19:00 to 20:30 · Online', '<span class="badge badge--accent">Live</span>', ' datetile--today')}
-  ${row('Nov', 18, '2026-11-18', 'Database Systems quiz 4', 'Wed, opens 08:00 · 30 minutes', '<span class="badge">Quiz</span>')}
-  ${row('Nov', 21, '2026-11-21', 'Mock exam, hall B', 'Sat, 09:00 · Seat 42', '<span class="badge badge--warning">Bring ID</span>')}
-  ${row('Dec', 2, '2026-12-02', 'Second tuition payment due', 'Wed · $420', '')}
+  ${row('Nov', 16, '2026-11-16', 'Regional tax briefing', 'Today, 19:00 to 20:30 · Online', '<span class="badge badge--accent">Live</span>', ' datetile--today')}
+  ${row('Nov', 18, '2026-11-18', 'Posyandu for toddlers, RW 03', 'Wed, opens 08:00 · 3 hours', '<span class="badge">Health</span>')}
+  ${row('Nov', 21, '2026-11-21', 'Mobile Samsat, Lapangan Saburai', 'Sat, 09:00 · Queue 42', '<span class="badge badge--warning">Bring KTP</span>')}
+  ${row('Dec', 2, '2026-12-02', 'Market levy due', 'Wed · Rp 75.000', '')}
 </div>`,
     },
     {

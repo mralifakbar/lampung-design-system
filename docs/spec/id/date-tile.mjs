@@ -1,10 +1,10 @@
 const row = (m, d, iso, title, sub, badge = '', mod = '') => `<a class="lrow" href="#dt-${iso}" id="dt-${iso}"><time class="datetile${mod}" datetime="${iso}"><span class="datetile__m">${m}</span><span class="datetile__d">${d}</span></time><span class="lrow__body"><span class="lrow__title">${title}</span><span class="lrow__sub">${sub}</span></span>${badge}<span class="ic lrow__chev" aria-hidden="true">chevron_right</span></a>`;
 
 export default {
-  summary: 'Blok kecil berisi bulan dan tanggal di awal baris, untuk daftar hal yang terjadi pada suatu tanggal: kelas, ujian, tagihan jatuh tempo, acara. Orang mencari tanggal sebelum judul, jadi tanggal diletakkan paling depan.',
+  summary: 'Blok kecil berisi bulan dan tanggal di awal baris, untuk daftar hal yang terjadi pada suatu tanggal: posyandu, Samsat keliling, tagihan jatuh tempo, acara. Orang mencari tanggal sebelum judul, jadi tanggal diletakkan paling depan.',
   when: [
-    'Daftar acara atau tenggat mendatang yang dipindai menurut hari: ujian, webinar, tagihan jatuh tempo.',
-    'Kartu yang mengumumkan satu hal bertanggal: kelas berikutnya, pembayaran yang jatuh tempo.',
+    'Daftar acara atau tenggat mendatang yang dipindai menurut hari: posyandu, sosialisasi warga, retribusi jatuh tempo.',
+    'Kartu yang mengumumkan satu hal bertanggal: jadwal Samsat keliling berikutnya, pembayaran yang jatuh tempo.',
   ],
   whenNot: [
     ['Memilih tanggal', 'date-field'],
@@ -27,7 +27,7 @@ export default {
       html: `<div class="list" style="max-width: 460px;">
   ${row('Nov', 16, '2026-11-16', 'Sosialisasi pajak daerah', 'Hari ini, 19.00 sampai 20.30 · Daring', '<span class="badge badge--accent">Langsung</span>', ' datetile--today')}
   ${row('Nov', 18, '2026-11-18', 'Posyandu balita RW 03', 'Rab, buka 08.00 · 3 jam', '<span class="badge">Kesehatan</span>')}
-  ${row('Nov', 21, '2026-11-21', 'Ujian tryout, aula B', 'Sab, 09.00 · Kursi 42', '<span class="badge badge--warning">Bawa KTP</span>')}
+  ${row('Nov', 21, '2026-11-21', 'Samsat keliling, Lapangan Saburai', 'Sab, 09.00 · Antrean 42', '<span class="badge badge--warning">Bawa KTP</span>')}
   ${row('Des', 2, '2026-12-02', 'Retribusi pasar jatuh tempo', 'Rab · Rp 75.000', '')}
 </div>`,
     },
