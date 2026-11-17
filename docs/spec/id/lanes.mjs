@@ -19,7 +19,7 @@ const leave = `<div class="lanes-box" tabindex="0" role="region" aria-label="Cut
     <div class="lanes__head"><div class="lanes__corner">Tim layanan digital</div><div class="lanes__ticks">${days.map(([d, n], i) => `<span class="lanes__tick${i === 0 ? ' is-today' : ''}${d === 'Sab' || d === 'Min' ? ' is-off' : ''}">${d}<b>${n}</b></span>`).join('')}</div></div>
     <div class="lanes__row">${who('DL', 'Dewi Lestari', 'Desainer')}<div class="lanes__track">${off}${item(2, 3, 'Cuti tahunan')}</div></div>
     <div class="lanes__row">${who('GR', 'Galih Ramadhan', 'Pengembang')}<div class="lanes__track">${off}${item(0, 1, 'Sakit', '', ' lanes__item--2')}${item(9, 3, 'Diajukan', 'Cuti tahunan', ' lanes__item--pending')}</div></div>
-    <div class="lanes__row">${who('SH', 'Sari Handayani', 'Pengelola produk')}<div class="lanes__track">${off}${item(7, 5, 'Cuti melahirkan', 'Sampai 4 Des', ' lanes__item--4')}</div></div>
+    <div class="lanes__row">${who('SH', 'Sari Handayani', 'Pengelola layanan')}<div class="lanes__track">${off}${item(7, 5, 'Cuti melahirkan', 'Sampai 4 Des', ' lanes__item--4')}</div></div>
   </div>
 </div>`;
 

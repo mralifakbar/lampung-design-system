@@ -3,12 +3,12 @@ const hours = ['07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '13:00', '1
 const who = (ini, name, sub) => `<div class="lanes__who"><span class="avatar avatar--gray" aria-hidden="true">${ini}</span><span class="lanes__id"><span class="lanes__name">${name}</span><span class="lanes__sub">${sub}</span></span></div>`;
 const item = (from, span, title, sub = '', mod = '', tag = 'div') => `<${tag} class="lanes__item${mod}"${tag === 'button' ? ' type="button"' : ''} style="--from: ${from}; --span: ${span};"><span>${title}</span>${sub ? `<small>${sub}</small>` : ''}</${tag}>`;
 
-const roster = `<div class="lanes-box" tabindex="0" role="region" aria-label="Tutors today, scrolls sideways">
+const roster = `<div class="lanes-box" tabindex="0" role="region" aria-label="Doctors today, scrolls sideways">
   <div class="lanes lanes--now" style="--cols: 10; --now: 3.33;">
-    <div class="lanes__head"><div class="lanes__corner">Tutor</div><div class="lanes__ticks">${hours.map((h) => `<span class="lanes__tick">${h}</span>`).join('')}</div></div>
-    <div class="lanes__row">${who('NP', 'Nadia Putri', 'Statistics')}<div class="lanes__track">${item(1, 2, 'Group review', 'Room 3')}${item(5, 1, 'Lunch', '', ' lanes__item--muted')}${item(6, 1.5, 'Free', 'Book 13:00', ' lanes__item--free', 'button')}${item(7.5, 2, 'Office hours', 'Online', ' lanes__item--3')}</div></div>
-    <div class="lanes__row">${who('RH', 'Rizky Hartono', 'Database Systems')}<div class="lanes__track">${item(0, 3, 'Lab session', 'Lab B', ' lanes__item--4')}${item(3.5, 1.5, 'Free', 'Book 10:30', ' lanes__item--free', 'button')}${item(5, 1, 'Lunch', '', ' lanes__item--muted')}${item(6, 3, 'Exam marking', '', ' lanes__item--2')}</div></div>
-    <div class="lanes__row">${who('AL', 'Ayu Lestari', 'Academic writing')}<div class="lanes__track"><span class="lanes__off" style="--from: 0; --span: 2;"></span>${item(2, 2.5, 'One to one', '6 students')}${item(5, 1, 'Lunch', '', ' lanes__item--muted')}${item(6, 2, 'Hold: thesis clinic', 'Not confirmed', ' lanes__item--pending')}</div></div>
+    <div class="lanes__head"><div class="lanes__corner">Doctor</div><div class="lanes__ticks">${hours.map((h) => `<span class="lanes__tick">${h}</span>`).join('')}</div></div>
+    <div class="lanes__row">${who('NP', 'dr. Nadia Putri', 'General clinic')}<div class="lanes__track">${item(1, 2, 'Elderly posyandu', 'Room 3')}${item(5, 1, 'Lunch', '', ' lanes__item--muted')}${item(6, 1.5, 'Free', 'Book 13:00', ' lanes__item--free', 'button')}${item(7.5, 2, 'Online consultation', 'Teleconsultation', ' lanes__item--3')}</div></div>
+    <div class="lanes__row">${who('RH', 'dr. Rizky Hartono', 'Child clinic')}<div class="lanes__track">${item(0, 3, 'Immunization', 'Room B', ' lanes__item--4')}${item(3.5, 1.5, 'Free', 'Book 10:30', ' lanes__item--free', 'button')}${item(5, 1, 'Lunch', '', ' lanes__item--muted')}${item(6, 3, 'Medical records recap', '', ' lanes__item--2')}</div></div>
+    <div class="lanes__row">${who('AL', 'drg. Ayu Lestari', 'Dental clinic')}<div class="lanes__track"><span class="lanes__off" style="--from: 0; --span: 2;"></span>${item(2, 2.5, 'Patient checks', '6 patients')}${item(5, 1, 'Lunch', '', ' lanes__item--muted')}${item(6, 2, 'Hold: school dental check', 'Not confirmed', ' lanes__item--pending')}</div></div>
   </div>
 </div>`;
 
@@ -16,10 +16,10 @@ const days = [['Mon', 16], ['Tue', 17], ['Wed', 18], ['Thu', 19], ['Fri', 20], [
 const off = '<span class="lanes__off" style="--from: 5; --span: 2;"></span><span class="lanes__off" style="--from: 12; --span: 2;"></span>';
 const leave = `<div class="lanes-box" tabindex="0" role="region" aria-label="Team time off, 16 to 29 November, scrolls sideways">
   <div class="lanes" style="--cols: 14; --col-min: 44px; --who: 180px;">
-    <div class="lanes__head"><div class="lanes__corner">Product team</div><div class="lanes__ticks">${days.map(([d, n], i) => `<span class="lanes__tick${i === 0 ? ' is-today' : ''}${d === 'Sat' || d === 'Sun' ? ' is-off' : ''}">${d}<b>${n}</b></span>`).join('')}</div></div>
+    <div class="lanes__head"><div class="lanes__corner">Digital service team</div><div class="lanes__ticks">${days.map(([d, n], i) => `<span class="lanes__tick${i === 0 ? ' is-today' : ''}${d === 'Sat' || d === 'Sun' ? ' is-off' : ''}">${d}<b>${n}</b></span>`).join('')}</div></div>
     <div class="lanes__row">${who('DL', 'Dewi Lestari', 'Designer')}<div class="lanes__track">${off}${item(2, 3, 'Annual leave')}</div></div>
-    <div class="lanes__row">${who('GR', 'Galih Ramadhan', 'Engineer')}<div class="lanes__track">${off}${item(0, 1, 'Sick', '', ' lanes__item--2')}${item(9, 3, 'Requested', 'Annual leave', ' lanes__item--pending')}</div></div>
-    <div class="lanes__row">${who('SH', 'Sari Handayani', 'Product manager')}<div class="lanes__track">${off}${item(7, 5, 'Parental leave', 'Until 4 Dec', ' lanes__item--4')}</div></div>
+    <div class="lanes__row">${who('GR', 'Galih Ramadhan', 'Developer')}<div class="lanes__track">${off}${item(0, 1, 'Sick', '', ' lanes__item--2')}${item(9, 3, 'Requested', 'Annual leave', ' lanes__item--pending')}</div></div>
+    <div class="lanes__row">${who('SH', 'Sari Handayani', 'Service manager')}<div class="lanes__track">${off}${item(7, 5, 'Parental leave', 'Until 4 Dec', ' lanes__item--4')}</div></div>
   </div>
 </div>`;
 
@@ -29,7 +29,7 @@ export default {
   order: 22.4,
   summary: 'Who is busy when: one row per person, room or resource, time running across, and blocks placed by their start and length. The question it answers is "who is free, and when", so gaps matter as much as blocks.',
   when: [
-    'A roster where people book or plan around each other\'s time: doctors\' hours today, tutors, shifts.',
+    'A roster where people book or plan around each other\'s time: doctors\' hours today, field assistants, officer shifts.',
     'Team time off across one to four weeks, with requests that are not approved yet.',
     'Rooms, beds or vehicles booked by the hour or the day.',
   ],
@@ -53,7 +53,7 @@ export default {
   examples: [
     {
       title: 'Who is free today',
-      desc: 'Tutors by the hour, with a line at now. Free time is a dashed, quiet block that books on press; a hold that is not confirmed has a dashed edge in its tone; lunch is neutral. Narrow the window: the box scrolls and the names stay.',
+      desc: 'Doctors by the hour, with a line at now. Free time is a dashed, quiet block that books on press; a hold that is not confirmed has a dashed edge in its tone; lunch is neutral. Narrow the window: the box scrolls and the names stay.',
       stage: 'block',
       html: roster,
     },
