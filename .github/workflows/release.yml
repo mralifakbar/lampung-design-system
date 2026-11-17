@@ -56,15 +56,27 @@ jobs:
 
   pub:
     name: Publish to pub.dev
-    needs: [npm, pub-check]
+    # Independent of the npm job, so one registry failing never blocks the other.
+    needs: pub-check
     if: needs.pub-check.outputs.published != 'true'
-    # pub.dev automated publishing: enable it for this repository and the tag pattern v{{version}}
-    # in the package admin page, then this job authenticates with GitHub OIDC (no secret needed).
-    uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
-    with:
-      working-directory: packages/flutter
-      # pub.dev only accepts uploads from this GitHub Actions environment (package admin settings).
-      environment: pub.dev
+    runs-on: ubuntu-latest
+    # pub.dev automated publishing trusts this repository, tags v{{version}} and this environment.
+    environment: pub.dev
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v7
+      # setup-dart exchanges the GitHub OIDC token for pub.dev credentials; Flutter then publishes,
+      # which plain `dart pub publish` cannot do for a package that depends on the Flutter SDK.
+      - uses: dart-lang/setup-dart@v1
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: 3.38.5
+          channel: stable
+      - run: flutter pub get
+        working-directory: packages/flutter
+      - run: flutter pub publish --force
+        working-directory: packages/flutter
 
   github:
     name: GitHub release
