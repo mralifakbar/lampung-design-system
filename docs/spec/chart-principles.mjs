@@ -1,6 +1,6 @@
 const days = [['Mon', 12], ['Tue', 18], ['Wed', 26], ['Thu', 22], ['Fri', 31], ['Sat', 9], ['Sun', 4]];
 const max = 32;
-const bars = days.map(([d, v]) => `<div class="bars__col"><span class="bars__bar${v === 31 ? '' : ' bars__bar--muted'}" style="height: ${Math.round((v / max) * 100)}%;"><span class="bars__tip">${v} submitted</span></span><span class="bars__x">${d}</span></div>`).join('\n      ');
+const bars = days.map(([d, v]) => `<div class="bars__col"><span class="bars__bar${v === 31 ? '' : ' bars__bar--muted'}" style="height: ${Math.round((v / max) * 100)}%;"><span class="bars__tip">${v} reports</span></span><span class="bars__x">${d}</span></div>`).join('\n      ');
 
 export default {
   title: 'Chart principles',
@@ -23,7 +23,7 @@ export default {
   anatomy: [
     ['.chart-card', 'Required. 20 px padding, 18 px radius, `--line` ring, 14 px between parts.'],
     ['.chart-card__q', 'Required. The question the chart answers, as a sentence: "Which days are busiest?"'],
-    ['.chart-card__sub', 'Recommended. What is measured and over which period: "Assignments submitted per weekday".'],
+    ['.chart-card__sub', 'Recommended. What is measured and over which period: "Citizen reports received per weekday".'],
     ['.chart-card__big', 'Optional. The one number the reader came for, 32 px tabular.'],
     ['.legend', 'Only when direct labels do not fit. `span` items with an `i` swatch colored inline.'],
     ['text alternative', 'Required. `role="img"` + `aria-label` with the takeaway, plus a `.sr-only` table when the values matter.'],
@@ -34,8 +34,8 @@ export default {
       desc: 'The title asks the question, the highlighted bar answers it, the other bars recede. Hover a bar for its value.',
       stage: 'block',
       html: `<div class="chart-card" style="max-width: 520px;">
-  <div><div class="chart-card__q">Which days are busiest?</div><div class="chart-card__sub">Assignments submitted per weekday, this week</div></div>
-  <div class="bars" role="img" aria-label="Submissions per weekday. Friday is busiest with 31, Sunday quietest with 4.">
+  <div><div class="chart-card__q">Which days are busiest?</div><div class="chart-card__sub">Citizen reports received per weekday, this week</div></div>
+  <div class="bars" role="img" aria-label="Citizen reports per weekday. Friday is busiest with 31 reports, Sunday quietest with 4.">
       ${bars}
   </div>
 </div>`,
@@ -56,15 +56,15 @@ export default {
       desc: 'The chart is one image with a summary; the exact values sit in a visually hidden table for screen readers.',
       stage: 'block',
       html: `<div class="chart-card" style="max-width: 420px;">
-  <div><div class="chart-card__q">Where do my credits go?</div><div class="chart-card__sub">Share of 120 credits by course type</div></div>
-  <div class="pbar" role="img" aria-label="Core courses take half of all credits.">
+  <div><div class="chart-card__q">Where does local tax come from?</div><div class="chart-card__sub">Share of local tax revenue by type, third quarter</div></div>
+  <div class="pbar" role="img" aria-label="Vehicle tax brings in half of local tax revenue.">
     <span style="flex-grow: 50; background: var(--series-1);"></span><span style="flex-grow: 25; background: var(--series-2);"></span><span style="flex-grow: 15; background: var(--series-3);"></span><span style="flex-grow: 10; background: var(--series-4);"></span>
   </div>
-  <div class="legend"><span><i style="background: var(--series-1);"></i>Core 50%</span><span><i style="background: var(--series-2);"></i>Electives 25%</span><span><i style="background: var(--series-3);"></i>Labs 15%</span><span><i style="background: var(--series-4);"></i>General 10%</span></div>
+  <div class="legend"><span><i style="background: var(--series-1);"></i>Vehicles 50%</span><span><i style="background: var(--series-2);"></i>PBB 25%</span><span><i style="background: var(--series-3);"></i>Restaurants 15%</span><span><i style="background: var(--series-4);"></i>Other 10%</span></div>
   <table class="sr-only">
-    <caption>Share of credits by course type</caption>
+    <caption>Share of local tax revenue by type</caption>
     <thead><tr><th>Type</th><th>Share</th></tr></thead>
-    <tbody><tr><td>Core</td><td>50%</td></tr><tr><td>Electives</td><td>25%</td></tr><tr><td>Labs</td><td>15%</td></tr><tr><td>General</td><td>10%</td></tr></tbody>
+    <tbody><tr><td>Vehicles</td><td>50%</td></tr><tr><td>PBB</td><td>25%</td></tr><tr><td>Restaurants</td><td>15%</td></tr><tr><td>Other</td><td>10%</td></tr></tbody>
   </table>
 </div>`,
     },
