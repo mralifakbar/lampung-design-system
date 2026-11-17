@@ -167,8 +167,10 @@ writeFileSync(join(out, 'site.webmanifest'), JSON.stringify({
 }
 
 // Canonical URLs, hreflang, social tags, structured data, clean links, sitemap, robots and llms.txt.
-// LDS_CF_BEACON: Cloudflare Web Analytics site token (dashboard > Analytics & Logs > Web Analytics).
-const pageCount = seo(out, ORIGIN, { beacon: process.env.LDS_CF_BEACON });
+// Cloudflare Web Analytics site token (dashboard > Analytics & Logs > Web Analytics). It is public by
+// design (it ships in every page); LDS_CF_BEACON overrides it, and LDS_CF_BEACON=off builds without it.
+const BEACON = process.env.LDS_CF_BEACON ?? 'b9db7c66045745a5bd2a023ad1b785e2';
+const pageCount = seo(out, ORIGIN, { beacon: BEACON === 'off' ? '' : BEACON });
 const llmsCount = llms(out, ORIGIN);
 const broken = brokenLinks(out);
 if (broken.length) throw new Error(`build-site: ${broken.length} broken internal link(s)\n  ${broken.slice(0, 40).join('\n  ')}`);
