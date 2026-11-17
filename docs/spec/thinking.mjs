@@ -4,9 +4,9 @@ export default {
   order: 13,
   summary: 'A dot-grid wave, a shimmering label and an honest elapsed timer, for work of unknown length. When it finishes, the label turns into the result.',
   when: [
-    'An assistant or a background job is working and you cannot measure progress: checking a schedule, grading an essay, building a study plan.',
+    'An assistant or a background job is working and you cannot measure progress: checking a service schedule, checking uploaded documents, building a requirements checklist.',
     'Work that may take from a few seconds to a minute, where an elapsed timer reassures the person that it has not frozen.',
-    'A status that should settle into its answer in place ("Found 3 free slots").',
+    'A status that should settle into its answer in place ("Found 3 open slots at Samsat keliling").',
   ],
   whenNot: [
     ['The work has a measurable size', 'progress-bar'],
@@ -31,29 +31,29 @@ export default {
       desc: 'The wave runs in CSS; `data-lds-thinking` adds the timer. Press Finish to settle it into the result.',
       replay: true,
       html: `<div class="docs-col" style="max-width: 420px;">
-  <div class="thinking" data-lds-thinking role="status" id="th1"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Checking your schedule</span><span class="thinking__time"></span></div>
-  <div class="docs-row"><button class="btn btn--secondary btn--sm" onclick="import('../../js/lds.js').then((m) => m.thinkingDone(document.getElementById('th1'), 'Found 3 free slots'));">Finish</button></div>
+  <div class="thinking" data-lds-thinking role="status" id="th1"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Checking the Samsat keliling schedule</span><span class="thinking__time"></span></div>
+  <div class="docs-row"><button class="btn btn--secondary btn--sm" onclick="import('../../js/lds.js').then((m) => m.thinkingDone(document.getElementById('th1'), 'Found 3 open slots at Samsat keliling'));">Finish</button></div>
 </div>`,
       code: `<div class="thinking" data-lds-thinking role="status">
   <span class="dotgrid" aria-hidden="true"></span>
-  <span class="shimmer">Checking your schedule</span>
+  <span class="shimmer">Checking the Samsat keliling schedule</span>
   <span class="thinking__time"></span>
 </div>
 <script type="module">
   import { thinkingDone } from 'lampung-design-system/js';
   // when the work ends:
-  thinkingDone(document.querySelector('.thinking'), 'Found 3 free slots');
+  thinkingDone(document.querySelector('.thinking'), 'Found 3 open slots at Samsat keliling');
 </script>`,
     },
     {
       title: 'Without a timer',
       desc: 'Drop `.thinking__time` for waits that are usually short.',
-      html: `<div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Grading your essay</span></div>`,
+      html: `<div class="thinking" data-lds-thinking role="status"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Checking your documents</span></div>`,
     },
     {
       title: 'Settled',
       desc: 'After `thinkingDone` the line stays as the heading of the result.',
-      html: `<div class="thinking is-done" role="status"><span class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer is-settled">Study plan ready: 6 weeks, 4 sessions a week</span><span class="thinking__time">8.4s</span></div>`,
+      html: `<div class="thinking is-done" role="status"><span class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer is-settled">Checklist ready: 4 documents for a surat pindah</span><span class="thinking__time">8.4s</span></div>`,
     },
   ],
   states: [
@@ -86,7 +86,7 @@ export default {
   react: `import { Thinking } from 'lampung-design-system/react';
 
 const [started] = useState(() => Date.now());
-<Thinking label={done ? 'Found 3 free slots' : 'Checking your schedule'} startedAt={started} done={done} />
+<Thinking label={done ? 'Found 3 open slots at Samsat keliling' : 'Checking your schedule'} startedAt={started} done={done} />
 // The React timer shows whole seconds as m:ss.`,
   related: ['streaming-text', 'tool-call', 'progress-bar', 'spinner'],
 };

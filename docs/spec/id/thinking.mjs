@@ -1,9 +1,9 @@
 export default {
   summary: 'Gelombang titik, label berkilau dan timer waktu berjalan yang jujur, untuk pekerjaan yang lamanya tidak diketahui. Saat selesai, labelnya berubah menjadi hasilnya.',
   when: [
-    'Asisten atau proses latar sedang bekerja dan kemajuannya tidak bisa diukur: memeriksa jadwal, menilai esai, menyusun rencana belajar.',
+    'Asisten atau proses latar sedang bekerja dan kemajuannya tidak bisa diukur: memeriksa jadwal layanan, memeriksa berkas unggahan, menyusun daftar persyaratan.',
     'Pekerjaan yang bisa makan waktu beberapa detik sampai satu menit, saat timer waktu berjalan meyakinkan orang bahwa prosesnya tidak macet.',
-    'Status yang semestinya mengendap menjadi jawabannya di tempat ("Ditemukan 3 jadwal kosong").',
+    'Status yang semestinya mengendap menjadi jawabannya di tempat ("Ditemukan 3 slot kosong di Samsat keliling").',
   ],
   whenNot: [
     ['Pekerjaannya punya ukuran yang terukur', 'progress-bar'],
@@ -27,18 +27,18 @@ export default {
       title: 'Bekerja, lalu selesai',
       desc: 'Gelombangnya berjalan dengan CSS; `data-lds-thinking` menambahkan timer. Tekan Selesaikan untuk mengendapkannya menjadi hasil.',
       html: `<div class="docs-col" style="max-width: 420px;">
-  <div class="thinking" data-lds-thinking role="status" id="th1"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Memeriksa jadwal Anda</span><span class="thinking__time"></span></div>
-  <div class="docs-row"><button class="btn btn--secondary btn--sm" onclick="import('../../js/lds.js').then((m) => m.thinkingDone(document.getElementById('th1'), 'Ditemukan 3 jadwal kosong'));">Selesaikan</button></div>
+  <div class="thinking" data-lds-thinking role="status" id="th1"><span class="dotgrid" aria-hidden="true"></span><span class="shimmer">Memeriksa jadwal Samsat keliling</span><span class="thinking__time"></span></div>
+  <div class="docs-row"><button class="btn btn--secondary btn--sm" onclick="import('../../js/lds.js').then((m) => m.thinkingDone(document.getElementById('th1'), 'Ditemukan 3 slot kosong di Samsat keliling'));">Selesaikan</button></div>
 </div>`,
       code: `<div class="thinking" data-lds-thinking role="status">
   <span class="dotgrid" aria-hidden="true"></span>
-  <span class="shimmer">Memeriksa jadwal Anda</span>
+  <span class="shimmer">Memeriksa jadwal Samsat keliling</span>
   <span class="thinking__time"></span>
 </div>
 <script type="module">
   import { thinkingDone } from 'lampung-design-system/js';
   // when the work ends:
-  thinkingDone(document.querySelector('.thinking'), 'Ditemukan 3 jadwal kosong');
+  thinkingDone(document.querySelector('.thinking'), 'Ditemukan 3 slot kosong di Samsat keliling');
 </script>`,
     },
     {
@@ -49,7 +49,7 @@ export default {
     {
       title: 'Mengendap',
       desc: 'Setelah `thinkingDone`, baris ini tetap ada sebagai judul hasilnya.',
-      html: `<div class="thinking is-done" role="status"><span class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer is-settled">Rencana belajar siap: 6 minggu, 4 sesi per minggu</span><span class="thinking__time">8.4s</span></div>`,
+      html: `<div class="thinking is-done" role="status"><span class="dotgrid" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><span class="shimmer is-settled">Daftar persyaratan siap: 4 dokumen untuk surat pindah</span><span class="thinking__time">8.4s</span></div>`,
     },
   ],
   states: [
