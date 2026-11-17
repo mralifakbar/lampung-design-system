@@ -27,7 +27,7 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
     <div>
       <div class="page-head__crumb"><span class="page-head__mark"><svg class="siger" viewBox="3 18.5 58 31" aria-hidden="true" focusable="false"><path d="M32 19.72C32.92 20.71 34.11 21.84 33.98 23.29C33.85 24.34 33.19 25 33.45 25.93C33.72 27.45 35.43 28.17 36.75 27.45C37.94 26.59 38.2 24.81 37.81 23.35C39.39 24.81 40.71 26.32 40.45 28.11C40.18 29.62 37.28 31.08 37.08 32.73C36.88 34.38 39.39 35.04 41.04 34.51C42.82 33.85 43.88 32.07 43.48 30.09C44.67 30.94 45.46 32.07 45.33 33.39C45.2 34.71 44.54 35.37 44.8 36.22C45.07 37.15 46.39 37.41 47.18 36.69C48.1 35.7 48.37 33.72 48.1 31.93C49.29 32.92 50.35 34.24 50.22 36.03C50.08 37.68 49.42 38.47 49.82 39.79C50.28 41.31 52.59 41.97 53.91 40.98C55.23 39.79 55.76 37.02 55.36 34.9C57.87 35.83 59.72 38.34 59.72 41.5C59.72 45.27 56.55 48.04 52.92 48.04C49.29 48.04 44.67 45.93 40.71 45.07C38.07 44.54 34.77 44.28 32 44.28C29.23 44.28 25.93 44.54 23.29 45.07C19.33 45.93 14.71 48.04 11.08 48.04C7.45 48.04 4.28 45.27 4.28 41.5C4.28 38.34 6.13 35.83 8.64 34.9C8.24 37.02 8.77 39.79 10.09 40.98C11.41 41.97 13.72 41.31 14.18 39.79C14.58 38.47 13.92 37.68 13.78 36.03C13.65 34.24 14.71 32.92 15.9 31.93C15.63 33.72 15.9 35.7 16.82 36.69C17.61 37.41 18.93 37.15 19.2 36.22C19.46 35.37 18.8 34.71 18.67 33.39C18.54 32.07 19.33 30.94 20.52 30.09C20.12 32.07 21.18 33.85 22.96 34.51C24.61 35.04 27.12 34.38 26.92 32.73C26.72 31.08 23.82 29.62 23.55 28.11C23.29 26.32 24.61 24.81 26.19 23.35C25.8 24.81 26.06 26.59 27.25 27.45C28.57 28.17 30.28 27.45 30.55 25.93C30.81 25 30.15 24.34 30.02 23.29C29.89 21.84 31.08 20.71 32 19.72Z"/></svg></span>Components · Inputs</div>
       <h1>Inputs</h1>
-      <p class="page-head__lede">Fields are white with a control-weight edge that passes 3:1 on its own. Focus adds a green edge and a soft halo; errors appear inline, in words, as you type, not after submit.</p>
+      <p class="page-head__lede">Fields are white with a control-weight edge that passes 3:1 on its own. Focus adds a green edge and a soft halo; errors appear inline, in words, as you type, not after submit. The data on this page is an example.</p>
     </div>
     <div class="appearance" role="group" aria-label="Appearance">
       <span class="appearance__thumb" style="transform: translateX({{thumbX}});"></span>
@@ -51,28 +51,28 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
         <div class="field">
           <label class="field__label" for="f-name">Full name</label>
           <div class="control"><input id="f-name" placeholder="Your name" autocomplete="name"></div>
-          <span class="field__help">As written on your ID card.</span>
+          <span class="field__help">As written on your KTP.</span>
         </div>
         <div class="field">
           <label class="field__label" for="f-email">Email</label>
-          <div class="control {{emailClass}}"><span class="ic" aria-hidden="true">mail</span><input id="f-email" type="email" placeholder="email@example.com" value="{{email}}" onChange="{{onEmail}}" onBlur="{{onEmailBlur}}" aria-invalid="{{emailInvalid}}" aria-describedby="f-email-help"><sc-if value="{{emailOk}}" hint-placeholder-val="{{false}}"><span class="ic" style="color: var(--success-text); animation: lds-pop-in 360ms var(--spring-snappy);" aria-hidden="true">check_circle</span></sc-if></div>
+          <div class="control {{emailClass}}"><span class="ic" aria-hidden="true">mail</span><input id="f-email" type="email" placeholder="email@contoh.id" value="{{email}}" onChange="{{onEmail}}" onBlur="{{onEmailBlur}}" aria-invalid="{{emailInvalid}}" aria-describedby="f-email-help"><sc-if value="{{emailOk}}" hint-placeholder-val="{{false}}"><span class="ic" style="color: var(--success-text); animation: lds-pop-in 360ms var(--spring-snappy);" aria-hidden="true">check_circle</span></sc-if></div>
           <span id="f-email-help" class="field__help {{emailHelpClass}}"><span class="ic" aria-hidden="true">{{emailHelpIcon}}</span>{{emailHelp}}</span>
         </div>
         <div class="field">
-          <label class="field__label" for="f-amount">Amount <span>Optional</span></label>
+          <label class="field__label" for="f-amount">Deposit amount <span>Optional</span></label>
           <div class="control"><span class="control__suffix" style="color: var(--text-subtle);">Rp</span><input id="f-amount" inputmode="numeric" placeholder="0"><span class="control__suffix">per month</span></div>
           <span class="field__help">Rounded to the nearest thousand.</span>
         </div>
         <div class="field">
-          <label class="field__label" for="f-dis">Student ID</label>
-          <div class="control is-disabled"><span class="ic" aria-hidden="true">lock</span><input id="f-dis" value="2207112045" disabled="{{yes}}"></div>
-          <span class="field__help">Set by the registrar. Contact them to change it.</span>
+          <label class="field__label" for="f-dis">Application number</label>
+          <div class="control is-disabled"><span class="ic" aria-hidden="true">lock</span><input id="f-dis" value="PRM-2026-004512" disabled="{{yes}}"></div>
+          <span class="field__help">Filled in by the system. Contact an officer to change it.</span>
         </div>
       </div>
       <div class="field">
-        <label class="field__label" for="f-bio">Note to your adviser <span>{{bioCount}} / 280</span></label>
-        <div class="control control--area"><textarea id="f-bio" maxlength="280" placeholder="What would you like to discuss?" value="{{bio}}" onChange="{{onBio}}"></textarea></div>
-        <span class="field__help">Your adviser sees this before the meeting.</span>
+        <label class="field__label" for="f-bio">Note for the officer <span>{{bioCount}} / 280</span></label>
+        <div class="control control--area"><textarea id="f-bio" maxlength="280" placeholder="What should we know?" value="{{bio}}" onChange="{{onBio}}"></textarea></div>
+        <span class="field__help">The officer reads this before reviewing your application.</span>
       </div>
     </div>
   </section>
@@ -86,7 +86,7 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
       <div class="search-wrap {{searchActive}}" style="max-width: 520px;">
         <div class="control search" style="flex: 1;">
           <span class="ic" aria-hidden="true">search</span>
-          <input placeholder="Search courses" value="{{q}}" onChange="{{onQ}}" onFocus="{{onQFocus}}" aria-label="Search courses">
+          <input placeholder="Search services" value="{{q}}" onChange="{{onQ}}" onFocus="{{onQFocus}}" aria-label="Search services">
           <sc-if value="{{hasQ}}" hint-placeholder-val="{{false}}"><button class="control__btn" style="width: 24px; height: 24px; margin-right: -2px;" aria-label="Clear search" onClick="{{clearQ}}"><span class="ic ic--fill" style="font-size: 18px; color: var(--text-muted);" aria-hidden="true">cancel</span></button></sc-if>
         </div>
         <button class="search__cancel" onClick="{{cancelQ}}" tabindex="{{cancelTab}}">Cancel</button>
@@ -96,7 +96,7 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
           <button class="lrow" style="animation: lds-blur-in 240ms var(--ease-enter) both;"><div class="lrow__body"><div class="lrow__title">{{r.name}}</div><div class="lrow__sub">{{r.code}}</div></div><span class="ic lrow__chev" aria-hidden="true">chevron_right</span></button>
         </sc-for>
         <sc-if value="{{noResults}}" hint-placeholder-val="{{false}}">
-          <div class="empty" style="padding: 24px;"><div class="empty__title" style="font-size: 15px;">No courses match "{{q}}"</div><div class="empty__body">Check the spelling, or search by course code.</div></div>
+          <div class="empty" style="padding: 24px;"><div class="empty__title" style="font-size: 15px;">No services match "{{q}}"</div><div class="empty__body">Check the spelling, or search by service code.</div></div>
         </sc-if>
       </div>
     </div>
@@ -118,14 +118,14 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
           <span class="field__help">{{pwHelp}}</span>
         </div>
         <div class="field">
-          <span class="field__label" id="seat-label">Seats to reserve</span>
+          <span class="field__label" id="seat-label">City bus tickets</span>
           <div class="row" style="gap: 16px;">
             <div class="stepper-field" role="group" aria-labelledby="seat-label">
-              <button onClick="{{dec}}" disabled="{{decOff}}" aria-label="Fewer seats"><span class="ic" aria-hidden="true">remove</span></button>
-              <span class="stepper-field__value" aria-live="polite" aria-label="{{n}} seats"><span class="roll"><sc-for list="{{digits}}" as="d" hint-placeholder-count="1"><span class="roll__col" style="transform: translateY({{d.y}});"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></sc-for></span></span>
-              <button onClick="{{inc}}" disabled="{{incOff}}" aria-label="More seats"><span class="ic" aria-hidden="true">add</span></button>
+              <button onClick="{{dec}}" disabled="{{decOff}}" aria-label="Fewer tickets"><span class="ic" aria-hidden="true">remove</span></button>
+              <span class="stepper-field__value" aria-live="polite" aria-label="{{n}} tickets"><span class="roll"><sc-for list="{{digits}}" as="d" hint-placeholder-count="1"><span class="roll__col" style="transform: translateY({{d.y}});"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></span></sc-for></span></span>
+              <button onClick="{{inc}}" disabled="{{incOff}}" aria-label="More tickets"><span class="ic" aria-hidden="true">add</span></button>
             </div>
-            <span style="font: 400 13px/18px var(--font); color: var(--text-subtle);">1 to 40 seats</span>
+            <span style="font: 400 13px/18px var(--font); color: var(--text-subtle);">1 to 40 tickets</span>
           </div>
         </div>
       </div>
@@ -156,7 +156,7 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
     <div class="stage" style="z-index: 2;">
       <div class="grid2">
         <div class="field" style="position: relative;">
-          <span class="field__label" id="sel-label">Semester</span>
+          <span class="field__label" id="sel-label">District</span>
           <button class="control select-trigger {{selPh}}" aria-haspopup="listbox" aria-expanded="{{selOpen}}" aria-labelledby="sel-label" onClick="{{toggleSel}}" onKeyDown="{{selKey}}">{{selText}}<span class="ic" aria-hidden="true">expand_more</span></button>
           <div class="menu {{selMenu}}" role="listbox" aria-labelledby="sel-label" style="top: calc(100% + 6px); left: 0; right: 0;">
             <sc-for list="{{semOpts}}" as="o" hint-placeholder-count="4">
@@ -165,13 +165,13 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
           </div>
         </div>
         <div class="field" style="position: relative;">
-          <label class="field__label" for="cb">Country</label>
+          <label class="field__label" for="cb">Regency or city</label>
           <div class="control"><span class="ic" aria-hidden="true">public</span><input id="cb" role="combobox" aria-expanded="{{cbOpen}}" aria-autocomplete="list" aria-controls="cb-list" placeholder="Type to filter" value="{{cbQ}}" onChange="{{onCb}}" onFocus="{{cbFocus}}" onBlur="{{cbBlur}}" onKeyDown="{{cbKey}}"></div>
           <div id="cb-list" class="menu {{cbMenu}}" role="listbox" style="top: calc(100% + 6px); left: 0; right: 0; max-height: 240px; overflow: auto;">
             <sc-for list="{{cbOpts}}" as="o" hint-placeholder-count="5">
               <button class="menu__item {{o.cls}}" role="option" aria-selected="{{o.active}}" onMouseDown="{{o.pick}}">{{o.label}}</button>
             </sc-for>
-            <sc-if value="{{cbEmpty}}" hint-placeholder-val="{{false}}"><div class="opt-empty">No country matches "{{cbQ}}".</div></sc-if>
+            <sc-if value="{{cbEmpty}}" hint-placeholder-val="{{false}}"><div class="opt-empty">No regency or city matches "{{cbQ}}".</div></sc-if>
           </div>
         </div>
       </div>
@@ -185,14 +185,14 @@ a:where(:not([class])){color:var(--accent-text)}a:where(:not([class])):hover{col
     </div>
     <div class="stage">
       <div class="field">
-        <label class="field__label" for="tag-in">Topics</label>
+        <label class="field__label" for="tag-in">Report categories</label>
         <div class="control tags">
           <sc-for list="{{tags}}" as="t" hint-placeholder-count="3">
             <span class="tag">{{t.label}}<button aria-label="Remove {{t.label}}" onClick="{{t.remove}}"><span class="ic" aria-hidden="true">close</span></button></span>
           </sc-for>
-          <input id="tag-in" placeholder="Add a topic" value="{{tagQ}}" onChange="{{onTag}}" onKeyDown="{{tagKey}}">
+          <input id="tag-in" placeholder="Add a category" value="{{tagQ}}" onChange="{{onTag}}" onKeyDown="{{tagKey}}">
         </div>
-        <span class="field__help">Up to 8 topics.</span>
+        <span class="field__help">Up to 8 categories.</span>
       </div>
       <div class="drop {{dropClass}}" onDragOver="{{dragOver}}" onDragLeave="{{dragLeave}}" onDrop="{{drop}}">
         <span class="ic" aria-hidden="true">upload_file</span>
@@ -219,9 +219,9 @@ class Component extends DCLogic {
     const showErr = s.emailTouched && email.length > 0 && !emailValid;
 
     const courses = [
-      { name: 'Database Systems', code: 'CS 2104' }, { name: 'Computer Networks', code: 'CS 3102' },
-      { name: 'Linear Algebra', code: 'MA 1203' }, { name: 'Human-Computer Interaction', code: 'CS 3207' },
-      { name: 'Operating Systems', code: 'CS 2201' }, { name: 'Discrete Mathematics', code: 'MA 1101' }
+      { name: 'Micro business permit', code: 'IZN 101' }, { name: 'Public event permit', code: 'IZN 204' },
+      { name: 'Vehicle tax payment', code: 'PJK 310' }, { name: 'Damaged road report', code: 'LPR 112' },
+      { name: 'Puskesmas registration', code: 'KES 120' }, { name: 'City bus pass', code: 'TRS 205' }
     ];
     const q = s.q || '';
     const ql = q.toLowerCase();
@@ -245,18 +245,18 @@ class Component extends DCLogic {
     }));
     const otpState = s.otpState || 'idle';
 
-    const sems = ['Odd 2026/2027', 'Even 2026/2027', 'Short term 2027', 'Odd 2027/2028'];
+    const sems = ['Kedaton', 'Rajabasa', 'Tanjung Karang Pusat', 'Teluk Betung Selatan'];
     const sem = s.sem;
     const hi = s.semHi == null ? Math.max(sems.indexOf(sem), 0) : s.semHi;
     const semOpts = sems.map((label, i) => ({ label, sel: String(label === sem), isSel: label === sem, cls: (i === hi ? 'is-hover ' : '') + (label === sem ? 'is-selected' : ''), pick: () => this.setState({ sem: label, selOpen: false }) }));
 
-    const countries = ['Australia', 'Brunei', 'Cambodia', 'Indonesia', 'Japan', 'Laos', 'Malaysia', 'Myanmar', 'Netherlands', 'New Zealand', 'Philippines', 'Singapore', 'South Korea', 'Thailand', 'Timor-Leste', 'Vietnam'];
+    const countries = ['Bandar Lampung', 'Lampung Barat', 'Lampung Selatan', 'Lampung Tengah', 'Lampung Timur', 'Lampung Utara', 'Mesuji', 'Metro', 'Pesawaran', 'Pesisir Barat', 'Pringsewu', 'Tanggamus', 'Tulang Bawang', 'Tulang Bawang Barat', 'Way Kanan'];
     const cbQ = s.cbQ || '';
     const cbList = countries.filter(c => c.toLowerCase().includes(cbQ.toLowerCase()));
     const cbHi = Math.min(s.cbHi || 0, Math.max(cbList.length - 1, 0));
     const cbOpts = cbList.map((label, i) => ({ label, active: String(i === cbHi), cls: i === cbHi ? 'is-hover' : '', pick: (e) => { e.preventDefault(); this.setState({ cbQ: label, cbOpen: false }); } }));
 
-    const tags = (s.tags || ['Design', 'Research']);
+    const tags = (s.tags || ['Damaged road', 'Drainage']);
     const addTag = (v) => { const t = v.trim().replace(/,$/, ''); if (t && !tags.includes(t) && tags.length < 8) this.setState({ tags: [...tags, t], tagQ: '' }); else this.setState({ tagQ: '' }); };
 
     return {
@@ -274,7 +274,7 @@ class Component extends DCLogic {
       emailOk: emailValid,
       emailHelpClass: showErr ? 'field__help--error' : (emailValid ? 'field__help--ok' : ''),
       emailHelpIcon: showErr ? 'error' : (emailValid ? 'check' : 'info'),
-      emailHelp: showErr ? 'This address is missing a domain, like name@campus.ac.id.' : (emailValid ? 'Looks right.' : 'We send receipts here.'),
+      emailHelp: showErr ? 'This address is missing a domain, like name@desa.id.' : (emailValid ? 'Looks right.' : 'We send your application receipt here.'),
 
       bio: s.bio || '', bioCount: (s.bio || '').length,
       onBio: (e) => this.setState({ bio: e.target.value }),
@@ -303,7 +303,7 @@ class Component extends DCLogic {
       otpClass: otpState === 'error' ? 'is-error is-shake' : '',
       otpHelpClass: otpState === 'error' ? 'field__help--error' : (otpState === 'ok' ? 'field__help--ok' : ''),
       otpHelpIcon: otpState === 'error' ? 'error' : (otpState === 'ok' ? 'check_circle' : 'sms'),
-      otpHelp: otpState === 'error' ? 'That code did not match. Demo: any code except 000000 works.' : (otpState === 'ok' ? 'Code accepted.' : (otpState === 'busy' ? 'Checking the code' : 'Sent to the number ending in [last 4 digits].')),
+      otpHelp: otpState === 'error' ? 'That code did not match. Demo: any code except 000000 works.' : (otpState === 'ok' ? 'Code accepted.' : (otpState === 'busy' ? 'Checking the code' : 'Sent to the number ending in 4821.')),
       onOtp: (e) => {
         const v = e.target.value.replace(/\D/g, '').slice(0, 6);
         this.setState({ otp: v, otpState: 'idle' });
@@ -314,7 +314,7 @@ class Component extends DCLogic {
         }
       },
 
-      selText: sem || 'Choose a semester', selPh: sem ? '' : 'is-placeholder',
+      selText: sem || 'Choose a district', selPh: sem ? '' : 'is-placeholder',
       selOpen: String(!!s.selOpen), selMenu: s.selOpen ? 'is-open' : '', semOpts,
       toggleSel: () => this.setState({ selOpen: !s.selOpen, semHi: null }),
       selKey: (e) => {
