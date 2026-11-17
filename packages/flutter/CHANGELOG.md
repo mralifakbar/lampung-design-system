@@ -15,6 +15,15 @@ First release of the Flutter package of Lampung Design System (unofficial).
   `LdsBadge`, `LdsAlert`, `LdsList` and `LdsListRow`, `LdsSegmented`,
   `LdsIcon`, `LdsEmptyState`, `LdsSkeleton`, `LdsMasthead`, `LdsAksara`,
   `LdsAksaraBand` and the `LdsPressable` base.
+- Widget groups ported from every web component, 161 widgets in all:
+  forms (checkbox, radio, switch, select, combobox, OTP, date and range
+  pickers, sliders, file and tag input...), overlays (dialog, sheet, drawer,
+  popover, toast, menus, command palette, swipe and slide to confirm...),
+  navigation (tabs, steps, sidebar, app shell, accordion, tree, carousel...),
+  data display (avatar, table, data table, timeline, kanban, event calendar,
+  progress...), charts (bar, line, area, donut, gauge, heatmap, map, KPI
+  cards...) and chat, motion and marketing blocks.
+- Icon fonts now carry real side bearings, so icons sit centered on iOS.
 - Motion helpers: `LdsSpringCurve` and `context.ldsReduceMotion`, which every
   widget honors.
 - Bundled fonts: Geist, Geist Mono and the two LDS icon fonts

@@ -4,7 +4,7 @@ All notable changes to Lampung Design System are documented here. The format fol
 
 ## [Unreleased]
 
-## [0.1.0] - 2026-11-16
+## [0.1.0] - 2026-11-17
 
 First public release.
 
@@ -18,9 +18,9 @@ First public release.
 - 53 icons for public services and smart city screens.
 - `lampung-ds` CLI: `init`, `create`, `add`, `list` and `doctor` for Next.js, Vite, TanStack Start, React Router, Astro, Laravel, plain HTML and Flutter.
 - React bindings (`lampung-design-system/react`) compiled to ESM with type declarations, so Next.js and other React frameworks import them with no extra config.
-- `lampung_design_system` Flutter package: theme, tokens, widgets and aksara.
+- `lampung_design_system` Flutter package: theme, tokens, aksara and 161 widgets covering every web component group (forms, overlays, navigation, data display, charts, chat and motion, marketing blocks).
 - Examples: a city operations dashboard, a citizen super app and a public service portal.
-- Landing page and documentation site, deployed to Cloudflare.
+- Landing page and documentation site, deployed to Cloudflare. Every docs page has a Markdown twin with Copy for LLM, plus `llms.txt` and `llms-full.txt` for agents.
 
 [Unreleased]: https://github.com/mralifakbar/lampung-design-system/compare/v0.1.0...HEAD
 [0.1.0]: https://github.com/mralifakbar/lampung-design-system/releases/tag/v0.1.0
