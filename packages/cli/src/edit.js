@@ -13,6 +13,13 @@ export function addCssImport(css) {
   return `${CSS_IMPORT}\n${css.length && !css.startsWith('\n') && !css.startsWith('@import') ? '\n' : ''}${css}`;
 }
 
+/** True for the untouched global CSS of a create-vite starter. Its :root palette and #root
+    layout (fixed width, centered text) fight LDS, so init replaces the file instead of adding
+    an import on top of it. */
+export function isViteStarterCss(css) {
+  return /#root\s*\{/.test(css) && /--accent:\s*#aa3bff|color:\s*#646cff/i.test(css) && !css.includes(CSS_SPEC);
+}
+
 /** Formats an import line in the module's own style (quote character, semicolons). */
 export function importLine(src, clause, spec) {
   const first = src.match(/^import\s[^\n]*?(['"])[^'"\n]+\1(;?)[ \t]*$/m);

@@ -5,6 +5,8 @@ import { firstExisting, importPath, readText } from './util.js';
 import { nextRouter } from './detect.js';
 import {
   addCssImport,
+  isViteStarterCss,
+  CSS_IMPORT,
   addJsImport,
   importLine,
   patchHtmlTag,
@@ -27,7 +29,8 @@ const providerTag = (theme) => `<LdsProvider theme="${theme}" />`;
 function reactSetup(ctx, { css, layout, layoutHtml = layout, providerFile, mount, useClient = false, hydration = true }) {
   const { plan, t, theme, ts } = ctx;
   // Stylesheet: first line of the global CSS, else a side-effect import in the entry/layout
-  if (css) plan.edit(css, addCssImport, t('noteCssImport'));
+  if (css && isViteStarterCss(plan.read(css) ?? '')) plan.write(css, `${CSS_IMPORT}\n`, t('noteCssStarter'));
+  else if (css) plan.edit(css, addCssImport, t('noteCssImport'));
   else if (layout) plan.edit(layout, (s) => addJsImport(s, importLine(s, '', CSS_SPEC), { marker: CSS_SPEC, beforeCss: true }), t('noteCssImport'));
   else plan.note(t('manualCss'));
   // <html class="lds" data-theme>
@@ -104,7 +107,6 @@ export const next = {
         mount: loc.layout && { file: loc.layout, fn: afterBody(theme) },
       });
     }
-    plan.note(t('nextTranspile'));
     return { css: loc.css || loc.layout, componentsDir: loc.componentsDir };
   },
 };

@@ -124,6 +124,17 @@ test('vite without StrictMode and without a CSS file', async () => {
   cleanup(dir);
 });
 
+test('vite: the untouched create-vite index.css is replaced, not stacked under', async () => {
+  const dir = fixture('vite', {
+    'src/index.css': ':root {\n  --text: #6b6375;\n  --accent: #aa3bff;\n  --bg: #fff;\n}\n\n#root {\n  width: 1126px;\n  margin: 0 auto;\n  text-align: center;\n}\n',
+  });
+  const r = await cli(['init', '--cwd', dir, '--no-install', '-y']);
+  assert.equal(r.code, 0, r.err);
+  assert.equal(read(dir, 'src/index.css'), `${IMPORT}\n`);
+  assert.match(r.out, /replaced the Vite starter styles/);
+  cleanup(dir);
+});
+
 test('react router: app.css, root.tsx Layout', async () => {
   const { dir } = await initTwice('react-router');
   assert.equal(read(dir, 'app/app.css'), `${IMPORT}\n@import "tailwindcss";\n`);
