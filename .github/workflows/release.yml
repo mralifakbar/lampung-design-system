@@ -45,6 +45,8 @@ jobs:
     uses: dart-lang/setup-dart/.github/workflows/publish.yml@v1
     with:
       working-directory: packages/flutter
+      # pub.dev only accepts uploads from this GitHub Actions environment (package admin settings).
+      environment: pub.dev
 
   github:
     name: GitHub release
