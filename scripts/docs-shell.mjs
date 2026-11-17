@@ -7,7 +7,7 @@ const SIGER = readFileSync(new URL('../brand/siger.inline.txt', import.meta.url)
 // One template for both, so the two languages always have the same pages in the same order.
 // The boards render through docs/runtime.js; guides and components are static pages.
 
-const ROUTES = {
+export const ROUTES = {
   id: [
     ['start', 'Pengenalan', null],
     ['color', 'Warna dan identitas', 'Main'],
@@ -47,7 +47,7 @@ const ROUTES = {
     ['marketing', 'Marketing pages', 'Marketing'],
   ],
 };
-const ICONS = { start: 'home', color: 'contrast', typography: 'text_fields', layout: 'grid_view', motion: 'timeline', micro: 'touch_app', actions: 'touch_app', inputs: 'edit_square', selection: 'check_circle', navigation: 'near_me', overlays: 'inventory_2', feedback: 'notifications', data: 'list', charts: 'bar_chart', phone: 'smartphone', patterns: 'dashboard', marketing: 'public' };
+export const ICONS = { start: 'home', color: 'contrast', typography: 'text_fields', layout: 'grid_view', motion: 'timeline', micro: 'touch_app', actions: 'touch_app', inputs: 'edit_square', selection: 'check_circle', navigation: 'near_me', overlays: 'inventory_2', feedback: 'notifications', data: 'list', charts: 'bar_chart', phone: 'smartphone', patterns: 'dashboard', marketing: 'public' };
 
 const S = {
   id: {
@@ -163,48 +163,20 @@ export function shell(lang, ctx) {
 <link rel="alternate" hreflang="${lang === 'id' ? 'en' : 'id'}" href="${s.otherHref}">
 <link rel="stylesheet" href="${up}css/lds.css">
 <link rel="stylesheet" href="${docs}docs.css">
+<!-- Fetch the next docs page while the pointer is on its link, so navigation feels instant. -->
+<script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/docs/*"},"eagerness":"moderate"}]}</script>
 <script>try { document.documentElement.setAttribute('data-theme', localStorage.getItem('lds-theme') || 'light'); } catch (e) {}</script>
 </head>
 <body class="lds">
 <a class="skip" href="#board">${s.skip}</a>
 ${ctx.masthead}
-<div class="shell" id="shell">
-
-  <aside class="shell__side" id="side" aria-label="${s.docs}">
-    <a class="shell__brand" href="/" aria-label="${s.home}"><span class="page-head__mark">${SIGER}</span>Lampung Design System</a>
-    <nav class="shell__nav" id="nav" aria-label="${s.pages}">
-      <span class="shell__hl" id="nav-hl" aria-hidden="true"></span>
-      <span class="shell__group">${s.start}</span>
-${link(routes[0])}
-${guideLinks}
-      <span class="shell__group">${s.foundations}</span>
-${routes.slice(1, 3).map(link).join('\n')}
-      <a class="shell__link" href="components/aksara.html"><span class="ic" aria-hidden="true">draft</span>${s.aksara}</a>
-${routes.slice(3, 6).map(link).join('\n')}
-      <span class="shell__group">${s.components}</span>
-      <a class="shell__link" href="components/index.html"><span class="ic" aria-hidden="true">grid_view</span>${s.all}</a>
-      <a class="shell__link" href="${docs}gallery.html"><span class="ic" aria-hidden="true">widgets</span>${s.gallery}</a>
-      <span class="shell__group">${s.boards}</span>
-${routes.slice(6, 14).map(link).join('\n')}
-      <span class="shell__group">${s.patterns}</span>
-${routes.slice(14).map(link).join('\n')}
-      <a class="shell__link" href="${docs}examples/${lang === 'en' ? 'en/' : ''}index.html"><span class="ic" aria-hidden="true">location_city</span>${s.examples}</a>
-    </nav>
-    <div class="shell__foot">
-      <a class="shell__link" href="${s.otherHref}" hreflang="${lang === 'id' ? 'en' : 'id'}" lang="${lang === 'id' ? 'en' : 'id'}"><span class="ic" aria-hidden="true">language</span>${s.other}</a>
-      <div class="seg" role="group" aria-label="${s.appearance}" id="theme-seg">
-        <span class="seg__thumb" style="width: calc((100% - 4px) / 2);"></span>
-        <button class="seg__btn" aria-pressed="true" data-mode="light"><span class="ic ic--sm" aria-hidden="true">light_mode</span>&nbsp;${s.light}</button>
-        <button class="seg__btn" aria-pressed="false" data-mode="dark"><span class="ic ic--sm" aria-hidden="true">dark_mode</span>&nbsp;${s.dark}</button>
-      </div>
-      <p class="docs-legal"><a href="guide/privasi.html">${s.privacy}</a><span aria-hidden="true">·</span><a href="guide/ketentuan.html">${s.terms}</a></p>
-    </div>
-  </aside>
-  <div class="shell__scrim" id="scrim" aria-hidden="true"></div>
+<div class="shell" id="shell" data-lds-shell>
+  ${ctx.side}
+  <div class="shell__scrim"></div>
 
   <div class="shell__main">
     <header class="shell__top">
-      <button class="icon-btn" id="menu-btn" aria-label="${s.openMenu}" aria-expanded="false" aria-controls="side"><span class="ic" aria-hidden="true">list</span></button>
+      <button class="icon-btn" data-lds-shell-toggle aria-controls="side" aria-expanded="false" aria-label="${s.openMenu}"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
       <span style="font: 600 15px/20px var(--font); color: var(--text-strong);" id="top-title">Lampung Design System</span>
       <span style="width: 44px;"></span>
     </header>
@@ -228,7 +200,7 @@ ${routes.slice(14).map(link).join('\n')}
 
 <script type="module">
   import { mount } from '${docs}runtime.js';
-  import { init } from '${up}js/lds.js';
+  import { init, restoreTheme } from '${up}js/lds.js';
   init(document.body);
 
   const ROUTES = ${JSON.stringify(routes.map(([slug, title, file]) => (file ? { slug, title, file } : { slug, title, template: 'tpl-start' })))};
@@ -241,37 +213,29 @@ ${routes.slice(14).map(link).join('\n')}
   let mode = 'light';
   try { mode = localStorage.getItem('lds-theme') || 'light'; } catch (e) { /* storage may be blocked */ }
 
-  /* Theme: the shell and the mounted board stay in sync either way. */
-  const seg = document.getElementById('theme-seg');
+  /* Theme: the sidebar switch (data-lds-theme, handled by lds.js) sets <html data-theme>; the mounted
+     board follows it, and a theme toggle inside a board flows back up. */
   const applyTheme = (m, fromBoard) => {
+    if (!m || m === mode) return;
     mode = m;
-    html.classList.add('lds-theme-swap');
-    setTimeout(() => html.classList.remove('lds-theme-swap'), 120);
-    html.setAttribute('data-theme', m);
+    if (fromBoard) {
+      html.classList.add('lds-theme-swap');
+      setTimeout(() => html.classList.remove('lds-theme-swap'), 120);
+      html.setAttribute('data-theme', m);
+      try { localStorage.setItem('lds-theme', m); } catch (e) { /* ignore */ }
+    }
+    document.querySelectorAll('[data-lds-theme]').forEach((b) => b.setAttribute('aria-pressed', String(b.getAttribute('data-lds-theme') === m)));
     const boardRoot = host.querySelector(':scope > .lds[data-theme]');
-    if (boardRoot) boardRoot.setAttribute('data-theme', m);
-    try { localStorage.setItem('lds-theme', m); } catch (e) { /* ignore */ }
-    seg.querySelectorAll('.seg__btn').forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.mode === m)));
-    seg.querySelector('.seg__thumb').style.transform = \`translateX(\${m === 'dark' ? 100 : 0}%)\`;
+    if (boardRoot && boardRoot.getAttribute('data-theme') !== m) boardRoot.setAttribute('data-theme', m);
     if (!fromBoard && current && current.component) { current.setProps({ theme: m }); current.component.setState({ theme: m }); }
   };
-  seg.querySelectorAll('.seg__btn').forEach((b) => b.addEventListener('click', () => applyTheme(b.dataset.mode)));
+  new MutationObserver(() => applyTheme(html.getAttribute('data-theme'), false)).observe(html, { attributes: true, attributeFilter: ['data-theme'] });
   new MutationObserver(() => {
     const root = host.querySelector(':scope > .lds[data-theme]');
-    const m = root && root.getAttribute('data-theme');
-    if (m && m !== mode) applyTheme(m, true);
+    applyTheme(root && root.getAttribute('data-theme'), true);
   }).observe(host, { attributes: true, subtree: true, attributeFilter: ['data-theme'] });
-  applyTheme(mode, true);
-
-  /* Sidebar highlight glides to the current link on the smooth spring. */
-  const hl = document.getElementById('nav-hl');
-  const placeHighlight = (instant) => {
-    const a = document.querySelector('.shell__link[aria-current="page"]');
-    hl.style.opacity = a ? '1' : '0';
-    if (instant) hl.style.transition = 'none';
-    if (a) hl.style.transform = \`translateY(\${a.offsetTop}px)\`;
-    if (instant) { void hl.offsetWidth; hl.style.transition = ''; }
-  };
+  mode = restoreTheme(html, 'light');
+  document.querySelectorAll('[data-lds-theme]').forEach((b) => b.setAttribute('aria-pressed', String(b.getAttribute('data-lds-theme') === mode)));
 
   /* Prefetch a board on hover so the transition never waits on the network. */
   const fileUrl = (r) => \`\${BOARDS}\${r.file}.dc.html\`;
@@ -301,8 +265,10 @@ ${routes.slice(14).map(link).join('\n')}
       window.scrollTo({ top: 0, behavior: 'instant' });
       document.title = \`\${route.title} · Lampung Design System\`;
       document.getElementById('top-title').textContent = route.title;
-      document.querySelectorAll('.shell__link[data-route]').forEach((a) => a.setAttribute('aria-current', a.dataset.route === route.slug ? 'page' : 'false'));
-      placeHighlight(first);
+      document.querySelectorAll('.shell__link[data-route]').forEach((a) => (a.dataset.route === route.slug ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current')));
+      // A board link sits in the folded "boards" section: open it so the highlight can land on it.
+      const panel = document.querySelector('.shell__link[aria-current="page"]')?.closest('.shell__panel');
+      if (panel && !panel.classList.contains('is-open')) document.querySelector('[aria-controls="' + panel.id + '"]')?.click();
       renderPager(i);
     };
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -318,16 +284,7 @@ ${routes.slice(14).map(link).join('\n')}
       if (!first) { host.classList.remove('is-entering'); void host.offsetWidth; host.classList.add('is-entering'); }
     }
     if (!first) host.focus({ preventScroll: true });
-    closeMenu();
   }
-
-  /* Phone menu: the sidebar slides in on the smooth spring, leaves on the exit curve. */
-  const menuBtn = document.getElementById('menu-btn');
-  const openMenu = () => { shell.classList.add('is-menu'); menuBtn.setAttribute('aria-expanded', 'true'); document.querySelector('.shell__link[aria-current="page"]')?.focus(); };
-  const closeMenu = () => { if (!shell.classList.contains('is-menu')) return; shell.classList.remove('is-menu'); menuBtn.setAttribute('aria-expanded', 'false'); };
-  menuBtn.addEventListener('click', openMenu);
-  document.getElementById('scrim').addEventListener('click', closeMenu);
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && shell.classList.contains('is-menu')) { closeMenu(); menuBtn.focus(); } });
 
   const slugFromHash = () => (location.hash.match(/^#\\/([\\w-]+)/) || [])[1] || 'start';
   window.addEventListener('hashchange', () => show(slugFromHash()));

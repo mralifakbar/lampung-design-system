@@ -12,7 +12,7 @@
 import { readFileSync, writeFileSync, readdirSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
-import { shell } from './docs-shell.mjs';
+import { shell, ROUTES as BOARD_ROUTES, ICONS as BOARD_ICONS } from './docs-shell.mjs';
 import { htmlToMd } from './html-to-md.mjs';
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
@@ -35,7 +35,7 @@ const STRINGS = {
     motion: 'Motion and microinteractions', a11y: 'Accessibility', dd: 'Do and don\'t', do: 'Do', dont: 'Don\'t',
     plain: 'Plain HTML.', react: 'React.', from: 'From', behavior: 'Behavior and code', related: 'Related', crumbs: 'Breadcrumb',
     prev: 'Previous', next: 'Next', pager: 'Previous and next component', toc: 'On this page', other: 'Bahasa Indonesia', otherLang: 'id',
-    privacy: 'Privacy', terms: 'Terms', group: 'Group', markup: 'Markup', plainBehavior: 'Behavior (plain HTML)', mdNew: 'new', agentLabel: 'For AI agents', copyLlm: 'Copy for LLM', viewMd: 'View as Markdown', copiedLlm: 'Copied', copyFail: 'Copy failed',
+    privacy: 'Privacy', terms: 'Terms', foundations: 'Foundations', boards: 'Component boards', gallery: 'Plain HTML gallery', aksara: 'Aksara Lampung', group: 'Group', markup: 'Markup', plainBehavior: 'Behavior (plain HTML)', mdNew: 'new', agentLabel: 'For AI agents', copyLlm: 'Copy for LLM', viewMd: 'View as Markdown', copiedLlm: 'Copied', copyFail: 'Copy failed',
     lede: (n) => `${n} components and recipes. Each page says when to use it, when to use something else, the markup, its motion and its accessibility. Start here before building anything new: if a need is covered, use that component; if it is not, add a component to the system instead of styling one page. To see them working together, open the <a class="link" href="../../examples/index.html">examples</a>: a city services dashboard, a citizen app and a public portal.`,
   },
   id: {
@@ -47,7 +47,7 @@ const STRINGS = {
     motion: 'Gerak dan mikrointeraksi', a11y: 'Aksesibilitas', dd: 'Lakukan dan hindari', do: 'Lakukan', dont: 'Hindari',
     plain: 'HTML biasa.', react: 'React.', from: 'Dari', behavior: 'Perilaku dan kode', related: 'Terkait', crumbs: 'Remah roti',
     prev: 'Sebelumnya', next: 'Berikutnya', pager: 'Komponen sebelumnya dan berikutnya', toc: 'Di halaman ini', other: 'English', otherLang: 'en',
-    privacy: 'Privasi', terms: 'Ketentuan', group: 'Kelompok', markup: 'Markup', plainBehavior: 'Perilaku (HTML biasa)', mdNew: 'baru', agentLabel: 'Untuk agen AI', copyLlm: 'Salin untuk LLM', viewMd: 'Lihat sebagai Markdown', copiedLlm: 'Disalin', copyFail: 'Gagal menyalin',
+    privacy: 'Privasi', terms: 'Ketentuan', foundations: 'Landasan', boards: 'Papan komponen', gallery: 'Galeri HTML', aksara: 'Aksara Lampung', group: 'Kelompok', markup: 'Markup', plainBehavior: 'Perilaku (HTML biasa)', mdNew: 'baru', agentLabel: 'Untuk agen AI', copyLlm: 'Salin untuk LLM', viewMd: 'Lihat sebagai Markdown', copiedLlm: 'Disalin', copyFail: 'Gagal menyalin',
     lede: (n) => `${n} komponen dan resep. Setiap halaman menjelaskan kapan memakainya, kapan memakai yang lain, markup, gerak, dan aksesibilitasnya. Mulailah dari sini sebelum membuat sesuatu yang baru: jika kebutuhan sudah tercakup, pakai komponen itu; jika belum, tambahkan komponen ke sistem alih-alih menata satu halaman saja. Untuk melihat semuanya bekerja bersama, buka <a class="link" href="../examples/index.html">contoh</a>: dasbor layanan kota, aplikasi warga, dan portal publik.`,
   },
 };
@@ -195,7 +195,12 @@ const agentBar = (file) => `<div class="cdoc__agent" role="group" aria-label="${
             <a class="btn btn--gray btn--sm" href="${file}" target="_blank" rel="noopener" type="text/markdown"><span class="ic ic--sm" aria-hidden="true">description</span><span>${T.viewMd}</span></a>
           </div>`;
 const linkHtml = (h) => (/^(https?:|#|\.|\/)/.test(h) ? h : `${h}.html`);
-const nav = (current) => {
+// One sidebar for every docs page, the docs home included. Links are root-absolute so the same
+// markup works at any depth; board routes are hash routes on the docs home (`home`: that page).
+const nav = (current, home = false) => {
+  const BASE = `/docs/${LANG === 'en' ? 'en/' : ''}`;
+  const routes = BOARD_ROUTES[LANG];
+  const route = ([slug, title]) => `      <a class="shell__link" href="${BASE}#/${slug}" data-route="${slug}"><span class="ic" aria-hidden="true">${BOARD_ICONS[slug]}</span><span class="shell__label">${esc(title)}</span></a>`;
   const sections = groupsWith.map(([g], gi) => {
     const items = ordered.filter((s) => s.group === g);
     const open = current && current.group === g;
@@ -203,30 +208,42 @@ const nav = (current) => {
     return `<div class="shell__section">
         <button class="shell__section-btn" aria-expanded="${open}" aria-controls="${id}"><span class="shell__section-label">${esc(groupLabel(g))}</span><span class="shell__section-count">${items.length}</span><span class="ic" aria-hidden="true">expand_more</span></button>
         <div class="shell__panel${open ? ' is-open' : ''}" id="${id}"><div><div class="shell__children">
-${items.map((s, i) => `          <a class="shell__link shell__link--child" href="${COMP()}${s.slug}.html"${current === s ? ' aria-current="page"' : ''}><span class="shell__num">${i + 1}</span><span class="shell__label">${esc(s.title)}</span>${s.status === 'new' ? `<span class="badge badge--accent shell__badge">${T.newBadge}</span>` : ''}</a>`).join('\n')}
+${items.map((s, i) => `          <a class="shell__link shell__link--child" href="${BASE}components/${s.slug}.html"${current === s ? ' aria-current="page"' : ''}><span class="shell__num">${i + 1}</span><span class="shell__label">${esc(s.title)}</span>${s.status === 'new' ? `<span class="badge badge--accent shell__badge">${T.newBadge}</span>` : ''}</a>`).join('\n')}
         </div></div></div>
       </div>`;
   }).join('\n      ');
+  const boardOpen = false;
   return `<aside class="shell__side" id="side" aria-label="${T.docs}">
-    <a class="shell__brand" href="../index.html"><span class="page-head__mark">${SIGER}</span>Lampung Design System</a>
-    <nav class="shell__nav" aria-label="${T.components}">
+    <a class="shell__brand" href="${BASE}"><span class="page-head__mark">${SIGER}</span>Lampung Design System</a>
+    <nav class="shell__nav" aria-label="${T.docs}">
       <span class="shell__hl" aria-hidden="true"></span>
       <p class="shell__group">${T.start}</p>
-      <a class="shell__link" href="../index.html"><span class="ic" aria-hidden="true">home</span><span class="shell__label">${T.intro}</span></a>
-${GUIDES.filter((g) => !g.hidden).map((g) => `      <a class="shell__link" href="${GUIDE()}${g.slug}.html"${current && current.kind === 'guide' && (current.slug === g.slug || current.parent === g.slug) ? ' aria-current="page"' : ''}><span class="ic" aria-hidden="true">${g.icon}</span><span class="shell__label">${esc(g[LANG].nav || g[LANG].title)}</span></a>`).join('\n')}
+      <a class="shell__link" href="${BASE}#/start" data-route="start"><span class="ic" aria-hidden="true">home</span><span class="shell__label">${T.intro}</span></a>
+${GUIDES.filter((g) => !g.hidden).map((g) => `      <a class="shell__link" href="${BASE}guide/${g.slug}.html"${current && current.kind === 'guide' && (current.slug === g.slug || current.parent === g.slug) ? ' aria-current="page"' : ''}><span class="ic" aria-hidden="true">${g.icon}</span><span class="shell__label">${esc(g[LANG].nav || g[LANG].title)}</span></a>`).join('\n')}
+      <p class="shell__group">${T.foundations}</p>
+${routes.slice(1, 3).map(route).join('\n')}
+      <a class="shell__link" href="${BASE}components/aksara.html"${current && current.slug === 'aksara' && current.kind !== 'guide' ? ' aria-current="page"' : ''}><span class="ic" aria-hidden="true">draft</span><span class="shell__label">${T.aksara}</span></a>
+${routes.slice(3, 6).map(route).join('\n')}
       <p class="shell__group">${T.components}</p>
-      <a class="shell__link" href="${COMP()}index.html"${!current && SECTION === 'components' ? ' aria-current="page"' : ''}><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">${T.all}</span></a>
-      <a class="shell__link" href="${DOCS()}examples/${LANG === 'en' ? 'en/' : ''}index.html"><span class="ic" aria-hidden="true">dashboard</span><span class="shell__label">${T.examples}</span></a>
+      <a class="shell__link" href="${BASE}components/index.html"${!current && !home && SECTION === 'components' ? ' aria-current="page"' : ''}><span class="ic" aria-hidden="true">grid_view</span><span class="shell__label">${T.all}</span></a>
+      <a class="shell__link" href="/docs/gallery.html"><span class="ic" aria-hidden="true">widgets</span><span class="shell__label">${T.gallery}</span></a>
+      <a class="shell__link" href="/docs/examples/${LANG === 'en' ? 'en/' : ''}index.html"><span class="ic" aria-hidden="true">location_city</span><span class="shell__label">${T.examples}</span></a>
+      <div class="shell__section">
+        <button class="shell__section-btn" aria-expanded="${boardOpen}" aria-controls="nav-boards"><span class="shell__section-label">${T.boards}</span><span class="shell__section-count">${routes.length - 6}</span><span class="ic" aria-hidden="true">expand_more</span></button>
+        <div class="shell__panel" id="nav-boards"><div><div class="shell__children">
+${routes.slice(6).map(route).join('\n')}
+        </div></div></div>
+      </div>
       ${sections}
     </nav>
     <div class="shell__foot">
-      <a class="shell__link" href="${ALT(current)}" hreflang="${T.otherLang}" lang="${T.otherLang}"><span class="ic" aria-hidden="true">language</span><span class="shell__label">${T.other}</span></a>
+      <a class="shell__link" href="${home ? `/docs/${LANG === 'en' ? '' : 'en/'}` : ALT(current)}" hreflang="${T.otherLang}" lang="${T.otherLang}"><span class="ic" aria-hidden="true">language</span><span class="shell__label">${T.other}</span></a>
       <div class="seg" role="group" aria-label="${T.appearance}" data-lds-segmented>
         <span class="seg__thumb"></span>
         <button class="seg__btn" aria-pressed="true" data-lds-theme="light">${T.light}</button>
         <button class="seg__btn" aria-pressed="false" data-lds-theme="dark">${T.dark}</button>
       </div>
-      <p class="docs-legal"><a href="${GUIDE()}privasi.html">${T.privacy}</a><span aria-hidden="true">·</span><a href="${GUIDE()}ketentuan.html">${T.terms}</a></p>
+      <p class="docs-legal"><a href="${BASE}guide/privasi.html">${T.privacy}</a><span aria-hidden="true">·</span><a href="${BASE}guide/ketentuan.html">${T.terms}</a></p>
     </div>
   </aside>
   <script>(function(){try{var s=document.currentScript.previousElementSibling,ss=sessionStorage,v=ss.getItem('lds-shell-scroll');if(v!=null)s.scrollTop=+v;s.setAttribute('data-restored','');var n=s.querySelector('.shell__nav'),h=s.querySelector('.shell__hl'),c=n&&n.querySelector('[aria-current="page"]'),f=ss.getItem('lds-shell-from');ss.removeItem('lds-shell-from');if(!h||!c||c.closest('.shell__panel:not(.is-open)'))return;var put=function(e){h.style.height=e.offsetHeight+'px';h.style.transform='translateY('+e.offsetTop+'px)';},o=null;if(f){[].forEach.call(n.querySelectorAll('a[href]'),function(a){if(a.getAttribute('href')===f)o=a;});}h.style.transition='none';if(o&&!o.closest('.shell__panel:not(.is-open)')&&!matchMedia('(prefers-reduced-motion: reduce)').matches){put(o);h.offsetWidth;h.style.transition='';requestAnimationFrame(function(){put(c);});}else put(c);n.classList.add('has-hl');}catch(e){}})();</script>`;
@@ -254,6 +271,8 @@ const frame = (title, current, body, outline = '') => `<!doctype html>
 <link rel="icon" href="${UP()}brand/mark.svg" type="image/svg+xml">
 <link rel="stylesheet" href="${UP()}css/lds.css">
 <link rel="stylesheet" href="${DOCS()}docs.css">
+<!-- Fetch the next docs page while the pointer is on its link, so navigation feels instant. -->
+<script type="speculationrules">{"prefetch":[{"where":{"href_matches":"/docs/*"},"eagerness":"moderate"}]}</script>
 <link rel="alternate" hreflang="${T.otherLang}" href="${ALT(current)}">
 </head>
 <body class="lds">
@@ -451,6 +470,7 @@ function indexMd() {
 }
 
 // ---------- write ----------
+const homeNav = {};
 for (const d of [OUT.id, OUT.en, skillDir]) { if (existsSync(d)) rmSync(d, { recursive: true }); mkdirSync(d, { recursive: true }); }
 // English first: the skill references (for agents) are written from the English specs.
 for (const lang of ['en', 'id']) {
@@ -474,10 +494,11 @@ for (const lang of ['en', 'id']) {
   }
   SECTION = 'components';
   if (lang === 'en') writeFileSync(join(root, 'skills/lampung-design-system/references/components.md'), indexMd());
+  homeNav[lang] = nav(null, true);
 }
 // Documentation home in both languages.
 mkdirSync(join(root, 'docs/en'), { recursive: true });
-writeFileSync(join(root, 'docs/index.html'), shell('id', { count: specsEn.length, guides: GUIDES, masthead: mastheadHtml(STRINGS.id) }));
-writeFileSync(join(root, 'docs/en/index.html'), shell('en', { count: specsEn.length, guides: GUIDES, masthead: mastheadHtml(STRINGS.en) }));
+writeFileSync(join(root, 'docs/index.html'), shell('id', { count: specsEn.length, guides: GUIDES, masthead: mastheadHtml(STRINGS.id), side: homeNav.id }));
+writeFileSync(join(root, 'docs/en/index.html'), shell('en', { count: specsEn.length, guides: GUIDES, masthead: mastheadHtml(STRINGS.en), side: homeNav.en }));
 const missing = specsEn.filter((s) => !overrides.has(s.slug)).map((s) => s.slug);
 console.log(`build-docs: ${ordered.length} components in ${groupsWith.length} groups, ${GUIDES.length} guides, ${overrides.size} in Indonesian${missing.length ? ` (${missing.length} still English on the Indonesian site)` : ''}`);
