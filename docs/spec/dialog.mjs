@@ -4,14 +4,14 @@ export default {
   order: 1,
   summary: 'A small centered layer that interrupts to ask for one short input or decision, then gets out of the way. Use rarely: most tasks belong on the page, in a sheet or in a drawer.',
   when: [
-    'One short input that must happen before going on: rename a course, set a due date, name a new folder.',
+    'One short input that must happen before going on: rename a service, set a pickup date, name a new folder.',
     'A short decision with two clear outcomes that is not destructive.',
     'Inside a contained region that is already positioned (`.viewport`), such as a canvas, a preview or a phone frame.',
   ],
   whenNot: [
     ['Confirming something destructive or irreversible (delete, remove, discard)', 'alert-dialog'],
     ['A page-level form or report over the whole window, or a dialog that must sit above everything', 'modal', 'Native `<dialog>` in the top layer; turns into a bottom sheet on phones'],
-    ['A task on a phone that keeps the page in view (choose, filter, attendance)', 'sheet'],
+    ['A task on a phone that keeps the page in view (choose, filter, check in)', 'sheet'],
     ['Filters or details beside a list on wide screens', 'drawer'],
     ['Telling people something happened', 'toast'],
     ['A few extra fields or options anchored to a button', 'popover'],
@@ -28,30 +28,30 @@ export default {
   ],
   examples: [
     {
-      title: 'Rename a course',
+      title: 'Rename a service',
       desc: 'Open it: focus lands in the field, Tab stays inside, Escape or the scrim closes it and focus returns to the button.',
       stage: 'block',
       html: `<div class="viewport docs-box">
   <div class="viewport__content">
-    <button class="btn btn--secondary btn--md" data-lds-open="dlg-rename" aria-haspopup="dialog"><span class="ic" aria-hidden="true">edit</span>Rename course</button>
+    <button class="btn btn--secondary btn--md" data-lds-open="dlg-rename" aria-haspopup="dialog"><span class="ic" aria-hidden="true">edit</span>Rename service</button>
   </div>
   <div class="scrim" data-lds-scrim="dlg-rename"></div>
   <div class="dialog" id="dlg-rename" role="dialog" aria-modal="true" aria-labelledby="dlg-rename-t" data-lds-layer>
     <button class="icon-btn dialog__close" aria-label="Close" data-lds-close><span class="ic" aria-hidden="true">close</span></button>
-    <h3 class="dialog__title" id="dlg-rename-t">Rename course</h3>
-    <p class="dialog__body">Students see the new name the next time they open the app.</p>
-    <div class="control" style="margin-top: 16px;"><input aria-label="Course name" value="Database Systems" data-lds-autofocus></div>
+    <h3 class="dialog__title" id="dlg-rename-t">Rename service</h3>
+    <p class="dialog__body">Residents see the new name the next time they open the app.</p>
+    <div class="control" style="margin-top: 16px;"><input aria-label="Service name" value="Micro business permit" data-lds-autofocus></div>
     <div class="dialog__actions"><button class="btn btn--secondary btn--md" data-lds-close>Cancel</button><button class="btn btn--primary btn--md" data-lds-close>Save name</button></div>
   </div>
 </div>`,
-      code: `<button class="btn btn--secondary" data-lds-open="rename" aria-haspopup="dialog">Rename course</button>
+      code: `<button class="btn btn--secondary" data-lds-open="rename" aria-haspopup="dialog">Rename service</button>
 
 <div class="scrim" data-lds-scrim="rename"></div>
 <div class="dialog" id="rename" role="dialog" aria-modal="true" aria-labelledby="rename-t" data-lds-layer>
   <button class="icon-btn dialog__close" aria-label="Close" data-lds-close><span class="ic" aria-hidden="true">close</span></button>
-  <h2 class="dialog__title" id="rename-t">Rename course</h2>
-  <p class="dialog__body">Students see the new name the next time they open the app.</p>
-  <div class="control" style="margin-top: 16px;"><input aria-label="Course name" value="Database Systems" data-lds-autofocus></div>
+  <h2 class="dialog__title" id="rename-t">Rename service</h2>
+  <p class="dialog__body">Residents see the new name the next time they open the app.</p>
+  <div class="control" style="margin-top: 16px;"><input aria-label="Service name" value="Micro business permit" data-lds-autofocus></div>
   <div class="dialog__actions">
     <button class="btn btn--secondary" data-lds-close>Cancel</button>
     <button class="btn btn--primary" data-lds-close>Save name</button>
@@ -64,13 +64,13 @@ export default {
       stage: 'block',
       html: `<div class="viewport docs-box">
   <div class="viewport__content">
-    <button class="btn btn--secondary btn--md" data-lds-open="dlg-publish" aria-haspopup="dialog">Publish results</button>
+    <button class="btn btn--secondary btn--md" data-lds-open="dlg-publish" aria-haspopup="dialog">Announce results</button>
   </div>
   <div class="scrim" data-lds-scrim="dlg-publish"></div>
   <div class="dialog" id="dlg-publish" role="dialog" aria-modal="true" aria-labelledby="dlg-publish-t" aria-describedby="dlg-publish-b" data-lds-layer>
-    <h3 class="dialog__title" id="dlg-publish-t">Publish results now?</h3>
-    <p class="dialog__body" id="dlg-publish-b">32 students get a notification with their score. You can still edit scores afterwards.</p>
-    <div class="dialog__actions"><button class="btn btn--secondary btn--md" data-lds-close>Not yet</button><button class="btn btn--primary btn--md" data-lds-close data-lds-autofocus>Publish</button></div>
+    <h3 class="dialog__title" id="dlg-publish-t">Announce selection results now?</h3>
+    <p class="dialog__body" id="dlg-publish-b">32 applicants get a notification with their result. You can still change results afterwards.</p>
+    <div class="dialog__actions"><button class="btn btn--secondary btn--md" data-lds-close>Not yet</button><button class="btn btn--primary btn--md" data-lds-close data-lds-autofocus>Announce</button></div>
   </div>
 </div>`,
     },
@@ -93,7 +93,7 @@ export default {
   ],
   do: [
     'Ask one thing; title it as the question or the task.',
-    'Name the primary button for its outcome ("Save name", "Publish").',
+    'Name the primary button for its outcome ("Save name", "Announce").',
     'Autofocus the field, or the primary for a non-destructive choice.',
   ],
   dont: [
