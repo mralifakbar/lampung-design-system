@@ -17,7 +17,7 @@ export default {
   order: 20,
   summary: 'Files and folders as tiles in a grid: a tinted thumbnail by type (or the picture itself), a two-line name, size and date, a checkbox that appears on hover, focus or while selecting, and a more menu. The tile opens the file; ticking selects it for a bulk action.',
   when: [
-    'A file manager or a library where people recognize files by type or picture: course materials, shared drive, uploaded receipts.',
+    'A file manager or a library where people recognize files by type or picture: training materials, shared drive, uploaded payment receipts.',
     'Picking several files for one action: download 4 files, move 12 photos, delete 2 drafts.',
   ],
   whenNot: [
@@ -43,18 +43,18 @@ export default {
       desc: 'Hover a tile for its checkbox and menu. Tick one: every checkbox stays visible and the selection bar rises with a rolling count. Shift-click ticks a run; Escape clears.',
       stage: 'block',
       html: `<div class="viewport docs-box" style="height: 470px; width: 100%;"><div class="viewport__content" style="overflow: auto; align-items: stretch;">
-<div class="file-grid" role="list" aria-label="Q4 planning" data-lds-selection="ft-bar" style="width: 100%;">
+<div class="file-grid" role="list" aria-label="Fourth quarter planning" data-lds-selection="ft-bar" style="width: 100%;">
   ${tile('folder', 'folder', 'Receipts', '48 files', 1)}
   ${tile('folder', 'folder', 'Contracts', '12 files', 2)}
   ${tile('sheet', 'description', 'Budget Q4 2026.xlsx', '214 KB · Edited 2 h ago', 3)}
-  ${tile('doc', 'description', 'Launch plan for the November cohort.docx', '1.2 MB · 14 Nov', 4)}
-  ${tile('image', 'image', 'Venue floor plan.png', '3.4 MB · 12 Nov', 5)}
-  ${tile('video', 'movie', 'Onboarding walkthrough.mp4', '86 MB · 9 Nov', 6)}
-  ${tile('archive', 'folder_zip', 'Brand assets.zip', '24 MB · 2 Nov', 7)}
+  ${tile('doc', 'description', 'UMKM training opening plan November.docx', '1.2 MB · 14 Nov', 4)}
+  ${tile('image', 'image', 'Service hall floor plan.png', '3.4 MB · 12 Nov', 5)}
+  ${tile('video', 'movie', 'Online registration guide.mp4', '86 MB · 9 Nov', 6)}
+  ${tile('archive', 'folder_zip', 'Visual identity assets.zip', '24 MB · 2 Nov', 7)}
 </div>
 <div class="selbar" id="ft-bar" role="toolbar" aria-label="Selected files"><span class="selbar__count" aria-live="polite"><span class="roll" data-lds-roll="0"></span> selected</span><button class="btn btn--md"><span class="ic" aria-hidden="true">download</span>Download</button><button class="btn btn--md btn--danger"><span class="ic" aria-hidden="true">delete</span>Delete</button><button class="icon-btn" data-lds-select-clear aria-label="Clear selection"><span class="ic" aria-hidden="true">close</span></button></div>
 </div></div>`,
-      code: `<div class="file-grid" role="list" aria-label="Q4 planning" data-lds-selection="files-bar">
+      code: `<div class="file-grid" role="list" aria-label="Fourth quarter planning" data-lds-selection="files-bar">
   <div class="file-tile file-tile--sheet" role="listitem">
     <label class="check file-tile__check"><input type="checkbox" data-lds-select aria-label="Select Budget Q4 2026.xlsx"><span class="check__box" aria-hidden="true">…</span></label>
     <a class="file-tile__open" href="/files/budget-q4"><span class="file-tile__thumb"><span class="ic" aria-hidden="true">description</span></span><span class="file-tile__name">Budget Q4 2026.xlsx</span><span class="file-tile__meta">214 KB · Edited 2 h ago</span></a>
@@ -76,7 +76,7 @@ export default {
   ${tile('doc', 'description', 'Minutes 12 Nov.docx', '48 KB', 11)}
   ${tile('audio', 'audio_file', 'Interview with Dewi.m4a', '18 MB', 12)}
   ${tile('image', 'image', 'Receipt 0412.jpg', '820 KB', 13)}
-  ${tile('sheet', 'description', 'Payroll November.xlsx', '96 KB', 14)}
+  ${tile('sheet', 'description', 'Officer stipends November.xlsx', '96 KB', 14)}
 </div>`,
     },
   ],
