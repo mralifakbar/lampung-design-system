@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:lampung_design_system/lampung_design_system.dart';
 
+import 'gallery/gallery.dart';
+
 void main() => runApp(const SakaiApp());
 
 /// Sakai: an example citizen app. Every value on screen is an example.
@@ -57,6 +59,7 @@ class _SakaiShellState extends State<SakaiShell> {
       ),
       const ReportPage(),
       AccountPage(mode: widget.mode, onModeChanged: widget.onModeChanged),
+      const GalleryPage(),
     ];
     return Scaffold(
       body: Column(
@@ -86,6 +89,11 @@ class _SakaiShellState extends State<SakaiShell> {
             icon: LdsIcon('person', size: 24),
             selectedIcon: LdsIcon('person', size: 24, fill: true),
             label: 'Akun',
+          ),
+          NavigationDestination(
+            icon: LdsIcon('widgets', size: 24),
+            selectedIcon: LdsIcon('widgets', size: 24, fill: true),
+            label: 'Komponen',
           ),
         ],
       ),
