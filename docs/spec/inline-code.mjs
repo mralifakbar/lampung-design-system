@@ -2,10 +2,10 @@ export default {
   title: 'Inline code',
   group: 'Content',
   order: 4,
-  summary: 'A short piece of code, a file name, a key or a value inside a sentence: `<code class="code">student_id</code>`, monospace at 0.88 em on `--bg-recessed`.',
+  summary: 'A short piece of code, a file name, a key or a value inside a sentence: `<code class="code">report_id</code>`, monospace at 0.88 em on `--bg-recessed`.',
   when: [
-    'Naming code, commands, file names, field names or exact values someone will type: `student_id`, `npm run build`, `grades.csv`.',
-    'Showing a short code people copy by reading it (an enrolment key in instructions).',
+    'Naming code, commands, file names, field names or exact values someone will type: `report_id`, `npm run build`, `pengaduan.csv`.',
+    'Showing a short code people copy by reading it (a booking code in instructions).',
   ],
   whenNot: [
     ['More than one line of code, or code people copy with a button', 'code-block'],
@@ -22,16 +22,16 @@ export default {
       title: 'In a sentence',
       desc: 'Field names and commands inside instructions.',
       stage: 'block',
-      html: `<p class="measure" style="font: var(--type-body); color: var(--text-default);">Export your grades as <code class="code">grades.csv</code>, then make sure the first column is <code class="code">student_id</code>. Run <code class="code">npm run import</code> to load them.</p>`,
+      html: `<p class="measure" style="font: var(--type-body); color: var(--text-default);">Export the citizen reports as <code class="code">pengaduan.csv</code>, then make sure the first column is <code class="code">report_id</code>. Run <code class="code">npm run import</code> to load them.</p>`,
     },
     {
       title: 'In helper text',
       desc: 'It scales with the smaller text around it.',
       stage: 'block',
       html: `<div class="field" style="max-width: 360px;">
-  <label class="field__label" for="ic-key">Enrolment key</label>
-  <div class="control"><input id="ic-key" placeholder="DB-2026" aria-describedby="ic-key-help"></div>
-  <span class="field__help" id="ic-key-help">Your lecturer shared it, for example <code class="code">DB-2026</code>.</span>
+  <label class="field__label" for="ic-key">Samsat booking code</label>
+  <div class="control"><input id="ic-key" placeholder="SMS-0412" aria-describedby="ic-key-help"></div>
+  <span class="field__help" id="ic-key-help">It is in the confirmation SMS, for example <code class="code">SMS-0412</code>.</span>
 </div>`,
     },
   ],

@@ -1,8 +1,8 @@
 export default {
-  summary: 'Potongan kode pendek, nama berkas, kunci atau nilai di dalam kalimat: `<code class="code">student_id</code>`, monospace 0,88 em di atas `--bg-recessed`.',
+  summary: 'Potongan kode pendek, nama berkas, kunci atau nilai di dalam kalimat: `<code class="code">report_id</code>`, monospace 0,88 em di atas `--bg-recessed`.',
   when: [
-    'Menyebut kode, perintah, nama berkas, nama kolom atau nilai persis yang akan diketik orang: `student_id`, `npm run build`, `grades.csv`.',
-    'Menampilkan kode pendek yang disalin orang dengan membacanya (kunci pendaftaran kelas dalam petunjuk).',
+    'Menyebut kode, perintah, nama berkas, nama kolom atau nilai persis yang akan diketik orang: `report_id`, `npm run build`, `pengaduan.csv`.',
+    'Menampilkan kode pendek yang disalin orang dengan membacanya (kode booking antrean dalam petunjuk).',
   ],
   whenNot: [
     ['Kode lebih dari satu baris, atau kode yang disalin dengan tombol', 'code-block'],
@@ -18,15 +18,15 @@ export default {
     {
       title: 'Di dalam kalimat',
       desc: 'Nama kolom dan perintah di dalam petunjuk.',
-      html: `<p class="measure" style="font: var(--type-body); color: var(--text-default);">Ekspor nilai Anda sebagai <code class="code">grades.csv</code>, lalu pastikan kolom pertamanya <code class="code">student_id</code>. Jalankan <code class="code">npm run import</code> untuk memuatnya.</p>`,
+      html: `<p class="measure" style="font: var(--type-body); color: var(--text-default);">Ekspor laporan pengaduan warga sebagai <code class="code">pengaduan.csv</code>, lalu pastikan kolom pertamanya <code class="code">report_id</code>. Jalankan <code class="code">npm run import</code> untuk memuatnya.</p>`,
     },
     {
       title: 'Di teks bantuan',
       desc: 'Ukurannya menyesuaikan teks kecil di sekitarnya.',
       html: `<div class="field" style="max-width: 360px;">
-  <label class="field__label" for="ic-key">Kunci pendaftaran kelas</label>
-  <div class="control"><input id="ic-key" placeholder="DB-2026" aria-describedby="ic-key-help"></div>
-  <span class="field__help" id="ic-key-help">Dibagikan oleh dosen Anda, contohnya <code class="code">DB-2026</code>.</span>
+  <label class="field__label" for="ic-key">Kode booking Samsat</label>
+  <div class="control"><input id="ic-key" placeholder="SMS-0412" aria-describedby="ic-key-help"></div>
+  <span class="field__help" id="ic-key-help">Tertera di SMS konfirmasi, contohnya <code class="code">SMS-0412</code>.</span>
 </div>`,
     },
   ],
