@@ -1,7 +1,7 @@
 const sample = `<div class="card stack" style="--gap: 12px;">
-    <div class="cluster" style="justify-content: space-between;"><span class="card__title">Database Systems</span><span class="badge badge--success">Open</span></div>
+    <div class="cluster" style="justify-content: space-between;"><span class="card__title">Micro business permit</span><span class="badge badge--success">Open</span></div>
     <div class="progress"><span class="progress__fill" style="transform: scaleX(0.72);"></span></div>
-    <div class="cluster"><button class="btn btn--primary btn--md">Continue</button><button class="btn btn--secondary btn--md">Syllabus</button></div>
+    <div class="cluster"><button class="btn btn--primary btn--md">Continue</button><button class="btn btn--secondary btn--md">Requirements</button></div>
   </div>`;
 
 export default {
