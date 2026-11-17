@@ -30,8 +30,8 @@ export default {
       html: `<div class="docs-col" style="max-width: 420px;">
   <div class="collapse"><div><div class="hint" data-lds-hint="docs-swipe-rows" data-max="3" role="note"><span class="ic" aria-hidden="true">touch_app</span><span><b>Swipe a row left</b> to pin, archive or delete it.</span><button class="hint__close" data-lds-hint-close aria-label="Hide this hint"><span class="ic ic--sm" aria-hidden="true">close</span></button></div></div></div>
   <div class="list">
-    <div class="lrow"><span class="lrow__body"><span class="lrow__title">Lab report feedback</span><span class="lrow__sub">Two comments on section 3</span></span></div>
-    <div class="lrow"><span class="lrow__body"><span class="lrow__title">Seminar room changed</span><span class="lrow__sub">Now in building C, room 204</span></span></div>
+    <div class="lrow"><span class="lrow__body"><span class="lrow__title">Reply to your damaged road report</span><span class="lrow__sub">Two notes from the field officer</span></span></div>
+    <div class="lrow"><span class="lrow__body"><span class="lrow__title">Posyandu schedule changed</span><span class="lrow__sub">Moved to the RW 04 community hall</span></span></div>
   </div>
   <button class="btn btn--plain btn--sm" style="align-self: flex-start; margin-left: -10px;" onclick="${RESET('docs-swipe-rows')}"><span class="ic" aria-hidden="true">refresh</span>Show the hint again</button>
 </div>`,
@@ -48,8 +48,8 @@ export default {
       title: 'Teach a shortcut',
       desc: 'A keyboard shortcut next to the search it opens, for the first five visits.',
       html: `<div class="docs-col" style="max-width: 420px;">
-  <div class="collapse"><div><div class="hint" data-lds-hint="docs-slash-search" data-max="5" role="note"><span class="ic" aria-hidden="true">search</span><span>Press <span class="kbd">/</span> to search your courses from anywhere.</span><button class="hint__close" data-lds-hint-close aria-label="Hide this hint"><span class="ic ic--sm" aria-hidden="true">close</span></button></div></div></div>
-  <div class="control search"><span class="ic" aria-hidden="true">search</span><input aria-label="Search courses" placeholder="Search courses"></div>
+  <div class="collapse"><div><div class="hint" data-lds-hint="docs-slash-search" data-max="5" role="note"><span class="ic" aria-hidden="true">search</span><span>Press <span class="kbd">/</span> to search services from any page.</span><button class="hint__close" data-lds-hint-close aria-label="Hide this hint"><span class="ic ic--sm" aria-hidden="true">close</span></button></div></div></div>
+  <div class="control search"><span class="ic" aria-hidden="true">search</span><input aria-label="Search services" placeholder="Search services"></div>
   <button class="btn btn--plain btn--sm" style="align-self: flex-start; margin-left: -10px;" onclick="${RESET('docs-slash-search')}"><span class="ic" aria-hidden="true">refresh</span>Show the hint again</button>
 </div>`,
     },
