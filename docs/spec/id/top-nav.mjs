@@ -46,13 +46,13 @@ export default {
       code: `<header class="topnav" data-lds-topnav>
   <a class="topnav__brand" href="/">Layanan Warga</a>
   <nav class="topnav__links" id="site-links" aria-label="Utama">
-    <a class="topnav__link" href="/courses" aria-current="page">Layanan</a>
-    <a class="topnav__link" href="/tryouts">Pengaduan</a>
-    <a class="topnav__link" href="/pricing">Tarif</a>
+    <a class="topnav__link" href="/layanan" aria-current="page">Layanan</a>
+    <a class="topnav__link" href="/pengaduan">Pengaduan</a>
+    <a class="topnav__link" href="/tarif">Tarif</a>
   </nav>
   <div class="topnav__actions">
     <a class="btn btn--plain btn--md" href="/sign-in">Masuk</a>
-    <a class="btn btn--primary btn--md" href="/start">Ajukan permohonan</a>
+    <a class="btn btn--primary btn--md" href="/ajukan">Ajukan permohonan</a>
     <button class="icon-btn topnav__toggle" data-lds-topnav-toggle aria-controls="site-links" aria-expanded="false" aria-label="Menu"><span class="burger" aria-hidden="true"><i></i><i></i><i></i></span></button>
   </div>
 </header>`,
