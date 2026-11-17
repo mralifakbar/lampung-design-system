@@ -4,7 +4,7 @@ export default {
   order: 16,
   summary: 'A horizontal row of cards that snaps per card under the finger or trackpad, with dots that stretch toward the current page. For browsing optional items, never for content everyone must see.',
   when: [
-    'A row of optional, similar items to browse: featured courses, new practice sets, upcoming events.',
+    'A row of optional, similar items to browse: featured services, new training programs, upcoming events.',
     'A phone section where a vertical list would push the main content too far down.',
   ],
   whenNot: [
@@ -23,24 +23,24 @@ export default {
   ],
   examples: [
     {
-      title: 'Featured practice sets',
+      title: 'Featured training programs',
       desc: 'Scroll or swipe the row; it snaps per card. The dots jump to a page and follow the scroll.',
       stage: 'block',
       html: `<div class="docs-col">
-  <div class="carousel" role="region" aria-label="Featured practice sets" tabindex="0" onscroll="const p = Math.round(this.scrollLeft / Math.max(1, this.scrollWidth - this.clientWidth)); this.nextElementSibling.querySelectorAll('button').forEach((b, i) => b.setAttribute('aria-current', String(i === p)));">
-    <div class="card card--fill"><div class="card__title">Verbal reasoning</div><div class="card__sub">35 questions · 40 min</div></div>
-    <div class="card card--fill"><div class="card__title">Numerical reasoning</div><div class="card__sub">30 questions · 30 min</div></div>
-    <div class="card card--fill"><div class="card__title">General knowledge</div><div class="card__sub">40 questions · 35 min</div></div>
-    <div class="card card--fill"><div class="card__title">Reading speed</div><div class="card__sub">10 passages · 20 min</div></div>
-    <div class="card card--fill"><div class="card__title">Logic puzzles</div><div class="card__sub">20 questions · 25 min</div></div>
-    <div class="card card--fill"><div class="card__title">Civics basics</div><div class="card__sub">30 questions · 20 min</div></div>
+  <div class="carousel" role="region" aria-label="Featured training programs" tabindex="0" onscroll="const p = Math.round(this.scrollLeft / Math.max(1, this.scrollWidth - this.clientWidth)); this.nextElementSibling.querySelectorAll('button').forEach((b, i) => b.setAttribute('aria-current', String(i === p)));">
+    <div class="card card--fill"><div class="card__title">Online marketing for UMKM</div><div class="card__sub">6 sessions · 2 hours</div></div>
+    <div class="card card--fill"><div class="card__title">Simple bookkeeping</div><div class="card__sub">4 sessions · 90 min</div></div>
+    <div class="card card--fill"><div class="card__title">Product packaging</div><div class="card__sub">3 sessions · 2 hours</div></div>
+    <div class="card card--fill"><div class="card__title">Halal certification</div><div class="card__sub">2 sessions · 3 hours</div></div>
+    <div class="card card--fill"><div class="card__title">Product photos with a phone</div><div class="card__sub">3 sessions · 90 min</div></div>
+    <div class="card card--fill"><div class="card__title">Micro business permits</div><div class="card__sub">1 session · 2 hours</div></div>
   </div>
   <div class="dots" role="group" aria-label="Pages">
     <button aria-label="Page 1" aria-current="true" onclick="const c = this.parentElement.previousElementSibling; c.scrollTo({ left: 0 });"><i></i></button>
     <button aria-label="Page 2" aria-current="false" onclick="const c = this.parentElement.previousElementSibling; c.scrollTo({ left: c.scrollWidth });"><i></i></button>
   </div>
 </div>`,
-      code: `<div class="carousel" role="region" aria-label="Featured practice sets" tabindex="0">
+      code: `<div class="carousel" role="region" aria-label="Featured training programs" tabindex="0">
   <div class="card card--fill">…</div>
   <div class="card card--fill">…</div>
 </div>
@@ -69,7 +69,7 @@ export default {
   do: [
     'Show part of the next card so people know they can scroll.',
     'Keep items the same size and kind.',
-    'Link to a full list ("See all practice sets") for people who prefer it.',
+    'Link to a full list ("See all training programs") for people who prefer it.',
   ],
   dont: [
     'Autoplay or loop.',
