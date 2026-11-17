@@ -2,7 +2,7 @@ export default {
   summary: 'Peristiwa berurutan waktu pada garis vertikal, dengan titik terisi untuk yang sudah selesai. Untuk riwayat atau rencana satu hal, yang terlama di atas.',
   when: [
     'Riwayat satu catatan: permohonan izin dari diajukan sampai diputuskan, laporan warga dari masuk sampai ditangani.',
-    'Rencana dengan tonggak bertanggal yang sebagian sudah selesai: jadwal persiapan ujian, proses beasiswa.',
+    'Rencana dengan tonggak bertanggal yang sebagian sudah selesai: jadwal perbaikan jalan, proses beasiswa daerah.',
   ],
   whenNot: [
     ['Langkah alur yang sedang diselesaikan orang saat ini (wizard formulir)', 'steps'],
@@ -35,12 +35,12 @@ export default {
 </div>`,
     },
     {
-      title: 'Riwayat pendaftaran',
+      title: 'Riwayat pendaftaran beasiswa daerah',
       desc: 'Semua butir sudah selesai; ikon menyebut jenis peristiwanya.',
       html: `<ol class="tl" style="max-width: 400px;">
   <li class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">upload_file</span></span><div><div class="tl__title">Dokumen diunggah</div><div class="tl__meta">2 Nov, 09.14</div></div></li>
-  <li class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">visibility</span></span><div><div class="tl__title">Diperiksa panitia penerimaan</div><div class="tl__meta">5 Nov, 13.40</div></div></li>
-  <li class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">mail</span></span><div><div class="tl__title">Surat penerimaan dikirim</div><div class="tl__meta">9 Nov, 10.02</div></div></li>
+  <li class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">visibility</span></span><div><div class="tl__title">Diperiksa panitia beasiswa daerah</div><div class="tl__meta">5 Nov, 13.40</div></div></li>
+  <li class="tl__item"><span class="tl__dot tl__dot--done"><span class="ic" aria-hidden="true">mail</span></span><div><div class="tl__title">Surat penetapan penerima dikirim</div><div class="tl__meta">9 Nov, 10.02</div></div></li>
 </ol>`,
     },
   ],
