@@ -7,7 +7,7 @@ export default {
   order: 3,
   summary: 'Endorsing something is optimistic: the heart fills, pops and throws seven sparks the moment it is pressed, and the count rolls up, before the server answers. If the server refuses, it rolls back with a shake and says why.',
   when: [
-    'Endorsing a post, an answer or a comment, where the count is social proof: a forum answer, a shared note, a class announcement.',
+    'Endorsing a post, an answer or a comment, where the count is social proof: an answer in a residents forum, a musrenbang proposal, a kelurahan announcement.',
     'Any toggle whose success is almost certain and cheap to undo, so waiting for the server would only add lag.',
   ],
   whenNot: [
@@ -24,12 +24,12 @@ export default {
   ],
   examples: [
     {
-      title: 'Like an answer',
+      title: 'Support a proposal',
       desc: 'Press the heart: it fills at once, pops and bursts; the count rolls to 129. Press again to take it back (no burst on the way off).',
       stage: 'fill',
       html: `<div class="card" style="max-width: 460px;">
-  <p class="card__title">How I memorize the Krebs cycle</p>
-  <p class="card__sub" style="margin-top: 6px;">Group the steps in threes and say them out loud on the way to class. It took me four days.</p>
+  <p class="card__title">Street lights on Jalan Pagar Alam keep going out</p>
+  <p class="card__sub" style="margin-top: 6px;">Proposal to replace the lamps on three poles near the bus stop. It has been completely dark for four nights.</p>
   <div class="docs-row" style="margin-top: 14px;">${LIKE(128)}<button class="btn btn--plain btn--sm">Reply</button></div>
 </div>`,
     },
