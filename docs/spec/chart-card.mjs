@@ -1,12 +1,12 @@
 import { days, wave, cfg, sum, fmt } from './_chart-data.mjs';
 
-// Orders for a small bakery that sells online and at a weekend market
+// Business permit applications, filed online and at the service counter
 const d90 = days(90), web = wave(180, { base: 38, trend: 0.5, seed: 3 }), stall = wave(180, { base: 25, trend: 0.15, week: 0.3, seed: 7 });
-const slice = (n) => ({ x: d90.short.slice(-n), xFull: d90.long.slice(-n), series: [{ name: 'Website', values: web.slice(-n) }, { name: 'Market stall', values: stall.slice(-n) }] });
+const slice = (n) => ({ x: d90.short.slice(-n), xFull: d90.long.slice(-n), series: [{ name: 'Website', values: web.slice(-n) }, { name: 'Counter', values: stall.slice(-n) }] });
 const total = (n) => sum(web.slice(-n)) + sum(stall.slice(-n));
 const before = (n) => sum(web.slice(-2 * n, -n)) + sum(stall.slice(-2 * n, -n));
 const change = (n) => `${Math.round((total(n) / before(n) - 1) * 100)}%`;
-const set = (n, words) => ({ ...slice(n), figure: fmt(total(n)), delta: change(n), note: `against the ${words} before`, label: `Orders per day by channel, last ${words}: ${fmt(total(n))} in total.` });
+const set = (n, words) => ({ ...slice(n), figure: fmt(total(n)), delta: change(n), note: `against the ${words} before`, label: `Permit applications per day by channel, last ${words}: ${fmt(total(n))} in total.` });
 const orders = {
   xName: 'Day', stacked: true, total: true, height: 220,
   ...set(30, '30 days'),
@@ -23,7 +23,7 @@ const menu = (id, name) => `<div style="position: relative;">
 
 const full = `<section class="chart-card" aria-labelledby="cc-orders-q">
   <div class="chart-card__head">
-    <div class="chart-card__titles"><div class="chart-card__q" id="cc-orders-q">Where do orders come from?</div><div class="chart-card__sub">Orders per day, website and market stall</div></div>
+    <div class="chart-card__titles"><div class="chart-card__q" id="cc-orders-q">How do residents apply for business permits?</div><div class="chart-card__sub">Applications per day, website and counter</div></div>
     <div class="chart-card__actions">
       <div class="seg chart-card__range" role="group" aria-label="Period" data-lds-segmented data-lds-chart-for="cc-orders">
         <span class="seg__thumb"></span>
@@ -31,16 +31,16 @@ const full = `<section class="chart-card" aria-labelledby="cc-orders-q">
         <button type="button" class="seg__btn" aria-pressed="true" data-set="30d">30 days</button>
         <button type="button" class="seg__btn" aria-pressed="false" data-set="90d">3 months</button>
       </div>
-      ${menu('cc-orders-menu', 'Orders chart')}
+      ${menu('cc-orders-menu', 'Permit applications chart')}
     </div>
   </div>
   <div class="chart-card__figure"><div class="chart-card__big" data-chart-figure>${fmt(total(30))}</div><span class="delta delta--pill delta--good" data-chart-delta><span class="ic" aria-hidden="true">arrow_upward</span>${change(30)}</span><span class="chart-card__sub" data-chart-note>against the 30 days before</span></div>
   <div class="chart" id="cc-orders" data-lds-chart='${cfg(orders)}'></div>
-  <div class="chart-card__foot"><span>Updated 16 Nov 2026, 09:40</span><a class="btn btn--plain btn--sm" href="#cc-orders-q">Open the orders report<span class="ic" aria-hidden="true">chevron_right</span></a></div>
+  <div class="chart-card__foot"><span>Updated 16 Nov 2026, 09:40</span><a class="btn btn--plain btn--sm" href="#cc-orders-q">Open the applications report<span class="ic" aria-hidden="true">chevron_right</span></a></div>
 </section>`;
 
-const cats = { label: 'Lessons booked per weekday this week. Thursday is busiest with 31.', x: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], series: [{ name: 'Lessons', values: [18, 24, 22, 31, 27, 12, 6], kind: 'bar' }], highlight: 3, height: 180 };
-const scores = { label: 'Average quiz score per week. This term rose from 64 to 81; last term stayed near 70.', x: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8'], kind: 'line', series: [{ name: 'This term', values: [64, 67, 66, 71, 74, 73, 78, 81] }, { name: 'Last term', values: [68, 70, 69, 71, 70, 72, 71, 70], dashed: true, color: 4 }], y: { min: 50, max: 90 }, height: 180 };
+const cats = { label: 'Puskesmas visits per weekday this week. Thursday is busiest with 31 visits.', x: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'], series: [{ name: 'Visits', values: [18, 24, 22, 31, 27, 12, 6], kind: 'bar' }], highlight: 3, height: 180 };
+const scores = { label: 'Average service satisfaction score per week. This year rose from 64 to 81; last year stayed near 70.', x: ['W1', 'W2', 'W3', 'W4', 'W5', 'W6', 'W7', 'W8'], kind: 'line', series: [{ name: 'This year', values: [64, 67, 66, 71, 74, 73, 78, 81] }, { name: 'Last year', values: [68, 70, 69, 71, 70, 72, 71, 70], dashed: true, color: 4 }], y: { min: 50, max: 90 }, height: 180 };
 
 export default {
   title: 'Chart card',
@@ -78,18 +78,18 @@ export default {
     },
     {
       title: 'A dashboard row',
-      desc: 'Two cards share one grid. The bar chart highlights the answer; the line chart compares this term with the last one, dashed.',
+      desc: 'Two cards share one grid. The bar chart highlights the answer; the line chart compares this year with last year, dashed.',
       stage: 'block',
       replay: true,
       html: `<div class="auto-grid" style="--min: 300px;">
   <section class="chart-card" aria-labelledby="cc-busy">
-    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="cc-busy">Which day is busiest?</div><div class="chart-card__sub">Lessons booked per weekday, this week</div></div></div>
+    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="cc-busy">Which day is the puskesmas busiest?</div><div class="chart-card__sub">Patient visits per weekday, this week</div></div></div>
     <div class="chart" data-lds-chart='${cfg(cats)}'></div>
   </section>
   <section class="chart-card" aria-labelledby="cc-score">
-    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="cc-score">Are quiz scores improving?</div><div class="chart-card__sub">Average score per week, out of 100</div></div></div>
+    <div class="chart-card__head"><div class="chart-card__titles"><div class="chart-card__q" id="cc-score">Is resident satisfaction improving?</div><div class="chart-card__sub">Average survey score per week, out of 100</div></div></div>
     <div class="chart" data-lds-chart='${cfg(scores)}'></div>
-    <div class="chart-card__foot"><span>Example data</span><a class="btn btn--plain btn--sm" href="#cc-score">See every quiz<span class="ic" aria-hidden="true">chevron_right</span></a></div>
+    <div class="chart-card__foot"><span>Example data</span><a class="btn btn--plain btn--sm" href="#cc-score">See every survey<span class="ic" aria-hidden="true">chevron_right</span></a></div>
   </section>
 </div>`,
     },
@@ -114,7 +114,7 @@ export default {
   a11y: [
     'Make the card a `section` labelled by its question, so the chart is a landmark people can jump to.',
     'The range control is a group of toggle buttons with `aria-pressed` and a group label ("Period").',
-    'The menu button names its chart: "More actions for Orders chart".',
+    'The menu button names its chart: "More actions for Permit applications chart".',
     'The headline figure and delta are real text; the delta says the direction in words for screen readers when the arrow is the only cue (add `.sr-only` "up" or "down").',
   ],
   do: [
