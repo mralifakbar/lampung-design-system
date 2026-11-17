@@ -4,7 +4,7 @@ export default {
   order: 9,
   summary: 'An "On this page" list of the headings of one long page, with an ink line that follows the section in view. The list on the right of this page is one.',
   when: [
-    'A long page with four or more sections people jump between: documentation, a syllabus, course rules, a long report.',
+    'A long page with four or more sections people jump between: documentation, a service guide, regulations, a long report.',
     'Wide screens with room for a third column beside the content.',
   ],
   whenNot: [
@@ -28,22 +28,22 @@ export default {
   <nav class="toc" data-lds-toc aria-label="On this page">
     <span class="toc__ink" aria-hidden="true"></span>
     <a href="#ol-intro">Introduction</a>
-    <a href="#ol-grading">Grading</a>
-    <a href="#ol-hours">Office hours</a>
-    <a href="#ol-policies">Policies</a>
+    <a href="#ol-grading">Requirements</a>
+    <a href="#ol-hours">Service hours</a>
+    <a href="#ol-policies">Terms</a>
   </nav>
   <div class="docs-scroll stack" style="--gap: 32px; height: 240px;">
-    <section class="section" id="ol-intro"><div class="section__head"><h3 class="section__title-sm">Introduction</h3><p class="section__sub">Database Systems covers relational design, SQL, transactions and indexing over fourteen weeks.</p></div></section>
-    <section class="section" id="ol-grading"><div class="section__head"><h3 class="section__title-sm">Grading</h3><p class="section__sub">Assignments 40 %, midterm 25 %, final project 35 %. Late work loses 10 % per day.</p></div></section>
-    <section class="section" id="ol-hours"><div class="section__head"><h3 class="section__title-sm">Office hours</h3><p class="section__sub">Tuesdays 13:00 to 15:00 in room H 2.14, or by appointment.</p></div></section>
-    <section class="section" id="ol-policies" style="padding-bottom: 160px;"><div class="section__head"><h3 class="section__title-sm">Policies</h3><p class="section__sub">Work alone on assignments unless the brief says otherwise.</p></div></section>
+    <section class="section" id="ol-intro"><div class="section__head"><h3 class="section__title-sm">Introduction</h3><p class="section__sub">The micro business permit covers registration, document checks, a site survey and issuing the permit within fourteen working days.</p></div></section>
+    <section class="section" id="ol-grading"><div class="section__head"><h3 class="section__title-sm">Requirements</h3><p class="section__sub">The owner's KTP, a business domicile letter and a photo of the premises. Incomplete files are returned within 2 working days.</p></div></section>
+    <section class="section" id="ol-hours"><div class="section__head"><h3 class="section__title-sm">Service hours</h3><p class="section__sub">Tuesdays 13:00 to 15:00 at counter 2, ground floor, or by appointment.</p></div></section>
+    <section class="section" id="ol-policies" style="padding-bottom: 160px;"><div class="section__head"><h3 class="section__title-sm">Terms</h3><p class="section__sub">One application per business premises, unless the guide says otherwise.</p></div></section>
   </div>
 </div>`,
       code: `<nav class="toc" data-lds-toc aria-label="On this page">
   <span class="toc__ink" aria-hidden="true"></span>
   <a href="#intro">Introduction</a>
-  <a href="#grading">Grading</a>
-  <a href="#office-hours">Office hours</a>
+  <a href="#grading">Requirements</a>
+  <a href="#office-hours">Service hours</a>
 </nav>
 <!-- later in the page -->
 <h2 id="intro">Introduction</h2> …`,
