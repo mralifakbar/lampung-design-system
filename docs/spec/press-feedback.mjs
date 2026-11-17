@@ -23,13 +23,13 @@ export default {
       title: 'Buttons',
       desc: 'Press and hold each one. Standard buttons sink to 0.97; full-width and large ones to 0.985 so the motion stays the same size in pixels; a menu trigger does not sink because the menu opening is its feedback; icon buttons sink to 0.9 with a tint.',
       html: `<div class="docs-row">
-  <button class="btn btn--primary">Submit answers</button>
+  <button class="btn btn--primary">Send report</button>
   <button class="btn btn--secondary">Preview</button>
   <button class="btn btn--gray btn--md" aria-haspopup="menu">Sort by<span class="ic" aria-hidden="true">expand_more</span></button>
   <button class="icon-btn" aria-label="Bookmark"><span class="ic" aria-hidden="true">bookmark</span></button>
   <button class="icon-btn icon-btn--filled" aria-label="Share"><span class="ic" aria-hidden="true">share</span></button>
 </div>
-<div class="docs-col" style="max-width: 360px; margin-top: 12px;"><button class="btn btn--primary btn--block">Start the tryout</button></div>`,
+<div class="docs-col" style="max-width: 360px; margin-top: 12px;"><button class="btn btn--primary btn--block">Start application</button></div>`,
     },
     {
       title: 'List rows',
@@ -46,10 +46,10 @@ export default {
       desc: 'Tappable cards and radio cards sink to 0.985: enough to feel, not enough to move the grid. Resting cards (not links) do not move at all.',
       stage: 'fill',
       html: `<div class="docs-col" style="max-width: 420px;">
-  <a class="card card--link" href="#"><span class="card__title" style="display: block;">Cell biology</span><span class="card__sub" style="display: block;">12 lessons, 3 quizzes</span></a>
-  <div role="radiogroup" aria-label="Plan" class="docs-col">
-    <button class="rcard" role="radio" aria-checked="true" onclick="this.parentElement.querySelectorAll('.rcard').forEach((r) => r.setAttribute('aria-checked', String(r === this)))"><span class="radio__dot"></span><span><span class="rcard__title" style="display: block;">Monthly</span><span class="rcard__sub" style="display: block;">Cancel any time</span></span><span class="rcard__price">Rp 49.000</span></button>
-    <button class="rcard" role="radio" aria-checked="false" onclick="this.parentElement.querySelectorAll('.rcard').forEach((r) => r.setAttribute('aria-checked', String(r === this)))"><span class="radio__dot"></span><span><span class="rcard__title" style="display: block;">Full term</span><span class="rcard__sub" style="display: block;">Four months, save 20 %</span></span><span class="rcard__price">Rp 156.000</span></button>
+  <a class="card card--link" href="#"><span class="card__title" style="display: block;">Micro business permit</span><span class="card__sub" style="display: block;">5 steps, 3 documents</span></a>
+  <div role="radiogroup" aria-label="Pickup method" class="docs-col">
+    <button class="rcard" role="radio" aria-checked="true" onclick="this.parentElement.querySelectorAll('.rcard').forEach((r) => r.setAttribute('aria-checked', String(r === this)))"><span class="radio__dot"></span><span><span class="rcard__title" style="display: block;">Collect at the counter</span><span class="rcard__sub" style="display: block;">Ready in 3 working days</span></span><span class="rcard__price">Rp 0</span></button>
+    <button class="rcard" role="radio" aria-checked="false" onclick="this.parentElement.querySelectorAll('.rcard').forEach((r) => r.setAttribute('aria-checked', String(r === this)))"><span class="radio__dot"></span><span><span class="rcard__title" style="display: block;">Delivered to your home</span><span class="rcard__sub" style="display: block;">Arrives 2 to 4 days after issue</span></span><span class="rcard__price">Rp 15.000</span></button>
   </div>
 </div>`,
     },
@@ -57,9 +57,9 @@ export default {
       title: 'Chips, toggles and checkboxes',
       desc: 'Small targets sink deeper so the press is visible under a finger: chips 0.95, toggles 0.94, checkboxes and radios 0.88. The state change (fill, check, color) follows on release.',
       html: `<div class="chip-row">
-  <button class="chip" aria-pressed="true" onclick="${PRESS}"><span class="ic chip__check" aria-hidden="true">check</span>Biology</button>
-  <button class="chip" aria-pressed="false" onclick="${PRESS}"><span class="ic chip__check" aria-hidden="true">check</span>Chemistry</button>
-  <button class="chip" aria-pressed="false" onclick="${PRESS}"><span class="ic chip__check" aria-hidden="true">check</span>Physics</button>
+  <button class="chip" aria-pressed="true" onclick="${PRESS}"><span class="ic chip__check" aria-hidden="true">check</span>Roads</button>
+  <button class="chip" aria-pressed="false" onclick="${PRESS}"><span class="ic chip__check" aria-hidden="true">check</span>Drainage</button>
+  <button class="chip" aria-pressed="false" onclick="${PRESS}"><span class="ic chip__check" aria-hidden="true">check</span>Street lights</button>
 </div>
 <div class="toggle-group" role="group" aria-label="Text style">
   <button class="toggle" aria-pressed="false" aria-label="Bold" onclick="${PRESS}"><span class="ic" aria-hidden="true">format_bold</span></button>
