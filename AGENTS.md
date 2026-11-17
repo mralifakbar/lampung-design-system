@@ -93,7 +93,7 @@ npm run build:icons    # icons/icons.json -> fonts/*.woff2 (python3 + npm; cache
 npm run build:aksara   # aksara/glyphs/*.svg -> aksara/lds-aksara.svg sprite + js/aksara data
 npm run build          # everything above that does not need python
 npm run build:site     # assembles site/ for Cloudflare (landing at /, docs at /docs, registry at /r)
-npm test               # node --test tests/ (tokens, contrast, docs, CLI, site)
+npm test               # node --test on tests/ and packages/cli/test/ (tokens, contrast, docs, CLI, site)
 npm run serve          # http://localhost:5173
 npm run lint:commits   # conventional commit check for the current branch
 python3 skills/antislop-human/contrast-check.py "#FFFFFF" "#0B6E4F"   # verify any color pairing

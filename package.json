@@ -95,7 +95,7 @@
     "build:site": "node scripts/build-site.mjs",
     "serve": "python3 -m http.server 5173",
     "sync": "node scripts/sync.mjs",
-    "test": "node --test tests/ packages/cli/test/",
+    "test": "node --test \"tests/*.test.mjs\" \"packages/cli/test/*.test.js\"",
     "test:flutter": "cd packages/flutter && flutter test",
     "lint:commits": "node scripts/lint-commits.mjs",
     "deploy": "npm run build:site && wrangler deploy"
