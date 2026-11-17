@@ -9,7 +9,7 @@ export default {
     'A compact single choice in a toolbar or a card header.',
   ],
   whenNot: [
-    ['Each choice shows a different panel of content (Overview, Assignments, Files)', 'tabs', 'Tabs carry tab semantics and panels'],
+    ['Each choice shows a different panel of content (Overview, Files, History)', 'tabs', 'Tabs carry tab semantics and panels'],
     ['More than five options, or long labels', 'select'],
     ['A single on and off setting', 'switch'],
     ['A choice saved with a form, needing explanations', 'radio', 'Or [radio cards](radio-card)'],
