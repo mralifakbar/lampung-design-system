@@ -6,7 +6,7 @@ export default {
   ],
   whenNot: [
     ['Memilih paket', 'plans'],
-    ['Catatan yang dibandingkan menurut atributnya (siswa, faktur)', 'table'],
+    ['Catatan yang dibandingkan menurut atributnya (permohonan, izin)', 'table'],
     ['Pasangan label dan nilai dari satu item', 'key-value'],
   ],
   where: 'Di bawah [plans](plans), sering di balik tombol "Bandingkan semua fitur" yang membukanya di tempat dengan resep collapse. Selebar konten penuh; mulai 620 px tabel muat, di bawahnya bergulir di dalam `.compare-box` dengan kolom fitur sticky di kiri.',
