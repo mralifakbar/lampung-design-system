@@ -5,7 +5,7 @@ export default {
   summary: 'A small, non-interactive label for the state or type of a thing: Draft, Overdue, Approved. Human words, one or two at most per item.',
   when: [
     'Showing the state of a record in a row, a card or a table cell: Draft, In review, Approved, Overdue.',
-    'Marking a type or category that helps scanning: Seminar, Free, New.',
+    'Marking a type or category that helps scanning: Outreach, Free, New.',
     'A short time-bound flag: "Due tomorrow", "Ends today".',
   ],
   whenNot: [
@@ -34,7 +34,7 @@ export default {
   <span class="badge badge--success"><span class="ic" aria-hidden="true">check</span>Approved</span>
   <span class="badge badge--warning">Due tomorrow</span>
   <span class="badge badge--danger">Overdue</span>
-  <span class="badge badge--outline">Seminar</span>
+  <span class="badge badge--outline">Outreach</span>
   <span class="badge badge--solid">New</span>
 </div>`,
     },
@@ -43,9 +43,9 @@ export default {
       desc: 'The badge sits at the end of the row, after the text.',
       stage: 'block',
       html: `<div class="list" style="max-width: 460px;">
-  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Essay on climate policy</div><div class="lrow__sub">Submitted 12 Nov</div></div><span class="badge badge--accent">In review</span></div>
-  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Lab report 4</div><div class="lrow__sub">Due 10 Nov</div></div><span class="badge badge--danger">Overdue</span></div>
-  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Reading notes, week 8</div><div class="lrow__sub">Graded 8 Nov</div></div><span class="badge badge--success">Graded</span></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Micro business permit application</div><div class="lrow__sub">Sent 12 Nov</div></div><span class="badge badge--accent">In review</span></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Land and building tax 2026</div><div class="lrow__sub">Due 10 Nov</div></div><span class="badge badge--danger">Overdue</span></div>
+  <div class="lrow"><div class="lrow__body"><div class="lrow__title">Damaged road report on Jl. Pagar Alam</div><div class="lrow__sub">Handled 8 Nov</div></div><span class="badge badge--success">Resolved</span></div>
 </div>`,
     },
     {
@@ -53,9 +53,9 @@ export default {
       desc: 'Above the title for a type, beside it for a state.',
       stage: 'block',
       html: `<div class="card" style="max-width: 320px;">
-  <span class="badge badge--outline">Workshop</span>
-  <div class="card__title" style="margin-top: 10px;">Writing a strong cover letter</div>
-  <div class="card__sub">Thursday, 13:00 · Room B2</div>
+  <span class="badge badge--outline">Training</span>
+  <div class="card__title" style="margin-top: 10px;">Getting a halal certificate for UMKM</div>
+  <div class="card__sub">Thursday, 13:00 · District office hall</div>
 </div>`,
     },
   ],
@@ -72,7 +72,7 @@ export default {
     'None at rest. When a state changes in place, change the words with [text morph](text-morph) and let the tint cross-fade; do not pop or pulse the badge.',
   ],
   a11y: [
-    'A badge is text, read in place; make sure the row reads well ("Lab report 4, Overdue").',
+    'A badge is text, read in place; make sure the row reads well ("Land and building tax 2026, Overdue").',
     'Never make it clickable. If it must open something, it is a [chip](chips) or a button.',
     'The tone must also be in the words; "Overdue" in red, not a red badge saying "4".',
   ],
