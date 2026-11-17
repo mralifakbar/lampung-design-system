@@ -12,14 +12,14 @@ const col = (key, title, n, cards, limit) => `<section class="kanban__col" data-
         <div class="kanban__empty">Drop a card here</div>
       </div>
     </section>`;
-const board = `<div class="kanban" data-lds-kanban aria-label="November cohort launch">
+const board = `<div class="kanban" data-lds-kanban aria-label="Online permit service launch">
     ${col('todo', 'To do', 3, [
-      card('k1', 'Write the welcome email', 'Three short paragraphs and the link to week 1.', 'Content', 'accent', '18 Nov', ['DL', 'Dewi Lestari'], 4),
-      card('k2', 'Book the venue for the kickoff', '', 'Operations', '', '20 Nov', ['AS', 'Arif Santoso'], 1),
-      card('k3', 'Price the early bird seats', 'Compare with last cohort and the waitlist size.', 'Finance', 'warning', '21 Nov', ['SH', 'Sari Handayani'], 7),
+      card('k1', 'Write the applicant welcome email', 'Three short paragraphs and the link to the application guide.', 'Content', 'accent', '18 Nov', ['DL', 'Dewi Lestari'], 4),
+      card('k2', 'Book the hall for the public briefing', '', 'Operations', '', '20 Nov', ['AS', 'Arif Santoso'], 1),
+      card('k3', 'Calculate the new levy rates', 'Compare with last year and the applicant queue size.', 'Finance', 'warning', '21 Nov', ['SH', 'Sari Handayani'], 7),
     ])}
     ${col('doing', 'In progress', 2, [
-      card('k4', 'Record lesson 1 videos', '', 'Content', 'accent', '19 Nov', ['RW', 'Rina Wijaya'], 2),
+      card('k4', 'Record the registration guide video', '', 'Content', 'accent', '19 Nov', ['RW', 'Rina Wijaya'], 2),
       card('k5', 'Set up the payment page', 'Virtual account and card, with receipts by email.', 'Platform', 'success', '22 Nov', ['GR', 'Galih Ramadhan'], 5),
     ], 3)}
     ${col('done', 'Done', 0, [])}
@@ -32,7 +32,7 @@ export default {
   order: 21,
   summary: 'Columns of cards that people move between stages by dragging or by keyboard. The picked card lifts and follows the pointer, the others make room on a spring, and it settles into its slot; the counts roll.',
   when: [
-    'Work that moves through a few stages and people rearrange it often: tasks of a launch, applications in review, support tickets, content in production.',
+    'Work that moves through a few stages and people rearrange it often: tasks of a service launch, applications in review, citizen complaints, content in production.',
     'Seeing how much sits in each stage matters as much as the items themselves (work in progress limits).',
   ],
   whenNot: [
@@ -77,7 +77,7 @@ export default {
   ],
   a11y: [
     'Every card is focusable; Space picks it up, arrow keys move it (left and right change column), Space or Enter drops it, Escape puts it back, Tab drops it where it is.',
-    'Each step is announced: "Picked up Write the welcome email, To do, position 1 of 3", "In progress, position 2 of 3", "Dropped…".',
+    'Each step is announced: "Picked up Write the applicant welcome email, To do, position 1 of 3", "In progress, position 2 of 3", "Dropped…".',
     'Mouse drags start after 5 px, so a click still works; touch drags start after a 260 ms hold, so the board still scrolls.',
     'Buttons and links inside a card never start a drag.',
   ],
