@@ -33,15 +33,15 @@ export default {
       height: 300,
       html: `<div class="list" style="width: 100%; max-width: 420px; overflow: visible;">
   <div class="lrow">
-    <span class="lrow__body"><span class="lrow__title" style="display: block;">Lab report 3</span><span class="lrow__sub" style="display: block;">Computer Networks · due tomorrow</span></span>
+    <span class="lrow__body"><span class="lrow__title" style="display: block;">Pothole report</span><span class="lrow__sub" style="display: block;">Public works office · due tomorrow</span></span>
     <div style="position: relative;">
-      <button class="icon-btn" aria-label="More actions for Lab report 3" aria-haspopup="menu" aria-expanded="false" data-lds-menu="dm-more"><span class="ic" aria-hidden="true">more_horiz</span></button>
-      <div class="menu menu--right" id="dm-more" role="menu" aria-label="Lab report 3" style="top: calc(100% + 6px); right: 0;">
-        <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Edit brief</button>
+      <button class="icon-btn" aria-label="More actions for Pothole report" aria-haspopup="menu" aria-expanded="false" data-lds-menu="dm-more"><span class="ic" aria-hidden="true">more_horiz</span></button>
+      <div class="menu menu--right" id="dm-more" role="menu" aria-label="Pothole report" style="top: calc(100% + 6px); right: 0;">
+        <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">edit</span>Edit report</button>
         <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">content_copy</span>Duplicate<kbd>⌘D</kbd></button>
-        <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Export submissions</button>
+        <button class="menu__item" role="menuitem"><span class="ic" aria-hidden="true">download</span>Export attachments</button>
         <div class="menu__sep"></div>
-        <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete assignment</button>
+        <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Delete report</button>
       </div>
     </div>
   </div>
@@ -56,7 +56,7 @@ export default {
   <div class="menu" id="dm-sort" role="menu" aria-label="Sort by" style="top: calc(100% + 6px); left: 0;">
     <p class="menu__label">Sort by</p>
     <button class="menu__item is-selected" role="menuitemradio" aria-checked="true">Due date<span class="ic menu__check" aria-hidden="true">check</span></button>
-    <button class="menu__item" role="menuitemradio" aria-checked="false">Course</button>
+    <button class="menu__item" role="menuitemradio" aria-checked="false">Service</button>
     <button class="menu__item" role="menuitemradio" aria-checked="false">Recently added</button>
     <div class="menu__sep"></div>
     <button class="menu__item menu__item--danger" role="menuitem"><span class="ic" aria-hidden="true">delete</span>Clear completed</button>
@@ -81,14 +81,14 @@ export default {
     'Reduced motion: fade only, no scale.',
   ],
   a11y: [
-    'Trigger: `aria-haspopup="menu"` and `aria-expanded`; an icon-only trigger needs an `aria-label` naming the object ("More actions for Lab report 3").',
+    'Trigger: `aria-haspopup="menu"` and `aria-expanded`; an icon-only trigger needs an `aria-label` naming the object ("More actions for Pothole report").',
     '`role="menu"` with `menuitem`, `menuitemradio` or `menuitemcheckbox` children (with `aria-checked`).',
     'Down arrow on the trigger opens the menu; focus goes to the first item; Up and Down move (wrapping); Escape closes and returns focus to the trigger; a click outside closes it.',
     'Choosing an item closes the menu. Shortcuts shown in `kbd` must work.',
   ],
   do: [
     'Order by frequency; put destructive items last, after a separator, in `menu__item--danger`.',
-    'Start each item with a verb ("Export submissions").',
+    'Start each item with a verb ("Export attachments").',
     'Use the "more" icon button only for actions that are rare; keep frequent ones visible.',
   ],
   dont: [
