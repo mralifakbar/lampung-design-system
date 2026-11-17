@@ -1256,6 +1256,8 @@ button.lrow:active, a.lrow:active { background: var(--bg-tint-strong); }
 .page-header__title { margin: 0; font: var(--type-large-title); letter-spacing: var(--tracking-large-title); color: var(--text-strong); text-wrap: balance; }
 .page-header__lede { margin-top: 10px; font: 400 17px/26px var(--font); color: var(--text-subtle); max-width: 62ch; }
 .page-header__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+/* Phones: filled and outlined actions stack at full width; plain (text) actions keep their size */
+@media (max-width: 560px) { .page-header__actions { display: grid; grid-template-columns: minmax(0, 1fr); } .page-header__actions > .btn:not(.btn--plain) { width: 100%; } .page-header__actions > .btn--plain { justify-self: start; } }
 @media (max-width: 720px) { .page-header { grid-template-columns: minmax(0, 1fr); } .page-header__title { font: var(--type-title-1); letter-spacing: var(--tracking-title-1); } }
 
 /* Spotlight: the one thing on the page worth doing next, on the accent tint */
@@ -1732,6 +1734,12 @@ html:active-view-transition-type(lds-page)::view-transition-new(root) { animatio
 .hero__lede { margin: 0; max-width: 36em; font: 400 clamp(17px, 1.35vw, 19px)/1.5 var(--font); letter-spacing: -0.011em; color: var(--text-subtle); text-wrap: pretty; }
 .hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-12); margin-top: var(--s-8); }
 .hero__note { display: flex; flex-wrap: wrap; align-items: center; gap: var(--s-6); font: var(--type-footnote); color: var(--text-subtle); }
+.hero--center .hero__actions, .hero--center .hero__note { justify-content: center; }
+/* Phones: the actions stack at full width so the primary and secondary buttons line up */
+@media (max-width: 560px) {
+  .hero__actions { display: grid; grid-template-columns: minmax(0, 1fr); width: 100%; }
+  .hero__actions > .btn { width: 100%; }
+}
 .hero__media { min-width: 0; }
 /* First load only: the copy settles in a short stagger; nothing else on the page moves on its own */
 .hero--enter .hero__copy > *, .hero--enter .hero__media { animation: lds-blur-in var(--d-smooth) var(--ease-enter) backwards; animation-delay: calc(var(--i, 0) * 60ms); }
@@ -2912,6 +2920,12 @@ button.lanes__item:active { transform: scale(0.97); }
 .masthead__mark .ic { font-size: 14px; }
 .masthead--official .masthead__mark { background: var(--accent-tint); color: var(--accent-text); }
 .masthead__text { min-width: 0; }
+/* Phones: the mark stays beside the text, and the toggle wraps under the text, aligned with it */
+@media (max-width: 560px) {
+  .masthead__bar { display: grid; grid-template-columns: 20px minmax(0, 1fr); align-items: start; column-gap: 8px; row-gap: 2px; padding-block: 8px; }
+  .masthead__text { grid-column: 2; }
+  .masthead__toggle { grid-column: 2; justify-self: start; margin: 0 0 0 -6px; }
+}
 .masthead__toggle { display: inline-flex; align-items: center; gap: 2px; min-height: 28px; padding: 0 6px; margin: -4px 0; border: 0; border-radius: var(--radius-xs); background: none; color: var(--accent-text); font: 500 13px/18px var(--font); cursor: pointer; position: relative; }
 .masthead__toggle::after { content: ""; position: absolute; inset: -8px -2px; }
 .masthead__toggle:hover { background: var(--bg-tint); }
