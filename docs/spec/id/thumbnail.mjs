@@ -8,7 +8,7 @@ const thumb = (src, caption, ratio) => `<a class="thumb" href="${src}" data-lds-
 export default {
   summary: 'Pratinjau gambar yang dipotong dengan rasio tetap (bawaan 4:3) di atas placeholder cekung. Sebagai tautan dengan `data-lds-lightbox`, ia membuka gambar penuh di [lightbox](lightbox) yang tumbuh dari thumbnail.',
   when: [
-    'Foto dan tangkapan layar di dalam konten: lampiran laporan warga, foto lokasi layanan, gambar di materi pelajaran.',
+    'Foto dan tangkapan layar di dalam konten: lampiran laporan warga, foto lokasi layanan, gambar di panduan layanan.',
     'Grid gambar yang mungkin ingin dilihat lebih besar (`auto-grid` berisi `.thumb`).',
   ],
   whenNot: [
@@ -30,21 +30,21 @@ export default {
       title: 'Galeri',
       desc: 'Klik gambar: ia tumbuh menjadi lightbox dari posisinya dan menyusut kembali saat ditutup (Escape, tombol tutup atau klik di luar).',
       html: `<div class="auto-grid" style="--min: 160px;">
-  ${thumb(library, 'Perpustakaan kampus, lantai dua')}
-  ${thumb(lab, 'Laboratorium jaringan, ruang C110')}
-  ${thumb(hall, 'Ruang ujian B204')}
+  ${thumb(library, 'Kantor Kelurahan Way Halim, tampak depan')}
+  ${thumb(lab, 'Loket layanan, Mal Pelayanan Publik')}
+  ${thumb(hall, 'Ruang tunggu Disdukcapil')}
 </div>`,
       code: `<div class="auto-grid" style="--min: 160px;">
-  <a class="thumb" href="library-large.jpg" data-lds-lightbox data-caption="Perpustakaan kampus, lantai dua"><img src="library-small.jpg" alt="Perpustakaan kampus, lantai dua"></a>
-  <a class="thumb" href="lab-large.jpg" data-lds-lightbox data-caption="Laboratorium jaringan, ruang C110"><img src="lab-small.jpg" alt="Laboratorium jaringan, ruang C110"></a>
+  <a class="thumb" href="office-large.jpg" data-lds-lightbox data-caption="Kantor Kelurahan Way Halim, tampak depan"><img src="office-small.jpg" alt="Kantor Kelurahan Way Halim, tampak depan"></a>
+  <a class="thumb" href="counters-large.jpg" data-lds-lightbox data-caption="Loket layanan, Mal Pelayanan Publik"><img src="counters-small.jpg" alt="Loket layanan, Mal Pelayanan Publik"></a>
 </div>`,
     },
     {
       title: 'Rasio',
       desc: 'Persegi untuk grid mirip profil, 16:9 untuk tangkapan layar. Warna placeholder tampil selama gambar dimuat.',
       html: `<div class="cluster" style="--gap: 12px; align-items: flex-start;">
-  <div style="width: 140px;">${thumb(hall, 'Ruang ujian B204', '1')}</div>
-  <div style="width: 260px;">${thumb(lab, 'Laboratorium jaringan, ruang C110', '16 / 9')}</div>
+  <div style="width: 140px;">${thumb(hall, 'Ruang tunggu Disdukcapil', '1')}</div>
+  <div style="width: 260px;">${thumb(lab, 'Loket layanan, Mal Pelayanan Publik', '16 / 9')}</div>
   <div class="thumb" style="width: 180px;" role="img" aria-label="Foto masih dimuat"></div>
 </div>`,
     },

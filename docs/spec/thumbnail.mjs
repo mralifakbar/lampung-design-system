@@ -11,7 +11,7 @@ export default {
   order: 5,
   summary: 'A cropped preview of a picture at a fixed ratio (4:3 by default) on a recessed placeholder. As a link with `data-lds-lightbox`, it opens the full picture in a [lightbox](lightbox) that grows out of the thumbnail.',
   when: [
-    'Photos and screenshots inside content: attachments on an assignment, photos of a venue, figures in a lesson.',
+    'Photos and screenshots inside content: attachments on a citizen report, photos of a service location, figures in a service guide.',
     'A grid of pictures people may want to see larger (`auto-grid` of `.thumb`).',
   ],
   whenNot: [
@@ -34,13 +34,13 @@ export default {
       desc: 'Click a picture: it grows into a lightbox from where it sits and shrinks back on close (Escape, the close button or a click outside).',
       stage: 'block',
       html: `<div class="auto-grid" style="--min: 160px;">
-  ${thumb(library, 'Campus library, second floor')}
-  ${thumb(lab, 'Networking lab, room C110')}
-  ${thumb(hall, 'Exam hall B204')}
+  ${thumb(library, 'Kelurahan Way Halim office, front')}
+  ${thumb(lab, 'Service counters, Mal Pelayanan Publik')}
+  ${thumb(hall, 'Disdukcapil waiting room')}
 </div>`,
       code: `<div class="auto-grid" style="--min: 160px;">
-  <a class="thumb" href="library-large.jpg" data-lds-lightbox data-caption="Campus library, second floor"><img src="library-small.jpg" alt="Campus library, second floor"></a>
-  <a class="thumb" href="lab-large.jpg" data-lds-lightbox data-caption="Networking lab, room C110"><img src="lab-small.jpg" alt="Networking lab, room C110"></a>
+  <a class="thumb" href="office-large.jpg" data-lds-lightbox data-caption="Kelurahan Way Halim office, front"><img src="office-small.jpg" alt="Kelurahan Way Halim office, front"></a>
+  <a class="thumb" href="counters-large.jpg" data-lds-lightbox data-caption="Service counters, Mal Pelayanan Publik"><img src="counters-small.jpg" alt="Service counters, Mal Pelayanan Publik"></a>
 </div>`,
     },
     {
@@ -48,8 +48,8 @@ export default {
       desc: 'Square for profile-like grids, 16:9 for screenshots. The placeholder color shows while the image loads.',
       stage: 'block',
       html: `<div class="cluster" style="--gap: 12px; align-items: flex-start;">
-  <div style="width: 140px;">${thumb(hall, 'Exam hall B204', '1')}</div>
-  <div style="width: 260px;">${thumb(lab, 'Networking lab, room C110', '16 / 9')}</div>
+  <div style="width: 140px;">${thumb(hall, 'Disdukcapil waiting room', '1')}</div>
+  <div style="width: 260px;">${thumb(lab, 'Service counters, Mal Pelayanan Publik', '16 / 9')}</div>
   <div class="thumb" style="width: 180px;" role="img" aria-label="Photo still loading"></div>
 </div>`,
     },
