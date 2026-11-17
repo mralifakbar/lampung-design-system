@@ -45,7 +45,7 @@ export function Section({ children }) {
 ```
 If React owns a state (open/closed, selected), drive the classes and ARIA from state instead of `data-lds-*` and keep only the CSS; both paths look and move the same because the motion lives in CSS.
 
-**React bindings** (`lampung-design-system/react`, source TSX in `react/index.tsx`): the components whose state React should own, rendering exactly the CSS markup. Next.js compiles it when the package is in `transpilePackages: ['lampung-design-system']`, or when the files are vendored into the app (`npm run sync -- ../app/vendor/lds`).
+**React bindings** (`lampung-design-system/react`, compiled to `react/index.js` with `react/index.d.ts` from the source in `react/index.tsx`): the components whose state React should own, rendering exactly the CSS markup. Any React framework imports them as is; Next.js needs no `transpilePackages` entry.
 ```tsx
 import { Tabs, Segmented, AccordionItem, Switch, Steps, Select, Combobox, Ring, Thinking, Alert, Spinner, ButtonContent, Chart, notify, reject, closeModal, useReveal } from 'lampung-design-system/react';
 

@@ -51,7 +51,7 @@ TypeScript projects get `.tsx` files, JavaScript projects `.jsx`. The package ma
 
 `--shadcn` also merges the LDS shadcn/ui theme (`dist/shadcn/globals.css` from the installed package) into the global CSS between `lds-shadcn:start` and `lds-shadcn:end` markers, so a second run replaces it in place.
 
-React projects that want the bindings in `lampung-design-system/react` (source TSX) need the package compiled: in Next.js, add `transpilePackages: ['lampung-design-system']`.
+The React bindings in `lampung-design-system/react` ship compiled (ESM plus type declarations), so every React framework imports them with no extra config.
 
 ### `create`
 

@@ -3,7 +3,8 @@
 // React bindings for Lampung Design System. Markup and class names are the CSS components';
 // these components add the state the vanilla module would otherwise wire through data-lds-*
 // (which does not survive React re-rendering the DOM). Needs css/lds.css loaded once.
-// Source TSX: import it from a vendored copy, or list the package in transpilePackages.
+// This is the source; the package exports the compiled react/index.js and react/index.d.ts
+// (npm run build:react).
 import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState, type KeyboardEvent, type ReactNode, type RefObject } from 'react';
 
 const useIso = typeof window === 'undefined' ? useEffect : useLayoutEffect;
