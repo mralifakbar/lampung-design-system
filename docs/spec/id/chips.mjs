@@ -33,8 +33,8 @@ export default {
     },
     {
       title: 'Satu pilihan cepat',
-      desc: 'Nominal isi ulang siap pilih: memilih satu melepas yang lain. Pasangkan dengan [amount field](amount-field) untuk nilai sendiri.',
-      html: `<div class="chip-row" role="group" aria-label="Nominal isi ulang">
+      desc: 'Nominal isi ulang kartu bus Trans Bandar Lampung: memilih satu melepas yang lain. Pasangkan dengan [amount field](amount-field) untuk nilai sendiri.',
+      html: `<div class="chip-row" role="group" aria-label="Nominal isi ulang kartu bus">
   ${chip('Rp 50.000', false, ONE)}${chip('Rp 100.000', true, ONE)}${chip('Rp 200.000', false, ONE)}${chip('Rp 500.000', false, ONE)}
 </div>`,
     },

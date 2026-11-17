@@ -8,7 +8,7 @@ export default {
   order: 8,
   summary: 'Pill-shaped toggle buttons in a wrapping row, for filters and quick picks that apply as they are tapped. A pressed chip turns accent and a check slides in.',
   when: [
-    'Filtering a list by several values at once: days of the week, subjects, status.',
+    'Filtering a list by several values at once: days of the week, service areas, status.',
     'Quick picks from a short set where all options should be visible: preset amounts, time slots, suggested replies.',
     'A compact multi-choice on phones where checkboxes would take too much height.',
   ],
@@ -36,8 +36,8 @@ export default {
     },
     {
       title: 'One quick pick',
-      desc: 'Preset top-up amounts: picking one releases the others. Pair with an [amount field](amount-field) for a custom value.',
-      html: `<div class="chip-row" role="group" aria-label="Top-up amount">
+      desc: 'Preset top-up amounts for a Trans Bandar Lampung bus card: picking one releases the others. Pair with an [amount field](amount-field) for a custom value.',
+      html: `<div class="chip-row" role="group" aria-label="Bus card top-up amount">
   ${chip('Rp 50.000', false, ONE)}${chip('Rp 100.000', true, ONE)}${chip('Rp 200.000', false, ONE)}${chip('Rp 500.000', false, ONE)}
 </div>`,
     },
