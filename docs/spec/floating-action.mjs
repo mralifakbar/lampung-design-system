@@ -29,9 +29,9 @@ export default {
   <div class="docs-scroll" style="height: 100%; padding: 20px 16px 120px;">
     <h3 class="section__title-sm" style="margin-bottom: 12px;">Messages</h3>
     <div class="list list--fill">
-      <div class="lrow"><span class="avatar" style="--size: 36px;">RK</span><span class="lrow__body"><span class="lrow__title" style="display: block;">Rina Kusuma</span><span class="lrow__sub" style="display: block;">Can we move the study group to 4?</span></span></div>
-      <div class="lrow"><span class="avatar avatar--gray" style="--size: 36px;">DB</span><span class="lrow__body"><span class="lrow__title" style="display: block;">Database Systems</span><span class="lrow__sub" style="display: block;">Midterm room changed to B204</span></span></div>
-      <div class="lrow"><span class="avatar" style="--size: 36px;">AP</span><span class="lrow__body"><span class="lrow__title" style="display: block;">Adi Pratama</span><span class="lrow__sub" style="display: block;">Sent the lab notes</span></span></div>
+      <div class="lrow"><span class="avatar" style="--size: 36px;">RK</span><span class="lrow__body"><span class="lrow__title" style="display: block;">Rina Kusuma</span><span class="lrow__sub" style="display: block;">Can the posyandu session move to 4?</span></span></div>
+      <div class="lrow"><span class="avatar avatar--gray" style="--size: 36px;">PK</span><span class="lrow__body"><span class="lrow__title" style="display: block;">Puskesmas Kedaton</span><span class="lrow__sub" style="display: block;">The immunization room moved to the 2nd floor</span></span></div>
+      <div class="lrow"><span class="avatar" style="--size: 36px;">AP</span><span class="lrow__body"><span class="lrow__title" style="display: block;">Adi Pratama</span><span class="lrow__sub" style="display: block;">Sent photos of the damaged road report</span></span></div>
     </div>
   </div>
   <button class="icon-btn icon-btn--accent" aria-label="New message" style="position: absolute; right: 20px; bottom: 28px; width: 56px; height: 56px; box-shadow: var(--finish-primary), var(--shadow-md);"><span class="ic" aria-hidden="true">edit</span></button>
