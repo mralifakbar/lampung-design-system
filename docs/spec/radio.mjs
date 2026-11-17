@@ -6,7 +6,7 @@ export default {
   order: 2,
   summary: 'Native radio buttons for exactly one choice out of two to five options that should all be visible. The dot springs in; arrow keys move between options.',
   when: [
-    'One answer from a short list where seeing every option helps: delivery method, exam session, answer options in a question.',
+    'One answer from a short list where seeing every option helps: delivery method, service session, answers in a satisfaction survey.',
     'Options are mutually exclusive and need a word or a line of explanation each.',
   ],
   whenNot: [
@@ -31,20 +31,20 @@ export default {
       desc: 'Click an option or focus the group and use the arrow keys. The dot springs in; the old one shrinks out faster.',
       html: `<fieldset class="stack" style="border: 0;">
   <legend class="field__label" style="margin-bottom: 12px;">Where should we send your results?</legend>
-  ${rd('rd-del', 'Email', 'siti@campus.ac.id', true)}
+  ${rd('rd-del', 'Email', 'siti@contoh.id', true)}
   ${rd('rd-del', 'Push notification', 'On the phone you signed in with')}
   ${rd('rd-del', 'Both', '')}
 </fieldset>`,
     },
     {
-      title: 'Answer options in a question',
-      desc: 'Exam answers are radios: one answer, all visible, keyboard friendly. A disabled option stays readable.',
+      title: 'Service session',
+      desc: 'Session slots are radios: one answer, all visible, keyboard friendly. A full session is disabled and stays readable.',
       html: `<fieldset class="stack" style="border: 0; max-width: 520px;">
-  <legend class="field__label" style="margin-bottom: 12px;">Which number continues the series 2, 6, 12, 20, …?</legend>
-  ${rd('rd-q', 'A. 26', '')}
-  ${rd('rd-q', 'B. 28', '')}
-  ${rd('rd-q', 'C. 30', '', true)}
-  ${rd('rd-q', 'D. 32', '', false, ' disabled')}
+  <legend class="field__label" style="margin-bottom: 12px;">Which session for e-KTP recording at Kedaton district office?</legend>
+  ${rd('rd-q', 'Monday, 08:00', '')}
+  ${rd('rd-q', 'Monday, 10:00', '')}
+  ${rd('rd-q', 'Tuesday, 08:00', '', true)}
+  ${rd('rd-q', 'Tuesday, 10:00', 'Full', false, ' disabled')}
 </fieldset>`,
     },
   ],

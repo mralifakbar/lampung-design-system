@@ -3,7 +3,7 @@ const rd = (name, text, sub, checked, extra = '') => `<label class="check"><inpu
 export default {
   summary: 'Radio button bawaan untuk tepat satu pilihan dari dua sampai lima opsi yang semuanya harus terlihat. Titiknya memantul masuk; tombol panah berpindah antaropsi.',
   when: [
-    'Satu jawaban dari daftar pendek ketika melihat setiap opsi membantu: cara pengiriman, sesi layanan, opsi jawaban sebuah soal.',
+    'Satu jawaban dari daftar pendek ketika melihat setiap opsi membantu: cara pengiriman, sesi layanan, jawaban survei kepuasan.',
     'Opsi saling meniadakan dan masing-masing butuh satu kata atau satu baris penjelasan.',
   ],
   whenNot: [
@@ -34,14 +34,14 @@ export default {
 </fieldset>`,
     },
     {
-      title: 'Opsi jawaban sebuah soal',
-      desc: 'Jawaban ujian adalah radio: satu jawaban, semua terlihat, ramah keyboard. Opsi nonaktif tetap terbaca.',
+      title: 'Sesi layanan',
+      desc: 'Pilihan sesi adalah radio: satu jawaban, semua terlihat, ramah keyboard. Sesi yang penuh nonaktif dan tetap terbaca.',
       html: `<fieldset class="stack" style="border: 0; max-width: 520px;">
-  <legend class="field__label" style="margin-bottom: 12px;">Angka berapa yang melanjutkan deret 2, 6, 12, 20, …?</legend>
-  ${rd('rd-q', 'A. 26', '')}
-  ${rd('rd-q', 'B. 28', '')}
-  ${rd('rd-q', 'C. 30', '', true)}
-  ${rd('rd-q', 'D. 32', '', false, ' disabled')}
+  <legend class="field__label" style="margin-bottom: 12px;">Sesi mana untuk perekaman KTP elektronik di Kantor Kecamatan Kedaton?</legend>
+  ${rd('rd-q', 'Senin, 08.00', '')}
+  ${rd('rd-q', 'Senin, 10.00', '')}
+  ${rd('rd-q', 'Selasa, 08.00', '', true)}
+  ${rd('rd-q', 'Selasa, 10.00', 'Penuh', false, ' disabled')}
 </fieldset>`,
     },
   ],
