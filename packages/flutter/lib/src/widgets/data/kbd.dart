@@ -14,11 +14,21 @@ class LdsKbd extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
+    // The outer align lets the key keep its own size when the parent forces
+    // a full width, such as a list or a stretched column.
+    return Align(
+      alignment: AlignmentDirectional.centerStart,
+      widthFactor: 1,
+      heightFactor: 1,
+      child: _key(c),
+    );
+  }
+
+  Widget _key(LdsColors c) {
     return Container(
       constraints: const BoxConstraints(minWidth: 22),
       height: 22,
       padding: const EdgeInsets.symmetric(horizontal: 6),
-      alignment: Alignment.center,
       decoration: BoxDecoration(
         color: c.bgBase,
         borderRadius: const BorderRadius.all(Radius.circular(6)),
@@ -29,15 +39,20 @@ class LdsKbd extends StatelessWidget {
           bottom: BorderSide(color: c.lineStrong, width: 2.5),
         ),
       ),
-      child: Text(
-        label,
-        maxLines: 1,
-        style: TextStyle(
-          fontFamily: LdsType.family,
-          fontSize: 12,
-          height: 1,
-          fontWeight: FontWeight.w500,
-          color: c.textSubtle,
+      // Factors of 1 keep the key at its label width in a wide parent.
+      child: Center(
+        widthFactor: 1,
+        heightFactor: 1,
+        child: Text(
+          label,
+          maxLines: 1,
+          style: TextStyle(
+            fontFamily: LdsType.family,
+            fontSize: 12,
+            height: 1,
+            fontWeight: FontWeight.w500,
+            color: c.textSubtle,
+          ),
         ),
       ),
     );
