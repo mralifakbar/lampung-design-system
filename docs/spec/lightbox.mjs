@@ -1,7 +1,7 @@
 const pic = (a, b, label) => `data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 800'%3E%3Crect width='1200' height='800' fill='%23${a}'/%3E%3Ccircle cx='900' cy='220' r='120' fill='%23${b}'/%3E%3Cpath d='M0 640 L320 360 L560 560 L780 420 L1200 720 L1200 800 L0 800 Z' fill='%23${b}' opacity='0.75'/%3E%3Ctext x='60' y='110' font-family='sans-serif' font-size='56' fill='white'%3E${label}%3C/text%3E%3C/svg%3E`;
 const enc = (s) => s.replace(/ /g, '%20');
-const lib = enc(pic('1E3A8A', '60A5FA', 'Campus library'));
-const lab = enc(pic('14532D', '4ADE80', 'Chemistry lab'));
+const lib = enc(pic('1E3A8A', '60A5FA', 'Regional library'));
+const lab = enc(pic('14532D', '4ADE80', 'Puskesmas lab'));
 
 export default {
   title: 'Lightbox',
@@ -9,7 +9,7 @@ export default {
   order: 13,
   summary: 'Shows one picture large over a dim page: it grows out of its thumbnail and shrinks back into it. A link around a thumbnail, so without the script it still opens the full image.',
   when: [
-    'A thumbnail of a photo, diagram or scanned page people need to see in full: a lab setup, a whiteboard photo, an answer sheet.',
+    'A thumbnail of a photo, diagram or scanned page people need to see in full: a photo of a reported location, a notice board photo, a scanned form.',
     'A gallery of images where each one opens on its own.',
   ],
   whenNot: [
@@ -28,14 +28,14 @@ export default {
   ],
   examples: [
     {
-      title: 'Photos from a field trip',
+      title: 'Photos of service facilities',
       desc: 'Open a thumbnail: the picture grows out of it. Escape, the close button or a click outside shrinks it back and returns focus to the thumbnail.',
       html: `<div class="auto-grid" style="--min: 180px; width: 100%;">
-  <a class="thumb" href="${lib}" data-lds-lightbox data-caption="The campus library reading room, second floor"><img src="${lib}" alt="Campus library reading room"></a>
-  <a class="thumb" href="${lab}" data-lds-lightbox data-caption="Chemistry lab, bench 4, before the titration practical"><img src="${lab}" alt="Chemistry lab bench"></a>
+  <a class="thumb" href="${lib}" data-lds-lightbox data-caption="Regional library reading room, second floor"><img src="${lib}" alt="Regional library reading room"></a>
+  <a class="thumb" href="${lab}" data-lds-lightbox data-caption="Puskesmas laboratory, bench 4, before the morning sample checks"><img src="${lab}" alt="Puskesmas laboratory bench"></a>
 </div>`,
-      code: `<a class="thumb" href="/photos/library-large.jpg" data-lds-lightbox data-caption="The campus library reading room, second floor">
-  <img src="/photos/library-small.jpg" alt="Campus library reading room">
+      code: `<a class="thumb" href="/photos/library-large.jpg" data-lds-lightbox data-caption="Regional library reading room, second floor">
+  <img src="/photos/library-small.jpg" alt="Regional library reading room">
 </a>`,
     },
   ],
