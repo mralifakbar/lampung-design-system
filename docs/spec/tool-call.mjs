@@ -5,9 +5,9 @@ export default {
   title: 'Tool call',
   group: 'Chat',
   order: 5,
-  summary: 'One step the assistant took on the way to its answer (searched the notes, read a file, checked the calendar), shown as a quiet one-line `<details>` that opens to what it found. The answer stays the main thing.',
+  summary: 'One step the assistant took on the way to its answer (searched the service guides, read a file, checked a schedule), shown as a quiet one-line `<details>` that opens to what it found. The answer stays the main thing.',
   when: [
-    'An assistant answer depends on something it looked up or ran, and people may want to check it: a search, a file it read, a calculation, a calendar lookup.',
+    'An assistant answer depends on something it looked up or ran, and people may want to check it: a search, a file it read, a calculation, a schedule lookup.',
     'A step is still running: the line shows a spinner and a shimmering label until it finishes.',
     'Several steps happened in order before the answer: stack them, one line each.',
   ],
@@ -31,9 +31,9 @@ export default {
       desc: 'Closed by default. Open one to check the sources the answer used.',
       stage: 'block',
       html: `<div class="msg msg--ai" style="max-width: 560px;">
-  <details class="toolcall"><summary><span class="ic" aria-hidden="true">search</span>Searched your notes for "net force"${CHEV}</summary><div class="toolcall__body">Found 3 pages: Week 4 lecture, page 2; Problem set 3, question 4; Lab 2 handout.</div></details>
-  <details class="toolcall"><summary><span class="ic" aria-hidden="true">description</span>Read Problem set 3${CHEV}</summary><div class="toolcall__body">Question 4: a 7 kg box pushed with 20 N against 6 N of friction.</div></details>
-  <div class="bubble">The net force is 14 N, so the box accelerates at 2 m/s². Your answer used 20 N, the push alone.</div>
+  <details class="toolcall"><summary><span class="ic" aria-hidden="true">search</span>Searched the service guides for "surat pindah"${CHEV}</summary><div class="toolcall__body">Found 3 pages: Disdukcapil requirements, the RT/RW cover letter form, questions about moving between cities.</div></details>
+  <details class="toolcall"><summary><span class="ic" aria-hidden="true">description</span>Read the surat pindah requirements${CHEV}</summary><div class="toolcall__body">Needed: KK, KTP-el, a cover letter from the RT/RW and the full destination address.</div></details>
+  <div class="bubble">To move from Kedaton to Metro, bring your KK, KTP-el and a cover letter from your RT/RW. Disdukcapil Bandar Lampung usually issues the letter within 3 working days.</div>
 </div>`,
     },
     {
@@ -42,34 +42,34 @@ export default {
       stage: 'block',
       replay: true,
       html: `<div class="msg msg--ai" style="max-width: 560px;">
-  <details class="toolcall"><summary><span class="ic" aria-hidden="true">check_circle</span>Checked your calendar${CHEV}</summary><div class="toolcall__body">Free on Tuesday 13:00 to 15:00 and Thursday after 16:00.</div></details>
-  <details class="toolcall" id="tc-run"><summary>${SPIN}<span class="shimmer">Booking the study room</span>${CHEV}</summary><div class="toolcall__body">Room 2.14, Tuesday 13:00 to 14:30.</div></details>
-  <button class="btn btn--plain btn--sm" style="align-self: flex-start; margin-left: -10px;" onclick="this.hidden = true; const s = document.querySelector('#tc-run summary'); s.firstElementChild.outerHTML = '<span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>check_circle</span>'; const l = s.querySelector('.shimmer'); l.classList.remove('shimmer'); l.textContent = 'Booked room 2.14';">Finish the step</button>
+  <details class="toolcall"><summary><span class="ic" aria-hidden="true">check_circle</span>Checked the Samsat keliling schedule${CHEV}</summary><div class="toolcall__body">At Way Halim on Tuesday 08:00 to 12:00 and at Kedaton on Thursday 08:00 to 12:00.</div></details>
+  <details class="toolcall" id="tc-run"><summary>${SPIN}<span class="shimmer">Booking a queue number</span>${CHEV}</summary><div class="toolcall__body">Queue B-014, Tuesday 08:30, Samsat keliling Way Halim.</div></details>
+  <button class="btn btn--plain btn--sm" style="align-self: flex-start; margin-left: -10px;" onclick="this.hidden = true; const s = document.querySelector('#tc-run summary'); s.firstElementChild.outerHTML = '<span class=&quot;ic&quot; aria-hidden=&quot;true&quot;>check_circle</span>'; const l = s.querySelector('.shimmer'); l.classList.remove('shimmer'); l.textContent = 'Booked queue B-014';">Finish the step</button>
 </div>`,
       code: `<details class="toolcall">
   <summary>
     <span class="spinner" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
-    <span class="shimmer">Booking the study room</span>
+    <span class="shimmer">Booking a queue number</span>
     <span class="ic" aria-hidden="true">expand_more</span>
   </summary>
   <div class="toolcall__body">…</div>
 </details>
 <!-- Done: replace the spinner with <span class="ic" aria-hidden="true">check_circle</span>,
-     drop the shimmer class and name the result: "Booked room 2.14". -->`,
+     drop the shimmer class and name the result: "Booked queue B-014". -->`,
     },
     {
       title: 'A step with code',
       desc: 'When the step ran code or a query, the body holds a code block so the person can copy and check it.',
       stage: 'block',
-      html: `<details class="toolcall" open style="max-width: 560px; width: 100%;"><summary><span class="ic" aria-hidden="true">code</span>Ran a query on your grades${CHEV}</summary><div class="toolcall__body"><div class="codeblock"><pre>SELECT AVG(score) FROM grades WHERE course = 'BIO101';</pre></div></div></details>`,
+      html: `<details class="toolcall" open style="max-width: 560px; width: 100%;"><summary><span class="ic" aria-hidden="true">code</span>Ran a query on citizen reports${CHEV}</summary><div class="toolcall__body"><div class="codeblock"><pre>SELECT COUNT(*) FROM reports WHERE kecamatan = 'Kedaton' AND status = 'open';</pre></div></div></details>`,
     },
     {
       title: 'A step that failed',
       desc: 'Say what failed and what the answer did instead. The answer below should not pretend the step worked.',
       stage: 'block',
       html: `<div class="msg msg--ai" style="max-width: 560px;">
-  <details class="toolcall"><summary><span class="ic" aria-hidden="true">cloud_off</span>Could not open lab-report.pdf${CHEV}</summary><div class="toolcall__body">The file is larger than 20 MB. The answer below uses your notes only.</div></details>
-  <div class="bubble">From your notes, the control group should keep the same light and water as the test group.</div>
+  <details class="toolcall"><summary><span class="ic" aria-hidden="true">cloud_off</span>Could not open site-plan.pdf${CHEV}</summary><div class="toolcall__body">The file is larger than 20 MB. The answer below uses your application form only.</div></details>
+  <div class="bubble">From your application form, the building approval still needs a site plan before the officer can check it.</div>
 </div>`,
     },
   ],
@@ -88,7 +88,7 @@ export default {
   ],
   a11y: [
     'Native `<details>`/`<summary>`: keyboard (Enter, Space) and expanded state come for free. Keep it.',
-    'The summary text must say the step on its own ("Searched your notes for net force"), not just an icon.',
+    'The summary text must say the step on its own ("Searched the service guides for surat pindah"), not just an icon.',
     'Icons are `aria-hidden`; the spinner too. While a step runs, the message is `aria-busy="true"`.',
   ],
   do: [
