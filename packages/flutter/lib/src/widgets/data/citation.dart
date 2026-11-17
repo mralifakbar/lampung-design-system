@@ -55,23 +55,28 @@ class LdsCitation extends StatelessWidget {
               constraints: const BoxConstraints(minWidth: 18),
               height: 18,
               padding: const EdgeInsets.symmetric(horizontal: 5),
-              alignment: Alignment.center,
               decoration: BoxDecoration(
                 color: state.hovered || state.pressed
                     ? c.accentTintStrong
                     : c.accentTint,
                 borderRadius: const BorderRadius.all(Radius.circular(6)),
               ),
-              child: Text(
-                '$number',
-                textScaler: TextScaler.noScaling,
-                style: TextStyle(
-                  fontFamily: LdsType.family,
-                  fontSize: 11,
-                  height: 1,
-                  fontWeight: FontWeight.w600,
-                  color: c.accentText,
-                  fontFeatures: const [FontFeature.tabularFigures()],
+              // Factors of 1 keep the pill at its number width, also inside
+              // a WidgetSpan that offers the whole line width.
+              child: Center(
+                widthFactor: 1,
+                heightFactor: 1,
+                child: Text(
+                  '$number',
+                  textScaler: TextScaler.noScaling,
+                  style: TextStyle(
+                    fontFamily: LdsType.family,
+                    fontSize: 11,
+                    height: 1,
+                    fontWeight: FontWeight.w600,
+                    color: c.accentText,
+                    fontFeatures: const [FontFeature.tabularFigures()],
+                  ),
                 ),
               ),
             ),
