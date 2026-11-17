@@ -137,10 +137,12 @@ class LdsPaper extends StatelessWidget {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Semantics(
-                    header: true,
-                    child: Text(title,
-                        style: LdsType.title3.copyWith(color: c.textStrong)),
+                  Flexible(
+                    child: Semantics(
+                      header: true,
+                      child: Text(title,
+                          style: LdsType.title3.copyWith(color: c.textStrong)),
+                    ),
                   ),
                   if (badge != null) ...[const SizedBox(width: 10), badge!],
                 ],
@@ -206,18 +208,20 @@ class LdsPaper extends StatelessWidget {
           if (lines.isNotEmpty) ...[
             const SizedBox(height: 24),
             Table(
+              // Number columns hug their widest cell so amounts never wrap;
+              // the description takes what is left and wraps instead.
               columnWidths: receipt
                   ? const {
-                      0: FlexColumnWidth(3),
-                      1: FlexColumnWidth(),
+                      0: FlexColumnWidth(),
+                      1: IntrinsicColumnWidth(),
                       2: FixedColumnWidth(0),
-                      3: FlexColumnWidth(2)
+                      3: IntrinsicColumnWidth()
                     }
                   : const {
-                      0: FlexColumnWidth(4),
-                      1: FlexColumnWidth(),
-                      2: FlexColumnWidth(2),
-                      3: FlexColumnWidth(2)
+                      0: FlexColumnWidth(),
+                      1: IntrinsicColumnWidth(),
+                      2: IntrinsicColumnWidth(),
+                      3: IntrinsicColumnWidth()
                     },
               defaultVerticalAlignment: TableCellVerticalAlignment.middle,
               children: [
