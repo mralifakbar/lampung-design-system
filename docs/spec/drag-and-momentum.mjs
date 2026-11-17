@@ -24,7 +24,7 @@ export default {
       stage: 'flush',
       html: `<div class="viewport docs-box" data-lds-push="dm-sheet">
   <div class="viewport__content">
-    <p class="card__title">Exam room</p>
+    <p class="card__title">City bus, corridor 2</p>
     <button class="btn btn--secondary btn--md" data-lds-open="dm-sheet" aria-haspopup="dialog">Choose a seat</button>
   </div>
   <div class="scrim" data-lds-scrim="dm-sheet"></div>
@@ -40,8 +40,8 @@ export default {
       desc: 'Drag the knob. Past 85 % of the track (counting the throw), it commits and the label says so; short of it, it springs home on the momentum spring. Enter on the knob does the same.',
       html: `<div class="slide" data-lds-slide>
   <span class="slide__fill" aria-hidden="true"></span>
-  <span class="slide__label">Slide to submit grades</span>
-  <button class="slide__knob" aria-label="Slide to submit grades"><span class="ic" aria-hidden="true">arrow_forward</span></button>
+  <span class="slide__label">Slide to send report</span>
+  <button class="slide__knob" aria-label="Slide to send report"><span class="ic" aria-hidden="true">arrow_forward</span></button>
 </div>`,
       replay: true,
     },
@@ -53,7 +53,7 @@ export default {
       html: `<div class="list" style="width: 100%; max-width: 420px;">
   <div class="swipe" data-lds-swipe>
     <div class="swipe__actions"><button class="swipe__act swipe__act--gray" data-swipe="pin"><span class="ic" aria-hidden="true">keep</span>Pin</button><button class="swipe__act swipe__act--danger" data-swipe="delete" data-swipe-commit><span class="ic" aria-hidden="true">delete</span>Delete</button></div>
-    <div class="swipe__row lrow" tabindex="0"><span class="lrow__body"><span class="lrow__title">Lab report feedback</span><span class="lrow__sub">Two comments on section 3</span></span><span class="lrow__value">09:41</span></div>
+    <div class="swipe__row lrow" tabindex="0"><span class="lrow__body"><span class="lrow__title">Reply on the damaged road report</span><span class="lrow__sub">Two comments from an officer</span></span><span class="lrow__value">09:41</span></div>
   </div>
 </div>`,
     },
@@ -62,9 +62,9 @@ export default {
       desc: 'Direct manipulation with no throw: the divider stays under the pointer and stops where you let go. Arrow keys move it 2 %, Shift 10 %.',
       stage: 'block',
       html: `<div class="resize card" data-lds-resize data-min="25" data-max="75" style="height: 160px; padding: 0;">
-  <div style="padding: 16px;"><p class="card__title">Question 4</p><p class="card__sub">A 7 kg box is pushed with 20 N against 6 N of friction. Find its acceleration.</p></div>
-  <div class="resize__handle" aria-label="Resize the question and answer panes"></div>
-  <div style="padding: 16px;"><p class="card__title">Your answer</p><p class="card__sub">Net force 14 N, so 2 m/s².</p></div>
+  <div style="padding: 16px;"><p class="card__title">Report</p><p class="card__sub">The street light in front of the market has been out for three nights. The road is dark after 18:00.</p></div>
+  <div class="resize__handle" aria-label="Resize the report and reply panes"></div>
+  <div style="padding: 16px;"><p class="card__title">Officer reply</p><p class="card__sub">Repair is scheduled for Thursday morning.</p></div>
 </div>`,
     },
   ],
