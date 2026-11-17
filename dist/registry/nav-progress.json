@@ -13,17 +13,17 @@
   "examples": {
     "en": [
       {
-        "title": "Opening the next lesson",
+        "title": "Opening the next step of a permit application",
         "desc": "The bar runs along the top edge of this box while the \"page\" loads, then leaves. In an app it sits at the top of the window.",
-        "html": "<div class=\"navprogress\" aria-hidden=\"true\" id=\"np-bar\"></div>\n<div class=\"docs-col\">\n  <button class=\"btn btn--primary btn--md\" style=\"align-self: flex-start;\" onclick=\"const b = document.getElementById('np-bar'); const s = document.getElementById('np-status'); b.classList.add('is-running'); s.textContent = 'Loading lesson 4'; this.disabled = true; setTimeout(() => { b.classList.remove('is-running'); s.textContent = 'Lesson 4 is open'; this.disabled = false; }, 1800);\">Open lesson 4</button>\n  <p class=\"section__sub\" id=\"np-status\" role=\"status\">Lesson 3 is open</p>\n</div>",
+        "html": "<div class=\"navprogress\" aria-hidden=\"true\" id=\"np-bar\"></div>\n<div class=\"docs-col\">\n  <button class=\"btn btn--primary btn--md\" style=\"align-self: flex-start;\" onclick=\"const b = document.getElementById('np-bar'); const s = document.getElementById('np-status'); b.classList.add('is-running'); s.textContent = 'Loading step 4'; this.disabled = true; setTimeout(() => { b.classList.remove('is-running'); s.textContent = 'Step 4 is open'; this.disabled = false; }, 1800);\">Open step 4: site documents</button>\n  <p class=\"section__sub\" id=\"np-status\" role=\"status\">Step 3 is open</p>\n</div>",
         "code": "<div class=\"navprogress\" aria-hidden=\"true\"></div>\n\n<script type=\"module\">\n  const bar = document.querySelector('.navprogress');\n  router.on('start', () => bar.classList.add('is-running'));\n  router.on('done', () => bar.classList.remove('is-running'));\n</script>"
       }
     ],
     "id": [
       {
-        "title": "Membuka tahap berikutnya",
+        "title": "Membuka tahap berikutnya permohonan izin",
         "desc": "Bilah berjalan di tepi atas kotak ini selama \"halaman\" dimuat, lalu hilang. Di aplikasi, bilah berada di atas jendela.",
-        "html": "<div class=\"navprogress\" aria-hidden=\"true\" id=\"np-bar\"></div>\n<div class=\"docs-col\">\n  <button class=\"btn btn--primary btn--md\" style=\"align-self: flex-start;\" onclick=\"const b = document.getElementById('np-bar'); const s = document.getElementById('np-status'); b.classList.add('is-running'); s.textContent = 'Memuat tahap 4'; this.disabled = true; setTimeout(() => { b.classList.remove('is-running'); s.textContent = 'Tahap 4 terbuka'; this.disabled = false; }, 1800);\">Buka tahap 4</button>\n  <p class=\"section__sub\" id=\"np-status\" role=\"status\">Tahap 3 terbuka</p>\n</div>",
+        "html": "<div class=\"navprogress\" aria-hidden=\"true\" id=\"np-bar\"></div>\n<div class=\"docs-col\">\n  <button class=\"btn btn--primary btn--md\" style=\"align-self: flex-start;\" onclick=\"const b = document.getElementById('np-bar'); const s = document.getElementById('np-status'); b.classList.add('is-running'); s.textContent = 'Memuat tahap 4'; this.disabled = true; setTimeout(() => { b.classList.remove('is-running'); s.textContent = 'Tahap 4 terbuka'; this.disabled = false; }, 1800);\">Buka tahap 4: dokumen lokasi</button>\n  <p class=\"section__sub\" id=\"np-status\" role=\"status\">Tahap 3 terbuka</p>\n</div>",
         "code": "<div class=\"navprogress\" aria-hidden=\"true\"></div>\n\n<script type=\"module\">\n  const bar = document.querySelector('.navprogress');\n  router.on('start', () => bar.classList.add('is-running'));\n  router.on('done', () => bar.classList.remove('is-running'));\n</script>"
       }
     ]

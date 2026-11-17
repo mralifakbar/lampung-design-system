@@ -15,7 +15,7 @@
       {
         "title": "An email without a domain",
         "desc": "Press Send code. The field shakes, turns red, and says what is missing. Fix the address and try again: no shake.",
-        "html": "<div class=\"docs-col\" style=\"max-width: 360px;\">\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"sh-email\">Campus email</label>\n    <div class=\"control\"><span class=\"ic\" aria-hidden=\"true\">mail</span><input id=\"sh-email\" type=\"email\" value=\"ana.putri@campus\" aria-describedby=\"sh-email-help\"></div>\n    <span class=\"field__help field__help--error\" id=\"sh-email-help\" hidden><span class=\"ic\" aria-hidden=\"true\">error</span>Add the end of the address, like ana.putri@campus.ac.id.</span>\n  </div>\n  <button class=\"btn btn--primary btn--block\" onclick=\"const f = this.closest('.docs-col'); const c = f.querySelector('.control'); const input = c.querySelector('input'); const help = f.querySelector('.field__help'); const ok = /@.+[.].+/.test(input.value); c.classList.toggle('is-invalid', !ok); input.setAttribute('aria-invalid', String(!ok)); help.hidden = ok; if (!ok) import('../../js/lds.js').then((m) => m.shake(c)); else this.textContent = 'Code sent';\">Send code</button>\n</div>",
+        "html": "<div class=\"docs-col\" style=\"max-width: 360px;\">\n  <div class=\"field\">\n    <label class=\"field__label\" for=\"sh-email\">Email</label>\n    <div class=\"control\"><span class=\"ic\" aria-hidden=\"true\">mail</span><input id=\"sh-email\" type=\"email\" value=\"ana.putri@contoh\" aria-describedby=\"sh-email-help\"></div>\n    <span class=\"field__help field__help--error\" id=\"sh-email-help\" hidden><span class=\"ic\" aria-hidden=\"true\">error</span>Add the end of the address, like ana.putri@contoh.go.id.</span>\n  </div>\n  <button class=\"btn btn--primary btn--block\" onclick=\"const f = this.closest('.docs-col'); const c = f.querySelector('.control'); const input = c.querySelector('input'); const help = f.querySelector('.field__help'); const ok = /@.+[.].+/.test(input.value); c.classList.toggle('is-invalid', !ok); input.setAttribute('aria-invalid', String(!ok)); help.hidden = ok; if (!ok) import('../../js/lds.js').then((m) => m.shake(c)); else this.textContent = 'Code sent';\">Send code</button>\n</div>",
         "code": "import { shake } from 'lampung-design-system/js';\nif (!valid) {\n  control.classList.add('is-invalid');\n  input.setAttribute('aria-invalid', 'true');\n  help.hidden = false;          // the reason, in words\n  shake(control);               // plus an error haptic on phones\n}"
       },
       {
@@ -40,7 +40,7 @@
       }
     ]
   },
-  "reactUsage": "import { reject } from 'lampung-design-system/react';\n\nif (!valid) { setError('Add the end of the address, like ana.putri@campus.ac.id.'); reject(controlRef.current); }",
+  "reactUsage": "import { reject } from 'lampung-design-system/react';\n\nif (!valid) { setError('Add the end of the address, like ana.putri@contoh.go.id.'); reject(controlRef.current); }",
   "related": [
     "text-field",
     "otp",

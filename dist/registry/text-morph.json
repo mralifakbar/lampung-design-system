@@ -15,7 +15,7 @@
       {
         "title": "A status that moves on",
         "desc": "Press Next status. Shared letters (\"in\", \"e\") slide instead of being replaced; the width springs to the new word.",
-        "html": "<span class=\"card__title\">Status: <span class=\"morph\" data-lds-morph id=\"tm-status\">Submitted</span></span>\n<button class=\"btn btn--secondary btn--md\" onclick=\"const el = document.getElementById('tm-status'); const list = ['Submitted', 'In review', 'Approved', 'Enrolled']; const i = (Number(el.dataset.i || 0) + 1) % list.length; el.dataset.i = i; import('../../js/lds.js').then((m) => m.morphText(el, list[i]));\">Next status</button>",
+        "html": "<span class=\"card__title\">Status: <span class=\"morph\" data-lds-morph id=\"tm-status\">Submitted</span></span>\n<button class=\"btn btn--secondary btn--md\" onclick=\"const el = document.getElementById('tm-status'); const list = ['Submitted', 'In review', 'Approved', 'Issued']; const i = (Number(el.dataset.i || 0) + 1) % list.length; el.dataset.i = i; import('../../js/lds.js').then((m) => m.morphText(el, list[i]));\">Next status</button>",
         "code": "Status: <span class=\"morph\" data-lds-morph>Submitted</span>\n<script type=\"module\">\n  import { morphText } from 'lampung-design-system/js';\n  morphText(document.querySelector('.morph'), 'In review');\n</script>"
       },
       {
@@ -26,8 +26,8 @@
       },
       {
         "title": "A count in words",
-        "desc": "Reserve seats until the class is full. Only the digit changes until the sentence itself changes.",
-        "html": "<span class=\"badge badge--warning\"><span class=\"morph\" data-lds-morph id=\"tm-seats\" aria-live=\"polite\">3 seats left</span></span>\n<button class=\"btn btn--primary btn--md\" onclick=\"const el = document.getElementById('tm-seats'); const n = Number(el.dataset.n || 3) - 1; if (n < 0) return; el.dataset.n = n; import('../../js/lds.js').then((m) => m.morphText(el, n === 0 ? 'Class full' : n === 1 ? '1 seat left' : n + ' seats left')); if (n === 0) this.disabled = true;\">Reserve a seat</button>"
+        "desc": "Take queue numbers until the quota runs out. Only the digit changes until the sentence itself changes.",
+        "html": "<span class=\"badge badge--warning\"><span class=\"morph\" data-lds-morph id=\"tm-seats\" aria-live=\"polite\">3 slots left</span></span>\n<button class=\"btn btn--primary btn--md\" onclick=\"const el = document.getElementById('tm-seats'); const n = Number(el.dataset.n || 3) - 1; if (n < 0) return; el.dataset.n = n; import('../../js/lds.js').then((m) => m.morphText(el, n === 0 ? 'Quota full' : n === 1 ? '1 slot left' : n + ' slots left')); if (n === 0) this.disabled = true;\">Take a queue number</button>"
       }
     ],
     "id": [
