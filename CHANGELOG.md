@@ -4,6 +4,8 @@ All notable changes to Lampung Design System are documented here. The format fol
 
 ## [Unreleased]
 
+## [0.2.0] - 2026-11-19
+
 ### Changed
 
 - **Breaking (Flutter):** `lampung_design_system` builds on `material_ui` and `cupertino_ui` instead of the framework's deprecated `package:flutter/material.dart` and `package:flutter/cupertino.dart`, and needs Flutter 3.47 or later. Apps add `material_ui` (`flutter pub add lampung_design_system material_ui`) and import `package:material_ui/material_ui.dart`, because `LdsTheme` returns `material_ui`'s `ThemeData`. This brings the pub.dev score to 160/160.
@@ -52,7 +54,8 @@ First public release.
 - Examples: a city operations dashboard, a citizen super app and a public service portal.
 - Landing page and documentation site, deployed to Cloudflare. Every docs page has a Markdown twin with Copy for LLM, plus `llms.txt` and `llms-full.txt` for agents.
 
-[Unreleased]: https://github.com/mralifakbar/lampung-design-system/compare/v0.1.2...HEAD
+[Unreleased]: https://github.com/mralifakbar/lampung-design-system/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/mralifakbar/lampung-design-system/compare/v0.1.2...v0.2.0
 [0.1.2]: https://github.com/mralifakbar/lampung-design-system/compare/v0.1.1...v0.1.2
 [0.1.1]: https://github.com/mralifakbar/lampung-design-system/compare/v0.1.0...v0.1.1
 [0.1.0]: https://github.com/mralifakbar/lampung-design-system/releases/tag/v0.1.0

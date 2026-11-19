@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.2.0
+
+- **Breaking:** builds on [`material_ui`](https://pub.dev/packages/material_ui)
+  and [`cupertino_ui`](https://pub.dev/packages/cupertino_ui) instead of the
+  deprecated `package:flutter/material.dart` and `package:flutter/cupertino.dart`.
+  Requires Flutter 3.47 or later. Add `material_ui` to your app and import
+  `package:material_ui/material_ui.dart`, because `LdsTheme` returns
+  `material_ui`'s `ThemeData`.
+- Example app runs on `material_ui`.
+
 ## 0.1.2
 
 - Vertical `LdsSteps` lays out inside scrolling lists instead of throwing.
