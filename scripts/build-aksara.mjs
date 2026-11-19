@@ -3,6 +3,7 @@
 //   aksara/glyphs/<name>.svg   one file per letter and sign, for design tools
 //   aksara/lds-aksara.svg      a sprite: <use href="lds-aksara.svg#ka"/>
 //   dist/flutter/aksara_glyphs.dart and packages/flutter/lib/src/aksara_glyphs.g.dart (when the package exists)
+import { spawnSync } from 'node:child_process';
 import { readFileSync, writeFileSync, mkdirSync, rmSync, existsSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -54,4 +55,9 @@ abstract final class LdsAksaraGlyphs {
 }
 `;
 write('dist/flutter/aksara_glyphs.dart', dart);
-if (existsSync(join(root, 'packages/flutter/lib/src'))) write('packages/flutter/lib/src/aksara_glyphs.g.dart', dart);
+if (existsSync(join(root, 'packages/flutter/lib/src'))) {
+  write('packages/flutter/lib/src/aksara_glyphs.g.dart', dart);
+  // pub.dev scores the package's formatting, so format the Dart file it ships when the SDK is here.
+  const fmt = spawnSync('dart', ['format', 'packages/flutter/lib/src/aksara_glyphs.g.dart'], { cwd: root, stdio: 'inherit' });
+  if (fmt.error) console.log('dart not found; run `dart format packages/flutter` before committing Flutter changes');
+}
