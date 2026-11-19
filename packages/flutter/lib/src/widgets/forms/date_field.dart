@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../button.dart';
@@ -124,8 +124,9 @@ class _LdsDateFieldState extends State<LdsDateField> {
           showTooltip: false,
           color: c.textSubtle,
           selected: _open,
-          onPressed:
-              widget.enabled ? () => setState(() => _open = !_open) : null,
+          onPressed: widget.enabled
+              ? () => setState(() => _open = !_open)
+              : null,
         ),
       ),
       builder: (context) => LdsCalendar(

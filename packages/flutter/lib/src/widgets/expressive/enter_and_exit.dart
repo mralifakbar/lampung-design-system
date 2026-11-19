@@ -89,8 +89,8 @@ class _LdsEnterExitState extends State<LdsEnterExit>
   Duration get _enterDuration => widget.style == LdsEnterStyle.pop
       ? LdsMotion.snappySpringDuration
       : widget.style == LdsEnterStyle.item
-          ? LdsMotion.standard
-          : LdsMotion.smoothSpringDuration;
+      ? LdsMotion.standard
+      : LdsMotion.smoothSpringDuration;
 
   void _onStatus(AnimationStatus status) {
     if (status == AnimationStatus.dismissed) {
@@ -129,7 +129,8 @@ class _LdsEnterExitState extends State<LdsEnterExit>
       child: widget.child,
       builder: (context, child) {
         final t = _c.value;
-        final entering = _c.status == AnimationStatus.forward ||
+        final entering =
+            _c.status == AnimationStatus.forward ||
             _c.status == AnimationStatus.completed;
         final double opacity;
         final double move;
@@ -140,13 +141,16 @@ class _LdsEnterExitState extends State<LdsEnterExit>
           // Opacity is readable almost at once; the transform keeps settling.
           final ms = _enterDuration.inMilliseconds;
           final fadeEnd = (LdsMotion.fast.inMilliseconds / ms).clamp(0.0, 1.0);
-          opacity = Interval(0, fadeEnd, curve: LdsMotion.enterCurve)
-              .transform(t);
+          opacity = Interval(
+            0,
+            fadeEnd,
+            curve: LdsMotion.enterCurve,
+          ).transform(t);
           move = style == LdsEnterStyle.item
               ? LdsMotion.enterCurve.transform(t)
               : style == LdsEnterStyle.pop
-                  ? LdsSpringCurve.snappy.transform(t)
-                  : LdsSpringCurve.smooth.transform(t);
+              ? LdsSpringCurve.snappy.transform(t)
+              : LdsSpringCurve.smooth.transform(t);
         } else {
           // Leaving: accelerate away along the same path.
           final out = 1 - LdsMotion.exitCurve.transform(1 - t);
@@ -250,8 +254,7 @@ class _LdsBlurInState extends State<LdsBlurIn>
   @override
   Widget build(BuildContext context) {
     final total = (widget.delay + widget.duration).inMicroseconds;
-    final start =
-        total == 0 ? 0.0 : widget.delay.inMicroseconds / total;
+    final start = total == 0 ? 0.0 : widget.delay.inMicroseconds / total;
     final curve = Interval(start, 1, curve: widget.curve);
     return AnimatedBuilder(
       animation: _c,

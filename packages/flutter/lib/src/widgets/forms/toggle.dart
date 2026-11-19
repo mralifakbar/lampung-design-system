@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -58,8 +58,8 @@ class LdsToggle extends StatelessWidget {
         final bg = selected
             ? c.accentTint
             : state.hovered || state.pressed
-                ? c.bgTint
-                : Colors.transparent;
+            ? c.bgTint
+            : Colors.transparent;
         return AnimatedOpacity(
           opacity: enabled ? 1 : 0.38,
           duration: context.ldsDuration(LdsMotion.fast),

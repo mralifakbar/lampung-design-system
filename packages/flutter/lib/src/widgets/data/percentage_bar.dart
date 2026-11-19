@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -56,29 +56,33 @@ class LdsPercentageBar extends StatelessWidget {
     final reduce = context.ldsReduceMotion;
     final words = [for (final p in parts) '${p.label} ${share(p)}'].join(', ');
 
-    final bar = LayoutBuilder(builder: (context, box) {
-      final gaps = math.max(0, shown.length - 1) * 2.0;
-      final room = math.max(0.0, box.maxWidth - gaps);
-      return ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(4)),
-        child: SizedBox(
-          height: 14,
-          child: Row(
-            children: [
-              for (var k = 0; k < shown.length; k++) ...[
-                if (k > 0) const SizedBox(width: 2),
-                AnimatedContainer(
-                  duration: reduce ? LdsMotion.instant : LdsMotion.considered,
-                  curve: reduce ? Curves.linear : LdsMotion.inoutCurve,
-                  width: total == 0 ? 0 : room * parts[shown[k]].value / total,
-                  color: colors[shown[k] % colors.length],
-                ),
+    final bar = LayoutBuilder(
+      builder: (context, box) {
+        final gaps = math.max(0, shown.length - 1) * 2.0;
+        final room = math.max(0.0, box.maxWidth - gaps);
+        return ClipRRect(
+          borderRadius: const BorderRadius.all(Radius.circular(4)),
+          child: SizedBox(
+            height: 14,
+            child: Row(
+              children: [
+                for (var k = 0; k < shown.length; k++) ...[
+                  if (k > 0) const SizedBox(width: 2),
+                  AnimatedContainer(
+                    duration: reduce ? LdsMotion.instant : LdsMotion.considered,
+                    curve: reduce ? Curves.linear : LdsMotion.inoutCurve,
+                    width: total == 0
+                        ? 0
+                        : room * parts[shown[k]].value / total,
+                    color: colors[shown[k] % colors.length],
+                  ),
+                ],
               ],
-            ],
+            ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
 
     return Semantics(
       label: '$semanticLabel: $words',
@@ -104,14 +108,16 @@ class LdsPercentageBar extends StatelessWidget {
                         height: 10,
                         decoration: BoxDecoration(
                           color: colors[i % colors.length],
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(3)),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(3),
+                          ),
                         ),
                       ),
                       const SizedBox(width: 6),
-                      Text(parts[i].label,
-                          style:
-                              LdsType.footnote.copyWith(color: c.textSubtle)),
+                      Text(
+                        parts[i].label,
+                        style: LdsType.footnote.copyWith(color: c.textSubtle),
+                      ),
                       const SizedBox(width: 6),
                       Text(
                         share(parts[i]),

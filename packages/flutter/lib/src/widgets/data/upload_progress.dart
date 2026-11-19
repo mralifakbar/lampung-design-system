@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -70,14 +70,18 @@ class LdsUploadProgress extends StatelessWidget {
             children: [
               LdsIcon(icon, size: 28, color: c.textSubtle),
               const SizedBox(height: 6),
-              Text(title,
-                  textAlign: TextAlign.center,
-                  style: LdsType.headline.copyWith(color: c.textStrong)),
+              Text(
+                title,
+                textAlign: TextAlign.center,
+                style: LdsType.headline.copyWith(color: c.textStrong),
+              ),
               if (body != null) ...[
                 const SizedBox(height: 6),
-                Text(body!,
-                    textAlign: TextAlign.center,
-                    style: LdsType.subhead.copyWith(color: c.textSubtle)),
+                Text(
+                  body!,
+                  textAlign: TextAlign.center,
+                  style: LdsType.subhead.copyWith(color: c.textSubtle),
+                ),
               ],
               if (action != null) ...[const SizedBox(height: 14), action!],
             ],
@@ -171,17 +175,25 @@ class _TracePainter extends CustomPainter {
     final path = Path()
       ..moveTo(size.width / 2, rrect.top)
       ..lineTo(rrect.right - radius, rrect.top)
-      ..arcToPoint(Offset(rrect.right, rrect.top + radius),
-          radius: Radius.circular(radius))
+      ..arcToPoint(
+        Offset(rrect.right, rrect.top + radius),
+        radius: Radius.circular(radius),
+      )
       ..lineTo(rrect.right, rrect.bottom - radius)
-      ..arcToPoint(Offset(rrect.right - radius, rrect.bottom),
-          radius: Radius.circular(radius))
+      ..arcToPoint(
+        Offset(rrect.right - radius, rrect.bottom),
+        radius: Radius.circular(radius),
+      )
       ..lineTo(rrect.left + radius, rrect.bottom)
-      ..arcToPoint(Offset(rrect.left, rrect.bottom - radius),
-          radius: Radius.circular(radius))
+      ..arcToPoint(
+        Offset(rrect.left, rrect.bottom - radius),
+        radius: Radius.circular(radius),
+      )
       ..lineTo(rrect.left, rrect.top + radius)
-      ..arcToPoint(Offset(rrect.left + radius, rrect.top),
-          radius: Radius.circular(radius))
+      ..arcToPoint(
+        Offset(rrect.left + radius, rrect.top),
+        radius: Radius.circular(radius),
+      )
       ..close();
     final metric = path.computeMetrics().first;
     final part = metric.extractPath(0, metric.length * value);

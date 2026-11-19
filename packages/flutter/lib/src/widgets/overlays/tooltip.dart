@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -58,8 +58,10 @@ class LdsTooltip extends StatelessWidget {
                   borderRadius: const BorderRadius.all(Radius.circular(5)),
                   border: Border.all(color: c.onInverseLine),
                 ),
-                child: Text(shortcut!,
-                    style: style.copyWith(fontSize: 11, height: 1)),
+                child: Text(
+                  shortcut!,
+                  style: style.copyWith(fontSize: 11, height: 1),
+                ),
               ),
             ),
         ],

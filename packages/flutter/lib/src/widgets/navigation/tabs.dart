@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -138,10 +138,7 @@ class _LdsTabsState<T> extends State<LdsTabs<T>> {
       children: children,
     );
     if (!fill) {
-      row = SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: row,
-      );
+      row = SingleChildScrollView(scrollDirection: Axis.horizontal, child: row);
     }
 
     return Semantics(
@@ -163,7 +160,12 @@ class _LdsTabsState<T> extends State<LdsTabs<T>> {
   }
 
   Widget _tab(
-      BuildContext context, LdsColors c, LdsTab<T> tab, int i, bool selected) {
+    BuildContext context,
+    LdsColors c,
+    LdsTab<T> tab,
+    int i,
+    bool selected,
+  ) {
     _nodes[i].skipTraversal = !selected;
     final name = tab.count == null ? tab.label : '${tab.label} ${tab.count}';
     return LdsPressable(
@@ -174,8 +176,9 @@ class _LdsTabsState<T> extends State<LdsTabs<T>> {
       inMutuallyExclusiveGroup: true,
       semanticLabel: name,
       excludeChildSemantics: true,
-      borderRadius:
-          const BorderRadius.vertical(top: Radius.circular(LdsRadius.sm)),
+      borderRadius: const BorderRadius.vertical(
+        top: Radius.circular(LdsRadius.sm),
+      ),
       builder: (context, state) => SizedBox(
         height: LdsSize.touchMin,
         child: Padding(
@@ -189,8 +192,9 @@ class _LdsTabsState<T> extends State<LdsTabs<T>> {
                   duration: context.ldsDuration(LdsMotion.standard),
                   curve: LdsMotion.standardCurve,
                   style: LdsType.subhead.copyWith(
-                    color:
-                        selected || state.hovered ? c.textStrong : c.textSubtle,
+                    color: selected || state.hovered
+                        ? c.textStrong
+                        : c.textSubtle,
                     fontWeight: selected ? FontWeight.w600 : FontWeight.w500,
                   ),
                   child: Text(

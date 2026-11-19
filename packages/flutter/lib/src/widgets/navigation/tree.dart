@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -86,8 +86,8 @@ class _LdsTreeState<T> extends State<LdsTree<T>> {
           onPressed: node.children.isNotEmpty
               ? () => _toggle(node.value)
               : (widget.onSelected == null
-                  ? null
-                  : () => widget.onSelected!(node.value)),
+                    ? null
+                    : () => widget.onSelected!(node.value)),
         ),
         if (node.children.isNotEmpty)
           LdsHeightExpand(
@@ -154,10 +154,10 @@ class _TreeRow<T> extends StatelessWidget {
           color: selected
               ? c.accentTint
               : state.pressed
-                  ? c.bgTintStrong
-                  : state.hovered
-                      ? c.bgTint
-                      : Colors.transparent,
+              ? c.bgTintStrong
+              : state.hovered
+              ? c.bgTint
+              : Colors.transparent,
         ),
         child: Row(
           children: [
@@ -166,20 +166,26 @@ class _TreeRow<T> extends StatelessWidget {
               child: parent
                   ? AnimatedRotation(
                       turns: expanded ? 0.25 : 0,
-                      duration:
-                          context.ldsDuration(LdsMotion.smoothSpringDuration),
+                      duration: context.ldsDuration(
+                        LdsMotion.smoothSpringDuration,
+                      ),
                       curve: LdsSpringCurve.smooth,
-                      child: LdsIcon('chevron_right',
-                          size: 16, color: c.textMuted),
+                      child: LdsIcon(
+                        'chevron_right',
+                        size: 16,
+                        color: c.textMuted,
+                      ),
                     )
                   : null,
             ),
             const SizedBox(width: 6),
             if (node.icon != null) ...[
-              LdsIcon(node.icon!,
-                  size: 18,
-                  fill: selected,
-                  color: selected ? c.accentText : c.textSubtle),
+              LdsIcon(
+                node.icon!,
+                size: 18,
+                fill: selected,
+                color: selected ? c.accentText : c.textSubtle,
+              ),
               const SizedBox(width: 8),
             ],
             Expanded(
@@ -198,7 +204,9 @@ class _TreeRow<T> extends StatelessWidget {
       ),
     );
     return parent
-        ? MergeSemantics(child: Semantics(expanded: expanded, child: row))
+        ? MergeSemantics(
+            child: Semantics(expanded: expanded, child: row),
+          )
         : row;
   }
 }

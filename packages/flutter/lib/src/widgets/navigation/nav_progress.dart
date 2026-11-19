@@ -65,15 +65,19 @@ class _LdsNavProgressState extends State<LdsNavProgress>
   void _start() {
     if (!mounted || !widget.running) return;
     final reduce = context.ldsReduceMotion;
-    _opacity.animateTo(1,
-        duration:
-            reduce ? LdsMotion.instant : const Duration(milliseconds: 80));
+    _opacity.animateTo(
+      1,
+      duration: reduce ? LdsMotion.instant : const Duration(milliseconds: 80),
+    );
     if (reduce) {
       _scale.value = 1;
     } else {
       _scale.value = 0;
-      _scale.animateTo(0.85,
-          duration: const Duration(milliseconds: 2400), curve: _runCurve);
+      _scale.animateTo(
+        0.85,
+        duration: const Duration(milliseconds: 2400),
+        curve: _runCurve,
+      );
     }
   }
 
@@ -84,12 +88,16 @@ class _LdsNavProgressState extends State<LdsNavProgress>
       _opacity.animateTo(0, duration: LdsMotion.instant);
       return;
     }
-    _scale.animateTo(0,
-        duration: const Duration(milliseconds: 200),
-        curve: LdsMotion.standardCurve);
-    _opacity.animateTo(0,
-        duration: const Duration(milliseconds: 360),
-        curve: const Interval(1 / 3, 1, curve: LdsMotion.exitCurve));
+    _scale.animateTo(
+      0,
+      duration: const Duration(milliseconds: 200),
+      curve: LdsMotion.standardCurve,
+    );
+    _opacity.animateTo(
+      0,
+      duration: const Duration(milliseconds: 360),
+      curve: const Interval(1 / 3, 1, curve: LdsMotion.exitCurve),
+    );
   }
 
   @override

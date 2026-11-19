@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'tokens.g.dart';
 
@@ -11,7 +11,9 @@ extension LdsThemeContext on BuildContext {
   LdsColors get lds {
     final theme = Theme.of(this);
     return theme.extension<LdsColors>() ??
-        (theme.brightness == Brightness.dark ? LdsColors.dark : LdsColors.light);
+        (theme.brightness == Brightness.dark
+            ? LdsColors.dark
+            : LdsColors.light);
   }
 
   /// Shadows for layers that float, in the current appearance.
@@ -88,7 +90,8 @@ abstract final class LdsTheme {
       return ButtonStyle(
         minimumSize: const WidgetStatePropertyAll(minControl),
         padding: const WidgetStatePropertyAll(
-            EdgeInsets.symmetric(horizontal: 18)),
+          EdgeInsets.symmetric(horizontal: 18),
+        ),
         shape: const WidgetStatePropertyAll(controlShape),
         elevation: const WidgetStatePropertyAll(0),
         textStyle: WidgetStatePropertyAll(labelStyle),
@@ -107,10 +110,11 @@ abstract final class LdsTheme {
           }
           return background;
         }),
-        foregroundColor: WidgetStateProperty.resolveWith((states) =>
-            states.contains(WidgetState.disabled)
-                ? foreground.withAlpha(97)
-                : foreground),
+        foregroundColor: WidgetStateProperty.resolveWith(
+          (states) => states.contains(WidgetState.disabled)
+              ? foreground.withAlpha(97)
+              : foreground,
+        ),
         overlayColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.pressed)) return c.bgTintStrong;
           if (states.contains(WidgetState.hovered)) return c.bgTint;
@@ -185,18 +189,21 @@ abstract final class LdsTheme {
         ),
       ),
       textButtonTheme: TextButtonThemeData(
-        style: buttonStyle(
-          background: Colors.transparent,
-          foreground: c.accentText,
-        ).copyWith(
-          padding: const WidgetStatePropertyAll(
-              EdgeInsets.symmetric(horizontal: 10)),
-        ),
+        style:
+            buttonStyle(
+              background: Colors.transparent,
+              foreground: c.accentText,
+            ).copyWith(
+              padding: const WidgetStatePropertyAll(
+                EdgeInsets.symmetric(horizontal: 10),
+              ),
+            ),
       ),
       iconButtonTheme: IconButtonThemeData(
         style: ButtonStyle(
-          minimumSize:
-              const WidgetStatePropertyAll(Size.square(LdsSize.touchMin)),
+          minimumSize: const WidgetStatePropertyAll(
+            Size.square(LdsSize.touchMin),
+          ),
           foregroundColor: WidgetStatePropertyAll(c.textStrong),
           overlayColor: WidgetStatePropertyAll(c.bgTintStrong),
           splashFactory: NoSplash.splashFactory,
@@ -212,8 +219,10 @@ abstract final class LdsTheme {
         filled: true,
         fillColor: c.bgBase,
         isDense: false,
-        contentPadding:
-            const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 14,
+          vertical: 12,
+        ),
         labelStyle: LdsType.subhead.copyWith(color: c.textSubtle),
         floatingLabelStyle: LdsType.caption.copyWith(color: c.accentText),
         hintStyle: LdsType.body.copyWith(color: c.textMuted),
@@ -249,10 +258,14 @@ abstract final class LdsTheme {
         selectedColor: c.accentTint,
         disabledColor: c.bgFill,
         checkmarkColor: c.accentText,
-        labelStyle: LdsType.subhead
-            .copyWith(color: c.textStrong, fontWeight: FontWeight.w500),
-        secondaryLabelStyle: LdsType.subhead
-            .copyWith(color: c.accentText, fontWeight: FontWeight.w500),
+        labelStyle: LdsType.subhead.copyWith(
+          color: c.textStrong,
+          fontWeight: FontWeight.w500,
+        ),
+        secondaryLabelStyle: LdsType.subhead.copyWith(
+          color: c.accentText,
+          fontWeight: FontWeight.w500,
+        ),
         side: BorderSide(color: c.lineStrong),
         shape: const StadiumBorder(),
         padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 6),
@@ -275,8 +288,10 @@ abstract final class LdsTheme {
         materialTapTargetSize: MaterialTapTargetSize.padded,
       ),
       checkboxTheme: CheckboxThemeData(
-        fillColor: WidgetStateProperty.resolveWith((states) =>
-            states.contains(WidgetState.selected) ? c.accent : c.bgBase),
+        fillColor: WidgetStateProperty.resolveWith(
+          (states) =>
+              states.contains(WidgetState.selected) ? c.accent : c.bgBase,
+        ),
         checkColor: WidgetStatePropertyAll(c.textOnAccent),
         side: BorderSide(color: c.lineControl, width: 1.5),
         shape: const RoundedRectangleBorder(
@@ -284,8 +299,10 @@ abstract final class LdsTheme {
         ),
       ),
       radioTheme: RadioThemeData(
-        fillColor: WidgetStateProperty.resolveWith((states) =>
-            states.contains(WidgetState.selected) ? c.accent : c.lineControl),
+        fillColor: WidgetStateProperty.resolveWith(
+          (states) =>
+              states.contains(WidgetState.selected) ? c.accent : c.lineControl,
+        ),
       ),
       progressIndicatorTheme: ProgressIndicatorThemeData(
         color: c.accent,
@@ -301,12 +318,14 @@ abstract final class LdsTheme {
       segmentedButtonTheme: SegmentedButtonThemeData(
         style: ButtonStyle(
           minimumSize: const WidgetStatePropertyAll(minControl),
-          textStyle: WidgetStatePropertyAll(LdsType.subhead
-              .copyWith(fontWeight: FontWeight.w500)),
-          backgroundColor: WidgetStateProperty.resolveWith((states) =>
-              states.contains(WidgetState.selected)
-                  ? c.bgSegmentedThumb
-                  : c.bgSegmented),
+          textStyle: WidgetStatePropertyAll(
+            LdsType.subhead.copyWith(fontWeight: FontWeight.w500),
+          ),
+          backgroundColor: WidgetStateProperty.resolveWith(
+            (states) => states.contains(WidgetState.selected)
+                ? c.bgSegmentedThumb
+                : c.bgSegmented,
+          ),
           foregroundColor: WidgetStatePropertyAll(c.textStrong),
           side: WidgetStatePropertyAll(BorderSide(color: c.bgSegmented)),
           splashFactory: NoSplash.splashFactory,
@@ -329,12 +348,14 @@ abstract final class LdsTheme {
             fontWeight: selected ? FontWeight.w600 : FontWeight.w500,
           );
         }),
-        iconTheme: WidgetStateProperty.resolveWith((states) => IconThemeData(
-              size: 24,
-              color: states.contains(WidgetState.selected)
-                  ? c.accentText
-                  : c.textSubtle,
-            )),
+        iconTheme: WidgetStateProperty.resolveWith(
+          (states) => IconThemeData(
+            size: 24,
+            color: states.contains(WidgetState.selected)
+                ? c.accentText
+                : c.textSubtle,
+          ),
+        ),
       ),
       navigationRailTheme: NavigationRailThemeData(
         backgroundColor: c.bgFill,
@@ -342,8 +363,7 @@ abstract final class LdsTheme {
         selectedIconTheme: IconThemeData(color: c.accentText),
         unselectedIconTheme: IconThemeData(color: c.textSubtle),
         selectedLabelTextStyle: LdsType.caption.copyWith(color: c.accentText),
-        unselectedLabelTextStyle:
-            LdsType.caption.copyWith(color: c.textSubtle),
+        unselectedLabelTextStyle: LdsType.caption.copyWith(color: c.textSubtle),
       ),
       tabBarTheme: TabBarThemeData(
         labelColor: c.textStrong,
@@ -351,8 +371,9 @@ abstract final class LdsTheme {
         indicatorColor: c.accent,
         dividerColor: c.hairline,
         labelStyle: LdsType.subhead.copyWith(fontWeight: FontWeight.w600),
-        unselectedLabelStyle:
-            LdsType.subhead.copyWith(fontWeight: FontWeight.w500),
+        unselectedLabelStyle: LdsType.subhead.copyWith(
+          fontWeight: FontWeight.w500,
+        ),
         overlayColor: WidgetStatePropertyAll(c.bgTint),
         splashFactory: NoSplash.splashFactory,
       ),
@@ -382,8 +403,9 @@ abstract final class LdsTheme {
         dragHandleSize: const Size(36, 5),
         clipBehavior: Clip.antiAlias,
         shape: const RoundedRectangleBorder(
-          borderRadius:
-              BorderRadius.vertical(top: Radius.circular(LdsRadius.xl)),
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(LdsRadius.xl),
+          ),
         ),
       ),
       snackBarTheme: SnackBarThemeData(
@@ -401,8 +423,7 @@ abstract final class LdsTheme {
       tooltipTheme: TooltipThemeData(
         decoration: BoxDecoration(
           color: c.bgInverse,
-          borderRadius:
-              const BorderRadius.all(Radius.circular(LdsRadius.sm)),
+          borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.sm)),
         ),
         textStyle: LdsType.footnote.copyWith(color: c.textInverse),
         waitDuration: const Duration(milliseconds: 500),
@@ -453,7 +474,10 @@ abstract final class LdsTheme {
       bodyMedium: LdsType.body.copyWith(color: body),
       bodySmall: LdsType.footnote.copyWith(color: c.textSubtle),
       labelLarge: LdsType.bodyStrong.copyWith(
-          color: strong, fontWeight: FontWeight.w600, letterSpacing: -0.15),
+        color: strong,
+        fontWeight: FontWeight.w600,
+        letterSpacing: -0.15,
+      ),
       labelMedium: LdsType.caption.copyWith(color: c.textSubtle),
       labelSmall: LdsType.caption.copyWith(fontSize: 12, color: c.textSubtle),
     );

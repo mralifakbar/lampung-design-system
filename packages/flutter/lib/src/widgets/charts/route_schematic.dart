@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -70,11 +70,11 @@ class LdsRouteSchematic extends StatelessWidget {
   final String? vehicleLabel;
 
   String get _icon => switch (mode) {
-        LdsRouteMode.road => 'directions_bus',
-        LdsRouteMode.rail => 'tram',
-        LdsRouteMode.sea => 'directions_boat',
-        LdsRouteMode.flight => 'flight',
-      };
+    LdsRouteMode.road => 'directions_bus',
+    LdsRouteMode.rail => 'tram',
+    LdsRouteMode.sea => 'directions_boat',
+    LdsRouteMode.flight => 'flight',
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -102,16 +102,23 @@ class LdsRouteSchematic extends StatelessWidget {
           crossAxisAlignment: cross,
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(s.name,
-                textAlign: align,
-                style: LdsType.subhead.copyWith(
-                    fontWeight: FontWeight.w500,
-                    color: i == nextIndex ? c.accentText : c.textStrong)),
+            Text(
+              s.name,
+              textAlign: align,
+              style: LdsType.subhead.copyWith(
+                fontWeight: FontWeight.w500,
+                color: i == nextIndex ? c.accentText : c.textStrong,
+              ),
+            ),
             if (s.sub != null)
-              Text(s.sub!,
-                  textAlign: align,
-                  style: LdsType.footnote.copyWith(
-                      color: c.textSubtle, fontFeatures: tabular)),
+              Text(
+                s.sub!,
+                textAlign: align,
+                style: LdsType.footnote.copyWith(
+                  color: c.textSubtle,
+                  fontFeatures: tabular,
+                ),
+              ),
           ],
         ),
       );
@@ -127,110 +134,118 @@ class LdsRouteSchematic extends StatelessWidget {
           color: c.bgFill,
           borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.lg)),
         ),
-        child: LayoutBuilder(builder: (context, box) {
-          final vertical = box.maxWidth / math.max(1, stops.length) < 104;
-          final vehicle = arrived
-              ? null
-              : Semantics(
-                  label: vehicleLabel,
-                  child: Container(
-                    width: 32,
-                    height: 32,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: c.bgBase,
-                      shape: BoxShape.circle,
-                      border: Border.all(color: c.accent, width: 2),
-                    ),
-                    child: LdsIcon(_icon, size: 18, color: c.accentText),
-                  ),
-                );
-          if (vertical) {
-            const rowH = 56.0;
-            final h = rowH * stops.length;
-            final vy = rowH * (pos + 0.5);
-            return SizedBox(
-              height: h,
-              child: Stack(
-                children: [
-                  CustomPaint(
-                    size: Size(32, h),
-                    painter: _RoutePainter(
-                      count: stops.length,
-                      position: pos,
-                      vertical: true,
-                      arc: false,
-                      colors: c,
-                    ),
-                  ),
-                  for (var i = 0; i < stops.length; i++)
-                    Positioned(
-                      left: 44,
-                      right: 0,
-                      top: rowH * i,
-                      height: rowH,
-                      child: Align(
-                        alignment: Alignment.centerLeft,
-                        child: stopText(
-                            i, TextAlign.left, CrossAxisAlignment.start),
+        child: LayoutBuilder(
+          builder: (context, box) {
+            final vertical = box.maxWidth / math.max(1, stops.length) < 104;
+            final vehicle = arrived
+                ? null
+                : Semantics(
+                    label: vehicleLabel,
+                    child: Container(
+                      width: 32,
+                      height: 32,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                        color: c.bgBase,
+                        shape: BoxShape.circle,
+                        border: Border.all(color: c.accent, width: 2),
                       ),
+                      child: LdsIcon(_icon, size: 18, color: c.accentText),
                     ),
-                  if (vehicle != null)
-                    Positioned(left: 0, top: vy - 16, child: vehicle),
-                ],
-              ),
-            );
-          }
-          final w = box.maxWidth;
-          final slot = w / stops.length;
-          final arc = mode == LdsRouteMode.flight;
-          final vx = slot * (pos + 0.5);
-          final lift = arc ? _RoutePainter.arcLift(pos) : 0.0;
-          return Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(
-                height: 56,
+                  );
+            if (vertical) {
+              const rowH = 56.0;
+              final h = rowH * stops.length;
+              final vy = rowH * (pos + 0.5);
+              return SizedBox(
+                height: h,
                 child: Stack(
-                  clipBehavior: Clip.none,
                   children: [
                     CustomPaint(
-                      size: Size(w, 56),
+                      size: Size(32, h),
                       painter: _RoutePainter(
                         count: stops.length,
                         position: pos,
-                        vertical: false,
-                        arc: arc,
+                        vertical: true,
+                        arc: false,
                         colors: c,
                       ),
                     ),
-                    if (vehicle != null)
+                    for (var i = 0; i < stops.length; i++)
                       Positioned(
-                        left: vx - 16,
-                        top: 40 - 16 - lift * 24,
-                        child: vehicle,
+                        left: 44,
+                        right: 0,
+                        top: rowH * i,
+                        height: rowH,
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: stopText(
+                            i,
+                            TextAlign.left,
+                            CrossAxisAlignment.start,
+                          ),
+                        ),
+                      ),
+                    if (vehicle != null)
+                      Positioned(left: 0, top: vy - 16, child: vehicle),
+                  ],
+                ),
+              );
+            }
+            final w = box.maxWidth;
+            final slot = w / stops.length;
+            final arc = mode == LdsRouteMode.flight;
+            final vx = slot * (pos + 0.5);
+            final lift = arc ? _RoutePainter.arcLift(pos) : 0.0;
+            return Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(
+                  height: 56,
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      CustomPaint(
+                        size: Size(w, 56),
+                        painter: _RoutePainter(
+                          count: stops.length,
+                          position: pos,
+                          vertical: false,
+                          arc: arc,
+                          colors: c,
+                        ),
+                      ),
+                      if (vehicle != null)
+                        Positioned(
+                          left: vx - 16,
+                          top: 40 - 16 - lift * 24,
+                          child: vehicle,
+                        ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: LdsSpace.s8),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    for (var i = 0; i < stops.length; i++)
+                      Expanded(
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4),
+                          child: stopText(
+                            i,
+                            TextAlign.center,
+                            CrossAxisAlignment.center,
+                          ),
+                        ),
                       ),
                   ],
                 ),
-              ),
-              const SizedBox(height: LdsSpace.s8),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  for (var i = 0; i < stops.length; i++)
-                    Expanded(
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 4),
-                        child: stopText(
-                            i, TextAlign.center, CrossAxisAlignment.center),
-                      ),
-                    ),
-                ],
-              ),
-            ],
-          );
-        }),
+              ],
+            );
+          },
+        ),
       ),
     );
   }
@@ -275,8 +290,8 @@ class _RoutePainter extends CustomPainter {
         ..lineTo(a.dx + (b.dx - a.dx) * to, a.dy + (b.dy - a.dy) * to);
       return path;
     }
-    Offset at(double t) => Offset(a.dx + (b.dx - a.dx) * t,
-        a.dy - math.sin(t * math.pi) * 24);
+    Offset at(double t) =>
+        Offset(a.dx + (b.dx - a.dx) * t, a.dy - math.sin(t * math.pi) * 24);
     const steps = 24;
     path.moveTo(at(from).dx, at(from).dy);
     for (var k = 1; k <= steps; k++) {

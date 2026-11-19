@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -27,13 +27,17 @@ class LdsDateRangePreset {
     return [
       LdsDateRangePreset(
         label: '7 hari terakhir',
-        range:
-            DateTimeRange(start: t.subtract(const Duration(days: 6)), end: t),
+        range: DateTimeRange(
+          start: t.subtract(const Duration(days: 6)),
+          end: t,
+        ),
       ),
       LdsDateRangePreset(
         label: '30 hari terakhir',
-        range:
-            DateTimeRange(start: t.subtract(const Duration(days: 29)), end: t),
+        range: DateTimeRange(
+          start: t.subtract(const Duration(days: 29)),
+          end: t,
+        ),
       ),
       LdsDateRangePreset(
         label: 'Bulan ini',
@@ -193,19 +197,21 @@ class _LdsDateRangePickerState extends State<LdsDateRangePicker> {
     final summary = _start == null
         ? ''
         : picking
-            ? widget.pickEndText
-            : _span(_start!, _end!);
+        ? widget.pickEndText
+        : _span(_start!, _end!);
 
     final presetList = [
       for (final p in presets)
         LdsPressable(
           onPressed: () => _apply(p.range),
           pressedScale: 1,
-          selected: ldsFormsSameDay(p.range.start, _start) &&
+          selected:
+              ldsFormsSameDay(p.range.start, _start) &&
               ldsFormsSameDay(p.range.end, _end),
           borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.sm)),
           builder: (context, state) {
-            final on = ldsFormsSameDay(p.range.start, _start) &&
+            final on =
+                ldsFormsSameDay(p.range.start, _start) &&
                 ldsFormsSameDay(p.range.end, _end);
             return Container(
               height: 36,
@@ -215,10 +221,11 @@ class _LdsDateRangePickerState extends State<LdsDateRangePicker> {
                 color: on
                     ? c.accentTint
                     : state.hovered || state.pressed
-                        ? c.bgTintStrong
-                        : null,
-                borderRadius:
-                    const BorderRadius.all(Radius.circular(LdsRadius.sm)),
+                    ? c.bgTintStrong
+                    : null,
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(LdsRadius.sm),
+                ),
               ),
               child: Text(
                 p.label,
@@ -288,7 +295,7 @@ class _LdsDateRangePickerState extends State<LdsDateRangePicker> {
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         Padding(padding: const EdgeInsets.all(4), child: months),
-        foot
+        foot,
       ],
     );
 
@@ -348,8 +355,11 @@ class _LdsDateRangePickerState extends State<LdsDateRangePicker> {
           child: Row(
             mainAxisSize: MainAxisSize.min,
             children: [
-              LdsIcon('calendar_month',
-                  size: 19, color: _open ? c.accentText : c.textMuted),
+              LdsIcon(
+                'calendar_month',
+                size: 19,
+                color: _open ? c.accentText : c.textMuted,
+              ),
               const SizedBox(width: 8),
               Flexible(
                 child: Text(

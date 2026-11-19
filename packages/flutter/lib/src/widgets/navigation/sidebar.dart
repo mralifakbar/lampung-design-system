@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -79,22 +79,28 @@ class LdsSidebar<T> extends StatelessWidget {
     int? selected;
     for (final item in items) {
       if (item.heading != null) {
-        children.add(Padding(
-          padding: const EdgeInsets.fromLTRB(10, 10, 10, 6),
-          child: Semantics(
-            header: true,
-            child: Text(item.heading!,
-                style: LdsType.caption.copyWith(color: c.textMuted)),
+        children.add(
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 10, 10, 6),
+            child: Semantics(
+              header: true,
+              child: Text(
+                item.heading!,
+                style: LdsType.caption.copyWith(color: c.textMuted),
+              ),
+            ),
           ),
-        ));
+        );
       }
       final current = item.value == value;
       if (current) selected = children.length;
-      children.add(_SidebarRow<T>(
-        item: item,
-        current: current,
-        onPressed: () => onChanged(item.value),
-      ));
+      children.add(
+        _SidebarRow<T>(
+          item: item,
+          current: current,
+          onPressed: () => onChanged(item.value),
+        ),
+      );
     }
 
     Widget list = LdsSlidingIndicator(
@@ -144,8 +150,9 @@ class _SidebarRow<T> extends StatelessWidget {
       pressedScale: 1,
       borderRadius: radius,
       selected: current,
-      semanticLabel:
-          item.badge == null ? item.label : '${item.label}, ${item.badge}',
+      semanticLabel: item.badge == null
+          ? item.label
+          : '${item.label}, ${item.badge}',
       excludeChildSemantics: true,
       builder: (context, state) {
         final fg = current ? c.accentText : c.textDefault;
@@ -162,9 +169,11 @@ class _SidebarRow<T> extends StatelessWidget {
           child: Row(
             children: [
               if (item.icon != null) ...[
-                LdsIcon(item.icon!,
-                    fill: current,
-                    color: current ? c.accentText : c.textSubtle),
+                LdsIcon(
+                  item.icon!,
+                  fill: current,
+                  color: current ? c.accentText : c.textSubtle,
+                ),
                 const SizedBox(width: 10),
               ],
               Expanded(

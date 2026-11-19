@@ -19,17 +19,19 @@ class LdsFeatureStage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
-    return LayoutBuilder(builder: (context, constraints) {
-      final pad = flush
-          ? 0.0
-          : (constraints.maxWidth * 0.03).clamp(LdsSpace.s16, LdsSpace.s32);
-      return ClipRRect(
-        borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.xl)),
-        child: ColoredBox(
-          color: c.bgFill,
-          child: Padding(padding: EdgeInsets.all(pad), child: child),
-        ),
-      );
-    });
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final pad = flush
+            ? 0.0
+            : (constraints.maxWidth * 0.03).clamp(LdsSpace.s16, LdsSpace.s32);
+        return ClipRRect(
+          borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.xl)),
+          child: ColoredBox(
+            color: c.bgFill,
+            child: Padding(padding: EdgeInsets.all(pad), child: child),
+          ),
+        );
+      },
+    );
   }
 }

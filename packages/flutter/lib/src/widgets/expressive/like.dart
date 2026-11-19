@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -17,9 +17,7 @@ import 'haptics.dart';
 /// words next to it.
 class LdsLikeController extends ChangeNotifier {
   /// Creates a like state.
-  LdsLikeController({bool liked = false, int count = 0})
-      : _liked = liked,
-        _count = count;
+  LdsLikeController({this._liked = false, this._count = 0});
 
   bool _liked;
   int _count;
@@ -190,9 +188,11 @@ class _LdsLikeState extends State<LdsLike> with TickerProviderStateMixin {
                 : null,
             child: Transform.scale(
               scale: scale,
-              child: LdsIcon('favorite',
-                  fill: liked,
-                  color: liked ? c.danger : c.textDefault),
+              child: LdsIcon(
+                'favorite',
+                fill: liked,
+                color: liked ? c.danger : c.textDefault,
+              ),
             ),
           ),
         );
@@ -206,7 +206,7 @@ class _LdsLikeState extends State<LdsLike> with TickerProviderStateMixin {
         switchOutCurve: LdsSpringCurve.smooth,
         layoutBuilder: (current, previous) => Stack(
           alignment: Alignment.center,
-          children: [...previous, if (current != null) current],
+          children: [...previous, ?current],
         ),
         transitionBuilder: (child, animation) {
           final incoming = child.key == ValueKey<int>(count);
@@ -237,8 +237,9 @@ class _LdsLikeState extends State<LdsLike> with TickerProviderStateMixin {
       pressedScale: 0.94,
       borderRadius: radius,
       selected: liked,
-      semanticLabel:
-          widget.showCount ? '${widget.semanticLabel}, $count' : widget.semanticLabel,
+      semanticLabel: widget.showCount
+          ? '${widget.semanticLabel}, $count'
+          : widget.semanticLabel,
       excludeChildSemantics: true,
       builder: (context, state) => AnimatedContainer(
         duration: context.ldsDuration(LdsMotion.fast),
@@ -287,7 +288,10 @@ class _SparkPainter extends CustomPainter {
     for (var i = 0; i < 7; i++) {
       final a = i * 2 * math.pi / 7 - math.pi / 2;
       canvas.drawCircle(
-          center + Offset(math.cos(a), math.sin(a)) * distance, radius, paint);
+        center + Offset(math.cos(a), math.sin(a)) * distance,
+        radius,
+        paint,
+      );
     }
   }
 

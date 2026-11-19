@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -11,8 +11,11 @@ import '../../tokens.g.dart';
 /// [LdsCitation].
 class LdsProse extends StatelessWidget {
   /// Creates a prose block.
-  const LdsProse(
-      {super.key, required this.children, this.maxWidth = LdsSize.measure});
+  const LdsProse({
+    super.key,
+    required this.children,
+    this.maxWidth = LdsSize.measure,
+  });
 
   /// Blocks: paragraphs ([Text]), headings, lists, quotes.
   final List<Widget> children;
@@ -22,11 +25,11 @@ class LdsProse extends StatelessWidget {
 
   /// Body text style of prose in [context].
   static TextStyle bodyStyle(BuildContext context) => TextStyle(
-        fontFamily: LdsType.family,
-        fontSize: 16,
-        height: 27 / 16,
-        color: context.lds.textDefault,
-      );
+    fontFamily: LdsType.family,
+    fontSize: 16,
+    height: 27 / 16,
+    color: context.lds.textDefault,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -44,12 +47,12 @@ class LdsProse extends StatelessWidget {
                   top: i == 0
                       ? 0
                       : children[i] is LdsProseHeading
-                          ? (children[i] as LdsProseHeading).level == 2
-                              ? 40
-                              : 28
-                          : children[i - 1] is LdsProseHeading
-                              ? 10
-                              : 16,
+                      ? (children[i] as LdsProseHeading).level == 2
+                            ? 40
+                            : 28
+                      : children[i - 1] is LdsProseHeading
+                      ? 10
+                      : 16,
                 ),
                 child: children[i],
               ),
@@ -64,7 +67,7 @@ class LdsProse extends StatelessWidget {
 class LdsProseHeading extends StatelessWidget {
   /// Creates a heading.
   const LdsProseHeading(this.text, {super.key, this.level = 2})
-      : assert(level == 2 || level == 3, 'Use level 2 or 3');
+    : assert(level == 2 || level == 3, 'Use level 2 or 3');
 
   /// Heading text.
   final String text;

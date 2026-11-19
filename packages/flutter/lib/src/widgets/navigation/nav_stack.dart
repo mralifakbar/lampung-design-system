@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart' show CupertinoRouteTransitionMixin;
-import 'package:flutter/material.dart';
+import 'package:cupertino_ui/cupertino_ui.dart'
+    show CupertinoRouteTransitionMixin;
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -59,14 +60,19 @@ class LdsPageRoute<T> extends PageRoute<T>
       builder: (context, child) => DecoratedBox(
         position: DecorationPosition.foreground,
         decoration: BoxDecoration(
-          color:
-              scrim.withValues(alpha: scrim.a * 0.5 * secondaryAnimation.value),
+          color: scrim.withValues(
+            alpha: scrim.a * 0.5 * secondaryAnimation.value,
+          ),
         ),
         child: child,
       ),
     );
-    return super
-        .buildTransitions(context, animation, secondaryAnimation, dimmed);
+    return super.buildTransitions(
+      context,
+      animation,
+      secondaryAnimation,
+      dimmed,
+    );
   }
 
   @override

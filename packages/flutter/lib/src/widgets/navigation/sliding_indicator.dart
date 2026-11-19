@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -127,23 +127,28 @@ class _LdsSlidingIndicatorState extends State<LdsSlidingIndicator> {
     _syncKeys();
     _scheduleMeasure();
     final c = context.lds;
-    final color = widget.color ??
+    final color =
+        widget.color ??
         (widget.style == LdsIndicatorStyle.pill ? c.accentTint : c.textStrong);
     final radius = widget.style == LdsIndicatorStyle.pill
         ? (widget.borderRadius ??
-            const BorderRadius.all(Radius.circular(LdsRadius.sm)))
+              const BorderRadius.all(Radius.circular(LdsRadius.sm)))
         : const BorderRadius.all(Radius.circular(1));
 
     final items = <Widget>[];
     for (var i = 0; i < widget.children.length; i++) {
       if (i > 0 && widget.spacing > 0) {
-        items.add(SizedBox(
-          width: widget.direction == Axis.horizontal ? widget.spacing : 0,
-          height: widget.direction == Axis.vertical ? widget.spacing : 0,
-        ));
+        items.add(
+          SizedBox(
+            width: widget.direction == Axis.horizontal ? widget.spacing : 0,
+            height: widget.direction == Axis.vertical ? widget.spacing : 0,
+          ),
+        );
       }
-      final Widget child =
-          KeyedSubtree(key: _keys[i], child: widget.children[i]);
+      final Widget child = KeyedSubtree(
+        key: _keys[i],
+        child: widget.children[i],
+      );
       items.add(widget.expand ? Expanded(child: child) : child);
     }
 
@@ -173,8 +178,9 @@ class _LdsSlidingIndicatorState extends State<LdsSlidingIndicator> {
               axis: widget.direction,
               child: Flex(
                 direction: widget.direction,
-                mainAxisSize:
-                    widget.expand ? MainAxisSize.max : MainAxisSize.min,
+                mainAxisSize: widget.expand
+                    ? MainAxisSize.max
+                    : MainAxisSize.min,
                 crossAxisAlignment: widget.crossAxisAlignment,
                 children: items,
               ),
@@ -205,7 +211,9 @@ class _BoundedCrossAxis extends SingleChildRenderObjectWidget {
 
   @override
   void updateRenderObject(
-      BuildContext context, _RenderBoundedCrossAxis renderObject) {
+    BuildContext context,
+    _RenderBoundedCrossAxis renderObject,
+  ) {
     renderObject.axis = axis;
   }
 }
@@ -226,12 +234,14 @@ class _RenderBoundedCrossAxis extends RenderProxyBox {
     if (_axis == Axis.horizontal && !constraints.hasBoundedHeight) {
       final h = c.getMaxIntrinsicHeight(constraints.maxWidth);
       return constraints.copyWith(
-          maxHeight: h < constraints.minHeight ? constraints.minHeight : h);
+        maxHeight: h < constraints.minHeight ? constraints.minHeight : h,
+      );
     }
     if (_axis == Axis.vertical && !constraints.hasBoundedWidth) {
       final w = c.getMaxIntrinsicWidth(constraints.maxHeight);
       return constraints.copyWith(
-          maxWidth: w < constraints.minWidth ? constraints.minWidth : w);
+        maxWidth: w < constraints.minWidth ? constraints.minWidth : w,
+      );
     }
     return constraints;
   }

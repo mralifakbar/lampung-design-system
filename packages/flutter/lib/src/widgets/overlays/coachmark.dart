@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -90,8 +90,9 @@ class LdsCoachmark extends StatelessWidget {
             padding: const EdgeInsets.all(LdsSpace.s16),
             decoration: BoxDecoration(
               color: c.bgInverse,
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(LdsRadius.lg)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(LdsRadius.lg),
+              ),
               boxShadow: context.ldsShadows.lg,
             ),
             child: Column(
@@ -99,22 +100,32 @@ class LdsCoachmark extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (step != null)
-                  Text(step!,
-                      style: LdsType.footnote.copyWith(
-                          color: text.withValues(alpha: 0.7),
-                          fontWeight: FontWeight.w500)),
+                  Text(
+                    step!,
+                    style: LdsType.footnote.copyWith(
+                      color: text.withValues(alpha: 0.7),
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 Padding(
                   padding: const EdgeInsets.only(top: 4),
-                  child: Text(title,
-                      style: LdsType.bodyStrong
-                          .copyWith(color: text, fontWeight: FontWeight.w600)),
+                  child: Text(
+                    title,
+                    style: LdsType.bodyStrong.copyWith(
+                      color: text,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
                 ),
                 if (body != null)
                   Padding(
                     padding: const EdgeInsets.only(top: 4),
-                    child: Text(body!,
-                        style: LdsType.footnote
-                            .copyWith(color: text.withValues(alpha: 0.82))),
+                    child: Text(
+                      body!,
+                      style: LdsType.footnote.copyWith(
+                        color: text.withValues(alpha: 0.82),
+                      ),
+                    ),
                   ),
                 const SizedBox(height: 6),
                 Row(
@@ -277,8 +288,10 @@ class _LdsCoachmarkTourState extends State<LdsCoachmarkTour> {
     final d = context.ldsDuration(LdsMotion.smooth);
     final curve = LdsSpringCurve.smooth;
     const cardWidth = 280.0;
-    final double left =
-        rect.left.clamp(8.0, math.max(8.0, size.width - cardWidth - 8));
+    final double left = rect.left.clamp(
+      8.0,
+      math.max(8.0, size.width - cardWidth - 8),
+    );
     final below = rect.bottom + 160 < size.height;
     final ring = rect.inflate(4);
     final total = widget.steps.length;
@@ -295,8 +308,9 @@ class _LdsCoachmarkTourState extends State<LdsCoachmarkTour> {
           child: IgnorePointer(
             child: DecoratedBox(
               decoration: BoxDecoration(
-                borderRadius:
-                    const BorderRadius.all(Radius.circular(LdsRadius.md)),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(LdsRadius.md),
+                ),
                 border: Border.all(color: c.accent, width: 2),
               ),
             ),
@@ -310,13 +324,16 @@ class _LdsCoachmarkTourState extends State<LdsCoachmarkTour> {
           bottom: below ? null : size.height - rect.top + 12,
           child: Actions(
             actions: <Type, Action<Intent>>{
-              DismissIntent: CallbackAction<DismissIntent>(onInvoke: (_) {
-                _finish(false);
-                return null;
-              }),
+              DismissIntent: CallbackAction<DismissIntent>(
+                onInvoke: (_) {
+                  _finish(false);
+                  return null;
+                },
+              ),
             },
             child: LdsCoachmark(
-              step: widget.stepLabel?.call(_index + 1, total) ??
+              step:
+                  widget.stepLabel?.call(_index + 1, total) ??
                   'Step ${_index + 1} of $total',
               title: step.title,
               body: step.body,
@@ -326,8 +343,10 @@ class _LdsCoachmarkTourState extends State<LdsCoachmarkTour> {
               onSkip: last ? null : () => _finish(false),
               nextFocusNode: _next,
               arrowOnTop: below,
-              arrowOffset:
-                  (rect.center.dx - left - 6).clamp(16.0, cardWidth - 28),
+              arrowOffset: (rect.center.dx - left - 6).clamp(
+                16.0,
+                cardWidth - 28,
+              ),
             ),
           ),
         ),

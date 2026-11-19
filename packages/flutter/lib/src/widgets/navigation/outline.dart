@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -58,11 +58,13 @@ class LdsOutline extends StatelessWidget {
                 selected: i == current,
                 semanticLabel: entries[i],
                 excludeChildSemantics: true,
-                borderRadius:
-                    const BorderRadius.all(Radius.circular(LdsRadius.xs)),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(LdsRadius.xs),
+                ),
                 builder: (context, state) => Container(
-                  constraints:
-                      const BoxConstraints(minHeight: LdsSize.touchMin),
+                  constraints: const BoxConstraints(
+                    minHeight: LdsSize.touchMin,
+                  ),
                   padding: const EdgeInsetsDirectional.only(start: 14),
                   alignment: AlignmentDirectional.centerStart,
                   child: AnimatedDefaultTextStyle(
@@ -71,8 +73,9 @@ class LdsOutline extends StatelessWidget {
                       color: i == current || state.hovered
                           ? c.textStrong
                           : c.textSubtle,
-                      fontWeight:
-                          i == current ? FontWeight.w500 : FontWeight.w400,
+                      fontWeight: i == current
+                          ? FontWeight.w500
+                          : FontWeight.w400,
                     ),
                     child: Text(entries[i]),
                   ),

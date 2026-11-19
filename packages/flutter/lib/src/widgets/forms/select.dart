@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -122,8 +122,9 @@ class _LdsSelectState<T> extends State<LdsSelect<T>> {
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
                 style: LdsType.body.copyWith(
-                  color:
-                      chosen == null || !enabled ? c.textMuted : c.textStrong,
+                  color: chosen == null || !enabled
+                      ? c.textMuted
+                      : c.textStrong,
                 ),
               ),
             ),
@@ -153,8 +154,9 @@ class _LdsSelectState<T> extends State<LdsSelect<T>> {
           shortcuts: const {
             SingleActivator(LogicalKeyboardKey.arrowDown):
                 DirectionalFocusIntent(TraversalDirection.down),
-            SingleActivator(LogicalKeyboardKey.arrowUp):
-                DirectionalFocusIntent(TraversalDirection.up),
+            SingleActivator(LogicalKeyboardKey.arrowUp): DirectionalFocusIntent(
+              TraversalDirection.up,
+            ),
           },
           child: FocusTraversalGroup(
             child: SingleChildScrollView(

@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -91,9 +91,15 @@ class _LdsRankedBarsState extends State<LdsRankedBars> {
     if (w.sort) items.sort((a, b) => b.value.compareTo(a.value));
     final max = items.fold<double>(0, (m, e) => math.max(m, e.value));
     final valueStyle = LdsType.subhead.copyWith(
-        fontWeight: FontWeight.w600, color: c.textStrong, fontFeatures: tabular);
+      fontWeight: FontWeight.w600,
+      color: c.textStrong,
+      fontFeatures: tabular,
+    );
     final valueWidth = items.fold<double>(
-        0, (m, e) => math.max(m, layoutText(w.format.format(e.value), valueStyle).width));
+      0,
+      (m, e) =>
+          math.max(m, layoutText(w.format.format(e.value), valueStyle).width),
+    );
 
     Widget row(int i) {
       final it = items[i];
@@ -118,9 +124,13 @@ class _LdsRankedBarsState extends State<LdsRankedBars> {
                         if (w.showRank)
                           SizedBox(
                             width: 22,
-                            child: Text('${i + 1}',
-                                style: LdsType.footnote.copyWith(
-                                    color: c.textMuted, fontFeatures: tabular)),
+                            child: Text(
+                              '${i + 1}',
+                              style: LdsType.footnote.copyWith(
+                                color: c.textMuted,
+                                fontFeatures: tabular,
+                              ),
+                            ),
                           ),
                         if (it.icon != null) ...[
                           Container(
@@ -130,10 +140,14 @@ class _LdsRankedBarsState extends State<LdsRankedBars> {
                             decoration: BoxDecoration(
                               color: c.bgFill,
                               borderRadius: const BorderRadius.all(
-                                  Radius.circular(LdsRadius.sm)),
+                                Radius.circular(LdsRadius.sm),
+                              ),
                             ),
-                            child: LdsIcon(it.icon!,
-                                size: 16, color: c.textSubtle),
+                            child: LdsIcon(
+                              it.icon!,
+                              size: 16,
+                              color: c.textSubtle,
+                            ),
                           ),
                           const SizedBox(width: LdsSpace.s8),
                         ],
@@ -141,20 +155,26 @@ class _LdsRankedBarsState extends State<LdsRankedBars> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(it.label,
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                  style: LdsType.subhead.copyWith(
-                                      color: c.textDefault,
-                                      fontWeight: top
-                                          ? FontWeight.w500
-                                          : FontWeight.w400)),
+                              Text(
+                                it.label,
+                                maxLines: 2,
+                                overflow: TextOverflow.ellipsis,
+                                style: LdsType.subhead.copyWith(
+                                  color: c.textDefault,
+                                  fontWeight: top
+                                      ? FontWeight.w500
+                                      : FontWeight.w400,
+                                ),
+                              ),
                               if (it.sub != null)
-                                Text(it.sub!,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                    style: LdsType.footnote
-                                        .copyWith(color: c.textSubtle)),
+                                Text(
+                                  it.sub!,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: LdsType.footnote.copyWith(
+                                    color: c.textSubtle,
+                                  ),
+                                ),
                             ],
                           ),
                         ),
@@ -168,8 +188,9 @@ class _LdsRankedBarsState extends State<LdsRankedBars> {
                         height: 10,
                         decoration: BoxDecoration(
                           color: c.bgTrack,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(5)),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(5),
+                          ),
                         ),
                         alignment: Alignment.centerLeft,
                         child: AnimatedFractionallySizedBox(
@@ -179,8 +200,9 @@ class _LdsRankedBarsState extends State<LdsRankedBars> {
                           child: Container(
                             decoration: BoxDecoration(
                               color: fill,
-                              borderRadius:
-                                  const BorderRadius.all(Radius.circular(5)),
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(5),
+                              ),
                             ),
                           ),
                         ),
@@ -190,8 +212,11 @@ class _LdsRankedBarsState extends State<LdsRankedBars> {
                   const SizedBox(width: LdsSpace.s12),
                   SizedBox(
                     width: valueWidth + 1,
-                    child: Text(w.format.format(it.value),
-                        textAlign: TextAlign.right, style: valueStyle),
+                    child: Text(
+                      w.format.format(it.value),
+                      textAlign: TextAlign.right,
+                      style: valueStyle,
+                    ),
                   ),
                   if (it.trailing != null) ...[
                     const SizedBox(width: LdsSpace.s6),

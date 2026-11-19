@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../theme.dart';
 import '../tokens.g.dart';
@@ -44,21 +44,22 @@ class LdsCard extends StatelessWidget {
   /// Label for screen readers when [onTap] is set.
   final String? semanticLabel;
 
-  static const BorderRadius _radius =
-      BorderRadius.all(Radius.circular(LdsRadius.lg));
+  static const BorderRadius _radius = BorderRadius.all(
+    Radius.circular(LdsRadius.lg),
+  );
 
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
     BoxDecoration decoration(bool active) => BoxDecoration(
-          color: variant == LdsCardVariant.fill
-              ? (active ? Color.alphaBlend(c.bgTint, c.bgFill) : c.bgFill)
-              : (active ? c.bgFill : c.bgBase),
-          borderRadius: _radius,
-          border: variant == LdsCardVariant.outline
-              ? Border.all(color: c.line)
-              : null,
-        );
+      color: variant == LdsCardVariant.fill
+          ? (active ? Color.alphaBlend(c.bgTint, c.bgFill) : c.bgFill)
+          : (active ? c.bgFill : c.bgBase),
+      borderRadius: _radius,
+      border: variant == LdsCardVariant.outline
+          ? Border.all(color: c.line)
+          : null,
+    );
     if (onTap == null) {
       return DecoratedBox(
         decoration: decoration(false),

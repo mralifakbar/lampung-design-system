@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../theme.dart';
 import '../tokens.g.dart';
@@ -68,8 +68,8 @@ class LdsListRow extends StatelessWidget {
         color: selected
             ? c.accentTint
             : active
-                ? c.bgTintStrong
-                : Colors.transparent,
+            ? c.bgTintStrong
+            : Colors.transparent,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         child: Row(
           children: [
@@ -80,10 +80,16 @@ class LdsListRow extends StatelessWidget {
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: iconColor ?? c.accent,
-                  borderRadius:
-                      const BorderRadius.all(Radius.circular(LdsRadius.sm)),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(LdsRadius.sm),
+                  ),
                 ),
-                child: LdsIcon(icon!, size: 19, fill: true, color: Colors.white),
+                child: LdsIcon(
+                  icon!,
+                  size: 19,
+                  fill: true,
+                  color: Colors.white,
+                ),
               ),
               const SizedBox(width: 12),
             ],
@@ -115,10 +121,7 @@ class LdsListRow extends StatelessWidget {
               const SizedBox(width: 12),
               Text(value!, style: LdsType.body.copyWith(color: c.textSubtle)),
             ],
-            if (trailing != null) ...[
-              const SizedBox(width: 12),
-              trailing!,
-            ],
+            if (trailing != null) ...[const SizedBox(width: 12), trailing!],
             if (chevron) ...[
               const SizedBox(width: 6),
               LdsIcon('chevron_right', color: c.textFaint),
@@ -179,12 +182,13 @@ class LdsList extends StatelessWidget {
     for (var i = 0; i < children.length; i++) {
       final child = children[i];
       if (i > 0) {
-        final inset =
-            child is LdsListRow && child.icon != null ? 58.0 : 16.0;
-        rows.add(Padding(
-          padding: EdgeInsetsDirectional.only(start: inset),
-          child: Container(height: 0.5, color: c.lineStrong),
-        ));
+        final inset = child is LdsListRow && child.icon != null ? 58.0 : 16.0;
+        rows.add(
+          Padding(
+            padding: EdgeInsetsDirectional.only(start: inset),
+            child: Container(height: 0.5, color: c.lineStrong),
+          ),
+        );
       }
       rows.add(child);
     }
@@ -203,8 +207,9 @@ class LdsList extends StatelessWidget {
           child: DecoratedBox(
             decoration: BoxDecoration(
               color: outlined ? c.bgBase : c.bgFill,
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(LdsRadius.lg)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(LdsRadius.lg),
+              ),
               border: outlined ? Border.all(color: c.line) : null,
             ),
             child: Column(

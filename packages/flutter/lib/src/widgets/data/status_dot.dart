@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -27,11 +27,7 @@ enum LdsStatus {
 /// The words are required; the dot only repeats them in color.
 class LdsStatusDot extends StatefulWidget {
   /// Creates a status dot.
-  const LdsStatusDot(
-    this.label, {
-    super.key,
-    this.status = LdsStatus.neutral,
-  });
+  const LdsStatusDot(this.label, {super.key, this.status = LdsStatus.neutral});
 
   /// The state in words.
   final String label;

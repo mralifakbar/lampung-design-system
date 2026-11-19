@@ -30,8 +30,9 @@ class LdsReveal extends StatefulWidget {
 class _LdsRevealState extends State<LdsReveal>
     with SingleTickerProviderStateMixin {
   // Opacity over 240 ms and transform over 280 ms, plus the stagger.
-  late final Duration _delay =
-      Duration(milliseconds: math.min(math.max(widget.index, 0), 3) * 30);
+  late final Duration _delay = Duration(
+    milliseconds: math.min(math.max(widget.index, 0), 3) * 30,
+  );
   late final AnimationController _c = AnimationController(
     vsync: this,
     duration: _delay + const Duration(milliseconds: 280),
@@ -86,7 +87,8 @@ class _LdsRevealState extends State<LdsReveal>
         !viewport.hasSize) {
       return;
     }
-    final vertical = scrollable!.axisDirection == AxisDirection.down ||
+    final vertical =
+        scrollable!.axisDirection == AxisDirection.down ||
         scrollable.axisDirection == AxisDirection.up;
     final at = box.localToGlobal(Offset.zero, ancestor: viewport);
     final start = vertical ? at.dy : at.dx;
@@ -120,8 +122,11 @@ class _LdsRevealState extends State<LdsReveal>
     final start = _delay.inMicroseconds / total;
     final opacityEnd =
         (_delay.inMicroseconds + LdsMotion.standard.inMicroseconds) / total;
-    final fade = Interval(start, opacityEnd.clamp(start, 1),
-        curve: LdsMotion.standardCurve);
+    final fade = Interval(
+      start,
+      opacityEnd.clamp(start, 1),
+      curve: LdsMotion.standardCurve,
+    );
     final move = Interval(start, 1, curve: LdsMotion.standardCurve);
     return AnimatedBuilder(
       animation: _c,

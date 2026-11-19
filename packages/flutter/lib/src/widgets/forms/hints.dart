@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -61,8 +61,12 @@ class _LdsHintState extends State<LdsHint> {
     final hint = Semantics(
       container: true,
       child: Container(
-        padding: EdgeInsets.fromLTRB(14, widget.onClose == null ? 12 : 0, 4,
-            widget.onClose == null ? 12 : 0),
+        padding: EdgeInsets.fromLTRB(
+          14,
+          widget.onClose == null ? 12 : 0,
+          4,
+          widget.onClose == null ? 12 : 0,
+        ),
         decoration: BoxDecoration(
           color: c.accentTint,
           borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.md)),
@@ -77,7 +81,8 @@ class _LdsHintState extends State<LdsHint> {
             Expanded(
               child: Padding(
                 padding: EdgeInsets.symmetric(
-                    vertical: widget.onClose == null ? 0 : 12),
+                  vertical: widget.onClose == null ? 0 : 12,
+                ),
                 child: Text.rich(
                   widget.message,
                   style: LdsType.subhead.copyWith(
@@ -120,7 +125,8 @@ class _LdsHintState extends State<LdsHint> {
         alignment: Alignment.topCenter,
         heightFactor: _open ? 1 : 0,
         duration: context.ldsDuration(
-            _open ? LdsMotion.smoothSpringDuration : LdsMotion.exit),
+          _open ? LdsMotion.smoothSpringDuration : LdsMotion.exit,
+        ),
         curve: _open ? LdsSpringCurve.smooth : LdsMotion.exitCurve,
         onEnd: () {
           if (!_open && widget.visible) widget.onClose?.call();

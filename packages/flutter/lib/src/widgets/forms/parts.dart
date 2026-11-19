@@ -3,8 +3,8 @@
 import 'dart:math' as math;
 import 'dart:ui' show PathMetric;
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -273,14 +273,15 @@ class _LdsFormsPopoverState extends State<LdsFormsPopover>
   @override
   void initState() {
     super.initState();
-    _anim = AnimationController(
-      vsync: this,
-      duration: LdsMotion.fast,
-      reverseDuration: LdsMotion.exit,
-      value: widget.open ? 1 : 0,
-    )..addStatusListener((_) {
-        if (mounted) setState(() {});
-      });
+    _anim =
+        AnimationController(
+          vsync: this,
+          duration: LdsMotion.fast,
+          reverseDuration: LdsMotion.exit,
+          value: widget.open ? 1 : 0,
+        )..addStatusListener((_) {
+          if (mounted) setState(() {});
+        });
     // The portal stays shown; the layer builds nothing while closed. This
     // avoids showing or hiding the portal during a build.
     _portal.show();
@@ -367,8 +368,9 @@ class _LdsFormsPopoverState extends State<LdsFormsPopover>
                         padding: widget.padding,
                         decoration: BoxDecoration(
                           color: c.bgElevated,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(14)),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(14),
+                          ),
                           border: Border.all(color: c.lineStrong, width: 0.5),
                           boxShadow: context.ldsShadows.lg,
                         ),
@@ -457,10 +459,10 @@ class LdsFormsMenuItem extends StatelessWidget {
         final bg = active
             ? c.accentTint
             : state.hovered || state.pressed
-                ? c.bgTintStrong
-                : selected
-                    ? c.bgFill
-                    : Colors.transparent;
+            ? c.bgTintStrong
+            : selected
+            ? c.bgFill
+            : Colors.transparent;
         final fg = active ? c.accentText : c.textStrong;
         return Container(
           constraints: const BoxConstraints(minHeight: LdsSize.touchMin),
@@ -477,8 +479,9 @@ class LdsFormsMenuItem extends StatelessWidget {
                       label,
                       style: LdsType.subhead.copyWith(
                         color: fg,
-                        fontWeight:
-                            selected ? FontWeight.w500 : FontWeight.w400,
+                        fontWeight: selected
+                            ? FontWeight.w500
+                            : FontWeight.w400,
                       ),
                     ),
                     if (description != null)
@@ -653,8 +656,8 @@ String ldsFormsShortDate(DateTime d) =>
 
 /// Parses dd/mm/yyyy (or with - or .); null when it is not a real date.
 DateTime? ldsFormsParseDate(String text) {
-  final m =
-      RegExp(r'^\s*(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})\s*$').firstMatch(text);
+  final m = RegExp(r'^\s*(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})\s*$')
+      .firstMatch(text);
   if (m == null) return null;
   final d = int.parse(m[1]!), mo = int.parse(m[2]!), y = int.parse(m[3]!);
   final date = DateTime(y, mo, d);
@@ -735,8 +738,12 @@ class _LdsThumbShape extends SliderComponentShape {
     required double textScaleFactor,
     required Size sizeWithOverflow,
   }) {
-    draw(context.canvas, center, activationAnimation.value,
-        enableAnimation.value > 0.5);
+    draw(
+      context.canvas,
+      center,
+      activationAnimation.value,
+      enableAnimation.value > 0.5,
+    );
   }
 }
 
@@ -763,8 +770,12 @@ class _LdsRangeThumbShape extends RangeSliderThumbShape {
     Thumb? thumb,
     bool? isPressed,
   }) {
-    this.thumb.draw(context.canvas, center, (isPressed ?? false) ? 1 : 0,
-        enableAnimation.value > 0.5);
+    this.thumb.draw(
+      context.canvas,
+      center,
+      (isPressed ?? false) ? 1 : 0,
+      enableAnimation.value > 0.5,
+    );
   }
 }
 

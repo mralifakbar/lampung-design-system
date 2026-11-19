@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import 'chart_data.dart';
@@ -51,8 +51,13 @@ class LdsSparkline extends StatelessWidget {
         width: width,
         height: height,
         child: CustomPaint(
-          painter: _SparkPainter(values, color.resolve(c), c.bgBase,
-              showDot && !bleed, bleed),
+          painter: _SparkPainter(
+            values,
+            color.resolve(c),
+            c.bgBase,
+            showDot && !bleed,
+            bleed,
+          ),
         ),
       ),
     );
@@ -81,9 +86,9 @@ class _SparkPainter extends CustomPainter {
     final top = bleed ? size.height * 0.2 : 8.0;
     final bottom = size.height - (bleed ? 2 : 8);
     Offset at(int i) => Offset(
-          inset + (size.width - inset * 2) * i / (values.length - 1),
-          bottom - (values[i] - lo) / (hi - lo) * (bottom - top),
-        );
+      inset + (size.width - inset * 2) * i / (values.length - 1),
+      bottom - (values[i] - lo) / (hi - lo) * (bottom - top),
+    );
     final line = Path()..moveTo(at(0).dx, at(0).dy);
     for (var i = 1; i < values.length; i++) {
       line.lineTo(at(i).dx, at(i).dy);

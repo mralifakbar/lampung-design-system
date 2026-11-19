@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../aksara_glyphs.g.dart';
 import '../theme.dart';
@@ -22,11 +22,11 @@ class LdsAksaraCell {
 
   /// A space between words.
   const LdsAksaraCell.space()
-      : letter = '',
-        above = const <String>[],
-        below = const <String>[],
-        after = const <String>[],
-        isSpace = true;
+    : letter = '',
+      above = const <String>[],
+      below = const <String>[],
+      after = const <String>[],
+      isSpace = true;
 
   /// Base letter key in [LdsAksaraGlyphs.letters] (`ka`, `nga`, `a`, ...).
   final String letter;
@@ -44,25 +44,53 @@ class LdsAksaraCell {
   final bool isSpace;
 
   @override
-  String toString() => isSpace
-      ? '␣'
-      : [letter, ...above, ...below, ...after].join('+');
+  String toString() =>
+      isSpace ? '␣' : [letter, ...above, ...below, ...after].join('+');
 }
 
 // Onsets, longest first. Letters outside the script map to the nearest one.
 const List<(String, String)> _consonants = [
-  ('ny', 'nya'), ('ng', 'nga'), ('gh', 'gha'), ('kh', 'ka'), ('sy', 'sa'),
-  ('k', 'ka'), ('g', 'ga'), ('p', 'pa'), ('b', 'ba'), ('m', 'ma'),
-  ('t', 'ta'), ('d', 'da'), ('n', 'na'), ('c', 'ca'), ('j', 'ja'),
-  ('y', 'ya'), ('l', 'la'), ('r', 'ra'), ('s', 'sa'), ('w', 'wa'),
-  ('h', 'ha'), ('f', 'pa'), ('v', 'pa'), ('z', 'ja'), ('q', 'ka'),
+  ('ny', 'nya'),
+  ('ng', 'nga'),
+  ('gh', 'gha'),
+  ('kh', 'ka'),
+  ('sy', 'sa'),
+  ('k', 'ka'),
+  ('g', 'ga'),
+  ('p', 'pa'),
+  ('b', 'ba'),
+  ('m', 'ma'),
+  ('t', 'ta'),
+  ('d', 'da'),
+  ('n', 'na'),
+  ('c', 'ca'),
+  ('j', 'ja'),
+  ('y', 'ya'),
+  ('l', 'la'),
+  ('r', 'ra'),
+  ('s', 'sa'),
+  ('w', 'wa'),
+  ('h', 'ha'),
+  ('f', 'pa'),
+  ('v', 'pa'),
+  ('z', 'ja'),
+  ('q', 'ka'),
   ('x', 'sa'),
 ];
 const Map<String, String?> _vowels = {
-  'a': null, 'i': 'i', 'u': 'u', 'e': 'e', 'é': 'é', 'è': 'é', 'o': 'o',
+  'a': null,
+  'i': 'i',
+  'u': 'u',
+  'e': 'e',
+  'é': 'é',
+  'è': 'é',
+  'o': 'o',
 };
 const Map<String, String> _codaSign = {
-  'n': 'an', 'ng': 'ang', 'r': 'ar', 'h': 'ah',
+  'n': 'an',
+  'ng': 'ang',
+  'r': 'ar',
+  'h': 'ah',
 };
 
 bool _isVowel(String? ch) => ch != null && _vowels.containsKey(ch);
@@ -92,7 +120,11 @@ List<LdsAksaraCell> ldsToAksara(String text) {
       final below = <String>[];
       final after = <String>[];
       LdsAksaraCell cell() => LdsAksaraCell(
-          letter: letter, above: above, below: below, after: after);
+        letter: letter,
+        above: above,
+        below: below,
+        after: after,
+      );
 
       (String, String)? onset;
       for (final c in _consonants) {
@@ -159,8 +191,10 @@ List<LdsAksaraCell> ldsToAksara(String text) {
 /// Parses the M, L and Q commands used by [LdsAksaraGlyphs] into a [Path].
 Path _parse(String d, double dx) {
   final path = Path();
-  final tokens =
-      RegExp(r'[MLQ]|-?\d*\.?\d+').allMatches(d).map((m) => m[0]!).toList();
+  final tokens = RegExp(r'[MLQ]|-?\d*\.?\d+')
+      .allMatches(d)
+      .map((m) => m[0]!)
+      .toList();
   var i = 0;
   var cmd = 'M';
   double n() => double.parse(tokens[i++]);
@@ -210,21 +244,27 @@ Path _glyphPath(List<String> paths, double dx) {
     }
     final cell = Path()
       ..addPath(
-          _glyphPath(LdsAksaraGlyphs.letters[c.letter] ?? const [], 0),
-          Offset.zero);
+        _glyphPath(LdsAksaraGlyphs.letters[c.letter] ?? const [], 0),
+        Offset.zero,
+      );
     for (final m in c.above) {
       cell.addPath(
-          _glyphPath(LdsAksaraGlyphs.above[m] ?? const [], 0), Offset.zero);
+        _glyphPath(LdsAksaraGlyphs.above[m] ?? const [], 0),
+        Offset.zero,
+      );
     }
     for (final m in c.below) {
       cell.addPath(
-          _glyphPath(LdsAksaraGlyphs.below[m] ?? const [], 0), Offset.zero);
+        _glyphPath(LdsAksaraGlyphs.below[m] ?? const [], 0),
+        Offset.zero,
+      );
     }
     var w = _advance;
     for (final m in c.after) {
       cell.addPath(
-          _glyphPath(LdsAksaraGlyphs.after[m] ?? const [], w + 4),
-          Offset.zero);
+        _glyphPath(LdsAksaraGlyphs.after[m] ?? const [], w + 4),
+        Offset.zero,
+      );
       w += _afterCell;
     }
     path.addPath(cell, Offset(x, 0));

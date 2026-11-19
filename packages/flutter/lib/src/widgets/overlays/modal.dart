@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -65,8 +65,9 @@ class LdsModal extends StatelessWidget {
             clipBehavior: Clip.antiAlias,
             decoration: BoxDecoration(
               color: c.bgElevated,
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(LdsRadius.xl)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(LdsRadius.xl),
+              ),
               border: Border.all(color: c.lineStrong, width: 0.5),
               boxShadow: context.ldsShadows.lg,
             ),
@@ -81,9 +82,10 @@ class LdsModal extends StatelessWidget {
                       Expanded(
                         child: Semantics(
                           header: true,
-                          child: Text(title,
-                              style:
-                                  LdsType.title3.copyWith(color: c.textStrong)),
+                          child: Text(
+                            title,
+                            style: LdsType.title3.copyWith(color: c.textStrong),
+                          ),
                         ),
                       ),
                       if (onClose != null)
@@ -162,10 +164,7 @@ Future<T?> showLdsModal<T>({
                 style: LdsType.body.copyWith(color: context.lds.textDefault),
                 child: body(context),
               ),
-              for (final b in buttons) ...[
-                const SizedBox(height: 10),
-                b,
-              ],
+              for (final b in buttons) ...[const SizedBox(height: 10), b],
             ],
           ),
         );

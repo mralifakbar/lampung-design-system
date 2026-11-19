@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -142,19 +142,22 @@ class LdsPlanCard extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(top: 6, right: 3),
-                  child: Text(plan.currency,
-                      style: TextStyle(
-                        fontFamily: LdsType.family,
-                        fontSize: 24,
-                        height: 1,
-                        fontWeight: FontWeight.w600,
-                        color: c.textStrong,
-                      )),
+                  child: Text(
+                    plan.currency,
+                    style: TextStyle(
+                      fontFamily: LdsType.family,
+                      fontSize: 24,
+                      height: 1,
+                      fontWeight: FontWeight.w600,
+                      color: c.textStrong,
+                    ),
+                  ),
                 ),
                 ClipRect(
                   child: AnimatedSwitcher(
-                    duration:
-                        reduce ? Duration.zero : LdsMotion.smoothSpringDuration,
+                    duration: reduce
+                        ? Duration.zero
+                        : LdsMotion.smoothSpringDuration,
                     switchInCurve: LdsSpringCurve.smooth,
                     switchOutCurve: LdsSpringCurve.smooth,
                     transitionBuilder: (child, animation) {
@@ -187,8 +190,10 @@ class LdsPlanCard extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: LdsSpace.s6),
-            child: Text(plan.periodLabel,
-                style: LdsType.footnote.copyWith(color: c.textSubtle)),
+            child: Text(
+              plan.periodLabel,
+              style: LdsType.footnote.copyWith(color: c.textSubtle),
+            ),
           ),
         ],
       ),
@@ -201,13 +206,17 @@ class LdsPlanCard extends StatelessWidget {
         children: [
           Semantics(
             header: true,
-            child: Text(plan.name,
-                style: LdsType.title3.copyWith(color: c.textStrong)),
+            child: Text(
+              plan.name,
+              style: LdsType.title3.copyWith(color: c.textStrong),
+            ),
           ),
           if (plan.description != null) ...[
             const SizedBox(height: LdsSpace.s6),
-            Text(plan.description!,
-                style: LdsType.subhead.copyWith(color: c.textSubtle)),
+            Text(
+              plan.description!,
+              style: LdsType.subhead.copyWith(color: c.textSubtle),
+            ),
           ],
         ],
       ),
@@ -221,8 +230,10 @@ class LdsPlanCard extends StatelessWidget {
             height: 18,
             child: note == null
                 ? null
-                : LdsTextMorph(note,
-                    style: LdsType.footnote.copyWith(color: c.textSubtle)),
+                : LdsTextMorph(
+                    note,
+                    style: LdsType.footnote.copyWith(color: c.textSubtle),
+                  ),
           ),
         ],
       ),
@@ -232,8 +243,10 @@ class LdsPlanCard extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             if (plan.featuresTitle != null) ...[
-              Text(plan.featuresTitle!,
-                  style: LdsType.caption.copyWith(color: c.textSubtle)),
+              Text(
+                plan.featuresTitle!,
+                style: LdsType.caption.copyWith(color: c.textSubtle),
+              ),
               const SizedBox(height: LdsSpace.s10),
             ],
             for (var i = 0; i < plan.features.length; i++) ...[
@@ -247,8 +260,10 @@ class LdsPlanCard extends StatelessWidget {
                   ),
                   const SizedBox(width: LdsSpace.s10),
                   Expanded(
-                    child: Text(plan.features[i],
-                        style: LdsType.subhead.copyWith(color: c.textDefault)),
+                    child: Text(
+                      plan.features[i],
+                      style: LdsType.subhead.copyWith(color: c.textDefault),
+                    ),
                   ),
                 ],
               ),
@@ -268,7 +283,11 @@ class LdsPlanCard extends StatelessWidget {
         ),
         child: Padding(
           padding: const EdgeInsets.fromLTRB(
-              LdsSpace.s24, LdsSpace.s28, LdsSpace.s24, LdsSpace.s24),
+            LdsSpace.s24,
+            LdsSpace.s28,
+            LdsSpace.s24,
+            LdsSpace.s24,
+          ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [

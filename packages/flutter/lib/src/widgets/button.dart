@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../motion.dart';
 import '../theme.dart';
@@ -42,7 +42,12 @@ enum LdsButtonSize {
   lg(LdsSize.controlLg, 24, 16, 19, 14);
 
   const LdsButtonSize(
-      this.height, this.padding, this.fontSize, this.iconSize, this.radius);
+    this.height,
+    this.padding,
+    this.fontSize,
+    this.iconSize,
+    this.radius,
+  );
 
   /// Visual height.
   final double height;
@@ -172,9 +177,7 @@ class LdsButton extends StatelessWidget {
             width: expand ? double.infinity : null,
             constraints: BoxConstraints(minHeight: size.height),
             padding: EdgeInsets.symmetric(
-              horizontal: variant == LdsButtonVariant.plain
-                  ? 10
-                  : size.padding,
+              horizontal: variant == LdsButtonVariant.plain ? 10 : size.padding,
               vertical: 4,
             ),
             decoration: BoxDecoration(
@@ -226,10 +229,14 @@ class LdsButton extends StatelessWidget {
         final isPrimary = variant == LdsButtonVariant.primary;
         final base = isPrimary ? c.accent : c.danger;
         final tone = pressed
-            ? (isPrimary ? c.accentPressed : Color.lerp(base, Colors.black, 0.12)!)
+            ? (isPrimary
+                  ? c.accentPressed
+                  : Color.lerp(base, Colors.black, 0.12)!)
             : hover
-                ? (isPrimary ? c.accentHover : Color.lerp(base, Colors.black, 0.06)!)
-                : base;
+            ? (isPrimary
+                  ? c.accentHover
+                  : Color.lerp(base, Colors.black, 0.06)!)
+            : base;
         final edge = Color.lerp(tone, Colors.black, 0.14)!;
         return _ButtonColors(
           foreground: isPrimary ? c.textOnAccent : Colors.white,
@@ -250,8 +257,8 @@ class LdsButton extends StatelessWidget {
           background: pressed
               ? c.bgRecessed
               : hover
-                  ? c.bgFill
-                  : c.bgBase,
+              ? c.bgFill
+              : c.bgBase,
           border: Border.all(color: c.lineStrong),
         );
       case LdsButtonVariant.tinted:
@@ -363,7 +370,9 @@ class LdsIconButton extends StatelessWidget {
       builder: (context, state) {
         final Color bg;
         if (accent) {
-          bg = state.pressed ? c.accentPressed : (state.hovered ? c.accentHover : c.accent);
+          bg = state.pressed
+              ? c.accentPressed
+              : (state.hovered ? c.accentHover : c.accent);
         } else if (filled) {
           bg = state.pressed || state.hovered
               ? Color.alphaBlend(c.bgTintStrong, c.bgRecessed)

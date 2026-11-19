@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -41,14 +41,18 @@ class LdsTableColumn {
 @immutable
 class LdsTableRow {
   /// Creates a row of text cells; the first cell names the row.
-  const LdsTableRow(List<String> this.cells,
-      {this.selected = false, this.onTap})
-      : widgets = null;
+  const LdsTableRow(
+    List<String> this.cells, {
+    this.selected = false,
+    this.onTap,
+  }) : widgets = null;
 
   /// Creates a row of widget cells, for badges, avatars or checkboxes.
-  const LdsTableRow.widgets(List<Widget> this.widgets,
-      {this.selected = false, this.onTap})
-      : cells = null;
+  const LdsTableRow.widgets(
+    List<Widget> this.widgets, {
+    this.selected = false,
+    this.onTap,
+  }) : cells = null;
 
   /// Text cells.
   final List<String>? cells;
@@ -136,84 +140,99 @@ class LdsTable extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.lg)),
           border: Border.all(color: c.line),
         ),
-        child: LayoutBuilder(builder: (context, box) {
-          final minTotal =
-              columns.fold<double>(0, (s, col) => s + col.minWidth);
-          final available = box.maxWidth.isFinite ? box.maxWidth - 2 : minTotal;
-          final total = math.max(available, minTotal);
-          final spare = total - minTotal;
-          final flexSum = columns.fold<int>(0, (s, col) => s + col.flex);
-          final widths = [
-            for (final col in columns)
-              col.minWidth + (flexSum == 0 ? 0 : spare * col.flex / flexSum),
-          ];
-          final body = <Widget>[];
-          if (loading) {
-            for (var i = 0; i < loadingRows; i++) {
-              body.add(_TableRowView(
-                widths: widths,
-                columns: columns,
-                height: compact ? 40 : 52,
-                cells: [
-                  for (var j = 0; j < columns.length; j++)
-                    LdsSkeleton(
-                      width: widths[j] * (j == 0 ? 0.6 : 0.4),
-                      height: 12,
-                      semanticLabel: i == 0 && j == 0 ? 'Memuat' : null,
-                    ),
-                ],
-              ));
-            }
-          } else if (rows.isEmpty && empty != null) {
-            body.add(SizedBox(width: total, child: Center(child: empty)));
-          } else {
-            for (final row in rows) {
-              body.add(_TableRowView(
-                widths: widths,
-                columns: columns,
-                height: compact ? 40 : 52,
-                wrap: wrap,
-                selected: row.selected,
-                onTap: row.onTap,
-                cells: [
-                  for (var j = 0; j < columns.length; j++)
-                    if (row.widgets != null)
-                      row.widgets![j]
-                    else
-                      _CellText(
-                        row.cells![j],
-                        strong: j == 0,
-                        numeric: columns[j].numeric,
-                        wrap: wrap,
-                      ),
-                ],
-              ));
-            }
-          }
-          return SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: SizedBox(
-              width: total,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  _Header(
-                    columns: columns,
+        child: LayoutBuilder(
+          builder: (context, box) {
+            final minTotal = columns.fold<double>(
+              0,
+              (s, col) => s + col.minWidth,
+            );
+            final available = box.maxWidth.isFinite
+                ? box.maxWidth - 2
+                : minTotal;
+            final total = math.max(available, minTotal);
+            final spare = total - minTotal;
+            final flexSum = columns.fold<int>(0, (s, col) => s + col.flex);
+            final widths = [
+              for (final col in columns)
+                col.minWidth + (flexSum == 0 ? 0 : spare * col.flex / flexSum),
+            ];
+            final body = <Widget>[];
+            if (loading) {
+              for (var i = 0; i < loadingRows; i++) {
+                body.add(
+                  _TableRowView(
                     widths: widths,
-                    sortColumn: sortColumn,
-                    sortAscending: sortAscending,
-                    onSort: onSort,
+                    columns: columns,
+                    height: compact ? 40 : 52,
+                    cells: [
+                      for (var j = 0; j < columns.length; j++)
+                        LdsSkeleton(
+                          width: widths[j] * (j == 0 ? 0.6 : 0.4),
+                          height: 12,
+                          semanticLabel: i == 0 && j == 0 ? 'Memuat' : null,
+                        ),
+                    ],
                   ),
-                  for (var i = 0; i < body.length; i++) ...[
-                    if (i > 0) Container(height: 1, color: c.hairline),
-                    body[i],
+                );
+              }
+            } else if (rows.isEmpty && empty != null) {
+              body.add(
+                SizedBox(
+                  width: total,
+                  child: Center(child: empty),
+                ),
+              );
+            } else {
+              for (final row in rows) {
+                body.add(
+                  _TableRowView(
+                    widths: widths,
+                    columns: columns,
+                    height: compact ? 40 : 52,
+                    wrap: wrap,
+                    selected: row.selected,
+                    onTap: row.onTap,
+                    cells: [
+                      for (var j = 0; j < columns.length; j++)
+                        if (row.widgets != null)
+                          row.widgets![j]
+                        else
+                          _CellText(
+                            row.cells![j],
+                            strong: j == 0,
+                            numeric: columns[j].numeric,
+                            wrap: wrap,
+                          ),
+                    ],
+                  ),
+                );
+              }
+            }
+            return SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: SizedBox(
+                width: total,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    _Header(
+                      columns: columns,
+                      widths: widths,
+                      sortColumn: sortColumn,
+                      sortAscending: sortAscending,
+                      onSort: onSort,
+                    ),
+                    for (var i = 0; i < body.length; i++) ...[
+                      if (i > 0) Container(height: 1, color: c.hairline),
+                      body[i],
+                    ],
                   ],
-                ],
+                ),
               ),
-            ),
-          );
-        }),
+            );
+          },
+        ),
       ),
     );
   }
@@ -270,8 +289,12 @@ class _Header extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Align(
           alignment: align,
-          child: Text(col.label,
-              style: style, maxLines: 1, overflow: TextOverflow.ellipsis),
+          child: Text(
+            col.label,
+            style: style,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+          ),
         ),
       );
     }
@@ -279,8 +302,8 @@ class _Header extends StatelessWidget {
     final sortWord = !sorted
         ? 'belum diurutkan'
         : sortAscending
-            ? 'urut naik'
-            : 'urut turun';
+        ? 'urut naik'
+        : 'urut turun';
     return LdsPressable(
       onPressed: () => onSort!(i),
       pressedScale: 1,
@@ -296,10 +319,12 @@ class _Header extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Flexible(
-              child: Text(col.label,
-                  style: style.copyWith(color: sorted ? c.textStrong : null),
-                  maxLines: 1,
-                  overflow: TextOverflow.ellipsis),
+              child: Text(
+                col.label,
+                style: style.copyWith(color: sorted ? c.textStrong : null),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+              ),
             ),
             const SizedBox(width: 4),
             AnimatedOpacity(
@@ -320,8 +345,12 @@ class _Header extends StatelessWidget {
 }
 
 class _CellText extends StatelessWidget {
-  const _CellText(this.text,
-      {required this.strong, required this.numeric, required this.wrap});
+  const _CellText(
+    this.text, {
+    required this.strong,
+    required this.numeric,
+    required this.wrap,
+  });
 
   final String text;
   final bool strong;
@@ -375,37 +404,39 @@ class _TableRowViewState extends State<_TableRowView> {
   Widget build(BuildContext context) {
     final c = context.lds;
     Widget row(bool pressed) => AnimatedContainer(
-          duration: context.ldsDuration(const Duration(milliseconds: 60)),
-          constraints: BoxConstraints(minHeight: widget.height),
-          color: widget.selected
-              ? c.accentTint
-              : pressed
-                  ? c.bgTintStrong
-                  : _hover
-                      ? c.bgTint
-                      : Colors.transparent,
-          child: Row(
-            crossAxisAlignment: widget.wrap
-                ? CrossAxisAlignment.start
-                : CrossAxisAlignment.center,
-            children: [
-              for (var i = 0; i < widget.cells.length; i++)
-                SizedBox(
-                  width: widget.widths[i],
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(
-                        horizontal: 16, vertical: widget.wrap ? 14 : 6),
-                    child: Align(
-                      alignment: widget.columns[i].numeric
-                          ? AlignmentDirectional.centerEnd
-                          : AlignmentDirectional.centerStart,
-                      child: widget.cells[i],
-                    ),
-                  ),
+      duration: context.ldsDuration(const Duration(milliseconds: 60)),
+      constraints: BoxConstraints(minHeight: widget.height),
+      color: widget.selected
+          ? c.accentTint
+          : pressed
+          ? c.bgTintStrong
+          : _hover
+          ? c.bgTint
+          : Colors.transparent,
+      child: Row(
+        crossAxisAlignment: widget.wrap
+            ? CrossAxisAlignment.start
+            : CrossAxisAlignment.center,
+        children: [
+          for (var i = 0; i < widget.cells.length; i++)
+            SizedBox(
+              width: widget.widths[i],
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: widget.wrap ? 14 : 6,
                 ),
-            ],
-          ),
-        );
+                child: Align(
+                  alignment: widget.columns[i].numeric
+                      ? AlignmentDirectional.centerEnd
+                      : AlignmentDirectional.centerStart,
+                  child: widget.cells[i],
+                ),
+              ),
+            ),
+        ],
+      ),
+    );
     final Widget content = widget.onTap == null
         ? MergeSemantics(
             child: Semantics(

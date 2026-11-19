@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -69,8 +69,8 @@ class LdsFileInput extends StatelessWidget {
             color: dragging
                 ? c.accent
                 : error != null
-                    ? c.danger
-                    : c.lineStrong,
+                ? c.danger
+                : c.lineStrong,
             width: dragging ? 2 : 1.5,
           ),
         ),
@@ -81,8 +81,11 @@ class LdsFileInput extends StatelessWidget {
               offset: dragging && !reduce ? const Offset(0, -0.1) : Offset.zero,
               duration: context.ldsDuration(LdsMotion.snappy),
               curve: LdsSpringCurve.snappy,
-              child: LdsIcon(icon,
-                  size: 28, color: dragging ? c.accentText : c.textSubtle),
+              child: LdsIcon(
+                icon,
+                size: 28,
+                color: dragging ? c.accentText : c.textSubtle,
+              ),
             ),
             const SizedBox(height: 6),
             Text(
@@ -202,8 +205,10 @@ class LdsFileRow extends StatelessWidget {
               color: c.bgBase,
               borderRadius: const BorderRadius.all(Radius.circular(10)),
             ),
-            child: LdsIcon(failed ? 'error' : icon,
-                color: failed ? c.dangerText : c.accentText),
+            child: LdsIcon(
+              failed ? 'error' : icon,
+              color: failed ? c.dangerText : c.accentText,
+            ),
           ),
           const SizedBox(width: 12),
           Expanded(

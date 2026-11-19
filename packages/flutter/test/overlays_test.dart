@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lampung_design_system/src/overlays.dart';
 import 'package:lampung_design_system/src/theme.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'helpers.dart';
 
@@ -19,10 +19,8 @@ Future<void> expectBothThemes(WidgetTester tester, Widget child) async {
 /// A trigger button that runs [onTap] with a context under the app.
 Widget trigger(String label, void Function(BuildContext context) onTap) =>
     Builder(
-      builder: (context) => TextButton(
-        onPressed: () => onTap(context),
-        child: Text(label),
-      ),
+      builder: (context) =>
+          TextButton(onPressed: () => onTap(context), child: Text(label)),
     );
 
 // A 1x1 transparent PNG.
@@ -112,12 +110,16 @@ void main() {
     });
 
     testWidgets('opens and closes with Escape', (tester) async {
-      await tester.pumpWidget(wrap(trigger('Buka', (context) {
-        showLdsDialog<void>(
-          context: context,
-          builder: (_) => const LdsDialog(title: 'Ubah alamat'),
-        );
-      })));
+      await tester.pumpWidget(
+        wrap(
+          trigger('Buka', (context) {
+            showLdsDialog<void>(
+              context: context,
+              builder: (_) => const LdsDialog(title: 'Ubah alamat'),
+            );
+          }),
+        ),
+      );
       await tester.tap(find.text('Buka'));
       await tester.pumpAndSettle();
       expect(find.text('Ubah alamat'), findsOneWidget);
@@ -144,14 +146,18 @@ void main() {
 
     testWidgets('confirm completes with true', (tester) async {
       bool? result;
-      await tester.pumpWidget(wrap(trigger('Hapus', (context) async {
-        result = await showLdsAlertDialog(
-          context: context,
-          title: 'Hapus laporan #1024?',
-          confirmLabel: 'Hapus laporan',
-          cancelLabel: 'Batal',
-        );
-      })));
+      await tester.pumpWidget(
+        wrap(
+          trigger('Hapus', (context) async {
+            result = await showLdsAlertDialog(
+              context: context,
+              title: 'Hapus laporan #1024?',
+              confirmLabel: 'Hapus laporan',
+              cancelLabel: 'Batal',
+            );
+          }),
+        ),
+      );
       await tester.tap(find.text('Hapus'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Hapus laporan'));
@@ -173,16 +179,21 @@ void main() {
       );
     });
 
-    testWidgets('opens centered and closes with its close button',
-        (tester) async {
-      await tester.pumpWidget(wrap(trigger('Lihat', (context) {
-        showLdsModal<void>(
-          context: context,
-          title: 'Detail permohonan',
-          closeLabel: 'Tutup',
-          body: (_) => const Text('Izin usaha mikro'),
-        );
-      })));
+    testWidgets('opens centered and closes with its close button', (
+      tester,
+    ) async {
+      await tester.pumpWidget(
+        wrap(
+          trigger('Lihat', (context) {
+            showLdsModal<void>(
+              context: context,
+              title: 'Detail permohonan',
+              closeLabel: 'Tutup',
+              body: (_) => const Text('Izin usaha mikro'),
+            );
+          }),
+        ),
+      );
       await tester.tap(find.text('Lihat'));
       await tester.pumpAndSettle();
       expect(find.byType(LdsModal), findsOneWidget);
@@ -195,13 +206,17 @@ void main() {
       tester.view.physicalSize = const Size(375, 800);
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.reset);
-      await tester.pumpWidget(wrap(trigger('Lihat', (context) {
-        showLdsModal<void>(
-          context: context,
-          title: 'Detail permohonan',
-          body: (_) => const Text('Izin usaha mikro'),
-        );
-      })));
+      await tester.pumpWidget(
+        wrap(
+          trigger('Lihat', (context) {
+            showLdsModal<void>(
+              context: context,
+              title: 'Detail permohonan',
+              body: (_) => const Text('Izin usaha mikro'),
+            );
+          }),
+        ),
+      );
       await tester.tap(find.text('Lihat'));
       await tester.pumpAndSettle();
       expect(find.byType(LdsSheet), findsOneWidget);
@@ -221,15 +236,19 @@ void main() {
     });
 
     testWidgets('drag down dismisses', (tester) async {
-      await tester.pumpWidget(wrap(trigger('Jadwal', (context) {
-        showLdsSheet<void>(
-          context: context,
-          builder: (_) => const LdsSheet(
-            title: 'Pilih jadwal',
-            child: SizedBox(height: 200, child: Text('Senin, 08.00')),
-          ),
-        );
-      })));
+      await tester.pumpWidget(
+        wrap(
+          trigger('Jadwal', (context) {
+            showLdsSheet<void>(
+              context: context,
+              builder: (_) => const LdsSheet(
+                title: 'Pilih jadwal',
+                child: SizedBox(height: 200, child: Text('Senin, 08.00')),
+              ),
+            );
+          }),
+        ),
+      );
       await tester.tap(find.text('Jadwal'));
       await tester.pumpAndSettle();
       expect(find.text('Pilih jadwal'), findsOneWidget);
@@ -256,15 +275,19 @@ void main() {
     });
 
     testWidgets('scrim tap closes', (tester) async {
-      await tester.pumpWidget(wrap(trigger('Filter', (context) {
-        showLdsDrawer<void>(
-          context: context,
-          builder: (_) => const LdsDrawer(
-            title: 'Filter laporan',
-            child: Text('Status'),
-          ),
-        );
-      })));
+      await tester.pumpWidget(
+        wrap(
+          trigger('Filter', (context) {
+            showLdsDrawer<void>(
+              context: context,
+              builder: (_) => const LdsDrawer(
+                title: 'Filter laporan',
+                child: Text('Status'),
+              ),
+            );
+          }),
+        ),
+      );
       await tester.tap(find.text('Filter'));
       await tester.pumpAndSettle();
       expect(find.text('Filter laporan'), findsOneWidget);
@@ -363,9 +386,17 @@ void main() {
     });
 
     testWidgets('shows, then leaves by itself', (tester) async {
-      await tester.pumpWidget(wrap(trigger('Kirim', (context) {
-        LdsToast.show(context, title: 'Laporan terkirim', icon: 'check_circle');
-      })));
+      await tester.pumpWidget(
+        wrap(
+          trigger('Kirim', (context) {
+            LdsToast.show(
+              context,
+              title: 'Laporan terkirim',
+              icon: 'check_circle',
+            );
+          }),
+        ),
+      );
       await tester.tap(find.text('Kirim'));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 600));
@@ -377,15 +408,19 @@ void main() {
 
     testWidgets('undo morphs the title', (tester) async {
       var undone = false;
-      await tester.pumpWidget(wrap(trigger('Arsipkan', (context) {
-        LdsToast.show(
-          context,
-          title: 'Laporan diarsipkan',
-          actionLabel: 'Urungkan',
-          onAction: () => undone = true,
-          actionResultTitle: 'Laporan dipulihkan',
-        );
-      })));
+      await tester.pumpWidget(
+        wrap(
+          trigger('Arsipkan', (context) {
+            LdsToast.show(
+              context,
+              title: 'Laporan diarsipkan',
+              actionLabel: 'Urungkan',
+              onAction: () => undone = true,
+              actionResultTitle: 'Laporan dipulihkan',
+            );
+          }),
+        ),
+      );
       await tester.tap(find.text('Arsipkan'));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 600));
@@ -430,33 +465,41 @@ void main() {
     testWidgets('menu panel renders in light and dark', (tester) async {
       await expectBothThemes(
         tester,
-        LdsMenu(entries: [
-          const LdsMenuLabel('Urutkan'),
-          LdsMenuItem(label: 'Terbaru', checked: true, onSelected: () {}),
-          LdsMenuItem(
+        LdsMenu(
+          entries: [
+            const LdsMenuLabel('Urutkan'),
+            LdsMenuItem(label: 'Terbaru', checked: true, onSelected: () {}),
+            LdsMenuItem(
               label: 'Unduh PDF',
               icon: 'download',
               shortcut: 'Ctrl+D',
-              onSelected: () {}),
-          const LdsMenuDivider(),
-          LdsMenuItem(
+              onSelected: () {},
+            ),
+            const LdsMenuDivider(),
+            LdsMenuItem(
               label: 'Hapus',
               icon: 'delete',
               destructive: true,
-              onSelected: () {}),
-        ]),
+              onSelected: () {},
+            ),
+          ],
+        ),
       );
     });
 
     testWidgets('dropdown runs a command and closes', (tester) async {
       var ran = false;
-      await tester.pumpWidget(wrap(LdsDropdownMenu(
-        entries: [
-          LdsMenuItem(label: 'Unduh PDF', onSelected: () => ran = true)
-        ],
-        builder: (context, c) =>
-            TextButton(onPressed: c.toggle, child: const Text('Tindakan')),
-      )));
+      await tester.pumpWidget(
+        wrap(
+          LdsDropdownMenu(
+            entries: [
+              LdsMenuItem(label: 'Unduh PDF', onSelected: () => ran = true),
+            ],
+            builder: (context, c) =>
+                TextButton(onPressed: c.toggle, child: const Text('Tindakan')),
+          ),
+        ),
+      );
       await tester.tap(find.text('Tindakan'));
       await tester.pumpAndSettle();
       await tester.tap(find.text('Unduh PDF'));
@@ -471,7 +514,10 @@ void main() {
         LdsContextMenu(
           entries: [LdsMenuItem(label: 'Ganti nama', onSelected: () {})],
           child: const SizedBox(
-              width: 200, height: 100, child: Text('Surat izin.pdf')),
+            width: 200,
+            height: 100,
+            child: Text('Surat izin.pdf'),
+          ),
         ),
       );
       await tester.tap(find.text('Surat izin.pdf'), buttons: kSecondaryButton);
@@ -485,14 +531,24 @@ void main() {
     testWidgets('menubar opens a menu', (tester) async {
       await expectBothThemes(
         tester,
-        LdsMenubar(menus: [
-          LdsMenubarMenu(label: 'Berkas', entries: [
-            LdsMenuItem(label: 'Simpan', shortcut: 'Ctrl+S', onSelected: () {}),
-          ]),
-          LdsMenubarMenu(label: 'Ubah', entries: [
-            LdsMenuItem(label: 'Urungkan', onSelected: () {}),
-          ]),
-        ]),
+        LdsMenubar(
+          menus: [
+            LdsMenubarMenu(
+              label: 'Berkas',
+              entries: [
+                LdsMenuItem(
+                  label: 'Simpan',
+                  shortcut: 'Ctrl+S',
+                  onSelected: () {},
+                ),
+              ],
+            ),
+            LdsMenubarMenu(
+              label: 'Ubah',
+              entries: [LdsMenuItem(label: 'Urungkan', onSelected: () {})],
+            ),
+          ],
+        ),
       );
       await tester.tap(find.text('Berkas'));
       await tester.pumpAndSettle();
@@ -506,15 +562,17 @@ void main() {
   group('command palette', () {
     final commands = [
       LdsCommand(
-          label: 'Buat laporan baru',
-          icon: 'add',
-          group: 'Tindakan',
-          onRun: () {}),
+        label: 'Buat laporan baru',
+        icon: 'add',
+        group: 'Tindakan',
+        onRun: () {},
+      ),
       LdsCommand(
-          label: 'Cek status izin',
-          icon: 'search',
-          group: 'Halaman',
-          onRun: () {}),
+        label: 'Cek status izin',
+        icon: 'search',
+        group: 'Halaman',
+        onRun: () {},
+      ),
     ];
 
     testWidgets('renders in light and dark', (tester) async {
@@ -526,16 +584,23 @@ void main() {
 
     testWidgets('filters and runs with Enter', (tester) async {
       var ran = '';
-      await tester.pumpWidget(wrap(trigger('Perintah', (context) {
-        showLdsCommandPalette(
-          context: context,
-          placeholder: 'Cari perintah',
-          commands: [
-            LdsCommand(label: 'Buat laporan baru', onRun: () => ran = 'buat'),
-            LdsCommand(label: 'Cek status izin', onRun: () => ran = 'cek'),
-          ],
-        );
-      })));
+      await tester.pumpWidget(
+        wrap(
+          trigger('Perintah', (context) {
+            showLdsCommandPalette(
+              context: context,
+              placeholder: 'Cari perintah',
+              commands: [
+                LdsCommand(
+                  label: 'Buat laporan baru',
+                  onRun: () => ran = 'buat',
+                ),
+                LdsCommand(label: 'Cek status izin', onRun: () => ran = 'cek'),
+              ],
+            );
+          }),
+        ),
+      );
       await tester.tap(find.text('Perintah'));
       await tester.pumpAndSettle();
       await tester.enterText(find.byType(TextField), 'status');
@@ -567,24 +632,28 @@ void main() {
       final a = GlobalKey();
       final b = GlobalKey();
       bool? finished;
-      await tester.pumpWidget(wrap(LdsCoachmarkTour(
-        active: true,
-        onFinish: (done) => finished = done,
-        nextLabel: 'Lanjut',
-        doneLabel: 'Selesai',
-        skipLabel: 'Lewati',
-        steps: [
-          LdsCoachmarkStep(target: a, title: 'Saring laporan'),
-          LdsCoachmarkStep(target: b, title: 'Buat laporan'),
-        ],
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text('Filter', key: a),
-            Text('Baru', key: b),
-          ],
+      await tester.pumpWidget(
+        wrap(
+          LdsCoachmarkTour(
+            active: true,
+            onFinish: (done) => finished = done,
+            nextLabel: 'Lanjut',
+            doneLabel: 'Selesai',
+            skipLabel: 'Lewati',
+            steps: [
+              LdsCoachmarkStep(target: a, title: 'Saring laporan'),
+              LdsCoachmarkStep(target: b, title: 'Buat laporan'),
+            ],
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text('Filter', key: a),
+                Text('Baru', key: b),
+              ],
+            ),
+          ),
         ),
-      )));
+      );
       await tester.pumpAndSettle();
       expect(find.text('Saring laporan'), findsOneWidget);
       await tester.tap(find.text('Lanjut'));
@@ -609,7 +678,9 @@ void main() {
           body: 'Permohonan diproses setelah data lengkap.',
           actions: [
             TextButton(
-                onPressed: () => pressed = true, child: const Text('Lengkapi')),
+              onPressed: () => pressed = true,
+              child: const Text('Lengkapi'),
+            ),
           ],
         ),
       );
@@ -671,7 +742,8 @@ void main() {
       expect(find.text('Hapus 3 berkas?'), findsOneWidget);
       await tester.pump(const Duration(milliseconds: 300));
       await tester.runAsync(
-          () => Future<void>.delayed(const Duration(milliseconds: 300)));
+        () => Future<void>.delayed(const Duration(milliseconds: 300)),
+      );
       await tester.tap(find.text('Hapus'));
       await tester.pump();
       expect(find.text('Menghapus'), findsOneWidget);
@@ -695,10 +767,14 @@ void main() {
 
     testWidgets('confirms only after a full hold', (tester) async {
       var count = 0;
-      await tester.pumpWidget(wrap(LdsHoldToConfirm(
-        label: 'Tahan untuk mengirim',
-        onConfirmed: () => count++,
-      )));
+      await tester.pumpWidget(
+        wrap(
+          LdsHoldToConfirm(
+            label: 'Tahan untuk mengirim',
+            onConfirmed: () => count++,
+          ),
+        ),
+      );
       final center = tester.getCenter(find.text('Tahan untuk mengirim'));
       var g = await tester.startGesture(center);
       await tester.pump(const Duration(milliseconds: 500));
@@ -728,14 +804,20 @@ void main() {
 
     testWidgets('commits past the end', (tester) async {
       var done = false;
-      await tester.pumpWidget(wrap(LdsSlideToConfirm(
-        label: 'Geser untuk mengirim laporan',
-        doneLabel: 'Laporan terkirim',
-        knobLabel: 'Kirim laporan, tekan Enter',
-        onConfirmed: () => done = true,
-      )));
-      await tester.drag(find.bySemanticsLabel('Kirim laporan, tekan Enter'),
-          const Offset(320, 0));
+      await tester.pumpWidget(
+        wrap(
+          LdsSlideToConfirm(
+            label: 'Geser untuk mengirim laporan',
+            doneLabel: 'Laporan terkirim',
+            knobLabel: 'Kirim laporan, tekan Enter',
+            onConfirmed: () => done = true,
+          ),
+        ),
+      );
+      await tester.drag(
+        find.bySemanticsLabel('Kirim laporan, tekan Enter'),
+        const Offset(320, 0),
+      );
       await tester.pumpAndSettle();
       expect(done, isTrue);
       expect(find.text('Laporan terkirim'), findsOneWidget);
@@ -743,13 +825,18 @@ void main() {
 
     testWidgets('springs back when short', (tester) async {
       var done = false;
-      await tester.pumpWidget(wrap(LdsSlideToConfirm(
-        label: 'Geser untuk mengirim laporan',
-        knobLabel: 'Kirim laporan',
-        onConfirmed: () => done = true,
-      )));
-      final g = await tester
-          .startGesture(tester.getCenter(find.bySemanticsLabel('Kirim laporan')));
+      await tester.pumpWidget(
+        wrap(
+          LdsSlideToConfirm(
+            label: 'Geser untuk mengirim laporan',
+            knobLabel: 'Kirim laporan',
+            onConfirmed: () => done = true,
+          ),
+        ),
+      );
+      final g = await tester.startGesture(
+        tester.getCenter(find.bySemanticsLabel('Kirim laporan')),
+      );
       for (var i = 0; i < 8; i++) {
         await g.moveBy(const Offset(10, 0));
         await tester.pump(const Duration(milliseconds: 50));
@@ -767,7 +854,10 @@ void main() {
           child: LdsSwipeActions(
             actions: [
               LdsSwipeAction(
-                  label: 'Arsipkan', icon: 'inventory_2', onPressed: () {}),
+                label: 'Arsipkan',
+                icon: 'inventory_2',
+                onPressed: () {},
+              ),
               LdsSwipeAction(
                 label: 'Hapus',
                 icon: 'delete',
@@ -776,14 +866,18 @@ void main() {
               ),
             ],
             child: const SizedBox(
-                height: 56, child: Text('Laporan lampu jalan mati')),
+              height: 56,
+              child: Text('Laporan lampu jalan mati'),
+            ),
           ),
         );
 
     testWidgets('renders in light and dark', (tester) async {
       await expectBothThemes(tester, row(() {}));
       await tester.drag(
-          find.text('Laporan lampu jalan mati'), const Offset(-120, 0));
+        find.text('Laporan lampu jalan mati'),
+        const Offset(-120, 0),
+      );
       await tester.pumpAndSettle();
       expect(find.text('Arsipkan'), findsOneWidget);
       expect(tester.takeException(), isNull);
@@ -793,7 +887,9 @@ void main() {
       var deleted = false;
       await tester.pumpWidget(wrap(row(() => deleted = true)));
       await tester.drag(
-          find.text('Laporan lampu jalan mati'), const Offset(-300, 0));
+        find.text('Laporan lampu jalan mati'),
+        const Offset(-300, 0),
+      );
       await tester.pumpAndSettle();
       expect(deleted, isTrue);
     });
@@ -820,8 +916,9 @@ void main() {
     testWidgets('a long pull refreshes', (tester) async {
       var refreshed = 0;
       await tester.pumpWidget(wrap(list(() async => refreshed++)));
-      final g =
-          await tester.startGesture(tester.getCenter(find.text('Laporan 1')));
+      final g = await tester.startGesture(
+        tester.getCenter(find.text('Laporan 1')),
+      );
       for (var i = 0; i < 15; i++) {
         await g.moveBy(const Offset(0, 20));
         await tester.pump(const Duration(milliseconds: 16));
@@ -854,10 +951,12 @@ void main() {
     testWidgets('stays still with reduced motion', (tester) async {
       final controller = LdsShakeController();
       addTearDown(controller.dispose);
-      await tester.pumpWidget(wrap(
-        LdsShake(controller: controller, child: const Text('Kode salah')),
-        reduceMotion: true,
-      ));
+      await tester.pumpWidget(
+        wrap(
+          LdsShake(controller: controller, child: const Text('Kode salah')),
+          reduceMotion: true,
+        ),
+      );
       final rest = tester.getTopLeft(find.text('Kode salah'));
       controller.shake();
       await tester.pump(const Duration(milliseconds: 60));
@@ -875,10 +974,11 @@ void main() {
             LdsSelectionAction(
                 label: 'Setujui', icon: 'check', onPressed: () {}),
             LdsSelectionAction(
-                label: 'Hapus',
-                icon: 'delete',
-                destructive: true,
-                onPressed: () {}),
+              label: 'Hapus',
+              icon: 'delete',
+              destructive: true,
+              onPressed: () {},
+            ),
           ],
         );
 
@@ -918,13 +1018,16 @@ void main() {
   group('hold to confirm layout', () {
     testWidgets('centers the label vertically', (tester) async {
       for (final expand in [false, true]) {
-        await tester.pumpWidget(wrapList([
-          LdsHoldToConfirm(
+        await tester.pumpWidget(
+          wrapList([
+            LdsHoldToConfirm(
               label: 'Tahan untuk kirim SOS',
               icon: 'emergency',
               expand: expand,
-              onConfirmed: () {}),
-        ]));
+              onConfirmed: () {},
+            ),
+          ]),
+        );
         final button = tester.getRect(find.byType(LdsHoldToConfirm));
         final label = tester.getRect(find.text('Tahan untuk kirim SOS'));
         expect((label.center.dy - button.center.dy).abs(), lessThan(1));

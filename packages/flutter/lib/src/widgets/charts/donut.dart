@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -71,7 +71,8 @@ class LdsDonut extends StatelessWidget {
         (parts[i].color ?? LdsSeriesColor.at(i)).resolve(c),
     ];
     final alt = [
-      for (final p in parts) '${p.name} ${format.format(p.value)} (${share(p.value)})'
+      for (final p in parts)
+        '${p.name} ${format.format(p.value)} (${share(p.value)})',
     ].join(', ');
 
     final ring = SizedBox.square(
@@ -97,13 +98,17 @@ class LdsDonut extends StatelessWidget {
                   child: Text(
                     center ?? format.format(total),
                     style: LdsType.title2.copyWith(
-                        color: c.textStrong, fontFeatures: tabular),
+                      color: c.textStrong,
+                      fontFeatures: tabular,
+                    ),
                   ),
                 ),
                 if (unit != null)
-                  Text(unit!,
-                      textAlign: TextAlign.center,
-                      style: LdsType.footnote.copyWith(color: c.textSubtle)),
+                  Text(
+                    unit!,
+                    textAlign: TextAlign.center,
+                    style: LdsType.footnote.copyWith(color: c.textSubtle),
+                  ),
               ],
             ),
           ),
@@ -129,20 +134,29 @@ class LdsDonut extends StatelessWidget {
                 ),
                 const SizedBox(width: LdsSpace.s8),
                 Expanded(
-                  child: Text(parts[i].name,
-                      style: LdsType.subhead.copyWith(color: c.textDefault)),
+                  child: Text(
+                    parts[i].name,
+                    style: LdsType.subhead.copyWith(color: c.textDefault),
+                  ),
                 ),
-                Text(format.format(parts[i].value),
-                    style: LdsType.subhead.copyWith(
-                        fontWeight: FontWeight.w600,
-                        color: c.textStrong,
-                        fontFeatures: tabular)),
+                Text(
+                  format.format(parts[i].value),
+                  style: LdsType.subhead.copyWith(
+                    fontWeight: FontWeight.w600,
+                    color: c.textStrong,
+                    fontFeatures: tabular,
+                  ),
+                ),
                 SizedBox(
                   width: 48,
-                  child: Text(share(parts[i].value),
-                      textAlign: TextAlign.right,
-                      style: LdsType.subhead.copyWith(
-                          color: c.textSubtle, fontFeatures: tabular)),
+                  child: Text(
+                    share(parts[i].value),
+                    textAlign: TextAlign.right,
+                    style: LdsType.subhead.copyWith(
+                      color: c.textSubtle,
+                      fontFeatures: tabular,
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -155,21 +169,27 @@ class LdsDonut extends StatelessWidget {
       label: semanticLabel,
       value: alt,
       child: ExcludeSemantics(
-        child: LayoutBuilder(builder: (context, box) {
-          if (box.maxWidth < 400) {
-            return Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [ring, const SizedBox(height: LdsSpace.s16), list],
+        child: LayoutBuilder(
+          builder: (context, box) {
+            if (box.maxWidth < 400) {
+              return Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  ring,
+                  const SizedBox(height: LdsSpace.s16),
+                  list,
+                ],
+              );
+            }
+            return Row(
+              children: [
+                ring,
+                const SizedBox(width: LdsSpace.s24),
+                Expanded(child: list),
+              ],
             );
-          }
-          return Row(
-            children: [
-              ring,
-              const SizedBox(width: LdsSpace.s24),
-              Expanded(child: list),
-            ],
-          );
-        }),
+          },
+        ),
       ),
     );
   }
@@ -206,11 +226,16 @@ class _DonutPainter extends CustomPainter {
     for (var i = 0; i < values.length; i++) {
       final sweep = values[i] / total * math.pi * 2;
       if (sweep <= 0) continue;
-      canvas.drawArc(rect, start + gap / 2, math.max(0.001, sweep - gap),
-          false, Paint()
-            ..style = PaintingStyle.stroke
-            ..strokeWidth = stroke
-            ..color = colors[i]);
+      canvas.drawArc(
+        rect,
+        start + gap / 2,
+        math.max(0.001, sweep - gap),
+        false,
+        Paint()
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = stroke
+          ..color = colors[i],
+      );
       start += sweep;
     }
   }

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -64,8 +64,7 @@ class LdsDeviceFrame extends StatelessWidget {
             scale: 1 - 0.08 * travel,
             alignment: Alignment.topCenter,
             child: ClipRRect(
-              borderRadius:
-                  BorderRadius.all(Radius.circular(12 * travel)),
+              borderRadius: BorderRadius.all(Radius.circular(12 * travel)),
               child: ColorFiltered(
                 colorFilter: ColorFilter.matrix([
                   dim, 0, 0, 0, 0, //
@@ -82,10 +81,7 @@ class LdsDeviceFrame extends StatelessWidget {
     );
     final screen = ColoredBox(
       color: pushed ? c.deviceIsland : c.bgCanvas,
-      child: Stack(
-        fit: StackFit.expand,
-        children: [content, if (overlay != null) overlay!],
-      ),
+      child: Stack(fit: StackFit.expand, children: [content, ?overlay]),
     );
     if (bleed) {
       return Semantics(container: true, label: semanticLabel, child: screen);
@@ -162,8 +158,9 @@ class LdsDeviceFrame extends StatelessWidget {
                 height: 36,
                 decoration: BoxDecoration(
                   color: c.deviceIsland,
-                  borderRadius:
-                      const BorderRadius.all(Radius.circular(LdsRadius.pill)),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(LdsRadius.pill),
+                  ),
                 ),
               ),
             ),

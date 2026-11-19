@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -124,7 +124,8 @@ class _LdsTimestampState extends State<LdsTimestamp> {
         excludeSemantics: true,
         child: Text(
           words,
-          style: widget.style ??
+          style:
+              widget.style ??
               LdsType.footnote.copyWith(
                 color: c.textSubtle,
                 fontFeatures: const [FontFeature.tabularFigures()],

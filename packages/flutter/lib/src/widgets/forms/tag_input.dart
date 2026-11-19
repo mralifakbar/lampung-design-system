@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -90,8 +90,11 @@ class _LdsTagInputState extends State<LdsTagInput> {
   }
 
   void _add(String raw) {
-    final parts =
-        raw.split(',').map((s) => s.trim()).where((s) => s.isNotEmpty).toList();
+    final parts = raw
+        .split(',')
+        .map((s) => s.trim())
+        .where((s) => s.isNotEmpty)
+        .toList();
     _text.clear();
     if (parts.isEmpty || widget.onChanged == null) return;
     final next = [...widget.tags];
@@ -157,9 +160,11 @@ class _LdsTagInputState extends State<LdsTagInput> {
                     color: state.hovered ? c.bgTintStrong : null,
                     borderRadius: const BorderRadius.all(Radius.circular(6)),
                   ),
-                  child: LdsIcon('close',
-                      size: 15,
-                      color: state.hovered ? c.textStrong : c.textSubtle),
+                  child: LdsIcon(
+                    'close',
+                    size: 15,
+                    color: state.hovered ? c.textStrong : c.textSubtle,
+                  ),
                 ),
               ),
             ],

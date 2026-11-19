@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -71,8 +71,9 @@ class LdsDialog extends StatelessWidget {
           child: Container(
             decoration: BoxDecoration(
               color: c.bgElevated,
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(LdsRadius.xl)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(LdsRadius.xl),
+              ),
               border: Border.all(color: c.lineStrong, width: 0.5),
               boxShadow: context.ldsShadows.lg,
             ),
@@ -95,14 +96,16 @@ class LdsDialog extends StatelessWidget {
                             decoration: BoxDecoration(
                               color: tone.tint,
                               borderRadius: const BorderRadius.all(
-                                  Radius.circular(LdsRadius.md)),
+                                Radius.circular(LdsRadius.md),
+                              ),
                             ),
                             child: LdsIcon(icon!, size: 24, color: tone.text),
                           ),
                         ),
                       Padding(
                         padding: EdgeInsetsDirectional.only(
-                            end: onClose == null ? 0 : 28),
+                          end: onClose == null ? 0 : 28,
+                        ),
                         child: Semantics(
                           header: true,
                           child: Text(
@@ -120,8 +123,10 @@ class LdsDialog extends StatelessWidget {
                         const SizedBox(height: 6),
                         Text(
                           body!,
-                          style: LdsType.subhead
-                              .copyWith(height: 21 / 14, color: c.textSubtle),
+                          style: LdsType.subhead.copyWith(
+                            height: 21 / 14,
+                            color: c.textSubtle,
+                          ),
                         ),
                       ],
                       if (content != null) ...[

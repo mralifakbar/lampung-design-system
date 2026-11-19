@@ -11,31 +11,35 @@ const List<ui.FontFeature> tabular = [ui.FontFeature.tabularFigures()];
 
 /// Axis label style: 11 px muted, tabular.
 TextStyle axisStyle(LdsColors c) => TextStyle(
-      fontFamily: LdsType.family,
-      fontSize: 11,
-      height: 1.2,
-      color: c.textMuted,
-      fontFeatures: tabular,
-    );
+  fontFamily: LdsType.family,
+  fontSize: 11,
+  height: 1.2,
+  color: c.textMuted,
+  fontFeatures: tabular,
+);
 
 /// A nice value scale: the min, max and tick step on 1, 2, 2.5, 5 x 10^n.
-({double min, double max, double step}) niceScale(double lo, double hi,
-    {int ticks = 4}) {
+({double min, double max, double step}) niceScale(
+  double lo,
+  double hi, {
+  int ticks = 4,
+}) {
   if (lo == hi) {
     hi = lo + 1;
   }
   final raw = (hi - lo) / ticks;
   final mag = math.pow(10, (math.log(raw) / math.ln10).floor()).toDouble();
   final norm = raw / mag;
-  final step = (norm <= 1
+  final step =
+      (norm <= 1
           ? 1
           : norm <= 2
-              ? 2
-              : norm <= 2.5
-                  ? 2.5
-                  : norm <= 5
-                      ? 5
-                      : 10) *
+          ? 2
+          : norm <= 2.5
+          ? 2.5
+          : norm <= 5
+          ? 5
+          : 10) *
       mag;
   final min = (lo / step).floor() * step;
   final max = (hi / step).ceil() * step;
@@ -55,8 +59,13 @@ TextPainter layoutText(String text, TextStyle style, {double? maxWidth}) {
 }
 
 /// Draws [path] dashed with [dash] on and [gap] off.
-void drawDashed(Canvas canvas, Path path, Paint paint,
-    {double dash = 4, double gap = 4}) {
+void drawDashed(
+  Canvas canvas,
+  Path path,
+  Paint paint, {
+  double dash = 4,
+  double gap = 4,
+}) {
   for (final metric in path.computeMetrics()) {
     var d = 0.0;
     while (d < metric.length) {
@@ -73,8 +82,13 @@ Color mix(Color color, Color base, double amount) =>
 
 /// Draws a small inverse tooltip with [lines] near [anchor], kept inside
 /// [bounds].
-void drawTooltip(Canvas canvas, Offset anchor, List<String> lines,
-    Rect bounds, LdsColors c) {
+void drawTooltip(
+  Canvas canvas,
+  Offset anchor,
+  List<String> lines,
+  Rect bounds,
+  LdsColors c,
+) {
   final style = TextStyle(
     fontFamily: LdsType.family,
     fontSize: 12,
@@ -84,8 +98,10 @@ void drawTooltip(Canvas canvas, Offset anchor, List<String> lines,
   );
   final painters = [
     for (var i = 0; i < lines.length; i++)
-      layoutText(lines[i],
-          i == 0 ? style.copyWith(fontWeight: FontWeight.w600) : style),
+      layoutText(
+        lines[i],
+        i == 0 ? style.copyWith(fontWeight: FontWeight.w600) : style,
+      ),
   ];
   const pad = 8.0;
   final w = painters.fold<double>(0, (m, p) => math.max(m, p.width)) + pad * 2;
@@ -97,7 +113,9 @@ void drawTooltip(Canvas canvas, Offset anchor, List<String> lines,
       .clamp(bounds.top, math.max(bounds.top, bounds.bottom - h))
       .toDouble();
   final rect = RRect.fromRectAndRadius(
-      Rect.fromLTWH(left, top, w, h), const Radius.circular(LdsRadius.sm));
+    Rect.fromLTWH(left, top, w, h),
+    const Radius.circular(LdsRadius.sm),
+  );
   canvas.drawRRect(rect, Paint()..color = c.bgInverse);
   var y = top + pad;
   for (final p in painters) {

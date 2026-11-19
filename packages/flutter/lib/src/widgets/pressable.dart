@@ -1,8 +1,8 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../motion.dart';
 import '../theme.dart';
@@ -111,9 +111,12 @@ class _LdsPressableState extends State<LdsPressable> {
   bool get _enabled => widget.onPressed != null;
 
   late final Map<Type, Action<Intent>> _actions = <Type, Action<Intent>>{
-    ActivateIntent: CallbackAction<ActivateIntent>(onInvoke: (_) => _activate()),
-    ButtonActivateIntent:
-        CallbackAction<ButtonActivateIntent>(onInvoke: (_) => _activate()),
+    ActivateIntent: CallbackAction<ActivateIntent>(
+      onInvoke: (_) => _activate(),
+    ),
+    ButtonActivateIntent: CallbackAction<ButtonActivateIntent>(
+      onInvoke: (_) => _activate(),
+    ),
   };
 
   Object? _activate() {
@@ -168,7 +171,8 @@ class _LdsPressableState extends State<LdsPressable> {
       focusNode: widget.focusNode,
       autofocus: widget.autofocus,
       actions: _actions,
-      mouseCursor: widget.mouseCursor ??
+      mouseCursor:
+          widget.mouseCursor ??
           (_enabled ? SystemMouseCursors.click : SystemMouseCursors.basic),
       onShowFocusHighlight: (v) => setState(() => _focused = v),
       onShowHoverHighlight: (v) => setState(() => _hovered = v),
@@ -192,8 +196,7 @@ class _LdsPressableState extends State<LdsPressable> {
       button: true,
       enabled: _enabled,
       selected: widget.selected,
-      inMutuallyExclusiveGroup:
-          widget.inMutuallyExclusiveGroup ? true : null,
+      inMutuallyExclusiveGroup: widget.inMutuallyExclusiveGroup ? true : null,
       label: widget.semanticLabel,
       excludeSemantics: widget.excludeChildSemantics,
       onTap: _enabled ? widget.onPressed : null,
@@ -249,7 +252,9 @@ class _MinHitArea extends SingleChildRenderObjectWidget {
 
   @override
   void updateRenderObject(
-      BuildContext context, _RenderMinHitArea renderObject) {
+    BuildContext context,
+    _RenderMinHitArea renderObject,
+  ) {
     renderObject.minSize = minSize;
   }
 }
@@ -265,10 +270,12 @@ class _RenderMinHitArea extends RenderShiftedBox {
   }
 
   Size _grow(Size childSize, BoxConstraints constraints) =>
-      constraints.constrain(Size(
-        math.max(childSize.width, _minSize.width),
-        math.max(childSize.height, _minSize.height),
-      ));
+      constraints.constrain(
+        Size(
+          math.max(childSize.width, _minSize.width),
+          math.max(childSize.height, _minSize.height),
+        ),
+      );
 
   @override
   double computeMinIntrinsicWidth(double height) =>

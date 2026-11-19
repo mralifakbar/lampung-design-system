@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -78,9 +78,11 @@ class _LdsCarouselState extends State<LdsCarousel> {
     if (context.ldsReduceMotion) {
       _controller.jumpToPage(target);
     } else {
-      _controller.animateToPage(target,
-          duration: LdsMotion.smoothSpringDuration,
-          curve: LdsSpringCurve.smooth);
+      _controller.animateToPage(
+        target,
+        duration: LdsMotion.smoothSpringDuration,
+        curve: LdsSpringCurve.smooth,
+      );
     }
   }
 
@@ -96,7 +98,8 @@ class _LdsCarouselState extends State<LdsCarousel> {
         onPageChanged: (p) => setState(() => _page = p.clamp(0, pages - 1)),
         itemBuilder: (context, i) => Padding(
           padding: EdgeInsetsDirectional.only(
-              end: i == widget.children.length - 1 ? 0 : widget.gap),
+            end: i == widget.children.length - 1 ? 0 : widget.gap,
+          ),
           child: widget.children[i],
         ),
       ),

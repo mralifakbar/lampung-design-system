@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../motion.dart';
 import '../theme.dart';
@@ -30,8 +30,10 @@ class LdsSegmented<T> extends StatelessWidget {
     required this.value,
     required this.onChanged,
     this.semanticLabel,
-  }) : assert(segments.length >= 2 && segments.length <= 5,
-            'Use 2 to 5 segments');
+  }) : assert(
+         segments.length >= 2 && segments.length <= 5,
+         'Use 2 to 5 segments',
+       );
 
   /// Options, in order.
   final List<LdsSegment<T>> segments;
@@ -103,7 +105,8 @@ class LdsSegmented<T> extends StatelessWidget {
                               child: Center(
                                 child: Padding(
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 8),
+                                    horizontal: 8,
+                                  ),
                                   child: Text(
                                     segments[i].label,
                                     maxLines: 1,

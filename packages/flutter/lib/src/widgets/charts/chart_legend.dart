@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -41,40 +41,39 @@ class LdsChartLegend extends StatelessWidget {
     Widget entry(int i) {
       final item = items[i];
       Widget content(bool hovered) => Container(
-            height: 28,
-            padding: const EdgeInsets.only(left: 6, right: 8),
-            decoration: BoxDecoration(
-              color: hovered ? c.bgTint : null,
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(LdsRadius.sm)),
+        height: 28,
+        padding: const EdgeInsets.only(left: 6, right: 8),
+        decoration: BoxDecoration(
+          color: hovered ? c.bgTint : null,
+          borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.sm)),
+        ),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Container(
+              width: 10,
+              height: 10,
+              decoration: BoxDecoration(
+                color: item.on ? item.color : null,
+                borderRadius: const BorderRadius.all(Radius.circular(3)),
+                border: item.on
+                    ? null
+                    : Border.all(color: item.color, width: 1.5),
+              ),
             ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  width: 10,
-                  height: 10,
-                  decoration: BoxDecoration(
-                    color: item.on ? item.color : null,
-                    borderRadius: const BorderRadius.all(Radius.circular(3)),
-                    border: item.on
-                        ? null
-                        : Border.all(color: item.color, width: 1.5),
-                  ),
-                ),
-                const SizedBox(width: 6),
-                Text(
-                  item.label,
-                  style: LdsType.footnote.copyWith(
-                    fontWeight: FontWeight.w400,
-                    color: onToggle == null
-                        ? c.textSubtle
-                        : (item.on ? c.textDefault : c.textMuted),
-                  ),
-                ),
-              ],
+            const SizedBox(width: 6),
+            Text(
+              item.label,
+              style: LdsType.footnote.copyWith(
+                fontWeight: FontWeight.w400,
+                color: onToggle == null
+                    ? c.textSubtle
+                    : (item.on ? c.textDefault : c.textMuted),
+              ),
             ),
-          );
+          ],
+        ),
+      );
       if (onToggle == null) return content(false);
       return LdsPressable(
         onPressed: () => onToggle!(i),

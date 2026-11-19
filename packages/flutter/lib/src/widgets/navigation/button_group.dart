@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -38,11 +38,8 @@ class LdsGroupButton {
 /// the press shows as a stronger fill.
 class LdsButtonGroup extends StatelessWidget {
   /// Creates a button group.
-  const LdsButtonGroup({
-    super.key,
-    required this.buttons,
-    this.semanticLabel,
-  }) : assert(buttons.length >= 2 && buttons.length <= 4, 'Use 2 to 4 buttons');
+  const LdsButtonGroup({super.key, required this.buttons, this.semanticLabel})
+    : assert(buttons.length >= 2 && buttons.length <= 4, 'Use 2 to 4 buttons');
 
   /// The buttons, in order.
   final List<LdsGroupButton> buttons;
@@ -58,54 +55,60 @@ class LdsButtonGroup extends StatelessWidget {
     for (var i = 0; i < buttons.length; i++) {
       if (i > 0) {
         children.add(
-            Container(width: 1, height: LdsSize.control, color: c.lineStrong));
+          Container(width: 1, height: LdsSize.control, color: c.lineStrong),
+        );
       }
       final b = buttons[i];
-      children.add(LdsPressable(
-        onPressed: b.onPressed,
-        pressedScale: 1,
-        borderRadius: radius,
-        semanticLabel: b.semanticLabel ?? b.label,
-        excludeChildSemantics: true,
-        tooltip: b.label == null ? b.semanticLabel : null,
-        builder: (context, state) {
-          final fg = c.textStrong;
-          return AnimatedOpacity(
-            opacity: b.onPressed == null ? 0.38 : 1,
-            duration: context.ldsDuration(LdsMotion.fast),
-            child: AnimatedContainer(
-              duration: state.pressed
-                  ? Duration.zero
-                  : context.ldsDuration(LdsMotion.fast),
-              curve: LdsMotion.standardCurve,
-              height: LdsSize.control,
-              constraints: const BoxConstraints(minWidth: LdsSize.touchMin),
-              padding:
-                  EdgeInsets.symmetric(horizontal: b.label == null ? 10 : 14),
-              color: state.pressed
-                  ? c.bgTintStrong
-                  : state.hovered
-                      ? c.bgTint
-                      : Colors.transparent,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  if (b.icon != null) LdsIcon(b.icon!, size: 18, color: fg),
-                  if (b.icon != null && b.label != null)
-                    const SizedBox(width: 6),
-                  if (b.label != null)
-                    Text(
-                      b.label!,
-                      style: LdsType.subhead
-                          .copyWith(color: fg, fontWeight: FontWeight.w600),
-                    ),
-                ],
+      children.add(
+        LdsPressable(
+          onPressed: b.onPressed,
+          pressedScale: 1,
+          borderRadius: radius,
+          semanticLabel: b.semanticLabel ?? b.label,
+          excludeChildSemantics: true,
+          tooltip: b.label == null ? b.semanticLabel : null,
+          builder: (context, state) {
+            final fg = c.textStrong;
+            return AnimatedOpacity(
+              opacity: b.onPressed == null ? 0.38 : 1,
+              duration: context.ldsDuration(LdsMotion.fast),
+              child: AnimatedContainer(
+                duration: state.pressed
+                    ? Duration.zero
+                    : context.ldsDuration(LdsMotion.fast),
+                curve: LdsMotion.standardCurve,
+                height: LdsSize.control,
+                constraints: const BoxConstraints(minWidth: LdsSize.touchMin),
+                padding: EdgeInsets.symmetric(
+                  horizontal: b.label == null ? 10 : 14,
+                ),
+                color: state.pressed
+                    ? c.bgTintStrong
+                    : state.hovered
+                    ? c.bgTint
+                    : Colors.transparent,
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    if (b.icon != null) LdsIcon(b.icon!, size: 18, color: fg),
+                    if (b.icon != null && b.label != null)
+                      const SizedBox(width: 6),
+                    if (b.label != null)
+                      Text(
+                        b.label!,
+                        style: LdsType.subhead.copyWith(
+                          color: fg,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                  ],
+                ),
               ),
-            ),
-          );
-        },
-      ));
+            );
+          },
+        ),
+      );
     }
     return Semantics(
       container: true,

@@ -1,9 +1,9 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -79,10 +79,13 @@ class LdsSwipeActions extends StatefulWidget {
 
 class _LdsSwipeActionsState extends State<LdsSwipeActions>
     with TickerProviderStateMixin {
-  late final AnimationController _dx =
-      AnimationController.unbounded(vsync: this);
-  late final AnimationController _size =
-      AnimationController(vsync: this, value: 1);
+  late final AnimationController _dx = AnimationController.unbounded(
+    vsync: this,
+  );
+  late final AnimationController _size = AnimationController(
+    vsync: this,
+    value: 1,
+  );
   double _width = 0;
   bool _gone = false;
 
@@ -100,8 +103,13 @@ class _LdsSwipeActionsState extends State<LdsSwipeActions>
   Duration _d(Duration d) => context.ldsReduceMotion ? LdsMotion.instant : d;
 
   void _settle(double to) {
-    unawaited(_dx.animateTo(to,
-        duration: _d(LdsMotion.smooth), curve: LdsSpringCurve.smooth));
+    unawaited(
+      _dx.animateTo(
+        to,
+        duration: _d(LdsMotion.smooth),
+        curve: LdsSpringCurve.smooth,
+      ),
+    );
     setState(() {});
   }
 
@@ -112,11 +120,17 @@ class _LdsSwipeActionsState extends State<LdsSwipeActions>
     if (_gone || widget.actions.isEmpty) return;
     _gone = true;
     unawaited(HapticFeedback.mediumImpact());
-    await _dx.animateTo(-_width,
-        duration: _d(LdsMotion.standard), curve: LdsMotion.inoutCurve);
+    await _dx.animateTo(
+      -_width,
+      duration: _d(LdsMotion.standard),
+      curve: LdsMotion.inoutCurve,
+    );
     if (!mounted) return;
-    await _size.animateTo(0,
-        duration: _d(LdsMotion.smooth), curve: LdsSpringCurve.smooth);
+    await _size.animateTo(
+      0,
+      duration: _d(LdsMotion.smooth),
+      curve: LdsSpringCurve.smooth,
+    );
     widget.actions.last.onPressed();
   }
 
@@ -161,10 +175,10 @@ class _LdsSwipeActionsState extends State<LdsSwipeActions>
   }
 
   Color _bg(LdsColors c, LdsSwipeActionTone t) => switch (t) {
-        LdsSwipeActionTone.gray => c.tileGray,
-        LdsSwipeActionTone.accent => c.accent,
-        LdsSwipeActionTone.danger => c.tileRed,
-      };
+    LdsSwipeActionTone.gray => c.tileGray,
+    LdsSwipeActionTone.accent => c.accent,
+    LdsSwipeActionTone.danger => c.tileRed,
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -181,70 +195,72 @@ class _LdsSwipeActionsState extends State<LdsSwipeActions>
           child: child,
         ),
       ),
-      child: LayoutBuilder(builder: (context, box) {
-        _width = box.maxWidth.isFinite ? box.maxWidth : 400;
-        return Semantics(
-          customSemanticsActions: <CustomSemanticsAction, VoidCallback>{
-            for (final a in widget.actions)
-              CustomSemanticsAction(label: a.label): a.onPressed,
-          },
-          child: ClipRect(
-            child: AnimatedBuilder(
-              animation: _dx,
-              builder: (context, row) {
-                final shown = math.max(0.0, -_dx.value);
-                final open = shown > 1;
-                return Stack(
-                  children: [
-                    if (open)
-                      Positioned(
-                        top: 0,
-                        bottom: 0,
-                        right: 0,
-                        width: shown,
-                        child: FocusTraversalGroup(
-                          child: Row(
-                            children: [
-                              for (final a in widget.actions)
-                                Expanded(
-                                  child: _ActionButton(
-                                    action: a,
-                                    color: _bg(c, a.tone),
-                                    onPressed: () {
-                                      _close();
-                                      a.onPressed();
-                                    },
+      child: LayoutBuilder(
+        builder: (context, box) {
+          _width = box.maxWidth.isFinite ? box.maxWidth : 400;
+          return Semantics(
+            customSemanticsActions: <CustomSemanticsAction, VoidCallback>{
+              for (final a in widget.actions)
+                CustomSemanticsAction(label: a.label): a.onPressed,
+            },
+            child: ClipRect(
+              child: AnimatedBuilder(
+                animation: _dx,
+                builder: (context, row) {
+                  final shown = math.max(0.0, -_dx.value);
+                  final open = shown > 1;
+                  return Stack(
+                    children: [
+                      if (open)
+                        Positioned(
+                          top: 0,
+                          bottom: 0,
+                          right: 0,
+                          width: shown,
+                          child: FocusTraversalGroup(
+                            child: Row(
+                              children: [
+                                for (final a in widget.actions)
+                                  Expanded(
+                                    child: _ActionButton(
+                                      action: a,
+                                      color: _bg(c, a.tone),
+                                      onPressed: () {
+                                        _close();
+                                        a.onPressed();
+                                      },
+                                    ),
                                   ),
-                                ),
-                            ],
+                              ],
+                            ),
                           ),
                         ),
+                      Transform.translate(
+                        offset: Offset(_dx.value, 0),
+                        child: row,
                       ),
-                    Transform.translate(
-                      offset: Offset(_dx.value, 0),
-                      child: row,
-                    ),
-                  ],
-                );
-              },
-              child: Focus(
-                onKeyEvent: _onKey,
-                child: GestureDetector(
-                  excludeFromSemantics: true,
-                  behavior: HitTestBehavior.translucent,
-                  onTap: () {
-                    if (_open) _close();
-                  },
-                  onHorizontalDragStart: (_) => _dx.stop(),
-                  onHorizontalDragUpdate: _gone ? null : _onUpdate,
-                  onHorizontalDragEnd: _gone ? null : _onEnd,
-                  child: ColoredBox(color: c.bgBase, child: widget.child),
+                    ],
+                  );
+                },
+                child: Focus(
+                  onKeyEvent: _onKey,
+                  child: GestureDetector(
+                    excludeFromSemantics: true,
+                    behavior: HitTestBehavior.translucent,
+                    onTap: () {
+                      if (_open) _close();
+                    },
+                    onHorizontalDragStart: (_) => _dx.stop(),
+                    onHorizontalDragUpdate: _gone ? null : _onUpdate,
+                    onHorizontalDragEnd: _gone ? null : _onEnd,
+                    child: ColoredBox(color: c.bgBase, child: widget.child),
+                  ),
                 ),
               ),
             ),
-          ),
-        );
-      }),
+          );
+        },
+      ),
     );
   }
 }

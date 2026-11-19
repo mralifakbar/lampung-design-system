@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -58,8 +58,10 @@ class LdsSpotlight extends StatelessWidget {
                     const SizedBox(width: 6),
                   ],
                   Flexible(
-                    child: Text(eyebrow!,
-                        style: LdsType.caption.copyWith(color: c.accentText)),
+                    child: Text(
+                      eyebrow!,
+                      style: LdsType.caption.copyWith(color: c.accentText),
+                    ),
                   ),
                 ],
               ),
@@ -69,16 +71,20 @@ class LdsSpotlight extends StatelessWidget {
               constraints: const BoxConstraints(maxWidth: 420),
               child: Semantics(
                 header: true,
-                child: Text(title,
-                    style: LdsType.title2.copyWith(color: c.textStrong)),
+                child: Text(
+                  title,
+                  style: LdsType.title2.copyWith(color: c.textStrong),
+                ),
               ),
             ),
             if (body != null) ...[
               const SizedBox(height: 6),
               ConstrainedBox(
                 constraints: const BoxConstraints(maxWidth: 620),
-                child: Text(body!,
-                    style: LdsType.body.copyWith(color: c.textSubtle)),
+                child: Text(
+                  body!,
+                  style: LdsType.body.copyWith(color: c.textSubtle),
+                ),
               ),
             ],
             const SizedBox(height: 20),

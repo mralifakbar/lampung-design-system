@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -87,7 +87,12 @@ class LdsFunnel extends StatelessWidget {
   }
 
   Widget _row(
-      BuildContext context, LdsColors c, int i, double first, bool isDrop) {
+    BuildContext context,
+    LdsColors c,
+    int i,
+    double first,
+    bool isDrop,
+  ) {
     final s = steps[i];
     final v = first <= 0 ? 0.0 : (s.value / first).clamp(0.0, 1.0);
     final prev = i == 0 ? null : steps[i - 1].value;
@@ -102,24 +107,31 @@ class LdsFunnel extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.end,
             children: [
               Expanded(
-                child: Text('${i + 1}. ${s.label}',
-                    style: LdsType.subhead.copyWith(color: c.textDefault)),
+                child: Text(
+                  '${i + 1}. ${s.label}',
+                  style: LdsType.subhead.copyWith(color: c.textDefault),
+                ),
               ),
-              Text(format.format(s.value),
-                  style: LdsType.subhead.copyWith(
-                      fontWeight: FontWeight.w600,
-                      color: c.textStrong,
-                      fontFeatures: tabular)),
+              Text(
+                format.format(s.value),
+                style: LdsType.subhead.copyWith(
+                  fontWeight: FontWeight.w600,
+                  color: c.textStrong,
+                  fontFeatures: tabular,
+                ),
+              ),
               if (conv != null) ...[
                 const SizedBox(width: LdsSpace.s8),
                 Flexible(
-                  child: Text(conv,
-                      textAlign: TextAlign.right,
-                      style: LdsType.footnote.copyWith(
-                          color: isDrop ? c.dangerText : c.textSubtle,
-                          fontWeight:
-                              isDrop ? FontWeight.w500 : FontWeight.w400,
-                          fontFeatures: tabular)),
+                  child: Text(
+                    conv,
+                    textAlign: TextAlign.right,
+                    style: LdsType.footnote.copyWith(
+                      color: isDrop ? c.dangerText : c.textSubtle,
+                      fontWeight: isDrop ? FontWeight.w500 : FontWeight.w400,
+                      fontFeatures: tabular,
+                    ),
+                  ),
                 ),
               ],
             ],
@@ -130,8 +142,9 @@ class LdsFunnel extends StatelessWidget {
               height: 28,
               decoration: BoxDecoration(
                 color: c.bgFill,
-                borderRadius:
-                    const BorderRadius.all(Radius.circular(LdsRadius.sm)),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(LdsRadius.sm),
+                ),
               ),
               child: LayoutBuilder(
                 builder: (context, box) => Center(
@@ -141,8 +154,9 @@ class LdsFunnel extends StatelessWidget {
                     width: math.max(4, box.maxWidth * v),
                     decoration: BoxDecoration(
                       color: c.series1,
-                      borderRadius:
-                          const BorderRadius.all(Radius.circular(LdsRadius.sm)),
+                      borderRadius: const BorderRadius.all(
+                        Radius.circular(LdsRadius.sm),
+                      ),
                     ),
                   ),
                 ),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -110,8 +110,9 @@ class LdsPaper extends StatelessWidget {
     final c = context.lds;
     final label = LdsType.caption.copyWith(color: c.textMuted);
     final body = LdsType.subhead.copyWith(color: c.textDefault);
-    final num =
-        body.copyWith(fontFeatures: const [FontFeature.tabularFigures()]);
+    final num = body.copyWith(
+      fontFeatures: const [FontFeature.tabularFigures()],
+    );
 
     Widget numCell(String t, {TextStyle? style}) =>
         Text(t, textAlign: TextAlign.end, style: style ?? num);
@@ -133,15 +134,17 @@ class LdsPaper extends StatelessWidget {
             spacing: 16,
             runSpacing: 12,
             children: [
-              if (brand != null) brand!,
+              ?brand,
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Flexible(
                     child: Semantics(
                       header: true,
-                      child: Text(title,
-                          style: LdsType.title3.copyWith(color: c.textStrong)),
+                      child: Text(
+                        title,
+                        style: LdsType.title3.copyWith(color: c.textStrong),
+                      ),
                     ),
                   ),
                   if (badge != null) ...[const SizedBox(width: 10), badge!],
@@ -163,10 +166,13 @@ class LdsPaper extends StatelessWidget {
                       children: [
                         Text(m.$1, style: label),
                         const SizedBox(height: 2),
-                        Text(m.$2,
-                            style: num.copyWith(
-                                color: c.textStrong,
-                                fontWeight: FontWeight.w500)),
+                        Text(
+                          m.$2,
+                          style: num.copyWith(
+                            color: c.textStrong,
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
                       ],
                     ),
                   ),
@@ -195,7 +201,8 @@ class LdsPaper extends StatelessWidget {
                               style: i == 0
                                   ? body.copyWith(
                                       color: c.textStrong,
-                                      fontWeight: FontWeight.w500)
+                                      fontWeight: FontWeight.w500,
+                                    )
                                   : body,
                             ),
                         ],
@@ -215,13 +222,13 @@ class LdsPaper extends StatelessWidget {
                       0: FlexColumnWidth(),
                       1: IntrinsicColumnWidth(),
                       2: FixedColumnWidth(0),
-                      3: IntrinsicColumnWidth()
+                      3: IntrinsicColumnWidth(),
                     }
                   : const {
                       0: FlexColumnWidth(),
                       1: IntrinsicColumnWidth(),
                       2: IntrinsicColumnWidth(),
-                      3: IntrinsicColumnWidth()
+                      3: IntrinsicColumnWidth(),
                     },
               defaultVerticalAlignment: TableCellVerticalAlignment.middle,
               children: [
@@ -244,8 +251,12 @@ class LdsPaper extends StatelessWidget {
                       border: Border(bottom: BorderSide(color: c.hairline)),
                     ),
                     children: [
-                      _pad(Text(l.description,
-                          style: body.copyWith(color: c.textStrong))),
+                      _pad(
+                        Text(
+                          l.description,
+                          style: body.copyWith(color: c.textStrong),
+                        ),
+                      ),
                       _pad(numCell(l.quantity)),
                       receipt
                           ? const SizedBox.shrink()
@@ -274,20 +285,21 @@ class LdsPaper extends StatelessWidget {
                                 child: Text(
                                   s.label,
                                   style: s.total
-                                      ? LdsType.headline
-                                          .copyWith(color: c.textStrong)
+                                      ? LdsType.headline.copyWith(
+                                          color: c.textStrong,
+                                        )
                                       : body.copyWith(color: c.textSubtle),
                                 ),
                               ),
                               Text(
                                 s.amount,
-                                style:
-                                    (s.total ? LdsType.headline : num).copyWith(
-                                  color: c.textStrong,
-                                  fontFeatures: const [
-                                    FontFeature.tabularFigures()
-                                  ],
-                                ),
+                                style: (s.total ? LdsType.headline : num)
+                                    .copyWith(
+                                      color: c.textStrong,
+                                      fontFeatures: const [
+                                        FontFeature.tabularFigures(),
+                                      ],
+                                    ),
                               ),
                             ],
                           ),
@@ -320,13 +332,15 @@ class LdsPaper extends StatelessWidget {
       container: true,
       child: receipt
           ? ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 400), child: sheet)
+              constraints: const BoxConstraints(maxWidth: 400),
+              child: sheet,
+            )
           : sheet,
     );
   }
 
   static Widget _pad(Widget child) => Padding(
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 4),
-        child: child,
-      );
+    padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 4),
+    child: child,
+  );
 }

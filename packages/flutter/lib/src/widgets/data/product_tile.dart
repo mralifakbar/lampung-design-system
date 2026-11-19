@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -103,7 +103,8 @@ class _LdsProductTileState extends State<LdsProductTile>
     final c = context.lds;
     final reduce = context.ldsReduceMotion;
     final inSale = widget.quantity > 0;
-    final label = widget.semanticLabel ??
+    final label =
+        widget.semanticLabel ??
         [
           widget.name,
           widget.price,
@@ -136,35 +137,35 @@ class _LdsProductTileState extends State<LdsProductTile>
     }
 
     Widget body() => Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              widget.name,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              style: TextStyle(
-                fontFamily: LdsType.family,
-                fontSize: 14,
-                height: 19 / 14,
-                fontWeight: FontWeight.w500,
-                color: widget.soldOut ? c.textMuted : c.textStrong,
-              ),
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Text(
+          widget.name,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+          style: TextStyle(
+            fontFamily: LdsType.family,
+            fontSize: 14,
+            height: 19 / 14,
+            fontWeight: FontWeight.w500,
+            color: widget.soldOut ? c.textMuted : c.textStrong,
+          ),
+        ),
+        if (widget.meta != null) ...[
+          const SizedBox(height: 2),
+          Text(
+            widget.meta!,
+            style: TextStyle(
+              fontFamily: LdsType.family,
+              fontSize: 12,
+              height: 16 / 12,
+              color: widget.lowStock ? c.warningText : c.textSubtle,
             ),
-            if (widget.meta != null) ...[
-              const SizedBox(height: 2),
-              Text(
-                widget.meta!,
-                style: TextStyle(
-                  fontFamily: LdsType.family,
-                  fontSize: 12,
-                  height: 16 / 12,
-                  color: widget.lowStock ? c.warningText : c.textSubtle,
-                ),
-              ),
-            ],
-          ],
-        );
+          ),
+        ],
+      ],
+    );
 
     final price = Text(
       widget.price,
@@ -216,7 +217,9 @@ class _LdsProductTileState extends State<LdsProductTile>
       animation: _shake,
       builder: (context, child) => Transform.translate(
         offset: Offset(
-            6 * math.sin(_shake.value * math.pi * 4) * (1 - _shake.value), 0),
+          6 * math.sin(_shake.value * math.pi * 4) * (1 - _shake.value),
+          0,
+        ),
         child: child,
       ),
       child: LdsPressable(
@@ -276,8 +279,8 @@ class _LdsProductTileState extends State<LdsProductTile>
                 color: inSale
                     ? c.accent
                     : hot
-                        ? c.lineStrong
-                        : c.line,
+                    ? c.lineStrong
+                    : c.line,
                 width: inSale ? 1.5 : 1,
               ),
             ),
@@ -306,18 +309,23 @@ class LdsProductGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, box) {
-      const gap = 12.0;
-      final width = box.maxWidth.isFinite ? box.maxWidth : minTileWidth;
-      final cols = math.max(1, ((width + gap) / (minTileWidth + gap)).floor());
-      final w = (width - gap * (cols - 1)) / cols;
-      return Wrap(
-        spacing: gap,
-        runSpacing: gap,
-        children: [
-          for (final child in children) SizedBox(width: w, child: child),
-        ],
-      );
-    });
+    return LayoutBuilder(
+      builder: (context, box) {
+        const gap = 12.0;
+        final width = box.maxWidth.isFinite ? box.maxWidth : minTileWidth;
+        final cols = math.max(
+          1,
+          ((width + gap) / (minTileWidth + gap)).floor(),
+        );
+        final w = (width - gap * (cols - 1)) / cols;
+        return Wrap(
+          spacing: gap,
+          runSpacing: gap,
+          children: [
+            for (final child in children) SizedBox(width: w, child: child),
+          ],
+        );
+      },
+    );
   }
 }

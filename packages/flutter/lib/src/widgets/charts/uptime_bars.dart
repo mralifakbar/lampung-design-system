@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -101,31 +101,34 @@ class _LdsUptimeBarsState extends State<LdsUptimeBars> {
     final c = context.lds;
     final w = widget;
     final labels = w.labels;
-    final readout = _active != null && labels != null && _active! < labels.length
+    final readout =
+        _active != null && labels != null && _active! < labels.length
         ? labels[_active!]
         : w.summary;
     final style = axisStyle(c).copyWith(fontSize: 12);
 
-    final bars = LayoutBuilder(builder: (context, box) {
-      final n = w.statuses.length;
-      int? hit(Offset p) =>
-          n == 0 ? null : (p.dx / box.maxWidth * n).floor().clamp(0, n - 1);
-      return MouseRegion(
-        onHover: (e) => setState(() => _active = hit(e.localPosition)),
-        onExit: (_) {
-          if (!_focus.hasFocus) setState(() => _active = null);
-        },
-        child: GestureDetector(
-          onTapDown: (d) => setState(() => _active = hit(d.localPosition)),
-          onHorizontalDragUpdate: (d) =>
-              setState(() => _active = hit(d.localPosition)),
-          child: CustomPaint(
-            size: Size(box.maxWidth, w.height * 1.12),
-            painter: _UptimePainter(w.statuses, _active, c),
+    final bars = LayoutBuilder(
+      builder: (context, box) {
+        final n = w.statuses.length;
+        int? hit(Offset p) =>
+            n == 0 ? null : (p.dx / box.maxWidth * n).floor().clamp(0, n - 1);
+        return MouseRegion(
+          onHover: (e) => setState(() => _active = hit(e.localPosition)),
+          onExit: (_) {
+            if (!_focus.hasFocus) setState(() => _active = null);
+          },
+          child: GestureDetector(
+            onTapDown: (d) => setState(() => _active = hit(d.localPosition)),
+            onHorizontalDragUpdate: (d) =>
+                setState(() => _active = hit(d.localPosition)),
+            child: CustomPaint(
+              size: Size(box.maxWidth, w.height * 1.12),
+              painter: _UptimePainter(w.statuses, _active, c),
+            ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -146,8 +149,9 @@ class _LdsUptimeBarsState extends State<LdsUptimeBars> {
               child: DecoratedBox(
                 position: DecorationPosition.foreground,
                 decoration: BoxDecoration(
-                  borderRadius:
-                      const BorderRadius.all(Radius.circular(LdsRadius.xs)),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(LdsRadius.xs),
+                  ),
                   border: _focus.hasFocus
                       ? Border.all(color: c.focus, width: 2)
                       : null,
@@ -172,9 +176,13 @@ class _LdsUptimeBarsState extends State<LdsUptimeBars> {
         if (readout != null) ...[
           const SizedBox(height: 6),
           ExcludeSemantics(
-            child: Text(readout,
-                style: LdsType.footnote.copyWith(
-                    color: c.textSubtle, fontFeatures: tabular)),
+            child: Text(
+              readout,
+              style: LdsType.footnote.copyWith(
+                color: c.textSubtle,
+                fontFeatures: tabular,
+              ),
+            ),
           ),
         ],
       ],

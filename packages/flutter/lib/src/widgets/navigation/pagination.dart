@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -87,17 +87,20 @@ class LdsPagination extends StatelessWidget {
               ExcludeSemantics(
                 child: SizedBox(
                   width: 24,
-                  child: Text('…',
-                      textAlign: TextAlign.center,
-                      style: LdsType.subhead.copyWith(color: c.textMuted)),
+                  child: Text(
+                    '…',
+                    textAlign: TextAlign.center,
+                    style: LdsType.subhead.copyWith(color: c.textMuted),
+                  ),
                 ),
               )
             else
               _PagerButton(
                 onPressed: p == page ? () {} : () => onChanged(p),
                 current: p == page,
-                semanticLabel:
-                    p == page ? 'Halaman $p, halaman ini' : 'Halaman $p',
+                semanticLabel: p == page
+                    ? 'Halaman $p, halaman ini'
+                    : 'Halaman $p',
                 child: Text('$p'),
               ),
           _PagerButton(
@@ -139,8 +142,8 @@ class _PagerButton extends StatelessWidget {
         final fg = onPressed == null
             ? c.textFaint
             : current
-                ? c.textInverse
-                : c.textDefault;
+            ? c.textInverse
+            : c.textDefault;
         return AnimatedContainer(
           duration: context.ldsDuration(LdsMotion.fast),
           constraints: const BoxConstraints(minWidth: 36),
@@ -151,8 +154,8 @@ class _PagerButton extends StatelessWidget {
             color: current
                 ? c.textStrong
                 : state.hovered || state.pressed
-                    ? c.bgTintStrong
-                    : Colors.transparent,
+                ? c.bgTintStrong
+                : Colors.transparent,
           ),
           // Factors of 1 keep the button at its content width: a plain
           // alignment would stretch it to the full width of the row.

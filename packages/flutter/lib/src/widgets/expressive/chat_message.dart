@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -61,15 +61,15 @@ class LdsChatMessage extends StatelessWidget {
     VoidCallback? onRetry,
     bool isNew = false,
   }) : this(
-          key: key,
-          role: LdsChatRole.me,
-          text: text,
-          child: child,
-          meta: meta,
-          error: error,
-          onRetry: onRetry,
-          isNew: isNew,
-        );
+         key: key,
+         role: LdsChatRole.me,
+         text: text,
+         child: child,
+         meta: meta,
+         error: error,
+         onRetry: onRetry,
+         isNew: isNew,
+       );
 
   /// An assistant answer.
   const LdsChatMessage.assistant({
@@ -81,19 +81,19 @@ class LdsChatMessage extends StatelessWidget {
     List<Widget> actions = const [],
     bool isNew = false,
   }) : this(
-          key: key,
-          role: LdsChatRole.assistant,
-          text: text,
-          child: child,
-          meta: meta,
-          steps: steps,
-          actions: actions,
-          isNew: isNew,
-        );
+         key: key,
+         role: LdsChatRole.assistant,
+         text: text,
+         child: child,
+         meta: meta,
+         steps: steps,
+         actions: actions,
+         isNew: isNew,
+       );
 
   /// A centered line about the conversation.
   const LdsChatMessage.system(String text, {Key? key, bool isNew = false})
-      : this(key: key, role: LdsChatRole.system, text: text, isNew: isNew);
+    : this(key: key, role: LdsChatRole.system, text: text, isNew: isNew);
 
   /// Who speaks.
   final LdsChatRole role;
@@ -136,44 +136,44 @@ class LdsChatMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
-    Widget content = LayoutBuilder(builder: (context, constraints) {
-      final w = constraints.maxWidth;
-      switch (role) {
-        case LdsChatRole.system:
-          return Center(
-            child: Text(
-              text ?? '',
-              textAlign: TextAlign.center,
-              style: LdsType.footnote.copyWith(color: c.textMuted),
-            ),
-          );
-        case LdsChatRole.assistant:
-          return Align(
-            alignment: Alignment.centerLeft,
-            child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: math.min(640, w)),
-              child: _column(context, CrossAxisAlignment.start),
-            ),
-          );
-        case LdsChatRole.me:
-        case LdsChatRole.other:
-          final me = role == LdsChatRole.me;
-          return Align(
-            alignment: me ? Alignment.centerRight : Alignment.centerLeft,
-            child: ConstrainedBox(
-              constraints: BoxConstraints(maxWidth: math.min(520, w * 0.88)),
-              child: _column(
-                  context, me ? CrossAxisAlignment.end : CrossAxisAlignment.start),
-            ),
-          );
-      }
-    });
+    Widget content = LayoutBuilder(
+      builder: (context, constraints) {
+        final w = constraints.maxWidth;
+        switch (role) {
+          case LdsChatRole.system:
+            return Center(
+              child: Text(
+                text ?? '',
+                textAlign: TextAlign.center,
+                style: LdsType.footnote.copyWith(color: c.textMuted),
+              ),
+            );
+          case LdsChatRole.assistant:
+            return Align(
+              alignment: Alignment.centerLeft,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: math.min(640, w)),
+                child: _column(context, CrossAxisAlignment.start),
+              ),
+            );
+          case LdsChatRole.me:
+          case LdsChatRole.other:
+            final me = role == LdsChatRole.me;
+            return Align(
+              alignment: me ? Alignment.centerRight : Alignment.centerLeft,
+              child: ConstrainedBox(
+                constraints: BoxConstraints(maxWidth: math.min(520, w * 0.88)),
+                child: _column(
+                  context,
+                  me ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+                ),
+              ),
+            );
+        }
+      },
+    );
     if (speakerLabel != null) {
-      content = Semantics(
-        container: true,
-        label: speakerLabel,
-        child: content,
-      );
+      content = Semantics(container: true, label: speakerLabel, child: content);
     }
     if (!isNew) return content;
     return LdsBlurIn(
@@ -193,8 +193,8 @@ class LdsChatMessage extends StatelessWidget {
       color: me
           ? c.textOnAccent
           : role == LdsChatRole.other
-              ? c.textStrong
-              : c.textDefault,
+          ? c.textStrong
+          : c.textDefault,
     );
     final body = DefaultTextStyle.merge(
       style: style,
@@ -225,8 +225,10 @@ class LdsChatMessage extends StatelessWidget {
       if (name != null)
         Padding(
           padding: const EdgeInsets.only(left: 4),
-          child: Text(name!,
-              style: LdsType.caption.copyWith(color: c.textSubtle)),
+          child: Text(
+            name!,
+            style: LdsType.caption.copyWith(color: c.textSubtle),
+          ),
         ),
       for (final s in steps) s,
       _bubble(context),
@@ -238,8 +240,7 @@ class LdsChatMessage extends StatelessWidget {
           spacing: 6,
           children: [
             LdsIcon('error', size: 16, color: c.dangerText),
-            Text(error!,
-                style: LdsType.footnote.copyWith(color: c.dangerText)),
+            Text(error!, style: LdsType.footnote.copyWith(color: c.dangerText)),
             if (onRetry != null)
               LdsButton(
                 label: retryLabel,

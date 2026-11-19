@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -68,8 +68,9 @@ class LdsPhoneStatusBar extends StatelessWidget {
                       margin: EdgeInsets.only(right: 1.5, top: 11 - h),
                       decoration: BoxDecoration(
                         color: fg,
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(1)),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(1),
+                        ),
                       ),
                     ),
                   ],
@@ -91,8 +92,9 @@ class LdsPhoneStatusBar extends StatelessWidget {
                       child: DecoratedBox(
                         decoration: BoxDecoration(
                           color: fg,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(2)),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(2),
+                          ),
                         ),
                       ),
                     ),
@@ -104,7 +106,8 @@ class LdsPhoneStatusBar extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: faint,
                       borderRadius: const BorderRadius.horizontal(
-                          right: Radius.circular(1)),
+                        right: Radius.circular(1),
+                      ),
                     ),
                   ),
                 ],

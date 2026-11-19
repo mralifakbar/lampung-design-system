@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -42,54 +42,62 @@ class LdsStatRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
-    return LayoutBuilder(builder: (context, box) {
-      final w = box.maxWidth;
-      final n = w >= 600
-          ? columns.clamp(1, 4)
-          : w >= 320
-              ? math.min(2, columns)
-              : 1;
-      final four = n >= 4;
-      final valueSize = four ? 26.0 : (w >= 600 ? 36.0 : 30.0);
-      final rows = <Widget>[];
-      for (var r = 0; r < stats.length; r += n) {
-        final cells = <Widget>[];
-        for (var k = 0; k < n; k++) {
-          final i = r + k;
-          cells.add(Expanded(
-            child: i >= stats.length
-                ? const SizedBox.shrink()
-                : Container(
-                    padding: EdgeInsets.only(
-                        left: k == 0 ? 0 : LdsSpace.s16, right: LdsSpace.s8),
-                    decoration: BoxDecoration(
-                      border: k == 0
-                          ? null
-                          : Border(left: BorderSide(color: c.hairline)),
-                    ),
-                    child: _cell(c, stats[i], valueSize),
-                  ),
-          ));
-        }
-        rows.add(Container(
-          padding: const EdgeInsets.symmetric(vertical: LdsSpace.s16),
-          decoration: BoxDecoration(
-            border: Border(top: BorderSide(color: c.hairline)),
-          ),
-          child: IntrinsicHeight(
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: cells,
+    return LayoutBuilder(
+      builder: (context, box) {
+        final w = box.maxWidth;
+        final n = w >= 600
+            ? columns.clamp(1, 4)
+            : w >= 320
+            ? math.min(2, columns)
+            : 1;
+        final four = n >= 4;
+        final valueSize = four ? 26.0 : (w >= 600 ? 36.0 : 30.0);
+        final rows = <Widget>[];
+        for (var r = 0; r < stats.length; r += n) {
+          final cells = <Widget>[];
+          for (var k = 0; k < n; k++) {
+            final i = r + k;
+            cells.add(
+              Expanded(
+                child: i >= stats.length
+                    ? const SizedBox.shrink()
+                    : Container(
+                        padding: EdgeInsets.only(
+                          left: k == 0 ? 0 : LdsSpace.s16,
+                          right: LdsSpace.s8,
+                        ),
+                        decoration: BoxDecoration(
+                          border: k == 0
+                              ? null
+                              : Border(left: BorderSide(color: c.hairline)),
+                        ),
+                        child: _cell(c, stats[i], valueSize),
+                      ),
+              ),
+            );
+          }
+          rows.add(
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: LdsSpace.s16),
+              decoration: BoxDecoration(
+                border: Border(top: BorderSide(color: c.hairline)),
+              ),
+              child: IntrinsicHeight(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: cells,
+                ),
+              ),
             ),
-          ),
-        ));
-      }
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisSize: MainAxisSize.min,
-        children: rows,
-      );
-    });
+          );
+        }
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: rows,
+        );
+      },
+    );
   }
 
   Widget _cell(LdsColors c, LdsStat s, double size) {

@@ -1,8 +1,8 @@
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -83,7 +83,7 @@ class LdsKanban extends StatefulWidget {
     this.addLabel = 'Tambah kartu',
     this.keyHint =
         'Tekan spasi untuk mengangkat, panah untuk memindahkan, spasi untuk '
-            'meletakkan, Escape untuk batal.',
+        'meletakkan, Escape untuk batal.',
   });
 
   /// The stages, left to right.
@@ -256,16 +256,20 @@ class _LdsKanbanState extends State<LdsKanban> {
       children.add(_ghost(context));
     }
     if (col.cards.isEmpty && _overColumn != col.id) {
-      children.add(Container(
-        height: 64,
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.md)),
-          border: Border.all(color: colors.lineStrong),
+      children.add(
+        Container(
+          height: 64,
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.md)),
+            border: Border.all(color: colors.lineStrong),
+          ),
+          child: Text(
+            widget.emptyLabel,
+            style: LdsType.footnote.copyWith(color: colors.textMuted),
+          ),
         ),
-        child: Text(widget.emptyLabel,
-            style: LdsType.footnote.copyWith(color: colors.textMuted)),
-      ));
+      );
     }
 
     return DragTarget<String>(
@@ -304,10 +308,13 @@ class _LdsKanbanState extends State<LdsKanban> {
                   Expanded(
                     child: Semantics(
                       header: true,
-                      child: Text(col.title,
-                          style: LdsType.subhead.copyWith(
-                              color: colors.textStrong,
-                              fontWeight: FontWeight.w600)),
+                      child: Text(
+                        col.title,
+                        style: LdsType.subhead.copyWith(
+                          color: colors.textStrong,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
                     ),
                   ),
                   Semantics(
@@ -345,16 +352,20 @@ class _LdsKanbanState extends State<LdsKanban> {
                     color: state.hovered || state.pressed
                         ? colors.bgTint
                         : Colors.transparent,
-                    borderRadius:
-                        const BorderRadius.all(Radius.circular(LdsRadius.sm)),
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(LdsRadius.sm),
+                    ),
                   ),
                   child: Row(
                     children: [
                       LdsIcon('add', size: 18, color: colors.textSubtle),
                       const SizedBox(width: 6),
-                      Text(widget.addLabel,
-                          style: LdsType.subhead
-                              .copyWith(color: colors.textSubtle)),
+                      Text(
+                        widget.addLabel,
+                        style: LdsType.subhead.copyWith(
+                          color: colors.textSubtle,
+                        ),
+                      ),
                     ],
                   ),
                 ),
@@ -379,7 +390,7 @@ class _LdsKanbanState extends State<LdsKanban> {
         }
       },
       onAcceptWithDetails: (d) => _drop(d.data, c, index),
-      builder: (context, _, __) => child,
+      builder: (context, _, _) => child,
     );
   }
 
@@ -402,51 +413,48 @@ class _LdsKanbanState extends State<LdsKanban> {
     final column = widget.columns[c];
 
     Widget face({bool lifted = false}) => AnimatedContainer(
-          duration: context.ldsDuration(LdsMotion.fast),
-          padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
-          decoration: BoxDecoration(
-            color: colors.bgBase,
-            borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.md)),
-            border: Border.all(
-              color: grabbed ? colors.accent : colors.line,
-              width: grabbed ? 2 : 1,
+      duration: context.ldsDuration(LdsMotion.fast),
+      padding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
+      decoration: BoxDecoration(
+        color: colors.bgBase,
+        borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.md)),
+        border: Border.all(
+          color: grabbed ? colors.accent : colors.line,
+          width: grabbed ? 2 : 1,
+        ),
+        boxShadow: lifted ? context.ldsShadows.lg : null,
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          if (card.badges.isNotEmpty) ...[
+            Wrap(spacing: 6, runSpacing: 6, children: card.badges),
+            const SizedBox(height: 10),
+          ],
+          Text(
+            card.title,
+            style: TextStyle(
+              fontFamily: LdsType.family,
+              fontSize: 14,
+              height: 20 / 14,
+              fontWeight: FontWeight.w500,
+              color: colors.textStrong,
             ),
-            boxShadow: lifted ? context.ldsShadows.lg : null,
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              if (card.badges.isNotEmpty) ...[
-                Wrap(spacing: 6, runSpacing: 6, children: card.badges),
-                const SizedBox(height: 10),
-              ],
-              Text(
-                card.title,
-                style: TextStyle(
-                  fontFamily: LdsType.family,
-                  fontSize: 14,
-                  height: 20 / 14,
-                  fontWeight: FontWeight.w500,
-                  color: colors.textStrong,
-                ),
-              ),
-              if (card.body != null) ...[
-                const SizedBox(height: 4),
-                Text(
-                  card.body!,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: LdsType.footnote.copyWith(color: colors.textSubtle),
-                ),
-              ],
-              if (card.foot != null) ...[
-                const SizedBox(height: 10),
-                card.foot!,
-              ],
-            ],
-          ),
-        );
+          if (card.body != null) ...[
+            const SizedBox(height: 4),
+            Text(
+              card.body!,
+              maxLines: 2,
+              overflow: TextOverflow.ellipsis,
+              style: LdsType.footnote.copyWith(color: colors.textSubtle),
+            ),
+          ],
+          if (card.foot != null) ...[const SizedBox(height: 10), card.foot!],
+        ],
+      ),
+    );
 
     final focusable = Focus(
       focusNode: _node(card.id),
@@ -457,33 +465,37 @@ class _LdsKanbanState extends State<LdsKanban> {
       child: Semantics(
         label: '${card.title}, ${column.title}. ${widget.keyHint}',
         button: widget.onCardTap != null,
-        onTap:
-            widget.onCardTap == null ? null : () => widget.onCardTap!(card.id),
+        onTap: widget.onCardTap == null
+            ? null
+            : () => widget.onCardTap!(card.id),
         excludeSemantics: true,
-        child: Builder(builder: (context) {
-          final focused = Focus.of(context).hasPrimaryFocus;
-          return GestureDetector(
-            onTap: widget.onCardTap == null
-                ? null
-                : () => widget.onCardTap!(card.id),
-            child: AnimatedScale(
-              scale: grabbed && !reduce ? 1.02 : 1,
-              duration: context.ldsDuration(LdsMotion.snappy),
-              curve: LdsSpringCurve.snappy,
-              child: DecoratedBox(
-                position: DecorationPosition.foreground,
-                decoration: BoxDecoration(
-                  borderRadius:
-                      const BorderRadius.all(Radius.circular(LdsRadius.md + 3)),
-                  border: focused && !grabbed
-                      ? Border.all(color: colors.focus, width: 2)
-                      : null,
+        child: Builder(
+          builder: (context) {
+            final focused = Focus.of(context).hasPrimaryFocus;
+            return GestureDetector(
+              onTap: widget.onCardTap == null
+                  ? null
+                  : () => widget.onCardTap!(card.id),
+              child: AnimatedScale(
+                scale: grabbed && !reduce ? 1.02 : 1,
+                duration: context.ldsDuration(LdsMotion.snappy),
+                curve: LdsSpringCurve.snappy,
+                child: DecoratedBox(
+                  position: DecorationPosition.foreground,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(LdsRadius.md + 3),
+                    ),
+                    border: focused && !grabbed
+                        ? Border.all(color: colors.focus, width: 2)
+                        : null,
+                  ),
+                  child: face(),
                 ),
-                child: face(),
               ),
-            ),
-          );
-        }),
+            );
+          },
+        ),
       ),
     );
 
@@ -494,19 +506,22 @@ class _LdsKanbanState extends State<LdsKanban> {
         child: Transform.rotate(
           angle: reduce ? 0 : 1.5 * math.pi / 180,
           child: Transform.scale(
-              scale: reduce ? 1 : 1.03, child: face(lifted: true)),
+            scale: reduce ? 1 : 1.03,
+            child: face(lifted: true),
+          ),
         ),
       ),
     );
     final hidden = Opacity(opacity: 0.35, child: face());
-    final touch = defaultTargetPlatform == TargetPlatform.android ||
+    final touch =
+        defaultTargetPlatform == TargetPlatform.android ||
         defaultTargetPlatform == TargetPlatform.iOS;
     void start() => setState(() => _dragging = card.id);
     void end() => setState(() {
-          _dragging = null;
-          _overColumn = null;
-          _overIndex = null;
-        });
+      _dragging = null;
+      _overColumn = null;
+      _overIndex = null;
+    });
     final child = _dragging == card.id ? hidden : focusable;
     if (touch) {
       return LongPressDraggable<String>(

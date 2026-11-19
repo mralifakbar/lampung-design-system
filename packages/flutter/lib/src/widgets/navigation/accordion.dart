@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -83,11 +83,13 @@ class _LdsAccordionState extends State<LdsAccordion> {
       if (i > 0) {
         children.add(Divider(height: 1, thickness: 1, color: c.hairline));
       }
-      children.add(_AccordionSection(
-        item: widget.items[i],
-        open: _open.contains(i),
-        onToggle: () => _toggle(i),
-      ));
+      children.add(
+        _AccordionSection(
+          item: widget.items[i],
+          open: _open.contains(i),
+          onToggle: () => _toggle(i),
+        ),
+      );
     }
     return Container(
       clipBehavior: Clip.antiAlias,
@@ -125,58 +127,65 @@ class _AccordionSection extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         MergeSemantics(
-            child: Semantics(
-          expanded: open,
-          child: LdsPressable(
-            onPressed: onToggle,
-            pressedScale: 1,
-            borderRadius: BorderRadius.zero,
-            semanticLabel: item.subtitle == null
-                ? item.title
-                : '${item.title}, ${item.subtitle}',
-            excludeChildSemantics: true,
-            builder: (context, state) => AnimatedContainer(
-              duration: context.ldsDuration(LdsMotion.fast),
-              constraints: const BoxConstraints(minHeight: 56),
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              color: state.hovered || state.pressed
-                  ? c.bgTint
-                  : Colors.transparent,
-              child: Row(
-                children: [
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        Text(
-                          item.title,
-                          style: LdsType.bodyStrong.copyWith(
-                            color: c.textStrong,
-                            height: 20 / 15,
+          child: Semantics(
+            expanded: open,
+            child: LdsPressable(
+              onPressed: onToggle,
+              pressedScale: 1,
+              borderRadius: BorderRadius.zero,
+              semanticLabel: item.subtitle == null
+                  ? item.title
+                  : '${item.title}, ${item.subtitle}',
+              excludeChildSemantics: true,
+              builder: (context, state) => AnimatedContainer(
+                duration: context.ldsDuration(LdsMotion.fast),
+                constraints: const BoxConstraints(minHeight: 56),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                color: state.hovered || state.pressed
+                    ? c.bgTint
+                    : Colors.transparent,
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Text(
+                            item.title,
+                            style: LdsType.bodyStrong.copyWith(
+                              color: c.textStrong,
+                              height: 20 / 15,
+                            ),
                           ),
-                        ),
-                        if (item.subtitle != null) ...[
-                          const SizedBox(height: 2),
-                          Text(item.subtitle!,
-                              style: LdsType.footnote
-                                  .copyWith(color: c.textSubtle)),
+                          if (item.subtitle != null) ...[
+                            const SizedBox(height: 2),
+                            Text(
+                              item.subtitle!,
+                              style: LdsType.footnote.copyWith(
+                                color: c.textSubtle,
+                              ),
+                            ),
+                          ],
                         ],
-                      ],
+                      ),
                     ),
-                  ),
-                  const SizedBox(width: 12),
-                  AnimatedRotation(
-                    turns: open ? 0.5 : 0,
-                    duration: spring,
-                    curve: LdsSpringCurve.smooth,
-                    child: LdsIcon('expand_more', color: c.textSubtle),
-                  ),
-                ],
+                    const SizedBox(width: 12),
+                    AnimatedRotation(
+                      turns: open ? 0.5 : 0,
+                      duration: spring,
+                      curve: LdsSpringCurve.smooth,
+                      child: LdsIcon('expand_more', color: c.textSubtle),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
-        )),
+        ),
         LdsHeightExpand(
           open: open,
           child: Padding(

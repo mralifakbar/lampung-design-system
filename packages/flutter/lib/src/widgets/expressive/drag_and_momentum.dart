@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/physics.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../tokens.g.dart';
@@ -87,8 +87,12 @@ class _LdsMomentumDragState extends State<LdsMomentumDrag>
   double get _max => widget.snapPoints.last;
 
   double _resist(double raw) {
-    if (raw < _min) return _min + LdsMomentum.rubberBand(raw - _min, widget.resistance);
-    if (raw > _max) return _max + LdsMomentum.rubberBand(raw - _max, widget.resistance);
+    if (raw < _min) {
+      return _min + LdsMomentum.rubberBand(raw - _min, widget.resistance);
+    }
+    if (raw > _max) {
+      return _max + LdsMomentum.rubberBand(raw - _max, widget.resistance);
+    }
     return raw;
   }
 
@@ -122,12 +126,14 @@ class _LdsMomentumDragState extends State<LdsMomentumDrag>
     if (context.ldsReduceMotion) {
       _c.animateTo(target, duration: LdsMotion.instant);
     } else {
-      _c.animateWith(SpringSimulation(
-        momentum ? LdsMotion.momentumSpring : LdsMotion.smoothSpring,
-        _c.value,
-        target,
-        velocity,
-      ));
+      _c.animateWith(
+        SpringSimulation(
+          momentum ? LdsMotion.momentumSpring : LdsMotion.smoothSpring,
+          _c.value,
+          target,
+          velocity,
+        ),
+      );
     }
     if (index != _index) {
       setState(() => _index = index);
@@ -153,10 +159,12 @@ class _LdsMomentumDragState extends State<LdsMomentumDrag>
   Widget build(BuildContext context) {
     final horizontal = widget.axis == Axis.horizontal;
     final last = widget.snapPoints.length - 1;
-    final forward =
-        horizontal ? LogicalKeyboardKey.arrowRight : LogicalKeyboardKey.arrowDown;
-    final back =
-        horizontal ? LogicalKeyboardKey.arrowLeft : LogicalKeyboardKey.arrowUp;
+    final forward = horizontal
+        ? LogicalKeyboardKey.arrowRight
+        : LogicalKeyboardKey.arrowDown;
+    final back = horizontal
+        ? LogicalKeyboardKey.arrowLeft
+        : LogicalKeyboardKey.arrowUp;
     return Semantics(
       label: widget.semanticLabel,
       value: _label(_index),
@@ -171,7 +179,8 @@ class _LdsMomentumDragState extends State<LdsMomentumDrag>
         },
         actions: {
           _StepIntent: CallbackAction<_StepIntent>(
-              onInvoke: (intent) => _step(intent.delta)),
+            onInvoke: (intent) => _step(intent.delta),
+          ),
         },
         mouseCursor: SystemMouseCursors.grab,
         child: GestureDetector(

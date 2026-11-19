@@ -37,10 +37,14 @@ class _LdsScrollFadesState extends State<LdsScrollFades> {
 
   bool _onMetrics(ScrollMetrics m) {
     if (m.axis != widget.axis) return false;
-    final a =
-        math.min(widget.extent, math.max(0.0, m.pixels - m.minScrollExtent));
-    final b =
-        math.min(widget.extent, math.max(0.0, m.maxScrollExtent - m.pixels));
+    final a = math.min(
+      widget.extent,
+      math.max(0.0, m.pixels - m.minScrollExtent),
+    );
+    final b = math.min(
+      widget.extent,
+      math.max(0.0, m.maxScrollExtent - m.pixels),
+    );
     if (a != _a || b != _b) {
       setState(() {
         _a = a;
@@ -63,8 +67,8 @@ class _LdsScrollFadesState extends State<LdsScrollFades> {
             final length = vertical ? rect.height : rect.width;
             if (length <= 0) {
               return const LinearGradient(
-                      colors: [Color(0xFF000000), Color(0xFF000000)])
-                  .createShader(rect);
+                colors: [Color(0xFF000000), Color(0xFF000000)],
+              ).createShader(rect);
             }
             final sa = (_a / length).clamp(0.0, 0.5);
             final sb = 1 - (_b / length).clamp(0.0, 0.5);

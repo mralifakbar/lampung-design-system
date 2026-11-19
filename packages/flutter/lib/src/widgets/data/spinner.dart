@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Eight spokes whose light appears to turn: work is in progress.
 ///
@@ -16,11 +16,8 @@ class LdsSpinner extends StatefulWidget {
   });
 
   /// Creates the 32 px spinner for a panel that loads.
-  const LdsSpinner.large({
-    super.key,
-    this.color,
-    this.semanticLabel = 'Memuat',
-  }) : size = 32;
+  const LdsSpinner.large({super.key, this.color, this.semanticLabel = 'Memuat'})
+    : size = 32;
 
   /// Box size.
   final double size;
@@ -53,9 +50,7 @@ class _LdsSpinnerState extends State<LdsSpinner>
     final color = widget.color ?? DefaultTextStyle.of(context).style.color!;
     final spinner = SizedBox.square(
       dimension: widget.size,
-      child: CustomPaint(
-        painter: _SpokePainter(_c, color, widget.size >= 32),
-      ),
+      child: CustomPaint(painter: _SpokePainter(_c, color, widget.size >= 32)),
     );
     if (widget.semanticLabel == null) return ExcludeSemantics(child: spinner);
     return Semantics(

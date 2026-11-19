@@ -6,11 +6,18 @@ import 'package:lampung_design_system/lampung_design_system.dart';
 import 'helpers.dart';
 
 void main() {
-  for (final (mode, c) in [('light', LdsColors.light), ('dark', LdsColors.dark)]) {
+  for (final (mode, c) in [
+    ('light', LdsColors.light),
+    ('dark', LdsColors.dark),
+  ]) {
     group('$mode contrast', () {
       void aa(String name, Color fg, Color bg, [double min = 4.5]) {
         final ratio = contrast(fg, bg, c.bgCanvas);
-        expect(ratio, greaterThanOrEqualTo(min), reason: '$mode $name: ${ratio.toStringAsFixed(2)}:1');
+        expect(
+          ratio,
+          greaterThanOrEqualTo(min),
+          reason: '$mode $name: ${ratio.toStringAsFixed(2)}:1',
+        );
       }
 
       test('accent text pairs hold AA', () {

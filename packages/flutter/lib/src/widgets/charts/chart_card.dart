@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -104,10 +104,7 @@ class LdsChartCard extends StatelessWidget {
                 runSpacing: LdsSpace.s12,
                 children: [titles, actions!],
               ),
-            if (figure != null) ...[
-              const SizedBox(height: 14),
-              figure!,
-            ],
+            if (figure != null) ...[const SizedBox(height: 14), figure!],
             const SizedBox(height: 14),
             child,
             if (hasFooter) ...[
@@ -121,12 +118,14 @@ class LdsChartCard extends StatelessWidget {
                       child: Text(
                         footer!,
                         style: LdsType.footnote.copyWith(
-                            color: c.textSubtle, fontFeatures: tabular),
+                          color: c.textSubtle,
+                          fontFeatures: tabular,
+                        ),
                       ),
                     )
                   else
                     const Spacer(),
-                  if (footerTrailing != null) footerTrailing!,
+                  ?footerTrailing,
                 ],
               ),
             ],
@@ -172,7 +171,7 @@ class LdsChartFigure extends StatelessWidget {
             fontFeatures: tabular,
           ),
         ),
-        if (delta != null) delta!,
+        ?delta,
         if (note != null)
           Text(note!, style: LdsType.footnote.copyWith(color: c.textSubtle)),
       ],

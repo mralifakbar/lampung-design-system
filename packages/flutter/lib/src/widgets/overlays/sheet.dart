@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -52,8 +52,9 @@ class LdsSheet extends StatelessWidget {
         child: Container(
           decoration: BoxDecoration(
             color: c.bgElevated,
-            borderRadius:
-                const BorderRadius.vertical(top: Radius.circular(LdsRadius.xl)),
+            borderRadius: const BorderRadius.vertical(
+              top: Radius.circular(LdsRadius.xl),
+            ),
             boxShadow: context.ldsShadows.lg,
           ),
           padding: EdgeInsets.only(bottom: bottomInset),
@@ -71,7 +72,8 @@ class LdsSheet extends StatelessWidget {
                     decoration: BoxDecoration(
                       color: c.textFaint,
                       borderRadius: const BorderRadius.all(
-                          Radius.circular(LdsRadius.pill)),
+                        Radius.circular(LdsRadius.pill),
+                      ),
                     ),
                   ),
                 ),
@@ -85,8 +87,9 @@ class LdsSheet extends StatelessWidget {
                             header: true,
                             child: Text(
                               title ?? '',
-                              style: LdsType.headline
-                                  .copyWith(color: c.textStrong),
+                              style: LdsType.headline.copyWith(
+                                color: c.textStrong,
+                              ),
                             ),
                           ),
                         ),
@@ -102,10 +105,7 @@ class LdsSheet extends StatelessWidget {
                     ),
                   ),
                 Flexible(
-                  child: SingleChildScrollView(
-                    padding: padding,
-                    child: child,
-                  ),
+                  child: SingleChildScrollView(padding: padding, child: child),
                 ),
               ],
             ),
@@ -206,8 +206,11 @@ class _LdsSheetRoute<T> extends PopupRoute<T> {
   }
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
+  Widget buildPage(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+  ) {
     return Semantics(
       scopesRoute: true,
       explicitChildNodes: true,
@@ -218,15 +221,22 @@ class _LdsSheetRoute<T> extends PopupRoute<T> {
             maxWidth: 640,
             maxHeight: MediaQuery.sizeOf(context).height * 0.92,
           ),
-          child: _SheetDrag(route: this, child: Builder(builder: builder)),
+          child: _SheetDrag(
+            route: this,
+            child: Builder(builder: builder),
+          ),
         ),
       ),
     );
   }
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
     if (reduceMotion) {
       return FadeTransition(opacity: animation, child: child);
     }

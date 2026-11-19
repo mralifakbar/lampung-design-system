@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -147,7 +147,7 @@ class _LdsPasswordFieldState extends State<LdsPasswordField> {
       error: widget.error,
       help: showMeter ? _labels[strength] : widget.help,
       autofillHints: [
-        widget.newPassword ? AutofillHints.newPassword : AutofillHints.password
+        widget.newPassword ? AutofillHints.newPassword : AutofillHints.password,
       ],
       keyboardType: TextInputType.visiblePassword,
       onChanged: (v) {
@@ -160,8 +160,9 @@ class _LdsPasswordFieldState extends State<LdsPasswordField> {
         semanticLabel: _visible ? widget.hideLabel : widget.showLabel,
         showTooltip: false,
         color: c.textSubtle,
-        onPressed:
-            widget.enabled ? () => setState(() => _visible = !_visible) : null,
+        onPressed: widget.enabled
+            ? () => setState(() => _visible = !_visible)
+            : null,
       ),
     );
 

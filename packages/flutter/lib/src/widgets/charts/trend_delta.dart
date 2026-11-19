@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -83,7 +83,8 @@ class LdsTrendDelta extends StatelessWidget {
       LdsTrendDirection.down => 0.5,
       LdsTrendDirection.flat => 0.25,
     };
-    final spoken = semanticLabel ??
+    final spoken =
+        semanticLabel ??
         switch (direction) {
           LdsTrendDirection.up => 'naik',
           LdsTrendDirection.down => 'turun',
@@ -110,9 +111,13 @@ class LdsTrendDelta extends StatelessWidget {
         ),
         if (note != null) ...[
           const SizedBox(width: 4),
-          Text(note!,
-              style: LdsType.footnote.copyWith(
-                  fontWeight: FontWeight.w400, color: c.textMuted)),
+          Text(
+            note!,
+            style: LdsType.footnote.copyWith(
+              fontWeight: FontWeight.w400,
+              color: c.textMuted,
+            ),
+          ),
         ],
       ],
     );
@@ -125,8 +130,9 @@ class LdsTrendDelta extends StatelessWidget {
               padding: const EdgeInsets.only(left: 5, right: 7),
               decoration: BoxDecoration(
                 color: tint,
-                borderRadius:
-                    const BorderRadius.all(Radius.circular(LdsRadius.xs)),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(LdsRadius.xs),
+                ),
               ),
               child: content,
             )

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -109,7 +109,7 @@ class LdsToast extends StatelessWidget {
                         duration: context.ldsDuration(LdsMotion.standard),
                         layoutBuilder: (current, previous) => Stack(
                           alignment: AlignmentDirectional.centerStart,
-                          children: [...previous, if (current != null) current],
+                          children: [...previous, ?current],
                         ),
                         child: Text(
                           title,
@@ -157,8 +157,9 @@ class LdsToast extends StatelessWidget {
                     child: Container(
                       decoration: BoxDecoration(
                         color: c.textInverse.withValues(alpha: 0.6),
-                        borderRadius:
-                            const BorderRadius.all(Radius.circular(1)),
+                        borderRadius: const BorderRadius.all(
+                          Radius.circular(1),
+                        ),
                       ),
                     ),
                   ),
@@ -311,8 +312,10 @@ class _ToastItem extends StatefulWidget {
 
 class _ToastItemState extends State<_ToastItem> with TickerProviderStateMixin {
   late final AnimationController _show = AnimationController(vsync: this);
-  late final AnimationController _life =
-      AnimationController(vsync: this, duration: widget.data.duration);
+  late final AnimationController _life = AnimationController(
+    vsync: this,
+    duration: widget.data.duration,
+  );
   late final CurvedAnimation _rise = CurvedAnimation(
     parent: _show,
     curve: LdsSpringCurve.smooth,
@@ -337,10 +340,12 @@ class _ToastItemState extends State<_ToastItem> with TickerProviderStateMixin {
     super.didChangeDependencies();
     if (_started) return;
     _started = true;
-    _show.duration =
-        context.ldsReduceMotion ? LdsMotion.instant : LdsMotion.smooth;
-    _show.reverseDuration =
-        context.ldsReduceMotion ? LdsMotion.instant : LdsMotion.exit;
+    _show.duration = context.ldsReduceMotion
+        ? LdsMotion.instant
+        : LdsMotion.smooth;
+    _show.reverseDuration = context.ldsReduceMotion
+        ? LdsMotion.instant
+        : LdsMotion.exit;
     _show.forward();
     _life.forward();
   }
@@ -431,8 +436,9 @@ class _ToastItemState extends State<_ToastItem> with TickerProviderStateMixin {
                         icon: d.icon,
                         actionLabel: d.actionLabel,
                         onAction: d.actionLabel == null ? null : _runAction,
-                        remaining:
-                            d.actionLabel == null ? null : 1 - _life.value,
+                        remaining: d.actionLabel == null
+                            ? null
+                            : 1 - _life.value,
                       ),
                     ),
                   ),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -44,8 +44,9 @@ class LdsLinkCard extends StatelessWidget {
   /// Overrides the announced label.
   final String? semanticLabel;
 
-  static const BorderRadius _radius =
-      BorderRadius.all(Radius.circular(LdsRadius.lg));
+  static const BorderRadius _radius = BorderRadius.all(
+    Radius.circular(LdsRadius.lg),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -89,12 +90,16 @@ class LdsLinkCard extends StatelessWidget {
                 ),
                 const SizedBox(height: 6),
               ],
-              Text(title,
-                  style: LdsType.headline.copyWith(color: c.textStrong)),
+              Text(
+                title,
+                style: LdsType.headline.copyWith(color: c.textStrong),
+              ),
               if (body != null) ...[
                 const SizedBox(height: 6),
-                Text(body!,
-                    style: LdsType.subhead.copyWith(color: c.textSubtle)),
+                Text(
+                  body!,
+                  style: LdsType.subhead.copyWith(color: c.textSubtle),
+                ),
               ],
               Padding(
                 padding: const EdgeInsets.only(top: 16),

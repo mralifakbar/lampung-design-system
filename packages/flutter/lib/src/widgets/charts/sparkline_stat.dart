@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../tokens.g.dart';
 import '../badge.dart';
@@ -67,9 +67,11 @@ class LdsSparklineStat extends StatelessWidget {
               LdsChartFigure(value),
               if (change != null) ...[
                 const SizedBox(height: LdsSpace.s8),
-                LdsBadge(change!,
-                    tone: changeTone,
-                    icon: rising ? 'trending_up' : 'trending_down'),
+                LdsBadge(
+                  change!,
+                  tone: changeTone,
+                  icon: rising ? 'trending_up' : 'trending_down',
+                ),
               ],
             ],
           ),

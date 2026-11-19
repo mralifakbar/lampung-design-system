@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -138,8 +138,10 @@ class _LdsProgressBarState extends State<LdsProgressBar>
           child: Row(
             children: [
               Expanded(
-                child: Text(widget.label ?? '',
-                    style: LdsType.footnote.copyWith(color: c.textSubtle)),
+                child: Text(
+                  widget.label ?? '',
+                  style: LdsType.footnote.copyWith(color: c.textSubtle),
+                ),
               ),
               if (widget.valueLabel != null)
                 Text(

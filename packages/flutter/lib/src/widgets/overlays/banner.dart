@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -56,8 +56,10 @@ class _LdsBannerState extends State<LdsBanner>
     vsync: this,
     value: widget.visible ? 1 : 0,
   );
-  late final CurvedAnimation _size =
-      CurvedAnimation(parent: _anim, curve: LdsSpringCurve.smooth);
+  late final CurvedAnimation _size = CurvedAnimation(
+    parent: _anim,
+    curve: LdsSpringCurve.smooth,
+  );
 
   @override
   void didUpdateWidget(LdsBanner oldWidget) {
@@ -83,7 +85,11 @@ class _LdsBannerState extends State<LdsBanner>
     final banner = Container(
       constraints: const BoxConstraints(minHeight: 44),
       padding: EdgeInsetsDirectional.fromSTEB(
-          16, 6, widget.onClose != null ? 4 : 8, 6),
+        16,
+        6,
+        widget.onClose != null ? 4 : 8,
+        6,
+      ),
       decoration: BoxDecoration(
         color: c.bgInverse,
         borderRadius: const BorderRadius.all(Radius.circular(14)),

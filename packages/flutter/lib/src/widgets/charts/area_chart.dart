@@ -66,18 +66,18 @@ class LdsAreaChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => LdsCartesianChart(
-        kind: LdsSeriesKind.area,
-        labels: labels,
-        fullLabels: fullLabels,
-        series: series,
-        semanticLabel: semanticLabel,
-        refs: refs,
-        format: format,
-        yMin: yMin,
-        yMax: yMax,
-        hideYAxis: hideYAxis,
-        height: height,
-        stacked: stacked,
-        step: step,
-      );
+    kind: LdsSeriesKind.area,
+    labels: labels,
+    fullLabels: fullLabels,
+    series: series,
+    semanticLabel: semanticLabel,
+    refs: refs,
+    format: format,
+    yMin: yMin,
+    yMax: yMax,
+    hideYAxis: hideYAxis,
+    height: height,
+    stacked: stacked,
+    step: step,
+  );
 }

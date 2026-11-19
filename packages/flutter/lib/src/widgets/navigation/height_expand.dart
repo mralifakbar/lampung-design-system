@@ -38,8 +38,10 @@ class LdsHeightExpand extends StatefulWidget {
 
 class _LdsHeightExpandState extends State<LdsHeightExpand>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _controller =
-      AnimationController(vsync: this, value: widget.open ? 1 : 0);
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    value: widget.open ? 1 : 0,
+  );
   bool _opening = true;
 
   @override

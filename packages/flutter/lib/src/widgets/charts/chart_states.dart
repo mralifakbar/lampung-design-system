@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -173,8 +173,7 @@ class LdsChartStates extends StatelessWidget {
         return Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            for (var i = 0; i < 4; i++)
-              Container(height: 1, color: c.hairline),
+            for (var i = 0; i < 4; i++) Container(height: 1, color: c.hairline),
             const LdsSkeleton(height: 12, width: 120),
           ],
         );
@@ -185,26 +184,30 @@ class LdsChartStates extends StatelessWidget {
           child: LdsSkeleton(
             width: height,
             height: height / 2,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(height / 2)),
+            borderRadius: BorderRadius.vertical(
+              top: Radius.circular(height / 2),
+            ),
           ),
         );
       case LdsChartSkeletonShape.heatmap:
-        return LayoutBuilder(builder: (context, box) {
-          const cols = 20;
-          final cell = (box.maxWidth - (cols - 1) * 3) / cols;
-          return Wrap(
-            spacing: 3,
-            runSpacing: 3,
-            children: [
-              for (var i = 0; i < cols * 5; i++)
-                LdsSkeleton(
-                  width: cell,
-                  height: cell,
-                  borderRadius: const BorderRadius.all(Radius.circular(3)),
-                ),
-            ],
-          );
-        });
+        return LayoutBuilder(
+          builder: (context, box) {
+            const cols = 20;
+            final cell = (box.maxWidth - (cols - 1) * 3) / cols;
+            return Wrap(
+              spacing: 3,
+              runSpacing: 3,
+              children: [
+                for (var i = 0; i < cols * 5; i++)
+                  LdsSkeleton(
+                    width: cell,
+                    height: cell,
+                    borderRadius: const BorderRadius.all(Radius.circular(3)),
+                  ),
+              ],
+            );
+          },
+        );
       case LdsChartSkeletonShape.rows:
         return Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,

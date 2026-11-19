@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -71,9 +71,10 @@ class LdsDrawer extends StatelessWidget {
                   Expanded(
                     child: Semantics(
                       header: true,
-                      child: Text(title,
-                          style:
-                              LdsType.headline.copyWith(color: c.textStrong)),
+                      child: Text(
+                        title,
+                        style: LdsType.headline.copyWith(color: c.textStrong),
+                      ),
                     ),
                   ),
                   if (onClose != null)

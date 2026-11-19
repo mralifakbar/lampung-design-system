@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -39,8 +39,9 @@ class LdsPullToRefresh extends StatefulWidget {
 
 class _LdsPullToRefreshState extends State<LdsPullToRefresh>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _pull =
-      AnimationController.unbounded(vsync: this);
+  late final AnimationController _pull = AnimationController.unbounded(
+    vsync: this,
+  );
   double _raw = 0;
   bool _dragging = false;
   bool _refreshing = false;
@@ -87,15 +88,25 @@ class _LdsPullToRefreshState extends State<LdsPullToRefresh>
     if (_pull.value >= _threshold) {
       unawaited(_refresh());
     } else {
-      unawaited(_pull.animateTo(0,
-          duration: _d(LdsMotion.smooth), curve: LdsSpringCurve.smooth));
+      unawaited(
+        _pull.animateTo(
+          0,
+          duration: _d(LdsMotion.smooth),
+          curve: LdsSpringCurve.smooth,
+        ),
+      );
     }
   }
 
   Future<void> _refresh() async {
     setState(() => _refreshing = true);
-    unawaited(_pull.animateTo(_threshold,
-        duration: _d(LdsMotion.smooth), curve: LdsSpringCurve.smooth));
+    unawaited(
+      _pull.animateTo(
+        _threshold,
+        duration: _d(LdsMotion.smooth),
+        curve: LdsSpringCurve.smooth,
+      ),
+    );
     try {
       await Future.wait<void>([
         widget.onRefresh(),
@@ -104,8 +115,11 @@ class _LdsPullToRefreshState extends State<LdsPullToRefresh>
     } finally {
       if (mounted) {
         setState(() => _refreshing = false);
-        await _pull.animateTo(0,
-            duration: _d(LdsMotion.smooth), curve: LdsSpringCurve.smooth);
+        await _pull.animateTo(
+          0,
+          duration: _d(LdsMotion.smooth),
+          curve: LdsSpringCurve.smooth,
+        );
       }
     }
   }
@@ -117,7 +131,8 @@ class _LdsPullToRefreshState extends State<LdsPullToRefresh>
       behavior: ScrollConfiguration.of(context).copyWith(
         overscroll: false,
         physics: const AlwaysScrollableScrollPhysics(
-            parent: ClampingScrollPhysics()),
+          parent: ClampingScrollPhysics(),
+        ),
       ),
       child: NotificationListener<ScrollNotification>(
         onNotification: _onScroll,

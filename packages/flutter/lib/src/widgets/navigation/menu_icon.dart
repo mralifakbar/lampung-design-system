@@ -110,29 +110,30 @@ class LdsMenuButton extends StatelessWidget {
   Widget build(BuildContext context) {
     final c = context.lds;
     return MergeSemantics(
-        child: Semantics(
-      expanded: open,
-      child: LdsPressable(
-        onPressed: onPressed,
-        focusNode: focusNode,
-        pressedScale: 0.9,
-        borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.pill)),
-        semanticLabel: open ? closeLabel : openLabel,
-        excludeChildSemantics: true,
-        builder: (context, state) => AnimatedContainer(
-          duration: context.ldsDuration(LdsMotion.fast),
-          width: LdsSize.touchMin,
-          height: LdsSize.touchMin,
-          alignment: Alignment.center,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: state.pressed
-                ? c.bgTintStrong
-                : (state.hovered ? c.bgTint : const Color(0x00000000)),
+      child: Semantics(
+        expanded: open,
+        child: LdsPressable(
+          onPressed: onPressed,
+          focusNode: focusNode,
+          pressedScale: 0.9,
+          borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.pill)),
+          semanticLabel: open ? closeLabel : openLabel,
+          excludeChildSemantics: true,
+          builder: (context, state) => AnimatedContainer(
+            duration: context.ldsDuration(LdsMotion.fast),
+            width: LdsSize.touchMin,
+            height: LdsSize.touchMin,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              color: state.pressed
+                  ? c.bgTintStrong
+                  : (state.hovered ? c.bgTint : const Color(0x00000000)),
+            ),
+            child: LdsMenuIcon(open: open),
           ),
-          child: LdsMenuIcon(open: open),
         ),
       ),
-    ));
+    );
   }
 }

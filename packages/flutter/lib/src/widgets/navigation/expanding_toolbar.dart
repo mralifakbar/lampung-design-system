@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -67,10 +67,10 @@ class _LdsExpandingToolbarState extends State<LdsExpandingToolbar> {
   int? get _active => _focus ?? _hover;
 
   TextStyle get _labelStyle => LdsType.subhead.copyWith(
-        fontWeight: FontWeight.w500,
-        height: 1,
-        color: context.lds.textDefault,
-      );
+    fontWeight: FontWeight.w500,
+    height: 1,
+    color: context.lds.textDefault,
+  );
 
   double _labelWidth(String text) {
     final painter = TextPainter(
@@ -106,61 +106,69 @@ class _LdsExpandingToolbarState extends State<LdsExpandingToolbar> {
       final tool = widget.tools[i];
       final isOpen = i == open;
       if (i > 0) buttons.add(const SizedBox(width: _gap));
-      buttons.add(MouseRegion(
-        onEnter: (_) => setState(() => _hover = i),
-        child: Focus(
-          canRequestFocus: false,
-          skipTraversal: true,
-          onFocusChange: (f) => setState(() {
-            if (f) {
-              _focus = i;
-            } else if (_focus == i) {
-              _focus = null;
-            }
-          }),
-          child: LdsPressable(
-            onPressed: tool.onPressed,
-            pressedScale: 0.94,
-            minSize: Size.zero,
-            borderRadius: const BorderRadius.all(Radius.circular(10)),
-            semanticLabel: tool.label,
-            excludeChildSemantics: true,
-            tooltip: isOpen ? null : tool.label,
-            builder: (context, state) => AnimatedContainer(
-              duration: spring,
-              curve: LdsSpringCurve.smooth,
-              width: widths[i],
-              height: LdsSize.touchMin,
-              clipBehavior: Clip.hardEdge,
-              decoration: const BoxDecoration(),
-              child: OverflowBox(
-                alignment: AlignmentDirectional.centerStart,
-                maxWidth: double.infinity,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    const SizedBox(width: _side),
-                    LdsIcon(tool.icon,
+      buttons.add(
+        MouseRegion(
+          onEnter: (_) => setState(() => _hover = i),
+          child: Focus(
+            canRequestFocus: false,
+            skipTraversal: true,
+            onFocusChange: (f) => setState(() {
+              if (f) {
+                _focus = i;
+              } else if (_focus == i) {
+                _focus = null;
+              }
+            }),
+            child: LdsPressable(
+              onPressed: tool.onPressed,
+              pressedScale: 0.94,
+              minSize: Size.zero,
+              borderRadius: const BorderRadius.all(Radius.circular(10)),
+              semanticLabel: tool.label,
+              excludeChildSemantics: true,
+              tooltip: isOpen ? null : tool.label,
+              builder: (context, state) => AnimatedContainer(
+                duration: spring,
+                curve: LdsSpringCurve.smooth,
+                width: widths[i],
+                height: LdsSize.touchMin,
+                clipBehavior: Clip.hardEdge,
+                decoration: const BoxDecoration(),
+                child: OverflowBox(
+                  alignment: AlignmentDirectional.centerStart,
+                  maxWidth: double.infinity,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      const SizedBox(width: _side),
+                      LdsIcon(
+                        tool.icon,
                         color: tool.onPressed == null
                             ? c.textFaint
-                            : c.textDefault),
-                    const SizedBox(width: _labelGap),
-                    AnimatedOpacity(
-                      opacity: isOpen ? 1 : 0,
-                      duration: isOpen
-                          ? context.ldsDuration(LdsMotion.fast)
-                          : Duration.zero,
-                      child: Text(tool.label,
-                          maxLines: 1, softWrap: false, style: _labelStyle),
-                    ),
-                    const SizedBox(width: _side),
-                  ],
+                            : c.textDefault,
+                      ),
+                      const SizedBox(width: _labelGap),
+                      AnimatedOpacity(
+                        opacity: isOpen ? 1 : 0,
+                        duration: isOpen
+                            ? context.ldsDuration(LdsMotion.fast)
+                            : Duration.zero,
+                        child: Text(
+                          tool.label,
+                          maxLines: 1,
+                          softWrap: false,
+                          style: _labelStyle,
+                        ),
+                      ),
+                      const SizedBox(width: _side),
+                    ],
+                  ),
                 ),
               ),
             ),
           ),
         ),
-      ));
+      );
     }
 
     return Semantics(

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -102,10 +102,12 @@ Future<void> showLdsLightbox({
       barrierDismissible: true,
       barrierLabel: closeLabel,
       barrierColor: context.lds.bgScrim,
-      transitionDuration:
-          reduce ? LdsMotion.instant : const Duration(milliseconds: 420),
-      reverseTransitionDuration:
-          reduce ? LdsMotion.instant : const Duration(milliseconds: 220),
+      transitionDuration: reduce
+          ? LdsMotion.instant
+          : const Duration(milliseconds: 420),
+      reverseTransitionDuration: reduce
+          ? LdsMotion.instant
+          : const Duration(milliseconds: 220),
       pageBuilder: (context, animation, _) {
         final c = context.lds;
         Widget picture = Image(
@@ -114,10 +116,7 @@ Future<void> showLdsLightbox({
           semanticLabel: semanticLabel,
         );
         if (heroTag != null && !reduce) {
-          picture = Hero(
-            tag: heroTag,
-            child: picture,
-          );
+          picture = Hero(tag: heroTag, child: picture);
         }
         return Semantics(
           scopesRoute: true,
@@ -137,7 +136,8 @@ Future<void> showLdsLightbox({
                     child: Center(
                       child: ClipRRect(
                         borderRadius: const BorderRadius.all(
-                            Radius.circular(LdsRadius.md)),
+                          Radius.circular(LdsRadius.md),
+                        ),
                         child: picture,
                       ),
                     ),
@@ -174,17 +174,21 @@ Future<void> showLdsLightbox({
                             child: Center(
                               child: Container(
                                 padding: const EdgeInsets.symmetric(
-                                    horizontal: 12, vertical: 6),
+                                  horizontal: 12,
+                                  vertical: 6,
+                                ),
                                 decoration: BoxDecoration(
                                   color: c.bgInverse,
                                   borderRadius: const BorderRadius.all(
-                                      Radius.circular(10)),
+                                    Radius.circular(10),
+                                  ),
                                 ),
                                 child: Text(
                                   caption,
                                   textAlign: TextAlign.center,
-                                  style: LdsType.footnote
-                                      .copyWith(color: c.textInverse),
+                                  style: LdsType.footnote.copyWith(
+                                    color: c.textInverse,
+                                  ),
                                 ),
                               ),
                             ),

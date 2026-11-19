@@ -1,8 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lampung_design_system/src/charts.dart';
 import 'package:lampung_design_system/src/theme.dart';
 import 'package:lampung_design_system/src/tokens.g.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'helpers.dart';
 
@@ -13,8 +13,7 @@ Map<String, Widget> _gallery() => {
       'bar': const LdsBarChart(
         labels: _days,
         series: [
-          LdsChartSeries(
-              name: 'Laporan', values: [12, 18, 26, 22, 31, 9, 4]),
+          LdsChartSeries(name: 'Laporan', values: [12, 18, 26, 22, 31, 9, 4]),
         ],
         highlight: 4,
         semanticLabel: 'Laporan warga per hari. Jumat tersibuk dengan 31.',
@@ -33,7 +32,10 @@ Map<String, Widget> _gallery() => {
         series: [
           LdsChartSeries(name: 'Metro', values: [62, 68, 65, 71, 74]),
           LdsChartSeries(
-              name: 'Rata-rata', values: [64, 66, 67, 68, 70], dashed: true),
+            name: 'Rata-rata',
+            values: [64, 66, 67, 68, 70],
+            dashed: true,
+          ),
         ],
         refs: [LdsChartRef(72, 'Target 72')],
         semanticLabel: 'Skor layanan Metro naik di atas rata-rata.',
@@ -55,10 +57,11 @@ Map<String, Widget> _gallery() => {
           LdsChartSeries(
               name: 'Realisasi', values: [31000, 34000, -2000, 38000]),
           LdsChartSeries(
-              name: 'Rencana',
-              values: [32000, 33000, 34000, 36000],
-              kind: LdsSeriesKind.line,
-              dashed: true),
+            name: 'Rencana',
+            values: [32000, 33000, 34000, 36000],
+            kind: LdsSeriesKind.line,
+            dashed: true,
+          ),
         ],
         semanticLabel: 'Realisasi anggaran terhadap rencana.',
       ),
@@ -125,8 +128,11 @@ Map<String, Widget> _gallery() => {
         label: 'Permohonan izin masuk',
         value: '1.284',
         icon: 'inbox',
-        delta: LdsTrendDelta('+12%',
-            direction: LdsTrendDirection.up, meaning: LdsTrendMeaning.good),
+        delta: LdsTrendDelta(
+          '+12%',
+          direction: LdsTrendDirection.up,
+          meaning: LdsTrendMeaning.good,
+        ),
         baseline: 'dari 1.146 di Oktober',
         spark: [3, 5, 4, 6, 7, 6, 8],
         sparkLabel: 'Naik sepanjang bulan',
@@ -136,16 +142,20 @@ Map<String, Widget> _gallery() => {
         value: '86',
         bars: [4, 6, 3, 8, 5],
       ),
-      'stat row': const LdsStatRow(stats: [
-        LdsStat('Laporan selesai', '1.120', sub: 'Dari 1.284 laporan'),
-        LdsStat('Rata-rata waktu', '2,4 hari'),
-        LdsStat('Sedang diproses', null),
-      ]),
-      'trend pill': const LdsTrendDelta('−3',
-          direction: LdsTrendDirection.down,
-          meaning: LdsTrendMeaning.good,
-          pill: true,
-          note: 'vs Oktober'),
+      'stat row': const LdsStatRow(
+        stats: [
+          LdsStat('Laporan selesai', '1.120', sub: 'Dari 1.284 laporan'),
+          LdsStat('Rata-rata waktu', '2,4 hari'),
+          LdsStat('Sedang diproses', null),
+        ],
+      ),
+      'trend pill': const LdsTrendDelta(
+        '−3',
+        direction: LdsTrendDirection.down,
+        meaning: LdsTrendMeaning.good,
+        pill: true,
+        note: 'vs Oktober',
+      ),
       'target': const LdsTargetBar(
         label: 'Izin terbit',
         valueText: '842 dari 1.000',
@@ -162,7 +172,7 @@ Map<String, Widget> _gallery() => {
                 ? LdsUptimeStatus.down
                 : i % 17 == 0
                     ? LdsUptimeStatus.warn
-                    : LdsUptimeStatus.ok
+                    : LdsUptimeStatus.ok,
         ],
         labels: [for (var i = 0; i < 90; i++) 'Hari ${i + 1}: tanpa gangguan'],
         summary: 'Semua layanan berjalan normal',
@@ -173,41 +183,54 @@ Map<String, Widget> _gallery() => {
       'card': const LdsChartCard(
         question: 'Hari apa yang paling sibuk?',
         subtitle: 'Laporan warga per hari, minggu ini',
-        figure: LdsChartFigure('122',
-            delta: LdsTrendDelta('+8%', direction: LdsTrendDirection.up)),
-        footer: 'Diperbarui 08.00 WIB',
-        child: LdsChartStates(
-          status: LdsChartStatus.loading,
-          child: SizedBox(),
+        figure: LdsChartFigure(
+          '122',
+          delta: LdsTrendDelta('+8%', direction: LdsTrendDirection.up),
         ),
+        footer: 'Diperbarui 08.00 WIB',
+        child:
+            LdsChartStates(status: LdsChartStatus.loading, child: SizedBox()),
       ),
       'map': const LdsMap(
         regions: [
           LdsMapRegion(
-              name: 'Kedaton',
-              points: [Offset(0, 0), Offset(10, 0), Offset(10, 10), Offset(0, 10)],
-              value: 3,
-              label: 'Kedaton: 128 laporan'),
+            name: 'Kedaton',
+            points: [
+              Offset(0, 0),
+              Offset(10, 0),
+              Offset(10, 10),
+              Offset(0, 10)
+            ],
+            value: 3,
+            label: 'Kedaton: 128 laporan',
+          ),
           LdsMapRegion(
-              name: 'Rajabasa',
-              points: [Offset(10, 0), Offset(20, 0), Offset(20, 10), Offset(10, 10)],
-              value: 1),
+            name: 'Rajabasa',
+            points: [
+              Offset(10, 0),
+              Offset(20, 0),
+              Offset(20, 10),
+              Offset(10, 10)
+            ],
+            value: 1,
+          ),
         ],
         pins: [
           LdsMapPin(at: Offset(5, 5), label: 'Posko Kedaton'),
           LdsMapPin(
-              at: Offset(15, 8),
-              label: 'Terminal Rajabasa',
-              kind: LdsMapPinKind.destination),
-          LdsMapPin(
-              at: Offset(2, 8), label: 'Halte', kind: LdsMapPinKind.stop),
+            at: Offset(15, 8),
+            label: 'Terminal Rajabasa',
+            kind: LdsMapPinKind.destination,
+          ),
+          LdsMapPin(at: Offset(2, 8), label: 'Halte', kind: LdsMapPinKind.stop),
           LdsMapPin(
               at: Offset(18, 2), label: 'Asal', kind: LdsMapPinKind.origin),
         ],
         routes: [
           LdsMapRoute(
-              path: [Offset(18, 2), Offset(12, 6), Offset(15, 8)],
-              progress: 0.4),
+            path: [Offset(18, 2), Offset(12, 6), Offset(15, 8)],
+            progress: 0.4,
+          ),
         ],
         selected: 5,
         showScale: true,
@@ -222,23 +245,30 @@ Map<String, Widget> _gallery() => {
         ],
         units: const [
           LdsFloorUnit(
-              id: 'l1', name: 'Loket 1', meta: 'Kosong', column: 0, row: 0),
+            id: 'l1',
+            name: 'Loket 1',
+            meta: 'Kosong',
+            column: 0,
+            row: 0,
+          ),
           LdsFloorUnit(
-              id: 'l2',
-              name: 'Loket 2',
-              meta: 'Melayani',
-              column: 1,
-              row: 0,
-              tone: LdsFloorTone.strong,
-              flag: 'flag'),
+            id: 'l2',
+            name: 'Loket 2',
+            meta: 'Melayani',
+            column: 1,
+            row: 0,
+            tone: LdsFloorTone.strong,
+            flag: 'flag',
+          ),
           LdsFloorUnit(
-              id: 'm1',
-              name: 'M1',
-              meta: 'Dipesan',
-              column: 2,
-              row: 0,
-              round: true,
-              tone: LdsFloorTone.accent),
+            id: 'm1',
+            name: 'M1',
+            meta: 'Dipesan',
+            column: 2,
+            row: 0,
+            round: true,
+            tone: LdsFloorTone.accent,
+          ),
         ],
         selected: 'l2',
         onSelect: (_) {},
@@ -276,10 +306,9 @@ void main() {
     group(dark ? 'dark' : 'light', () {
       for (final entry in _gallery().entries) {
         testWidgets('${entry.key} renders', (tester) async {
-          await tester.pumpWidget(wrap(
-            SingleChildScrollView(child: entry.value),
-            dark: dark,
-          ));
+          await tester.pumpWidget(
+            wrap(SingleChildScrollView(child: entry.value), dark: dark),
+          );
           await tester.pump(const Duration(seconds: 1));
           expect(tester.takeException(), isNull);
         });
@@ -289,10 +318,17 @@ void main() {
 
   testWidgets('series colors come from tokens', (tester) async {
     late LdsColors c;
-    await tester.pumpWidget(wrap(Builder(builder: (context) {
-      c = context.lds;
-      return const SizedBox();
-    }), dark: true));
+    await tester.pumpWidget(
+      wrap(
+        Builder(
+          builder: (context) {
+            c = context.lds;
+            return const SizedBox();
+          },
+        ),
+        dark: true,
+      ),
+    );
     expect(LdsSeriesColor.series1.resolve(c), c.series1);
     expect(LdsSeriesColor.at(7), LdsSeriesColor.neutral);
   });
@@ -309,21 +345,28 @@ void main() {
     await tester.pumpWidget(wrap(_gallery()['bar']!));
     await tester.pumpAndSettle();
     final node = tester.getSemantics(
-        find.bySemanticsLabel(RegExp('Jumat tersibuk')));
+      find.bySemanticsLabel(RegExp('Jumat tersibuk')),
+    );
     expect(node.value, contains('Jum: Laporan: 31'));
     handle.dispose();
   });
 
   testWidgets('tapping a bar reads its period', (tester) async {
     final handle = tester.ensureSemantics();
-    await tester.pumpWidget(wrap(const SizedBox(
-      width: 300,
-      child: LdsBarChart(
-        labels: ['A', 'B'],
-        series: [LdsChartSeries(name: 'Laporan', values: [5, 9])],
-        semanticLabel: 'Dua periode.',
+    await tester.pumpWidget(
+      wrap(
+        const SizedBox(
+          width: 300,
+          child: LdsBarChart(
+            labels: ['A', 'B'],
+            series: [
+              LdsChartSeries(name: 'Laporan', values: [5, 9]),
+            ],
+            semanticLabel: 'Dua periode.',
+          ),
+        ),
       ),
-    )));
+    );
     await tester.pumpAndSettle();
     final box = tester.getRect(find.byType(CustomPaint).last);
     await tester.tapAt(Offset(box.right - 20, box.center.dy));
@@ -345,22 +388,30 @@ void main() {
   });
 
   testWidgets('empty status shows the empty state', (tester) async {
-    await tester.pumpWidget(wrap(const LdsChartStates(
-      status: LdsChartStatus.empty,
-      emptyTitle: 'Belum ada laporan minggu ini',
-      child: Text('grafik'),
-    )));
+    await tester.pumpWidget(
+      wrap(
+        const LdsChartStates(
+          status: LdsChartStatus.empty,
+          emptyTitle: 'Belum ada laporan minggu ini',
+          child: Text('grafik'),
+        ),
+      ),
+    );
     expect(find.text('Belum ada laporan minggu ini'), findsOneWidget);
     expect(find.text('grafik'), findsNothing);
   });
 
   testWidgets('error status offers a retry', (tester) async {
     var retried = 0;
-    await tester.pumpWidget(wrap(LdsChartStates(
-      status: LdsChartStatus.error,
-      onRetry: () => retried++,
-      child: const SizedBox(),
-    )));
+    await tester.pumpWidget(
+      wrap(
+        LdsChartStates(
+          status: LdsChartStatus.error,
+          onRetry: () => retried++,
+          child: const SizedBox(),
+        ),
+      ),
+    );
     await tester.tap(find.text('Coba lagi'));
     expect(retried, 1);
   });
@@ -368,7 +419,9 @@ void main() {
   testWidgets('donut folds a fifth part into Lainnya', (tester) async {
     final handle = tester.ensureSemantics();
     await tester.pumpWidget(wrap(_gallery()['donut']!));
-    final node = tester.getSemantics(find.bySemanticsLabel(RegExp('Asal 1.284')));
+    final node = tester.getSemantics(
+      find.bySemanticsLabel(RegExp('Asal 1.284')),
+    );
     expect(node.value, contains('Lainnya 74'));
     handle.dispose();
   });
@@ -381,7 +434,9 @@ void main() {
   });
 
   testWidgets('uptime reads the day under the pointer', (tester) async {
-    await tester.pumpWidget(wrap(SizedBox(width: 300, child: _gallery()['uptime'])));
+    await tester.pumpWidget(
+      wrap(SizedBox(width: 300, child: _gallery()['uptime'])),
+    );
     expect(find.text('Semua layanan berjalan normal'), findsOneWidget);
     final box = tester.getRect(find.byType(CustomPaint).last);
     await tester.tapAt(box.topLeft + const Offset(1, 10));
@@ -391,23 +446,37 @@ void main() {
 
   testWidgets('map selection shows its words', (tester) async {
     final handle = tester.ensureSemantics();
-    await tester.pumpWidget(wrap(const SizedBox(
-      width: 300,
-      child: LdsMap(
-        height: 200,
-        regions: [
-          LdsMapRegion(
-              name: 'Kedaton',
-              points: [Offset(0, 0), Offset(10, 0), Offset(10, 10), Offset(0, 10)],
-              value: 3,
-              label: 'Kedaton: 128 laporan'),
-        ],
-        semanticLabel: 'Laporan per kecamatan.',
+    await tester.pumpWidget(
+      wrap(
+        const SizedBox(
+          width: 300,
+          child: LdsMap(
+            height: 200,
+            regions: [
+              LdsMapRegion(
+                name: 'Kedaton',
+                points: [
+                  Offset(0, 0),
+                  Offset(10, 0),
+                  Offset(10, 10),
+                  Offset(0, 10),
+                ],
+                value: 3,
+                label: 'Kedaton: 128 laporan',
+              ),
+            ],
+            semanticLabel: 'Laporan per kecamatan.',
+          ),
+        ),
       ),
-    )));
-    final node = tester.getSemantics(find.bySemanticsLabel('Laporan per kecamatan.'));
+    );
+    final node = tester.getSemantics(
+      find.bySemanticsLabel('Laporan per kecamatan.'),
+    );
     expect(node.value, 'Kedaton: 128 laporan');
-    await tester.tapAt(tester.getCenter(find.byType(LdsMap)) - const Offset(0, 10));
+    await tester.tapAt(
+      tester.getCenter(find.byType(LdsMap)) - const Offset(0, 10),
+    );
     await tester.pump();
     expect(find.text('Kedaton: 128 laporan'), findsOneWidget);
     handle.dispose();
@@ -415,14 +484,24 @@ void main() {
 
   testWidgets('floor plan unit reports its id', (tester) async {
     String? picked;
-    await tester.pumpWidget(wrap(LdsFloorPlan(
-      columns: 2,
-      semanticLabel: 'Ruang rapat',
-      units: const [
-        LdsFloorUnit(id: 'a', name: 'R1', meta: 'Kosong', column: 0, row: 0),
-      ],
-      onSelect: (id) => picked = id,
-    )));
+    await tester.pumpWidget(
+      wrap(
+        LdsFloorPlan(
+          columns: 2,
+          semanticLabel: 'Ruang rapat',
+          units: const [
+            LdsFloorUnit(
+              id: 'a',
+              name: 'R1',
+              meta: 'Kosong',
+              column: 0,
+              row: 0,
+            ),
+          ],
+          onSelect: (id) => picked = id,
+        ),
+      ),
+    );
     await tester.tap(find.text('R1'));
     await tester.pumpAndSettle();
     expect(picked, 'a');
@@ -441,7 +520,8 @@ void main() {
   testWidgets('number count jumps with reduced motion', (tester) async {
     await tester.pumpWidget(wrap(const LdsNumberCount(10), reduceMotion: true));
     await tester.pumpWidget(
-        wrap(const LdsNumberCount(1284), reduceMotion: true));
+      wrap(const LdsNumberCount(1284), reduceMotion: true),
+    );
     await tester.pump();
     expect(find.text('1.284'), findsOneWidget);
   });
@@ -455,15 +535,18 @@ void main() {
     expect(find.bySemanticsLabel('12.841'), findsOneWidget);
   });
 
-  testWidgets('timer ticks, turns low, and fires once at zero',
-      (tester) async {
+  testWidgets('timer ticks, turns low, and fires once at zero', (tester) async {
     var up = 0;
-    await tester.pumpWidget(wrap(LdsTimer(
-      seconds: 3,
-      low: 2,
-      onTimeUp: () => up++,
-      semanticLabel: 'Sisa waktu sesi',
-    )));
+    await tester.pumpWidget(
+      wrap(
+        LdsTimer(
+          seconds: 3,
+          low: 2,
+          onTimeUp: () => up++,
+          semanticLabel: 'Sisa waktu sesi',
+        ),
+      ),
+    );
     expect(find.text('0:03'), findsOneWidget);
     await tester.pump(const Duration(seconds: 1));
     expect(find.text('0:02'), findsOneWidget);
@@ -475,16 +558,24 @@ void main() {
   });
 
   testWidgets('elapsed timer counts up past its target', (tester) async {
-    await tester.pumpWidget(wrap(const LdsTimer.elapsed(seconds: 719, target: 720)));
+    await tester.pumpWidget(
+      wrap(const LdsTimer.elapsed(seconds: 719, target: 720)),
+    );
     await tester.pump(const Duration(seconds: 2));
     expect(find.text('12:01'), findsOneWidget);
     expect(find.bySemanticsLabel(RegExp('waktu habis')), findsOneWidget);
   });
 
   testWidgets('trend delta speaks its direction', (tester) async {
-    await tester.pumpWidget(wrap(const LdsTrendDelta('+12%',
-        direction: LdsTrendDirection.up,
-        semanticLabel: 'naik dari bulan lalu')));
+    await tester.pumpWidget(
+      wrap(
+        const LdsTrendDelta(
+          '+12%',
+          direction: LdsTrendDirection.up,
+          semanticLabel: 'naik dari bulan lalu',
+        ),
+      ),
+    );
     expect(find.bySemanticsLabel('+12% naik dari bulan lalu'), findsOneWidget);
   });
 }

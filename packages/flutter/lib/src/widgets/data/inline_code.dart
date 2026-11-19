@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -19,10 +19,10 @@ class LdsInlineCode extends StatelessWidget {
 
   /// The same chip as a [WidgetSpan] for [Text.rich].
   static InlineSpan span(String code, {double fontSize = 14}) => WidgetSpan(
-        alignment: PlaceholderAlignment.baseline,
-        baseline: TextBaseline.alphabetic,
-        child: LdsInlineCode(code, fontSize: fontSize),
-      );
+    alignment: PlaceholderAlignment.baseline,
+    baseline: TextBaseline.alphabetic,
+    child: LdsInlineCode(code, fontSize: fontSize),
+  );
 
   @override
   Widget build(BuildContext context) {

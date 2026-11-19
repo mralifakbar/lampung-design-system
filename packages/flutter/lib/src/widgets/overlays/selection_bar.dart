@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -72,8 +72,10 @@ class LdsSelectionBar extends StatefulWidget {
 
 class _LdsSelectionBarState extends State<LdsSelectionBar>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _anim =
-      AnimationController(vsync: this, value: widget.count > 0 ? 1 : 0);
+  late final AnimationController _anim = AnimationController(
+    vsync: this,
+    value: widget.count > 0 ? 1 : 0,
+  );
   late final CurvedAnimation _rise = CurvedAnimation(
     parent: _anim,
     curve: LdsSpringCurve.smooth,

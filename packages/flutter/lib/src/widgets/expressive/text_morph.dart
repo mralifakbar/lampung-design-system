@@ -59,12 +59,13 @@ class _LdsTextMorphState extends State<LdsTextMorph>
   static const double _enterMs = 280;
   static const double _exitMs = 180;
 
-  late final AnimationController _c = AnimationController(
-    vsync: this,
-    duration: const Duration(milliseconds: 600),
-  )..addStatusListener((s) {
-      if (s == AnimationStatus.completed) setState(() => _leaving = const []);
-    });
+  late final AnimationController _c =
+      AnimationController(
+        vsync: this,
+        duration: const Duration(milliseconds: 600),
+      )..addStatusListener((s) {
+        if (s == AnimationStatus.completed) setState(() => _leaving = const []);
+      });
 
   List<_Letter> _letters = const [];
   List<_Letter> _leaving = const [];
@@ -86,7 +87,10 @@ class _LdsTextMorphState extends State<LdsTextMorph>
       DefaultTextStyle.of(context).style.merge(widget.style);
 
   ({List<_Letter> letters, double width, double height}) _layout(
-      String text, TextStyle style, TextScaler scaler) {
+    String text,
+    TextStyle style,
+    TextScaler scaler,
+  ) {
     final painter = TextPainter(
       text: TextSpan(text: text, style: style),
       textDirection: TextDirection.ltr,
@@ -104,8 +108,11 @@ class _LdsTextMorphState extends State<LdsTextMorph>
       letters.add(_Letter('$ch#$n', ch, x, x));
       offset += ch.length;
     }
-    final result =
-        (letters: letters, width: painter.width, height: painter.height);
+    final result = (
+      letters: letters,
+      width: painter.width,
+      height: painter.height,
+    );
     painter.dispose();
     return result;
   }
@@ -132,8 +139,11 @@ class _LdsTextMorphState extends State<LdsTextMorph>
     if (oldWidget.text == widget.text && oldWidget.style == widget.style) {
       return;
     }
-    final next =
-        _layout(widget.text, _style(context), MediaQuery.textScalerOf(context));
+    final next = _layout(
+      widget.text,
+      _style(context),
+      MediaQuery.textScalerOf(context),
+    );
     if (context.ldsReduceMotion || oldWidget.style != widget.style) {
       _c.stop();
       _letters = next.letters;
@@ -153,15 +163,21 @@ class _LdsTextMorphState extends State<LdsTextMorph>
       if (from != null) {
         letters.add(_Letter(l.key, l.char, from, l.toX));
       } else {
-        letters.add(_Letter(l.key, l.char, l.toX, l.toX,
-            enterDelay: math.min(arriving, 8) * 32.0));
+        letters.add(
+          _Letter(
+            l.key,
+            l.char,
+            l.toX,
+            l.toX,
+            enterDelay: math.min(arriving, 8) * 32.0,
+          ),
+        );
         arriving++;
       }
     }
     _leaving = [
       for (final l in _letters)
-        if (!nextKeys.contains(l.key))
-          _Letter(l.key, l.char, _xOf(l), _xOf(l)),
+        if (!nextKeys.contains(l.key)) _Letter(l.key, l.char, _xOf(l), _xOf(l)),
     ];
     _letters = letters;
     _fromWidth = currentWidth;
@@ -176,11 +192,15 @@ class _LdsTextMorphState extends State<LdsTextMorph>
     super.dispose();
   }
 
-  Widget _glyph(String char, TextStyle style, TextScaler scaler,
-      {required double opacity,
-      required double dy,
-      required double scale,
-      required double blur}) {
+  Widget _glyph(
+    String char,
+    TextStyle style,
+    TextScaler scaler, {
+    required double opacity,
+    required double dy,
+    required double scale,
+    required double blur,
+  }) {
     return Opacity(
       opacity: opacity.clamp(0.0, 1.0),
       child: Transform.translate(
@@ -190,8 +210,13 @@ class _LdsTextMorphState extends State<LdsTextMorph>
           child: ImageFiltered(
             enabled: blur > 0.01,
             imageFilter: ui.ImageFilter.blur(sigmaX: blur, sigmaY: blur),
-            child: Text(char,
-                style: style, textScaler: scaler, maxLines: 1, softWrap: false),
+            child: Text(
+              char,
+              style: style,
+              textScaler: scaler,
+              maxLines: 1,
+              softWrap: false,
+            ),
           ),
         ),
       ),
@@ -207,8 +232,7 @@ class _LdsTextMorphState extends State<LdsTextMorph>
       animation: _c,
       builder: (context, _) {
         if (!_c.isAnimating) {
-          return Text(widget.text,
-              style: style, maxLines: 1, softWrap: false);
+          return Text(widget.text, style: style, maxLines: 1, softWrap: false);
         }
         final ms = _ms;
         return SizedBox(
@@ -221,34 +245,55 @@ class _LdsTextMorphState extends State<LdsTextMorph>
                 Positioned(
                   left: l.fromX,
                   top: 0,
-                  child: Builder(builder: (_) {
-                    final p = LdsMotion.exitCurve
-                        .transform(math.min(1, ms / _exitMs));
-                    return _glyph(l.char, style, scaler,
+                  child: Builder(
+                    builder: (_) {
+                      final p = LdsMotion.exitCurve.transform(
+                        math.min(1, ms / _exitMs),
+                      );
+                      return _glyph(
+                        l.char,
+                        style,
+                        scaler,
                         opacity: 1 - p,
                         dy: -lift * p,
                         scale: 1 - 0.2 * p,
-                        blur: 4 * p);
-                  }),
+                        blur: 4 * p,
+                      );
+                    },
+                  ),
                 ),
               for (final l in _letters)
                 Positioned(
                   left: _xOf(l),
                   top: 0,
-                  child: Builder(builder: (_) {
-                    final delay = l.enterDelay;
-                    if (delay == null) {
-                      return _glyph(l.char, style, scaler,
-                          opacity: 1, dy: 0, scale: 1, blur: 0);
-                    }
-                    final p = LdsMotion.enterCurve.transform(
-                        ((ms - delay) / _enterMs).clamp(0.0, 1.0));
-                    return _glyph(l.char, style, scaler,
+                  child: Builder(
+                    builder: (_) {
+                      final delay = l.enterDelay;
+                      if (delay == null) {
+                        return _glyph(
+                          l.char,
+                          style,
+                          scaler,
+                          opacity: 1,
+                          dy: 0,
+                          scale: 1,
+                          blur: 0,
+                        );
+                      }
+                      final p = LdsMotion.enterCurve.transform(
+                        ((ms - delay) / _enterMs).clamp(0.0, 1.0),
+                      );
+                      return _glyph(
+                        l.char,
+                        style,
+                        scaler,
                         opacity: p,
                         dy: lift * (1 - p),
                         scale: 0.8 + 0.2 * p,
-                        blur: 4 * (1 - p));
-                  }),
+                        blur: 4 * (1 - p),
+                      );
+                    },
+                  ),
                 ),
             ],
           ),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -27,18 +27,20 @@ class LdsSections extends StatelessWidget {
         items.add(children[i]);
         continue;
       }
-      items.add(Padding(
-        padding: EdgeInsets.only(top: gap),
-        child: DecoratedBox(
-          decoration: BoxDecoration(
-            border: Border(top: BorderSide(color: c.hairline)),
-          ),
-          child: Padding(
-            padding: const EdgeInsets.only(top: LdsSpace.s40),
-            child: children[i],
+      items.add(
+        Padding(
+          padding: EdgeInsets.only(top: gap),
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              border: Border(top: BorderSide(color: c.hairline)),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.only(top: LdsSpace.s40),
+              child: children[i],
+            ),
           ),
         ),
-      ));
+      );
     }
     return _InSections(
       child: Column(
@@ -79,8 +81,9 @@ class LdsSection extends StatelessWidget {
     final inSections =
         context.dependOnInheritedWidgetOfExactType<_InSections>() != null;
     final wide = MediaQuery.sizeOf(context).width >= 900;
-    final style =
-        inSections ? (wide ? LdsType.title1 : LdsType.title2) : LdsType.title3;
+    final style = inSections
+        ? (wide ? LdsType.title1 : LdsType.title2)
+        : LdsType.title3;
     final gap = inSections ? LdsSpace.s20 : LdsSpace.s12;
     return Semantics(
       container: true,
@@ -97,16 +100,20 @@ class LdsSection extends StatelessWidget {
             children: [
               Semantics(
                 header: true,
-                child: Text(title,
-                    textWidthBasis: TextWidthBasis.longestLine,
-                    style: style.copyWith(color: c.textStrong)),
+                child: Text(
+                  title,
+                  textWidthBasis: TextWidthBasis.longestLine,
+                  style: style.copyWith(color: c.textStrong),
+                ),
               ),
               if (subtitle != null)
                 ConstrainedBox(
                   // About 68 characters at subhead size.
                   constraints: const BoxConstraints(maxWidth: 520),
-                  child: Text(subtitle!,
-                      style: LdsType.subhead.copyWith(color: c.textSubtle)),
+                  child: Text(
+                    subtitle!,
+                    style: LdsType.subhead.copyWith(color: c.textSubtle),
+                  ),
                 ),
             ],
           ),
@@ -129,8 +136,10 @@ class LdsSectionSubtitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Semantics(
       header: true,
-      child: Text(text,
-          style: LdsType.headline.copyWith(color: context.lds.textStrong)),
+      child: Text(
+        text,
+        style: LdsType.headline.copyWith(color: context.lds.textStrong),
+      ),
     );
   }
 }

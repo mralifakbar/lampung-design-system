@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -90,11 +90,13 @@ class LdsCalendar extends StatefulWidget {
 }
 
 class _LdsCalendarState extends State<LdsCalendar> {
-  late DateTime _month = _first(widget.initialMonth ??
-      widget.selected ??
-      widget.range?.start ??
-      widget.today ??
-      DateTime.now());
+  late DateTime _month = _first(
+    widget.initialMonth ??
+        widget.selected ??
+        widget.range?.start ??
+        widget.today ??
+        DateTime.now(),
+  );
 
   static DateTime _first(DateTime d) => DateTime(d.year, d.month);
 
@@ -149,7 +151,8 @@ class _LdsCalendarState extends State<LdsCalendar> {
       final isEnd = ldsFormsSameDay(d, rEnd);
       final ends = (isStart || isEnd) && !(preview && isEnd && !isStart);
       final selected = ldsFormsSameDay(d, widget.selected) || ends;
-      final between = rStart != null &&
+      final between =
+          rStart != null &&
           rEnd != null &&
           !d.isBefore(rStart) &&
           !d.isAfter(rEnd) &&
@@ -169,8 +172,8 @@ class _LdsCalendarState extends State<LdsCalendar> {
                   alignment: isStart
                       ? Alignment.centerRight
                       : isEnd
-                          ? Alignment.centerLeft
-                          : Alignment.center,
+                      ? Alignment.centerLeft
+                      : Alignment.center,
                   widthFactor: isStart || isEnd ? 0.5 : 1,
                   child: ColoredBox(color: band),
                 ),
@@ -187,8 +190,9 @@ class _LdsCalendarState extends State<LdsCalendar> {
                   onPressed: allowed ? () => widget.onSelected!(d) : null,
                   pressedScale: 0.88,
                   minSize: const Size(0, LdsSize.touchMin),
-                  borderRadius:
-                      const BorderRadius.all(Radius.circular(LdsRadius.pill)),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(LdsRadius.pill),
+                  ),
                   builder: (context, state) {
                     final Color bg;
                     if (selected) {
@@ -213,8 +217,10 @@ class _LdsCalendarState extends State<LdsCalendar> {
                       width: 38,
                       height: 38,
                       alignment: Alignment.center,
-                      decoration:
-                          BoxDecoration(color: bg, shape: BoxShape.circle),
+                      decoration: BoxDecoration(
+                        color: bg,
+                        shape: BoxShape.circle,
+                      ),
                       child: Text(
                         '${d.day}',
                         style: LdsType.body.copyWith(
@@ -311,8 +317,9 @@ class _LdsCalendarState extends State<LdsCalendar> {
                 Row(
                   children: [
                     for (var i = 0; i < 7; i++)
-                      day(DateTime(
-                          month.year, month.month, 1 - lead + w * 7 + i)),
+                      day(
+                        DateTime(month.year, month.month, 1 - lead + w * 7 + i),
+                      ),
                   ],
                 ),
             ],

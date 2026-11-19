@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -28,8 +28,8 @@ class LdsGauge extends StatelessWidget {
     this.maxLabel,
     this.width = 220,
     this.format = const LdsNumberFormat(),
-  })  : segments = const <LdsChartSegment>[],
-        ticks = 32;
+  }) : segments = const <LdsChartSegment>[],
+       ticks = 32;
 
   /// Creates a gauge whose [ticks] are shared out between [segments].
   const LdsGauge.segments({
@@ -43,9 +43,9 @@ class LdsGauge extends StatelessWidget {
     this.maxLabel,
     this.width = 220,
     this.format = const LdsNumberFormat(),
-  })  : value = 0,
-        max = 0,
-        tone = LdsTone.accent;
+  }) : value = 0,
+       max = 0,
+       tone = LdsTone.accent;
 
   /// The figure. Capped at [max] on the ring; say any overshoot in [unit].
   final double value;
@@ -94,7 +94,9 @@ class LdsGauge extends StatelessWidget {
       container: true,
       label: semanticLabel,
       value: isSegments
-          ? segments.map((s) => '${s.name} ${format.format(s.value)}').join(', ')
+          ? segments
+                .map((s) => '${s.name} ${format.format(s.value)}')
+                .join(', ')
           : '${format.format(value)} dari ${format.format(max)}',
       child: ExcludeSemantics(
         child: SizedBox(
@@ -130,16 +132,20 @@ class LdsGauge extends StatelessWidget {
                               child: Text(
                                 center ?? format.format(value),
                                 style: LdsType.title1.copyWith(
-                                    color: c.textStrong,
-                                    fontFeatures: tabular),
+                                  color: c.textStrong,
+                                  fontFeatures: tabular,
+                                ),
                               ),
                             ),
                             if (unit != null)
-                              Text(unit!,
-                                  textAlign: TextAlign.center,
-                                  maxLines: 2,
-                                  style: LdsType.footnote
-                                      .copyWith(color: c.textSubtle)),
+                              Text(
+                                unit!,
+                                textAlign: TextAlign.center,
+                                maxLines: 2,
+                                style: LdsType.footnote.copyWith(
+                                  color: c.textSubtle,
+                                ),
+                              ),
                           ],
                         ),
                       ),
@@ -152,11 +158,15 @@ class LdsGauge extends StatelessWidget {
                   padding: const EdgeInsets.only(top: 4),
                   child: Row(
                     children: [
-                      Text(minLabel ?? '',
-                          style: axisStyle(c).copyWith(fontSize: 12)),
+                      Text(
+                        minLabel ?? '',
+                        style: axisStyle(c).copyWith(fontSize: 12),
+                      ),
                       const Spacer(),
-                      Text(maxLabel ?? '',
-                          style: axisStyle(c).copyWith(fontSize: 12)),
+                      Text(
+                        maxLabel ?? '',
+                        style: axisStyle(c).copyWith(fontSize: 12),
+                      ),
                     ],
                   ),
                 ),
@@ -213,8 +223,11 @@ class _GaugePainter extends CustomPainter {
       for (var i = 0; i < ticks; i++) {
         final a = math.pi + math.pi * (i + 0.5) / ticks;
         final dir = Offset(math.cos(a), math.sin(a));
-        canvas.drawLine(center + dir * (r - 9 * s), center + dir * (r + 7 * s),
-            p..color = tickColors[i]);
+        canvas.drawLine(
+          center + dir * (r - 9 * s),
+          center + dir * (r + 7 * s),
+          p..color = tickColors[i],
+        );
       }
       return;
     }
@@ -226,7 +239,12 @@ class _GaugePainter extends CustomPainter {
     canvas.drawArc(rect, math.pi, math.pi, false, stroke..color = track);
     if (fraction > 0) {
       canvas.drawArc(
-          rect, math.pi, math.pi * fraction, false, stroke..color = color);
+        rect,
+        math.pi,
+        math.pi * fraction,
+        false,
+        stroke..color = color,
+      );
     }
   }
 

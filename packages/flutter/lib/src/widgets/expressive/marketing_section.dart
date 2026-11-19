@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -69,132 +69,140 @@ class LdsMarketingSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
-    return LayoutBuilder(builder: (context, constraints) {
-      final w = constraints.maxWidth;
-      final vertical = tight
-          ? (w * 0.05).clamp(LdsSpace.s32, LdsSpace.s56)
-          : (w * 0.09).clamp(LdsSpace.s56, 120.0);
-      final gutter = (w * 0.04).clamp(LdsSpace.s20, LdsSpace.s48);
-      final center = headAlign == LdsSectionHeadAlign.center;
-      final titleSize = (w * 0.04).clamp(30.0, 48.0);
-      final align = center ? TextAlign.center : TextAlign.start;
-      final hasHead = title != null || eyebrow != null || lede != null;
-      final headText = Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment:
-            center ? CrossAxisAlignment.center : CrossAxisAlignment.start,
-        children: [
-          if (eyebrow != null)
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                if (eyebrowIcon != null) ...[
-                  LdsIcon(eyebrowIcon!, size: 16, color: c.textSubtle),
-                  const SizedBox(width: LdsSpace.s6),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final w = constraints.maxWidth;
+        final vertical = tight
+            ? (w * 0.05).clamp(LdsSpace.s32, LdsSpace.s56)
+            : (w * 0.09).clamp(LdsSpace.s56, 120.0);
+        final gutter = (w * 0.04).clamp(LdsSpace.s20, LdsSpace.s48);
+        final center = headAlign == LdsSectionHeadAlign.center;
+        final titleSize = (w * 0.04).clamp(30.0, 48.0);
+        final align = center ? TextAlign.center : TextAlign.start;
+        final hasHead = title != null || eyebrow != null || lede != null;
+        final headText = Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: center
+              ? CrossAxisAlignment.center
+              : CrossAxisAlignment.start,
+          children: [
+            if (eyebrow != null)
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (eyebrowIcon != null) ...[
+                    LdsIcon(eyebrowIcon!, size: 16, color: c.textSubtle),
+                    const SizedBox(width: LdsSpace.s6),
+                  ],
+                  Flexible(
+                    child: Text(
+                      eyebrow!,
+                      style: LdsType.caption.copyWith(color: c.textSubtle),
+                    ),
+                  ),
                 ],
-                Flexible(
-                  child: Text(eyebrow!,
-                      style: LdsType.caption.copyWith(color: c.textSubtle)),
-                ),
-              ],
-            ),
-          if (title != null) ...[
-            if (eyebrow != null) const SizedBox(height: LdsSpace.s12),
-            Semantics(
-              header: true,
-              child: Text(
-                title!,
-                textAlign: align,
-                style: TextStyle(
-                  fontFamily: LdsType.family,
-                  fontSize: titleSize,
-                  height: 1.08,
-                  fontWeight: FontWeight.w600,
-                  letterSpacing: -0.034 * titleSize,
-                  color: c.textStrong,
+              ),
+            if (title != null) ...[
+              if (eyebrow != null) const SizedBox(height: LdsSpace.s12),
+              Semantics(
+                header: true,
+                child: Text(
+                  title!,
+                  textAlign: align,
+                  style: TextStyle(
+                    fontFamily: LdsType.family,
+                    fontSize: titleSize,
+                    height: 1.08,
+                    fontWeight: FontWeight.w600,
+                    letterSpacing: -0.034 * titleSize,
+                    color: c.textStrong,
+                  ),
                 ),
               ),
-            ),
-          ],
-          if (lede != null) ...[
-            const SizedBox(height: LdsSpace.s12),
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 62 * 8.5),
-              child: Text(
-                lede!,
-                textAlign: align,
-                style: TextStyle(
-                  fontFamily: LdsType.family,
-                  fontSize: 17,
-                  height: 26 / 17,
-                  letterSpacing: -0.136,
-                  color: c.textSubtle,
-                ),
-              ),
-            ),
-          ],
-        ],
-      );
-      Widget? head;
-      if (hasHead) {
-        if (aside != null && w >= 760) {
-          head = Row(
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: [
-              Expanded(child: headText),
-              const SizedBox(width: LdsSpace.s32),
-              aside!,
             ],
-          );
-        } else {
-          head = ConstrainedBox(
-            constraints: const BoxConstraints(maxWidth: 760),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: center
-                  ? CrossAxisAlignment.center
-                  : CrossAxisAlignment.start,
-              children: [
-                headText,
-                if (aside != null) ...[
-                  const SizedBox(height: LdsSpace.s16),
-                  aside!,
-                ],
-              ],
-            ),
-          );
-        }
-        head = Align(
-          alignment: center ? Alignment.topCenter : Alignment.topLeft,
-          child: head,
+            if (lede != null) ...[
+              const SizedBox(height: LdsSpace.s12),
+              ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 62 * 8.5),
+                child: Text(
+                  lede!,
+                  textAlign: align,
+                  style: TextStyle(
+                    fontFamily: LdsType.family,
+                    fontSize: 17,
+                    height: 26 / 17,
+                    letterSpacing: -0.136,
+                    color: c.textSubtle,
+                  ),
+                ),
+              ),
+            ],
+          ],
         );
-      }
-      return DecoratedBox(
-        decoration: BoxDecoration(
-          border: rule ? Border(top: BorderSide(color: c.hairline)) : null,
-        ),
-        child: Center(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(maxWidth: maxWidth + gutter * 2),
-            child: Padding(
-              padding: EdgeInsets.symmetric(
-                  horizontal: gutter, vertical: vertical),
+        Widget? head;
+        if (hasHead) {
+          if (aside != null && w >= 760) {
+            head = Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Expanded(child: headText),
+                const SizedBox(width: LdsSpace.s32),
+                aside!,
+              ],
+            );
+          } else {
+            head = ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 760),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
+                crossAxisAlignment: center
+                    ? CrossAxisAlignment.center
+                    : CrossAxisAlignment.start,
                 children: [
-                  if (head != null) ...[
-                    head,
-                    SizedBox(
-                        height: (w * 0.05).clamp(LdsSpace.s32, LdsSpace.s56)),
+                  headText,
+                  if (aside != null) ...[
+                    const SizedBox(height: LdsSpace.s16),
+                    aside!,
                   ],
-                  child,
                 ],
+              ),
+            );
+          }
+          head = Align(
+            alignment: center ? Alignment.topCenter : Alignment.topLeft,
+            child: head,
+          );
+        }
+        return DecoratedBox(
+          decoration: BoxDecoration(
+            border: rule ? Border(top: BorderSide(color: c.hairline)) : null,
+          ),
+          child: Center(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(maxWidth: maxWidth + gutter * 2),
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: gutter,
+                  vertical: vertical,
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    if (head != null) ...[
+                      head,
+                      SizedBox(
+                        height: (w * 0.05).clamp(LdsSpace.s32, LdsSpace.s56),
+                      ),
+                    ],
+                    child,
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }

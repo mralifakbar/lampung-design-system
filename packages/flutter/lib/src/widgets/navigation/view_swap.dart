@@ -25,8 +25,10 @@ class LdsViewSwap extends StatefulWidget {
 
 class _LdsViewSwapState extends State<LdsViewSwap>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _controller =
-      AnimationController(vsync: this, value: 1);
+  late final AnimationController _controller = AnimationController(
+    vsync: this,
+    value: 1,
+  );
 
   @override
   void didUpdateWidget(LdsViewSwap oldWidget) {

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -57,8 +57,8 @@ class LdsMeter extends StatelessWidget {
       (value >= 1
           ? LdsMeterLevel.full
           : value >= warnAt
-              ? LdsMeterLevel.warn
-              : LdsMeterLevel.normal);
+          ? LdsMeterLevel.warn
+          : LdsMeterLevel.normal);
 
   /// How many segments are on.
   int get filled => (value.clamp(0.0, 1.0) * segments).round();
@@ -102,8 +102,10 @@ class LdsMeter extends StatelessWidget {
               child: Row(
                 children: [
                   Expanded(
-                    child: Text(label ?? '',
-                        style: LdsType.footnote.copyWith(color: c.textSubtle)),
+                    child: Text(
+                      label ?? '',
+                      style: LdsType.footnote.copyWith(color: c.textSubtle),
+                    ),
                   ),
                   if (valueLabel != null)
                     Text(

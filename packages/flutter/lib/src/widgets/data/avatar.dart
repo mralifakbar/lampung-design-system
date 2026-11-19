@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -56,8 +56,9 @@ class LdsAvatar extends StatelessWidget {
       decoration: BoxDecoration(
         color: gray ? c.bgRecessed : c.accentTint,
         borderRadius: radius,
-        boxShadow:
-            ring == null ? null : [BoxShadow(color: ring, spreadRadius: 2)],
+        boxShadow: ring == null
+            ? null
+            : [BoxShadow(color: ring, spreadRadius: 2)],
         image: image == null
             ? null
             : DecorationImage(image: image!, fit: BoxFit.cover),

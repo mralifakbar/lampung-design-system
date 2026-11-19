@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../button.dart';
 import 'height_expand.dart';
@@ -46,12 +46,12 @@ class _LdsShowMoreState extends State<LdsShowMore> {
   late bool _open = widget.initiallyOpen;
 
   List<Widget> _spaced(List<Widget> items, {bool leading = false}) => [
-        for (var i = 0; i < items.length; i++) ...[
-          if ((i > 0 || leading) && widget.spacing > 0)
-            SizedBox(height: widget.spacing),
-          items[i],
-        ],
-      ];
+    for (var i = 0; i < items.length; i++) ...[
+      if ((i > 0 || leading) && widget.spacing > 0)
+        SizedBox(height: widget.spacing),
+      items[i],
+    ],
+  ];
 
   @override
   Widget build(BuildContext context) {

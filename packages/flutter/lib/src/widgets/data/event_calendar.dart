@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -20,7 +20,7 @@ const List<String> _dayShort = [
   'Kam',
   'Jum',
   'Sab',
-  'Min'
+  'Min',
 ];
 const List<String> _dayLong = [
   'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu', //
@@ -135,8 +135,9 @@ class LdsEventCalendar extends StatefulWidget {
 }
 
 class _LdsEventCalendarState extends State<LdsEventCalendar> {
-  late DateTime _date =
-      DateUtils.dateOnly(widget.initialDate ?? widget.today ?? DateTime.now());
+  late DateTime _date = DateUtils.dateOnly(
+    widget.initialDate ?? widget.today ?? DateTime.now(),
+  );
   late LdsCalendarView _view = widget.initialView;
   DateTime? _selectedDay;
   int _direction = 0;
@@ -165,126 +166,136 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
     return s.month == e.month
         ? '${s.day} sampai ${e.day} ${_monthNames[e.month - 1]} ${e.year}'
         : '${s.day} ${_monthNames[s.month - 1]} sampai '
-            '${e.day} ${_monthNames[e.month - 1]} ${e.year}';
+              '${e.day} ${_monthNames[e.month - 1]} ${e.year}';
   }
 
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
     final reduce = context.ldsReduceMotion;
-    return LayoutBuilder(builder: (context, box) {
-      final narrow = box.maxWidth < 640;
-      final view = narrow && _view == LdsCalendarView.week
-          ? LdsCalendarView.agenda
-          : _view;
-      final body = switch (view) {
-        LdsCalendarView.month => _month(context, narrow),
-        LdsCalendarView.week => _week(context),
-        LdsCalendarView.agenda => _agenda(context),
-      };
-      return Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            spacing: 12,
-            runSpacing: 8,
-            children: [
-              Semantics(
-                liveRegion: true,
-                header: true,
-                child: Text(_title(view),
-                    style: LdsType.title3.copyWith(color: c.textStrong)),
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  LdsIconButton(
-                    icon: 'chevron_left',
-                    semanticLabel: view == LdsCalendarView.week
-                        ? 'Minggu sebelumnya'
-                        : 'Bulan sebelumnya',
-                    onPressed: () => _shift(-1),
+    return LayoutBuilder(
+      builder: (context, box) {
+        final narrow = box.maxWidth < 640;
+        final view = narrow && _view == LdsCalendarView.week
+            ? LdsCalendarView.agenda
+            : _view;
+        final body = switch (view) {
+          LdsCalendarView.month => _month(context, narrow),
+          LdsCalendarView.week => _week(context),
+          LdsCalendarView.agenda => _agenda(context),
+        };
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: 12,
+              runSpacing: 8,
+              children: [
+                Semantics(
+                  liveRegion: true,
+                  header: true,
+                  child: Text(
+                    _title(view),
+                    style: LdsType.title3.copyWith(color: c.textStrong),
                   ),
-                  LdsButton(
-                    label: 'Hari ini',
-                    variant: LdsButtonVariant.gray,
-                    size: LdsButtonSize.sm,
-                    onPressed: () => setState(() {
-                      _direction = _today.isBefore(_date) ? -1 : 1;
-                      _date = _today;
-                    }),
-                  ),
-                  LdsIconButton(
-                    icon: 'chevron_right',
-                    semanticLabel: view == LdsCalendarView.week
-                        ? 'Minggu berikutnya'
-                        : 'Bulan berikutnya',
-                    onPressed: () => _shift(1),
-                  ),
-                  SizedBox(width: narrow ? 4 : 8),
-                  SizedBox(
-                    // The segmented control fills a bounded width. Narrow
-                    // shows two segments, so 152 keeps the whole toolbar
-                    // within a 375 pt phone with 16 pt gutters and a card
-                    // padding of 16.
-                    width: narrow ? 152 : 252,
-                    child: LdsSegmented<LdsCalendarView>(
-                      semanticLabel: 'Tampilan kalender',
-                      value: view,
-                      segments: [
-                        const LdsSegment(
-                            value: LdsCalendarView.month, label: 'Bulan'),
-                        if (!narrow)
-                          const LdsSegment(
-                              value: LdsCalendarView.week, label: 'Minggu'),
-                        const LdsSegment(
-                            value: LdsCalendarView.agenda, label: 'Agenda'),
-                      ],
-                      onChanged: (v) => setState(() {
-                        _direction = 0;
-                        _view = v;
+                ),
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    LdsIconButton(
+                      icon: 'chevron_left',
+                      semanticLabel: view == LdsCalendarView.week
+                          ? 'Minggu sebelumnya'
+                          : 'Bulan sebelumnya',
+                      onPressed: () => _shift(-1),
+                    ),
+                    LdsButton(
+                      label: 'Hari ini',
+                      variant: LdsButtonVariant.gray,
+                      size: LdsButtonSize.sm,
+                      onPressed: () => setState(() {
+                        _direction = _today.isBefore(_date) ? -1 : 1;
+                        _date = _today;
                       }),
                     ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-          const SizedBox(height: 12),
-          AnimatedSwitcher(
-            duration: reduce
-                ? LdsMotion.instant
-                : _direction == 0
-                    ? LdsMotion.standard
-                    : LdsMotion.smoothSpringDuration,
-            switchInCurve: reduce || _direction == 0
-                ? LdsMotion.standardCurve
-                : LdsSpringCurve.smooth,
-            layoutBuilder: (current, previous) =>
-                current ?? const SizedBox.shrink(),
-            transitionBuilder: (child, animation) {
-              final fade = FadeTransition(opacity: animation, child: child);
-              if (reduce || _direction == 0) return fade;
-              return AnimatedBuilder(
-                animation: animation,
-                builder: (context, child) => Transform.translate(
-                  offset: Offset(24 * _direction * (1 - animation.value), 0),
-                  child: child,
+                    LdsIconButton(
+                      icon: 'chevron_right',
+                      semanticLabel: view == LdsCalendarView.week
+                          ? 'Minggu berikutnya'
+                          : 'Bulan berikutnya',
+                      onPressed: () => _shift(1),
+                    ),
+                    SizedBox(width: narrow ? 4 : 8),
+                    SizedBox(
+                      // The segmented control fills a bounded width. Narrow
+                      // shows two segments, so 152 keeps the whole toolbar
+                      // within a 375 pt phone with 16 pt gutters and a card
+                      // padding of 16.
+                      width: narrow ? 152 : 252,
+                      child: LdsSegmented<LdsCalendarView>(
+                        semanticLabel: 'Tampilan kalender',
+                        value: view,
+                        segments: [
+                          const LdsSegment(
+                            value: LdsCalendarView.month,
+                            label: 'Bulan',
+                          ),
+                          if (!narrow)
+                            const LdsSegment(
+                              value: LdsCalendarView.week,
+                              label: 'Minggu',
+                            ),
+                          const LdsSegment(
+                            value: LdsCalendarView.agenda,
+                            label: 'Agenda',
+                          ),
+                        ],
+                        onChanged: (v) => setState(() {
+                          _direction = 0;
+                          _view = v;
+                        }),
+                      ),
+                    ),
+                  ],
                 ),
-                child: fade,
-              );
-            },
-            child: KeyedSubtree(
-              key: ValueKey('$view ${_title(view)}'),
-              child: body,
+              ],
             ),
-          ),
-        ],
-      );
-    });
+            const SizedBox(height: 12),
+            AnimatedSwitcher(
+              duration: reduce
+                  ? LdsMotion.instant
+                  : _direction == 0
+                  ? LdsMotion.standard
+                  : LdsMotion.smoothSpringDuration,
+              switchInCurve: reduce || _direction == 0
+                  ? LdsMotion.standardCurve
+                  : LdsSpringCurve.smooth,
+              layoutBuilder: (current, previous) =>
+                  current ?? const SizedBox.shrink(),
+              transitionBuilder: (child, animation) {
+                final fade = FadeTransition(opacity: animation, child: child);
+                if (reduce || _direction == 0) return fade;
+                return AnimatedBuilder(
+                  animation: animation,
+                  builder: (context, child) => Transform.translate(
+                    offset: Offset(24 * _direction * (1 - animation.value), 0),
+                    child: child,
+                  ),
+                  child: fade,
+                );
+              },
+              child: KeyedSubtree(
+                key: ValueKey('$view ${_title(view)}'),
+                child: body,
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   // Month -----------------------------------------------------------------
@@ -299,8 +310,8 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
     ];
     final weeks =
         days.last.subtract(const Duration(days: 6)).month == _date.month
-            ? 6
-            : 5;
+        ? 6
+        : 5;
     final selected = _selectedDay;
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -324,9 +335,12 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
                       for (final d in _dayShort)
                         Expanded(
                           child: Center(
-                            child: Text(d,
-                                style: LdsType.caption
-                                    .copyWith(color: c.textSubtle)),
+                            child: Text(
+                              d,
+                              style: LdsType.caption.copyWith(
+                                color: c.textSubtle,
+                              ),
+                            ),
                           ),
                         ),
                     ],
@@ -344,8 +358,12 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
                       children: [
                         for (var d = 0; d < 7; d++)
                           Expanded(
-                            child: _cell(context, days[w * 7 + d], narrow,
-                                first: d == 0),
+                            child: _cell(
+                              context,
+                              days[w * 7 + d],
+                              narrow,
+                              first: d == 0,
+                            ),
                           ),
                       ],
                     ),
@@ -371,14 +389,19 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
     return list;
   }
 
-  Widget _cell(BuildContext context, DateTime day, bool narrow,
-      {required bool first}) {
+  Widget _cell(
+    BuildContext context,
+    DateTime day,
+    bool narrow, {
+    required bool first,
+  }) {
     final c = context.lds;
     final outside = day.month != _date.month;
     final isToday = DateUtils.isSameDay(day, _today);
     final isSelected = narrow && DateUtils.isSameDay(day, _selectedDay);
     final events = _eventsOn(day);
-    final label = '${day.day} ${_monthNames[day.month - 1]}'
+    final label =
+        '${day.day} ${_monthNames[day.month - 1]}'
         '${isToday ? ', hari ini' : ''}'
         '${events.isEmpty ? '' : ', ${events.length} acara'}';
     final date = LdsPressable(
@@ -404,8 +427,8 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
             color: isToday
                 ? c.textOnAccent
                 : outside
-                    ? c.textMuted
-                    : c.textStrong,
+                ? c.textMuted
+                : c.textStrong,
             fontFeatures: const [FontFeature.tabularFigures()],
           ),
         ),
@@ -419,8 +442,8 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
         color: isSelected
             ? c.accentTint
             : outside
-                ? c.bgFill
-                : null,
+            ? c.bgFill
+            : null,
         border: first ? null : Border(left: BorderSide(color: c.hairline)),
       ),
       child: Column(
@@ -438,7 +461,9 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
                       height: 6,
                       margin: const EdgeInsets.only(right: 3),
                       decoration: BoxDecoration(
-                          color: colors[e.tone - 1], shape: BoxShape.circle),
+                        color: colors[e.tone - 1],
+                        shape: BoxShape.circle,
+                      ),
                     ),
                 ],
               ),
@@ -483,28 +508,38 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
         clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
           color: Color.alphaBlend(
-              tone.withValues(alpha: state.hovered ? 0.20 : 0.12), c.bgBase),
+            tone.withValues(alpha: state.hovered ? 0.20 : 0.12),
+            c.bgBase,
+          ),
           // A day that continues an event squares its start.
           borderRadius: cont
               ? const BorderRadiusDirectional.horizontal(
-                      end: Radius.circular(LdsRadius.xs))
-                  .resolve(Directionality.of(context))
+                  end: Radius.circular(LdsRadius.xs),
+                ).resolve(Directionality.of(context))
               : const BorderRadius.all(Radius.circular(LdsRadius.xs)),
         ),
         child: _ToneBar(
           tone: cont ? null : tone,
           padding: EdgeInsetsDirectional.only(
-              start: cont ? 6 : 8, end: 6, top: 2, bottom: 2),
+            start: cont ? 6 : 8,
+            end: 6,
+            top: 2,
+            bottom: 2,
+          ),
           child: Text.rich(
-            TextSpan(children: [
-              if (showTime)
-                TextSpan(
-                  text: '${_time(e.start)} ',
-                  style: TextStyle(
-                      color: c.textSubtle, fontWeight: FontWeight.w400),
-                ),
-              TextSpan(text: e.title),
-            ]),
+            TextSpan(
+              children: [
+                if (showTime)
+                  TextSpan(
+                    text: '${_time(e.start)} ',
+                    style: TextStyle(
+                      color: c.textSubtle,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                TextSpan(text: e.title),
+              ],
+            ),
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
             style: TextStyle(
@@ -525,8 +560,10 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
     final c = context.lds;
     final events = _eventsOn(day);
     if (events.isEmpty) {
-      return Text('Tidak ada acara pada hari ini.',
-          style: LdsType.subhead.copyWith(color: c.textSubtle));
+      return Text(
+        'Tidak ada acara pada hari ini.',
+        style: LdsType.subhead.copyWith(color: c.textSubtle),
+      );
     }
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -547,20 +584,22 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
       final events = _eventsOn(day);
       if (events.isEmpty) continue;
       final isToday = DateUtils.isSameDay(day, _today);
-      children.add(Padding(
-        padding: EdgeInsets.only(top: children.isEmpty ? 0 : 16, bottom: 4),
-        child: Semantics(
-          header: true,
-          child: Text(
-            '${_dayLong[day.weekday - 1]}, ${day.day} ${_monthNames[day.month - 1]}'
-            '${isToday ? ' (hari ini)' : ''}',
-            style: LdsType.footnote.copyWith(
-              color: isToday ? c.accentText : c.textSubtle,
-              fontWeight: FontWeight.w600,
+      children.add(
+        Padding(
+          padding: EdgeInsets.only(top: children.isEmpty ? 0 : 16, bottom: 4),
+          child: Semantics(
+            header: true,
+            child: Text(
+              '${_dayLong[day.weekday - 1]}, ${day.day} ${_monthNames[day.month - 1]}'
+              '${isToday ? ' (hari ini)' : ''}',
+              style: LdsType.footnote.copyWith(
+                color: isToday ? c.accentText : c.textSubtle,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ),
         ),
-      ));
+      );
       for (final e in events) {
         children.add(_row(context, e, day));
       }
@@ -568,9 +607,11 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
     if (children.isEmpty) {
       return Padding(
         padding: const EdgeInsets.symmetric(vertical: 32),
-        child: Text(widget.emptyLabel,
-            textAlign: TextAlign.center,
-            style: LdsType.subhead.copyWith(color: c.textSubtle)),
+        child: Text(
+          widget.emptyLabel,
+          textAlign: TextAlign.center,
+          style: LdsType.subhead.copyWith(color: c.textSubtle),
+        ),
       );
     }
     return Column(
@@ -586,8 +627,8 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
     final when = e.allDay
         ? 'Sepanjang hari'
         : e.end == null
-            ? _time(e.start)
-            : '${_time(e.start)} sampai ${_time(e.end!)}';
+        ? _time(e.start)
+        : '${_time(e.start)} sampai ${_time(e.end!)}';
     return LdsPressable(
       onPressed: widget.onEventTap == null ? null : () => widget.onEventTap!(e),
       pressedScale: 0.985,
@@ -604,11 +645,13 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
           children: [
             SizedBox(
               width: 112,
-              child: Text(when,
-                  style: LdsType.footnote.copyWith(
-                    color: c.textSubtle,
-                    fontFeatures: const [FontFeature.tabularFigures()],
-                  )),
+              child: Text(
+                when,
+                style: LdsType.footnote.copyWith(
+                  color: c.textSubtle,
+                  fontFeatures: const [FontFeature.tabularFigures()],
+                ),
+              ),
             ),
             Container(
               width: 3,
@@ -623,12 +666,18 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(e.title,
-                      style: LdsType.subhead.copyWith(
-                          color: c.textStrong, fontWeight: FontWeight.w500)),
+                  Text(
+                    e.title,
+                    style: LdsType.subhead.copyWith(
+                      color: c.textStrong,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                   if (e.where != null)
-                    Text(e.where!,
-                        style: LdsType.footnote.copyWith(color: c.textSubtle)),
+                    Text(
+                      e.where!,
+                      style: LdsType.footnote.copyWith(color: c.textSubtle),
+                    ),
                 ],
               ),
             ),
@@ -656,10 +705,11 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
     final hasAllDay = allDay.any((l) => l.isNotEmpty);
 
     Widget dayColumn(DateTime d) {
-      final timed = widget.events
-          .where((e) => !e.allDay && DateUtils.isSameDay(e.start, d))
-          .toList()
-        ..sort((a, b) => a.start.compareTo(b.start));
+      final timed =
+          widget.events
+              .where((e) => !e.allDay && DateUtils.isSameDay(e.start, d))
+              .toList()
+            ..sort((a, b) => a.start.compareTo(b.start));
       // Greedy lanes so overlapping events sit side by side.
       final lanes = <DateTime>[];
       final laneOf = <LdsCalendarEvent, int>{};
@@ -679,51 +729,55 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
           ((t.hour - widget.startHour) + t.minute / 60) * hourH;
       final isToday = DateUtils.isSameDay(d, _today);
       return Expanded(
-        child: LayoutBuilder(builder: (context, box) {
-          final w = box.maxWidth / laneCount;
-          return Container(
-            height: hours * hourH,
-            decoration: BoxDecoration(
-              color: isToday ? c.accentTint.withValues(alpha: 0.35) : null,
-              border: Border(left: BorderSide(color: c.hairline)),
-            ),
-            child: Stack(
-              children: [
-                for (var h = 1; h < hours; h++)
-                  Positioned(
-                    top: h * hourH,
-                    left: 0,
-                    right: 0,
-                    child: Container(height: 1, color: c.hairline),
-                  ),
-                for (final e in timed)
-                  Positioned(
-                    top: y(e.start).clamp(0, hours * hourH - 22),
-                    height: math.max(
+        child: LayoutBuilder(
+          builder: (context, box) {
+            final w = box.maxWidth / laneCount;
+            return Container(
+              height: hours * hourH,
+              decoration: BoxDecoration(
+                color: isToday ? c.accentTint.withValues(alpha: 0.35) : null,
+                border: Border(left: BorderSide(color: c.hairline)),
+              ),
+              child: Stack(
+                children: [
+                  for (var h = 1; h < hours; h++)
+                    Positioned(
+                      top: h * hourH,
+                      left: 0,
+                      right: 0,
+                      child: Container(height: 1, color: c.hairline),
+                    ),
+                  for (final e in timed)
+                    Positioned(
+                      top: y(e.start).clamp(0, hours * hourH - 22),
+                      height: math.max(
                         22,
                         y(e.end ?? e.start.add(const Duration(minutes: 30))) -
                             y(e.start) -
-                            2),
-                    left: laneOf[e]! * w + 2,
-                    width: w - 4,
-                    child: _block(context, e),
-                  ),
-                if (isToday &&
-                    now.hour >= widget.startHour &&
-                    now.hour < widget.endHour)
-                  Positioned(
-                    top: ((now.hour - widget.startHour) + now.minute / 60) *
-                        hourH,
-                    left: 0,
-                    right: 0,
-                    child: IgnorePointer(
-                      child: Container(height: 2, color: c.danger),
+                            2,
+                      ),
+                      left: laneOf[e]! * w + 2,
+                      width: w - 4,
+                      child: _block(context, e),
                     ),
-                  ),
-              ],
-            ),
-          );
-        }),
+                  if (isToday &&
+                      now.hour >= widget.startHour &&
+                      now.hour < widget.endHour)
+                    Positioned(
+                      top:
+                          ((now.hour - widget.startHour) + now.minute / 60) *
+                          hourH,
+                      left: 0,
+                      right: 0,
+                      child: IgnorePointer(
+                        child: Container(height: 2, color: c.danger),
+                      ),
+                    ),
+                ],
+              ),
+            );
+          },
+        ),
       );
     }
 
@@ -808,7 +862,7 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
                               style: LdsType.caption.copyWith(
                                 color: c.textMuted,
                                 fontFeatures: const [
-                                  FontFeature.tabularFigures()
+                                  FontFeature.tabularFigures(),
                                 ],
                               ),
                             ),
@@ -833,7 +887,8 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
       onPressed: widget.onEventTap == null ? null : () => widget.onEventTap!(e),
       minSize: Size.zero,
       borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.xs)),
-      semanticLabel: '${e.title}, ${_time(e.start)}'
+      semanticLabel:
+          '${e.title}, ${_time(e.start)}'
           '${e.end == null ? '' : ' sampai ${_time(e.end!)}'}'
           '${e.where == null ? '' : ', ${e.where}'}',
       excludeChildSemantics: true,
@@ -841,7 +896,9 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
         clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
           color: Color.alphaBlend(
-              tone.withValues(alpha: state.hovered ? 0.24 : 0.16), c.bgBase),
+            tone.withValues(alpha: state.hovered ? 0.24 : 0.16),
+            c.bgBase,
+          ),
           borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.xs)),
         ),
         child: _ToneBar(
@@ -850,25 +907,29 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(e.title,
-                  maxLines: 2,
-                  overflow: TextOverflow.ellipsis,
-                  style: TextStyle(
-                    fontFamily: LdsType.family,
-                    fontSize: 12,
-                    height: 16 / 12,
-                    fontWeight: FontWeight.w500,
-                    color: c.textStrong,
-                  )),
-              Text(_time(e.start),
-                  maxLines: 1,
-                  style: TextStyle(
-                    fontFamily: LdsType.family,
-                    fontSize: 11,
-                    height: 14 / 11,
-                    color: c.textSubtle,
-                    fontFeatures: const [FontFeature.tabularFigures()],
-                  )),
+              Text(
+                e.title,
+                maxLines: 2,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  fontFamily: LdsType.family,
+                  fontSize: 12,
+                  height: 16 / 12,
+                  fontWeight: FontWeight.w500,
+                  color: c.textStrong,
+                ),
+              ),
+              Text(
+                _time(e.start),
+                maxLines: 1,
+                style: TextStyle(
+                  fontFamily: LdsType.family,
+                  fontSize: 11,
+                  height: 14 / 11,
+                  color: c.textSubtle,
+                  fontFeatures: const [FontFeature.tabularFigures()],
+                ),
+              ),
             ],
           ),
         ),
@@ -879,8 +940,11 @@ class _LdsEventCalendarState extends State<LdsEventCalendar> {
 
 /// Pads [child] and draws a 3 px [tone] bar along its start edge.
 class _ToneBar extends StatelessWidget {
-  const _ToneBar(
-      {required this.tone, required this.padding, required this.child});
+  const _ToneBar({
+    required this.tone,
+    required this.padding,
+    required this.child,
+  });
 
   final Color? tone;
   final EdgeInsetsGeometry padding;

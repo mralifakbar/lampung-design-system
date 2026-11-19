@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -81,7 +81,9 @@ class _LdsToolCallState extends State<LdsToolCall> {
       pressedScale: 1,
       semanticLabel: widget.label,
       excludeChildSemantics: true,
-      mouseCursor: canOpen ? SystemMouseCursors.click : SystemMouseCursors.basic,
+      mouseCursor: canOpen
+          ? SystemMouseCursors.click
+          : SystemMouseCursors.basic,
       builder: (context, state) => AnimatedContainer(
         duration: context.ldsDuration(LdsMotion.fast),
         constraints: const BoxConstraints(minHeight: LdsSize.touchMin),
@@ -109,10 +111,7 @@ class _LdsToolCallState extends State<LdsToolCall> {
             Expanded(
               child: LdsShimmer(
                 active: running,
-                child: Text(
-                  widget.label,
-                  style: LdsType.subhead,
-                ),
+                child: Text(widget.label, style: LdsType.subhead),
               ),
             ),
             if (canOpen) ...[

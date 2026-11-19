@@ -86,7 +86,9 @@ class _LdsIconSwapState extends State<LdsIconSwap>
     final opacity = reduce
         ? shown
         : LdsMotion.standardCurve.transform((shown / fadeEnd).clamp(0.0, 1.0));
-    final scale = reduce ? 1.0 : 0.5 + 0.5 * LdsSpringCurve.snappy.transform(shown);
+    final scale = reduce
+        ? 1.0
+        : 0.5 + 0.5 * LdsSpringCurve.snappy.transform(shown);
     final blur = reduce ? 0.0 : 4 * (1 - opacity);
     return Opacity(
       opacity: opacity,

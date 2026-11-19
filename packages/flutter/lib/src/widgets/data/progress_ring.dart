@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -88,13 +88,13 @@ class LdsProgressRing extends StatelessWidget {
   }
 
   TextStyle _style(LdsColors c) => TextStyle(
-        fontFamily: LdsType.family,
-        fontSize: size * 15 / 64,
-        height: 1,
-        fontWeight: FontWeight.w600,
-        color: c.textStrong,
-        fontFeatures: const [FontFeature.tabularFigures()],
-      );
+    fontFamily: LdsType.family,
+    fontSize: size * 15 / 64,
+    height: 1,
+    fontWeight: FontWeight.w600,
+    color: c.textStrong,
+    fontFeatures: const [FontFeature.tabularFigures()],
+  );
 }
 
 class _RingPainter extends CustomPainter {
@@ -116,7 +116,12 @@ class _RingPainter extends CustomPainter {
     canvas.drawArc(r, 0, math.pi * 2, false, p..color = track);
     if (value > 0) {
       canvas.drawArc(
-          r, -math.pi / 2, math.pi * 2 * value, false, p..color = arc);
+        r,
+        -math.pi / 2,
+        math.pi * 2 * value,
+        false,
+        p..color = arc,
+      );
     }
   }
 

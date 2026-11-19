@@ -156,33 +156,39 @@ class _LdsStreamingTextState extends State<LdsStreamingText>
         continue;
       }
       final blur = 3 * (1 - p);
-      spans.add(TextSpan(
-        text: word,
-        style: TextStyle(
-          foreground: Paint()
-            ..color = color.withValues(alpha: color.a * p)
-            ..maskFilter = blur > 0.01
-                ? ui.MaskFilter.blur(BlurStyle.normal, blur)
-                : null,
+      spans.add(
+        TextSpan(
+          text: word,
+          style: TextStyle(
+            foreground: Paint()
+              ..color = color.withValues(alpha: color.a * p)
+              ..maskFilter = blur > 0.01
+                  ? ui.MaskFilter.blur(BlurStyle.normal, blur)
+                  : null,
+          ),
         ),
-      ));
+      );
     }
     if (widget.streaming) {
       final blinkOn = reduce || (_clock.inMilliseconds ~/ 500).isEven;
-      spans.add(WidgetSpan(
-        alignment: PlaceholderAlignment.middle,
-        child: Padding(
-          padding: const EdgeInsets.only(left: 4),
-          child: Opacity(
-            opacity: blinkOn ? 1 : 0,
-            child: DecoratedBox(
-              decoration:
-                  BoxDecoration(color: c.textStrong, shape: BoxShape.circle),
-              child: const SizedBox.square(dimension: 8),
+      spans.add(
+        WidgetSpan(
+          alignment: PlaceholderAlignment.middle,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 4),
+            child: Opacity(
+              opacity: blinkOn ? 1 : 0,
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: c.textStrong,
+                  shape: BoxShape.circle,
+                ),
+                child: const SizedBox.square(dimension: 8),
+              ),
             ),
           ),
         ),
-      ));
+      );
     }
     return Semantics(
       container: true,

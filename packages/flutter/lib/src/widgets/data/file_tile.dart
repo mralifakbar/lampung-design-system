@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -98,14 +98,14 @@ class _LdsFileTileState extends State<LdsFileTile> {
   bool _focus = false;
 
   static String _icon(LdsFileType t) => switch (t) {
-        LdsFileType.folder => 'folder',
-        LdsFileType.doc => 'description',
-        LdsFileType.sheet => 'grid_view',
-        LdsFileType.image => 'image',
-        LdsFileType.video => 'movie',
-        LdsFileType.audio => 'audio_file',
-        LdsFileType.archive => 'folder_zip',
-      };
+    LdsFileType.folder => 'folder',
+    LdsFileType.doc => 'description',
+    LdsFileType.sheet => 'grid_view',
+    LdsFileType.image => 'image',
+    LdsFileType.video => 'movie',
+    LdsFileType.audio => 'audio_file',
+    LdsFileType.archive => 'folder_zip',
+  };
 
   @override
   Widget build(BuildContext context) {
@@ -119,22 +119,25 @@ class _LdsFileTileState extends State<LdsFileTile> {
       LdsFileType.audio => c.series4,
       LdsFileType.archive => c.tileGray,
     };
-    final touch = defaultTargetPlatform == TargetPlatform.android ||
+    final touch =
+        defaultTargetPlatform == TargetPlatform.android ||
         defaultTargetPlatform == TargetPlatform.iOS;
     final selected = widget.selected ?? false;
     final showTools = touch || _hover || _focus || selected || widget.selecting;
     final thumbH = widget.type == LdsFileType.folder
         ? 64.0
         : widget.compact
-            ? 72.0
-            : 104.0;
+        ? 72.0
+        : 104.0;
     const radius = BorderRadius.all(Radius.circular(LdsRadius.md));
 
     final open = LdsPressable(
       onPressed: widget.onTap,
       pressedScale: 0.985,
-      semanticLabel:
-          [widget.name, if (widget.meta != null) widget.meta!].join(', '),
+      semanticLabel: [
+        widget.name,
+        if (widget.meta != null) widget.meta!,
+      ].join(', '),
       excludeChildSemantics: true,
       builder: (context, state) => Padding(
         padding: const EdgeInsets.all(8),
@@ -148,15 +151,20 @@ class _LdsFileTileState extends State<LdsFileTile> {
               clipBehavior: Clip.antiAlias,
               decoration: BoxDecoration(
                 color: Color.alphaBlend(tone.withValues(alpha: 0.10), c.bgBase),
-                borderRadius:
-                    const BorderRadius.all(Radius.circular(LdsRadius.sm)),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(LdsRadius.sm),
+                ),
                 image: widget.image == null
                     ? null
                     : DecorationImage(image: widget.image!, fit: BoxFit.cover),
               ),
               child: widget.image == null
-                  ? LdsIcon(_icon(widget.type),
-                      size: widget.compact ? 28 : 36, color: tone, fill: true)
+                  ? LdsIcon(
+                      _icon(widget.type),
+                      size: widget.compact ? 28 : 36,
+                      color: tone,
+                      fill: true,
+                    )
                   : null,
             ),
             const SizedBox(height: 10),
@@ -191,15 +199,15 @@ class _LdsFileTileState extends State<LdsFileTile> {
     );
 
     Widget tool(Widget child) => AnimatedOpacity(
-          opacity: showTools ? 1 : 0,
-          duration: context.ldsDuration(LdsMotion.fast),
-          child: AnimatedScale(
-            scale: showTools || context.ldsReduceMotion ? 1 : 0.9,
-            duration: context.ldsDuration(LdsMotion.snappy),
-            curve: LdsSpringCurve.snappy,
-            child: IgnorePointer(ignoring: !showTools, child: child),
-          ),
-        );
+      opacity: showTools ? 1 : 0,
+      duration: context.ldsDuration(LdsMotion.fast),
+      child: AnimatedScale(
+        scale: showTools || context.ldsReduceMotion ? 1 : 0.9,
+        duration: context.ldsDuration(LdsMotion.snappy),
+        curve: LdsSpringCurve.snappy,
+        child: IgnorePointer(ignoring: !showTools, child: child),
+      ),
+    );
 
     return Focus(
       canRequestFocus: false,
@@ -217,8 +225,8 @@ class _LdsFileTileState extends State<LdsFileTile> {
               color: selected
                   ? c.accent
                   : _hover || _focus
-                      ? c.lineStrong
-                      : c.line,
+                  ? c.lineStrong
+                  : c.line,
               width: selected ? 1.5 : 1,
             ),
           ),
@@ -229,24 +237,28 @@ class _LdsFileTileState extends State<LdsFileTile> {
                 Positioned(
                   left: 2,
                   top: 2,
-                  child: tool(Checkbox(
-                    value: selected,
-                    onChanged: widget.onSelectedChanged == null
-                        ? null
-                        : (v) => widget.onSelectedChanged!(v ?? false),
-                    semanticLabel: 'Pilih ${widget.name}',
-                  )),
+                  child: tool(
+                    Checkbox(
+                      value: selected,
+                      onChanged: widget.onSelectedChanged == null
+                          ? null
+                          : (v) => widget.onSelectedChanged!(v ?? false),
+                      semanticLabel: 'Pilih ${widget.name}',
+                    ),
+                  ),
                 ),
               if (widget.onMore != null)
                 Positioned(
                   right: 2,
                   top: 2,
-                  child: tool(LdsIconButton(
-                    icon: 'more_horiz',
-                    semanticLabel: '${widget.moreLabel}: ${widget.name}',
-                    variant: LdsIconButtonVariant.filled,
-                    onPressed: widget.onMore,
-                  )),
+                  child: tool(
+                    LdsIconButton(
+                      icon: 'more_horiz',
+                      semanticLabel: '${widget.moreLabel}: ${widget.name}',
+                      variant: LdsIconButtonVariant.filled,
+                      onPressed: widget.onMore,
+                    ),
+                  ),
                 ),
             ],
           ),
@@ -281,19 +293,21 @@ class LdsFileGrid extends StatelessWidget {
     return Semantics(
       label: semanticLabel,
       container: true,
-      child: LayoutBuilder(builder: (context, box) {
-        const gap = 12.0;
-        final width = box.maxWidth.isFinite ? box.maxWidth : min;
-        final cols = math.max(1, ((width + gap) / (min + gap)).floor());
-        final w = (width - gap * (cols - 1)) / cols;
-        return Wrap(
-          spacing: gap,
-          runSpacing: gap,
-          children: [
-            for (final child in children) SizedBox(width: w, child: child),
-          ],
-        );
-      }),
+      child: LayoutBuilder(
+        builder: (context, box) {
+          const gap = 12.0;
+          final width = box.maxWidth.isFinite ? box.maxWidth : min;
+          final cols = math.max(1, ((width + gap) / (min + gap)).floor());
+          final w = (width - gap * (cols - 1)) / cols;
+          return Wrap(
+            spacing: gap,
+            runSpacing: gap,
+            children: [
+              for (final child in children) SizedBox(width: w, child: child),
+            ],
+          );
+        },
+      ),
     );
   }
 }

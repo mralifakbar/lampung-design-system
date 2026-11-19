@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -89,19 +89,23 @@ class LdsCodeBlock extends StatelessWidget {
       color: c.textDefault,
     );
     Color colorOf(LdsCodeKind k) => switch (k) {
-          LdsCodeKind.plain => c.textDefault,
-          LdsCodeKind.keyword => c.accentText,
-          LdsCodeKind.string => c.successText,
-          LdsCodeKind.comment => c.textMuted,
-        };
+      LdsCodeKind.plain => c.textDefault,
+      LdsCodeKind.keyword => c.accentText,
+      LdsCodeKind.string => c.successText,
+      LdsCodeKind.comment => c.textMuted,
+    };
     final body = segments == null
         ? Text(code!, style: base, softWrap: false)
         : Text.rich(
-            TextSpan(children: [
-              for (final s in segments!)
-                TextSpan(
-                    text: s.text, style: TextStyle(color: colorOf(s.kind))),
-            ]),
+            TextSpan(
+              children: [
+                for (final s in segments!)
+                  TextSpan(
+                    text: s.text,
+                    style: TextStyle(color: colorOf(s.kind)),
+                  ),
+              ],
+            ),
             style: base,
             softWrap: false,
           );

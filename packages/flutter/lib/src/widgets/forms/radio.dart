@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -179,15 +179,16 @@ class LdsFormsRadioDot extends StatelessWidget {
             color: selected
                 ? c.accent
                 : hovered
-                    ? c.textSubtle
-                    : c.lineControl,
+                ? c.textSubtle
+                : c.lineControl,
             width: 1.5,
           ),
         ),
         child: AnimatedScale(
           scale: selected ? 1 : 0,
-          duration:
-              context.ldsDuration(selected ? LdsMotion.snappy : LdsMotion.exit),
+          duration: context.ldsDuration(
+            selected ? LdsMotion.snappy : LdsMotion.exit,
+          ),
           curve: selected ? LdsSpringCurve.snappy : LdsMotion.exitCurve,
           child: Container(
             width: 8,
@@ -298,8 +299,10 @@ class _LdsRadioGroupState<T> extends State<LdsRadioGroup<T>> {
                 child: ExcludeSemantics(
                   child: Text(
                     widget.label!,
-                    style: LdsType.caption
-                        .copyWith(color: c.textStrong, letterSpacing: 0),
+                    style: LdsType.caption.copyWith(
+                      color: c.textStrong,
+                      letterSpacing: 0,
+                    ),
                   ),
                 ),
               ),
@@ -312,11 +315,11 @@ class _LdsRadioGroupState<T> extends State<LdsRadioGroup<T>> {
                   focusNode: _nodes[i],
                   onChanged:
                       widget.options[i].enabled && widget.onChanged != null
-                          ? (v) {
-                              _nodes[i].requestFocus();
-                              widget.onChanged!(v);
-                            }
-                          : null,
+                      ? (v) {
+                          _nodes[i].requestFocus();
+                          widget.onChanged!(v);
+                        }
+                      : null,
                   label: widget.options[i].label,
                   description: widget.options[i].description,
                 ),

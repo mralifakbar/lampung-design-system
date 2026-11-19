@@ -73,8 +73,12 @@ class _LdsBellState extends State<LdsBell> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: _c,
-      child: LdsIcon('notifications',
-          size: widget.size, color: widget.color, fill: widget.fill),
+      child: LdsIcon(
+        'notifications',
+        size: widget.size,
+        color: widget.color,
+        fill: widget.fill,
+      ),
       builder: (context, child) => Transform.rotate(
         angle: _swing.evaluate(_c) * math.pi / 180,
         // Pivot at the top of the bell (50 % 10 %).

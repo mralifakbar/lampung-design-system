@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -90,8 +90,9 @@ class _LdsHoldToConfirmState extends State<LdsHoldToConfirm>
   void _cancel() {
     if (!_holding) return;
     setState(() => _holding = false);
-    _fill.reverseDuration =
-        context.ldsReduceMotion ? LdsMotion.instant : LdsMotion.standard;
+    _fill.reverseDuration = context.ldsReduceMotion
+        ? LdsMotion.instant
+        : LdsMotion.standard;
     _fill.reverse();
   }
 
@@ -144,16 +145,18 @@ class _LdsHoldToConfirmState extends State<LdsHoldToConfirm>
                 builder: (context, _) => FractionallySizedBox(
                   alignment: AlignmentDirectional.centerStart,
                   widthFactor: _fill.value,
-                  child:
-                      ColoredBox(color: c.textStrong.withValues(alpha: 0.18)),
+                  child: ColoredBox(
+                    color: c.textStrong.withValues(alpha: 0.18),
+                  ),
                 ),
               ),
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 18),
               child: Row(
-                mainAxisSize:
-                    widget.expand ? MainAxisSize.max : MainAxisSize.min,
+                mainAxisSize: widget.expand
+                    ? MainAxisSize.max
+                    : MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   if (widget.icon != null) ...[
@@ -165,8 +168,10 @@ class _LdsHoldToConfirmState extends State<LdsHoldToConfirm>
                       widget.label,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: LdsType.bodyStrong
-                          .copyWith(color: fg, fontWeight: FontWeight.w600),
+                      style: LdsType.bodyStrong.copyWith(
+                        color: fg,
+                        fontWeight: FontWeight.w600,
+                      ),
                     ),
                   ),
                 ],
@@ -188,14 +193,18 @@ class _LdsHoldToConfirmState extends State<LdsHoldToConfirm>
         canRequestFocus: _enabled,
         onKeyEvent: _onKey,
         onFocusChange: (f) {
-          setState(() => _focused = f &&
-              FocusManager.instance.highlightMode ==
-                  FocusHighlightMode.traditional);
+          setState(
+            () => _focused =
+                f &&
+                FocusManager.instance.highlightMode ==
+                    FocusHighlightMode.traditional,
+          );
           if (!f) _cancel();
         },
         child: MouseRegion(
-          cursor:
-              _enabled ? SystemMouseCursors.click : SystemMouseCursors.basic,
+          cursor: _enabled
+              ? SystemMouseCursors.click
+              : SystemMouseCursors.basic,
           child: Listener(
             onPointerDown: (_) => _start(),
             onPointerUp: (_) => _cancel(),

@@ -119,7 +119,9 @@ class _LdsThinkingState extends State<LdsThinking>
                       opacity: _dotOpacity(r, col, reduce),
                       child: DecoratedBox(
                         decoration: BoxDecoration(
-                            color: dotColor, shape: BoxShape.circle),
+                          color: dotColor,
+                          shape: BoxShape.circle,
+                        ),
                         child: const SizedBox.square(dimension: 4),
                       ),
                     ),
@@ -144,7 +146,9 @@ class _LdsThinkingState extends State<LdsThinking>
               child: LdsTextMorph(
                 widget.label,
                 style: LdsType.subhead.copyWith(
-                    fontWeight: FontWeight.w500, height: 20 / 14),
+                  fontWeight: FontWeight.w500,
+                  height: 20 / 14,
+                ),
               ),
             ),
           ),

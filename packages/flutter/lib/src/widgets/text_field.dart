@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../motion.dart';
 import '../theme.dart';
@@ -185,7 +185,8 @@ class _LdsTextFieldState extends State<LdsTextField> {
       enabled: widget.enabled,
       readOnly: widget.readOnly,
       obscureText: widget.obscureText,
-      keyboardType: widget.keyboardType ??
+      keyboardType:
+          widget.keyboardType ??
           (multiline ? TextInputType.multiline : TextInputType.text),
       textInputAction: widget.textInputAction,
       textCapitalization: widget.textCapitalization,
@@ -229,8 +230,9 @@ class _LdsTextFieldState extends State<LdsTextField> {
           boxShadow: halo,
         ),
         child: Row(
-          crossAxisAlignment:
-              multiline ? CrossAxisAlignment.start : CrossAxisAlignment.center,
+          crossAxisAlignment: multiline
+              ? CrossAxisAlignment.start
+              : CrossAxisAlignment.center,
           children: [
             if (widget.prefixIcon != null) ...[
               Padding(

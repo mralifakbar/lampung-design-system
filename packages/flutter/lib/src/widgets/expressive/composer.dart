@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -148,7 +148,9 @@ class _LdsComposerState extends State<LdsComposer> {
     final active = stop || _canSend;
     const radius = BorderRadius.all(Radius.circular(24));
     final send = LdsPressable(
-      onPressed: stop ? widget.onStop : (_canSend && !widget.busy ? _send : null),
+      onPressed: stop
+          ? widget.onStop
+          : (_canSend && !widget.busy ? _send : null),
       pressedScale: 0.9,
       borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.pill)),
       semanticLabel: stop ? widget.stopLabel : widget.sendLabel,
@@ -165,10 +167,10 @@ class _LdsComposerState extends State<LdsComposer> {
             color: stop
                 ? c.textStrong
                 : state.pressed
-                    ? c.accentPressed
-                    : state.hovered
-                        ? c.accentHover
-                        : c.accent,
+                ? c.accentPressed
+                : state.hovered
+                ? c.accentHover
+                : c.accent,
           ),
           child: stop
               ? DecoratedBox(
@@ -212,7 +214,10 @@ class _LdsComposerState extends State<LdsComposer> {
               disabledBorder: InputBorder.none,
               contentPadding: const EdgeInsets.symmetric(vertical: 9),
               hintText: widget.hint,
-              hintStyle: LdsType.body.copyWith(height: 22 / 15, color: c.textMuted),
+              hintStyle: LdsType.body.copyWith(
+                height: 22 / 15,
+                color: c.textMuted,
+              ),
             ),
           ),
         ),

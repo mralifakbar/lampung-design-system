@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -49,65 +49,78 @@ class LdsPlans extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
-    return LayoutBuilder(builder: (context, constraints) {
-      const gap = LdsSpace.s16;
-      final w = constraints.maxWidth;
-      var columns = ((w + gap) / (280 + gap)).floor();
-      if (columns < 1) columns = 1;
-      if (columns > plans.length) columns = plans.length;
-      final cardWidth = (w - gap * (columns - 1)) / columns;
-      final rows = <List<LdsPlan>>[];
-      for (var i = 0; i < plans.length; i += columns) {
-        rows.add(plans.sublist(i, (i + columns).clamp(0, plans.length)));
-      }
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: [
-          Wrap(
-            alignment: WrapAlignment.center,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            spacing: LdsSpace.s12,
-            runSpacing: LdsSpace.s8,
-            children: [
-              SizedBox(
-                width: 240,
-                child: LdsSegmented<LdsBillingPeriod>(
-                  semanticLabel: periodSemanticLabel,
-                  segments: [
-                    LdsSegment(value: LdsBillingPeriod.month, label: monthLabel),
-                    LdsSegment(value: LdsBillingPeriod.year, label: yearLabel),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        const gap = LdsSpace.s16;
+        final w = constraints.maxWidth;
+        var columns = ((w + gap) / (280 + gap)).floor();
+        if (columns < 1) columns = 1;
+        if (columns > plans.length) columns = plans.length;
+        final cardWidth = (w - gap * (columns - 1)) / columns;
+        final rows = <List<LdsPlan>>[];
+        for (var i = 0; i < plans.length; i += columns) {
+          rows.add(plans.sublist(i, (i + columns).clamp(0, plans.length)));
+        }
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Wrap(
+              alignment: WrapAlignment.center,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: LdsSpace.s12,
+              runSpacing: LdsSpace.s8,
+              children: [
+                SizedBox(
+                  width: 240,
+                  child: LdsSegmented<LdsBillingPeriod>(
+                    semanticLabel: periodSemanticLabel,
+                    segments: [
+                      LdsSegment(
+                        value: LdsBillingPeriod.month,
+                        label: monthLabel,
+                      ),
+                      LdsSegment(
+                        value: LdsBillingPeriod.year,
+                        label: yearLabel,
+                      ),
+                    ],
+                    value: period,
+                    onChanged: onPeriodChanged,
+                  ),
+                ),
+                if (saveNote != null)
+                  Text(
+                    saveNote!,
+                    style: LdsType.footnote.copyWith(color: c.textSubtle),
+                  ),
+              ],
+            ),
+            const SizedBox(height: LdsSpace.s32),
+            for (var r = 0; r < rows.length; r++) ...[
+              if (r > 0) const SizedBox(height: gap),
+              IntrinsicHeight(
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    for (var i = 0; i < rows[r].length; i++) ...[
+                      if (i > 0) const SizedBox(width: gap),
+                      SizedBox(
+                        width: cardWidth,
+                        child: LdsPlanCard(
+                          plan: rows[r][i],
+                          period: period,
+                          fillHeight: true,
+                        ),
+                      ),
+                    ],
                   ],
-                  value: period,
-                  onChanged: onPeriodChanged,
                 ),
               ),
-              if (saveNote != null)
-                Text(saveNote!,
-                    style: LdsType.footnote.copyWith(color: c.textSubtle)),
             ],
-          ),
-          const SizedBox(height: LdsSpace.s32),
-          for (var r = 0; r < rows.length; r++) ...[
-            if (r > 0) const SizedBox(height: gap),
-            IntrinsicHeight(
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  for (var i = 0; i < rows[r].length; i++) ...[
-                    if (i > 0) const SizedBox(width: gap),
-                    SizedBox(
-                      width: cardWidth,
-                      child: LdsPlanCard(
-                          plan: rows[r][i], period: period, fillHeight: true),
-                    ),
-                  ],
-                ],
-              ),
-            ),
           ],
-        ],
-      );
-    });
+        );
+      },
+    );
   }
 }

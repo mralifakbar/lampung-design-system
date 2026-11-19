@@ -1,6 +1,6 @@
 import 'dart:ui' as ui;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -169,20 +169,19 @@ class _LdsPhoneScreenState extends State<LdsPhoneScreen> {
     );
 
     Widget material(Widget child, {required bool top}) => ClipRect(
-          child: BackdropFilter(
-            filter: ui.ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: c.bgMaterial,
-                border: top
-                    ? Border(
-                        bottom: BorderSide(color: c.lineStrong, width: 0.5))
-                    : Border(top: BorderSide(color: c.lineStrong, width: 0.5)),
-              ),
-              child: child,
-            ),
+      child: BackdropFilter(
+        filter: ui.ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: c.bgMaterial,
+            border: top
+                ? Border(bottom: BorderSide(color: c.lineStrong, width: 0.5))
+                : Border(top: BorderSide(color: c.lineStrong, width: 0.5)),
           ),
-        );
+          child: child,
+        ),
+      ),
+    );
 
     final fade = reduce ? LdsMotion.instant : LdsMotion.fast;
     final navbar = SizedBox(
@@ -242,8 +241,7 @@ class _LdsPhoneScreenState extends State<LdsPhoneScreen> {
               SizedBox(
                 height: tabHeight,
                 child: Padding(
-                  padding:
-                      EdgeInsets.fromLTRB(4, 0, 4, widget.bottomInset),
+                  padding: EdgeInsets.fromLTRB(4, 0, 4, widget.bottomInset),
                   child: Row(
                     children: [
                       for (var i = 0; i < widget.tabs.length; i++)

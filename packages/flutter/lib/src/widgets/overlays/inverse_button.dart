@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -77,9 +77,10 @@ class LdsInverseButton extends StatelessWidget {
       builder: (context, state) {
         final active = state.hovered || state.pressed;
         final bg = switch (variant) {
-          LdsInverseButtonVariant.tint => active
-              ? Color.alphaBlend(c.onInverseTint, c.onInverseTint)
-              : c.onInverseTint,
+          LdsInverseButtonVariant.tint =>
+            active
+                ? Color.alphaBlend(c.onInverseTint, c.onInverseTint)
+                : c.onInverseTint,
           LdsInverseButtonVariant.accent => active ? c.accentHover : c.accent,
           LdsInverseButtonVariant.danger =>
             active ? Color.lerp(c.danger, Colors.black, 0.08)! : c.danger,
@@ -88,7 +89,8 @@ class LdsInverseButton extends StatelessWidget {
           duration: context.ldsDuration(LdsMotion.instant),
           height: height,
           padding: EdgeInsets.symmetric(
-              horizontal: showLabel ? 12 : (height - 20) / 2),
+            horizontal: showLabel ? 12 : (height - 20) / 2,
+          ),
           decoration: BoxDecoration(color: bg, borderRadius: radius),
           child: Row(
             mainAxisSize: MainAxisSize.min,

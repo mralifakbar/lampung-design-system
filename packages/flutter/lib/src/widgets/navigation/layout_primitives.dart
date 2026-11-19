@@ -91,20 +91,24 @@ class LdsAutoGrid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      final width = constraints.maxWidth;
-      final columns =
-          math.max(1, ((width + gap) / (minItemWidth + gap)).floor());
-      final itemWidth = (width - gap * (columns - 1)) / columns;
-      return Wrap(
-        spacing: gap,
-        runSpacing: gap,
-        children: [
-          for (final child in children)
-            SizedBox(width: itemWidth.floorToDouble(), child: child),
-        ],
-      );
-    });
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final width = constraints.maxWidth;
+        final columns = math.max(
+          1,
+          ((width + gap) / (minItemWidth + gap)).floor(),
+        );
+        final itemWidth = (width - gap * (columns - 1)) / columns;
+        return Wrap(
+          spacing: gap,
+          runSpacing: gap,
+          children: [
+            for (final child in children)
+              SizedBox(width: itemWidth.floorToDouble(), child: child),
+          ],
+        );
+      },
+    );
   }
 }
 
@@ -138,24 +142,26 @@ class LdsSplit2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constraints) {
-      if (constraints.maxWidth < breakpoint) {
-        return Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          spacing: gap,
-          children: [side, main],
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (constraints.maxWidth < breakpoint) {
+          return Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            spacing: gap,
+            children: [side, main],
+          );
+        }
+        return Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            SizedBox(width: sideWidth, child: side),
+            SizedBox(width: gap),
+            Expanded(child: main),
+          ],
         );
-      }
-      return Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(width: sideWidth, child: side),
-          SizedBox(width: gap),
-          Expanded(child: main),
-        ],
-      );
-    });
+      },
+    );
   }
 }
 
@@ -170,10 +176,7 @@ class LdsCenter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: DefaultTextStyle.merge(
-        textAlign: TextAlign.center,
-        child: child,
-      ),
+      child: DefaultTextStyle.merge(textAlign: TextAlign.center, child: child),
     );
   }
 }

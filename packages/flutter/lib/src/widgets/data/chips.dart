@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -38,8 +38,9 @@ class LdsChip extends StatelessWidget {
     final c = context.lds;
     final enabled = onChanged != null;
     final reduce = context.ldsReduceMotion;
-    final layoutDuration =
-        reduce ? LdsMotion.instant : LdsMotion.smoothSpringDuration;
+    final layoutDuration = reduce
+        ? LdsMotion.instant
+        : LdsMotion.smoothSpringDuration;
     final Curve layoutCurve = reduce ? Curves.linear : LdsSpringCurve.smooth;
     final colorDuration = reduce ? LdsMotion.instant : LdsMotion.fast;
 
@@ -53,21 +54,22 @@ class LdsChip extends StatelessWidget {
         final bg = selected
             ? c.accentTint
             : (state.hovered || state.pressed)
-                ? c.bgFill
-                : c.bgBase;
+            ? c.bgFill
+            : c.bgBase;
         final fg = !enabled
             ? c.textFaint
             : selected
-                ? c.accentText
-                : c.textStrong;
+            ? c.accentText
+            : c.textStrong;
         return AnimatedContainer(
           duration: colorDuration,
           curve: LdsMotion.standardCurve,
           height: 34,
           decoration: BoxDecoration(
             color: bg,
-            borderRadius:
-                const BorderRadius.all(Radius.circular(LdsRadius.pill)),
+            borderRadius: const BorderRadius.all(
+              Radius.circular(LdsRadius.pill),
+            ),
             border: selected ? null : Border.all(color: c.lineStrong),
           ),
           child: AnimatedPadding(

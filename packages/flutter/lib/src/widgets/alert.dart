@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../theme.dart';
 import '../tokens.g.dart';
@@ -68,15 +68,15 @@ class LdsAlert extends StatelessWidget {
       LdsAlertTone.warning => LdsTone.warning,
       LdsAlertTone.danger => LdsTone.danger,
     });
-    final glyph = icon ??
+    final glyph =
+        icon ??
         switch (tone) {
           LdsAlertTone.info => 'info',
           LdsAlertTone.success => 'check_circle',
           LdsAlertTone.warning => 'warning',
           LdsAlertTone.danger => 'error',
         };
-    final urgent =
-        tone == LdsAlertTone.danger || tone == LdsAlertTone.warning;
+    final urgent = tone == LdsAlertTone.danger || tone == LdsAlertTone.warning;
     return Semantics(
       container: true,
       liveRegion: urgent,

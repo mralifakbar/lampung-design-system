@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -67,12 +67,14 @@ class LdsFloatingAction extends StatelessWidget {
     return AnimatedSlide(
       offset: visible ? Offset.zero : const Offset(0, 24 / size),
       duration: context.ldsDuration(
-          visible ? LdsMotion.smoothSpringDuration : LdsMotion.exit),
+        visible ? LdsMotion.smoothSpringDuration : LdsMotion.exit,
+      ),
       curve: visible ? LdsSpringCurve.smooth : LdsMotion.exitCurve,
       child: AnimatedOpacity(
         opacity: visible ? 1 : 0,
-        duration:
-            context.ldsDuration(visible ? LdsMotion.fast : LdsMotion.exit),
+        duration: context.ldsDuration(
+          visible ? LdsMotion.fast : LdsMotion.exit,
+        ),
         curve: visible ? LdsMotion.enterCurve : LdsMotion.exitCurve,
         child: IgnorePointer(
           ignoring: !visible,

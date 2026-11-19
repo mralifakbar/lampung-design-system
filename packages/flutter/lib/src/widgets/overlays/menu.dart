@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -99,19 +99,25 @@ class LdsMenu extends StatelessWidget {
         if (auto) focused = true;
         children.add(_MenuRow(item: e, onClose: onClose, autofocus: auto));
       } else if (e is LdsMenuLabel) {
-        children.add(Padding(
-          padding: const EdgeInsets.fromLTRB(10, 8, 10, 4),
-          child: Semantics(
-            header: true,
-            child: Text(e.label,
-                style: LdsType.caption.copyWith(color: c.textMuted)),
+        children.add(
+          Padding(
+            padding: const EdgeInsets.fromLTRB(10, 8, 10, 4),
+            child: Semantics(
+              header: true,
+              child: Text(
+                e.label,
+                style: LdsType.caption.copyWith(color: c.textMuted),
+              ),
+            ),
           ),
-        ));
+        );
       } else if (e is LdsMenuDivider) {
-        children.add(Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 4),
-          child: Container(height: 0.5, color: c.lineStrong),
-        ));
+        children.add(
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 4),
+            child: Container(height: 0.5, color: c.lineStrong),
+          ),
+        );
       }
     }
     return Semantics(
@@ -126,7 +132,10 @@ class LdsMenu extends StatelessWidget {
         child: FocusTraversalGroup(
           child: Container(
             constraints: const BoxConstraints(
-                minWidth: 220, maxWidth: 320, maxHeight: 420),
+              minWidth: 220,
+              maxWidth: 320,
+              maxHeight: 420,
+            ),
             decoration: BoxDecoration(
               color: c.bgElevated,
               borderRadius: const BorderRadius.all(Radius.circular(14)),
@@ -191,8 +200,8 @@ class _MenuRow extends StatelessWidget {
         final bg = state.focused
             ? c.accentTint
             : (state.hovered || state.pressed
-                ? c.bgTintStrong
-                : Colors.transparent);
+                  ? c.bgTintStrong
+                  : Colors.transparent);
         return Opacity(
           opacity: enabled ? 1 : 0.38,
           child: Container(
@@ -220,9 +229,13 @@ class _MenuRow extends StatelessWidget {
                 ),
                 if (item.shortcut != null) ...[
                   const SizedBox(width: 16),
-                  Text(item.shortcut!,
-                      style: LdsType.footnote
-                          .copyWith(fontSize: 12, color: c.textMuted)),
+                  Text(
+                    item.shortcut!,
+                    style: LdsType.footnote.copyWith(
+                      fontSize: 12,
+                      color: c.textMuted,
+                    ),
+                  ),
                 ],
                 if (item.checked ?? false) ...[
                   const SizedBox(width: 10),

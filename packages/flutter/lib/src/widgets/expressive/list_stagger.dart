@@ -33,11 +33,8 @@ class LdsStaggerItem extends StatelessWidget {
       Duration(milliseconds: math.min(math.max(index, 0), 4) * 35);
 
   @override
-  Widget build(BuildContext context) => LdsBlurIn(
-        delay: delayFor(index),
-        animate: animate,
-        child: child,
-      );
+  Widget build(BuildContext context) =>
+      LdsBlurIn(delay: delayFor(index), animate: animate, child: child);
 }
 
 /// A column of items that arrived together, each following the one before
@@ -89,4 +86,3 @@ class LdsListStagger extends StatelessWidget {
     );
   }
 }
-

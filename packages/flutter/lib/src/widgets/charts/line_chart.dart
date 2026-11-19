@@ -63,16 +63,16 @@ class LdsLineChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => LdsCartesianChart(
-        labels: labels,
-        fullLabels: fullLabels,
-        series: series,
-        semanticLabel: semanticLabel,
-        refs: refs,
-        format: format,
-        yMin: yMin,
-        yMax: yMax,
-        hideYAxis: hideYAxis,
-        height: height,
-        step: step,
-      );
+    labels: labels,
+    fullLabels: fullLabels,
+    series: series,
+    semanticLabel: semanticLabel,
+    refs: refs,
+    format: format,
+    yMin: yMin,
+    yMax: yMax,
+    hideYAxis: hideYAxis,
+    height: height,
+    step: step,
+  );
 }

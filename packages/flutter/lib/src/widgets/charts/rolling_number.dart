@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -47,15 +47,16 @@ class LdsRollingNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
-    final s = (style ??
-            TextStyle(
-              fontFamily: LdsType.family,
-              fontSize: 40,
-              fontWeight: FontWeight.w600,
-              letterSpacing: -1.2,
-              color: c.textStrong,
-            ))
-        .copyWith(height: 1.2, fontFeatures: tabular);
+    final s =
+        (style ??
+                TextStyle(
+                  fontFamily: LdsType.family,
+                  fontSize: 40,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: -1.2,
+                  color: c.textStrong,
+                ))
+            .copyWith(height: 1.2, fontFeatures: tabular);
     final text = _text;
     final probe = layoutText('0', s);
     final h = probe.height;

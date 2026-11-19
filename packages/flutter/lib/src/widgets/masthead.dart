@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../theme.dart';
 import '../tokens.g.dart';
@@ -46,10 +46,7 @@ class LdsMasthead extends StatelessWidget {
               style: LdsType.footnote.copyWith(color: c.textSubtle),
             ),
           ),
-          if (trailing != null) ...[
-            const SizedBox(width: 8),
-            trailing!,
-          ],
+          if (trailing != null) ...[const SizedBox(width: 8), trailing!],
         ],
       ),
     );

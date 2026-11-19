@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -48,45 +48,52 @@ class LdsBreadcrumbs extends StatelessWidget {
         children.add(LdsIcon('chevron_right', size: 14, color: c.textFaint));
       }
       if (last) {
-        children.add(Semantics(
-          label: '${item.label}, halaman ini',
-          excludeSemantics: true,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 6),
-            child: Text(
-              item.label,
-              style: LdsType.subhead
-                  .copyWith(color: c.textStrong, fontWeight: FontWeight.w500),
-            ),
-          ),
-        ));
-      } else {
-        children.add(LdsPressable(
-          onPressed: item.onPressed,
-          pressedScale: 1,
-          borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.xs)),
-          semanticLabel: item.label,
-          excludeChildSemantics: true,
-          builder: (context, state) => AnimatedContainer(
-            duration: context.ldsDuration(LdsMotion.fast),
-            padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-            decoration: BoxDecoration(
-              color: state.hovered || state.pressed
-                  ? c.bgTint
-                  : Colors.transparent,
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(LdsRadius.xs)),
-            ),
-            child: Text(
-              item.label,
-              style: LdsType.subhead.copyWith(
-                color: state.hovered || state.pressed
-                    ? c.textStrong
-                    : c.textSubtle,
+        children.add(
+          Semantics(
+            label: '${item.label}, halaman ini',
+            excludeSemantics: true,
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 6),
+              child: Text(
+                item.label,
+                style: LdsType.subhead.copyWith(
+                  color: c.textStrong,
+                  fontWeight: FontWeight.w500,
+                ),
               ),
             ),
           ),
-        ));
+        );
+      } else {
+        children.add(
+          LdsPressable(
+            onPressed: item.onPressed,
+            pressedScale: 1,
+            borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.xs)),
+            semanticLabel: item.label,
+            excludeChildSemantics: true,
+            builder: (context, state) => AnimatedContainer(
+              duration: context.ldsDuration(LdsMotion.fast),
+              padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+              decoration: BoxDecoration(
+                color: state.hovered || state.pressed
+                    ? c.bgTint
+                    : Colors.transparent,
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(LdsRadius.xs),
+                ),
+              ),
+              child: Text(
+                item.label,
+                style: LdsType.subhead.copyWith(
+                  color: state.hovered || state.pressed
+                      ? c.textStrong
+                      : c.textSubtle,
+                ),
+              ),
+            ),
+          ),
+        );
       }
     }
     return Semantics(

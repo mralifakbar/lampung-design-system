@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -89,8 +89,9 @@ class LdsKpiCard extends StatelessWidget {
   /// Label of the retry button.
   final String retryLabel;
 
-  static const BorderRadius _radius =
-      BorderRadius.all(Radius.circular(LdsRadius.lg));
+  static const BorderRadius _radius = BorderRadius.all(
+    Radius.circular(LdsRadius.lg),
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -104,18 +105,21 @@ class LdsKpiCard extends StatelessWidget {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               color: c.bgFill,
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(LdsRadius.sm)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(LdsRadius.sm),
+              ),
             ),
             child: LdsIcon(icon!, size: 16, color: c.textSubtle),
           ),
           const SizedBox(width: LdsSpace.s8),
         ],
         Expanded(
-          child: Text(label,
-              style: LdsType.subhead.copyWith(color: c.textSubtle)),
+          child: Text(
+            label,
+            style: LdsType.subhead.copyWith(color: c.textSubtle),
+          ),
         ),
-        if (menu != null) menu!,
+        ?menu,
       ],
     );
 
@@ -140,8 +144,10 @@ class LdsKpiCard extends StatelessWidget {
           const SizedBox(height: 4),
           Semantics(
             liveRegion: true,
-            child: Text(errorText!,
-                style: LdsType.footnote.copyWith(color: c.dangerText)),
+            child: Text(
+              errorText!,
+              style: LdsType.footnote.copyWith(color: c.dangerText),
+            ),
           ),
           if (onRetry != null) ...[
             const SizedBox(height: 6),
@@ -160,15 +166,19 @@ class LdsKpiCard extends StatelessWidget {
         children: [
           const SizedBox(height: 2),
           Text.rich(
-            TextSpan(children: [
-              TextSpan(text: value ?? ''),
-              if (unit != null)
-                TextSpan(
-                  text: ' $unit',
-                  style: LdsType.bodyStrong.copyWith(
-                      letterSpacing: 0, color: c.textSubtle),
-                ),
-            ]),
+            TextSpan(
+              children: [
+                TextSpan(text: value ?? ''),
+                if (unit != null)
+                  TextSpan(
+                    text: ' $unit',
+                    style: LdsType.bodyStrong.copyWith(
+                      letterSpacing: 0,
+                      color: c.textSubtle,
+                    ),
+                  ),
+              ],
+            ),
             style: TextStyle(
               fontFamily: LdsType.family,
               fontSize: 28,
@@ -185,10 +195,12 @@ class LdsKpiCard extends StatelessWidget {
               spacing: 6,
               crossAxisAlignment: WrapCrossAlignment.center,
               children: [
-                if (delta != null) delta!,
+                ?delta,
                 if (baseline != null)
-                  Text(baseline!,
-                      style: LdsType.footnote.copyWith(color: c.textSubtle)),
+                  Text(
+                    baseline!,
+                    style: LdsType.footnote.copyWith(color: c.textSubtle),
+                  ),
               ],
             ),
           ],
@@ -197,51 +209,51 @@ class LdsKpiCard extends StatelessWidget {
     }
 
     final hasSpark = !loading && errorText == null && (spark?.length ?? 0) >= 2;
-    final hasBars = !loading && errorText == null && (bars?.isNotEmpty ?? false);
+    final hasBars =
+        !loading && errorText == null && (bars?.isNotEmpty ?? false);
 
     Widget card(bool active) => Container(
-          clipBehavior: Clip.antiAlias,
-          decoration: BoxDecoration(
-            color: c.bgBase,
-            borderRadius: _radius,
-            border: Border.all(color: active ? c.lineStrong : c.line),
+      clipBehavior: Clip.antiAlias,
+      decoration: BoxDecoration(
+        color: c.bgBase,
+        borderRadius: _radius,
+        border: Border.all(color: active ? c.lineStrong : c.line),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Padding(
+            padding: EdgeInsets.fromLTRB(16, 16, 16, hasSpark ? 4 : 16),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                head,
+                const SizedBox(height: 6),
+                body,
+                if (hasBars) ...[
+                  const SizedBox(height: 12),
+                  _MiniBars(
+                    values: bars!,
+                    current: currentBar ?? bars!.length - 1,
+                    label: sparkLabel ?? label,
+                  ),
+                ],
+              ],
+            ),
           ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Padding(
-                padding: EdgeInsets.fromLTRB(
-                    16, 16, 16, hasSpark ? 4 : 16),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    head,
-                    const SizedBox(height: 6),
-                    body,
-                    if (hasBars) ...[
-                      const SizedBox(height: 12),
-                      _MiniBars(
-                        values: bars!,
-                        current: currentBar ?? bars!.length - 1,
-                        label: sparkLabel ?? label,
-                      ),
-                    ],
-                  ],
-                ),
-              ),
-              if (hasSpark)
-                LdsSparkline(
-                  values: spark!,
-                  semanticLabel: sparkLabel ?? label,
-                  width: null,
-                  height: 52,
-                  bleed: true,
-                ),
-            ],
-          ),
-        );
+          if (hasSpark)
+            LdsSparkline(
+              values: spark!,
+              semanticLabel: sparkLabel ?? label,
+              width: null,
+              height: 52,
+              bleed: true,
+            ),
+        ],
+      ),
+    );
 
     if (onTap == null) {
       return Semantics(container: true, child: card(false));
@@ -282,16 +294,18 @@ class _MiniBars extends StatelessWidget {
               if (i > 0) const SizedBox(width: 3),
               Expanded(
                 child: FractionallySizedBox(
-                  heightFactor:
-                      max <= 0 ? 0.06 : math.max(0.06, values[i] / max),
+                  heightFactor: max <= 0
+                      ? 0.06
+                      : math.max(0.06, values[i] / max),
                   alignment: Alignment.bottomCenter,
                   child: Container(
                     decoration: BoxDecoration(
                       color: i == current
                           ? LdsSeriesColor.series1.resolve(c)
                           : c.accentTintStrong,
-                      borderRadius:
-                          const BorderRadius.vertical(top: Radius.circular(2)),
+                      borderRadius: const BorderRadius.vertical(
+                        top: Radius.circular(2),
+                      ),
                     ),
                   ),
                 ),

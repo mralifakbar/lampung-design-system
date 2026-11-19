@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -74,16 +74,21 @@ class LdsTimeline extends StatelessWidget {
     );
   }
 
-  Widget _item(BuildContext context, LdsColors c, LdsTimelineItem item,
-      {required bool last}) {
+  Widget _item(
+    BuildContext context,
+    LdsColors c,
+    LdsTimelineItem item, {
+    required bool last,
+  }) {
     final done = item.state == LdsTimelineState.done;
     final current = item.state == LdsTimelineState.current;
-    final icon = item.icon ??
+    final icon =
+        item.icon ??
         (done
             ? 'check'
             : current
-                ? 'schedule'
-                : null);
+            ? 'schedule'
+            : null);
     final dot = Container(
       width: 24,
       height: 24,
@@ -97,24 +102,27 @@ class LdsTimeline extends StatelessWidget {
                 color: current ? c.accent : c.lineStrong,
                 width: current ? 2 : 1.5,
               ),
-        boxShadow:
-            current ? [BoxShadow(color: c.accentRing, spreadRadius: 4)] : null,
+        boxShadow: current
+            ? [BoxShadow(color: c.accentRing, spreadRadius: 4)]
+            : null,
       ),
       child: icon == null
           ? null
-          : LdsIcon(icon,
+          : LdsIcon(
+              icon,
               size: 15,
               color: done
                   ? c.textOnAccent
                   : current
-                      ? c.accentText
-                      : c.textSubtle),
+                  ? c.accentText
+                  : c.textSubtle,
+            ),
     );
     final stateWord = done
         ? doneLabel
         : current
-            ? currentLabel
-            : null;
+        ? currentLabel
+        : null;
     return Semantics(
       container: true,
       label: stateWord,

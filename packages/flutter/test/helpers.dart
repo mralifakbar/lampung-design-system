@@ -1,7 +1,8 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:lampung_design_system/lampung_design_system.dart';
+import 'package:material_ui/material_ui.dart';
 
 Widget wrap(Widget child, {bool dark = false, bool reduceMotion = false}) {
   return MaterialApp(
@@ -45,14 +46,17 @@ Color parseTokenColor(String v) {
   if (m == null) throw ArgumentError('Unsupported color $v');
   final a = ((m[4] == null ? 1 : double.parse(m[4]!)) * 255).round();
   return Color.fromARGB(
-      a, int.parse(m[1]!), int.parse(m[2]!), int.parse(m[3]!));
+    a,
+    int.parse(m[1]!),
+    int.parse(m[2]!),
+    int.parse(m[3]!),
+  );
 }
 
 /// WCAG relative luminance.
 double luminance(Color c) {
-  double ch(double v) => v <= 0.03928
-      ? v / 12.92
-      : math.pow((v + 0.055) / 1.055, 2.4).toDouble();
+  double ch(double v) =>
+      v <= 0.03928 ? v / 12.92 : math.pow((v + 0.055) / 1.055, 2.4).toDouble();
   return 0.2126 * ch(c.r) + 0.7152 * ch(c.g) + 0.0722 * ch(c.b);
 }
 
@@ -65,3 +69,8 @@ double contrast(Color fg, Color bg, Color canvas) {
   final hi = l1 > l2 ? l1 : l2, lo = l1 > l2 ? l2 : l1;
   return (hi + 0.05) / (lo + 0.05);
 }
+
+/// Finds a [Tooltip] by [message]. `find.byTooltip` matches the framework's
+/// legacy Material `Tooltip`, not the one from `material_ui`.
+Finder findTooltip(String message) =>
+    find.byWidgetPredicate((w) => w is Tooltip && w.message == message);

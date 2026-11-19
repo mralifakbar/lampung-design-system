@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -112,8 +112,11 @@ class _LdsCommandPaletteState extends State<LdsCommandPalette> {
   void _move(int by) {
     final n = _results.length;
     if (n == 0) return;
-    setState(() => _active =
-        (_active + by) % n < 0 ? (_active + by) % n + n : (_active + by) % n);
+    setState(
+      () => _active = (_active + by) % n < 0
+          ? (_active + by) % n + n
+          : (_active + by) % n,
+    );
     const row = 44.0;
     final top = _active * row;
     if (_scroll.hasClients) {
@@ -138,15 +141,15 @@ class _LdsCommandPaletteState extends State<LdsCommandPalette> {
     final results = _results;
     final muted = LdsType.footnote.copyWith(fontSize: 12, color: c.textMuted);
     Widget kbd(String k) => Container(
-          margin: const EdgeInsetsDirectional.only(end: 4),
-          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
-          decoration: BoxDecoration(
-            color: c.bgBase,
-            borderRadius: const BorderRadius.all(Radius.circular(5)),
-            border: Border.all(color: c.lineStrong),
-          ),
-          child: Text(k, style: muted.copyWith(fontSize: 11)),
-        );
+      margin: const EdgeInsetsDirectional.only(end: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 1),
+      decoration: BoxDecoration(
+        color: c.bgBase,
+        borderRadius: const BorderRadius.all(Radius.circular(5)),
+        border: Border.all(color: c.lineStrong),
+      ),
+      child: Text(k, style: muted.copyWith(fontSize: 11)),
+    );
 
     final rows = <Widget>[];
     String? group;
@@ -154,21 +157,27 @@ class _LdsCommandPaletteState extends State<LdsCommandPalette> {
       final cmd = results[i];
       if (cmd.group != null && cmd.group != group) {
         group = cmd.group;
-        rows.add(Padding(
-          padding: const EdgeInsets.fromLTRB(12, 10, 12, 4),
-          child: Semantics(
-            header: true,
-            child: Text(group!,
-                style: LdsType.caption.copyWith(color: c.textMuted)),
+        rows.add(
+          Padding(
+            padding: const EdgeInsets.fromLTRB(12, 10, 12, 4),
+            child: Semantics(
+              header: true,
+              child: Text(
+                group!,
+                style: LdsType.caption.copyWith(color: c.textMuted),
+              ),
+            ),
           ),
-        ));
+        );
       }
-      rows.add(_Row(
-        command: cmd,
-        active: i == _active,
-        onHover: () => setState(() => _active = i),
-        onTap: () => widget.onSelected(cmd),
-      ));
+      rows.add(
+        _Row(
+          command: cmd,
+          active: i == _active,
+          onHover: () => setState(() => _active = i),
+          onTap: () => widget.onSelected(cmd),
+        ),
+      );
     }
 
     return ConstrainedBox(
@@ -197,22 +206,30 @@ class _LdsCommandPaletteState extends State<LdsCommandPalette> {
                     Expanded(
                       child: CallbackShortcuts(
                         bindings: <ShortcutActivator, VoidCallback>{
-                          const SingleActivator(LogicalKeyboardKey.arrowDown):
-                              () => _move(1),
-                          const SingleActivator(LogicalKeyboardKey.arrowUp):
-                              () => _move(-1),
+                          const SingleActivator(
+                            LogicalKeyboardKey.arrowDown,
+                          ): () =>
+                              _move(1),
+                          const SingleActivator(
+                            LogicalKeyboardKey.arrowUp,
+                          ): () =>
+                              _move(-1),
                         },
                         child: TextField(
                           controller: _query,
                           autofocus: true,
                           textInputAction: TextInputAction.go,
-                          style: LdsType.body
-                              .copyWith(fontSize: 16, color: c.textStrong),
+                          style: LdsType.body.copyWith(
+                            fontSize: 16,
+                            color: c.textStrong,
+                          ),
                           cursorColor: c.accent,
                           decoration: InputDecoration.collapsed(
                             hintText: widget.placeholder,
-                            hintStyle: LdsType.body
-                                .copyWith(fontSize: 16, color: c.textMuted),
+                            hintStyle: LdsType.body.copyWith(
+                              fontSize: 16,
+                              color: c.textMuted,
+                            ),
                           ).copyWith(filled: false),
                           onChanged: (_) => setState(() => _active = 0),
                           onSubmitted: (_) => _run(),
@@ -235,8 +252,9 @@ class _LdsCommandPaletteState extends State<LdsCommandPalette> {
                             child: Text(
                               widget.emptyLabel,
                               textAlign: TextAlign.center,
-                              style:
-                                  LdsType.subhead.copyWith(color: c.textSubtle),
+                              style: LdsType.subhead.copyWith(
+                                color: c.textSubtle,
+                              ),
                             ),
                           ),
                         )
@@ -319,8 +337,10 @@ class _Row extends StatelessWidget {
             child: Row(
               children: [
                 if (command.icon != null) ...[
-                  LdsIcon(command.icon!,
-                      color: active ? c.accentText : c.textSubtle),
+                  LdsIcon(
+                    command.icon!,
+                    color: active ? c.accentText : c.textSubtle,
+                  ),
                   const SizedBox(width: 12),
                 ],
                 Expanded(
@@ -332,9 +352,13 @@ class _Row extends StatelessWidget {
                   ),
                 ),
                 if (command.shortcut != null)
-                  Text(command.shortcut!,
-                      style: LdsType.footnote
-                          .copyWith(fontSize: 12, color: c.textMuted)),
+                  Text(
+                    command.shortcut!,
+                    style: LdsType.footnote.copyWith(
+                      fontSize: 12,
+                      color: c.textMuted,
+                    ),
+                  ),
               ],
             ),
           ),
@@ -356,26 +380,28 @@ Future<LdsCommand?> showLdsCommandPalette({
   bool useRootNavigator = true,
 }) async {
   final cmd = await Navigator.of(context, rootNavigator: useRootNavigator)
-      .push<LdsCommand>(LdsLayerRoute<LdsCommand>(
-    scrimColor: context.lds.bgScrim,
-    motion: LdsLayerMotion.drop,
-    dismissLabel: dismissLabel,
-    reduceMotion: context.ldsReduceMotion,
-    builder: (context) => SafeArea(
-      child: Align(
-        alignment: Alignment.topCenter,
-        child: Padding(
-          padding: const EdgeInsets.fromLTRB(16, 48, 16, 16),
-          child: LdsCommandPalette(
-            commands: commands,
-            placeholder: placeholder,
-            emptyLabel: emptyLabel,
-            onSelected: (c) => Navigator.of(context).pop(c),
+      .push<LdsCommand>(
+        LdsLayerRoute<LdsCommand>(
+          scrimColor: context.lds.bgScrim,
+          motion: LdsLayerMotion.drop,
+          dismissLabel: dismissLabel,
+          reduceMotion: context.ldsReduceMotion,
+          builder: (context) => SafeArea(
+            child: Align(
+              alignment: Alignment.topCenter,
+              child: Padding(
+                padding: const EdgeInsets.fromLTRB(16, 48, 16, 16),
+                child: LdsCommandPalette(
+                  commands: commands,
+                  placeholder: placeholder,
+                  emptyLabel: emptyLabel,
+                  onSelected: (c) => Navigator.of(context).pop(c),
+                ),
+              ),
+            ),
           ),
         ),
-      ),
-    ),
-  ));
+      );
   cmd?.onRun();
   return cmd;
 }

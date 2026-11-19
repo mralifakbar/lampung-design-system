@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -24,11 +24,11 @@ class LdsPopover extends StatelessWidget {
 
   /// Builds the trigger. Call `controller.toggle()` when it is pressed.
   final Widget Function(BuildContext context, LdsLayerController controller)
-      builder;
+  builder;
 
   /// Builds the card content; call `controller.close()` from it to close.
   final Widget Function(BuildContext context, LdsLayerController controller)
-      contentBuilder;
+  contentBuilder;
 
   /// Controls the popover from outside.
   final LdsLayerController? controller;
@@ -64,8 +64,9 @@ class LdsPopover extends StatelessWidget {
             padding: const EdgeInsets.all(LdsSpace.s16),
             decoration: BoxDecoration(
               color: colors.bgElevated,
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(LdsRadius.lg)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(LdsRadius.lg),
+              ),
               border: Border.all(color: colors.lineStrong, width: 0.5),
               boxShadow: context.ldsShadows.lg,
             ),

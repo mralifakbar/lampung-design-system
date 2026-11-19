@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -163,11 +163,17 @@ class _LdsConfirmInPlaceState extends State<LdsConfirmInPlace> {
           excludeChildSemantics: true,
           builder: (context, state) => Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18),
-            child: Row(mainAxisSize: MainAxisSize.min, children: [
-              LdsIcon(widget.icon, size: 19, color: c.dangerText),
-              const SizedBox(width: 8),
-              Text(widget.armLabel, style: text.copyWith(color: c.dangerText)),
-            ]),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                LdsIcon(widget.icon, size: 19, color: c.dangerText),
+                const SizedBox(width: 8),
+                Text(
+                  widget.armLabel,
+                  style: text.copyWith(color: c.dangerText),
+                ),
+              ],
+            ),
           ),
         );
       case LdsConfirmFace.ask:
@@ -179,24 +185,30 @@ class _LdsConfirmInPlaceState extends State<LdsConfirmInPlace> {
           },
           child: Padding(
             padding: const EdgeInsetsDirectional.only(start: 18, end: 4),
-            child: Row(mainAxisSize: MainAxisSize.min, children: [
-              Text(widget.question, style: text.copyWith(color: c.textStrong)),
-              const SizedBox(width: 6),
-              LdsButton(
-                label: widget.cancelLabel,
-                variant: LdsButtonVariant.plain,
-                size: LdsButtonSize.md,
-                focusNode: _cancel,
-                onPressed: () => _go(LdsConfirmFace.rest, _arm),
-              ),
-              const SizedBox(width: 4),
-              LdsButton(
-                label: widget.confirmLabel,
-                variant: LdsButtonVariant.danger,
-                size: LdsButtonSize.md,
-                onPressed: _confirm,
-              ),
-            ]),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Text(
+                  widget.question,
+                  style: text.copyWith(color: c.textStrong),
+                ),
+                const SizedBox(width: 6),
+                LdsButton(
+                  label: widget.cancelLabel,
+                  variant: LdsButtonVariant.plain,
+                  size: LdsButtonSize.md,
+                  focusNode: _cancel,
+                  onPressed: () => _go(LdsConfirmFace.rest, _arm),
+                ),
+                const SizedBox(width: 4),
+                LdsButton(
+                  label: widget.confirmLabel,
+                  variant: LdsButtonVariant.danger,
+                  size: LdsButtonSize.md,
+                  onPressed: _confirm,
+                ),
+              ],
+            ),
           ),
         );
       case LdsConfirmFace.busy:
@@ -205,18 +217,24 @@ class _LdsConfirmInPlaceState extends State<LdsConfirmInPlace> {
           liveRegion: true,
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 18),
-            child: Row(mainAxisSize: MainAxisSize.min, children: [
-              SizedBox.square(
-                dimension: 16,
-                child: CircularProgressIndicator(
-                  strokeWidth: 2,
-                  color: c.textSubtle,
-                  backgroundColor: Colors.transparent,
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox.square(
+                  dimension: 16,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2,
+                    color: c.textSubtle,
+                    backgroundColor: Colors.transparent,
+                  ),
                 ),
-              ),
-              const SizedBox(width: 8),
-              Text(widget.busyLabel, style: text.copyWith(color: c.textSubtle)),
-            ]),
+                const SizedBox(width: 8),
+                Text(
+                  widget.busyLabel,
+                  style: text.copyWith(color: c.textSubtle),
+                ),
+              ],
+            ),
           ),
         );
       case LdsConfirmFace.done:
@@ -225,24 +243,35 @@ class _LdsConfirmInPlaceState extends State<LdsConfirmInPlace> {
           liveRegion: true,
           child: Padding(
             padding: EdgeInsetsDirectional.only(
-                start: 18, end: widget.onUndo != null ? 4 : 18),
-            child: Row(mainAxisSize: MainAxisSize.min, children: [
-              LdsIcon('check_circle',
-                  size: 19, fill: true, color: c.successText),
-              const SizedBox(width: 8),
-              Text(widget.doneLabel,
-                  style: text.copyWith(color: c.successText)),
-              if (widget.onUndo != null) ...[
-                const SizedBox(width: 4),
-                LdsButton(
-                  label: widget.undoLabel,
-                  variant: LdsButtonVariant.plain,
-                  size: LdsButtonSize.md,
-                  focusNode: _undo,
-                  onPressed: _undoIt,
+              start: 18,
+              end: widget.onUndo != null ? 4 : 18,
+            ),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                LdsIcon(
+                  'check_circle',
+                  size: 19,
+                  fill: true,
+                  color: c.successText,
                 ),
+                const SizedBox(width: 8),
+                Text(
+                  widget.doneLabel,
+                  style: text.copyWith(color: c.successText),
+                ),
+                if (widget.onUndo != null) ...[
+                  const SizedBox(width: 4),
+                  LdsButton(
+                    label: widget.undoLabel,
+                    variant: LdsButtonVariant.plain,
+                    size: LdsButtonSize.md,
+                    focusNode: _undo,
+                    onPressed: _undoIt,
+                  ),
+                ],
               ],
-            ]),
+            ),
           ),
         );
     }
@@ -274,8 +303,9 @@ class _LdsConfirmInPlaceState extends State<LdsConfirmInPlace> {
           duration: reduce ? LdsMotion.instant : LdsMotion.snappy,
           curve: reduce ? Curves.linear : LdsSpringCurve.snappy,
           child: AnimatedSwitcher(
-            duration:
-                reduce ? Duration.zero : const Duration(milliseconds: 200),
+            duration: reduce
+                ? Duration.zero
+                : const Duration(milliseconds: 200),
             reverseDuration: reduce ? Duration.zero : LdsMotion.instant,
             switchInCurve: LdsMotion.enterCurve,
             switchOutCurve: LdsMotion.exitCurve,
@@ -283,7 +313,7 @@ class _LdsConfirmInPlaceState extends State<LdsConfirmInPlace> {
               alignment: Alignment.center,
               children: [
                 ...previous.map((w) => Positioned(child: w)),
-                if (current != null) current,
+                ?current,
               ],
             ),
             child: _faceFor(c),

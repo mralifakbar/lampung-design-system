@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -38,8 +38,10 @@ class LdsQuote extends StatelessWidget {
           ),
           if (attribution != null) ...[
             const SizedBox(height: 8),
-            Text(attribution!,
-                style: LdsType.footnote.copyWith(color: c.textSubtle)),
+            Text(
+              attribution!,
+              style: LdsType.footnote.copyWith(color: c.textSubtle),
+            ),
           ],
         ],
       ),

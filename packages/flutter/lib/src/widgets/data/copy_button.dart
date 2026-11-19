@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -108,8 +108,9 @@ class _LdsCopyButtonState extends State<LdsCopyButton> {
           height: widget.iconOnly ? 36 : LdsSize.controlSm,
           width: widget.iconOnly ? 36 : null,
           // A fixed minimum keeps the width steady when the label changes.
-          constraints:
-              widget.iconOnly ? null : const BoxConstraints(minWidth: 92),
+          constraints: widget.iconOnly
+              ? null
+              : const BoxConstraints(minWidth: 92),
           padding: widget.iconOnly
               ? null
               : const EdgeInsets.symmetric(horizontal: 10),
@@ -117,11 +118,11 @@ class _LdsCopyButtonState extends State<LdsCopyButton> {
           decoration: BoxDecoration(
             color: widget.iconOnly
                 ? (state.hovered || state.pressed
-                    ? c.bgTint
-                    : Colors.transparent)
+                      ? c.bgTint
+                      : Colors.transparent)
                 : (state.hovered || state.pressed
-                    ? Color.alphaBlend(c.bgTintStrong, c.bgRecessed)
-                    : c.bgRecessed),
+                      ? Color.alphaBlend(c.bgTintStrong, c.bgRecessed)
+                      : c.bgRecessed),
             borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.sm)),
           ),
           child: widget.iconOnly

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -44,8 +44,10 @@ class LdsRating extends StatefulWidget {
 
 class _LdsRatingState extends State<LdsRating> {
   int _preview = 0;
-  late final List<FocusNode> _nodes =
-      List.generate(widget.max, (_) => FocusNode());
+  late final List<FocusNode> _nodes = List.generate(
+    widget.max,
+    (_) => FocusNode(),
+  );
 
   @override
   void dispose() {
@@ -113,8 +115,8 @@ class _LdsRatingState extends State<LdsRating> {
                           color: !on
                               ? c.textFaint
                               : previewing
-                                  ? c.warning.withAlpha(140)
-                                  : c.warning,
+                              ? c.warning.withAlpha(140)
+                              : c.warning,
                         ),
                       );
                     },

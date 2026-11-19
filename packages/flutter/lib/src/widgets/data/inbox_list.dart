@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -83,8 +83,8 @@ class LdsInboxRow extends StatelessWidget {
     final semantic = [
       if (unread) unreadLabel,
       from,
-      if (subject != null) subject!,
-      if (preview != null) preview!,
+      ?subject,
+      ?preview,
       time,
       if (flagged) flaggedLabel,
     ].join(', ');
@@ -103,10 +103,10 @@ class LdsInboxRow extends StatelessWidget {
         color: current
             ? c.accentTint
             : state.pressed
-                ? Color.alphaBlend(c.bgTintStrong, c.bgBase)
-                : state.hovered
-                    ? Color.alphaBlend(c.bgTint, c.bgBase)
-                    : c.bgBase,
+            ? Color.alphaBlend(c.bgTintStrong, c.bgBase)
+            : state.hovered
+            ? Color.alphaBlend(c.bgTint, c.bgBase)
+            : c.bgBase,
         child: Stack(
           clipBehavior: Clip.none,
           children: [
@@ -117,8 +117,10 @@ class LdsInboxRow extends StatelessWidget {
                 child: Container(
                   width: 8,
                   height: 8,
-                  decoration:
-                      BoxDecoration(color: c.accent, shape: BoxShape.circle),
+                  decoration: BoxDecoration(
+                    color: c.accent,
+                    shape: BoxShape.circle,
+                  ),
                 ),
               ),
             Row(
@@ -126,7 +128,9 @@ class LdsInboxRow extends StatelessWidget {
               children: [
                 if (avatar != null) ...[
                   Padding(
-                      padding: const EdgeInsets.only(top: 2), child: avatar),
+                    padding: const EdgeInsets.only(top: 2),
+                    child: avatar,
+                  ),
                   const SizedBox(width: 12),
                 ],
                 Expanded(
@@ -144,8 +148,9 @@ class LdsInboxRow extends StatelessWidget {
                                 fontFamily: LdsType.family,
                                 fontSize: 15,
                                 height: 20 / 15,
-                                fontWeight:
-                                    unread ? FontWeight.w600 : FontWeight.w500,
+                                fontWeight: unread
+                                    ? FontWeight.w600
+                                    : FontWeight.w500,
                                 color: c.textStrong,
                               ),
                             ),
@@ -158,14 +163,21 @@ class LdsInboxRow extends StatelessWidget {
                               curve: LdsSpringCurve.snappy,
                               builder: (context, s, child) =>
                                   Transform.scale(scale: s, child: child),
-                              child: LdsIcon('flag',
-                                  size: 15, fill: true, color: c.warningText),
+                              child: LdsIcon(
+                                'flag',
+                                size: 15,
+                                fill: true,
+                                color: c.warningText,
+                              ),
                             ),
                           ],
                           if (attachment) ...[
                             const SizedBox(width: 8),
-                            LdsIcon('attach_file',
-                                size: 15, color: c.textMuted),
+                            LdsIcon(
+                              'attach_file',
+                              size: 15,
+                              color: c.textMuted,
+                            ),
                           ],
                           const SizedBox(width: 8),
                           Text(
@@ -173,7 +185,7 @@ class LdsInboxRow extends StatelessWidget {
                             style: LdsType.caption.copyWith(
                               color: unread ? c.accentText : c.textMuted,
                               fontFeatures: const [
-                                FontFeature.tabularFigures()
+                                FontFeature.tabularFigures(),
                               ],
                             ),
                           ),
@@ -236,11 +248,7 @@ class LdsInboxRow extends StatelessWidget {
 /// With [avatars] the hairlines start after the 40 px avatar.
 class LdsInboxList extends StatelessWidget {
   /// Creates an inbox list.
-  const LdsInboxList({
-    super.key,
-    required this.children,
-    this.avatars = false,
-  });
+  const LdsInboxList({super.key, required this.children, this.avatars = false});
 
   /// The rows.
   final List<LdsInboxRow> children;

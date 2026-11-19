@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../motion.dart';
 import '../theme.dart';
@@ -20,13 +20,10 @@ class LdsSkeleton extends StatefulWidget {
   });
 
   /// Creates a round skeleton, for an avatar or icon.
-  const LdsSkeleton.circle({
-    super.key,
-    double size = 40,
-    this.semanticLabel,
-  })  : width = size,
-        height = size,
-        borderRadius = const BorderRadius.all(Radius.circular(999));
+  const LdsSkeleton.circle({super.key, double size = 40, this.semanticLabel})
+    : width = size,
+      height = size,
+      borderRadius = const BorderRadius.all(Radius.circular(999));
 
   /// Width; null fills the available width.
   final double? width;
@@ -94,11 +91,13 @@ class _LdsSkeletonState extends State<LdsSkeleton>
                     translation: Offset(-1 + 2 * t, 0),
                     child: DecoratedBox(
                       decoration: BoxDecoration(
-                        gradient: LinearGradient(colors: [
-                          c.skeletonShine.withAlpha(0),
-                          c.skeletonShine,
-                          c.skeletonShine.withAlpha(0),
-                        ]),
+                        gradient: LinearGradient(
+                          colors: [
+                            c.skeletonShine.withAlpha(0),
+                            c.skeletonShine,
+                            c.skeletonShine.withAlpha(0),
+                          ],
+                        ),
                       ),
                     ),
                   ),

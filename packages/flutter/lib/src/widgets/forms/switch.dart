@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -77,9 +77,7 @@ class LdsSwitch extends StatelessWidget {
             decoration: BoxDecoration(
               color: value ? c.accent : c.bgSwitchOff,
               borderRadius: BorderRadius.all(Radius.circular(h / 2)),
-              border: Border.all(
-                color: value ? c.accent : c.line,
-              ),
+              border: Border.all(color: value ? c.accent : c.line),
             ),
             child: Stack(
               clipBehavior: Clip.none,
@@ -94,8 +92,9 @@ class LdsSwitch extends StatelessWidget {
                   child: DecoratedBox(
                     decoration: BoxDecoration(
                       color: c.textOnAccent,
-                      borderRadius:
-                          BorderRadius.all(Radius.circular(thumb / 2)),
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(thumb / 2),
+                      ),
                       boxShadow: context.ldsShadows.thumb,
                     ),
                   ),

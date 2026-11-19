@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -20,17 +20,17 @@ enum LdsSeparatorLabelAlign {
 class LdsSeparator extends StatelessWidget {
   /// A horizontal hairline.
   const LdsSeparator({super.key})
-      : axis = Axis.horizontal,
-        label = null,
-        labelAlign = LdsSeparatorLabelAlign.center,
-        header = false;
+    : axis = Axis.horizontal,
+      label = null,
+      labelAlign = LdsSeparatorLabelAlign.center,
+      header = false;
 
   /// A vertical hairline between items in a row, at least 20 px tall.
   const LdsSeparator.vertical({super.key})
-      : axis = Axis.vertical,
-        label = null,
-        labelAlign = LdsSeparatorLabelAlign.center,
-        header = false;
+    : axis = Axis.vertical,
+      label = null,
+      labelAlign = LdsSeparatorLabelAlign.center,
+      header = false;
 
   /// Words between hairlines, in the caption style. With [header] the words
   /// are announced as a heading.
@@ -71,10 +71,7 @@ class LdsSeparator extends StatelessWidget {
     if (label == null) return line;
     final text = Semantics(
       header: header,
-      child: Text(
-        label!,
-        style: LdsType.caption.copyWith(color: c.textMuted),
-      ),
+      child: Text(label!, style: LdsType.caption.copyWith(color: c.textMuted)),
     );
     return ConstrainedBox(
       constraints: const BoxConstraints(minHeight: 28),

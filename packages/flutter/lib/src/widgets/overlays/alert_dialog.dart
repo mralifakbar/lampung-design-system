@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../badge.dart';
 import '../button.dart';
@@ -64,8 +64,9 @@ class LdsAlertDialog extends StatelessWidget {
         ),
         LdsButton(
           label: confirmLabel,
-          variant:
-              destructive ? LdsButtonVariant.danger : LdsButtonVariant.primary,
+          variant: destructive
+              ? LdsButtonVariant.danger
+              : LdsButtonVariant.primary,
           onPressed: onConfirm,
         ),
       ],

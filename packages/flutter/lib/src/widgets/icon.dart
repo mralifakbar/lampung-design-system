@@ -38,7 +38,8 @@ class LdsIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final resolved = color ??
+    final resolved =
+        color ??
         IconTheme.of(context).color ??
         DefaultTextStyle.of(context).style.color;
     final glyph = SizedBox.square(

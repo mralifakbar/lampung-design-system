@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -12,8 +12,12 @@ import 'avatar.dart';
 @immutable
 class LdsLaneTick {
   /// Creates a time column.
-  const LdsLaneTick(this.label,
-      {this.sub, this.today = false, this.off = false});
+  const LdsLaneTick(
+    this.label, {
+    this.sub,
+    this.today = false,
+    this.off = false,
+  });
 
   /// "Sen", "08.00".
   final String label;
@@ -182,61 +186,63 @@ class LdsLanes extends StatelessWidget {
           borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.lg)),
           border: Border.all(color: c.line),
         ),
-        child: LayoutBuilder(builder: (context, box) {
-          final avail = (box.maxWidth.isFinite ? box.maxWidth : 800) - 2;
-          final who = math.min(whoWidth, avail * 0.45);
-          final cols = math.max(1, ticks.length);
-          final col = math.max(colMinWidth, (avail - who) / cols);
-          final trackWidth = col * cols;
+        child: LayoutBuilder(
+          builder: (context, box) {
+            final avail = (box.maxWidth.isFinite ? box.maxWidth : 800) - 2;
+            final who = math.min(whoWidth, avail * 0.45);
+            final cols = math.max(1, ticks.length);
+            final col = math.max(colMinWidth, (avail - who) / cols);
+            final trackWidth = col * cols;
 
-          final names = Column(
-            children: [
-              _corner(context, who),
-              for (final r in rows) _who(context, r, who),
-            ],
-          );
-          final tracks = SizedBox(
-            width: trackWidth,
-            child: Stack(
+            final names = Column(
               children: [
-                Column(
-                  children: [
-                    _head(context, col),
-                    for (final r in rows) _track(context, r, col),
-                  ],
-                ),
-                if (now != null && rows.isNotEmpty)
-                  Positioned(
-                    left: now! * col - 1,
-                    top: _headHeight,
-                    bottom: 0,
-                    child: IgnorePointer(
-                      child: Container(width: 2, color: c.danger),
-                    ),
-                  ),
+                _corner(context, who),
+                for (final r in rows) _who(context, r, who),
               ],
-            ),
-          );
-          return Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            );
+            final tracks = SizedBox(
+              width: trackWidth,
+              child: Stack(
                 children: [
-                  SizedBox(width: who, child: names),
-                  Expanded(
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: tracks,
-                    ),
+                  Column(
+                    children: [
+                      _head(context, col),
+                      for (final r in rows) _track(context, r, col),
+                    ],
                   ),
+                  if (now != null && rows.isNotEmpty)
+                    Positioned(
+                      left: now! * col - 1,
+                      top: _headHeight,
+                      bottom: 0,
+                      child: IgnorePointer(
+                        child: Container(width: 2, color: c.danger),
+                      ),
+                    ),
                 ],
               ),
-              if (rows.isEmpty && empty != null) empty!,
-            ],
-          );
-        }),
+            );
+            return Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(width: who, child: names),
+                    Expanded(
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: tracks,
+                      ),
+                    ),
+                  ],
+                ),
+                if (rows.isEmpty && empty != null) empty!,
+              ],
+            );
+          },
+        ),
       ),
     );
   }
@@ -255,9 +261,13 @@ class LdsLanes extends StatelessWidget {
           right: BorderSide(color: c.line),
         ),
       ),
-      child: Text(corner,
-          style: LdsType.footnote
-              .copyWith(color: c.textSubtle, fontWeight: FontWeight.w500)),
+      child: Text(
+        corner,
+        style: LdsType.footnote.copyWith(
+          color: c.textSubtle,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
     );
   }
 
@@ -310,41 +320,46 @@ class LdsLanes extends StatelessWidget {
   Widget _who(BuildContext context, LdsLaneRow r, double width) {
     final c = context.lds;
     Widget content(bool hot) => Container(
-          height: rowHeight,
-          width: width,
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          decoration: BoxDecoration(
-            color: hot ? Color.alphaBlend(c.bgTint, c.bgBase) : c.bgBase,
-            border: Border(
-              bottom: BorderSide(color: c.hairline),
-              right: BorderSide(color: c.line),
+      height: rowHeight,
+      width: width,
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      decoration: BoxDecoration(
+        color: hot ? Color.alphaBlend(c.bgTint, c.bgBase) : c.bgBase,
+        border: Border(
+          bottom: BorderSide(color: c.hairline),
+          right: BorderSide(color: c.line),
+        ),
+      ),
+      child: Row(
+        children: [
+          if (r.avatar != null) ...[r.avatar!, const SizedBox(width: 10)],
+          Expanded(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  r.name,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: LdsType.subhead.copyWith(
+                    color: c.textStrong,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                if (r.sub != null)
+                  Text(
+                    r.sub!,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: LdsType.footnote.copyWith(color: c.textSubtle),
+                  ),
+              ],
             ),
           ),
-          child: Row(
-            children: [
-              if (r.avatar != null) ...[r.avatar!, const SizedBox(width: 10)],
-              Expanded(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(r.name,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: LdsType.subhead.copyWith(
-                            color: c.textStrong, fontWeight: FontWeight.w500)),
-                    if (r.sub != null)
-                      Text(r.sub!,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          style:
-                              LdsType.footnote.copyWith(color: c.textSubtle)),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        );
+        ],
+      ),
+    );
     if (r.onTap == null) return MergeSemantics(child: content(false));
     return LdsPressable(
       onPressed: r.onTap,
@@ -423,12 +438,14 @@ class _LaneBlock extends StatelessWidget {
       final fill = dashed
           ? (hot ? tone.withValues(alpha: 0.14) : Colors.transparent)
           : Color.alphaBlend(
-              tone.withValues(alpha: hot ? 0.24 : 0.14), c.bgBase);
+              tone.withValues(alpha: hot ? 0.24 : 0.14),
+              c.bgBase,
+            );
       final textColor = item.kind == LdsLaneKind.free
           ? c.successText
           : item.kind == LdsLaneKind.muted
-              ? c.textSubtle
-              : c.textStrong;
+          ? c.textSubtle
+          : c.textStrong;
       return Container(
         decoration: BoxDecoration(
           color: fill,
@@ -439,32 +456,38 @@ class _LaneBlock extends StatelessWidget {
         child: Stack(
           children: [
             Padding(
-              padding:
-                  EdgeInsetsDirectional.only(start: dashed ? 8 : 11, end: 8),
+              padding: EdgeInsetsDirectional.only(
+                start: dashed ? 8 : 11,
+                end: 8,
+              ),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(item.title,
+                  Text(
+                    item.title,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: TextStyle(
+                      fontFamily: LdsType.family,
+                      fontSize: 12,
+                      height: 16 / 12,
+                      fontWeight: FontWeight.w500,
+                      color: textColor,
+                    ),
+                  ),
+                  if (item.subtitle != null)
+                    Text(
+                      item.subtitle!,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         fontFamily: LdsType.family,
-                        fontSize: 12,
-                        height: 16 / 12,
-                        fontWeight: FontWeight.w500,
-                        color: textColor,
-                      )),
-                  if (item.subtitle != null)
-                    Text(item.subtitle!,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                          fontFamily: LdsType.family,
-                          fontSize: 11.5,
-                          height: 15 / 11.5,
-                          color: c.textSubtle,
-                        )),
+                        fontSize: 11.5,
+                        height: 15 / 11.5,
+                        color: c.textSubtle,
+                      ),
+                    ),
                 ],
               ),
             ),
@@ -482,8 +505,10 @@ class _LaneBlock extends StatelessWidget {
 
     Widget result = item.onTap == null
         ? Semantics(
-            label: [item.title, if (item.subtitle != null) item.subtitle!]
-                .join(', '),
+            label: [
+              item.title,
+              if (item.subtitle != null) item.subtitle!,
+            ].join(', '),
             excludeSemantics: true,
             child: block(false),
           )
@@ -493,7 +518,7 @@ class _LaneBlock extends StatelessWidget {
             borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.xs)),
             semanticLabel: [
               item.title,
-              if (item.subtitle != null) item.subtitle!
+              if (item.subtitle != null) item.subtitle!,
             ].join(', '),
             excludeChildSemantics: true,
             builder: (context, state) => block(state.hovered || state.pressed),
@@ -504,8 +529,9 @@ class _LaneBlock extends StatelessWidget {
         duration: LdsMotion.snappySpringDuration,
         curve: LdsSpringCurve.snappy,
         builder: (context, t, child) => Transform(
-          alignment: AlignmentDirectional.centerStart
-              .resolve(Directionality.of(context)),
+          alignment: AlignmentDirectional.centerStart.resolve(
+            Directionality.of(context),
+          ),
           transform: Matrix4.diagonal3Values(t, 1, 1),
           child: child,
         ),
@@ -539,7 +565,8 @@ class _DashedPainter extends BoxPainter {
     final rect = (offset & size).deflate(0.75);
     final path = Path()
       ..addRRect(
-          RRect.fromRectAndRadius(rect, const Radius.circular(LdsRadius.xs)));
+        RRect.fromRectAndRadius(rect, const Radius.circular(LdsRadius.xs)),
+      );
     final paint = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.5

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -117,10 +117,12 @@ class _LdsComboboxState<T> extends State<LdsCombobox<T>> {
     if (q.isEmpty) return widget.options;
     final f = widget.filter;
     return widget.options
-        .where((o) => f != null
-            ? f(o, q)
-            : o.label.toLowerCase().contains(q) ||
-                (o.description?.toLowerCase().contains(q) ?? false))
+        .where(
+          (o) => f != null
+              ? f(o, q)
+              : o.label.toLowerCase().contains(q) ||
+                    (o.description?.toLowerCase().contains(q) ?? false),
+        )
         .toList();
   }
 
@@ -140,7 +142,8 @@ class _LdsComboboxState<T> extends State<LdsCombobox<T>> {
       } else if (matches.isNotEmpty) {
         final d = key == LogicalKeyboardKey.arrowDown ? 1 : -1;
         setState(
-            () => _active = (_active + d + matches.length) % matches.length);
+          () => _active = (_active + d + matches.length) % matches.length,
+        );
       }
       return KeyEventResult.handled;
     }
@@ -218,8 +221,10 @@ class _LdsComboboxState<T> extends State<LdsCombobox<T>> {
             return Semantics(
               liveRegion: true,
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 12,
+                ),
                 child: Text(
                   widget.emptyText,
                   style: LdsType.subhead.copyWith(color: c.textMuted),

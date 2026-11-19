@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -162,8 +162,8 @@ class LdsFormsCheckBoxVisual extends StatelessWidget {
             color: on
                 ? c.accent
                 : hovered
-                    ? c.textSubtle
-                    : c.lineControl,
+                ? c.textSubtle
+                : c.lineControl,
             width: 1.5,
           ),
           boxShadow: [
@@ -176,7 +176,8 @@ class LdsFormsCheckBoxVisual extends StatelessWidget {
         child: TweenAnimationBuilder<double>(
           tween: Tween(end: on ? 1 : 0),
           duration: context.ldsDuration(
-              on ? const Duration(milliseconds: 260) : LdsMotion.fast),
+            on ? const Duration(milliseconds: 260) : LdsMotion.fast,
+          ),
           curve: on ? LdsMotion.enterCurve : LdsMotion.exitCurve,
           builder: (context, t, _) => CustomPaint(
             size: const Size.square(14),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -48,9 +48,10 @@ class LdsNumberCount extends StatefulWidget {
 
 class _LdsNumberCountState extends State<LdsNumberCount>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _ctrl =
-      AnimationController(vsync: this, duration: widget.duration)
-        ..addListener(() => setState(() {}));
+  late final AnimationController _ctrl = AnimationController(
+    vsync: this,
+    duration: widget.duration,
+  )..addListener(() => setState(() {}));
   late double _from = widget.countOnFirstBuild ? 0 : widget.value;
   bool _started = false;
 
@@ -94,16 +95,17 @@ class _LdsNumberCountState extends State<LdsNumberCount>
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
-    final style = (widget.style ??
-            TextStyle(
-              fontFamily: LdsType.family,
-              fontSize: 32,
-              height: 36 / 32,
-              fontWeight: FontWeight.w600,
-              letterSpacing: -0.96,
-              color: c.textStrong,
-            ))
-        .copyWith(fontFeatures: tabular);
+    final style =
+        (widget.style ??
+                TextStyle(
+                  fontFamily: LdsType.family,
+                  fontSize: 32,
+                  height: 36 / 32,
+                  fontWeight: FontWeight.w600,
+                  letterSpacing: -0.96,
+                  color: c.textStrong,
+                ))
+            .copyWith(fontFeatures: tabular);
     final settled = widget.format.format(widget.value);
     return Semantics(
       label: widget.semanticLabel ?? settled,

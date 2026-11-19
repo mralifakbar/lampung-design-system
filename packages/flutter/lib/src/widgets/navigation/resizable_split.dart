@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -103,115 +103,120 @@ class _LdsResizableSplitState extends State<LdsResizableSplit> {
   Widget build(BuildContext context) {
     final c = context.lds;
     final horizontal = widget.axis == Axis.horizontal;
-    return LayoutBuilder(builder: (context, constraints) {
-      final total =
-          (horizontal ? constraints.maxWidth : constraints.maxHeight) - _handle;
-      final firstSize = total * _fraction;
-      final active = _hovered || _focused || _dragging;
-      final pct = (_fraction * 100).round();
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final total =
+            (horizontal ? constraints.maxWidth : constraints.maxHeight) -
+            _handle;
+        final firstSize = total * _fraction;
+        final active = _hovered || _focused || _dragging;
+        final pct = (_fraction * 100).round();
 
-      final grip = AnimatedContainer(
-        duration: context.ldsDuration(LdsMotion.snappySpringDuration),
-        curve: LdsSpringCurve.snappy,
-        width: horizontal ? 4 : (active ? 56 : 36),
-        height: horizontal ? (active ? 56 : 36) : 4,
-        decoration: BoxDecoration(
-          color: active ? c.accent : c.lineStrong,
-          borderRadius: BorderRadius.circular(2),
-        ),
-      );
+        final grip = AnimatedContainer(
+          duration: context.ldsDuration(LdsMotion.snappySpringDuration),
+          curve: LdsSpringCurve.snappy,
+          width: horizontal ? 4 : (active ? 56 : 36),
+          height: horizontal ? (active ? 56 : 36) : 4,
+          decoration: BoxDecoration(
+            color: active ? c.accent : c.lineStrong,
+            borderRadius: BorderRadius.circular(2),
+          ),
+        );
 
-      void onUpdate(DragUpdateDetails d) {
-        final delta = horizontal ? d.delta.dx : d.delta.dy;
-        final dir =
-            horizontal && Directionality.of(context) == TextDirection.rtl
-                ? -1
-                : 1;
-        if (total > 0) _set(_fraction + dir * delta / total);
-      }
+        void onUpdate(DragUpdateDetails d) {
+          final delta = horizontal ? d.delta.dx : d.delta.dy;
+          final dir =
+              horizontal && Directionality.of(context) == TextDirection.rtl
+              ? -1
+              : 1;
+          if (total > 0) _set(_fraction + dir * delta / total);
+        }
 
-      final handle = Semantics(
-        slider: true,
-        label: widget.semanticLabel,
-        value: '$pct%',
-        increasedValue: '${(_clamp(_fraction + 0.02) * 100).round()}%',
-        decreasedValue: '${(_clamp(_fraction - 0.02) * 100).round()}%',
-        onIncrease: () => _set(_fraction + 0.02, notify: true),
-        onDecrease: () => _set(_fraction - 0.02, notify: true),
-        child: Focus(
-          onKeyEvent: _onKey,
-          onFocusChange: (v) => setState(() => _focused = v),
-          child: MouseRegion(
-            cursor: horizontal
-                ? SystemMouseCursors.resizeColumn
-                : SystemMouseCursors.resizeRow,
-            onEnter: (_) => setState(() => _hovered = true),
-            onExit: (_) => setState(() => _hovered = false),
-            child: GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onHorizontalDragStart:
-                  horizontal ? (_) => setState(() => _dragging = true) : null,
-              onHorizontalDragUpdate: horizontal ? onUpdate : null,
-              onHorizontalDragEnd: horizontal
-                  ? (_) {
-                      setState(() => _dragging = false);
-                      widget.onChanged?.call(_fraction);
-                    }
-                  : null,
-              onVerticalDragStart:
-                  horizontal ? null : (_) => setState(() => _dragging = true),
-              onVerticalDragUpdate: horizontal ? null : onUpdate,
-              onVerticalDragEnd: horizontal
-                  ? null
-                  : (_) {
-                      setState(() => _dragging = false);
-                      widget.onChanged?.call(_fraction);
-                    },
-              child: Center(child: grip),
+        final handle = Semantics(
+          slider: true,
+          label: widget.semanticLabel,
+          value: '$pct%',
+          increasedValue: '${(_clamp(_fraction + 0.02) * 100).round()}%',
+          decreasedValue: '${(_clamp(_fraction - 0.02) * 100).round()}%',
+          onIncrease: () => _set(_fraction + 0.02, notify: true),
+          onDecrease: () => _set(_fraction - 0.02, notify: true),
+          child: Focus(
+            onKeyEvent: _onKey,
+            onFocusChange: (v) => setState(() => _focused = v),
+            child: MouseRegion(
+              cursor: horizontal
+                  ? SystemMouseCursors.resizeColumn
+                  : SystemMouseCursors.resizeRow,
+              onEnter: (_) => setState(() => _hovered = true),
+              onExit: (_) => setState(() => _hovered = false),
+              child: GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onHorizontalDragStart: horizontal
+                    ? (_) => setState(() => _dragging = true)
+                    : null,
+                onHorizontalDragUpdate: horizontal ? onUpdate : null,
+                onHorizontalDragEnd: horizontal
+                    ? (_) {
+                        setState(() => _dragging = false);
+                        widget.onChanged?.call(_fraction);
+                      }
+                    : null,
+                onVerticalDragStart: horizontal
+                    ? null
+                    : (_) => setState(() => _dragging = true),
+                onVerticalDragUpdate: horizontal ? null : onUpdate,
+                onVerticalDragEnd: horizontal
+                    ? null
+                    : (_) {
+                        setState(() => _dragging = false);
+                        widget.onChanged?.call(_fraction);
+                      },
+                child: Center(child: grip),
+              ),
             ),
           ),
-        ),
-      );
+        );
 
-      // The visible slot is 12 px; the hit area is 44 px centered on it.
-      const hit = LdsSize.touchMin;
-      final hitStart = firstSize + _handle / 2 - hit / 2;
-      return Stack(
-        children: [
-          Flex(
-            direction: widget.axis,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(
-                width: horizontal ? firstSize : null,
-                height: horizontal ? null : firstSize,
-                child: ClipRect(child: widget.first),
-              ),
-              SizedBox(
-                width: horizontal ? _handle : null,
-                height: horizontal ? null : _handle,
-              ),
-              Expanded(child: ClipRect(child: widget.second)),
-            ],
-          ),
-          if (horizontal)
-            PositionedDirectional(
-              start: hitStart,
-              top: 0,
-              bottom: 0,
-              width: hit,
-              child: handle,
-            )
-          else
-            Positioned(
-              top: hitStart,
-              left: 0,
-              right: 0,
-              height: hit,
-              child: handle,
+        // The visible slot is 12 px; the hit area is 44 px centered on it.
+        const hit = LdsSize.touchMin;
+        final hitStart = firstSize + _handle / 2 - hit / 2;
+        return Stack(
+          children: [
+            Flex(
+              direction: widget.axis,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                SizedBox(
+                  width: horizontal ? firstSize : null,
+                  height: horizontal ? null : firstSize,
+                  child: ClipRect(child: widget.first),
+                ),
+                SizedBox(
+                  width: horizontal ? _handle : null,
+                  height: horizontal ? null : _handle,
+                ),
+                Expanded(child: ClipRect(child: widget.second)),
+              ],
             ),
-        ],
-      );
-    });
+            if (horizontal)
+              PositionedDirectional(
+                start: hitStart,
+                top: 0,
+                bottom: 0,
+                width: hit,
+                child: handle,
+              )
+            else
+              Positioned(
+                top: hitStart,
+                left: 0,
+                right: 0,
+                height: hit,
+                child: handle,
+              ),
+          ],
+        );
+      },
+    );
   }
 }

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -79,7 +79,9 @@ class LdsAmountField extends StatefulWidget {
 class _GroupingFormatter extends TextInputFormatter {
   @override
   TextEditingValue formatEditUpdate(
-      TextEditingValue oldValue, TextEditingValue newValue) {
+    TextEditingValue oldValue,
+    TextEditingValue newValue,
+  ) {
     final digits = newValue.text.replaceAll(RegExp(r'\D'), '');
     if (digits.isEmpty) return const TextEditingValue();
     final trimmed = digits.replaceFirst(RegExp(r'^0+(?=\d)'), '');
@@ -147,8 +149,9 @@ class _LdsAmountFieldState extends State<LdsAmountField> {
                 inputFormatters: [_GroupingFormatter()],
                 onChanged: (v) {
                   final digits = v.replaceAll('.', '');
-                  widget.onChanged
-                      ?.call(digits.isEmpty ? null : int.parse(digits));
+                  widget.onChanged?.call(
+                    digits.isEmpty ? null : int.parse(digits),
+                  );
                 },
                 style: LdsType.body.copyWith(
                   color: widget.enabled ? c.textStrong : c.textMuted,

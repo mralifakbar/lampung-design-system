@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../tokens.g.dart';
@@ -90,11 +90,11 @@ class LdsAnchoredLayer extends StatefulWidget {
 
   /// Builds the trigger. Call [LdsLayerController.toggle] from it.
   final Widget Function(BuildContext context, LdsLayerController controller)
-      builder;
+  builder;
 
   /// Builds the floating content.
   final Widget Function(BuildContext context, LdsLayerController controller)
-      layerBuilder;
+  layerBuilder;
 
   /// Controls the layer from outside. One is created when null.
   final LdsLayerController? controller;
@@ -175,12 +175,14 @@ class _LdsAnchoredLayerState extends State<LdsAnchoredLayer>
     if (open) {
       if (!_wasOpen) _returnFocus = FocusManager.instance.primaryFocus;
       _portal.show();
-      _anim.duration =
-          context.ldsReduceMotion ? LdsMotion.instant : LdsMotion.smooth;
+      _anim.duration = context.ldsReduceMotion
+          ? LdsMotion.instant
+          : LdsMotion.smooth;
       _anim.forward();
     } else if (_wasOpen) {
-      _anim.reverseDuration =
-          context.ldsReduceMotion ? LdsMotion.instant : LdsMotion.exit;
+      _anim.reverseDuration = context.ldsReduceMotion
+          ? LdsMotion.instant
+          : LdsMotion.exit;
       _anim.reverse().whenCompleteOrCancel(() {
         if (mounted && !_ctrl.isOpen && _anim.isDismissed) _portal.hide();
       });
@@ -212,17 +214,20 @@ class _LdsAnchoredLayerState extends State<LdsAnchoredLayer>
         ? origin & target.size
         : Rect.fromLTWH(origin.dx + at.dx, origin.dy + at.dy, 0, 0);
     final reduce = context.ldsReduceMotion;
-    final placement =
-        at == null ? widget.placement : LdsLayerPlacement.bottomStart;
+    final placement = at == null
+        ? widget.placement
+        : LdsLayerPlacement.bottomStart;
     final below = placement.index < 3;
 
     Widget layer = widget.layerBuilder(context, _ctrl);
     layer = Actions(
       actions: <Type, Action<Intent>>{
-        DismissIntent: CallbackAction<DismissIntent>(onInvoke: (_) {
-          _ctrl.close();
-          return null;
-        }),
+        DismissIntent: CallbackAction<DismissIntent>(
+          onInvoke: (_) {
+            _ctrl.close();
+            return null;
+          },
+        ),
       },
       child: FocusScope(autofocus: widget.autofocus, child: layer),
     );
@@ -241,8 +246,9 @@ class _LdsAnchoredLayerState extends State<LdsAnchoredLayer>
                 offset: Offset(0, (below ? -4 : 4) * (1 - _move.value)),
                 child: Transform.scale(
                   scale: 0.96 + 0.04 * _move.value,
-                  alignment:
-                      below ? Alignment.topCenter : Alignment.bottomCenter,
+                  alignment: below
+                      ? Alignment.topCenter
+                      : Alignment.bottomCenter,
                   child: child,
                 ),
               ),

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -103,7 +103,11 @@ class _RenderInflated extends RenderProxyBox {
     final dy = ((LdsSize.touchMin - size.height) / 2).clamp(0.0, 44.0);
     final area = Offset.zero & size;
     final grown = Rect.fromLTRB(
-        area.left - dx, area.top - dy, area.right + dx, area.bottom + dy);
+      area.left - dx,
+      area.top - dy,
+      area.right + dx,
+      area.bottom + dy,
+    );
     if (!grown.contains(position)) return false;
     final inside = Offset(
       // Clamp inside the 1 px side padding so the pill itself is hit.

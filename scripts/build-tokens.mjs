@@ -4,6 +4,7 @@
 //   dist/tokens.mjs, dist/tokens.d.ts   JS/TS (Next, React, Vue, plain JS)
 //   dist/flutter/lds_tokens.dart     Flutter constants (colors, type, space, radius, motion)
 //   dist/shadcn/                       shadcn/ui theme: registry item, Tailwind v4 globals.css, Tailwind v3 css + preset
+import { spawnSync } from 'node:child_process';
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -303,7 +304,7 @@ write('packages/flutter/lib/src/tokens.g.dart', `// GENERATED CODE - DO NOT MODI
 // ${HEADER}
 // ignore_for_file: public_member_api_docs, lines_longer_than_80_chars
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Every color role of Lampung Design System, for one appearance.
 ///
@@ -696,3 +697,7 @@ module.exports = {
   }
 };
 `);
+
+// pub.dev scores the package's formatting, so format the Dart file it ships when the SDK is here.
+const dartFormat = spawnSync('dart', ['format', 'packages/flutter/lib/src/tokens.g.dart'], { cwd: root, stdio: 'inherit' });
+if (dartFormat.error) console.log('dart not found; run `dart format packages/flutter` before committing Flutter changes');

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -114,8 +114,8 @@ class _StepItem extends StatelessWidget {
           color: done
               ? c.accent
               : isCurrent
-                  ? c.accent
-                  : c.lineStrong,
+              ? c.accent
+              : c.lineStrong,
           width: isCurrent ? 2 : 1.5,
         ),
       ),
@@ -132,8 +132,9 @@ class _StepItem extends StatelessWidget {
     );
 
     final vertical = direction == Axis.vertical;
-    final bar =
-        last ? const SizedBox.shrink() : _Bar(filled: done, vertical: vertical);
+    final bar = last
+        ? const SizedBox.shrink()
+        : _Bar(filled: done, vertical: vertical);
 
     final label = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -147,8 +148,10 @@ class _StepItem extends StatelessWidget {
           ),
         ),
         if (step.subtitle != null)
-          Text(step.subtitle!,
-              style: LdsType.footnote.copyWith(color: c.textMuted)),
+          Text(
+            step.subtitle!,
+            style: LdsType.footnote.copyWith(color: c.textMuted),
+          ),
       ],
     );
 
@@ -158,21 +161,23 @@ class _StepItem extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Column(children: [
-              dot,
-              if (!last)
-                Expanded(
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 6),
-                    // A floor so a one-line label still leaves a visible
-                    // connector; taller labels stretch it further.
-                    child: ConstrainedBox(
-                      constraints: const BoxConstraints(minHeight: 16),
-                      child: bar,
+            Column(
+              children: [
+                dot,
+                if (!last)
+                  Expanded(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 6),
+                      // A floor so a one-line label still leaves a visible
+                      // connector; taller labels stretch it further.
+                      child: ConstrainedBox(
+                        constraints: const BoxConstraints(minHeight: 16),
+                        child: bar,
+                      ),
                     ),
                   ),
-                ),
-            ]),
+              ],
+            ),
             const SizedBox(width: 12),
             Expanded(
               child: Padding(
@@ -187,16 +192,18 @@ class _StepItem extends StatelessWidget {
       body = Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(children: [
-            dot,
-            if (!last)
-              Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8),
-                  child: bar,
+          Row(
+            children: [
+              dot,
+              if (!last)
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 8),
+                    child: bar,
+                  ),
                 ),
-              ),
-          ]),
+            ],
+          ),
           const SizedBox(height: 10),
           Padding(padding: const EdgeInsets.only(right: 12), child: label),
         ],

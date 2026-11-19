@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -146,111 +146,148 @@ class LdsCheckMatrix extends StatelessWidget {
           child: child,
         );
 
-    Widget twoLines(String label, String? sub, TextStyle style,
-            {TextAlign align = TextAlign.start}) =>
-        Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: align == TextAlign.center
-              ? CrossAxisAlignment.center
-              : CrossAxisAlignment.start,
-          children: [
-            Text(label,
-                style: style,
-                textAlign: align,
-                maxLines: 2,
-                overflow: TextOverflow.ellipsis),
-            if (sub != null)
-              Text(
-                sub,
-                textAlign: align,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: LdsType.footnote
-                    .copyWith(fontSize: 12.5, color: c.textMuted),
-              ),
-          ],
-        );
+    Widget twoLines(
+      String label,
+      String? sub,
+      TextStyle style, {
+      TextAlign align = TextAlign.start,
+    }) => Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: align == TextAlign.center
+          ? CrossAxisAlignment.center
+          : CrossAxisAlignment.start,
+      children: [
+        Text(
+          label,
+          style: style,
+          textAlign: align,
+          maxLines: 2,
+          overflow: TextOverflow.ellipsis,
+        ),
+        if (sub != null)
+          Text(
+            sub,
+            textAlign: align,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: LdsType.footnote.copyWith(
+              fontSize: 12.5,
+              color: c.textMuted,
+            ),
+          ),
+      ],
+    );
 
     // First column: corner, then group and row names.
     final first = <Widget>[
       cellBox(
         _headH,
-        Text(cornerLabel,
-            style: LdsType.caption
-                .copyWith(color: c.textSubtle, letterSpacing: 0)),
+        Text(
+          cornerLabel,
+          style: LdsType.caption.copyWith(
+            color: c.textSubtle,
+            letterSpacing: 0,
+          ),
+        ),
         bg: c.bgFill,
         start: true,
       ),
     ];
     final rest = <Widget>[
-      Row(children: [
-        for (final col in columns)
-          SizedBox(
-            width: columnWidth,
-            child: cellBox(
-              _headH,
-              twoLines(
-                col.label,
-                col.description,
-                LdsType.caption.copyWith(color: c.textStrong, letterSpacing: 0),
-                align: TextAlign.center,
-              ),
-              bg: c.bgFill,
-            ),
-          ),
-      ]),
-    ];
-
-    for (final g in groups) {
-      first.add(cellBox(
-        _groupH,
-        Semantics(
-          header: true,
-          child: Text(g.label,
-              style: LdsType.headline.copyWith(color: c.textStrong)),
-        ),
-        start: true,
-      ));
-      rest.add(Row(children: [
-        for (final col in columns)
-          SizedBox(
-            width: columnWidth,
-            child: cellBox(
-              _groupH,
-              LdsCheckbox(
-                value: _groupState(g, col.id),
-                semanticLabel: '${col.label}: semua ${g.label}',
-                onChanged: enabled
-                    ? (_) =>
-                        _setGroup(g, col.id, _groupState(g, col.id) != true)
-                    : null,
-              ),
-            ),
-          ),
-      ]));
-      for (final r in g.rows) {
-        final h = _rowH(r);
-        first.add(cellBox(
-          h,
-          twoLines(r.label, r.description,
-              LdsType.subhead.copyWith(color: c.textStrong)),
-          start: true,
-        ));
-        rest.add(Row(children: [
+      Row(
+        children: [
           for (final col in columns)
             SizedBox(
               width: columnWidth,
               child: cellBox(
-                h,
-                LdsCheckbox(
-                  value: value.contains((row: r.id, column: col.id)),
-                  semanticLabel: '${col.label}: ${r.label}',
-                  onChanged:
-                      enabled ? (on) => _setCell(r.id, col.id, on) : null,
+                _headH,
+                twoLines(
+                  col.label,
+                  col.description,
+                  LdsType.caption.copyWith(
+                    color: c.textStrong,
+                    letterSpacing: 0,
+                  ),
+                  align: TextAlign.center,
                 ),
+                bg: c.bgFill,
               ),
             ),
-        ]));
+        ],
+      ),
+    ];
+
+    for (final g in groups) {
+      first.add(
+        cellBox(
+          _groupH,
+          Semantics(
+            header: true,
+            child: Text(
+              g.label,
+              style: LdsType.headline.copyWith(color: c.textStrong),
+            ),
+          ),
+          start: true,
+        ),
+      );
+      rest.add(
+        Row(
+          children: [
+            for (final col in columns)
+              SizedBox(
+                width: columnWidth,
+                child: cellBox(
+                  _groupH,
+                  LdsCheckbox(
+                    value: _groupState(g, col.id),
+                    semanticLabel: '${col.label}: semua ${g.label}',
+                    onChanged: enabled
+                        ? (_) => _setGroup(
+                            g,
+                            col.id,
+                            _groupState(g, col.id) != true,
+                          )
+                        : null,
+                  ),
+                ),
+              ),
+          ],
+        ),
+      );
+      for (final r in g.rows) {
+        final h = _rowH(r);
+        first.add(
+          cellBox(
+            h,
+            twoLines(
+              r.label,
+              r.description,
+              LdsType.subhead.copyWith(color: c.textStrong),
+            ),
+            start: true,
+          ),
+        );
+        rest.add(
+          Row(
+            children: [
+              for (final col in columns)
+                SizedBox(
+                  width: columnWidth,
+                  child: cellBox(
+                    h,
+                    LdsCheckbox(
+                      value: value.contains((row: r.id, column: col.id)),
+                      semanticLabel: '${col.label}: ${r.label}',
+                      onChanged: enabled
+                          ? (on) => _setCell(r.id, col.id, on)
+                          : null,
+                    ),
+                  ),
+                ),
+            ],
+          ),
+        );
       }
     }
 
@@ -267,9 +304,7 @@ class LdsCheckMatrix extends StatelessWidget {
           children: [
             Container(
               width: firstColumnWidth,
-              decoration: BoxDecoration(
-                border: Border(right: hairline),
-              ),
+              decoration: BoxDecoration(border: Border(right: hairline)),
               child: Column(children: first),
             ),
             Expanded(

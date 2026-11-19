@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -187,7 +187,8 @@ class _LdsMapState extends State<LdsMap> {
     if (_count == 0) return KeyEventResult.ignored;
     final k = e.logicalKey;
     final cur = _current;
-    if (k == LogicalKeyboardKey.arrowRight || k == LogicalKeyboardKey.arrowDown) {
+    if (k == LogicalKeyboardKey.arrowRight ||
+        k == LogicalKeyboardKey.arrowDown) {
       _choose(cur == null ? 0 : (cur + 1) % _count);
     } else if (k == LogicalKeyboardKey.arrowLeft ||
         k == LogicalKeyboardKey.arrowUp) {
@@ -206,34 +207,31 @@ class _LdsMapState extends State<LdsMap> {
     final readout = cur != null && cur < _count ? _labelOf(cur) : null;
     final alt = [for (var i = 0; i < _count; i++) _labelOf(i)].join('. ');
 
-    final map = LayoutBuilder(builder: (context, box) {
-      final size = Size(box.maxWidth, w.height);
-      final proj = _Projection.fit(w, size);
-      int? hit(Offset p) {
-        for (var i = w.pins.length - 1; i >= 0; i--) {
-          if ((proj.apply(w.pins[i].at) - p).distance <= 16) {
-            return w.regions.length + i;
+    final map = LayoutBuilder(
+      builder: (context, box) {
+        final size = Size(box.maxWidth, w.height);
+        final proj = _Projection.fit(w, size);
+        int? hit(Offset p) {
+          for (var i = w.pins.length - 1; i >= 0; i--) {
+            if ((proj.apply(w.pins[i].at) - p).distance <= 16) {
+              return w.regions.length + i;
+            }
           }
+          for (var i = w.regions.length - 1; i >= 0; i--) {
+            if (proj.path(w.regions[i].points).contains(p)) return i;
+          }
+          return null;
         }
-        for (var i = w.regions.length - 1; i >= 0; i--) {
-          if (proj.path(w.regions[i].points).contains(p)) return i;
-        }
-        return null;
-      }
 
-      return GestureDetector(
-        onTapDown: (d) => _choose(hit(d.localPosition)),
-        child: CustomPaint(
-          size: size,
-          painter: _MapPainter(
-            map: w,
-            proj: proj,
-            colors: c,
-            selected: cur,
+        return GestureDetector(
+          onTapDown: (d) => _choose(hit(d.localPosition)),
+          child: CustomPaint(
+            size: size,
+            painter: _MapPainter(map: w, proj: proj, colors: c, selected: cur),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -254,12 +252,14 @@ class _LdsMapState extends State<LdsMap> {
                 clipBehavior: Clip.antiAlias,
                 decoration: BoxDecoration(
                   color: c.bgFill,
-                  borderRadius:
-                      const BorderRadius.all(Radius.circular(LdsRadius.lg)),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(LdsRadius.lg),
+                  ),
                 ),
                 foregroundDecoration: BoxDecoration(
-                  borderRadius:
-                      const BorderRadius.all(Radius.circular(LdsRadius.lg)),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(LdsRadius.lg),
+                  ),
                   border: _focus.hasFocus
                       ? Border.all(color: c.focus, width: 2)
                       : null,
@@ -276,9 +276,13 @@ class _LdsMapState extends State<LdsMap> {
               child: Row(
                 children: [
                   Expanded(
-                    child: Text(readout ?? '',
-                        style: LdsType.footnote.copyWith(
-                            color: c.textSubtle, fontFeatures: tabular)),
+                    child: Text(
+                      readout ?? '',
+                      style: LdsType.footnote.copyWith(
+                        color: c.textSubtle,
+                        fontFeatures: tabular,
+                      ),
+                    ),
                   ),
                   if (w.showScale) ...[
                     Text(w.lessLabel, style: axisStyle(c)),
@@ -290,8 +294,9 @@ class _LdsMapState extends State<LdsMap> {
                         margin: const EdgeInsets.symmetric(horizontal: 1.5),
                         decoration: BoxDecoration(
                           color: LdsHeatmap.levelColor(c, l),
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(3)),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(3),
+                          ),
                         ),
                       ),
                     const SizedBox(width: 4),
@@ -343,8 +348,9 @@ class _Projection {
         : math.min((size.width - pad * 2) / w, (size.height - pad * 2) / h);
     final cx = (minX + maxX) / 2, cy = (minY + maxY) / 2;
     return _Projection(
-        scale,
-        Offset(size.width / 2 - cx * scale, size.height / 2 - cy * scale));
+      scale,
+      Offset(size.width / 2 - cx * scale, size.height / 2 - cy * scale),
+    );
   }
 }
 
@@ -371,7 +377,9 @@ class _MapPainter extends CustomPainter {
       final fill = r.value == null
           ? c.bgBase
           : LdsHeatmap.levelColor(
-              c, LdsHeatmap.levelOf(r.value, map.thresholds));
+              c,
+              LdsHeatmap.levelOf(r.value, map.thresholds),
+            );
       canvas.drawPath(path, Paint()..color = fill);
       canvas.drawPath(
         path,
@@ -396,7 +404,8 @@ class _MapPainter extends CustomPainter {
     // Routes.
     for (final route in map.routes) {
       if (route.path.length < 2) continue;
-      final path = Path()..addPolygon([for (final p in route.path) proj.apply(p)], false);
+      final path = Path()
+        ..addPolygon([for (final p in route.path) proj.apply(p)], false);
       canvas.drawPath(
         path,
         Paint()
@@ -422,8 +431,13 @@ class _MapPainter extends CustomPainter {
       for (final m in metric) {
         final cut = done.clamp(0.0, m.length);
         if (cut < m.length) {
-          drawDashed(canvas, m.extractPath(cut, m.length), ahead,
-              dash: 6, gap: 5);
+          drawDashed(
+            canvas,
+            m.extractPath(cut, m.length),
+            ahead,
+            dash: 6,
+            gap: 5,
+          );
         }
         if (cut > 0) canvas.drawPath(m.extractPath(0, cut), travelled);
         done -= m.length;
@@ -449,29 +463,33 @@ class _MapPainter extends CustomPainter {
         case LdsMapPinKind.stop:
           canvas.drawCircle(p, 6, ring);
           canvas.drawCircle(
-              p,
-              4,
-              pin.done
-                  ? (Paint()..color = tone)
-                  : (Paint()
+            p,
+            4,
+            pin.done
+                ? (Paint()..color = tone)
+                : (Paint()
                     ..style = PaintingStyle.stroke
                     ..strokeWidth = 1.5
-                    ..color = c.textMuted));
+                    ..color = c.textMuted),
+          );
         case LdsMapPinKind.destination:
           final head = p.translate(0, -16);
           final pinPath = Path()
             ..moveTo(p.dx, p.dy)
             ..quadraticBezierTo(p.dx - 9, head.dy + 6, p.dx - 9, head.dy)
-            ..arcToPoint(Offset(p.dx + 9, head.dy),
-                radius: const Radius.circular(9))
+            ..arcToPoint(
+              Offset(p.dx + 9, head.dy),
+              radius: const Radius.circular(9),
+            )
             ..quadraticBezierTo(p.dx + 9, head.dy + 6, p.dx, p.dy)
             ..close();
           canvas.drawPath(pinPath, Paint()..color = tone);
           canvas.drawCircle(head, 3.5, ring);
       }
       if (isSel) {
-        final center =
-            pin.kind == LdsMapPinKind.destination ? p.translate(0, -12) : p;
+        final center = pin.kind == LdsMapPinKind.destination
+            ? p.translate(0, -12)
+            : p;
         canvas.drawCircle(
           center,
           13,
@@ -483,24 +501,30 @@ class _MapPainter extends CustomPainter {
         final tp = layoutText(
           pin.label,
           LdsType.footnote.copyWith(
-              fontWeight: FontWeight.w500, color: c.textStrong),
+            fontWeight: FontWeight.w500,
+            color: c.textStrong,
+          ),
           maxWidth: math.max(40, size.width - 16),
         );
         final box = Rect.fromLTWH(
-          (center.dx - tp.width / 2 - 6)
-              .clamp(4, math.max(4, size.width - tp.width - 16)),
+          (center.dx - tp.width / 2 - 6).clamp(
+            4,
+            math.max(4, size.width - tp.width - 16),
+          ),
           math.max(4, center.dy - 22 - tp.height - 8),
           tp.width + 12,
           tp.height + 8,
         );
         canvas.drawRRect(
-            RRect.fromRectAndRadius(box, const Radius.circular(LdsRadius.xs)),
-            Paint()..color = c.bgElevated);
+          RRect.fromRectAndRadius(box, const Radius.circular(LdsRadius.xs)),
+          Paint()..color = c.bgElevated,
+        );
         canvas.drawRRect(
-            RRect.fromRectAndRadius(box, const Radius.circular(LdsRadius.xs)),
-            Paint()
-              ..style = PaintingStyle.stroke
-              ..color = c.line);
+          RRect.fromRectAndRadius(box, const Radius.circular(LdsRadius.xs)),
+          Paint()
+            ..style = PaintingStyle.stroke
+            ..color = c.line,
+        );
         tp.paint(canvas, box.topLeft.translate(6, 4));
       }
     }

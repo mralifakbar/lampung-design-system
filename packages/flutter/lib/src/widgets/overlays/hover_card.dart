@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -99,8 +99,9 @@ class _LdsHoverCardState extends State<LdsHoverCard> {
             padding: const EdgeInsets.all(LdsSpace.s16),
             decoration: BoxDecoration(
               color: c.bgElevated,
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(LdsRadius.lg)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(LdsRadius.lg),
+              ),
               border: Border.all(color: c.lineStrong, width: 0.5),
               boxShadow: context.ldsShadows.lg,
             ),

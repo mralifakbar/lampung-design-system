@@ -177,8 +177,9 @@ class LdsNumberFormat {
     }
     var frac = parts.length > 1 ? parts[1] : '';
     if (unit.isNotEmpty) frac = frac.replaceAll(RegExp(r'0+$'), '');
-    final number =
-        frac.isEmpty ? grouped.toString() : '$grouped$decimalSeparator$frac';
+    final number = frac.isEmpty
+        ? grouped.toString()
+        : '$grouped$decimalSeparator$frac';
     return '${negative ? '−' : ''}$prefix$number$unit$suffix';
   }
 }

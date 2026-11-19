@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -40,8 +40,10 @@ class LdsPageHeader extends StatelessWidget {
       children: [
         Semantics(
           header: true,
-          child:
-              Text(title, style: LdsType.title1.copyWith(color: c.textStrong)),
+          child: Text(
+            title,
+            style: LdsType.title1.copyWith(color: c.textStrong),
+          ),
         ),
         if (subtitle != null) ...[
           const SizedBox(height: 6),

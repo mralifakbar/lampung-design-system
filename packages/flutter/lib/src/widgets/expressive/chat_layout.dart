@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -96,9 +96,11 @@ class _LdsChatLayoutState extends State<LdsChatLayout> {
     if (context.ldsReduceMotion) {
       _scroll.jumpTo(0);
     } else {
-      _scroll.animateTo(0,
-          duration: LdsMotion.smoothSpringDuration,
-          curve: LdsSpringCurve.smooth);
+      _scroll.animateTo(
+        0,
+        duration: LdsMotion.smoothSpringDuration,
+        curve: LdsSpringCurve.smooth,
+      );
     }
   }
 
@@ -149,12 +151,13 @@ class _LdsChatLayoutState extends State<LdsChatLayout> {
               curve: LdsMotion.standardCurve,
               child: AnimatedSlide(
                 offset: Offset(0, _showJump || reduce ? 0 : 0.2),
-                duration: reduce ? Duration.zero : LdsMotion.smoothSpringDuration,
+                duration: reduce
+                    ? Duration.zero
+                    : LdsMotion.smoothSpringDuration,
                 curve: LdsSpringCurve.smooth,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
-                    borderRadius:
-                        const BorderRadius.all(Radius.circular(10)),
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
                     boxShadow: context.ldsShadows.md,
                   ),
                   child: LdsButton(
@@ -177,7 +180,14 @@ class _LdsChatLayoutState extends State<LdsChatLayout> {
         constraints: BoxConstraints(maxWidth: widget.maxWidth + pad.horizontal),
         child: Column(
           children: [
-            Expanded(child: Stack(children: [Positioned.fill(child: history), jump])),
+            Expanded(
+              child: Stack(
+                children: [
+                  Positioned.fill(child: history),
+                  jump,
+                ],
+              ),
+            ),
             Padding(
               padding: EdgeInsets.fromLTRB(pad.left, 0, pad.right, pad.bottom),
               child: widget.composer,

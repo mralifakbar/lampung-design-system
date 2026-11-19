@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -25,18 +25,16 @@ class LdsComparePlan {
 class LdsCompareValue {
   /// Included: a check, announced as [label].
   const LdsCompareValue.yes([this.label = 'Termasuk'])
-      : text = null,
-        included = true;
+    : text = null,
+      included = true;
 
   /// Not included: a dash, announced as [label].
   const LdsCompareValue.no([this.label = 'Tidak termasuk'])
-      : text = null,
-        included = false;
+    : text = null,
+      included = false;
 
   /// A short value, for example "Semua 143" or "3 sampai 50".
-  const LdsCompareValue.text(String this.text)
-      : label = text,
-        included = true;
+  const LdsCompareValue.text(String this.text) : label = text, included = true;
 
   /// Short value text, or null for an icon.
   final String? text;
@@ -125,31 +123,43 @@ class LdsCompareTable extends StatelessWidget {
         height: _headHeight,
         strongLine: true,
         align: AlignmentDirectional.bottomStart,
-        child: Text(featureLabel,
-            style: LdsType.headline.copyWith(color: c.textStrong)),
+        child: Text(
+          featureLabel,
+          style: LdsType.headline.copyWith(color: c.textStrong),
+        ),
       ),
     ];
     for (final g in groups) {
-      featureCells.add(_cell(
-        context,
-        height: _groupHeight,
-        align: AlignmentDirectional.bottomStart,
-        child: Semantics(
-          header: true,
-          child: Text(g.title,
-              style: LdsType.subhead
-                  .copyWith(color: c.textStrong, fontWeight: FontWeight.w600)),
-        ),
-      ));
-      for (final r in g.rows) {
-        featureCells.add(_cell(
+      featureCells.add(
+        _cell(
           context,
-          height: rowHeight,
-          child: Text(r.feature,
+          height: _groupHeight,
+          align: AlignmentDirectional.bottomStart,
+          child: Semantics(
+            header: true,
+            child: Text(
+              g.title,
+              style: LdsType.subhead.copyWith(
+                color: c.textStrong,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+        ),
+      );
+      for (final r in g.rows) {
+        featureCells.add(
+          _cell(
+            context,
+            height: rowHeight,
+            child: Text(
+              r.feature,
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              style: LdsType.subhead.copyWith(color: c.textDefault)),
-        ));
+              style: LdsType.subhead.copyWith(color: c.textDefault),
+            ),
+          ),
+        );
       }
     }
 
@@ -164,37 +174,48 @@ class LdsCompareTable extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              Text(plan.name,
-                  textAlign: TextAlign.center,
-                  style: LdsType.headline.copyWith(color: c.textStrong)),
+              Text(
+                plan.name,
+                textAlign: TextAlign.center,
+                style: LdsType.headline.copyWith(color: c.textStrong),
+              ),
               if (plan.price != null)
-                Text(plan.price!,
-                    textAlign: TextAlign.center,
-                    style: LdsType.footnote.copyWith(color: c.textSubtle)),
+                Text(
+                  plan.price!,
+                  textAlign: TextAlign.center,
+                  style: LdsType.footnote.copyWith(color: c.textSubtle),
+                ),
             ],
           ),
         ),
       ];
       for (final g in groups) {
-        cells
-            .add(_cell(context, height: _groupHeight, child: const SizedBox()));
+        cells.add(
+          _cell(context, height: _groupHeight, child: const SizedBox()),
+        );
         for (final r in g.rows) {
           final v = r.values[p];
-          cells.add(_cell(
-            context,
-            height: rowHeight,
-            align: Alignment.center,
-            child: Semantics(
-              label: '${r.feature}, ${plan.name}: ${v.label}',
-              excludeSemantics: true,
-              child: v.text != null
-                  ? Text(v.text!,
-                      textAlign: TextAlign.center,
-                      style: LdsType.subhead.copyWith(color: c.textDefault))
-                  : LdsIcon(v.included ? 'check' : 'remove',
-                      color: v.included ? c.textStrong : c.textFaint),
+          cells.add(
+            _cell(
+              context,
+              height: rowHeight,
+              align: Alignment.center,
+              child: Semantics(
+                label: '${r.feature}, ${plan.name}: ${v.label}',
+                excludeSemantics: true,
+                child: v.text != null
+                    ? Text(
+                        v.text!,
+                        textAlign: TextAlign.center,
+                        style: LdsType.subhead.copyWith(color: c.textDefault),
+                      )
+                    : LdsIcon(
+                        v.included ? 'check' : 'remove',
+                        color: v.included ? c.textStrong : c.textFaint,
+                      ),
+              ),
             ),
-          ));
+          );
         }
       }
       return Container(
@@ -202,8 +223,9 @@ class LdsCompareTable extends StatelessWidget {
         decoration: plan.featured
             ? BoxDecoration(
                 color: c.bgFill,
-                borderRadius:
-                    const BorderRadius.all(Radius.circular(LdsRadius.md)),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(LdsRadius.md),
+                ),
               )
             : null,
         child: Column(children: cells),
@@ -217,37 +239,43 @@ class LdsCompareTable extends StatelessWidget {
         if (caption != null) ...[
           Semantics(
             header: true,
-            child: Text(caption!,
-                style: LdsType.title3.copyWith(color: c.textStrong)),
+            child: Text(
+              caption!,
+              style: LdsType.title3.copyWith(color: c.textStrong),
+            ),
           ),
           const SizedBox(height: 16),
         ],
-        LayoutBuilder(builder: (context, box) {
-          final rest =
-              (box.maxWidth.isFinite ? box.maxWidth : 0) - featureWidth;
-          final planWidth = plans.isEmpty
-              ? planMinWidth
-              : (rest / plans.length).clamp(planMinWidth, double.infinity);
-          return Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                  width: featureWidth, child: Column(children: featureCells)),
-              Expanded(
-                child: SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      for (var p = 0; p < plans.length; p++)
-                        planColumn(p, planWidth.toDouble()),
-                    ],
+        LayoutBuilder(
+          builder: (context, box) {
+            final rest =
+                (box.maxWidth.isFinite ? box.maxWidth : 0) - featureWidth;
+            final planWidth = plans.isEmpty
+                ? planMinWidth
+                : (rest / plans.length).clamp(planMinWidth, double.infinity);
+            return Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: featureWidth,
+                  child: Column(children: featureCells),
+                ),
+                Expanded(
+                  child: SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        for (var p = 0; p < plans.length; p++)
+                          planColumn(p, planWidth.toDouble()),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            ],
-          );
-        }),
+              ],
+            );
+          },
+        ),
       ],
     );
   }

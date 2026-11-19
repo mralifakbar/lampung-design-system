@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -26,11 +26,7 @@ class LdsMenubarMenu {
 /// Left and Right move between the buttons.
 class LdsMenubar extends StatefulWidget {
   /// Creates a menubar.
-  const LdsMenubar({
-    super.key,
-    required this.menus,
-    this.semanticLabel,
-  });
+  const LdsMenubar({super.key, required this.menus, this.semanticLabel});
 
   /// The menus, in order.
   final List<LdsMenubarMenu> menus;
@@ -106,8 +102,9 @@ class _LdsMenubarState extends State<LdsMenubar> {
             padding: const EdgeInsets.symmetric(horizontal: 4),
             decoration: BoxDecoration(
               color: c.bgBase,
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(LdsRadius.md)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(LdsRadius.md),
+              ),
               border: Border.all(color: c.line),
             ),
             child: Row(
@@ -175,8 +172,8 @@ class _MenubarButton extends StatelessWidget {
           color: open
               ? c.accentTint
               : (state.hovered || state.pressed
-                  ? c.bgTintStrong
-                  : Colors.transparent),
+                    ? c.bgTintStrong
+                    : Colors.transparent),
         ),
         child: Text(
           label,

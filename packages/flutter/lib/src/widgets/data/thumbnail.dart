@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -55,23 +55,27 @@ class _LdsThumbnailState extends State<LdsThumbnail> {
 
   Future<void> _open() async {
     final reduce = context.ldsReduceMotion;
-    await Navigator.of(context).push(PageRouteBuilder<void>(
-      opaque: false,
-      barrierDismissible: true,
-      barrierLabel: widget.closeLabel,
-      transitionDuration:
-          reduce ? LdsMotion.instant : const Duration(milliseconds: 420),
-      reverseTransitionDuration:
-          reduce ? LdsMotion.instant : const Duration(milliseconds: 220),
-      pageBuilder: (context, animation, _) => _Lightbox(
-        image: widget.image,
-        semanticLabel: widget.semanticLabel,
-        caption: widget.caption,
-        closeLabel: widget.closeLabel,
-        heroTag: reduce ? null : _heroTag,
-        animation: animation,
+    await Navigator.of(context).push(
+      PageRouteBuilder<void>(
+        opaque: false,
+        barrierDismissible: true,
+        barrierLabel: widget.closeLabel,
+        transitionDuration: reduce
+            ? LdsMotion.instant
+            : const Duration(milliseconds: 420),
+        reverseTransitionDuration: reduce
+            ? LdsMotion.instant
+            : const Duration(milliseconds: 220),
+        pageBuilder: (context, animation, _) => _Lightbox(
+          image: widget.image,
+          semanticLabel: widget.semanticLabel,
+          caption: widget.caption,
+          closeLabel: widget.closeLabel,
+          heroTag: reduce ? null : _heroTag,
+          animation: animation,
+        ),
       ),
-    ));
+    );
   }
 
   @override
@@ -80,28 +84,28 @@ class _LdsThumbnailState extends State<LdsThumbnail> {
     final tap = widget.onTap ?? (widget.lightbox ? _open : null);
     const radius = BorderRadius.all(Radius.circular(LdsRadius.md));
     Widget frame(bool hot) => ClipRRect(
-          borderRadius: radius,
-          child: AspectRatio(
-            aspectRatio: widget.aspectRatio,
-            child: ColoredBox(
-              color: c.bgRecessed,
-              child: AnimatedScale(
-                scale: hot && !context.ldsReduceMotion ? 1.03 : 1,
-                duration: LdsMotion.smoothSpringDuration,
-                curve: LdsSpringCurve.smooth,
-                child: Hero(
-                  tag: _heroTag,
-                  child: Image(
-                    image: widget.image,
-                    fit: BoxFit.cover,
-                    semanticLabel: widget.semanticLabel,
-                    gaplessPlayback: true,
-                  ),
-                ),
+      borderRadius: radius,
+      child: AspectRatio(
+        aspectRatio: widget.aspectRatio,
+        child: ColoredBox(
+          color: c.bgRecessed,
+          child: AnimatedScale(
+            scale: hot && !context.ldsReduceMotion ? 1.03 : 1,
+            duration: LdsMotion.smoothSpringDuration,
+            curve: LdsSpringCurve.smooth,
+            child: Hero(
+              tag: _heroTag,
+              child: Image(
+                image: widget.image,
+                fit: BoxFit.cover,
+                semanticLabel: widget.semanticLabel,
+                gaplessPlayback: true,
               ),
             ),
           ),
-        );
+        ),
+      ),
+    );
     if (tap == null) return frame(false);
     return LdsPressable(
       onPressed: tap,
@@ -133,8 +137,11 @@ class _Lightbox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
-    final picture =
-        Image(image: image, fit: BoxFit.contain, semanticLabel: semanticLabel);
+    final picture = Image(
+      image: image,
+      fit: BoxFit.contain,
+      semanticLabel: semanticLabel,
+    );
     return Semantics(
       scopesRoute: true,
       explicitChildNodes: true,
@@ -182,11 +189,14 @@ class _Lightbox extends StatelessWidget {
                       opacity: animation,
                       child: Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: 12, vertical: 6),
+                          horizontal: 12,
+                          vertical: 6,
+                        ),
                         decoration: BoxDecoration(
                           color: c.bgInverse,
                           borderRadius: const BorderRadius.all(
-                              Radius.circular(LdsRadius.sm)),
+                            Radius.circular(LdsRadius.sm),
+                          ),
                         ),
                         child: Text(
                           caption!,

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -70,100 +70,119 @@ class LdsSiteFooter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
-    return LayoutBuilder(builder: (context, constraints) {
-      final w = constraints.maxWidth;
-      final brand = Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(name, style: LdsType.headline.copyWith(color: c.textStrong)),
-          if (about != null) ...[
-            const SizedBox(height: LdsSpace.s8),
-            ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 34 * 8),
-              child: Text(about!,
-                  style: LdsType.subhead.copyWith(color: c.textSubtle)),
-            ),
-          ],
-        ],
-      );
-      final nav = Semantics(
-        container: true,
-        label: semanticLabel,
-        child: Wrap(
-          spacing: LdsSpace.s24,
-          runSpacing: LdsSpace.s24,
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final w = constraints.maxWidth;
+        final brand = Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            for (final g in groups)
-              SizedBox(
-                width: 140,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Semantics(
-                      header: true,
-                      child: Text(g.title,
-                          style:
-                              LdsType.caption.copyWith(color: c.textStrong)),
-                    ),
-                    const SizedBox(height: LdsSpace.s4),
-                    for (final l in g.links) _FooterLink(link: l),
-                  ],
+            Text(name, style: LdsType.headline.copyWith(color: c.textStrong)),
+            if (about != null) ...[
+              const SizedBox(height: LdsSpace.s8),
+              ConstrainedBox(
+                constraints: const BoxConstraints(maxWidth: 34 * 8),
+                child: Text(
+                  about!,
+                  style: LdsType.subhead.copyWith(color: c.textSubtle),
                 ),
               ),
+            ],
           ],
-        ),
-      );
-      final top = w >= 760
-          ? Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Expanded(flex: 2, child: brand),
-                const SizedBox(width: LdsSpace.s32),
-                Expanded(flex: 3, child: nav),
-              ],
-            )
-          : Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [brand, const SizedBox(height: LdsSpace.s32), nav],
-            );
-      final bottom = DecoratedBox(
-        decoration: BoxDecoration(
-            border: Border(top: BorderSide(color: c.hairline))),
-        child: Padding(
-          padding: const EdgeInsets.only(top: LdsSpace.s24),
+        );
+        final nav = Semantics(
+          container: true,
+          label: semanticLabel,
           child: Wrap(
-            alignment: WrapAlignment.spaceBetween,
-            crossAxisAlignment: WrapCrossAlignment.center,
-            spacing: LdsSpace.s16,
-            runSpacing: LdsSpace.s16,
+            spacing: LdsSpace.s24,
+            runSpacing: LdsSpace.s24,
             children: [
-              if (smallPrint != null)
-                ConstrainedBox(
-                  constraints: const BoxConstraints(maxWidth: 64 * 7),
-                  child: Text(smallPrint!,
-                      style: LdsType.footnote.copyWith(color: c.textSubtle)),
+              for (final g in groups)
+                SizedBox(
+                  width: 140,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Semantics(
+                        header: true,
+                        child: Text(
+                          g.title,
+                          style: LdsType.caption.copyWith(color: c.textStrong),
+                        ),
+                      ),
+                      const SizedBox(height: LdsSpace.s4),
+                      for (final l in g.links) _FooterLink(link: l),
+                    ],
+                  ),
                 ),
-              if (trailing != null) trailing!,
             ],
           ),
-        ),
-      );
-      return DecoratedBox(
-        decoration: BoxDecoration(
-            border: Border(top: BorderSide(color: c.hairline))),
-        child: Padding(
-          padding: const EdgeInsets.only(
-              top: LdsSpace.s48, bottom: LdsSpace.s32),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [top, const SizedBox(height: LdsSpace.s40), bottom],
+        );
+        final top = w >= 760
+            ? Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(flex: 2, child: brand),
+                  const SizedBox(width: LdsSpace.s32),
+                  Expanded(flex: 3, child: nav),
+                ],
+              )
+            : Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  brand,
+                  const SizedBox(height: LdsSpace.s32),
+                  nav,
+                ],
+              );
+        final bottom = DecoratedBox(
+          decoration: BoxDecoration(
+            border: Border(top: BorderSide(color: c.hairline)),
           ),
-        ),
-      );
-    });
+          child: Padding(
+            padding: const EdgeInsets.only(top: LdsSpace.s24),
+            child: Wrap(
+              alignment: WrapAlignment.spaceBetween,
+              crossAxisAlignment: WrapCrossAlignment.center,
+              spacing: LdsSpace.s16,
+              runSpacing: LdsSpace.s16,
+              children: [
+                if (smallPrint != null)
+                  ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 64 * 7),
+                    child: Text(
+                      smallPrint!,
+                      style: LdsType.footnote.copyWith(color: c.textSubtle),
+                    ),
+                  ),
+                ?trailing,
+              ],
+            ),
+          ),
+        );
+        return DecoratedBox(
+          decoration: BoxDecoration(
+            border: Border(top: BorderSide(color: c.hairline)),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.only(
+              top: LdsSpace.s48,
+              bottom: LdsSpace.s32,
+            ),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: [
+                top,
+                const SizedBox(height: LdsSpace.s40),
+                bottom,
+              ],
+            ),
+          ),
+        );
+      },
+    );
   }
 }
 

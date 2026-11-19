@@ -31,7 +31,7 @@ class LdsDropdownMenu extends StatelessWidget {
 
   /// Builds the trigger. Call `controller.toggle()` when it is pressed.
   final Widget Function(BuildContext context, LdsLayerController controller)
-      builder;
+  builder;
 
   /// Commands, captions and dividers.
   final List<LdsMenuEntry> entries;

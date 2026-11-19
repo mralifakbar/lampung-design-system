@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -92,9 +92,10 @@ class LdsCartesianChart extends StatefulWidget {
 
 class _LdsCartesianChartState extends State<LdsCartesianChart>
     with SingleTickerProviderStateMixin {
-  late final AnimationController _ctrl =
-      AnimationController(vsync: this, duration: LdsMotion.considered)
-        ..addListener(() => setState(() {}));
+  late final AnimationController _ctrl = AnimationController(
+    vsync: this,
+    duration: LdsMotion.considered,
+  )..addListener(() => setState(() {}));
   final Set<int> _hidden = <int>{};
   int? _active;
   bool _started = false;
@@ -109,7 +110,8 @@ class _LdsCartesianChartState extends State<LdsCartesianChart>
     if (!_started) {
       _started = true;
       _from = [
-        for (final s in widget.series) [for (final v in s.values) v == null ? null : 0.0]
+        for (final s in widget.series)
+          [for (final v in s.values) v == null ? null : 0.0],
       ];
       if (context.ldsReduceMotion) {
         _ctrl.value = 1;
@@ -122,10 +124,11 @@ class _LdsCartesianChartState extends State<LdsCartesianChart>
   @override
   void didUpdateWidget(LdsCartesianChart old) {
     super.didUpdateWidget(old);
-    final changed = old.series.length != widget.series.length ||
+    final changed =
+        old.series.length != widget.series.length ||
         [
           for (var i = 0; i < widget.series.length; i++)
-            _listEquals(old.series[i].values, widget.series[i].values)
+            _listEquals(old.series[i].values, widget.series[i].values),
         ].contains(false);
     if (changed) {
       _from = _current(old.series);
@@ -155,10 +158,11 @@ class _LdsCartesianChartState extends State<LdsCartesianChart>
         [
           for (var i = 0; i < to[s].length; i++)
             _lerp(
-                s < _from.length && i < _from[s].length ? _from[s][i] : null,
-                to[s][i],
-                t),
-        ]
+              s < _from.length && i < _from[s].length ? _from[s][i] : null,
+              to[s][i],
+              t,
+            ),
+        ],
     ];
   }
 
@@ -198,8 +202,10 @@ class _LdsCartesianChartState extends State<LdsCartesianChart>
           ? widget.series[s].values[i]
           : null;
       total += v ?? 0;
-      lines.add('${widget.series[s].name}: '
-          '${v == null ? 'tidak ada data' : widget.format.format(v)}');
+      lines.add(
+        '${widget.series[s].name}: '
+        '${v == null ? 'tidak ada data' : widget.format.format(v)}',
+      );
     }
     if (widget.stacked && widget.series.length > 1) {
       lines.add('Total: ${widget.format.format(total)}');
@@ -248,34 +254,36 @@ class _LdsCartesianChartState extends State<LdsCartesianChart>
     final legend = widget.showLegend ?? series.length > 1;
     final values = _current();
 
-    Widget plot = LayoutBuilder(builder: (context, box) {
-      final size = Size(box.maxWidth, widget.height);
-      final geo = _Geometry.compute(widget, _hidden, size, c);
-      void pick(Offset p) => setState(() => _active = geo.indexAt(p.dx));
-      return MouseRegion(
-        onHover: (e) => pick(e.localPosition),
-        onExit: (_) {
-          if (!_focus.hasFocus) setState(() => _active = null);
-        },
-        child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTapDown: (d) => pick(d.localPosition),
-          onHorizontalDragUpdate: (d) => pick(d.localPosition),
-          child: CustomPaint(
-            size: size,
-            painter: _CartesianPainter(
-              chart: widget,
-              geo: geo,
-              values: values,
-              hidden: Set.of(_hidden),
-              active: _active,
-              reading: _active == null ? const [] : _reading(_active!),
-              colors: c,
+    Widget plot = LayoutBuilder(
+      builder: (context, box) {
+        final size = Size(box.maxWidth, widget.height);
+        final geo = _Geometry.compute(widget, _hidden, size, c);
+        void pick(Offset p) => setState(() => _active = geo.indexAt(p.dx));
+        return MouseRegion(
+          onHover: (e) => pick(e.localPosition),
+          onExit: (_) {
+            if (!_focus.hasFocus) setState(() => _active = null);
+          },
+          child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTapDown: (d) => pick(d.localPosition),
+            onHorizontalDragUpdate: (d) => pick(d.localPosition),
+            child: CustomPaint(
+              size: size,
+              painter: _CartesianPainter(
+                chart: widget,
+                geo: geo,
+                values: values,
+                hidden: Set.of(_hidden),
+                active: _active,
+                reading: _active == null ? const [] : _reading(_active!),
+                colors: c,
+              ),
             ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
 
     plot = Focus(
       focusNode: _focus,
@@ -294,10 +302,12 @@ class _LdsCartesianChartState extends State<LdsCartesianChart>
           child: DecoratedBox(
             position: DecorationPosition.foreground,
             decoration: BoxDecoration(
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(LdsRadius.sm)),
-              border: _focus.hasFocus && _focus.highlightMode ==
-                      FocusHighlightMode.traditional
+              borderRadius: const BorderRadius.all(
+                Radius.circular(LdsRadius.sm),
+              ),
+              border:
+                  _focus.hasFocus &&
+                      _focus.highlightMode == FocusHighlightMode.traditional
                   ? Border.all(color: c.focus, width: 2)
                   : null,
             ),
@@ -332,8 +342,15 @@ class _LdsCartesianChartState extends State<LdsCartesianChart>
 
 /// Plot area, scale and x positions shared by the painter and hit testing.
 class _Geometry {
-  _Geometry(this.plot, this.n, this.centered, this.min, this.max, this.step,
-      this.tickLabels);
+  _Geometry(
+    this.plot,
+    this.n,
+    this.centered,
+    this.min,
+    this.max,
+    this.step,
+    this.tickLabels,
+  );
 
   final Rect plot;
   final int n;
@@ -362,7 +379,11 @@ class _Geometry {
   }
 
   static _Geometry compute(
-      LdsCartesianChart w, Set<int> hidden, Size size, LdsColors c) {
+    LdsCartesianChart w,
+    Set<int> hidden,
+    Size size,
+    LdsColors c,
+  ) {
     final kinds = [for (final s in w.series) s.kind ?? w.kind];
     final centered = kinds.contains(LdsSeriesKind.bar);
     var lo = 0.0, hi = 0.0;
@@ -383,7 +404,9 @@ class _Geometry {
         var pos = 0.0, neg = 0.0;
         for (var s = 0; s < w.series.length; s++) {
           if (hidden.contains(s)) continue;
-          final v = i < w.series[s].values.length ? w.series[s].values[i] : null;
+          final v = i < w.series[s].values.length
+              ? w.series[s].values[i]
+              : null;
           if (v == null) continue;
           if (v >= 0) {
             pos += v;
@@ -460,8 +483,11 @@ class _CartesianPainter extends CustomPainter {
     for (var v = geo.min; v <= geo.max + geo.step / 1000; v += geo.step) {
       final y = geo.y(v).roundToDouble() + 0.5;
       final isZero = v.abs() < geo.step / 1000 && geo.min < 0;
-      canvas.drawLine(Offset(plot.left, y), Offset(plot.right, y),
-          isZero ? (Paint()..color = c.lineStrong) : grid);
+      canvas.drawLine(
+        Offset(plot.left, y),
+        Offset(plot.right, y),
+        isZero ? (Paint()..color = c.lineStrong) : grid,
+      );
       if (t < geo.tickLabels.length) {
         final tp = geo.tickLabels[t];
         tp.paint(canvas, Offset(plot.left - 8 - tp.width, y - tp.height / 2));
@@ -488,14 +514,17 @@ class _CartesianPainter extends CustomPainter {
     // Active band for bar charts.
     if (active != null && geo.centered) {
       canvas.drawRect(
-          Rect.fromLTWH(plot.left + geo.slot * active!, plot.top, geo.slot,
-              plot.height),
-          Paint()..color = c.bgTint);
+        Rect.fromLTWH(
+          plot.left + geo.slot * active!,
+          plot.top,
+          geo.slot,
+          plot.height,
+        ),
+        Paint()..color = c.bgTint,
+      );
     }
 
-    final kinds = [
-      for (final s in chart.series) s.kind ?? chart.kind,
-    ];
+    final kinds = [for (final s in chart.series) s.kind ?? chart.kind];
     Color colorOf(int s) =>
         (chart.series[s].color ?? LdsSeriesColor.at(s)).resolve(c);
 
@@ -526,13 +555,15 @@ class _CartesianPainter extends CustomPainter {
     // Bars.
     final bars = [
       for (var s = 0; s < values.length; s++)
-        if (kinds[s] == LdsSeriesKind.bar && !hidden.contains(s)) s
+        if (kinds[s] == LdsSeriesKind.bar && !hidden.contains(s)) s,
     ];
     if (bars.isNotEmpty) {
       final group = chart.stacked ? 1 : bars.length;
       final maxBar = group == 1 ? 36.0 : 26.0;
       final bw = math.max(
-          2.0, math.min(maxBar, (geo.slot * 0.7 - (group - 1) * 2) / group));
+        2.0,
+        math.min(maxBar, (geo.slot * 0.7 - (group - 1) * 2) / group),
+      );
       final single = bars.length == 1 && chart.highlight != null;
       for (var b = 0; b < bars.length; b++) {
         final s = bars[b];
@@ -543,7 +574,8 @@ class _CartesianPainter extends CustomPainter {
           if (v == null || v == 0) continue;
           final from = chart.stacked ? lower[s]![i] : 0.0;
           final to = from + v;
-          final gx = geo.x(i) -
+          final gx =
+              geo.x(i) -
               (group * bw + (group - 1) * 2) / 2 +
               (chart.stacked ? 0 : b * (bw + 2));
           final top = geo.y(math.max(from, to));
@@ -575,8 +607,8 @@ class _CartesianPainter extends CustomPainter {
           stackedArea
               ? Offset(geo.x(i), geo.y(upper[s]![i]))
               : (i < values[s].length && values[s][i] != null
-                  ? Offset(geo.x(i), geo.y(values[s][i]!))
-                  : null),
+                    ? Offset(geo.x(i), geo.y(values[s][i]!))
+                    : null),
       ];
       final segments = <List<Offset>>[];
       var run = <Offset>[];
@@ -620,9 +652,9 @@ class _CartesianPainter extends CustomPainter {
           }
           fill.close();
           canvas.drawPath(
-              fill,
-              Paint()
-                ..color = color.withValues(alpha: stackedArea ? 0.24 : 0.12));
+            fill,
+            Paint()..color = color.withValues(alpha: stackedArea ? 0.24 : 0.12),
+          );
         }
         final stroke = Paint()
           ..color = color
@@ -654,17 +686,24 @@ class _CartesianPainter extends CustomPainter {
           ..strokeWidth = 1,
       );
       final tp = layoutText(
-          r.label, style.copyWith(color: c.textSubtle, fontWeight: FontWeight.w500));
-      tp.paint(canvas,
-          Offset(plot.right - tp.width, math.max(0, y - tp.height - 2)));
+        r.label,
+        style.copyWith(color: c.textSubtle, fontWeight: FontWeight.w500),
+      );
+      tp.paint(
+        canvas,
+        Offset(plot.right - tp.width, math.max(0, y - tp.height - 2)),
+      );
     }
 
     // Crosshair, dots and tooltip.
     if (active != null && n > 0) {
       final x = geo.x(active!);
       if (!geo.centered) {
-        canvas.drawLine(Offset(x, plot.top), Offset(x, plot.bottom),
-            Paint()..color = c.lineStrong);
+        canvas.drawLine(
+          Offset(x, plot.top),
+          Offset(x, plot.bottom),
+          Paint()..color = c.lineStrong,
+        );
       }
       var anchorY = plot.center.dy;
       for (var s = 0; s < values.length; s++) {
@@ -678,8 +717,7 @@ class _CartesianPainter extends CustomPainter {
         canvas.drawCircle(p, 4.5, Paint()..color = c.bgBase);
         canvas.drawCircle(p, 3, Paint()..color = colorOf(s));
       }
-      drawTooltip(canvas, Offset(x, anchorY), reading,
-          Offset.zero & size, c);
+      drawTooltip(canvas, Offset(x, anchorY), reading, Offset.zero & size, c);
     }
   }
 

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -69,8 +69,8 @@ class _LdsSplitButtonState extends State<LdsSplitButton> {
   Color _bg(LdsColors c, LdsPressState s) => s.pressed
       ? c.accentPressed
       : s.hovered
-          ? c.accentHover
-          : c.accent;
+      ? c.accentHover
+      : c.accent;
 
   @override
   Widget build(BuildContext context) {
@@ -103,8 +103,10 @@ class _LdsSplitButtonState extends State<LdsSplitButton> {
             ],
             Text(
               widget.label,
-              style: LdsType.bodyStrong
-                  .copyWith(color: fg, fontWeight: FontWeight.w600),
+              style: LdsType.bodyStrong.copyWith(
+                color: fg,
+                fontWeight: FontWeight.w600,
+              ),
             ),
           ],
         ),
@@ -120,11 +122,16 @@ class _LdsSplitButtonState extends State<LdsSplitButton> {
         backgroundColor: WidgetStatePropertyAll(c.bgElevated),
         surfaceTintColor: const WidgetStatePropertyAll(Colors.transparent),
         elevation: const WidgetStatePropertyAll(8),
-        shadowColor: WidgetStatePropertyAll(context.ldsShadows.lg.isEmpty
-            ? c.bgScrim
-            : context.ldsShadows.lg.last.color),
-        shape: const WidgetStatePropertyAll(RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(Radius.circular(LdsRadius.md)))),
+        shadowColor: WidgetStatePropertyAll(
+          context.ldsShadows.lg.isEmpty
+              ? c.bgScrim
+              : context.ldsShadows.lg.last.color,
+        ),
+        shape: const WidgetStatePropertyAll(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(LdsRadius.md)),
+          ),
+        ),
         padding: const WidgetStatePropertyAll(EdgeInsets.all(6)),
       ),
       menuChildren: [
@@ -135,19 +142,24 @@ class _LdsSplitButtonState extends State<LdsSplitButton> {
                 ? null
                 : LdsIcon(item.icon!, size: 18, color: c.textSubtle),
             style: ButtonStyle(
-              minimumSize:
-                  const WidgetStatePropertyAll(Size(180, LdsSize.touchMin)),
-              shape: const WidgetStatePropertyAll(RoundedRectangleBorder(
-                  borderRadius:
-                      BorderRadius.all(Radius.circular(LdsRadius.sm)))),
+              minimumSize: const WidgetStatePropertyAll(
+                Size(180, LdsSize.touchMin),
+              ),
+              shape: const WidgetStatePropertyAll(
+                RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(LdsRadius.sm)),
+                ),
+              ),
               foregroundColor: WidgetStatePropertyAll(c.textStrong),
               textStyle: const WidgetStatePropertyAll(LdsType.subhead),
               overlayColor: WidgetStatePropertyAll(c.bgTint),
-              backgroundColor: WidgetStateProperty.resolveWith((s) =>
-                  s.contains(WidgetState.focused) ||
-                          s.contains(WidgetState.hovered)
-                      ? c.bgTint
-                      : Colors.transparent),
+              backgroundColor: WidgetStateProperty.resolveWith(
+                (s) =>
+                    s.contains(WidgetState.focused) ||
+                        s.contains(WidgetState.hovered)
+                    ? c.bgTint
+                    : Colors.transparent,
+              ),
             ),
             child: Text(item.label),
           ),
@@ -158,7 +170,7 @@ class _LdsSplitButtonState extends State<LdsSplitButton> {
           child: LdsPressable(
             onPressed: enabled
                 ? () =>
-                    controller.isOpen ? controller.close() : controller.open()
+                      controller.isOpen ? controller.close() : controller.open()
                 : null,
             pressedScale: 1,
             borderRadius: const BorderRadiusDirectional.horizontal(end: r)

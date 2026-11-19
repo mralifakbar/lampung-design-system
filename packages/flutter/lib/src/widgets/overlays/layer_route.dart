@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../tokens.g.dart';
@@ -72,12 +72,15 @@ class LdsLayerRoute<T> extends PopupRoute<T> {
   Duration get reverseTransitionDuration => reduceMotion
       ? LdsMotion.instant
       : (motion == LdsLayerMotion.slideEnd
-          ? LdsMotion.standard
-          : LdsMotion.exit);
+            ? LdsMotion.standard
+            : LdsMotion.exit);
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
+  Widget buildPage(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+  ) {
     return Semantics(
       scopesRoute: true,
       explicitChildNodes: true,
@@ -86,8 +89,12 @@ class LdsLayerRoute<T> extends PopupRoute<T> {
   }
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
     final opacity = CurvedAnimation(
       parent: animation,
       curve: const Interval(0, 0.3, curve: LdsMotion.enterCurve),

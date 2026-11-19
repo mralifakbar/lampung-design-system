@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -156,12 +156,18 @@ class LdsFloorPlan extends StatelessWidget {
 
   /// Colors for [tone] in [c]: fill, text and ring.
   static ({Color fill, Color text, Color ring}) toneColors(
-      LdsColors c, LdsFloorTone tone) {
+    LdsColors c,
+    LdsFloorTone tone,
+  ) {
     switch (tone) {
       case LdsFloorTone.free:
         return (fill: c.bgBase, text: c.textStrong, ring: c.lineControl);
       case LdsFloorTone.accent:
-        return (fill: c.accentTint, text: c.accentText, ring: c.accentTintStrong);
+        return (
+          fill: c.accentTint,
+          text: c.accentText,
+          ring: c.accentTintStrong,
+        );
       case LdsFloorTone.strong:
         return (fill: c.accent, text: c.textOnAccent, ring: c.accent);
       case LdsFloorTone.success:
@@ -193,50 +199,55 @@ class LdsFloorPlan extends StatelessWidget {
           color: c.bgFill,
           borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.lg)),
         ),
-        child: LayoutBuilder(builder: (context, box) {
-          final width = math.max(box.maxWidth, minWidth);
-          final colW = (width - gap * (columns - 1)) / columns;
-          Rect area(int col, int row, int cs, int rs) => Rect.fromLTWH(
-                col * (colW + gap),
-                row * (rowHeight + gap),
-                cs * colW + (cs - 1) * gap,
-                rs * rowHeight + (rs - 1) * gap,
-              );
-          final plan = SizedBox(
-            width: width,
-            height: rows * rowHeight + (rows - 1) * gap,
-            child: Stack(
-              children: [
-                for (final z in zones)
-                  Positioned.fromRect(
-                    rect: area(z.column, z.row, z.columnSpan, z.rowSpan),
-                    child: CustomPaint(
-                      painter: _ZonePainter(c.lineStrong),
-                      child: Padding(
-                        padding: const EdgeInsets.all(8),
-                        child: Align(
-                          alignment: Alignment.topLeft,
-                          child: Text(z.name,
-                              style: LdsType.footnote
-                                  .copyWith(color: c.textSubtle)),
+        child: LayoutBuilder(
+          builder: (context, box) {
+            final width = math.max(box.maxWidth, minWidth);
+            final colW = (width - gap * (columns - 1)) / columns;
+            Rect area(int col, int row, int cs, int rs) => Rect.fromLTWH(
+              col * (colW + gap),
+              row * (rowHeight + gap),
+              cs * colW + (cs - 1) * gap,
+              rs * rowHeight + (rs - 1) * gap,
+            );
+            final plan = SizedBox(
+              width: width,
+              height: rows * rowHeight + (rows - 1) * gap,
+              child: Stack(
+                children: [
+                  for (final z in zones)
+                    Positioned.fromRect(
+                      rect: area(z.column, z.row, z.columnSpan, z.rowSpan),
+                      child: CustomPaint(
+                        painter: _ZonePainter(c.lineStrong),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8),
+                          child: Align(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              z.name,
+                              style: LdsType.footnote.copyWith(
+                                color: c.textSubtle,
+                              ),
+                            ),
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                for (final u in units)
-                  Positioned.fromRect(
-                    rect: area(u.column, u.row, u.columnSpan, u.rowSpan),
-                    child: _unit(context, c, u),
-                  ),
-              ],
-            ),
-          );
-          if (width <= box.maxWidth) return plan;
-          return SingleChildScrollView(
-            scrollDirection: Axis.horizontal,
-            child: plan,
-          );
-        }),
+                  for (final u in units)
+                    Positioned.fromRect(
+                      rect: area(u.column, u.row, u.columnSpan, u.rowSpan),
+                      child: _unit(context, c, u),
+                    ),
+                ],
+              ),
+            );
+            if (width <= box.maxWidth) return plan;
+            return SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: plan,
+            );
+          },
+        ),
       ),
     );
   }
@@ -244,87 +255,97 @@ class LdsFloorPlan extends StatelessWidget {
   Widget _unit(BuildContext context, LdsColors c, LdsFloorUnit u) {
     final t = toneColors(c, u.tone);
     final isSel = selected == u.id;
-    return LayoutBuilder(builder: (context, box) {
-      final radius = u.round
-          ? BorderRadius.circular(math.min(box.maxWidth, box.maxHeight) / 2)
-          : const BorderRadius.all(Radius.circular(LdsRadius.md));
-      Widget face(LdsPressState s) {
-        final ringWidth = s.hovered ? 1.5 : 1.0;
-        return AnimatedContainer(
-          duration: context.ldsDuration(LdsMotion.standard),
-          decoration: BoxDecoration(
-            color: t.fill,
-            borderRadius: radius,
-            border: Border.all(
-              color: t.ring,
-              width: u.tone == LdsFloorTone.free ||
-                      u.tone == LdsFloorTone.muted ||
-                      s.hovered
-                  ? ringWidth
-                  : 0,
-              style: u.tone == LdsFloorTone.free ||
-                      u.tone == LdsFloorTone.muted ||
-                      s.hovered
-                  ? BorderStyle.solid
-                  : BorderStyle.none,
+    return LayoutBuilder(
+      builder: (context, box) {
+        final radius = u.round
+            ? BorderRadius.circular(math.min(box.maxWidth, box.maxHeight) / 2)
+            : const BorderRadius.all(Radius.circular(LdsRadius.md));
+        Widget face(LdsPressState s) {
+          final ringWidth = s.hovered ? 1.5 : 1.0;
+          return AnimatedContainer(
+            duration: context.ldsDuration(LdsMotion.standard),
+            decoration: BoxDecoration(
+              color: t.fill,
+              borderRadius: radius,
+              border: Border.all(
+                color: t.ring,
+                width:
+                    u.tone == LdsFloorTone.free ||
+                        u.tone == LdsFloorTone.muted ||
+                        s.hovered
+                    ? ringWidth
+                    : 0,
+                style:
+                    u.tone == LdsFloorTone.free ||
+                        u.tone == LdsFloorTone.muted ||
+                        s.hovered
+                    ? BorderStyle.solid
+                    : BorderStyle.none,
+              ),
+              boxShadow: isSel
+                  ? [
+                      BoxShadow(color: c.bgFill, spreadRadius: 2),
+                      BoxShadow(color: c.accent, spreadRadius: 4),
+                    ]
+                  : null,
             ),
-            boxShadow: isSel
-                ? [
-                    BoxShadow(color: c.bgFill, spreadRadius: 2),
-                    BoxShadow(color: c.accent, spreadRadius: 4),
-                  ]
-                : null,
-          ),
-          child: Stack(
-            children: [
-              Center(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 6),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Text(u.name,
+            child: Stack(
+              children: [
+                Center(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 6),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text(
+                          u.name,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: LdsType.subhead.copyWith(
-                              fontWeight: FontWeight.w600,
-                              color: t.text,
-                              fontFeatures: tabular)),
-                      Text(u.meta,
+                            fontWeight: FontWeight.w600,
+                            color: t.text,
+                            fontFeatures: tabular,
+                          ),
+                        ),
+                        Text(
+                          u.meta,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: LdsType.footnote.copyWith(
-                              fontSize: 12,
-                              color: u.tone == LdsFloorTone.strong
-                                  ? t.text
-                                  : (u.tone == LdsFloorTone.free
+                            fontSize: 12,
+                            color: u.tone == LdsFloorTone.strong
+                                ? t.text
+                                : (u.tone == LdsFloorTone.free
                                       ? c.textSubtle
-                                      : t.text))),
-                    ],
+                                      : t.text),
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              if (u.flag != null)
-                Positioned(
-                  top: 4,
-                  right: 4,
-                  child: LdsIcon(u.flag!, size: 14, color: t.text),
-                ),
-            ],
-          ),
-        );
-      }
+                if (u.flag != null)
+                  Positioned(
+                    top: 4,
+                    right: 4,
+                    child: LdsIcon(u.flag!, size: 14, color: t.text),
+                  ),
+              ],
+            ),
+          );
+        }
 
-      return LdsPressable(
-        onPressed: onSelect == null ? null : () => onSelect!(u.id),
-        selected: onSelect == null ? null : isSel,
-        semanticLabel: '${u.name}, ${u.meta}',
-        excludeChildSemantics: true,
-        borderRadius: radius,
-        minSize: Size.zero,
-        builder: (context, s) => face(s),
-      );
-    });
+        return LdsPressable(
+          onPressed: onSelect == null ? null : () => onSelect!(u.id),
+          selected: onSelect == null ? null : isSel,
+          semanticLabel: '${u.name}, ${u.meta}',
+          excludeChildSemantics: true,
+          borderRadius: radius,
+          minSize: Size.zero,
+          builder: (context, s) => face(s),
+        );
+      },
+    );
   }
 }
 
@@ -336,17 +357,21 @@ class _ZonePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     final path = Path()
-      ..addRRect(RRect.fromRectAndRadius(
+      ..addRRect(
+        RRect.fromRectAndRadius(
           (Offset.zero & size).deflate(0.5),
-          const Radius.circular(LdsRadius.md)));
+          const Radius.circular(LdsRadius.md),
+        ),
+      );
     drawDashed(
-        canvas,
-        path,
-        Paint()
-          ..style = PaintingStyle.stroke
-          ..strokeWidth = 1
-          ..color = color,
-        dash: 5);
+      canvas,
+      path,
+      Paint()
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 1
+        ..color = color,
+      dash: 5,
+    );
   }
 
   @override

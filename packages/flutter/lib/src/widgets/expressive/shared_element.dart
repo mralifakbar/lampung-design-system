@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -32,11 +32,13 @@ class LdsSharedElement extends StatelessWidget {
     String? caption,
     String closeLabel = 'Tutup',
   }) {
-    return Navigator.of(context).push(LdsSharedElementRoute<void>(
-      caption: caption,
-      closeLabel: closeLabel,
-      builder: (context) => LdsSharedElement(tag: tag, child: child),
-    ));
+    return Navigator.of(context).push(
+      LdsSharedElementRoute<void>(
+        caption: caption,
+        closeLabel: closeLabel,
+        builder: (context) => LdsSharedElement(tag: tag, child: child),
+      ),
+    );
   }
 
   @override
@@ -110,8 +112,11 @@ class LdsSharedElementRoute<T> extends PopupRoute<T> {
   }
 
   @override
-  Widget buildPage(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation) {
+  Widget buildPage(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+  ) {
     final c = context.lds;
     return Semantics(
       scopesRoute: true,
@@ -132,7 +137,9 @@ class LdsSharedElementRoute<T> extends PopupRoute<T> {
                   alignment: Alignment.topRight,
                   child: DecoratedBox(
                     decoration: BoxDecoration(
-                        color: c.bgInverse, shape: BoxShape.circle),
+                      color: c.bgInverse,
+                      shape: BoxShape.circle,
+                    ),
                     child: LdsIconButton(
                       icon: 'close',
                       semanticLabel: closeLabel,
@@ -156,17 +163,21 @@ class LdsSharedElementRoute<T> extends PopupRoute<T> {
                       child: DecoratedBox(
                         decoration: BoxDecoration(
                           color: c.bgInverse,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(10)),
+                          borderRadius: const BorderRadius.all(
+                            Radius.circular(10),
+                          ),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 12, vertical: 6),
+                            horizontal: 12,
+                            vertical: 6,
+                          ),
                           child: Text(
                             caption!,
                             textAlign: TextAlign.center,
-                            style:
-                                LdsType.footnote.copyWith(color: c.textInverse),
+                            style: LdsType.footnote.copyWith(
+                              color: c.textInverse,
+                            ),
                           ),
                         ),
                       ),
@@ -181,8 +192,12 @@ class LdsSharedElementRoute<T> extends PopupRoute<T> {
   }
 
   @override
-  Widget buildTransitions(BuildContext context, Animation<double> animation,
-      Animation<double> secondaryAnimation, Widget child) {
+  Widget buildTransitions(
+    BuildContext context,
+    Animation<double> animation,
+    Animation<double> secondaryAnimation,
+    Widget child,
+  ) {
     final c = context.lds;
     final backdrop = CurvedAnimation(
       parent: animation,

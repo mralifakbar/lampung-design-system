@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -105,8 +105,8 @@ class _LdsOtpFieldState extends State<LdsOtpField> {
       final edge = invalid
           ? c.danger
           : isActive
-              ? c.accent
-              : c.lineControl;
+          ? c.accent
+          : c.lineControl;
       return Flexible(
         child: AnimatedContainer(
           duration: context.ldsDuration(LdsMotion.fast),
@@ -143,8 +143,8 @@ class _LdsOtpFieldState extends State<LdsOtpField> {
                   ),
                 )
               : isActive
-                  ? Container(width: 2, height: 24, color: c.accent)
-                  : null,
+              ? Container(width: 2, height: 24, color: c.accent)
+              : null,
         ),
       );
     }
@@ -214,7 +214,12 @@ class _LdsOtpFieldState extends State<LdsOtpField> {
       children: [
         LdsFormsShake(
           trigger: _shake,
-          child: Stack(children: [ExcludeSemantics(child: cells), input]),
+          child: Stack(
+            children: [
+              ExcludeSemantics(child: cells),
+              input,
+            ],
+          ),
         ),
         if (invalid) ...[
           const SizedBox(height: 8),

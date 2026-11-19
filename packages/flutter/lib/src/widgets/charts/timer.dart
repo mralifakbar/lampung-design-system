@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -24,8 +24,8 @@ class LdsTimer extends StatefulWidget {
     this.icon,
     this.semanticLabel,
     this.running = true,
-  })  : elapsedMode = false,
-        target = null;
+  }) : elapsedMode = false,
+       target = null;
 
   /// Counts up from [seconds] already passed, against an optional [target].
   ///
@@ -39,8 +39,8 @@ class LdsTimer extends StatefulWidget {
     this.icon,
     this.semanticLabel,
     this.running = true,
-  })  : elapsedMode = true,
-        low = low ?? -1;
+  }) : elapsedMode = true,
+       low = low ?? -1;
 
   /// Seconds left (countdown) or already passed (elapsed) at first build.
   final int seconds;
@@ -94,7 +94,8 @@ class _LdsTimerState extends State<LdsTimer> {
   @override
   void didUpdateWidget(LdsTimer old) {
     super.didUpdateWidget(old);
-    if (old.seconds != widget.seconds || old.elapsedMode != widget.elapsedMode) {
+    if (old.seconds != widget.seconds ||
+        old.elapsedMode != widget.elapsedMode) {
       _value = widget.seconds;
       _fired = false;
     }
@@ -157,8 +158,8 @@ class _LdsTimerState extends State<LdsTimer> {
     final (bg, fg, ic) = _up
         ? (c.dangerTint, c.dangerText, c.dangerText)
         : _low
-            ? (c.warningTint, c.warningText, c.warningText)
-            : (c.bgFill, c.textStrong, c.textSubtle);
+        ? (c.warningTint, c.warningText, c.warningText)
+        : (c.bgFill, c.textStrong, c.textSubtle);
     final time = LdsTimer.formatSeconds(shown);
     return Semantics(
       label: [

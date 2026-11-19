@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -17,12 +17,9 @@ class LdsKeyValue extends StatelessWidget {
 
   /// Creates a pair with a widget value, for example an [LdsBadge] or a
   /// skeleton while loading.
-  const LdsKeyValue.widget(
-    this.label,
-    Widget this.child, {
-    super.key,
-  })  : value = null,
-        emptyLabel = '';
+  const LdsKeyValue.widget(this.label, Widget this.child, {super.key})
+    : value = null,
+      emptyLabel = '';
 
   /// The label.
   final String label;
@@ -79,8 +76,8 @@ class LdsKeyValueList extends StatelessWidget {
     final style = stacked
         ? _PairStyle.stacked
         : boxed
-            ? _PairStyle.boxed
-            : _PairStyle.bare;
+        ? _PairStyle.boxed
+        : _PairStyle.bare;
     final rows = <Widget>[
       for (var i = 0; i < children.length; i++) ...[
         if (i > 0) Divider(height: 1, thickness: 1, color: c.hairline),
@@ -123,16 +120,19 @@ class _KeyValueRow extends StatelessWidget {
       pair.label,
       style: LdsType.subhead.copyWith(height: 20 / 14, color: c.textSubtle),
     );
-    final Widget valueWidget = pair.child ??
+    final Widget valueWidget =
+        pair.child ??
         Text(
           missing ? pair.emptyLabel : pair.value!,
-          textAlign:
-              style == _PairStyle.stacked ? TextAlign.start : TextAlign.end,
+          textAlign: style == _PairStyle.stacked
+              ? TextAlign.start
+              : TextAlign.end,
           style: LdsType.subhead.copyWith(
             height: style == _PairStyle.stacked ? 1.55 : 20 / 14,
             color: missing ? c.textMuted : c.textStrong,
-            fontWeight:
-                style == _PairStyle.boxed ? FontWeight.w600 : FontWeight.w500,
+            fontWeight: style == _PairStyle.boxed
+                ? FontWeight.w600
+                : FontWeight.w500,
             fontFeatures: const [FontFeature.tabularFigures()],
           ),
         );
@@ -149,8 +149,9 @@ class _KeyValueRow extends StatelessWidget {
     }
     return MergeSemantics(
       child: ConstrainedBox(
-        constraints:
-            BoxConstraints(minHeight: style == _PairStyle.boxed ? 48 : 44),
+        constraints: BoxConstraints(
+          minHeight: style == _PairStyle.boxed ? 48 : 44,
+        ),
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 8),
           child: Row(

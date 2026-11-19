@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -234,32 +234,30 @@ class _LdsDataTableState extends State<LdsDataTable> {
 
     final rows = <LdsTableRow>[
       for (final r in pageRows)
-        LdsTableRow.widgets(
-          [
-            if (widget.selectable)
-              Checkbox(
-                value: _selected.contains(r.id),
-                onChanged: (v) => _toggle(r.id, v ?? false),
-                semanticLabel: 'Pilih ${r.cells.first}',
+        LdsTableRow.widgets([
+          if (widget.selectable)
+            Checkbox(
+              value: _selected.contains(r.id),
+              onChanged: (v) => _toggle(r.id, v ?? false),
+              semanticLabel: 'Pilih ${r.cells.first}',
+            ),
+          for (var i = 0; i < r.cells.length; i++)
+            Text(
+              r.cells[i],
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              textAlign: widget.columns[i].numeric
+                  ? TextAlign.end
+                  : TextAlign.start,
+              style: LdsType.subhead.copyWith(
+                color: i == 0 ? c.textStrong : c.textDefault,
+                fontWeight: i == 0 ? FontWeight.w500 : null,
+                fontFeatures: widget.columns[i].numeric
+                    ? const [FontFeature.tabularFigures()]
+                    : null,
               ),
-            for (var i = 0; i < r.cells.length; i++)
-              Text(
-                r.cells[i],
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                textAlign:
-                    widget.columns[i].numeric ? TextAlign.end : TextAlign.start,
-                style: LdsType.subhead.copyWith(
-                  color: i == 0 ? c.textStrong : c.textDefault,
-                  fontWeight: i == 0 ? FontWeight.w500 : null,
-                  fontFeatures: widget.columns[i].numeric
-                      ? const [FontFeature.tabularFigures()]
-                      : null,
-                ),
-              ),
-          ],
-          selected: _selected.contains(r.id),
-        ),
+            ),
+        ], selected: _selected.contains(r.id)),
     ];
 
     Widget table;
@@ -351,8 +349,10 @@ class _LdsDataTableState extends State<LdsDataTable> {
                     padding: const EdgeInsets.symmetric(horizontal: 12),
                     child: LdsIcon('search', color: c.textMuted),
                   ),
-                  prefixIconConstraints:
-                      const BoxConstraints(minWidth: 44, minHeight: 44),
+                  prefixIconConstraints: const BoxConstraints(
+                    minWidth: 44,
+                    minHeight: 44,
+                  ),
                 ),
               ),
             ),
@@ -406,7 +406,7 @@ class _LdsDataTableState extends State<LdsDataTable> {
                   visible.isEmpty
                       ? 'Tidak ada ${widget.noun}'
                       : 'Menampilkan ${start + 1} sampai $end dari '
-                          '${visible.length} ${widget.noun}',
+                            '${visible.length} ${widget.noun}',
                   style: LdsType.footnote.copyWith(
                     color: c.textSubtle,
                     fontFeatures: const [FontFeature.tabularFigures()],
@@ -417,8 +417,9 @@ class _LdsDataTableState extends State<LdsDataTable> {
             LdsIconButton(
               icon: 'chevron_left',
               semanticLabel: 'Halaman sebelumnya',
-              onPressed:
-                  page > 0 ? () => setState(() => _page = page - 1) : null,
+              onPressed: page > 0
+                  ? () => setState(() => _page = page - 1)
+                  : null,
             ),
             Text(
               '${page + 1} / $pages',

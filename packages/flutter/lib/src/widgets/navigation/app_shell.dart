@@ -1,7 +1,7 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -134,118 +134,128 @@ class _LdsAppShellState<T> extends State<LdsAppShell<T>> {
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
-    return LayoutBuilder(builder: (context, constraints) {
-      final wide = constraints.maxWidth >= widget.breakpoint;
-      if (wide) {
-        _menu = false;
-        return Row(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SizedBox(
-              width: widget.sidebarWidth,
-              child: _side(context, drawer: false),
-            ),
-            VerticalDivider(width: 1, thickness: 1, color: c.hairline),
-            Expanded(child: widget.body),
-          ],
-        );
-      }
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final wide = constraints.maxWidth >= widget.breakpoint;
+        if (wide) {
+          _menu = false;
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(
+                width: widget.sidebarWidth,
+                child: _side(context, drawer: false),
+              ),
+              VerticalDivider(width: 1, thickness: 1, color: c.hairline),
+              Expanded(child: widget.body),
+            ],
+          );
+        }
 
-      final rtl = Directionality.of(context) == TextDirection.rtl;
-      final drawerWidth = math.min(304.0, constraints.maxWidth * 0.85);
-      final topBar = DecoratedBox(
-        decoration: BoxDecoration(
-          color: c.bgMaterialSolid,
-          border: Border(bottom: BorderSide(color: c.hairline)),
-        ),
-        child: SafeArea(
-          bottom: false,
-          child: SizedBox(
-            height: 56,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 6),
-              child: Row(
-                children: [
-                  LdsMenuButton(
-                    open: _menu,
-                    focusNode: _toggleNode,
-                    onPressed: () => setState(() => _menu = !_menu),
-                  ),
-                  const SizedBox(width: 6),
-                  Expanded(
-                    child: Text(
-                      widget.title ?? '',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: LdsType.headline.copyWith(color: c.textStrong),
+        final rtl = Directionality.of(context) == TextDirection.rtl;
+        final drawerWidth = math.min(304.0, constraints.maxWidth * 0.85);
+        final topBar = DecoratedBox(
+          decoration: BoxDecoration(
+            color: c.bgMaterialSolid,
+            border: Border(bottom: BorderSide(color: c.hairline)),
+          ),
+          child: SafeArea(
+            bottom: false,
+            child: SizedBox(
+              height: 56,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 6),
+                child: Row(
+                  children: [
+                    LdsMenuButton(
+                      open: _menu,
+                      focusNode: _toggleNode,
+                      onPressed: () => setState(() => _menu = !_menu),
                     ),
-                  ),
-                  ...widget.actions,
-                  if (widget.actions.isEmpty)
-                    const SizedBox(width: LdsSize.touchMin),
-                ],
+                    const SizedBox(width: 6),
+                    Expanded(
+                      child: Text(
+                        widget.title ?? '',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: LdsType.headline.copyWith(color: c.textStrong),
+                      ),
+                    ),
+                    ...widget.actions,
+                    if (widget.actions.isEmpty)
+                      const SizedBox(width: LdsSize.touchMin),
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-      );
+        );
 
-      return CallbackShortcuts(
-        bindings: <ShortcutActivator, VoidCallback>{
-          const SingleActivator(LogicalKeyboardKey.escape): _close,
-        },
-        child: Stack(
-          children: [
-            ExcludeFocus(
-              excluding: _menu,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [topBar, Expanded(child: widget.body)],
-              ),
-            ),
-            Positioned.fill(
-              child: IgnorePointer(
-                ignoring: !_menu,
-                child: GestureDetector(
-                  onTap: _close,
-                  child: AnimatedOpacity(
-                    opacity: _menu ? 1 : 0,
-                    duration: context.ldsDuration(
-                        _menu ? LdsMotion.standard : LdsMotion.exit),
-                    curve:
-                        _menu ? LdsMotion.standardCurve : LdsMotion.exitCurve,
-                    child: ColoredBox(color: c.bgScrim),
-                  ),
+        return CallbackShortcuts(
+          bindings: <ShortcutActivator, VoidCallback>{
+            const SingleActivator(LogicalKeyboardKey.escape): _close,
+          },
+          child: Stack(
+            children: [
+              ExcludeFocus(
+                excluding: _menu,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    topBar,
+                    Expanded(child: widget.body),
+                  ],
                 ),
               ),
-            ),
-            PositionedDirectional(
-              top: 0,
-              bottom: 0,
-              start: 0,
-              width: drawerWidth,
-              child: AnimatedSlide(
-                offset: Offset(_menu ? 0 : (rtl ? 1.05 : -1.05), 0),
-                duration: context.ldsDuration(_menu
-                    ? LdsMotion.smoothSpringDuration
-                    : const Duration(milliseconds: 260)),
-                curve: _menu ? LdsSpringCurve.smooth : LdsMotion.exitCurve,
-                child: ExcludeSemantics(
-                  excluding: !_menu,
-                  child: ExcludeFocus(
-                    excluding: !_menu,
-                    child: DecoratedBox(
-                      decoration:
-                          BoxDecoration(boxShadow: context.ldsShadows.lg),
-                      child: _side(context, drawer: true),
+              Positioned.fill(
+                child: IgnorePointer(
+                  ignoring: !_menu,
+                  child: GestureDetector(
+                    onTap: _close,
+                    child: AnimatedOpacity(
+                      opacity: _menu ? 1 : 0,
+                      duration: context.ldsDuration(
+                        _menu ? LdsMotion.standard : LdsMotion.exit,
+                      ),
+                      curve: _menu
+                          ? LdsMotion.standardCurve
+                          : LdsMotion.exitCurve,
+                      child: ColoredBox(color: c.bgScrim),
                     ),
                   ),
                 ),
               ),
-            ),
-          ],
-        ),
-      );
-    });
+              PositionedDirectional(
+                top: 0,
+                bottom: 0,
+                start: 0,
+                width: drawerWidth,
+                child: AnimatedSlide(
+                  offset: Offset(_menu ? 0 : (rtl ? 1.05 : -1.05), 0),
+                  duration: context.ldsDuration(
+                    _menu
+                        ? LdsMotion.smoothSpringDuration
+                        : const Duration(milliseconds: 260),
+                  ),
+                  curve: _menu ? LdsSpringCurve.smooth : LdsMotion.exitCurve,
+                  child: ExcludeSemantics(
+                    excluding: !_menu,
+                    child: ExcludeFocus(
+                      excluding: !_menu,
+                      child: DecoratedBox(
+                        decoration: BoxDecoration(
+                          boxShadow: context.ldsShadows.lg,
+                        ),
+                        child: _side(context, drawer: true),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        );
+      },
+    );
   }
 }

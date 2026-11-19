@@ -63,17 +63,19 @@ class LdsFormRow extends StatelessWidget {
         final rows = <Widget>[];
         for (var start = 0; start < children.length; start += cols) {
           final end = math.min(start + cols, children.length);
-          rows.add(Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              for (var i = start; i < start + cols; i++) ...[
-                if (i > start) SizedBox(width: gap),
-                Expanded(
-                  child: i < end ? children[i] : const SizedBox.shrink(),
-                ),
+          rows.add(
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                for (var i = start; i < start + cols; i++) ...[
+                  if (i > start) SizedBox(width: gap),
+                  Expanded(
+                    child: i < end ? children[i] : const SizedBox.shrink(),
+                  ),
+                ],
               ],
-            ],
-          ));
+            ),
+          );
         }
         return Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,

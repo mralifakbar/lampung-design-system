@@ -1,6 +1,6 @@
 import 'dart:math' as math;
 
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../theme.dart';
 import '../../tokens.g.dart';
@@ -91,53 +91,56 @@ class _LdsHeatmapState extends State<LdsHeatmap> {
     final w = widget;
     final rows = (w.values.length / w.columns).ceil();
     final labels = w.cellLabels;
-    final readout = _active != null && labels != null && _active! < labels.length
+    final readout =
+        _active != null && labels != null && _active! < labels.length
         ? labels[_active!]
         : null;
 
-    final grid = LayoutBuilder(builder: (context, box) {
-      final cell = (box.maxWidth - (w.columns - 1) * 3) / w.columns;
-      final height = rows * cell + math.max(0, rows - 1) * 3;
-      int? hit(Offset p) {
-        final col = (p.dx / (cell + 3)).floor();
-        final row = (p.dy / (cell + 3)).floor();
-        final i = row * w.columns + col;
-        if (col < 0 || col >= w.columns || i < 0 || i >= w.values.length) {
-          return null;
+    final grid = LayoutBuilder(
+      builder: (context, box) {
+        final cell = (box.maxWidth - (w.columns - 1) * 3) / w.columns;
+        final height = rows * cell + math.max(0, rows - 1) * 3;
+        int? hit(Offset p) {
+          final col = (p.dx / (cell + 3)).floor();
+          final row = (p.dy / (cell + 3)).floor();
+          final i = row * w.columns + col;
+          if (col < 0 || col >= w.columns || i < 0 || i >= w.values.length) {
+            return null;
+          }
+          return i;
         }
-        return i;
-      }
 
-      return MouseRegion(
-        onHover: (e) => setState(() => _active = hit(e.localPosition)),
-        onExit: (_) => setState(() => _active = null),
-        child: GestureDetector(
-          onTapDown: (d) => setState(() => _active = hit(d.localPosition)),
-          child: CustomPaint(
-            size: Size(box.maxWidth, height),
-            painter: _HeatmapPainter(
-              levels: [
-                for (final v in w.values) LdsHeatmap.levelOf(v, w.thresholds)
-              ],
-              columns: w.columns,
-              cell: cell,
-              colors: c,
-              active: _active,
+        return MouseRegion(
+          onHover: (e) => setState(() => _active = hit(e.localPosition)),
+          onExit: (_) => setState(() => _active = null),
+          child: GestureDetector(
+            onTapDown: (d) => setState(() => _active = hit(d.localPosition)),
+            child: CustomPaint(
+              size: Size(box.maxWidth, height),
+              painter: _HeatmapPainter(
+                levels: [
+                  for (final v in w.values) LdsHeatmap.levelOf(v, w.thresholds),
+                ],
+                columns: w.columns,
+                cell: cell,
+                colors: c,
+                active: _active,
+              ),
             ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
 
     Widget swatch(int l) => Container(
-          width: 10,
-          height: 10,
-          margin: const EdgeInsets.symmetric(horizontal: 1.5),
-          decoration: BoxDecoration(
-            color: LdsHeatmap.levelColor(c, l),
-            borderRadius: const BorderRadius.all(Radius.circular(3)),
-          ),
-        );
+      width: 10,
+      height: 10,
+      margin: const EdgeInsets.symmetric(horizontal: 1.5),
+      decoration: BoxDecoration(
+        color: LdsHeatmap.levelColor(c, l),
+        borderRadius: const BorderRadius.all(Radius.circular(3)),
+      ),
+    );
 
     return Semantics(
       container: true,
@@ -158,7 +161,9 @@ class _LdsHeatmapState extends State<LdsHeatmap> {
                       child: Text(
                         readout ?? '',
                         style: LdsType.footnote.copyWith(
-                            color: c.textSubtle, fontFeatures: tabular),
+                          color: c.textSubtle,
+                          fontFeatures: tabular,
+                        ),
                       ),
                     ),
                     if (w.showScale) ...[
@@ -201,7 +206,10 @@ class _HeatmapPainter extends CustomPainter {
       var rect = Rect.fromLTWH(col * (cell + 3), row * (cell + 3), cell, cell);
       if (i == active) {
         rect = Rect.fromCenter(
-            center: rect.center, width: cell * 1.25, height: cell * 1.25);
+          center: rect.center,
+          width: cell * 1.25,
+          height: cell * 1.25,
+        );
       }
       canvas.drawRRect(
         RRect.fromRectAndRadius(rect, const Radius.circular(3)),

@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -111,8 +111,9 @@ class _LdsSearchFieldState extends State<LdsSearchField> {
       decoration: BoxDecoration(
         color: c.bgRecessed,
         borderRadius: const BorderRadius.all(Radius.circular(11)),
-        boxShadow:
-            _focused ? [BoxShadow(color: c.accentRing, spreadRadius: 3)] : null,
+        boxShadow: _focused
+            ? [BoxShadow(color: c.accentRing, spreadRadius: 3)]
+            : null,
       ),
       child: Row(
         children: [

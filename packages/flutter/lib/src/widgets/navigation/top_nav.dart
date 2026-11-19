@@ -1,7 +1,7 @@
 import 'dart:ui' as ui;
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -97,108 +97,110 @@ class _LdsTopNavState<T> extends State<LdsTopNav<T>> {
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
-    return LayoutBuilder(builder: (context, constraints) {
-      final narrow = constraints.maxWidth < widget.breakpoint;
-      if (!narrow && _open) _open = false;
-      final index = widget.links.indexWhere((l) => l.value == widget.value);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final narrow = constraints.maxWidth < widget.breakpoint;
+        if (!narrow && _open) _open = false;
+        final index = widget.links.indexWhere((l) => l.value == widget.value);
 
-      Widget bar = SizedBox(
-        height: 60,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Row(
-            children: [
-              widget.brand,
-              const SizedBox(width: 20),
-              if (!narrow)
-                Expanded(
-                  child: Semantics(
-                    container: true,
-                    label: widget.semanticLabel,
-                    explicitChildNodes: true,
-                    child: Align(
-                      alignment: AlignmentDirectional.centerStart,
-                      child: LdsSlidingIndicator(
-                        direction: Axis.horizontal,
-                        style: LdsIndicatorStyle.underline,
-                        selectedIndex: index < 0 ? null : index,
-                        spacing: 4,
-                        children: [
-                          for (var i = 0; i < widget.links.length; i++)
-                            _WideLink(
-                              label: widget.links[i].label,
-                              current: i == index,
-                              onPressed: () => _select(widget.links[i].value),
-                            ),
-                        ],
+        Widget bar = SizedBox(
+          height: 60,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            child: Row(
+              children: [
+                widget.brand,
+                const SizedBox(width: 20),
+                if (!narrow)
+                  Expanded(
+                    child: Semantics(
+                      container: true,
+                      label: widget.semanticLabel,
+                      explicitChildNodes: true,
+                      child: Align(
+                        alignment: AlignmentDirectional.centerStart,
+                        child: LdsSlidingIndicator(
+                          direction: Axis.horizontal,
+                          style: LdsIndicatorStyle.underline,
+                          selectedIndex: index < 0 ? null : index,
+                          spacing: 4,
+                          children: [
+                            for (var i = 0; i < widget.links.length; i++)
+                              _WideLink(
+                                label: widget.links[i].label,
+                                current: i == index,
+                                onPressed: () => _select(widget.links[i].value),
+                              ),
+                          ],
+                        ),
                       ),
                     ),
+                  )
+                else
+                  const Spacer(),
+                ...widget.actions,
+                if (narrow) ...[
+                  const SizedBox(width: 4),
+                  LdsMenuButton(
+                    open: _open,
+                    focusNode: _toggleNode,
+                    onPressed: () => setState(() => _open = !_open),
                   ),
-                )
-              else
-                const Spacer(),
-              ...widget.actions,
-              if (narrow) ...[
-                const SizedBox(width: 4),
-                LdsMenuButton(
-                  open: _open,
-                  focusNode: _toggleNode,
-                  onPressed: () => setState(() => _open = !_open),
-                ),
+                ],
               ],
-            ],
+            ),
           ),
-        ),
-      );
-      if (widget.safeArea) bar = SafeArea(bottom: false, child: bar);
+        );
+        if (widget.safeArea) bar = SafeArea(bottom: false, child: bar);
 
-      final panel = narrow
-          ? LdsHeightExpand(
-              open: _open,
-              child: Semantics(
-                container: true,
-                label: widget.semanticLabel,
-                explicitChildNodes: true,
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
-                      for (var i = 0; i < widget.links.length; i++)
-                        _PanelLink(
-                          label: widget.links[i].label,
-                          current: i == index,
-                          onPressed: () => _select(widget.links[i].value),
-                        ),
-                    ],
+        final panel = narrow
+            ? LdsHeightExpand(
+                open: _open,
+                child: Semantics(
+                  container: true,
+                  label: widget.semanticLabel,
+                  explicitChildNodes: true,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(12, 4, 12, 12),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        for (var i = 0; i < widget.links.length; i++)
+                          _PanelLink(
+                            label: widget.links[i].label,
+                            current: i == index,
+                            onPressed: () => _select(widget.links[i].value),
+                          ),
+                      ],
+                    ),
                   ),
                 ),
-              ),
-            )
-          : const SizedBox.shrink();
+              )
+            : const SizedBox.shrink();
 
-      return CallbackShortcuts(
-        bindings: <ShortcutActivator, VoidCallback>{
-          const SingleActivator(LogicalKeyboardKey.escape): _close,
-        },
-        child: ClipRect(
-          child: BackdropFilter(
-            filter: ui.ImageFilter.blur(sigmaX: 20, sigmaY: 20),
-            child: DecoratedBox(
-              decoration: BoxDecoration(
-                color: c.bgMaterial,
-                border: Border(bottom: BorderSide(color: c.hairline)),
-              ),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [bar, panel],
+        return CallbackShortcuts(
+          bindings: <ShortcutActivator, VoidCallback>{
+            const SingleActivator(LogicalKeyboardKey.escape): _close,
+          },
+          child: ClipRect(
+            child: BackdropFilter(
+              filter: ui.ImageFilter.blur(sigmaX: 20, sigmaY: 20),
+              child: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: c.bgMaterial,
+                  border: Border(bottom: BorderSide(color: c.hairline)),
+                ),
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [bar, panel],
+                ),
               ),
             ),
           ),
-        ),
-      );
-    });
+        );
+      },
+    );
   }
 }
 
@@ -284,8 +286,8 @@ class _PanelLink extends StatelessWidget {
           color: current
               ? c.bgTint
               : state.pressed
-                  ? c.bgTintStrong
-                  : Colors.transparent,
+              ? c.bgTintStrong
+              : Colors.transparent,
         ),
         child: Text(
           label,

@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:material_ui/material_ui.dart';
 
 import '../../motion.dart';
 import '../../theme.dart';
@@ -126,8 +126,9 @@ class _LdsInlineEditState extends State<LdsInlineEdit> {
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
-    final style =
-        (widget.style ?? LdsType.bodyStrong).copyWith(color: c.textStrong);
+    final style = (widget.style ?? LdsType.bodyStrong).copyWith(
+      color: c.textStrong,
+    );
     const radius = BorderRadius.all(Radius.circular(9));
 
     final Widget main;
@@ -162,8 +163,9 @@ class _LdsInlineEditState extends State<LdsInlineEdit> {
       );
     } else {
       main = LdsPressable(
-        onPressed:
-            widget.onSave == null || _phase == _Phase.saving ? null : _start,
+        onPressed: widget.onSave == null || _phase == _Phase.saving
+            ? null
+            : _start,
         pressedScale: 1,
         focusNode: _button,
         borderRadius: radius,
