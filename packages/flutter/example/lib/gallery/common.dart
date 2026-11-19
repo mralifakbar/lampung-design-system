@@ -1,7 +1,7 @@
 import 'dart:ui' as ui;
 
-import 'package:flutter/material.dart';
 import 'package:lampung_design_system/lampung_design_system.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// One widget shown in the gallery: its class name, an Indonesian title and
 /// a builder for a live example.
@@ -37,7 +37,7 @@ class Hold<T> extends StatefulWidget {
 
   final T initial;
   final Widget Function(BuildContext context, T value, ValueChanged<T> set)
-      builder;
+  builder;
 
   @override
   State<Hold<T>> createState() => _HoldState<T>();
@@ -66,8 +66,10 @@ class DemoNote extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(text,
-        style: LdsType.footnote.copyWith(color: context.lds.textSubtle));
+    return Text(
+      text,
+      style: LdsType.footnote.copyWith(color: context.lds.textSubtle),
+    );
   }
 }
 
@@ -119,11 +121,16 @@ Future<ImageProvider> _drawPhoto() async {
   canvas.drawRect(
     const Rect.fromLTWH(0, 0, w, h * 0.45),
     Paint()
-      ..shader = ui.Gradient.linear(const Offset(0, 0), const Offset(0, h * 0.45),
-          [const Color(0xFF8EC5E8), const Color(0xFFD9EEF7)]),
+      ..shader = ui.Gradient.linear(
+        const Offset(0, 0),
+        const Offset(0, h * 0.45),
+        [const Color(0xFF8EC5E8), const Color(0xFFD9EEF7)],
+      ),
   );
-  canvas.drawRect(const Rect.fromLTWH(0, h * 0.4, w, h * 0.6),
-      Paint()..color = const Color(0xFF4F8A3C));
+  canvas.drawRect(
+    const Rect.fromLTWH(0, h * 0.4, w, h * 0.6),
+    Paint()..color = const Color(0xFF4F8A3C),
+  );
   final road = Path()
     ..moveTo(w * 0.42, h * 0.4)
     ..lineTo(w * 0.58, h * 0.4)
@@ -139,11 +146,21 @@ Future<ImageProvider> _drawPhoto() async {
     canvas.drawLine(Offset(w / 2, h * t0), Offset(w / 2, h * t1), dash);
   }
   canvas.drawOval(
-      Rect.fromCenter(center: const Offset(w * 0.38, h * 0.78), width: 170, height: 60),
-      Paint()..color = const Color(0xFF3A3328));
+    Rect.fromCenter(
+      center: const Offset(w * 0.38, h * 0.78),
+      width: 170,
+      height: 60,
+    ),
+    Paint()..color = const Color(0xFF3A3328),
+  );
   canvas.drawOval(
-      Rect.fromCenter(center: const Offset(w * 0.38, h * 0.785), width: 120, height: 34),
-      Paint()..color = const Color(0xFF6F8FA8));
+    Rect.fromCenter(
+      center: const Offset(w * 0.38, h * 0.785),
+      width: 120,
+      height: 34,
+    ),
+    Paint()..color = const Color(0xFF6F8FA8),
+  );
   final img = await rec.endRecording().toImage(w.toInt(), h.toInt());
   final bytes = await img.toByteData(format: ui.ImageByteFormat.png);
   return MemoryImage(bytes!.buffer.asUint8List());

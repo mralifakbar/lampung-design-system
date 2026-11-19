@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:lampung_design_system/lampung_design_system.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'charts_demos.dart';
 import 'common.dart';
@@ -84,23 +84,26 @@ class _GalleryPageState extends State<GalleryPage> {
   }
 
   void _open(String title, List<GalleryEntry> entries) {
-    Navigator.of(context).push(MaterialPageRoute<void>(
-      builder: (_) => GalleryGroupScreen(title: title, entries: entries),
-    ));
+    Navigator.of(context).push(
+      MaterialPageRoute<void>(
+        builder: (_) => GalleryGroupScreen(title: title, entries: entries),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
     final c = context.lds;
     final q = _query.trim().toLowerCase();
-    final total =
-        galleryGroups.fold<int>(0, (n, g) => n + g.entries.length);
+    final total = galleryGroups.fold<int>(0, (n, g) => n + g.entries.length);
 
     final header = <Widget>[
       Semantics(
         header: true,
-        child: Text('Komponen',
-            style: LdsType.title1.copyWith(color: c.textStrong)),
+        child: Text(
+          'Komponen',
+          style: LdsType.title1.copyWith(color: c.textStrong),
+        ),
       ),
       const SizedBox(height: LdsSpace.s4),
       Text(
@@ -156,8 +159,10 @@ class _GalleryPageState extends State<GalleryPage> {
         if (i == 0) {
           return Padding(
             padding: const EdgeInsets.only(bottom: LdsSpace.s8),
-            child: Text('${hits.length} hasil',
-                style: LdsType.caption.copyWith(color: c.textSubtle)),
+            child: Text(
+              '${hits.length} hasil',
+              style: LdsType.caption.copyWith(color: c.textSubtle),
+            ),
           );
         }
         if (hits.isEmpty) {
@@ -180,8 +185,11 @@ class _GalleryPageState extends State<GalleryPage> {
 
 /// Shows every entry of a group, built lazily.
 class GalleryGroupScreen extends StatelessWidget {
-  const GalleryGroupScreen(
-      {super.key, required this.title, required this.entries});
+  const GalleryGroupScreen({
+    super.key,
+    required this.title,
+    required this.entries,
+  });
 
   final String title;
   final List<GalleryEntry> entries;
@@ -227,24 +235,32 @@ class _EntrySection extends StatelessWidget {
         children: [
           Semantics(
             header: true,
-            child: Text(entry.title,
-                style: LdsType.headline.copyWith(color: c.textStrong)),
+            child: Text(
+              entry.title,
+              style: LdsType.headline.copyWith(color: c.textStrong),
+            ),
           ),
           const SizedBox(height: 2),
-          Text(entry.name,
-              style: LdsType.footnote
-                  .copyWith(fontFamily: LdsType.mono, color: c.textSubtle)),
+          Text(
+            entry.name,
+            style: LdsType.footnote.copyWith(
+              fontFamily: LdsType.mono,
+              color: c.textSubtle,
+            ),
+          ),
           const SizedBox(height: LdsSpace.s12),
           DecoratedBox(
             decoration: BoxDecoration(
               color: c.bgBase,
               border: Border.all(color: c.hairline),
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(LdsRadius.lg)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(LdsRadius.lg),
+              ),
             ),
             child: ClipRRect(
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(LdsRadius.lg - 1)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(LdsRadius.lg - 1),
+              ),
               child: Padding(
                 padding: entry.bleed
                     ? EdgeInsets.zero

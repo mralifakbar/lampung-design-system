@@ -1,7 +1,7 @@
 import 'dart:async';
 
-import 'package:flutter/material.dart';
 import 'package:lampung_design_system/lampung_design_system.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'gallery/gallery.dart';
 
@@ -35,7 +35,11 @@ class _SakaiAppState extends State<SakaiApp> {
 }
 
 class SakaiShell extends StatefulWidget {
-  const SakaiShell({super.key, required this.mode, required this.onModeChanged});
+  const SakaiShell({
+    super.key,
+    required this.mode,
+    required this.onModeChanged,
+  });
 
   final ThemeMode mode;
   final ValueChanged<ThemeMode> onModeChanged;
@@ -65,7 +69,8 @@ class _SakaiShellState extends State<SakaiShell> {
       body: Column(
         children: [
           const LdsMasthead(
-            text: 'Aplikasi contoh. Bukan layanan resmi Pemerintah Provinsi '
+            text:
+                'Aplikasi contoh. Bukan layanan resmi Pemerintah Provinsi '
                 'Lampung.',
           ),
           Expanded(child: pages[_tab]),
@@ -133,12 +138,27 @@ class _Report {
 }
 
 const _reports = <_Report>[
-  _Report('Jalan berlubang', 'Jl. Pagar Alam, Kedaton', 'Diproses',
-      LdsTone.warning, 'traffic'),
-  _Report('Lampu jalan padam', 'Jl. Teuku Umar, Kedaton', 'Selesai',
-      LdsTone.success, 'lightbulb'),
-  _Report('Sampah menumpuk', 'Pasar Way Halim', 'Diterima', LdsTone.accent,
-      'delete'),
+  _Report(
+    'Jalan berlubang',
+    'Jl. Pagar Alam, Kedaton',
+    'Diproses',
+    LdsTone.warning,
+    'traffic',
+  ),
+  _Report(
+    'Lampu jalan padam',
+    'Jl. Teuku Umar, Kedaton',
+    'Selesai',
+    LdsTone.success,
+    'lightbulb',
+  ),
+  _Report(
+    'Sampah menumpuk',
+    'Pasar Way Halim',
+    'Diterima',
+    LdsTone.accent,
+    'delete',
+  ),
 ];
 
 class HomePage extends StatefulWidget {
@@ -216,8 +236,9 @@ class _HomePageState extends State<HomePage> {
             ),
             LdsIconButton(
               icon: widget.dark ? 'light_mode' : 'dark_mode',
-              semanticLabel:
-                  widget.dark ? 'Pakai tampilan terang' : 'Pakai tampilan gelap',
+              semanticLabel: widget.dark
+                  ? 'Pakai tampilan terang'
+                  : 'Pakai tampilan gelap',
               variant: LdsIconButtonVariant.filled,
               onPressed: widget.onToggleTheme,
             ),
@@ -228,7 +249,8 @@ class _HomePageState extends State<HomePage> {
           LdsAlert(
             tone: LdsAlertTone.warning,
             title: 'Air PDAM mati Rabu, 08.00 sampai 14.00',
-            body: 'Wilayah Kedaton dan Way Halim. Tampung air sejak Selasa '
+            body:
+                'Wilayah Kedaton dan Way Halim. Tampung air sejak Selasa '
                 'malam.',
             onClose: () => setState(() => _alertOpen = false),
             closeLabel: 'Tutup pemberitahuan',
@@ -237,56 +259,65 @@ class _HomePageState extends State<HomePage> {
         ],
         const _SectionTitle('Layanan'),
         const SizedBox(height: LdsSpace.s12),
-        LayoutBuilder(builder: (context, constraints) {
-          final columns = constraints.maxWidth >= 560 ? 4 : 3;
-          const gap = LdsSpace.s8;
-          final width =
-              (constraints.maxWidth - gap * (columns - 1)) / columns;
-          return Wrap(
-            spacing: gap,
-            runSpacing: gap,
-            children: [
-              for (final s in _services)
-                SizedBox(
-                  width: width,
-                  child: LdsCard(
-                    onTap: () => ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(content: Text('${s.label} dibuka (contoh).')),
-                    ),
-                    semanticLabel: s.label,
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: LdsSpace.s8, vertical: LdsSpace.s14),
-                    child: Column(
-                      children: [
-                        Container(
-                          width: 40,
-                          height: 40,
-                          alignment: Alignment.center,
-                          decoration: BoxDecoration(
-                            color: s.color(c),
-                            borderRadius: const BorderRadius.all(
-                                Radius.circular(LdsRadius.md)),
+        LayoutBuilder(
+          builder: (context, constraints) {
+            final columns = constraints.maxWidth >= 560 ? 4 : 3;
+            const gap = LdsSpace.s8;
+            final width =
+                (constraints.maxWidth - gap * (columns - 1)) / columns;
+            return Wrap(
+              spacing: gap,
+              runSpacing: gap,
+              children: [
+                for (final s in _services)
+                  SizedBox(
+                    width: width,
+                    child: LdsCard(
+                      onTap: () => ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(content: Text('${s.label} dibuka (contoh).')),
+                      ),
+                      semanticLabel: s.label,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: LdsSpace.s8,
+                        vertical: LdsSpace.s14,
+                      ),
+                      child: Column(
+                        children: [
+                          Container(
+                            width: 40,
+                            height: 40,
+                            alignment: Alignment.center,
+                            decoration: BoxDecoration(
+                              color: s.color(c),
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(LdsRadius.md),
+                              ),
+                            ),
+                            child: LdsIcon(
+                              s.icon,
+                              size: 22,
+                              fill: true,
+                              color: Colors.white,
+                            ),
                           ),
-                          child: LdsIcon(s.icon,
-                              size: 22, fill: true, color: Colors.white),
-                        ),
-                        const SizedBox(height: LdsSpace.s8),
-                        Text(
-                          s.label,
-                          textAlign: TextAlign.center,
-                          maxLines: 2,
-                          style: LdsType.footnote.copyWith(
-                            color: c.textStrong,
-                            fontWeight: FontWeight.w500,
+                          const SizedBox(height: LdsSpace.s8),
+                          Text(
+                            s.label,
+                            textAlign: TextAlign.center,
+                            maxLines: 2,
+                            style: LdsType.footnote.copyWith(
+                              color: c.textStrong,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
-                ),
-            ],
-          );
-        }),
+              ],
+            );
+          },
+        ),
         const SizedBox(height: LdsSpace.s32),
         Row(
           children: [
@@ -444,8 +475,9 @@ class _ReportPageState extends State<ReportPage> {
 
   Future<void> _submit() async {
     setState(() {
-      _titleError =
-          _title.text.trim().isEmpty ? 'Tulis singkat masalahnya.' : null;
+      _titleError = _title.text.trim().isEmpty
+          ? 'Tulis singkat masalahnya.'
+          : null;
       _placeError = _place.text.trim().isEmpty
           ? 'Isi lokasi agar petugas bisa menemukannya.'
           : null;
@@ -474,8 +506,10 @@ class _ReportPageState extends State<ReportPage> {
       children: [
         Semantics(
           header: true,
-          child: Text('Buat laporan',
-              style: LdsType.title1.copyWith(color: c.textStrong)),
+          child: Text(
+            'Buat laporan',
+            style: LdsType.title1.copyWith(color: c.textStrong),
+          ),
         ),
         const SizedBox(height: LdsSpace.s4),
         Text(
@@ -484,8 +518,7 @@ class _ReportPageState extends State<ReportPage> {
           style: LdsType.body.copyWith(color: c.textSubtle),
         ),
         const SizedBox(height: LdsSpace.s24),
-        Text('Kategori',
-            style: LdsType.caption.copyWith(color: c.textStrong)),
+        Text('Kategori', style: LdsType.caption.copyWith(color: c.textStrong)),
         const SizedBox(height: LdsSpace.s8),
         Wrap(
           spacing: LdsSpace.s8,
@@ -587,7 +620,11 @@ class _ReportPageState extends State<ReportPage> {
 // ---------------------------------------------------------------------------
 
 class AccountPage extends StatelessWidget {
-  const AccountPage({super.key, required this.mode, required this.onModeChanged});
+  const AccountPage({
+    super.key,
+    required this.mode,
+    required this.onModeChanged,
+  });
 
   final ThemeMode mode;
   final ValueChanged<ThemeMode> onModeChanged;
@@ -600,8 +637,10 @@ class AccountPage extends StatelessWidget {
       children: [
         Semantics(
           header: true,
-          child: Text('Akun',
-              style: LdsType.title1.copyWith(color: c.textStrong)),
+          child: Text(
+            'Akun',
+            style: LdsType.title1.copyWith(color: c.textStrong),
+          ),
         ),
         const SizedBox(height: LdsSpace.s20),
         LdsCard(
@@ -610,23 +649,32 @@ class AccountPage extends StatelessWidget {
               CircleAvatar(
                 radius: 24,
                 backgroundColor: c.accentTint,
-                child: Text('RA',
-                    style: LdsType.headline.copyWith(color: c.accentText)),
+                child: Text(
+                  'RA',
+                  style: LdsType.headline.copyWith(color: c.accentText),
+                ),
               ),
               const SizedBox(width: LdsSpace.s12),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text('Rina Andriani',
-                        style: LdsType.headline.copyWith(color: c.textStrong)),
-                    Text('Warga Kedaton, Bandar Lampung',
-                        style: LdsType.footnote.copyWith(color: c.textSubtle)),
+                    Text(
+                      'Rina Andriani',
+                      style: LdsType.headline.copyWith(color: c.textStrong),
+                    ),
+                    Text(
+                      'Warga Kedaton, Bandar Lampung',
+                      style: LdsType.footnote.copyWith(color: c.textSubtle),
+                    ),
                   ],
                 ),
               ),
-              const LdsBadge('Terverifikasi',
-                  tone: LdsTone.gold, icon: 'verified'),
+              const LdsBadge(
+                'Terverifikasi',
+                tone: LdsTone.gold,
+                icon: 'verified',
+              ),
             ],
           ),
         ),
@@ -648,21 +696,24 @@ class AccountPage extends StatelessWidget {
           header: 'Pengaturan',
           children: [
             LdsListRow(
-                icon: 'notifications',
-                title: 'Notifikasi',
-                value: 'Aktif',
-                onTap: () {}),
+              icon: 'notifications',
+              title: 'Notifikasi',
+              value: 'Aktif',
+              onTap: () {},
+            ),
             LdsListRow(
-                icon: 'language',
-                iconColor: c.tileBlue,
-                title: 'Bahasa',
-                value: 'Indonesia',
-                onTap: () {}),
+              icon: 'language',
+              iconColor: c.tileBlue,
+              title: 'Bahasa',
+              value: 'Indonesia',
+              onTap: () {},
+            ),
             LdsListRow(
-                icon: 'shield',
-                iconColor: c.tileGray,
-                title: 'Privasi dan data',
-                onTap: () {}),
+              icon: 'shield',
+              iconColor: c.tileGray,
+              title: 'Privasi dan data',
+              onTap: () {},
+            ),
           ],
         ),
         const SizedBox(height: LdsSpace.s24),
@@ -676,7 +727,8 @@ class AccountPage extends StatelessWidget {
             builder: (context) => AlertDialog(
               title: const Text('Keluar dari Sakai?'),
               content: const Text(
-                  'Laporan yang sudah terkirim tetap tersimpan di akun Anda.'),
+                'Laporan yang sudah terkirim tetap tersimpan di akun Anda.',
+              ),
               actions: [
                 TextButton(
                   onPressed: () => Navigator.pop(context),

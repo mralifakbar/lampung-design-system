@@ -1,16 +1,17 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:lampung_design_system/lampung_design_system.dart';
 import 'package:lampung_design_system_example/gallery/gallery.dart';
 import 'package:lampung_design_system_example/main.dart';
+import 'package:material_ui/material_ui.dart';
 
 /// Loads the bundled fonts so text and icon ligatures measure as on a phone.
 Future<void> _loadFonts() async {
   final manifest = json.decode(
-      await rootBundle.loadString('FontManifest.json')) as List<dynamic>;
+    await rootBundle.loadString('FontManifest.json'),
+  ) as List<dynamic>;
   for (final family in manifest.cast<Map<String, dynamic>>()) {
     final loader = FontLoader(family['family'] as String);
     for (final font in (family['fonts'] as List).cast<Map<String, dynamic>>()) {
@@ -27,11 +28,11 @@ void _phone(WidgetTester tester) {
 }
 
 Widget _app(Widget home, {required bool dark}) => MaterialApp(
-      theme: LdsTheme.light(),
-      darkTheme: LdsTheme.dark(),
-      themeMode: dark ? ThemeMode.dark : ThemeMode.light,
-      home: home,
-    );
+  theme: LdsTheme.light(),
+  darkTheme: LdsTheme.dark(),
+  themeMode: dark ? ThemeMode.dark : ThemeMode.light,
+  home: home,
+);
 
 /// Collects every Flutter error (overflows included) raised while [body] runs.
 Future<List<String>> _errors(Future<void> Function() body) async {
@@ -51,15 +52,16 @@ void main() {
 
   for (final group in galleryGroups) {
     for (final dark in [false, true]) {
-      testWidgets(
-          '${group.title} (${group.entries.length}) renders '
+      testWidgets('${group.title} (${group.entries.length}) renders '
           '${dark ? 'dark' : 'light'} at 375 pt', (tester) async {
         _phone(tester);
         final errors = await _errors(() async {
-          await tester.pumpWidget(_app(
-            GalleryGroupScreen(title: group.title, entries: group.entries),
-            dark: dark,
-          ));
+          await tester.pumpWidget(
+            _app(
+              GalleryGroupScreen(title: group.title, entries: group.entries),
+              dark: dark,
+            ),
+          );
           await tester.pump(const Duration(milliseconds: 500));
           final position = tester
               .state<ScrollableState>(find.byType(Scrollable).first)
@@ -83,8 +85,9 @@ void main() {
     }
   }
 
-  testWidgets('Komponen tab lists groups and search filters by name',
-      (tester) async {
+  testWidgets('Komponen tab lists groups and search filters by name', (
+    tester,
+  ) async {
     _phone(tester);
     await tester.pumpWidget(const SakaiApp());
     await tester.pump(const Duration(milliseconds: 1500));

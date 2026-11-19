@@ -1,16 +1,15 @@
-import 'package:flutter/material.dart';
 import 'package:lampung_design_system/lampung_design_system.dart';
+import 'package:material_ui/material_ui.dart';
 
 import 'common.dart';
 
-Widget _open(String label, VoidCallback onPressed, {String? icon}) =>
-    LdsButton(
-      label: label,
-      icon: icon,
-      variant: LdsButtonVariant.secondary,
-      expand: true,
-      onPressed: onPressed,
-    );
+Widget _open(String label, VoidCallback onPressed, {String? icon}) => LdsButton(
+  label: label,
+  icon: icon,
+  variant: LdsButtonVariant.secondary,
+  expand: true,
+  onPressed: onPressed,
+);
 
 final List<GalleryEntry> overlaysEntries = [
   GalleryEntry('LdsDialog', 'Dialog', (context) {
@@ -24,9 +23,10 @@ final List<GalleryEntry> overlaysEntries = [
           onClose: () => Navigator.pop(ctx),
           actions: [
             LdsButton(
-                label: 'Batal',
-                variant: LdsButtonVariant.gray,
-                onPressed: () => Navigator.pop(ctx)),
+              label: 'Batal',
+              variant: LdsButtonVariant.gray,
+              onPressed: () => Navigator.pop(ctx),
+            ),
             LdsButton(label: 'Simpan', onPressed: () => Navigator.pop(ctx)),
           ],
         ),
@@ -53,11 +53,13 @@ final List<GalleryEntry> overlaysEntries = [
         context: context,
         title: 'Detail permohonan',
         closeLabel: 'Tutup',
-        body: (_) => const DemoColumn(children: [
-          Text('Izin usaha mikro, Keripik Pisang Bu Siti.'),
-          Text('Diajukan 12 November 2026 di Mal Pelayanan Publik.'),
-          Text('Status: menunggu verifikasi lapangan.'),
-        ]),
+        body: (_) => const DemoColumn(
+          children: [
+            Text('Izin usaha mikro, Keripik Pisang Bu Siti.'),
+            Text('Diajukan 12 November 2026 di Mal Pelayanan Publik.'),
+            Text('Status: menunggu verifikasi lapangan.'),
+          ],
+        ),
       );
     });
   }),
@@ -68,16 +70,23 @@ final List<GalleryEntry> overlaysEntries = [
         builder: (ctx) => LdsSheet(
           title: 'Pilih jadwal di Puskesmas Kedaton',
           onClose: () => Navigator.pop(ctx),
-          child: LdsList(children: [
-            for (final j in const ['Senin, 08.00', 'Rabu, 09.30', 'Jumat, 08.00'])
-              LdsListRow(
+          child: LdsList(
+            children: [
+              for (final j in const [
+                'Senin, 08.00',
+                'Rabu, 09.30',
+                'Jumat, 08.00',
+              ])
+                LdsListRow(
                   title: j,
                   icon: 'event',
                   onTap: () {
                     Navigator.pop(ctx);
                     galleryToast(context, 'Jadwal $j dipilih');
-                  }),
-          ]),
+                  },
+                ),
+            ],
+          ),
         ),
       );
     }, icon: 'event');
@@ -91,20 +100,24 @@ final List<GalleryEntry> overlaysEntries = [
           onClose: () => Navigator.pop(ctx),
           actions: [
             LdsButton(
-                label: 'Atur ulang',
-                variant: LdsButtonVariant.gray,
-                onPressed: () => Navigator.pop(ctx)),
+              label: 'Atur ulang',
+              variant: LdsButtonVariant.gray,
+              onPressed: () => Navigator.pop(ctx),
+            ),
             LdsButton(label: 'Terapkan', onPressed: () => Navigator.pop(ctx)),
           ],
           child: Hold<bool>(
             initial: true,
-            builder: (context, v, set) => DemoColumn(children: [
-              LdsCheckbox(
+            builder: (context, v, set) => DemoColumn(
+              children: [
+                LdsCheckbox(
                   value: v,
                   label: 'Hanya yang diproses',
-                  onChanged: set),
-              const DemoNote('Kecamatan: Kedaton, Way Halim'),
-            ]),
+                  onChanged: set,
+                ),
+                const DemoNote('Kecamatan: Kedaton, Way Halim'),
+              ],
+            ),
           ),
         ),
       );
@@ -116,14 +129,17 @@ final List<GalleryEntry> overlaysEntries = [
       child: LdsPopover(
         semanticLabel: 'Info retribusi',
         builder: (context, c) => LdsButton(
-            label: 'Info retribusi',
-            icon: 'info',
-            variant: LdsButtonVariant.tinted,
-            onPressed: c.toggle),
+          label: 'Info retribusi',
+          icon: 'info',
+          variant: LdsButtonVariant.tinted,
+          onPressed: c.toggle,
+        ),
         contentBuilder: (context, c) => const SizedBox(
           width: 220,
-          child: Text('Retribusi sampah dibayar paling lambat tanggal 10 '
-              'setiap bulan.'),
+          child: Text(
+            'Retribusi sampah dibayar paling lambat tanggal 10 '
+            'setiap bulan.',
+          ),
         ),
       ),
     );
@@ -133,9 +149,10 @@ final List<GalleryEntry> overlaysEntries = [
       alignment: Alignment.centerLeft,
       child: LdsAnchoredLayer(
         builder: (context, c) => LdsButton(
-            label: 'Jam buka Samsat',
-            variant: LdsButtonVariant.secondary,
-            onPressed: c.toggle),
+          label: 'Jam buka Samsat',
+          variant: LdsButtonVariant.secondary,
+          onPressed: c.toggle,
+        ),
         layerBuilder: (context, c) {
           final lds = context.lds;
           return Container(
@@ -144,110 +161,134 @@ final List<GalleryEntry> overlaysEntries = [
             decoration: BoxDecoration(
               color: lds.bgElevated,
               border: Border.all(color: lds.line),
-              borderRadius:
-                  const BorderRadius.all(Radius.circular(LdsRadius.md)),
+              borderRadius: const BorderRadius.all(
+                Radius.circular(LdsRadius.md),
+              ),
             ),
-            child: Text('Senin sampai Jumat 08.00 sampai 15.00. Sabtu '
-                'sampai 12.00.',
-                style: LdsType.footnote.copyWith(color: lds.textDefault)),
+            child: Text(
+              'Senin sampai Jumat 08.00 sampai 15.00. Sabtu '
+              'sampai 12.00.',
+              style: LdsType.footnote.copyWith(color: lds.textDefault),
+            ),
           );
         },
       ),
     );
   }),
   GalleryEntry('LdsTooltip', 'Tooltip', (context) {
-    return const Row(children: [
-      LdsTooltip(
-        message: 'Cari layanan',
-        shortcut: 'Ctrl+K',
-        child: Padding(
-          padding: EdgeInsets.all(10),
-          child: LdsIcon('search', size: 24),
+    return const Row(
+      children: [
+        LdsTooltip(
+          message: 'Cari layanan',
+          shortcut: 'Ctrl+K',
+          child: Padding(
+            padding: EdgeInsets.all(10),
+            child: LdsIcon('search', size: 24),
+          ),
         ),
-      ),
-      SizedBox(width: 8),
-      Expanded(child: DemoNote('Tekan lama ikon untuk melihat tooltip.')),
-    ]);
+        SizedBox(width: 8),
+        Expanded(child: DemoNote('Tekan lama ikon untuk melihat tooltip.')),
+      ],
+    );
   }),
   GalleryEntry('LdsHoverCard', 'Kartu sorot', (context) {
-    return const DemoColumn(children: [
-      LdsHoverCard(
-        card: SizedBox(
-          width: 220,
-          child: Text('Dinas Layanan Kota Contoh, buka 08.00 sampai 15.00'),
+    return const DemoColumn(
+      children: [
+        LdsHoverCard(
+          card: SizedBox(
+            width: 220,
+            child: Text('Dinas Layanan Kota Contoh, buka 08.00 sampai 15.00'),
+          ),
+          child: Text('Dinas Layanan Kota Contoh'),
         ),
-        child: Text('Dinas Layanan Kota Contoh'),
-      ),
-      DemoNote('Muncul saat penunjuk mouse berhenti di atas teks.'),
-    ]);
+        DemoNote('Muncul saat penunjuk mouse berhenti di atas teks.'),
+      ],
+    );
   }),
   GalleryEntry('LdsToast', 'Toast', (context) {
-    return DemoColumn(children: [
-      const LdsToast(
-        title: 'Laporan diarsipkan',
-        body: 'Pindah dari kotak masuk.',
-        icon: 'inventory_2',
-        actionLabel: 'Urungkan',
-        remaining: 0.5,
-      ),
-      _open('Kirim laporan', () {
-        LdsToast.show(context,
-            title: 'Laporan terkirim',
-            body: 'Nomor tiket LPR-2026-0142',
-            icon: 'check_circle');
-      }, icon: 'outbox'),
-      _open('Arsipkan laporan', () {
-        LdsToast.show(
-          context,
+    return DemoColumn(
+      children: [
+        const LdsToast(
           title: 'Laporan diarsipkan',
+          body: 'Pindah dari kotak masuk.',
           icon: 'inventory_2',
           actionLabel: 'Urungkan',
-          onAction: () {},
-          actionResultTitle: 'Laporan dipulihkan',
-        );
-      }, icon: 'archive'),
-    ]);
+          remaining: 0.5,
+        ),
+        _open('Kirim laporan', () {
+          LdsToast.show(
+            context,
+            title: 'Laporan terkirim',
+            body: 'Nomor tiket LPR-2026-0142',
+            icon: 'check_circle',
+          );
+        }, icon: 'outbox'),
+        _open('Arsipkan laporan', () {
+          LdsToast.show(
+            context,
+            title: 'Laporan diarsipkan',
+            icon: 'inventory_2',
+            actionLabel: 'Urungkan',
+            onAction: () {},
+            actionResultTitle: 'Laporan dipulihkan',
+          );
+        }, icon: 'archive'),
+      ],
+    );
   }),
   GalleryEntry('LdsBanner', 'Spanduk', (context) {
     return Hold<bool>(
       initial: true,
-      builder: (context, visible, set) => DemoColumn(children: [
-        LdsBanner(
-          message: 'Anda sedang offline.',
-          icon: 'cloud_off',
-          visible: visible,
-          actionLabel: 'Coba lagi',
-          onAction: () => galleryToast(context, 'Menyambung ulang'),
-          onClose: () => set(false),
-        ),
-        if (!visible)
-          LdsButton(
+      builder: (context, visible, set) => DemoColumn(
+        children: [
+          LdsBanner(
+            message: 'Anda sedang offline.',
+            icon: 'cloud_off',
+            visible: visible,
+            actionLabel: 'Coba lagi',
+            onAction: () => galleryToast(context, 'Menyambung ulang'),
+            onClose: () => set(false),
+          ),
+          if (!visible)
+            LdsButton(
               label: 'Tampilkan spanduk',
               variant: LdsButtonVariant.plain,
-              onPressed: () => set(true)),
-      ]),
+              onPressed: () => set(true),
+            ),
+        ],
+      ),
     );
   }),
   GalleryEntry('LdsMenu', 'Panel menu', (context) {
     return Hold<String>(
       initial: 'baru',
-      builder: (context, v, set) => LdsMenu(entries: [
-        const LdsMenuLabel('Urutkan laporan'),
-        LdsMenuItem(
-            label: 'Terbaru', checked: v == 'baru', onSelected: () => set('baru')),
-        LdsMenuItem(
-            label: 'Terlama', checked: v == 'lama', onSelected: () => set('lama')),
-        const LdsMenuDivider(),
-        LdsMenuItem(
+      builder: (context, v, set) => LdsMenu(
+        entries: [
+          const LdsMenuLabel('Urutkan laporan'),
+          LdsMenuItem(
+            label: 'Terbaru',
+            checked: v == 'baru',
+            onSelected: () => set('baru'),
+          ),
+          LdsMenuItem(
+            label: 'Terlama',
+            checked: v == 'lama',
+            onSelected: () => set('lama'),
+          ),
+          const LdsMenuDivider(),
+          LdsMenuItem(
             label: 'Unduh PDF',
             icon: 'download',
-            onSelected: () => galleryToast(context, 'Mengunduh (contoh)')),
-        LdsMenuItem(
+            onSelected: () => galleryToast(context, 'Mengunduh (contoh)'),
+          ),
+          LdsMenuItem(
             label: 'Hapus',
             icon: 'delete',
             destructive: true,
-            onSelected: () => galleryToast(context, 'Dihapus (contoh)')),
-      ]),
+            onSelected: () => galleryToast(context, 'Dihapus (contoh)'),
+          ),
+        ],
+      ),
     );
   }),
   GalleryEntry('LdsDropdownMenu', 'Menu tarik turun', (context) {
@@ -256,19 +297,22 @@ final List<GalleryEntry> overlaysEntries = [
       child: LdsDropdownMenu(
         entries: [
           LdsMenuItem(
-              label: 'Unduh bukti bayar',
-              icon: 'download',
-              onSelected: () => galleryToast(context, 'Bukti diunduh')),
+            label: 'Unduh bukti bayar',
+            icon: 'download',
+            onSelected: () => galleryToast(context, 'Bukti diunduh'),
+          ),
           LdsMenuItem(
-              label: 'Bagikan',
-              icon: 'share',
-              onSelected: () => galleryToast(context, 'Tautan dibagikan')),
+            label: 'Bagikan',
+            icon: 'share',
+            onSelected: () => galleryToast(context, 'Tautan dibagikan'),
+          ),
         ],
         builder: (context, c) => LdsButton(
-            label: 'Tindakan',
-            icon: 'expand_more',
-            variant: LdsButtonVariant.secondary,
-            onPressed: c.toggle),
+          label: 'Tindakan',
+          icon: 'expand_more',
+          variant: LdsButtonVariant.secondary,
+          onPressed: c.toggle,
+        ),
       ),
     );
   }),
@@ -276,42 +320,61 @@ final List<GalleryEntry> overlaysEntries = [
     return LdsContextMenu(
       entries: [
         LdsMenuItem(
-            label: 'Ganti nama',
-            icon: 'edit',
-            onSelected: () => galleryToast(context, 'Ganti nama')),
+          label: 'Ganti nama',
+          icon: 'edit',
+          onSelected: () => galleryToast(context, 'Ganti nama'),
+        ),
         LdsMenuItem(
-            label: 'Hapus',
-            icon: 'delete',
-            destructive: true,
-            onSelected: () => galleryToast(context, 'Dihapus')),
+          label: 'Hapus',
+          icon: 'delete',
+          destructive: true,
+          onSelected: () => galleryToast(context, 'Dihapus'),
+        ),
       ],
       child: LdsCard(
-        child: Row(children: [
-          const LdsIcon('description', size: 24),
-          const SizedBox(width: 12),
-          Expanded(
-            child: Text('surat-izin-umkm.pdf, tekan lama untuk menu',
-                style: LdsType.body.copyWith(color: context.lds.textDefault)),
-          ),
-        ]),
+        child: Row(
+          children: [
+            const LdsIcon('description', size: 24),
+            const SizedBox(width: 12),
+            Expanded(
+              child: Text(
+                'surat-izin-umkm.pdf, tekan lama untuk menu',
+                style: LdsType.body.copyWith(color: context.lds.textDefault),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }),
   GalleryEntry('LdsMenubar', 'Bilah menu', (context) {
     return SingleChildScrollView(
       scrollDirection: Axis.horizontal,
-      child: LdsMenubar(menus: [
-        LdsMenubarMenu(label: 'Berkas', entries: [
-          LdsMenuItem(label: 'Simpan', shortcut: 'Ctrl+S', onSelected: () {}),
-          LdsMenuItem(label: 'Cetak', icon: 'print', onSelected: () {}),
-        ]),
-        LdsMenubarMenu(label: 'Ubah', entries: [
-          LdsMenuItem(label: 'Urungkan', onSelected: () {}),
-        ]),
-        LdsMenubarMenu(label: 'Tampilan', entries: [
-          LdsMenuItem(label: 'Peta', checked: true, onSelected: () {}),
-        ]),
-      ]),
+      child: LdsMenubar(
+        menus: [
+          LdsMenubarMenu(
+            label: 'Berkas',
+            entries: [
+              LdsMenuItem(
+                label: 'Simpan',
+                shortcut: 'Ctrl+S',
+                onSelected: () {},
+              ),
+              LdsMenuItem(label: 'Cetak', icon: 'print', onSelected: () {}),
+            ],
+          ),
+          LdsMenubarMenu(
+            label: 'Ubah',
+            entries: [LdsMenuItem(label: 'Urungkan', onSelected: () {})],
+          ),
+          LdsMenubarMenu(
+            label: 'Tampilan',
+            entries: [
+              LdsMenuItem(label: 'Peta', checked: true, onSelected: () {}),
+            ],
+          ),
+        ],
+      ),
     );
   }),
   GalleryEntry('LdsCommandPalette', 'Palet perintah', (context) {
@@ -321,20 +384,23 @@ final List<GalleryEntry> overlaysEntries = [
         placeholder: 'Cari perintah',
         commands: [
           LdsCommand(
-              label: 'Buat laporan baru',
-              icon: 'add',
-              group: 'Tindakan',
-              onRun: () {}),
+            label: 'Buat laporan baru',
+            icon: 'add',
+            group: 'Tindakan',
+            onRun: () {},
+          ),
           LdsCommand(
-              label: 'Cek status KTP-el',
-              icon: 'id_card',
-              group: 'Halaman',
-              onRun: () {}),
+            label: 'Cek status KTP-el',
+            icon: 'id_card',
+            group: 'Halaman',
+            onRun: () {},
+          ),
           LdsCommand(
-              label: 'Bayar pajak kendaraan',
-              icon: 'directions_car',
-              group: 'Halaman',
-              onRun: () {}),
+            label: 'Bayar pajak kendaraan',
+            icon: 'directions_car',
+            group: 'Halaman',
+            onRun: () {},
+          ),
         ],
       );
       if (cmd != null && context.mounted) {
@@ -364,9 +430,10 @@ final List<GalleryEntry> overlaysEntries = [
       body: 'Permohonan diproses setelah data lengkap.',
       actions: [
         LdsInverseButton(
-            label: 'Lengkapi',
-            variant: LdsInverseButtonVariant.accent,
-            onPressed: () => galleryToast(context, 'Formulir dibuka')),
+          label: 'Lengkapi',
+          variant: LdsInverseButtonVariant.accent,
+          onPressed: () => galleryToast(context, 'Formulir dibuka'),
+        ),
       ],
     );
   }),
@@ -388,20 +455,22 @@ final List<GalleryEntry> overlaysEntries = [
   }),
   GalleryEntry('LdsLayerRoute', 'Rute lapisan', (context) {
     return _open('Buka lapisan', () {
-      Navigator.of(context).push(LdsLayerRoute<void>(
-        scrimColor: context.lds.bgScrim,
-        dismissLabel: 'Tutup',
-        builder: (ctx) => Center(
-          child: Padding(
-            padding: const EdgeInsets.all(24),
-            child: LdsDialog(
-              title: 'Lapisan dengan rute sendiri',
-              body: 'Ketuk di luar untuk menutup.',
-              onClose: () => Navigator.pop(ctx),
+      Navigator.of(context).push(
+        LdsLayerRoute<void>(
+          scrimColor: context.lds.bgScrim,
+          dismissLabel: 'Tutup',
+          builder: (ctx) => Center(
+            child: Padding(
+              padding: const EdgeInsets.all(24),
+              child: LdsDialog(
+                title: 'Lapisan dengan rute sendiri',
+                body: 'Ketuk di luar untuk menutup.',
+                onClose: () => Navigator.pop(ctx),
+              ),
             ),
           ),
         ),
-      ));
+      );
     });
   }),
   GalleryEntry('LdsConfirmInPlace', 'Konfirmasi di tempat', (context) {
@@ -415,8 +484,7 @@ final List<GalleryEntry> overlaysEntries = [
       doneLabel: '3 berkas terhapus',
       undoLabel: 'Urungkan',
       onUndo: () {},
-      onConfirm: () =>
-          Future<void>.delayed(const Duration(milliseconds: 900)),
+      onConfirm: () => Future<void>.delayed(const Duration(milliseconds: 900)),
     );
   }),
   GalleryEntry('LdsHoldToConfirm', 'Tahan untuk konfirmasi', (context) {
@@ -424,7 +492,8 @@ final List<GalleryEntry> overlaysEntries = [
       label: 'Tahan untuk kirim SOS',
       icon: 'emergency',
       destructive: true,
-      onConfirmed: () => galleryToast(context, 'Permintaan bantuan terkirim (contoh)'),
+      onConfirmed: () =>
+          galleryToast(context, 'Permintaan bantuan terkirim (contoh)'),
     );
   }),
   GalleryEntry('LdsSlideToConfirm', 'Geser untuk konfirmasi', (context) {
@@ -442,9 +511,10 @@ final List<GalleryEntry> overlaysEntries = [
           ? LdsSwipeActions(
               actions: [
                 LdsSwipeAction(
-                    label: 'Arsipkan',
-                    icon: 'inventory_2',
-                    onPressed: () => set(false)),
+                  label: 'Arsipkan',
+                  icon: 'inventory_2',
+                  onPressed: () => set(false),
+                ),
                 LdsSwipeAction(
                   label: 'Hapus',
                   icon: 'delete',
@@ -453,14 +523,16 @@ final List<GalleryEntry> overlaysEntries = [
                 ),
               ],
               child: const LdsListRow(
-                  title: 'Lampu jalan padam',
-                  subtitle: 'Geser ke kiri',
-                  icon: 'lightbulb'),
+                title: 'Lampu jalan padam',
+                subtitle: 'Geser ke kiri',
+                icon: 'lightbulb',
+              ),
             )
           : LdsButton(
               label: 'Kembalikan baris',
               variant: LdsButtonVariant.plain,
-              onPressed: () => set(true)),
+              onPressed: () => set(true),
+            ),
     );
   }),
   GalleryEntry('LdsPullToRefresh', 'Tarik untuk muat ulang', (context) {
@@ -490,30 +562,38 @@ final List<GalleryEntry> overlaysEntries = [
   GalleryEntry('LdsSelectionBar', 'Bilah pilihan', (context) {
     return Hold<int>(
       initial: 2,
-      builder: (context, n, set) => DemoColumn(children: [
-        Align(
-          alignment: Alignment.centerLeft,
-          child: LdsNumberStepper(
+      builder: (context, n, set) => DemoColumn(
+        children: [
+          Align(
+            alignment: Alignment.centerLeft,
+            child: LdsNumberStepper(
               value: n,
               max: 9,
               onChanged: set,
-              semanticLabel: 'Jumlah dipilih'),
-        ),
-        LdsSelectionBar(
-          count: n,
-          countLabel: (k) => '$k laporan dipilih',
-          clearLabel: 'Batalkan pilihan',
-          onClear: () => set(0),
-          actions: [
-            LdsSelectionAction(label: 'Setujui', icon: 'check', onPressed: () {}),
-            LdsSelectionAction(
+              semanticLabel: 'Jumlah dipilih',
+            ),
+          ),
+          LdsSelectionBar(
+            count: n,
+            countLabel: (k) => '$k laporan dipilih',
+            clearLabel: 'Batalkan pilihan',
+            onClear: () => set(0),
+            actions: [
+              LdsSelectionAction(
+                label: 'Setujui',
+                icon: 'check',
+                onPressed: () {},
+              ),
+              LdsSelectionAction(
                 label: 'Hapus',
                 icon: 'delete',
                 destructive: true,
-                onPressed: () => set(0)),
-          ],
-        ),
-      ]),
+                onPressed: () => set(0),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }),
   GalleryEntry('LdsInverseButton', 'Tombol inversi', (context) {
@@ -524,18 +604,22 @@ final List<GalleryEntry> overlaysEntries = [
         color: c.bgInverse,
         borderRadius: const BorderRadius.all(Radius.circular(LdsRadius.md)),
       ),
-      child: Wrap(spacing: 8, runSpacing: 8, children: [
-        for (final v in LdsInverseButtonVariant.values)
-          LdsInverseButton(
-            label: switch (v) {
-              LdsInverseButtonVariant.accent => 'Lanjut',
-              LdsInverseButtonVariant.danger => 'Hapus',
-              _ => 'Coba lagi',
-            },
-            variant: v,
-            onPressed: () {},
-          ),
-      ]),
+      child: Wrap(
+        spacing: 8,
+        runSpacing: 8,
+        children: [
+          for (final v in LdsInverseButtonVariant.values)
+            LdsInverseButton(
+              label: switch (v) {
+                LdsInverseButtonVariant.accent => 'Lanjut',
+                LdsInverseButtonVariant.danger => 'Hapus',
+                _ => 'Coba lagi',
+              },
+              variant: v,
+              onPressed: () {},
+            ),
+        ],
+      ),
     );
   }),
 ];
@@ -562,36 +646,46 @@ class _TourDemoState extends State<_TourDemo> {
       skipLabel: 'Lewati',
       steps: [
         LdsCoachmarkStep(
-            target: _a,
-            title: 'Saring laporan',
-            body: 'Pilih kecamatan Anda.'),
+          target: _a,
+          title: 'Saring laporan',
+          body: 'Pilih kecamatan Anda.',
+        ),
         LdsCoachmarkStep(
-            target: _b,
-            title: 'Buat laporan',
-            body: 'Laporkan jalan rusak atau sampah.'),
+          target: _b,
+          title: 'Buat laporan',
+          body: 'Laporkan jalan rusak atau sampah.',
+        ),
       ],
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Row(children: [
-          LdsIconButton(
-              key: _a,
-              icon: 'filter_list',
-              semanticLabel: 'Saring',
-              variant: LdsIconButtonVariant.filled,
-              onPressed: () {}),
-          const SizedBox(width: 8),
-          LdsIconButton(
-              key: _b,
-              icon: 'add',
-              semanticLabel: 'Laporan baru',
-              variant: LdsIconButtonVariant.accent,
-              onPressed: () {}),
-        ]),
-        const SizedBox(height: 12),
-        LdsButton(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              LdsIconButton(
+                key: _a,
+                icon: 'filter_list',
+                semanticLabel: 'Saring',
+                variant: LdsIconButtonVariant.filled,
+                onPressed: () {},
+              ),
+              const SizedBox(width: 8),
+              LdsIconButton(
+                key: _b,
+                icon: 'add',
+                semanticLabel: 'Laporan baru',
+                variant: LdsIconButtonVariant.accent,
+                onPressed: () {},
+              ),
+            ],
+          ),
+          const SizedBox(height: 12),
+          LdsButton(
             label: 'Mulai tur',
             variant: LdsButtonVariant.tinted,
-            onPressed: () => setState(() => _active = true)),
-      ]),
+            onPressed: () => setState(() => _active = true),
+          ),
+        ],
+      ),
     );
   }
 }
@@ -614,16 +708,21 @@ class _ShakeDemoState extends State<_ShakeDemo> {
 
   @override
   Widget build(BuildContext context) {
-    return DemoColumn(children: [
-      LdsShake(
-        controller: _shake,
-        child: const LdsTextField(
-            label: 'PIN Samsat online', error: 'PIN salah. Sisa 2 percobaan.'),
-      ),
-      LdsButton(
+    return DemoColumn(
+      children: [
+        LdsShake(
+          controller: _shake,
+          child: const LdsTextField(
+            label: 'PIN Samsat online',
+            error: 'PIN salah. Sisa 2 percobaan.',
+          ),
+        ),
+        LdsButton(
           label: 'Coba PIN salah',
           variant: LdsButtonVariant.secondary,
-          onPressed: _shake.shake),
-    ]);
+          onPressed: _shake.shake,
+        ),
+      ],
+    );
   }
 }
