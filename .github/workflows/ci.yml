@@ -39,13 +39,14 @@ jobs:
         working-directory: packages/flutter
     steps:
       - uses: actions/checkout@v7
-      # Pinned: newer Flutter releases deprecate package:flutter/material.dart, which the package
-      # still needs to support its minimum SDK. Raise this on purpose, with the migration.
+      # Pinned so a new stable's lints show up as a deliberate bump, not a surprise red build.
+      # pub.dev scores with the latest stable; keep this on it.
       - uses: subosito/flutter-action@v2
         with:
           channel: stable
-          flutter-version: 3.38.5
+          flutter-version: 3.50.0
       - run: flutter pub get
+      - run: dart format --output=none --set-exit-if-changed .
       - run: flutter analyze
       - run: flutter test
       - run: dart pub publish --dry-run
