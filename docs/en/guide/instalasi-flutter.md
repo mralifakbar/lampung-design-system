@@ -7,7 +7,7 @@ Set up Lampung Design System in a Flutter project.
 ## Add the package
 
 ```
-flutter pub add lampung_design_system
+flutter pub add lampung_design_system material_ui
 ```
 
 Or let the CLI add the package and wire the theme in `lib/main.dart`:
@@ -20,7 +20,7 @@ npx lampung-ds@latest init -t flutter
 
 ```
 // lib/main.dart
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 import 'package:lampung_design_system/lampung_design_system.dart';
 
 void main() => runApp(const KotaApp());

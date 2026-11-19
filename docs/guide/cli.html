@@ -408,7 +408,7 @@ npx lampung-ds@latest add button text-field</code></pre></div>
       <tr><td><code class="code">astro</code></td><td><code class="code">src/styles/global.css</code>, atau impor di frontmatter layout</td><td>Layout pertama yang memuat <code class="code">&lt;html&gt;</code></td><td><code class="code">&lt;script&gt;</code> di layout, dijalankan lagi saat <code class="code">astro:page-load</code></td></tr>
       <tr><td><code class="code">laravel</code></td><td><code class="code">resources/css/app.css</code></td><td>Layout Blade utama, ditambah <code class="code">@vite</code> bila belum ada</td><td><code class="code">resources/js/app.js</code></td></tr>
       <tr><td><code class="code">html</code></td><td>Menyalin <code class="code">css/</code>, <code class="code">js/</code>, <code class="code">fonts/</code> dan <code class="code">aksara/</code> ke <code class="code">./lds/</code></td><td><code class="code">index.html</code> (dibuat bila belum ada)</td><td>Skrip modul di <code class="code">index.html</code></td></tr>
-      <tr><td><code class="code">flutter</code></td><td><code class="code">flutter pub add lampung_design_system</code></td><td>Tidak ada</td><td><code class="code">LdsTheme.light()</code> dan <code class="code">LdsTheme.dark()</code> di <code class="code">lib/main.dart</code> bawaan</td></tr>
+      <tr><td><code class="code">flutter</code></td><td><code class="code">flutter pub add lampung_design_system material_ui</code></td><td>Tidak ada</td><td><code class="code">LdsTheme.light()</code> dan <code class="code">LdsTheme.dark()</code> di <code class="code">lib/main.dart</code> bawaan</td></tr>
     </tbody>
   </table></div>
   <p class="cdoc__p">Proyek TypeScript mendapat berkas <code class="code">.tsx</code>, proyek JavaScript mendapat <code class="code">.jsx</code>. Komponen <code class="code">LdsProvider</code> memanggil <code class="code">restoreTheme()</code> dan <code class="code">init()</code> dari <code class="code">lampung-design-system/js</code> di browser, lalu memanggil <code class="code">init()</code> lagi saat markup baru muncul.</p>
@@ -425,7 +425,7 @@ npx lampung-ds@latest add button text-field</code></pre></div>
   <p class="cdoc__p">Template <code class="code">html</code> menyalin berkas dari paket yang terpasang. Bila paketnya tidak ada, CLI mengunduhnya dari jsDelivr (<code class="code">https://cdn.jsdelivr.net/npm/lampung-design-system@&lt;versi&gt;/</code>). Bila belum ada <code class="code">index.html</code>, CLI membuat halaman awal yang siap dibuka.</p>
 
   <h3 id="flutter">Flutter</strong></p>
-  <p class="cdoc__p">CLI menjalankan <code class="code">flutter pub add lampung_design_system</code>. Bila <code class="code">lib/main.dart</code> masih template bawaan, <code class="code">ThemeData</code> diganti dengan tema LDS. Bila tidak, CLI menampilkan potongan kode berikut untuk Anda tempel:</p>
+  <p class="cdoc__p">CLI menjalankan <code class="code">flutter pub add lampung_design_system material_ui</code>. Bila <code class="code">lib/main.dart</code> masih template bawaan, <code class="code">ThemeData</code> diganti dengan tema LDS. Bila tidak, CLI menampilkan potongan kode berikut untuk Anda tempel:</p>
 <div class="codeblock"><pre><code>import 'package:lampung_design_system/lampung_design_system.dart';
 
 MaterialApp(

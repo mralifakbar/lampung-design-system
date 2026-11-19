@@ -408,7 +408,7 @@ npx lampung-ds@latest add button text-field</code></pre></div>
       <tr><td><code class="code">astro</code></td><td><code class="code">src/styles/global.css</code>, or an import in the layout frontmatter</td><td>The first layout with <code class="code">&lt;html&gt;</code></td><td>A <code class="code">&lt;script&gt;</code> in the layout, run again on <code class="code">astro:page-load</code></td></tr>
       <tr><td><code class="code">laravel</code></td><td><code class="code">resources/css/app.css</code></td><td>The main Blade layout, adding <code class="code">@vite</code> when it is missing</td><td><code class="code">resources/js/app.js</code></td></tr>
       <tr><td><code class="code">html</code></td><td>Copies <code class="code">css/</code>, <code class="code">js/</code>, <code class="code">fonts/</code> and <code class="code">aksara/</code> into <code class="code">./lds/</code></td><td><code class="code">index.html</code> (created when missing)</td><td>A module script in <code class="code">index.html</code></td></tr>
-      <tr><td><code class="code">flutter</code></td><td><code class="code">flutter pub add lampung_design_system</code></td><td>None</td><td><code class="code">LdsTheme.light()</code> and <code class="code">LdsTheme.dark()</code> in a default <code class="code">lib/main.dart</code></td></tr>
+      <tr><td><code class="code">flutter</code></td><td><code class="code">flutter pub add lampung_design_system material_ui</code></td><td>None</td><td><code class="code">LdsTheme.light()</code> and <code class="code">LdsTheme.dark()</code> in a default <code class="code">lib/main.dart</code></td></tr>
     </tbody>
   </table></div>
   <p class="cdoc__p">TypeScript projects get <code class="code">.tsx</code> files, JavaScript projects <code class="code">.jsx</code>. <code class="code">LdsProvider</code> calls <code class="code">restoreTheme()</code> and <code class="code">init()</code> from <code class="code">lampung-design-system/js</code> in the browser, and calls <code class="code">init()</code> again when new markup appears.</p>
@@ -425,7 +425,7 @@ npx lampung-ds@latest add button text-field</code></pre></div>
   <p class="cdoc__p">The <code class="code">html</code> template copies the files from the installed package. Without one, the CLI downloads them from jsDelivr (<code class="code">https://cdn.jsdelivr.net/npm/lampung-design-system@&lt;version&gt;/</code>). When there is no <code class="code">index.html</code>, it writes a starter page you can open right away.</p>
 
   <h3 id="flutter">Flutter</strong></p>
-  <p class="cdoc__p">The CLI runs <code class="code">flutter pub add lampung_design_system</code>. When <code class="code">lib/main.dart</code> is still the default template, its <code class="code">ThemeData</code> is replaced with the LDS theme. Otherwise the CLI prints this snippet for you to paste:</p>
+  <p class="cdoc__p">The CLI runs <code class="code">flutter pub add lampung_design_system material_ui</code>. When <code class="code">lib/main.dart</code> is still the default template, its <code class="code">ThemeData</code> is replaced with the LDS theme. Otherwise the CLI prints this snippet for you to paste:</p>
 <div class="codeblock"><pre><code>import 'package:lampung_design_system/lampung_design_system.dart';
 
 MaterialApp(

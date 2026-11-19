@@ -45,7 +45,7 @@ Every edit is idempotent: running `init` twice changes nothing the second time. 
 | `astro` | `src/styles/global.css`, else an import in the layout frontmatter | the first layout with `<html>` (`src/layouts/Layout.astro`) | a `<script>` in the layout, re-run on `astro:page-load` |
 | `laravel` | `resources/css/app.css` | the main Blade layout (`layouts/app`, `components/layouts/app`, `app`, then `welcome`), adding `@vite` when it is missing | `resources/js/app.js` |
 | `html` | copies `css/`, `js/`, `fonts/` and `aksara/` into `./lds/` (from the installed package, or from jsDelivr) | `index.html` (a starter page is written when there is none) | a module script in `index.html` |
-| `flutter` | runs `flutter pub add lampung_design_system` | | swaps `ThemeData` for `LdsTheme.light()` / `LdsTheme.dark()` in a default `lib/main.dart`, otherwise prints the snippet |
+| `flutter` | runs `flutter pub add lampung_design_system material_ui` | | swaps `ThemeData` for `LdsTheme.light()` / `LdsTheme.dark()` in a default `lib/main.dart`, otherwise prints the snippet |
 
 TypeScript projects get `.tsx` files, JavaScript projects `.jsx`. The package manager comes from the lockfile (`pnpm-lock.yaml`, `bun.lock`, `yarn.lock`, `package-lock.json`), then `packageManager`, then npm.
 

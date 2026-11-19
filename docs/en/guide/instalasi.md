@@ -62,5 +62,5 @@ For a prototype or a static page, load it straight from a CDN:
 ## Requirements
 
 - Node.js 20 or newer for web projects.
-- Flutter 3.27 or newer for Flutter apps.
+- Flutter 3.47 or newer for Flutter apps, with `material_ui` as the Material library.
 - A terminal open in the project folder (the one with `package.json`, `composer.json` or `pubspec.yaml`).

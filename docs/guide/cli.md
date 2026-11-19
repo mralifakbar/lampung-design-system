@@ -65,7 +65,7 @@ Yang diubah per framework
 | `astro` | `src/styles/global.css`, atau impor di frontmatter layout | Layout pertama yang memuat `<html>` | `<script>` di layout, dijalankan lagi saat `astro:page-load` |
 | `laravel` | `resources/css/app.css` | Layout Blade utama, ditambah `@vite` bila belum ada | `resources/js/app.js` |
 | `html` | Menyalin `css/`, `js/`, `fonts/` dan `aksara/` ke `./lds/` | `index.html` (dibuat bila belum ada) | Skrip modul di `index.html` |
-| `flutter` | `flutter pub add lampung_design_system` | Tidak ada | `LdsTheme.light()` dan `LdsTheme.dark()` di `lib/main.dart` bawaan |
+| `flutter` | `flutter pub add lampung_design_system material_ui` | Tidak ada | `LdsTheme.light()` dan `LdsTheme.dark()` di `lib/main.dart` bawaan |
 
 Proyek TypeScript mendapat berkas `.tsx`, proyek JavaScript mendapat `.jsx`. Komponen `LdsProvider` memanggil `restoreTheme()` dan `init()` dari `lampung-design-system/js` di browser, lalu memanggil `init()` lagi saat markup baru muncul.
 
@@ -87,7 +87,7 @@ Template `html` menyalin berkas dari paket yang terpasang. Bila paketnya tidak a
 
 Flutter
 
-CLI menjalankan `flutter pub add lampung_design_system`. Bila `lib/main.dart` masih template bawaan, `ThemeData` diganti dengan tema LDS. Bila tidak, CLI menampilkan potongan kode berikut untuk Anda tempel:
+CLI menjalankan `flutter pub add lampung_design_system material_ui`. Bila `lib/main.dart` masih template bawaan, `ThemeData` diganti dengan tema LDS. Bila tidak, CLI menampilkan potongan kode berikut untuk Anda tempel:
 
 ```
 import 'package:lampung_design_system/lampung_design_system.dart';

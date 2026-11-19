@@ -28,16 +28,19 @@ What you get:
 ## Install
 
 ```sh
-flutter pub add lampung_design_system
+flutter pub add lampung_design_system material_ui
 ```
 
-Requires Flutter 3.27 or later.
+Requires Flutter 3.47 or later. The package builds on
+[`material_ui`](https://pub.dev/packages/material_ui), so import
+`package:material_ui/material_ui.dart` in your app, not the deprecated
+`package:flutter/material.dart`: `LdsTheme` returns `material_ui`'s `ThemeData`.
 
 ## Use the theme
 
 ```dart
-import 'package:flutter/material.dart';
 import 'package:lampung_design_system/lampung_design_system.dart';
+import 'package:material_ui/material_ui.dart';
 
 void main() => runApp(
       MaterialApp(

@@ -82,7 +82,7 @@ Tanpa instalasi:
 Flutter:
 
 ```sh
-flutter pub add lampung_design_system
+flutter pub add lampung_design_system material_ui
 ```
 
 ```dart

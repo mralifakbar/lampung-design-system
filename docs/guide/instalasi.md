@@ -62,5 +62,5 @@ Untuk prototipe atau halaman statis, muat langsung dari CDN:
 ## Prasyarat
 
 - Node.js 20 atau lebih baru untuk proyek web.
-- Flutter 3.27 atau lebih baru untuk aplikasi Flutter.
+- Flutter 3.47 atau lebih baru untuk aplikasi Flutter, dengan `material_ui` sebagai pustaka Material.
 - Terminal yang terbuka di folder proyek (folder yang berisi `package.json`, `composer.json`, atau `pubspec.yaml`).

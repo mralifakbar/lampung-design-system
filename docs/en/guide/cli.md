@@ -65,7 +65,7 @@ What changes per framework
 | `astro` | `src/styles/global.css`, or an import in the layout frontmatter | The first layout with `<html>` | A `<script>` in the layout, run again on `astro:page-load` |
 | `laravel` | `resources/css/app.css` | The main Blade layout, adding `@vite` when it is missing | `resources/js/app.js` |
 | `html` | Copies `css/`, `js/`, `fonts/` and `aksara/` into `./lds/` | `index.html` (created when missing) | A module script in `index.html` |
-| `flutter` | `flutter pub add lampung_design_system` | None | `LdsTheme.light()` and `LdsTheme.dark()` in a default `lib/main.dart` |
+| `flutter` | `flutter pub add lampung_design_system material_ui` | None | `LdsTheme.light()` and `LdsTheme.dark()` in a default `lib/main.dart` |
 
 TypeScript projects get `.tsx` files, JavaScript projects `.jsx`. `LdsProvider` calls `restoreTheme()` and `init()` from `lampung-design-system/js` in the browser, and calls `init()` again when new markup appears.
 
@@ -87,7 +87,7 @@ The `html` template copies the files from the installed package. Without one, th
 
 Flutter
 
-The CLI runs `flutter pub add lampung_design_system`. When `lib/main.dart` is still the default template, its `ThemeData` is replaced with the LDS theme. Otherwise the CLI prints this snippet for you to paste:
+The CLI runs `flutter pub add lampung_design_system material_ui`. When `lib/main.dart` is still the default template, its `ThemeData` is replaced with the LDS theme. Otherwise the CLI prints this snippet for you to paste:
 
 ```
 import 'package:lampung_design_system/lampung_design_system.dart';
