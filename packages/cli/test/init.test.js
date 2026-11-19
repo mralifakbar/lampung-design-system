@@ -231,10 +231,25 @@ test('html: patches an existing index.html', async () => {
 test('flutter: patches the default main.dart, notes the pub command with --no-install', async () => {
   const { dir, first } = await initTwice('flutter');
   const main = read(dir, 'lib/main.dart');
-  assert.match(main, /^import 'package:flutter\/material\.dart';\nimport 'package:lampung_design_system\/lampung_design_system\.dart';/);
+  assert.match(main, /^import 'package:material_ui\/material_ui\.dart';\nimport 'package:lampung_design_system\/lampung_design_system\.dart';/);
+  assert.doesNotMatch(main, /package:flutter\/material\.dart/);
   assert.match(main, / {6}theme: LdsTheme\.light\(\),\n {6}darkTheme: LdsTheme\.dark\(\),\n {6}themeMode: ThemeMode\.light,\n {6}home:/);
   assert.doesNotMatch(main, /ThemeData/);
-  assert.match(first.out, /flutter pub add lampung_design_system/);
+  assert.match(first.out, /flutter pub add lampung_design_system material_ui/);
+  cleanup(dir);
+});
+
+test('flutter: a Flutter 3.47+ template that already imports material_ui keeps one import', async () => {
+  const dir = fixture('flutter', {
+    'pubspec.yaml': 'name: app\ndependencies:\n  flutter:\n    sdk: flutter\n  material_ui: ^1.11.1\n',
+    'lib/main.dart': read(fixture('flutter'), 'lib/main.dart').replace("package:flutter/material.dart", 'package:material_ui/material_ui.dart'),
+  });
+  const r = await cli(['init', '--cwd', dir, '--no-install', '-y']);
+  assert.equal(r.code, 0, r.err);
+  const main = read(dir, 'lib/main.dart');
+  assert.equal(main.match(/material_ui\.dart/g).length, 1);
+  assert.match(main, /^import 'package:material_ui\/material_ui\.dart';\nimport 'package:lampung_design_system\/lampung_design_system\.dart';/);
+  assert.match(r.out, /flutter pub add lampung_design_system\n/);
   cleanup(dir);
 });
 

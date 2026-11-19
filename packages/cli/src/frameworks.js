@@ -283,9 +283,11 @@ export const flutter = {
   setup(ctx) {
     const { cwd, plan, t, theme, opts } = ctx;
     const pubspec = readText(join(cwd, 'pubspec.yaml')) || '';
-    if (!/^\s+lampung_design_system\s*:/m.test(pubspec)) {
-      if (opts.install) plan.command('flutter', ['pub', 'add', 'lampung_design_system'], t('noteFlutterPub'));
-      else plan.note('flutter pub add lampung_design_system');
+    // LdsTheme returns material_ui's ThemeData, so the app needs material_ui too (Flutter 3.47+).
+    const deps = ['lampung_design_system', 'material_ui'].filter((d) => !new RegExp(`^\\s+${d}\\s*:`, 'm').test(pubspec));
+    if (deps.length) {
+      if (opts.install) plan.command('flutter', ['pub', 'add', ...deps], t('noteFlutterPub'));
+      else plan.note(`flutter pub add ${deps.join(' ')}`);
     }
     const main = 'lib/main.dart';
     const src = plan.read(main);
@@ -315,8 +317,10 @@ export function patchFlutterMain(src, theme) {
   const indent = src.slice(src.lastIndexOf('\n', at) + 1, at);
   const repl = `theme: LdsTheme.light(),\n${indent}darkTheme: LdsTheme.dark(),\n${indent}themeMode: ThemeMode.${theme},`;
   let out = src.slice(0, at) + repl + src.slice(end);
+  // Templates before Flutter 3.47 import the framework's legacy Material library; LdsTheme needs material_ui's.
+  out = out.replace(/^import 'package:flutter\/material\.dart';/m, "import 'package:material_ui/material_ui.dart';");
   const imp = "import 'package:lampung_design_system/lampung_design_system.dart';";
-  const m = out.match(/^import 'package:flutter\/material\.dart';[^\n]*\n/m);
+  const m = out.match(/^import 'package:material_ui\/material_ui\.dart';[^\n]*\n/m);
   out = m ? out.slice(0, m.index + m[0].length) + imp + '\n' + out.slice(m.index + m[0].length) : `${imp}\n${out}`;
   return out;
 }

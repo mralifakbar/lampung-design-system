@@ -138,6 +138,7 @@ export default function Document() {
 }
 
 export const flutterSnippet = (theme) => `import 'package:lampung_design_system/lampung_design_system.dart';
+import 'package:material_ui/material_ui.dart'; // not package:flutter/material.dart
 
 MaterialApp(
   theme: LdsTheme.light(),

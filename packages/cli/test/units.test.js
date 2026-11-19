@@ -94,7 +94,7 @@ test('patchFlutterMain only touches the default template', () => {
 test('patchFlutterMain handles the dot-shorthand template of Flutter 3.38+', () => {
   const src = "import 'package:flutter/material.dart';\nMaterialApp(\n  theme: ThemeData(\n    colorScheme: .fromSeed(seedColor: Colors.deepPurple),\n  ),\n);\n";
   const out = patchFlutterMain(src, 'light');
-  assert.match(out, /^import 'package:flutter\/material\.dart';\nimport 'package:lampung_design_system\/lampung_design_system\.dart';/);
+  assert.match(out, /^import 'package:material_ui\/material_ui\.dart';\nimport 'package:lampung_design_system\/lampung_design_system\.dart';/);
   assert.match(out, /theme: LdsTheme\.light\(\),\n {2}darkTheme: LdsTheme\.dark\(\),\n {2}themeMode: ThemeMode\.light,\n\);/);
   assert.doesNotMatch(out, /fromSeed/);
 });
