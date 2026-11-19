@@ -4,6 +4,11 @@ All notable changes to Lampung Design System are documented here. The format fol
 
 ## [Unreleased]
 
+### Changed
+
+- **Breaking (Flutter):** `lampung_design_system` builds on `material_ui` and `cupertino_ui` instead of the framework's deprecated `package:flutter/material.dart` and `package:flutter/cupertino.dart`, and needs Flutter 3.47 or later. Apps add `material_ui` (`flutter pub add lampung_design_system material_ui`) and import `package:material_ui/material_ui.dart`, because `LdsTheme` returns `material_ui`'s `ThemeData`. This brings the pub.dev score to 160/160.
+- CLI: `init` for Flutter adds `material_ui` and switches a default `lib/main.dart` to import it.
+
 ## [0.1.2] - 2026-11-17
 
 ### Added
