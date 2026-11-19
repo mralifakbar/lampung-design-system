@@ -299,12 +299,12 @@ void main() {
 
   group('popover', () {
     Widget popover() => LdsPopover(
-          semanticLabel: 'Info retribusi',
-          builder: (context, c) =>
-              TextButton(onPressed: c.toggle, child: const Text('Info')),
-          contentBuilder: (context, c) =>
-              const Text('Retribusi dibayar paling lambat tanggal 10.'),
-        );
+      semanticLabel: 'Info retribusi',
+      builder: (context, c) =>
+          TextButton(onPressed: c.toggle, child: const Text('Info')),
+      contentBuilder: (context, c) =>
+          const Text('Retribusi dibayar paling lambat tanggal 10.'),
+    );
 
     testWidgets('renders in light and dark', (tester) async {
       await expectBothThemes(tester, popover());
@@ -326,10 +326,10 @@ void main() {
 
   group('tooltip', () {
     Widget tip() => const LdsTooltip(
-          message: 'Cari layanan',
-          shortcut: 'Ctrl+K',
-          child: Icon(Icons.search),
-        );
+      message: 'Cari layanan',
+      shortcut: 'Ctrl+K',
+      child: Icon(Icons.search),
+    );
 
     testWidgets('renders in light and dark', (tester) async {
       await expectBothThemes(tester, tip());
@@ -346,9 +346,9 @@ void main() {
 
   group('hover card', () {
     Widget card() => const LdsHoverCard(
-          card: Text('Dinas Layanan Kota Contoh, buka 08.00 sampai 15.00'),
-          child: Text('Dinas Layanan'),
-        );
+      card: Text('Dinas Layanan Kota Contoh, buka 08.00 sampai 15.00'),
+      child: Text('Dinas Layanan'),
+    );
 
     testWidgets('renders in light and dark', (tester) async {
       await expectBothThemes(tester, card());
@@ -450,9 +450,9 @@ void main() {
 
     testWidgets('collapses when hidden', (tester) async {
       Widget banner(bool visible) => LdsBanner(
-            message: 'Pemeliharaan sistem pukul 22.00',
-            visible: visible,
-          );
+        message: 'Pemeliharaan sistem pukul 22.00',
+        visible: visible,
+      );
       await tester.pumpWidget(wrap(banner(true)));
       expect(find.text('Pemeliharaan sistem pukul 22.00'), findsOneWidget);
       await tester.pumpWidget(wrap(banner(false)));
@@ -691,14 +691,14 @@ void main() {
 
   group('lightbox', () {
     Widget box() => SizedBox(
-          width: 160,
-          child: LdsLightbox(
-            image: MemoryImage(_png),
-            semanticLabel: 'Jalan berlubang di Jalan Contoh',
-            caption: 'Foto laporan warga',
-            closeLabel: 'Tutup',
-          ),
-        );
+      width: 160,
+      child: LdsLightbox(
+        image: MemoryImage(_png),
+        semanticLabel: 'Jalan berlubang di Jalan Contoh',
+        caption: 'Foto laporan warga',
+        closeLabel: 'Tutup',
+      ),
+    );
 
     testWidgets('renders in light and dark', (tester) async {
       await expectBothThemes(tester, box());
@@ -850,27 +850,27 @@ void main() {
 
   group('swipe actions', () {
     Widget row(VoidCallback onDelete) => SizedBox(
-          width: 360,
-          child: LdsSwipeActions(
-            actions: [
-              LdsSwipeAction(
-                label: 'Arsipkan',
-                icon: 'inventory_2',
-                onPressed: () {},
-              ),
-              LdsSwipeAction(
-                label: 'Hapus',
-                icon: 'delete',
-                tone: LdsSwipeActionTone.danger,
-                onPressed: onDelete,
-              ),
-            ],
-            child: const SizedBox(
-              height: 56,
-              child: Text('Laporan lampu jalan mati'),
-            ),
+      width: 360,
+      child: LdsSwipeActions(
+        actions: [
+          LdsSwipeAction(
+            label: 'Arsipkan',
+            icon: 'inventory_2',
+            onPressed: () {},
           ),
-        );
+          LdsSwipeAction(
+            label: 'Hapus',
+            icon: 'delete',
+            tone: LdsSwipeActionTone.danger,
+            onPressed: onDelete,
+          ),
+        ],
+        child: const SizedBox(
+          height: 56,
+          child: Text('Laporan lampu jalan mati'),
+        ),
+      ),
+    );
 
     testWidgets('renders in light and dark', (tester) async {
       await expectBothThemes(tester, row(() {}));
@@ -897,17 +897,17 @@ void main() {
 
   group('pull to refresh', () {
     Widget list(Future<void> Function() onRefresh) => SizedBox(
-          height: 400,
-          child: LdsPullToRefresh(
-            onRefresh: onRefresh,
-            child: ListView(
-              children: [
-                for (var i = 0; i < 20; i++)
-                  SizedBox(height: 48, child: Text('Laporan $i')),
-              ],
-            ),
-          ),
-        );
+      height: 400,
+      child: LdsPullToRefresh(
+        onRefresh: onRefresh,
+        child: ListView(
+          children: [
+            for (var i = 0; i < 20; i++)
+              SizedBox(height: 48, child: Text('Laporan $i')),
+          ],
+        ),
+      ),
+    );
 
     testWidgets('renders in light and dark', (tester) async {
       await expectBothThemes(tester, list(() async {}));
@@ -966,21 +966,20 @@ void main() {
 
   group('selection bar', () {
     Widget bar(int count, VoidCallback onClear) => LdsSelectionBar(
-          count: count,
-          countLabel: (n) => '$n dipilih',
-          clearLabel: 'Batalkan pilihan',
-          onClear: onClear,
-          actions: [
-            LdsSelectionAction(
-                label: 'Setujui', icon: 'check', onPressed: () {}),
-            LdsSelectionAction(
-              label: 'Hapus',
-              icon: 'delete',
-              destructive: true,
-              onPressed: () {},
-            ),
-          ],
-        );
+      count: count,
+      countLabel: (n) => '$n dipilih',
+      clearLabel: 'Batalkan pilihan',
+      onClear: onClear,
+      actions: [
+        LdsSelectionAction(label: 'Setujui', icon: 'check', onPressed: () {}),
+        LdsSelectionAction(
+          label: 'Hapus',
+          icon: 'delete',
+          destructive: true,
+          onPressed: () {},
+        ),
+      ],
+    );
 
     testWidgets('renders in light and dark', (tester) async {
       await expectBothThemes(tester, bar(3, () {}));

@@ -33,208 +33,207 @@ final Map<String, Widget Function()> _gallery = {
   'LdsTabs': () =>
       LdsTabs<String>(tabs: _tabs, value: 'ringkasan', onChanged: (_) {}),
   'LdsTabs start': () => LdsTabs<String>(
-        tabs: _tabs,
-        value: 'dokumen',
-        alignment: LdsTabsAlignment.start,
-        onChanged: (_) {},
-      ),
+    tabs: _tabs,
+    value: 'dokumen',
+    alignment: LdsTabsAlignment.start,
+    onChanged: (_) {},
+  ),
   'LdsSlidingIndicator': () => const LdsSlidingIndicator(
-        selectedIndex: 1,
-        children: [Text('Satu'), Text('Dua')],
-      ),
+    selectedIndex: 1,
+    children: [Text('Satu'), Text('Dua')],
+  ),
   'LdsBreadcrumbs': () => LdsBreadcrumbs(
-        items: [
-          LdsBreadcrumb(label: 'Layanan', onPressed: () {}),
-          const LdsBreadcrumb(label: 'Izin usaha'),
-        ],
-      ),
+    items: [
+      LdsBreadcrumb(label: 'Layanan', onPressed: () {}),
+      const LdsBreadcrumb(label: 'Izin usaha'),
+    ],
+  ),
   'LdsPagination': () =>
       LdsPagination(page: 5, pageCount: 12, onChanged: (_) {}),
   'LdsSteps': () => const LdsSteps(
-        current: 1,
-        steps: [
-          LdsStep(label: 'Data diri'),
-          LdsStep(label: 'Dokumen', subtitle: 'KTP dan KK'),
-          LdsStep(label: 'Periksa'),
-        ],
-      ),
+    current: 1,
+    steps: [
+      LdsStep(label: 'Data diri'),
+      LdsStep(label: 'Dokumen', subtitle: 'KTP dan KK'),
+      LdsStep(label: 'Periksa'),
+    ],
+  ),
   'LdsSteps vertical': () => const LdsSteps(
-        current: 2,
-        direction: Axis.vertical,
-        steps: [
-          LdsStep(label: 'Data diri'),
-          LdsStep(label: 'Dokumen'),
-          LdsStep(label: 'Periksa'),
-        ],
-      ),
+    current: 2,
+    direction: Axis.vertical,
+    steps: [
+      LdsStep(label: 'Data diri'),
+      LdsStep(label: 'Dokumen'),
+      LdsStep(label: 'Periksa'),
+    ],
+  ),
   'LdsSidebar': () => LdsSidebar<String>(
-        items: _sidebarItems,
-        value: 'laporan',
-        onChanged: (_) {},
-      ),
+    items: _sidebarItems,
+    value: 'laporan',
+    onChanged: (_) {},
+  ),
   'LdsTopNav': () => LdsTopNav<String>(
-        brand: const Text('Layanan Kota Contoh'),
-        links: const [
-          LdsTopNavLink(value: 'beranda', label: 'Beranda'),
-          LdsTopNavLink(value: 'layanan', label: 'Layanan'),
-        ],
-        value: 'beranda',
-        onChanged: (_) {},
-      ),
+    brand: const Text('Layanan Kota Contoh'),
+    links: const [
+      LdsTopNavLink(value: 'beranda', label: 'Beranda'),
+      LdsTopNavLink(value: 'layanan', label: 'Layanan'),
+    ],
+    value: 'beranda',
+    onChanged: (_) {},
+  ),
   'LdsAppShell': () => SizedBox(
-        width: 1000,
-        height: 500,
-        child: LdsAppShell<String>(
-          brand: const Text('Dinas Layanan Kota Contoh'),
-          destinations: _sidebarItems,
-          value: 'beranda',
-          onChanged: (_) {},
-          body: const Text('Isi halaman'),
-        ),
-      ),
+    width: 1000,
+    height: 500,
+    child: LdsAppShell<String>(
+      brand: const Text('Dinas Layanan Kota Contoh'),
+      destinations: _sidebarItems,
+      value: 'beranda',
+      onChanged: (_) {},
+      body: const Text('Isi halaman'),
+    ),
+  ),
   'LdsNavStack': () => SizedBox(
-        width: 360,
-        height: 400,
-        child: LdsNavStack(
-          rootTitle: 'Laporan',
-          root: (_) => const Text('Daftar laporan'),
-        ),
-      ),
+    width: 360,
+    height: 400,
+    child: LdsNavStack(
+      rootTitle: 'Laporan',
+      root: (_) => const Text('Daftar laporan'),
+    ),
+  ),
   'LdsNavProgress': () => const LdsNavProgress(running: true),
   'LdsPageHeader': () => LdsPageHeader(
-        title: 'Izin usaha mikro',
-        subtitle: 'Nomor PB-2024-0183',
-        breadcrumbs: [
-          LdsBreadcrumb(label: 'Perizinan', onPressed: () {}),
-          const LdsBreadcrumb(label: 'Izin usaha mikro'),
-        ],
-        actions: const [Text('Aksi')],
-      ),
+    title: 'Izin usaha mikro',
+    subtitle: 'Nomor PB-2024-0183',
+    breadcrumbs: [
+      LdsBreadcrumb(label: 'Perizinan', onPressed: () {}),
+      const LdsBreadcrumb(label: 'Izin usaha mikro'),
+    ],
+    actions: const [Text('Aksi')],
+  ),
   'LdsAccordion': () => const LdsAccordion(
-        items: [
-          LdsAccordionItem(
-            title: 'Berapa lama izin diproses?',
-            subtitle: 'Perizinan',
-            initiallyOpen: true,
-            child: Text('Paling lama lima hari kerja.'),
-          ),
-          LdsAccordionItem(
-            title: 'Apakah ada biaya?',
-            child: Text('Tidak ada biaya.'),
-          ),
-        ],
+    items: [
+      LdsAccordionItem(
+        title: 'Berapa lama izin diproses?',
+        subtitle: 'Perizinan',
+        initiallyOpen: true,
+        child: Text('Paling lama lima hari kerja.'),
       ),
+      LdsAccordionItem(
+        title: 'Apakah ada biaya?',
+        child: Text('Tidak ada biaya.'),
+      ),
+    ],
+  ),
   'LdsOutline': () => LdsOutline(
-        entries: const ['Syarat', 'Biaya', 'Waktu'],
-        current: 1,
-        onSelected: (_) {},
-      ),
+    entries: const ['Syarat', 'Biaya', 'Waktu'],
+    current: 1,
+    onSelected: (_) {},
+  ),
   'LdsTree': () => const LdsTree<String>(
-        initiallyExpanded: {'arsip'},
-        selected: 'ktp',
-        nodes: [
-          LdsTreeNode(
-            value: 'arsip',
-            label: 'Arsip',
-            icon: 'folder',
-            children: [
-              LdsTreeNode(value: 'ktp', label: 'KTP.pdf', icon: 'description'),
-            ],
-          ),
-        ],
-      ),
-  'LdsSeparator': () => const Column(
+    initiallyExpanded: {'arsip'},
+    selected: 'ktp',
+    nodes: [
+      LdsTreeNode(
+        value: 'arsip',
+        label: 'Arsip',
+        icon: 'folder',
         children: [
-          LdsSeparator(),
-          LdsSeparator.label('atau'),
-          LdsSeparator.label(
-            'Senin, 3 Juni',
-            labelAlign: LdsSeparatorLabelAlign.start,
-          ),
-          SizedBox(height: 24, child: LdsSeparator.vertical()),
+          LdsTreeNode(value: 'ktp', label: 'KTP.pdf', icon: 'description'),
         ],
       ),
+    ],
+  ),
+  'LdsSeparator': () => const Column(
+    children: [
+      LdsSeparator(),
+      LdsSeparator.label('atau'),
+      LdsSeparator.label(
+        'Senin, 3 Juni',
+        labelAlign: LdsSeparatorLabelAlign.start,
+      ),
+      SizedBox(height: 24, child: LdsSeparator.vertical()),
+    ],
+  ),
   'LdsResizableSplit': () => const SizedBox(
-        width: 600,
-        height: 300,
-        child: LdsResizableSplit(first: Text('Daftar'), second: Text('Detail')),
-      ),
+    width: 600,
+    height: 300,
+    child: LdsResizableSplit(first: Text('Daftar'), second: Text('Detail')),
+  ),
   'LdsCarousel': () => SizedBox(
-        width: 600,
-        child: LdsCarousel(
-          height: 120,
-          children: [for (var i = 0; i < 5; i++) Text('Kartu ${i + 1}')],
-        ),
-      ),
+    width: 600,
+    child: LdsCarousel(
+      height: 120,
+      children: [for (var i = 0; i < 5; i++) Text('Kartu ${i + 1}')],
+    ),
+  ),
   'LdsShowMore': () => const LdsShowMore(
-        visible: [Text('Puskesmas A')],
-        rest: [Text('Puskesmas B')],
-      ),
+    visible: [Text('Puskesmas A')],
+    rest: [Text('Puskesmas B')],
+  ),
   'LdsHeightExpand': () =>
       const LdsHeightExpand(open: true, child: Text('Isi')),
   'LdsScrollFades': () => SizedBox(
-        height: 200,
-        child: LdsScrollFades(
-          child: ListView(
-            children: [for (var i = 0; i < 30; i++) Text('Baris $i')],
-          ),
-        ),
+    height: 200,
+    child: LdsScrollFades(
+      child: ListView(
+        children: [for (var i = 0; i < 30; i++) Text('Baris $i')],
       ),
+    ),
+  ),
   'LdsExpandingToolbar': () => LdsExpandingToolbar(
-        tools: [
-          LdsToolbarTool(icon: 'edit', label: 'Ubah', onPressed: () {}),
-          LdsToolbarTool(icon: 'search', label: 'Cari', onPressed: () {}),
-        ],
-      ),
+    tools: [
+      LdsToolbarTool(icon: 'edit', label: 'Ubah', onPressed: () {}),
+      LdsToolbarTool(icon: 'search', label: 'Cari', onPressed: () {}),
+    ],
+  ),
   'LdsFloatingAction': () => LdsFloatingAction(
-        icon: 'add',
-        semanticLabel: 'Buat laporan',
-        onPressed: () {},
-      ),
+    icon: 'add',
+    semanticLabel: 'Buat laporan',
+    onPressed: () {},
+  ),
   'LdsButtonGroup': () => LdsButtonGroup(
-        buttons: [
-          LdsGroupButton(
-              icon: 'undo', semanticLabel: 'Urungkan', onPressed: () {}),
-          const LdsGroupButton(
-            icon: 'redo',
-            semanticLabel: 'Ulangi',
-            onPressed: null,
-          ),
-          LdsGroupButton(label: 'Riwayat', onPressed: () {}),
-        ],
+    buttons: [
+      LdsGroupButton(icon: 'undo', semanticLabel: 'Urungkan', onPressed: () {}),
+      const LdsGroupButton(
+        icon: 'redo',
+        semanticLabel: 'Ulangi',
+        onPressed: null,
       ),
+      LdsGroupButton(label: 'Riwayat', onPressed: () {}),
+    ],
+  ),
   'LdsSplitButton': () => LdsSplitButton(
-        label: 'Terbitkan',
-        onPressed: () {},
-        items: [LdsSplitButtonItem(label: 'Jadwalkan', onPressed: () {})],
-      ),
+    label: 'Terbitkan',
+    onPressed: () {},
+    items: [LdsSplitButtonItem(label: 'Jadwalkan', onPressed: () {})],
+  ),
   'LdsMenuIcon': () => const LdsMenuIcon(open: true),
   'LdsMenuButton': () => LdsMenuButton(open: false, onPressed: () {}),
   'Layout primitives': () => const SizedBox(
-        width: 700,
-        child: LdsStack(
-          children: [
-            LdsCluster(children: [Text('A'), Text('B')]),
-            LdsAutoGrid(children: [Text('1'), Text('2'), Text('3')]),
-            LdsSplit2(side: Text('Samping'), main: Text('Utama')),
-            LdsCenter(child: Text('Tengah')),
-            LdsMeasure(child: Text('Teks panjang')),
-            LdsVisuallyHidden('Judul tersembunyi'),
-          ],
-        ),
-      ),
+    width: 700,
+    child: LdsStack(
+      children: [
+        LdsCluster(children: [Text('A'), Text('B')]),
+        LdsAutoGrid(children: [Text('1'), Text('2'), Text('3')]),
+        LdsSplit2(side: Text('Samping'), main: Text('Utama')),
+        LdsCenter(child: Text('Tengah')),
+        LdsMeasure(child: Text('Teks panjang')),
+        LdsVisuallyHidden('Judul tersembunyi'),
+      ],
+    ),
+  ),
   'LdsSections': () => const SingleChildScrollView(
-        child: LdsSections(
-          children: [
-            LdsSection(title: 'Syarat', children: [Text('KTP')]),
-            LdsSection(
-              title: 'Biaya',
-              subtitle: 'Tidak dipungut biaya.',
-              children: [LdsSectionSubtitle('Rincian')],
-            ),
-          ],
+    child: LdsSections(
+      children: [
+        LdsSection(title: 'Syarat', children: [Text('KTP')]),
+        LdsSection(
+          title: 'Biaya',
+          subtitle: 'Tidak dipungut biaya.',
+          children: [LdsSectionSubtitle('Rincian')],
         ),
-      ),
+      ],
+    ),
+  ),
   'LdsViewSwap': () =>
       const LdsViewSwap(child: Text('Panel', key: ValueKey(1))),
 };
@@ -281,14 +280,14 @@ void main() {
     tester,
   ) async {
     Widget build(int i) => wrap(
-          LdsSlidingIndicator(
-            selectedIndex: i,
-            children: const [
-              SizedBox(height: 40, width: 100),
-              SizedBox(height: 40, width: 100),
-            ],
-          ),
-        );
+      LdsSlidingIndicator(
+        selectedIndex: i,
+        children: const [
+          SizedBox(height: 40, width: 100),
+          SizedBox(height: 40, width: 100),
+        ],
+      ),
+    );
     await tester.pumpWidget(build(0));
     await tester.pumpAndSettle();
     final marker = find.byType(AnimatedPositioned);
@@ -635,16 +634,16 @@ void main() {
     tester,
   ) async {
     Widget build(bool open) => wrap(
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              LdsHeightExpand(
-                open: open,
-                child: const SizedBox(height: 80, width: 80),
-              ),
-            ],
+      Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          LdsHeightExpand(
+            open: open,
+            child: const SizedBox(height: 80, width: 80),
           ),
-        );
+        ],
+      ),
+    );
     await tester.pumpWidget(build(false));
     expect(tester.getSize(find.byType(LdsHeightExpand)).height, 0);
     await tester.pumpWidget(build(true));
@@ -654,17 +653,17 @@ void main() {
 
   testWidgets('LdsHeightExpand is instant with reduced motion', (tester) async {
     Widget build(bool open) => wrap(
-          Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              LdsHeightExpand(
-                open: open,
-                child: const SizedBox(height: 80, width: 80),
-              ),
-            ],
+      Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          LdsHeightExpand(
+            open: open,
+            child: const SizedBox(height: 80, width: 80),
           ),
-          reduceMotion: true,
-        );
+        ],
+      ),
+      reduceMotion: true,
+    );
     await tester.pumpWidget(build(false));
     await tester.pumpWidget(build(true));
     await tester.pump();
@@ -725,13 +724,13 @@ void main() {
   testWidgets('LdsFloatingAction is pressable and hides', (tester) async {
     var taps = 0;
     Widget build(bool visible) => wrap(
-          LdsFloatingAction(
-            icon: 'add',
-            semanticLabel: 'Buat laporan',
-            visible: visible,
-            onPressed: () => taps++,
-          ),
-        );
+      LdsFloatingAction(
+        icon: 'add',
+        semanticLabel: 'Buat laporan',
+        visible: visible,
+        onPressed: () => taps++,
+      ),
+    );
     await tester.pumpWidget(build(true));
     await tester.tap(find.bySemanticsLabel('Buat laporan'));
     expect(taps, 1);

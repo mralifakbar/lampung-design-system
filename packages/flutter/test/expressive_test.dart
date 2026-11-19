@@ -38,9 +38,9 @@ void main() {
   group('LdsEnterExit', () {
     testWidgets('enters, leaves faster and removes the child', (tester) async {
       Widget build(bool v, {bool reduce = false}) => wrap(
-            LdsEnterExit(visible: v, child: const Text('Menu layanan')),
-            reduceMotion: reduce,
-          );
+        LdsEnterExit(visible: v, child: const Text('Menu layanan')),
+        reduceMotion: reduce,
+      );
       await renderBoth(
         tester,
         () => const LdsEnterExit(
@@ -94,9 +94,9 @@ void main() {
       tester,
     ) async {
       Widget list() => LdsListStagger(
-            spacing: 8,
-            children: [for (var i = 0; i < 6; i++) Text('Hasil $i')],
-          );
+        spacing: 8,
+        children: [for (var i = 0; i < 6; i++) Text('Hasil $i')],
+      );
       await renderBoth(tester, list);
       await tester.pumpWidget(wrap(list()));
       expect(find.text('Hasil 5'), findsOneWidget);
@@ -120,13 +120,13 @@ void main() {
 
   group('LdsReveal', () {
     Widget page() => ListView(
-          children: [
-            const LdsReveal(child: Text('Di atas')),
-            const SizedBox(height: 1200),
-            const LdsReveal(child: Text('Angka kunci')),
-            const SizedBox(height: 400),
-          ],
-        );
+      children: [
+        const LdsReveal(child: Text('Di atas')),
+        const SizedBox(height: 1200),
+        const LdsReveal(child: Text('Angka kunci')),
+        const SizedBox(height: 400),
+      ],
+    );
 
     testWidgets('first screen shows at once, the rest on scroll', (
       tester,
@@ -450,18 +450,18 @@ void main() {
 
     testWidgets('layout shows Terbaru only when scrolled up', (tester) async {
       Widget build(int n) => wrap(
-            SizedBox(
-              height: 560,
-              child: LdsChatLayout(
-                messages: [
-                  for (var i = 0; i < n; i++)
-                    LdsChatMessage.me(text: 'Pesan nomor $i'),
-                ],
-                composer: LdsComposer(onSend: (_) {}),
-                empty: const Text('Tanyakan layanan kota'),
-              ),
-            ),
-          );
+        SizedBox(
+          height: 560,
+          child: LdsChatLayout(
+            messages: [
+              for (var i = 0; i < n; i++)
+                LdsChatMessage.me(text: 'Pesan nomor $i'),
+            ],
+            composer: LdsComposer(onSend: (_) {}),
+            empty: const Text('Tanyakan layanan kota'),
+          ),
+        ),
+      );
       await tester.pumpWidget(build(0));
       expect(find.text('Tanyakan layanan kota'), findsOneWidget);
       await tester.pumpWidget(build(30));
@@ -524,20 +524,20 @@ void main() {
     testWidgets('a flick snaps forward; arrow keys step', (tester) async {
       final snaps = <int>[];
       Widget build({bool reduce = false}) => wrap(
-            SizedBox(
-              width: 400,
-              child: Align(
-                alignment: Alignment.centerLeft,
-                child: LdsMomentumDrag(
-                  semanticLabel: 'Geser untuk konfirmasi',
-                  snapPoints: const [0, 200],
-                  onSnap: snaps.add,
-                  child: Container(width: 52, height: 52, color: Colors.green),
-                ),
-              ),
+        SizedBox(
+          width: 400,
+          child: Align(
+            alignment: Alignment.centerLeft,
+            child: LdsMomentumDrag(
+              semanticLabel: 'Geser untuk konfirmasi',
+              snapPoints: const [0, 200],
+              onSnap: snaps.add,
+              child: Container(width: 52, height: 52, color: Colors.green),
             ),
-            reduceMotion: reduce,
-          );
+          ),
+        ),
+        reduceMotion: reduce,
+      );
       await tester.pumpWidget(build());
       await tester.fling(
         find.byType(Container).last,
@@ -570,7 +570,8 @@ void main() {
       await tester.drag(find.byType(Container).last, const Offset(150, 0));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 130));
-      final dx = tester.getTopLeft(find.byType(Container).last).dx -
+      final dx =
+          tester.getTopLeft(find.byType(Container).last).dx -
           tester.getTopLeft(find.byType(LdsMomentumDrag)).dx;
       expect(dx, closeTo(200, 0.5));
     });
@@ -581,65 +582,65 @@ void main() {
       tester,
     ) async {
       Widget page() => scroll(
-            Column(
-              children: [
-                LdsHero(
-                  title: 'Urus izin usaha dari rumah.',
-                  quietTitle: 'Tanpa antre.',
-                  lede: 'Ajukan, pantau dan unduh izin dalam satu tempat.',
-                  actions: [
-                    FilledButton(
-                      onPressed: () {},
-                      child: const Text('Ajukan izin'),
-                    ),
-                  ],
-                  note: 'Contoh data, bukan layanan resmi.',
-                  media: const LdsFeatureStage(child: SizedBox(height: 120)),
+        Column(
+          children: [
+            LdsHero(
+              title: 'Urus izin usaha dari rumah.',
+              quietTitle: 'Tanpa antre.',
+              lede: 'Ajukan, pantau dan unduh izin dalam satu tempat.',
+              actions: [
+                FilledButton(
+                  onPressed: () {},
+                  child: const Text('Ajukan izin'),
                 ),
-                LdsMarketingSection(
-                  eyebrow: 'Layanan',
-                  eyebrowIcon: 'widgets',
-                  title: 'Semua layanan di satu tempat',
-                  lede: 'Pilih layanan, isi formulir, pantau statusnya.',
-                  aside: TextButton(
-                    onPressed: () {},
-                    child: const Text('Lihat semua'),
+              ],
+              note: 'Contoh data, bukan layanan resmi.',
+              media: const LdsFeatureStage(child: SizedBox(height: 120)),
+            ),
+            LdsMarketingSection(
+              eyebrow: 'Layanan',
+              eyebrowIcon: 'widgets',
+              title: 'Semua layanan di satu tempat',
+              lede: 'Pilih layanan, isi formulir, pantau statusnya.',
+              aside: TextButton(
+                onPressed: () {},
+                child: const Text('Lihat semua'),
+              ),
+              rule: true,
+              child: const LdsFeatureRow(
+                eyebrow: 'Pelacakan',
+                title: 'Pantau permohonan',
+                body: 'Status berubah begitu petugas memeriksa berkas.',
+                points: [
+                  LdsFeaturePoint(
+                    icon: 'check_circle',
+                    text: 'Notifikasi tiap tahap',
                   ),
-                  rule: true,
-                  child: const LdsFeatureRow(
-                    eyebrow: 'Pelacakan',
-                    title: 'Pantau permohonan',
-                    body: 'Status berubah begitu petugas memeriksa berkas.',
-                    points: [
-                      LdsFeaturePoint(
-                        icon: 'check_circle',
-                        text: 'Notifikasi tiap tahap',
-                      ),
-                    ],
-                    stage: LdsFeatureStage(child: SizedBox(height: 80)),
-                    caption: 'Contoh data.',
-                    reverse: true,
-                  ),
-                ),
-                LdsCtaBand(
-                  title: 'Siap mengajukan izin?',
-                  body: 'Gratis untuk warga.',
-                  actions: [
-                    FilledButton(
-                      onPressed: () {},
-                      child: const Text('Ajukan izin'),
-                    ),
-                  ],
-                ),
-                const LdsTestimonial(
-                  quote: 'Izin warung saya selesai dalam tiga hari.',
-                  name: 'Siti Rahma',
-                  role: 'Pemilik warung (contoh)',
-                  large: true,
+                ],
+                stage: LdsFeatureStage(child: SizedBox(height: 80)),
+                caption: 'Contoh data.',
+                reverse: true,
+              ),
+            ),
+            LdsCtaBand(
+              title: 'Siap mengajukan izin?',
+              body: 'Gratis untuk warga.',
+              actions: [
+                FilledButton(
+                  onPressed: () {},
+                  child: const Text('Ajukan izin'),
                 ),
               ],
             ),
-          );
+            const LdsTestimonial(
+              quote: 'Izin warung saya selesai dalam tiga hari.',
+              name: 'Siti Rahma',
+              role: 'Pemilik warung (contoh)',
+              large: true,
+            ),
+          ],
+        ),
+      );
       await renderBoth(tester, page, reset: false);
       expect(find.text('SR'), findsOneWidget);
       // Wide screens put the hero side by side.
@@ -663,35 +664,35 @@ void main() {
     testWidgets('plans switch period and roll the price', (tester) async {
       var period = LdsBillingPeriod.month;
       Widget build() => scroll(
-            StatefulBuilder(
-              builder: (context, setState) => LdsPlans(
-                period: period,
-                onPeriodChanged: (p) => setState(() => period = p),
-                saveNote: 'Hemat 2 bulan dengan tagihan tahunan',
-                plans: [
-                  LdsPlan(
-                    name: 'Dasar',
-                    description: 'Untuk satu kantor desa',
-                    monthlyPrice: 150000,
-                    yearlyPrice: 125000,
-                    yearlyNote: 'Rp 1.500.000 sekali setahun',
-                    monthlyNote: 'Ditagih tiap bulan',
-                    features: const ['5 petugas', 'Laporan bulanan'],
-                    actionLabel: 'Pilih Dasar',
-                    onSelect: () {},
-                  ),
-                  const LdsPlan(
-                    name: 'Kota',
-                    monthlyPrice: 900000,
-                    yearlyPrice: 750000,
-                    featured: true,
-                    features: ['Petugas tanpa batas'],
-                    actionLabel: 'Pilih Kota',
-                  ),
-                ],
+        StatefulBuilder(
+          builder: (context, setState) => LdsPlans(
+            period: period,
+            onPeriodChanged: (p) => setState(() => period = p),
+            saveNote: 'Hemat 2 bulan dengan tagihan tahunan',
+            plans: [
+              LdsPlan(
+                name: 'Dasar',
+                description: 'Untuk satu kantor desa',
+                monthlyPrice: 150000,
+                yearlyPrice: 125000,
+                yearlyNote: 'Rp 1.500.000 sekali setahun',
+                monthlyNote: 'Ditagih tiap bulan',
+                features: const ['5 petugas', 'Laporan bulanan'],
+                actionLabel: 'Pilih Dasar',
+                onSelect: () {},
               ),
-            ),
-          );
+              const LdsPlan(
+                name: 'Kota',
+                monthlyPrice: 900000,
+                yearlyPrice: 750000,
+                featured: true,
+                features: ['Petugas tanpa batas'],
+                actionLabel: 'Pilih Kota',
+              ),
+            ],
+          ),
+        ),
+      );
       await renderBoth(tester, build);
       await tester.pumpWidget(wrap(build()));
       expect(find.text('150.000'), findsOneWidget);
@@ -748,14 +749,14 @@ void main() {
   group('Device', () {
     testWidgets('frame renders, pushes back and bleeds', (tester) async {
       Widget build(bool pushed, {bool bleed = false}) => SizedBox(
-            width: 300,
-            height: 560,
-            child: LdsDeviceFrame(
-              pushed: pushed,
-              bleed: bleed,
-              child: const Center(child: Text('Beranda')),
-            ),
-          );
+        width: 300,
+        height: 560,
+        child: LdsDeviceFrame(
+          pushed: pushed,
+          bleed: bleed,
+          child: const Center(child: Text('Beranda')),
+        ),
+      );
       await renderBoth(tester, () => build(false));
       await renderBoth(tester, () => build(true));
       await renderBoth(tester, () => build(false, bleed: true), reset: false);
@@ -768,25 +769,25 @@ void main() {
     ) async {
       var tab = 0;
       Widget build() => SizedBox(
-            width: 390,
-            height: 560,
-            child: StatefulBuilder(
-              builder: (context, setState) => LdsPhoneScreen(
-                title: 'Hari ini',
-                tabs: const [
-                  LdsPhoneTab(icon: 'home', label: 'Beranda'),
-                  LdsPhoneTab(icon: 'calendar_month', label: 'Jadwal'),
-                  LdsPhoneTab(icon: 'person', label: 'Profil'),
-                ],
-                currentTab: tab,
-                onTabSelected: (i) => setState(() => tab = i),
-                children: [
-                  for (var i = 0; i < 20; i++)
-                    SizedBox(height: 56, child: Text('Layanan $i')),
-                ],
-              ),
-            ),
-          );
+        width: 390,
+        height: 560,
+        child: StatefulBuilder(
+          builder: (context, setState) => LdsPhoneScreen(
+            title: 'Hari ini',
+            tabs: const [
+              LdsPhoneTab(icon: 'home', label: 'Beranda'),
+              LdsPhoneTab(icon: 'calendar_month', label: 'Jadwal'),
+              LdsPhoneTab(icon: 'person', label: 'Profil'),
+            ],
+            currentTab: tab,
+            onTabSelected: (i) => setState(() => tab = i),
+            children: [
+              for (var i = 0; i < 20; i++)
+                SizedBox(height: 56, child: Text('Layanan $i')),
+            ],
+          ),
+        ),
+      );
       await renderBoth(tester, build);
       await tester.pumpWidget(wrap(build()));
       final small = find.byWidgetPredicate(

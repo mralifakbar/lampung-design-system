@@ -90,12 +90,12 @@ void main() {
     ) async {
       var taps = 0;
       Widget build(bool loading) => wrap(
-            LdsButton(
-              label: 'Kirim laporan',
-              loading: loading,
-              onPressed: () => taps++,
-            ),
-          );
+        LdsButton(
+          label: 'Kirim laporan',
+          loading: loading,
+          onPressed: () => taps++,
+        ),
+      );
       await tester.pumpWidget(build(false));
       final idle = tester.getSize(find.byType(LdsButton));
       await tester.pumpWidget(build(true));

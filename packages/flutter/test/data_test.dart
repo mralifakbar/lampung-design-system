@@ -47,18 +47,18 @@ Widget scroll(Widget child) =>
 final DateTime _today = DateTime(2026, 11, 17);
 
 List<LdsDataRow> _citizens(int n) => [
-      for (var i = 0; i < n; i++)
-        LdsDataRow(
-          id: 'w$i',
-          cells: [
-            'Warga ${String.fromCharCode(65 + i % 26)}${i ~/ 26}',
-            i.isEven ? 'Way Halim' : 'Kedaton',
-            '${i * 3}',
-          ],
-          sortValues: [null, null, i * 3],
-          tags: {'kel': i.isEven ? 'Way Halim' : 'Kedaton'},
-        ),
-    ];
+  for (var i = 0; i < n; i++)
+    LdsDataRow(
+      id: 'w$i',
+      cells: [
+        'Warga ${String.fromCharCode(65 + i % 26)}${i ~/ 26}',
+        i.isEven ? 'Way Halim' : 'Kedaton',
+        '${i * 3}',
+      ],
+      sortValues: [null, null, i * 3],
+      tags: {'kel': i.isEven ? 'Way Halim' : 'Kedaton'},
+    ),
+];
 
 void main() {
   group('LdsAvatar', () {
@@ -223,13 +223,13 @@ void main() {
       copied = <String>[];
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
           .setMockMethodCallHandler(SystemChannels.platform, (call) async {
-        if (call.method == 'Clipboard.setData') {
-          copied.add(
-            (call.arguments as Map<Object?, Object?>)['text']! as String,
-          );
-        }
-        return null;
-      });
+            if (call.method == 'Clipboard.setData') {
+              copied.add(
+                (call.arguments as Map<Object?, Object?>)['text']! as String,
+              );
+            }
+            return null;
+          });
     });
     tearDown(() {
       TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
@@ -828,21 +828,21 @@ void main() {
 
   group('LdsKanban', () {
     List<LdsKanbanColumn> board() => const [
-          LdsKanbanColumn(
-            id: 'masuk',
-            title: 'Masuk',
-            limit: 1,
-            cards: [
-              LdsKanbanCard(
-                id: 'a',
-                title: 'Jalan berlubang',
-                body: 'Jl. Contoh, Kedaton',
-              ),
-              LdsKanbanCard(id: 'b', title: 'Sampah menumpuk'),
-            ],
+      LdsKanbanColumn(
+        id: 'masuk',
+        title: 'Masuk',
+        limit: 1,
+        cards: [
+          LdsKanbanCard(
+            id: 'a',
+            title: 'Jalan berlubang',
+            body: 'Jl. Contoh, Kedaton',
           ),
-          LdsKanbanColumn(id: 'proses', title: 'Diproses', cards: []),
-        ];
+          LdsKanbanCard(id: 'b', title: 'Sampah menumpuk'),
+        ],
+      ),
+      LdsKanbanColumn(id: 'proses', title: 'Diproses', cards: []),
+    ];
 
     testWidgets('renders in both modes', (tester) async {
       await bothModes(
@@ -1117,12 +1117,12 @@ void main() {
     ) async {
       var retries = 0;
       Widget build(LdsDataState s) => wrap(
-            LdsDataStates(
-              state: s,
-              onRetry: () => retries++,
-              child: const Text('Daftar laporan'),
-            ),
-          );
+        LdsDataStates(
+          state: s,
+          onRetry: () => retries++,
+          child: const Text('Daftar laporan'),
+        ),
+      );
       await tester.pumpWidget(build(LdsDataState.loading));
       expect(find.byType(LdsSkeleton), findsNothing);
       await tester.pump(const Duration(milliseconds: 350));

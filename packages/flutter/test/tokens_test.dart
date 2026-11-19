@@ -9,8 +9,9 @@ import 'helpers.dart';
 
 void main() {
   final file = File('../../tokens/tokens.json');
-  final skip =
-      file.existsSync() ? false : 'tokens.json not found (run from the repo)';
+  final skip = file.existsSync()
+      ? false
+      : 'tokens.json not found (run from the repo)';
   late final Map<String, dynamic> t;
 
   setUpAll(() {
@@ -25,8 +26,8 @@ void main() {
       ('light', LdsColors.light),
       ('dark', LdsColors.dark),
     ]) {
-      final expected =
-          (color[mode] as Map<String, dynamic>).cast<String, String>();
+      final expected = (color[mode] as Map<String, dynamic>)
+          .cast<String, String>();
       final actual = colors.toMap();
       expect(actual.keys.toSet(), expected.keys.toSet(), reason: mode);
       for (final e in expected.entries) {
@@ -120,9 +121,9 @@ void main() {
   test('spring curves settle at 1 and only momentum overshoots', () {
     expect(LdsSpringCurve.smooth.transform(1), closeTo(1, 0.02));
     expect(LdsSpringCurve.snappy.transform(1), closeTo(1, 0.02));
-    double peak(Curve c) => [
-          for (var i = 0; i <= 100; i++) c.transform(i / 100)
-        ].reduce((a, b) => a > b ? a : b);
+    double peak(Curve c) =>
+        [for (var i = 0; i <= 100; i++) c.transform(i / 100)]
+            .reduce((a, b) => a > b ? a : b);
     expect(peak(LdsSpringCurve.smooth), lessThanOrEqualTo(1.001));
     expect(peak(LdsSpringCurve.momentum), greaterThan(1.0));
   });
